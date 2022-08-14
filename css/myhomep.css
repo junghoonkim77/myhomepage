@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font-family: 맑은고딕;
     font-weight: bold;
@@ -31,4 +32,39 @@ button {
     background-color: #fff;
     border: 1 px solid whitesmoke;
 }
+=======
+body {
+    font-family: 맑은고딕;
+    font-weight: bold;
+}
+ 
+#wrap {
+    width: 400 px;
+    height: 300 px;
+    border: 1px solid lightskyblue;
+    border-radius: 5 px;
+    background-color: skyblue;
+}
+ 
+.loginform {
+    padding: 20px 50px;
+}
+ 
+input {
+    margin-bottom: 14px;
+    width: 290 px;
+    height: 30 px;
+    font-size: 16 px;
+    border: lightgray;
+}
+ 
+button {
+    width: 294 px;
+    height: 50 px;
+    font-size: 16 px;
+    padding:  20 px;
+    background-color: #fff;
+    border: 1 px solid whitesmoke;
+}
+>>>>>>> 42a664f1b8bd5935d345dbfe53e019e02672263b
  
