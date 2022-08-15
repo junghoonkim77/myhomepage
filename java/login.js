@@ -1,7 +1,7 @@
 document.querySelector("#btn").addEventListener("click", () => {
     const id = "admin";
     const password = "1234";
-    var link ="gate.html"
+    var link ="./gate.html"
  
     if(id == document.querySelector("#id").value) {
         if(password == document.querySelector("#password").value) {
