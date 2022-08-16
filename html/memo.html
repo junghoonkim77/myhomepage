@@ -3,27 +3,19 @@
     <head>
         <meta charset="utf-8">
         
-        <script>
-         function getFullYmdStr(){
-                var d = new Date();
-                return d.getFullYear() + "년 " + (d.getMonth()+1) + "월 " + d.getDate() + "일 " + d.getHours() + "시 " + d.getMinutes() + 
-                "분 " + d.getSeconds() + "초 " +  '일월화수목금토'.charAt(d.getUTCDay())+'요일';
-            }
+        <script type="text/javascript" src="java/greeting.js"></script>
         
-        </script>
         <style>
-           
              input {
                float:right;
-              
-             }
+              }
             </style>
         <title>메모장</title>
     </head>
     <body  >
         <script>
             function daydiff(){
-             document.getElementById("today_t").innerHTML = getFullYmdStr();
+             document.getElementById("today_t").innerHTML = yeardaytime.getFullYmdStr();
                }
         </script>
          <button onclick="daydiff()">오늘날짜는?</button>
