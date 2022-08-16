@@ -4,7 +4,6 @@
             (d.getDate() > 9 ? d.getDate().toString() : "0" + d.getDate().toString());
             } ;
         
-         //오늘날짜 중 시분초까지 계산
             
            function getFullYmdStr(){
                 var d = new Date();
