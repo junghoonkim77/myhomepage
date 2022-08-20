@@ -1,9 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <script src="java/greeting.js"></script>
-           <style>
+             <style>
              input {
                float:right;
               }
@@ -11,13 +10,7 @@
         <title>메모장</title>
     </head>
     <body  >
-        <script >
-            
-function getFullYmdStr(){ var d = new Date(); return d.getFullYear() + "년 " + (d.getMonth()+1) + "월 " + d.getDate() + "일 " + d.getHours() + "시 " + d.getMinutes() + "분 " + d.getSeconds() + "초 " + '일월화수목금토'.charAt(d.getUTCDay())+'요일'; };
-            function daydiff(){
-             document.getElementById("today_t").innerHTML =getFullYmdStr();
-               }
-        </script>
+        
          <button onclick="daydiff()">오늘날짜는?</button>
 
         <h5><strong id = "today_t" ></strong> 메모장</h5>
@@ -52,6 +45,6 @@ function getFullYmdStr(){ var d = new Date(); return d.getFullYear() + "년 " + 
             }
             ">
        </form>        
-        
+        <script src="java/login.js"></script>
      </body>
 </html>
