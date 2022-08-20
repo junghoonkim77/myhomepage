@@ -19,7 +19,6 @@ function getTime(){
     clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`
 }
 
-
 function init(){
     setInterval(getTime, 1000);
 }
