@@ -7,3 +7,7 @@ document.getElementById("btn1").onclick = function(){
     document.execCommand('copy');
     document.body.removeChild(textArea);
     alert("오비시간복사");}
+
+
+
+    
