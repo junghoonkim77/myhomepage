@@ -8,20 +8,31 @@
               }
             </style>
         <script>
-       function getFullYmdStr(){ 
-           var d = new Date(); return d.getFullYear() + "년 " + (d.getMonth()+1) + "월 " + d.getDate() + "일 " + d.getHours() + "시 " + d.getMinutes() + "분 " + d.getSeconds() + "초 " + '일월화수목금토'.charAt(d.getUTCDay())+'요일'; };
-       function daydiff(){
-             document.getElementById("today_t").innerHTML =getFullYmdStr();
-		};
+       const clock = document.querySelector('.h1-clock');
+
+function getTime(){
+    const time = new Date();
+    const hour = time.getHours();
+    const minutes = time.getMinutes();
+    const seconds = time.getSeconds();
+    //clock.innerHTML = hour +":" + minutes + ":"+seconds;
+    clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`
+}
+
+
+function init(){
+    setInterval(getTime, 1000);
+}
+
+init();
+
         </script>
        
         <title>메모장</title>
     </head>
     <body>
                 
-         <button onclick="daydiff()">오늘날짜는?</button>
-
-        <h5>오늘날짜: <strong id = "today_t" ></strong> </h5>
+        <h5>현재시간: <strong class = "h1-clock" ></strong> </h5>
         <h5>메모장</h5>    
         <form>
         
