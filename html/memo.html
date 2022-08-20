@@ -16,6 +16,7 @@
     <body>
                 
         <h5>현재시간: <strong class = "h1-clock" ></strong> </h5>
+        <button id ="btn1">복사</button>
         <h5>메모장</h5>    
         <form>
         
@@ -37,8 +38,17 @@
      function init(){
       setInterval(getTime, 1000);
      }
-
      init();
+
+     document.getElementById("btn1").onclick = function(){
+        var valOfDIV = document.querySelector('.h1-clock').innerText;
+        var textArea = document.createElement('textarea');
+        document.body.appendChild(textArea);
+        textArea.value = valOfDIV;
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert("오비시간복사");}
 
         </script>
             <input type ="reset" value="clear" >    
