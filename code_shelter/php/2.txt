@@ -1,0 +1,12 @@
+It is essential to know the significant differences between constants and variables before we learn about equations. These terms are used majorly in algebra. Hence it very necessary for us to differentiate between these two.
+
+Definition of Constant and Variables
+Constant: A constant can be defined as a fixed value, which is used in algebraic expressions and equations. A constant does not change over time and has a fixed value. For example, the size of a shoe or cloth or any apparel will not change at any point.
+
+In an algebraic expression, x+y = 8, 8 is a constant value, and it cannot be changed.
+
+Variables: Variables are the terms which can change or vary over time. It does not remain constant, unlike constant. For example, the height and weight of a person do not remain constant always, and hence they are variables.
+
+In an algebraic expression, x+y = 8, x and y are the variables and can be changed.
+
+Let us figure out the other key differences between constants and variables.
