@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+ <head>
+   <title>웹페이지 만들기 </title>
+   <meta charset="utf-8">
+   <link rel="stylesheet" type="text/css" href="http://localhost/html공부/style.css">
+ </head>
+
+<body>
+   <h1>HBO 인기 미드 </h1>
+
+   <input id="night_day" type ="button" value='야간' onclick="
+   var target = document.querySelector('body') ;
+  if(this.value === '야간')
+  {target.style.backgroundColor =
+   'black';
+   target.style.color = 'white';
+   this.value = '주간';
+   }
+   else {
+    target.style.backgroundColor ='white';
+    target.style.color = 'black';
+    this.value = '야간';
+   }
+   ">
+
+   <nav>
+   <ol>
+       <li><a href="소프라노스.html"> 소프라노스</a></li>
+       <li><a href="더와이어.html">더 와이어</a></li>
+       <li><a href="왕좌의게임.html">왕좌의 게임</li>
+   </ol>
+  </nav>
+    <h2>더와이어</h2>
+
+  <p>《더 와이어》(The Wire)는 미국의 드라마이다. 2002년부터 2008년까지 미국 방송 채널 HBO에서 방영했다.
+ <img src="더와이어.jpg"></p>
+ 
+</body>
+
