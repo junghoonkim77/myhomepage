@@ -1,0 +1,23 @@
+
+h1 {
+    border-bottom:1px solid gray;
+    padding:20px; }
+ nav{
+   border-right:1px solid gray;
+   width:150px;
+   float:left;
+   height:600px;}
+ h2{
+   font-size:30px;
+   }
+   #control {
+    float:right;
+     }
+     body.white{
+        background-color: white;
+        color:black;}
+     body.black{
+        background-color: black;
+        color:white;
+       }
+             
