@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    
+    </head>
+    <body>
+     <script type="text/javascript">
+        /*function ultra(){}
+        ultra.prototype.ultraprop = true ;
+
+        function power(){}
+        power.prototype = new ultra();
+
+        function sub(){}
+        sub.prototype = new power();
+
+        var o = new sub();
+
+        console.log(o.ultrapop); */ 
+       
+
+        function ultra(){}
+        ultra.prototype.ultraprop = true ;
+
+        function power(){}
+        power.prototype = new ultra();
+
+        function sub(){}
+        sub.prototype = new power();
+
+        var o = new sub();
+        o.ultraprop =1 ;
+
+        console.log(o.ultraprop);
+    </script>
+
+
+    </body>
+</html>
