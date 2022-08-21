@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+<body>
+    <script type="text/javascript">
+        var subject_score ={sub1 : Number(prompt("수학과목의 점수는?")) ,
+ sub2 : Number(prompt("과학의 점수는?")),
+ sub3 : Number(prompt("영어의 점수는?")),
+ sub4 : Number(prompt("사회의 점수는?")) }
+
+ function score (){ 
+ var aver = 0;
+ for(key in subject_score ){
+ aver += subject_score[key];
+ }
+ var aver_t = aver / Object.keys(subject_score).length;
+ return aver_t;
+ }
+ if (score () > 80) {
+ alert(score() +' 대박 잘했어요^^');
+ } else if (score()> 70){
+ alert(score()+' 괜찮아요 수고했어요~!');
+ }else if (score()> 60){
+ alert(score() +'더 노력했음 좋겠어요 ');
+ }else {
+ alert(score() + '어쩔 ㅠㅠ');
+ }  
+    </script>
+</body>
+</html>
