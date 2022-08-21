@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    
+    </head>
+    <body>
+     <script type="text/javascript">
+        
+       /*var arr = new Array('seoul','newyork','ladarkh','pusan','tsukuba');
+       function getrandomvalue() {
+        var index =Math.floor(arr.length*Math.random()) ;  //인덱스 값은 정수여야 해서 곱한값이 소수가 되면 안된다.
+        return arr[index];
+       }
+       document.write(getrandomvalue()); */
+
+       Array.prototype.random = function(){  //array 는 앞에 new를 붙여 만들었든 생성자 함수 
+        var index =Math.floor(this.length*Math.random()) ; //arr 자체가 객체 자체이기 때문에 this로 적어도 됨
+        return this[index];
+       }
+       var arr = new Array('seoul','newyork','ladarkh','pusan','tsukuba');
+       document.write(arr.random());
+    </script>       
+
+    </body>
+</html>
