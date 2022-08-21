@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    
+    </head>
+    <body>
+     <script type="text/javascript">
+       /* function test1(){
+        var arr={ list1:{hoon:10 , nam:20 , joon:30 ,eun:50},
+                  list2: {a1:20,a2:30,a3:40,a4:50}}
+         return document.write(arr.list1.hoon+arr.list2.a2);
+        }
+        test1();
+
+        function test1(a1_1,a2_2,a3_3,a4_4){
+        var arr={ list1:{hoon:10 , nam:20 , joon:30 ,eun:50},
+                  list2: {a1:a1_1,a2:a2_2,a3:a3_3,a4:a4_4}}
+         return document.write(arr.list1.hoon+arr.list2.a1+'인자값은: '+arguments[0]+'두번째는 '+
+           arguments[1]+'일단은 이렇다');
+        }
+        test1(25,10,15,35);*/
+        
+        function test1(a1_1,a2_2,a3_3,a4_4){
+        var arr={ list1:{hoon:10 , nam:20 , joon:30 ,eun:50},
+                  list2: {a1:a1_1,a2:a2_2,a3:a3_3,a4:a4_4}}
+         return document.write(arr.list1.hoon+arr.list2.a1+'인자값은: '+arguments[0]+'두번째는 '+
+           arguments[1]+'일단은 이렇다'+' 그리고 인자의 갯수는 : '+arguments.length);
+        }
+        test1(25,10,15,35)
+
+       
+    </script>
+
+
+    </body>
+</html>
