@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    
+    </head>
+    <body>
+     <script type="text/javascript">
+       /* var grades={
+            'list' :{'egoing':10, 'k8805':8 ,'kim':6},
+            'show' : function(){
+                alert('hello world');
+            }            
+        }
+        alert(grades['show']());
+        */
+
+        var grades={
+            'list' :{'egoing':10, 'k8805':8 ,'kim':6},
+            'show' : function(){
+                console.log(this.list);
+            }            
+        }
+        alert(grades['show']());      
+    </script>
+
+
+    </body>
+</html>
