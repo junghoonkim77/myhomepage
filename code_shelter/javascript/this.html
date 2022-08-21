@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    
+    </head>
+    <body>
+     <script type="text/javascript">
+     /*   
+       function func(){
+        if(window === this){
+            document.write("this란 이런것이다");
+        } 
+       } 
+       func(); 
+       
+       //  객체에 소속된 메소드의 this는 그 객체를 가리킨다.)
+       var o = {
+        func : function(){
+            if(o === this){
+                document.write('this가 이런것이란다');
+            }
+        }
+       }
+       o.func(); 
+
+       var functhis =null;
+       function func(){
+        functhis = this ; // functhis에 var을 선언하지 않아서 전역변수가 됨
+         }
+       var o1 =func(); // 함수로 호출
+       if(functhis === window){
+        document.write('window </br>');
+       }
+       var o2 =new func();  // 생성자로 호출
+       if(functhis === o2){
+        document.write('o2 </br>');  // 즉 객체로서의 this를 가리키기도 하고 함수의 window를 가르키기도 한다. 
+       }  // 그게 그거라는 뜻이 된다.  */
+
+       var o = {};
+       var p = {};
+       function func(){
+        switch(this) {
+            case o:
+                document.write('o </br>');
+                break;
+            case p:
+                document.write('p </br>');
+                break;
+            case window:
+                document.write('window </br>');
+                break;
+            }
+       }
+       func();
+       func.apply(o);
+       func.apply(p);
+       
+
+    </script>
+
+
+    </body>
+</html>
