@@ -14,18 +14,32 @@
         <title>메모장</title>
     </head>
     <body>
-                
-        <h5>현재시간: <strong class = "h1-clock" ></strong> </h5>
+        <h5>현재 시간은 :<strong class = "h1-clock" ></strong> </h5>
+          
+           
         <button id ="btn1">현재시간_복사</button>
+        <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <h5>메모장</h5>    
         <form>
-        
+            
           <textarea cols="45" rows="50" ></textarea> <textarea cols="45" rows="50" ></textarea> 
            
          <script>
          var textare_color = document.querySelectorAll('textarea') ; 
          const clock = document.querySelector('.h1-clock');
+         const setTime = document.querySelector('.inputtime');
 
+         function getAlarm()
+{  const setValue = setTime.value;  
+const date = new Date();  
+const hours = date.getHours();  
+const minute = date.getMinutes();  
+const current = `${hours < 10 ? `0${hours}` : hours}:${minute < 10 ? `0${minute}` : minute}`;	  
+
+if(current === setValue)
+{window.open('popup.html');	
+ }
+}
     function getTime(){
     const time = new Date();
     const hour = time.getHours();
@@ -37,6 +51,7 @@
 
      function init(){
       setInterval(getTime, 1000);
+      alarm = setInterval(getAlarm, 1000);
      }
      init();
 
@@ -50,7 +65,7 @@
         }
            function copy (value) {
             navigator.clipboard.writeText(value);
-        ;}
+           }
 
         </script>
             <input type ="reset" value="clear" >    
