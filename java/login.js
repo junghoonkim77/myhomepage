@@ -1,5 +1,5 @@
-var o =["118176867","200867639","118175287","admin"];
-var p =["1234","4321","7890"]
+var o =["118176867","200867639","118175287","admin","33921","iceforce84","118176229","91037307","leeyb"];
+var p =["1234","4321","7890","yijin8","qldtjf84","ktcs1212!!","ktcs1234!!","ktcs121212!"]
 Object.prototype.contain = function(needle){
     for( i=0 ; i<o.length ; i++ ){ 
     if(o[i] == needle){
