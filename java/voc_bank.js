@@ -46,5 +46,5 @@ var htmlvoc_arr = {"평생번호050.html":"평생번호050.html",
 "수신자부담_전화_차단해지경로(kos)":"수신자부담_전화_차단해지경로(kos)"
 }
 function vocbank(htmlvoc_name){
-        window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900'); return false;
+        window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900');
 }
