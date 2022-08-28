@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/htmlvoc.css">
+<title> 엠센스_내에_채팅서비스(_RCS_)조회방법 </title>
+</head>
+<body>
+<pre>
+
+MSENS를 활용한 기본적인 RCS 조회 방법은 타사연동이더라도 이전과 대동소이합니다.
+UserMsisdn 에 조회 번호를 입력하여야 하고, activity를 sent＆received 체크 후 조회시
+UserMsisdn 에는 타사번호든 자사번호든 관계 없이 전산 조회 가능합니다.
+하단 조회하면에 sender와 recipient로 수발신자를 구분할 수 있으며,
+sendingDateTime은 말 그대로 발신 시간
+processingDateTime 은 deliveryStatus가 최종 변경된 시각이 표시됩니다.
+messageType에 cpim / file 로 텍스트 메세지인지 기타 멀티미디어
+(사진을 포함한) 메세지인지 구분 가능하며
+Details 조회 시 sender와 recipient 각각의 통신사/네트워크 타입이 조회 가능합니다.
+모바일 데이터 환경일 경우 mobile, 와이파이 환경일 경우 wifi로 표시됩니다.
+현재 확인해본 바로는 Operator가 자사일 경우 정확히 표기되나, 
+타사인 경우 unknown으로 확인이 불가합니다.
+지존 FAQ에도 있는 내용입니다만 5MB 이상의 파일의 경우 
+최초 Noti가 발송되어 다운로드 없이 서버에 
+저장된열화된 화질로 사진확인이 가능합니다. 내용을 확인하고 다운로드 없이 
+삭제할 경우 deliveryStatus에 revoked로 변경되어 표기되나 실제 내용은 확인한 상태일 수 있습니다.
+displayed가 아니어도 5MB 이상의 파일인 경우 이미 내용을 확인했을 수 있다는 내용입니다.
+
+1. 발신자가 와이파이/데이터 다 끈 후 상태에서 발신시도시 
+ RCS에서 자동으로 일반 문자로 전환되어 발송됨
+2. 발신자가 와이파이든 데이터든 연결되어 있는 상태에서 RCS발신하면 RCS로 발신됨
+2-1. 2번의 경우 수신자 측도 와이파이든, 데이터든 켜져 있는 상태여야 수신이 되기 때문에 
+ 이때 문자는 deliveryStatus에 stored(저장된)으로 표기됨.
+2-2. 일정시간(시간은 정확히 확인안됨)이 지나면 revoked(폐기됨)으로 변경되며 폐기됨
+2-3. stored 상태에서 revoked 되기전에 수신자 측이 와이파이 or 데이터 켜게 되면 
+ 딜레이가 좀 있지만 displayed 로 변경되며 문자 확인 가능
+Details [조회]를 누르게 되면 와이파이 or 데이터 환경에서 보낸 건지 확인 가능함
+</pre>
+
+<img src="  " alt =" ">
+
+</body>
+</html>
