@@ -73,7 +73,8 @@ var htmlvoc_arr = {"평생번호050.html":"평생번호050.html",
 "5G LTE_VOC문의__HLR_VOLTE_문의처.html":"5G LTE_VOC문의__HLR_VOLTE_문의처.html",
 "010을_제외_후_발신시_발신_불가_증상.html":"010을_제외_후_발신시_발신_불가_증상.html",
 "kt-1570_사서함_발신불가.html":"kt-1570_사서함_발신불가.html",
-"VOLTE_&_3G_HD(와이드오디오밴드)_&_3G_차이.html":"VOLTE_&_3G_HD(와이드오디오밴드)_&_3G_차이.html"
+"VOLTE_&_3G_HD(와이드오디오밴드)_&_3G_차이.html":"VOLTE_&_3G_HD(와이드오디오밴드)_&_3G_차이.html",
+"5G요금제_LTE단말기_마이케티이_LTE요금제변경하기.html":"5G요금제_LTE단말기_마이케티이_LTE요금제변경하기.html"
 }
 function vocbank(htmlvoc_name){
         window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900' ) ; 
