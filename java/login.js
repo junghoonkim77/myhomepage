@@ -18,8 +18,8 @@ document.querySelector("#btn").addEventListener("click", () => {
     const id = document.querySelector('#id').value;
     const password = document.querySelector("#password").value;
     var link = "html/gate.html"
-    var link2 = "html/memo.html"
-    if(id=="118176867!!"){
+    var link2 = "html/hidden_gate.html"
+    if(id=="emfkdlsk77!"){
          window.open(link2);
       }  
          if(o.contain(id)) {

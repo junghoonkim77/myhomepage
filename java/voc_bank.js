@@ -93,7 +93,11 @@ var htmlvoc_arr = {"평생번호050.html":"평생번호050.html",
 "080_문자_수신_불가.html":"080_문자_수신_불가.html",
 "KISA_스팸신고로_메시지_차단시_응대안.html":"KISA_스팸신고로_메시지_차단시_응대안.html",
 "kt_단체문자발송_가능건수.html":"kt_단체문자발송_가능건수.html",
-"mms_첨부가능용량및_파일갯수.html":"mms_첨부가능용량및_파일갯수.html"
+"mms_첨부가능용량및_파일갯수.html":"mms_첨부가능용량및_파일갯수.html",
+"휴근용양식.html":"휴근용양식.html",
+"매일필수업무.html":"매일필수업무.html",
+"팀장양식(각종회신).html":"팀장양식(각종회신).html",
+"팀원ID및정보.html":"팀원ID및정보.html"
 }
 function vocbank(htmlvoc_name){
         window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900' ) ; 
