@@ -145,5 +145,9 @@ var htmlvoc_arr = {"평생번호050.html":"평생번호050.html",
 function vocbank(htmlvoc_name){
         window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900' ) ; 
 }
+function htmlcount(){
+        document.getElementById("voccount").innerHTML ="이순신"
+      } ;
+      htmlcount();
 
 
