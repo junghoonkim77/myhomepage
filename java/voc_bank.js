@@ -148,6 +148,6 @@ function vocbank(htmlvoc_name){
 function htmlcount(){
         document.getElementById("voccount").innerHTML ="이순신"
       } ;
-      htmlcount();
+      
 
 
