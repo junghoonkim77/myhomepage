@@ -147,7 +147,6 @@ function vocbank(htmlvoc_name){
 }
 function htmlcount(){
         var html_count = document.getElementsByTagName('a').length;
-        return document.getElementById('voccount').innerHTML =html_count.toString
-        
-}
+        return document.getElementById('voccount').innerHTML =html_count.toString;
+    }
 
