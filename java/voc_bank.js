@@ -145,8 +145,5 @@ var htmlvoc_arr = {"평생번호050.html":"평생번호050.html",
 function vocbank(htmlvoc_name){
         window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900' ) ; 
 }
-var html_count = document.getElementsByTagName('a').length;
-function htmlcount(){
-          return document.getElementById('voccount').innerHTML =html_count.toString;
-    }
+
 
