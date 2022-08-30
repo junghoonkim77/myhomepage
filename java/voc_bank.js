@@ -146,7 +146,8 @@ function vocbank(htmlvoc_name){
         window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900' ) ; 
 }
 function htmlcount(){
-        document.getElementById("voccount").innerHTML ="이순신"
+        var html_count = document.getElementsByTagName('a').length;
+        document.getElementById("voccount").innerHTML =html_count ;
       } ;
       
 
