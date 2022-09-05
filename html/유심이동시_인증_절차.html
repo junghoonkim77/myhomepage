@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/htmlvoc.css">
+<title> 유심이동시_인증_절차 </title>
+</head>
+<body>
+<pre>
+
+1.(가입자정보 판독)- 3G단말은 USIM카드로부터 가입자 정보(IMSI, ICCID)를 
+읽어 네트워크(HLR/AuC)로 전송한다.
+Auc : UMTS, EPS 망에서 정의하는 보안 기능 중에서 망과 가입자(휴대폰)에 
+대한 상호 인증과 데이터 보안에 사용되는 각종 보안 정보를 생성, 관리하는 기능을 제공 …
+가입자 인증 기능
+가입자 인증 정보 암호화 기능
+A-KEY, OPC 관리 기능
+시퀀스 번호 생성
+인증 벡터 생성
+재동기 기능 수행
+시스템 운용 관리 기능(OAM)
+고가용성(HA): 하드웨어 및 소프트웨어
+3GPP, UMTS, EPS 규격 준수
+TDM SS7, SIGTRAN, DIAMETER 프로토콜 지원
+GUI 기반의 OAM
+
+
+2.(인증벡터 생성)- 네트워크(HLR/AuC)는 USIM카드와 공유하는 비밀키(K)로 
+인증벡터를 생성한 후 USIM카드로 전송한다.
+
+3.(네트워크 인증)- USIM카드는 비밀키(K')를 이용하여 네트워크 인증센터로부터 
+수신한 인증벡터(AV)를 검증한다.
+
+4.(인증 응답값 생성)- USIM카드는 인증 응답값(RES)를 생성하여 네트워크(HLR/AuC)로 전송한다.
+
+5.(USIM카드 인증)- 네트워크(HLR/AuC)는 USIM카드로부터 수신한 인증 응답값(RES)과 
+자신이 생성한 인증 응답값(XRES)와 상호 비교하여 USIM카드를 인증한다.
+
+6.위의 과정을 통하여 USIM카드와 네트워크는 세션 키(CK, IK)를 획득하고 이를 통하여 
+무선 네트워크 서비스의 기밀성(confidentiality)과 무결성(integrity)를 제공하게 된다.
+  
+※즉 이단계를 모두 넘어가야 정상적인 단말인증이 끝나서 통화 수발신이 가능하게 됨
+
+</pre>
+
+<img src="  " alt =" ">
+
+</body>
+</html>
