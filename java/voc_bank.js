@@ -140,11 +140,36 @@ var htmlvoc_arr = {"평생번호050.html":"평생번호050.html",
 "버스_정류장에_시설된_EGG_고장접수.html":"버스_정류장에_시설된_EGG_고장접수.html",
 "분실정지후_유심이동불가(BLACK단말로_잡히는_경우_조치방법_특이사례).html":"분실정지후_유심이동불가(BLACK단말로_잡히는_경우_조치방법_특이사례).html",
 "비즈데이터_(부가서비스)_안심차단형_요금제_이용시.html":"비즈데이터_(부가서비스)_안심차단형_요금제_이용시.html",
-"memo.html":"memo.html"
+"memo.html":"memo.html",
+"https://koshelper.kt.co.kr/":"https://koshelper.kt.co.kr/",
+"http://172.21.10.217:9091/login.htm":"http://172.21.10.217:9091/login.htm",
+"https://admin.spam.kt.com/":"https://admin.spam.kt.com/",
+"https://msens.kt.com/login":"https://msens.kt.com/login",
+"https://5gnms.kt.co.kr/portal/":"https://5gnms.kt.co.kr/portal/",
+"https://troublemap2.kt.com/kcube_tbm/nmsgis":"https://troublemap2.kt.com/kcube_tbm/nmsgis",
+"https://172.29.23.226:8443/login.html":"https://172.29.23.226:8443/login.html",
+"https://icrm.nb-iot.kt.com/icrm/app/athn.html#/signIn":"https://icrm.nb-iot.kt.com/icrm/app/athn.html#/signIn",
+"https://www.imei.info/":"https://www.imei.info/",
+"https://www.wififree.kr/index.do":"https://www.wififree.kr/index.do"
 
 }
 function vocbank(htmlvoc_name){
         window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900' ) ; 
+}
+var netwindow = "https://koshelper.kt.co.kr/";
+var wingsite = "http://172.21.10.217:9091/login.htm";
+var spamfilter = "https://admin.spam.kt.com/" ;
+var msenssite = "https://msens.kt.com/login" ;
+var nms5G = "https://5gnms.kt.co.kr/portal/";
+var troublemap = "https://troublemap2.kt.com/kcube_tbm/nmsgis";
+var ltasvtas = "https://172.29.23.226:8443/login.html";
+var gigaiot = "https://icrm.nb-iot.kt.com/icrm/app/athn.html#/signIn";
+var equipimei = "https://www.imei.info/" ;
+var wififree = "https://www.wififree.kr/index.do";
+
+function vocbank2(htmlvoc_name2){
+        
+        window.open(htmlvoc_arr[htmlvoc_name2], '_blank', 'width=1200, height=1000' ) ; 
 }
 function htmlcount(){
         var html_count = document.getElementsByTagName('a').length;
