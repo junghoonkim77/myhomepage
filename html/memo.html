@@ -3,14 +3,21 @@
     <head>
         <meta charset="utf-8">
              <style>
-             input {
-               float:right;
-              }
+             .leftmove{
+                 position :absolute;
+                 top:50px;
+                 left:630px; 
+                 }
+             .leftmove1{
+                 position :absolute;
+                 top:50px;
+                 left:580px
+              h5{
+                  width:fit-content;
+                 }
+              
             </style>
-        <script>
-       
-        </script>
-       
+             
         <title>메모장</title>
     </head>
     <body>
@@ -25,8 +32,8 @@
           <textarea cols="45" rows="50" ></textarea> <textarea cols="45" rows="50" ></textarea> 
            
         
-            <input type ="reset" value="clear" >    
-            <input id ="toggle" type="button" value="white" onclick="
+            <input class="leftmove" type ="reset" value="clear" >    
+            <input class="leftmove1" id ="toggle" type="button" value="white" onclick="
             var textare_color = document.querySelectorAll('textarea') ; 
             if(this.value === 'white' ){
                 textare_color[0].style.backgroundColor ='black';
