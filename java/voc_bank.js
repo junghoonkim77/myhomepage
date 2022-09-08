@@ -175,6 +175,17 @@ function htmlcount(){
         var html_count = document.getElementsByTagName('a').length;
         document.getElementById("voccount").innerHTML =html_count ;
       } ;
+
+function line_dp2(num) { 
+ if(document.getElementById('menuhidden_'+num).style.display=="block"){ 
+ document.getElementById('menuhidden_'+num).style.display = "none"; 
+ return; 
+ } 
+ for(i=0;i<document.getElementsByClassName("menuhidden").length;i++){ 
+ document.getElementsByClassName("menuhidden")[i].style.display = "none"; 
+ } 
+ document.getElementById('menuhidden_' + num).style.display = "block"; 
+ }
       
 
 
