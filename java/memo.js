@@ -9,9 +9,11 @@ const hours = date.getHours();
 const minute = date.getMinutes();  
 const current = `${hours < 10 ? `0${hours}` : hours}:${minute < 10 ? `0${minute}` : minute}`;	  
 
-if(current === setValue)
-{window.open('popup.html');	
-}
+if(current == setValue)
+{ textare_color[0].style.backgroundColor = 'red';	
+textare_color[1].style.backgroundColor = 'red';
+}textare_color[0].style.backgroundColor = 'white';
+textare_color[1].style.backgroundColor = 'white'
 }
 function getTime(){
 const time = new Date();
