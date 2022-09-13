@@ -5,9 +5,7 @@
   font-family: 'Josefin Slab', serif;
 }
 */
-.canseldate{
-  display :inline;
-}
+
 
 body {
   font-family: 'Josefin Slab', serif;
@@ -286,10 +284,10 @@ a.button {
 #menuhidden_1 {
  position :absolute;
   right : 160px;
-  bottom : 20px;
+  bottom : 65px;
 }
 #menuhidden_2 {
   position :absolute;
   right :100px;
-  bottom :70px;
+  bottom :100px;
 }
