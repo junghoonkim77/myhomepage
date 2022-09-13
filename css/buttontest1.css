@@ -5,19 +5,19 @@
   font-family: 'Josefin Slab', serif;
 }
 */
+.canseldate{
+  display :inline;
+}
 
 body {
   font-family: 'Josefin Slab', serif;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 24px;
   color: #333;
   background: #ececec;
   overflow-y: scroll;
 }
 
-p {
-  margin-bottom: 0.5em;
-}
 
 a,
 a:visited {
@@ -281,4 +281,15 @@ a.button {
 
 .btnSlide:hover .top {
   top: 40px;
+}
+
+#menuhidden_1 {
+ position :absolute;
+  right : 160px;
+  bottom : 20px;
+}
+#menuhidden_2 {
+  position :absolute;
+  right :100px;
+  bottom :70px;
 }

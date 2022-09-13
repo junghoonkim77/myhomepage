@@ -187,5 +187,24 @@ function line_dp2(num) {
  document.getElementById('menuhidden_' + num).style.display = "block"; 
  }
       
+ function cancelpphone(){
+        document.querySelector("#inputdate").addEventListener("click", () => {
+        var inputyear = Number(document.querySelector("#inputyear").value);
+        var inputmonth = Number(document.querySelector("#inputmonth").value);
+        var inputday = Number(document.querySelector("#inputday").value);
+        var dday = Number(document.querySelector("#dday").value);
+        let date= new Date(inputyear,inputmonth,inputday);
+        date.setMonth(date.getMonth() - 1)
+        date.setDate(date.getDate() + dday);
+        document.getElementsByClassName('canseldate')[0].innerHTML=date.toLocaleString();
+        })};
+        cancelpphone();
 
-
+function GetShow(){
+        var con = document.getElementById("dvicon");
+        if(con.style.display =="none"){
+                con.style.display = "block" ;
+        }
+        else{ con.style.display ="none";
+        }
+        }
