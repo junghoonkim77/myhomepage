@@ -3,18 +3,16 @@
     <head>
         <meta charset="utf-8">
              <style>
-             .leftmove{
-                 position :absolute;
-                 top:55px;
-                 left:500px; 
-                 }
+             
+             
              .leftmove1{
                  position :absolute;
-                 top:55px;
-                 left:450px;}
+                 top:60px;
+                 left:120px;}
               h5 {
-                   width:200px;
-                 }
+                  width:200px;
+                   }
+            
               textarea{
                   font-size:85%;
                  }
@@ -27,14 +25,14 @@
           
            
         <button id ="btn1">현재시간_복사</button>
-        <input class='inputtime' type='time' min='00:00' max='23:59'/>
+       <form><input class='inputtime' type='time' min='00:00' max='23:59'/>
+        <input  type ="reset" value="time_reset" > 
+     </form> 
           
         <form>
             
           <textarea cols="40" rows="50" ></textarea> <textarea cols="40" rows="50" ></textarea> 
-           
-        
-            <input class="leftmove" type ="reset" value="Eraser" >    
+                        
             <input class="leftmove1" id ="toggle" type="button" value="white" onclick="
             var textare_color = document.querySelectorAll('textarea') ; 
             if(this.value === 'white' ){
