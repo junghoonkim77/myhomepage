@@ -13,7 +13,6 @@ const current = `${hours < 10 ? `0${hours}` : hours}:${minute < 10 ? `0${minute}
 if(current == setValue)
 { textare_color[0].style.backgroundColor ='tomato';
 textare_color[1].style.backgroundColor ='tomato';
-window.open('알람창.html', '_blank', 'width=300, height=300' ) ;
 }}
 
 function getTime(){
