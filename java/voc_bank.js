@@ -150,8 +150,8 @@ var htmlvoc_arr = {"평생번호050.html":"평생번호050.html",
 "https://172.29.23.226:8443/login.html":"https://172.29.23.226:8443/login.html",
 "https://icrm.nb-iot.kt.com/icrm/app/athn.html#/signIn":"https://icrm.nb-iot.kt.com/icrm/app/athn.html#/signIn",
 "https://www.imei.info/":"https://www.imei.info/",
-"https://www.wififree.kr/index.do":"https://www.wififree.kr/index.do"
-
+"https://www.wififree.kr/index.do":"https://www.wififree.kr/index.do",
+"알람창.html":"알람창.html"
 }
 function vocbank(htmlvoc_name){
         window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900' ) ; 
@@ -168,9 +168,9 @@ var equipimei = "https://www.imei.info/" ;
 var wififree = "https://www.wififree.kr/index.do";
 
 function vocbank2(htmlvoc_name2){
-        
         window.open(htmlvoc_arr[htmlvoc_name2], '_blank', 'width=1200, height=1000' ) ; 
 }
+
 function htmlcount(){
         var html_count = document.getElementsByTagName('a').length;
         document.getElementById("voccount").innerHTML =html_count ;
