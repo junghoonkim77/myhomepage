@@ -14,7 +14,7 @@
                    }
             
               textarea{
-                  font-size:85%;
+                  font-size:90%;
                  }
             </style>
              
@@ -24,36 +24,25 @@
        <div></div>
         <h5>메모장_현재 시간은 :<strong class = "h1-clock" ></strong> </h5>
         <button id ="btn1">현재시간_복사</button>
-       <form><input class='inputtime' type='time' min='00:00' max='23:59'/>
-        <input  type ="reset" value="alarm_reset" > 
-       </form> 
+       <form>
+        <input class='inputtime' type='time' min='00:00' max='23:59'/>
+        <input class="leftmove1" id ="toggle" type="reset" value="알람초기화" onclick="
+        var textare_color = document.querySelectorAll('textarea') ; 
+            textare_color[0].style.backgroundColor ='white';
+            textare_color[0].style.color ='black';
+            textare_color[1].style.backgroundColor ='white';
+            textare_color[1].style.color ='black';">
+         </form> 
     </div>
           
         <form>
             
           <textarea cols="40" rows="50" ></textarea> <textarea cols="40" rows="50" ></textarea> 
                         
-            <input class="leftmove1" id ="toggle" type="button" value="white" onclick="
-            var textare_color = document.querySelectorAll('textarea') ; 
-            if(this.value === 'white' ){
-                textare_color[0].style.backgroundColor ='black';
-                textare_color[0].style.color ='white';
-                textare_color[0].style.fontSize ='13px';
-                textare_color[1].style.backgroundColor ='black';
-                textare_color[1].style.color ='white';
-                textare_color[1].style.fontSize ='13px';
-                document.querySelector('#toggle').value = 'black';
-            } else {
-                textare_color[0].style.backgroundColor ='white';
-                textare_color[0].style.color ='black';
-                textare_color[0].style.fontSize ='13px';
-                textare_color[1].style.backgroundColor ='white';
-                textare_color[1].style.color ='black';
-                textare_color[1].style.fontSize ='13px';
-                document.querySelector('#toggle').value = 'white';
-            }
-            ">
-       </form>        
+          
+            
+           
+              
     <script src="../java/memo.js"></script>
      </body>
 </html>
