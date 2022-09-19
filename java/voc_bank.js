@@ -202,11 +202,12 @@ function line_dp2(num) {
         var cancel_txt="까지 해지가능(※휴일여부 확인)";
         var cancel_txt1="까지 처리불가(※휴일여부 확인)";
         var cancel_txt2="다음날부터 처리(변경)가능(※휴일여부 확인)";
-            switch(dday) {
+            
+          switch(dday) {
              case "opencancel" :
          date.setDate(date.getDate() + 14);
          var cancel_result1= 
-         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 "+cancel_txt;
+         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 까지 해지가능(※휴일여부확인)";
             break;
              case "change_phonech" :
         date.setDate(date.getDate() + 28);
