@@ -193,15 +193,43 @@ function line_dp2(num) {
         var inputyear = Number(document.querySelector("#inputyear").value);
         var inputmonth = Number(document.querySelector("#inputmonth").value);
         var inputday = Number(document.querySelector("#inputday").value);
-        var dday = Number(document.querySelector("#dday").value);
         let date= new Date(inputyear,inputmonth,inputday);
+        var dday = document.querySelector("#dday").value;
+        var dday1 =Number(document.querySelector("#dday1").value)
         date.setMonth(date.getMonth() - 1)
-        date.setDate(date.getDate() + dday);
-        document.getElementsByClassName('canseldate')[0].innerHTML=date.toLocaleString();
+        date.setDate(date.getDate() + dday1);
+        
+        var cancel_txt="까지 해지가능(※휴일여부 확인)";
+        var cancel_txt1="까지 처리불가(※휴일여부 확인)";
+        var cancel_txt2="다음날부터 처리(변경)가능(※휴일여부 확인)";
+            switch(dday) {
+             case "opencancel" :
+         date.setDate(date.getDate() + 14);
+         var cancel_result1= 
+         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 "+cancel_txt;
+            break;
+             case "change_phonech" :
+        date.setDate(date.getDate() + 28);
+        var cancel_result1= 
+        date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 "+cancel_txt1;
+            break; 
+            case "numbermove1" :
+        date.setDate(date.getDate() + 90);
+        var cancel_result1= 
+        date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 "+cancel_txt2;
+             break;
+        }
+        date.setDate(date.getDate());
+        var cancel_result1= 
+        date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 "+cancel_txt2;
+        
+
+        document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result1;
         })};
         cancelpphone();
 
-function GetShow(){
+
+  function GetShow(){
         var con = document.getElementById("dvicon");
         if(con.style.display =="none"){
                 con.style.display = "block" ;

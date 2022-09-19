@@ -94,14 +94,23 @@
                     </ul>
                   </div>
                   <div id="menuhidden_2" class="menuhidden" style="display:none">
-                    <input id ="inputyear" type="text" placeholder="기준연도입력(ex:2022)"><br>
-                    <input id ="inputmonth" type="text" placeholder="기준월입력(ex:08)"><br>
-                    <input id ="inputday" type="text" placeholder="기준날짜입력(ex:11)"><br>
-                    <input id ="dday" type="text" placeholder="14 or 30 경과일만 입력(ex;d+14,d+30)"><br>
+                    <input id ="inputyear" type="text" placeholder="기준연도입력(ex:2022)            "><br>
+                    <input id ="inputmonth" type="text" placeholder="기준월입력(ex:08)               "><br>
+                    <input id ="inputday" type="text" placeholder="기준날짜입력(ex:11)               "><br>
+                    <select id="dday">
+                        <option selected >업무선택</option>
+                        <option value="opencancel">     개통취소가능일 ,   우수기변취소가능일</option>
+                        <option value="change_phonech">         번호 에이징 기간</option>
+                       <option value="numbermove1" >명변,신규,번호이동3개월이내(번호재이동 가능일)</option>
+                    </select><br><br>
+                    <input id ="dday1" type="text" placeholder="날짜 직접 입력(ex.185,365)"><br>
                     <button id="inputdate">계산</button>
-                    <div >기준일+XX일 까지에 해당하는 날짜(※휴일여부 필히 확인) : 
-                        <div style="font-weight:bold " class="canseldate" > </div> </div>
+                    
+                    
+                     <div style="font-weight:bold " class="canseldate" > </div>
                   </div>
+                 
+                 
                   <div id="menuhidden_3" class="menuhidden" style="display:none">
                     <iframe class="iframe1"  src = "TT&비영업상담양식.html" name="frame" >   </iframe>
                   </div>
