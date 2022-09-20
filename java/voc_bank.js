@@ -202,7 +202,7 @@ function line_dp2(num) {
        
         var cancel_txt="까지 해지가능(※휴일여부 필히 확인)";
         var cancel_txt1="까지 처리불가(※휴일여부 필히 확인)";
-        var cancel_txt2="다음날부터 처리(변경)가능(※휴일여부 필히 확인)";
+        var cancel_txt2="익일부터처리(변경)가능(※휴일여부 필히 확인)";
        
         date.setDate(date.getDate());
         var cancel_result2=
@@ -228,12 +228,23 @@ function line_dp2(num) {
         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 "+cancel_txt2;
         document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result1;
         break;
+            case "dangol" :
+        date.setDate(date.getDate() + 185);
+        var cancel_result1=
+        date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 "+cancel_txt2;
+        document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result1;
+            break;
         }
-       
         })};
         cancelpphone();
 
+        function erase_1(){
+         var input_eraser1 = document.getElementsByClassName('del_day1');
+         for(var i=0; i<input_eraser1.length; i++)
+          {input_eraser1[i].value = '';}}
+                
 
+        
   function GetShow(){
         var con = document.getElementById("dvicon");
         if(con.style.display =="none"){
