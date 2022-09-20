@@ -240,8 +240,9 @@ function line_dp2(num) {
 
         function erase_1(){
          var input_eraser1 = document.getElementsByClassName('del_day1');
-         for(var i=0; i<input_eraser1.length; i++)
-          {input_eraser1[i].value = '';}}
+          for(var i=0; i<input_eraser1.length; i++)
+          {input_eraser1[i].value = '';}
+          document.getElementById("menuhidden_2").reset();}
                 
 
         
