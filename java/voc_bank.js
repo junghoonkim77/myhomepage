@@ -188,6 +188,7 @@ function line_dp2(num) {
  document.getElementById('menuhidden_' + num).style.display = "block"; 
  }
       
+ 
  function cancelpphone(){
         document.querySelector("#inputdate").addEventListener("click", () => {
         var inputyear = Number(document.querySelector("#inputyear").value);
@@ -198,34 +199,37 @@ function line_dp2(num) {
         var dday1 =Number(document.querySelector("#dday1").value)
         date.setMonth(date.getMonth() - 1)
         date.setDate(date.getDate() + dday1);
-        
-        var cancel_txt="까지 해지가능(※휴일여부 확인)";
-        var cancel_txt1="까지 처리불가(※휴일여부 확인)";
-        var cancel_txt2="다음날부터 처리(변경)가능(※휴일여부 확인)";
-            
+       
+        var cancel_txt="까지 해지가능(※휴일여부 필히 확인)";
+        var cancel_txt1="까지 처리불가(※휴일여부 필히 확인)";
+        var cancel_txt2="다음날부터 처리(변경)가능(※휴일여부 필히 확인)";
+       
+        date.setDate(date.getDate());
+        var cancel_result2=
+        date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 " +cancel_txt2;
+        document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result2;
+
           switch(dday) {
              case "opencancel" :
          date.setDate(date.getDate() + 14);
-         var cancel_result1= 
-         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 까지 해지가능(※휴일여부확인)";
-            break;
+         var cancel_result1=
+         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + cancel_txt;
+         document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result1; 
+         break;
              case "change_phonech" :
         date.setDate(date.getDate() + 28);
-        var cancel_result1= 
+        var cancel_result1=
         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 "+cancel_txt1;
-            break; 
+        document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result1;
+        break;
             case "numbermove1" :
         date.setDate(date.getDate() + 90);
-        var cancel_result1= 
+        var cancel_result1=
         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 "+cancel_txt2;
-             break;
-        }
-        date.setDate(date.getDate());
-        var cancel_result1= 
-        date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 "+cancel_txt2;
-        
-
         document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result1;
+        break;
+        }
+       
         })};
         cancelpphone();
 
