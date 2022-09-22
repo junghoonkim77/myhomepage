@@ -42,3 +42,21 @@ window.onload = function () {
    navigator.clipboard.writeText(value);
   }
 
+String.prototype.bytes = function() {
+ var str = this;
+ var l = 0;
+ for (var i=0; i<str.length; i++) l += (str.charCodeAt(i) > 128) ? 2 : 1;
+ return l;
+ }
+ // 글자수 바이트로 세기
+ function cal_pre()
+ {
+ var 
+ textare_txt_count = document.querySelectorAll('textarea')
+ size_check = textare_txt_count[0].value;
+ size_check2= textare_txt_count[1].value;
+ //var size_check = document.comment.value;
+ document.form.size.value = size_check.bytes();
+ //document.form.size1.value =size_check2.bytes();
+ document.form.size1.value = size_check2.bytes();
+ }
