@@ -30,6 +30,8 @@ alarm = setInterval(getAlarm, 1000);
 }
 init();
 
+
+//클릭후 특정범위내 글자 복사
 window.onload = function () {
    const valOfDIV = document.querySelector("#btn1");
 
