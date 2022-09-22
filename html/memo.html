@@ -26,7 +26,9 @@
         <button id ="btn1">현재시간_복사</button>
        <form>
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
-        <input class="leftmove1" id ="toggle" type="reset" value="알람초기화" onclick="
+        <input style=width:45px type='text' name='size' value='' readonly placeholder="1번메모">
+           <input style=width:45px type='text' name='size' value='' readonly placeholder="2번메모">
+           <input class="leftmove1" id ="toggle" type="reset" value="알람초기화" onclick="
         var textare_color = document.querySelectorAll('textarea') ; 
             textare_color[0].style.backgroundColor ='white';
             textare_color[0].style.color ='black';
@@ -37,11 +39,10 @@
           
         <form>
             
-          <textarea cols="40" rows="50" ></textarea> <textarea cols="40" rows="50" ></textarea> 
-                        
-          
-            
-           
+          <textarea cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
+          <textarea cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
+         
+             
               
     <script src="../java/memo.js"></script>
      </body>
