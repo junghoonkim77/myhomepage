@@ -17,22 +17,27 @@
         th{
             border:1px solid gray;
         }
-        td{ padding:3px;
+        td{ padding:2px;
             border:1px solid gray;
         }
         div{
             position :relative;
             margin :10px;
-            left:10px;
+            left:170px;
+            width:200px;
         }
-        #samsung{
+        .samsung{
             background-color:aqua;
         }
-        iframe { position :fixed; top:0px; right:230px;
+        .lg{
+            background-color:bisque;
+        }
+        .apple{
+            background-color:greenyellow
+        }
+        iframe { position :fixed; top:0px; right:265px;
              width:30%; 
-             height :90%;
- 
- }
+             height :90%; }
     </style>
      <title>단말기 매뉴얼</title>
     </head>
@@ -41,36 +46,70 @@
      <div>제조사별 단말기 설정경로</div>
       <table>
        <thead>
-        <th></th><th>삼성</th><th>LG</th><th>아 이 폰</th>
+        <th ></th><th class="samsung">삼성</th><th class="lg">LG</th><th class="apple">아 이 폰</th>
        </thead>
        <tbody>
         <tr>
-            <td rowspan="3">메시지</td>
-            <td>재난문자</td>
-            <td>재난문자</td>
-            <td>재난문자</td>
+            <td rowspan="3" style="background-color: lightblue" >메시지</td>
+            <td class="samsung">재난문자</td>
+            <td class="lg">재난문자</td>
+            <td class="apple">재난문자</td>
         </tr>
         <tr>
-            <td>스팸메시지</td>
-            <td>스팸메시지</td>
-            <td>스팸메시지</td>
+            <td class="samsung">스팸메시지</td>
+            <td class="lg">스팸메시지</td>
+            <td class="apple">스팸메시지</td>
         </tr>
         <tr>
             
-            <td>MMS다운로드불가</td>
-            <td>MMS다운로드불가</td>
-            <td>MMS다운로드불가</td>
+            <td class="samsung">MMS다운로드불가</td>
+            <td class="lg">MMS다운로드불가</td>
+            <td class="apple">MMS다운로드불가</td>
         </tr>
         <tr>
-            <td rowspan="2">데이터 설정</td>
-            <td>데이터 사용설정</td>
-            <td>데이터 사용설정</td>
-            <td rowspan="2">데이터 사용설정</td>
+            <td rowspan="2"  style="background-color:darkgrey">데이터설정</td>
+            <td class="samsung">데이터 사용설정</td>
+            <td class="lg">데이터 사용설정</td>
+            <td class="apple" rowspan="2">데이터 사용설정</td>
         </tr>
         <tr>
-            <td>데이터 사용한도 제한</td>
-            <td>데이터 사용한도 제한</td>
+            <td class="samsung">발신번호 표시(상대방 폰)</td>
+            <td class="lg">발신번호 표시(상대방 폰)</td>
+        </tr>
+        <tr>
+            <td rowspan="4" style="background-color:rgb(226, 146, 146)">통화설정</td>
+            <td class="samsung">통화 수신 차단 확인</td>
+            <td class="lg">통화 수신 차단 확인</td>
+            <td class="apple">통화 수신 차단 확인</td>
+        </tr>
+        <tr>
             
+            <td class="samsung">통화중 대기 설정</td>
+            <td class="lg">통화중 대기 설정</td>
+            <td class="apple" rowspan="2">통화중 대기 설정</td>
+        </tr>
+        <tr>
+            
+            <td class="samsung">통화중 대기 음량 설정</td>
+            <td class="lg">통화중 대기 음량 설정</td>
+            
+        </tr>
+        <tr>
+            
+            <td class="samsung">발신번호표시(상대폰)</td>
+            <td class="lg">발신번호표시(상대폰)</td>
+            <td class="apple">발신번호표시(상대폰)</td>
+        </tr>
+        <tr>
+            <td rowspan="2" style="background-color:rgb(110, 106, 165)">기타</td>
+            <td class="samsung">날짜&시간설정</td>
+            <td class="lg">날짜&시간설정</td>
+            <td class="apple" rowspan="2">날짜&시간설정</td>
+        </tr>
+        <tr>
+            
+            <td class="samsung">채팅+ 설정</td>
+            <td class="lg">채팅+ 설정</td>
             
         </tr>
        </tbody>
