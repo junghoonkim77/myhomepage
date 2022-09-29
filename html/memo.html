@@ -4,15 +4,21 @@
         <meta charset="utf-8">
              <style>
              
-             
              .leftmove1{
                  position :absolute;
                  top:60px;
-                 left:120px;}
+                 left:80px;}
               h5 {
                   width:200px;
                    }
-            
+              .leftmove2{
+                position :absolute;
+                 top:60px;
+                 left:150px;}
+              .leftmove3{
+                position :absolute;
+                 top:60px;
+                 left:200px;}
               textarea{
                   font-size:90%;
                  }
@@ -23,25 +29,33 @@
     <body>
        <div></div>
         <h5>메모장_현재 시간은 :<strong class = "h1-clock" ></strong> </h5>
-        <button id ="btn1">현재시간_복사</button>
+        <button id ="btn1">시간복사</button>
        <form name="form">
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <input style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
            <input style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
-           <input class="leftmove1" id ="toggle" type="reset" value="알람초기화" onclick="
+           <input class="leftmove1" id ="toggle" type="reset" value="알람리셋" onclick="
         var textare_color = document.querySelectorAll('textarea') ; 
             textare_color[0].style.backgroundColor ='white';
             textare_color[0].style.color ='black';
             textare_color[1].style.backgroundColor ='white';
             textare_color[1].style.color ='black';">
+            <input class="leftmove2" type="button" value="지우개" onclick="erasertext1()";> 
+            
+            <input class="leftmove3" id="toggle1" type="button" value="2번숨김" onclick="
+            if(this.value==='2번숨김'){
+                document.getElementById('hidden1').style.display ='none';
+                document.querySelector('#toggle1').value = '2번표시';}
+                else {
+                document.getElementById('hidden1').style.display ='block';
+                document.querySelector('#toggle1').value = '2번숨김';
+               }
+            ">             
          </form> 
-    </div>
-                  
+    
           <textarea cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
-          <textarea cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
-         
-             
-              
+          <textarea id="hidden1" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
+     
     <script src="../java/memo.js"></script>
      </body>
 </html>

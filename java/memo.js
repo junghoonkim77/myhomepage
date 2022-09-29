@@ -62,3 +62,14 @@ String.prototype.bytes = function() {
  //document.form.size1.value =size_check2.bytes();
  document.form.size1.value = size_check2.bytes();
  }
+
+ //textarea 내용 지우기 함수 
+
+ function erasertext1(){
+  var textare_color = document.querySelectorAll('textarea') ;
+  textare_color[0].value="";
+    }
+function erasertext2(){
+  var textare_color = document.querySelectorAll('textarea') ;
+  textare_color[1].value="";
+    }  
