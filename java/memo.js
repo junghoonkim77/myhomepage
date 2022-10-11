@@ -68,7 +68,9 @@ String.prototype.bytes = function() {
  function erasertext1(){
   var textare_color = document.querySelectorAll('textarea') ;
   textare_color[0].value="";
+  textare_color[1].value="";
     }
+    
 function erasertext2(){
   var textare_color = document.querySelectorAll('textarea') ;
   textare_color[1].value="";
