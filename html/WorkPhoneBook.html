@@ -10,309 +10,39 @@
                 font-size:80%;
             }
             td {
-                padding :2px;
+                padding :3px;
+                font-size:14px;
             }
-         
+            
+            iframe{
+                position :absolute;
+                width :85%;
+                height : 70%;
+            }
+                
+            
+            
+        
         </style>
     </head>
 <body>
 
-<div id="tabcontents1" style="width: 60vw; height:80vh; margin: 0 auto; padding: 120px 0 40px;">
+<div id="tabcontents1" style="width: 80vw; height:80vh; margin: 0 auto; padding: 120px 0 40px;">
     <ul class="tabs" data-persist="true">
         <li><a href="#view1"> HLR /교환실 /통품업무연락처      </a></li>
         <li><a href="#view2"> Feature Code/넷윈도 필드명      </a></li>
-        <li><a href="#view3">       탭제목3     </a></li>
+        <li><a href="#view3"> 팀원 정보    </a></li>
     </ul>
-    <div class="tabcontents">
+    <div style ="height:100%" class="tabcontents">
         <div id="view1">
-           
-        <table border="1"> 
-            <thead>
-               <th>구분</th><th>부서</th><th>연락처</th><th>비고(업무분장)</th>
-            </thead>       
-            <tbody>
-               <tr>
-                   <td rowspan="2">HLR</td><td>용인</td><td>031-287-2991~2</td><td>가입자 DB생성여부 / 유심 이동성 / 블럭여부 / 넷윈도우 조회 미비시 문의 <br> 캐치콜, 010번호연결서비스(부가서비스) </td>
-               </tr>
-               <tr>
-                   <td>구로</td><td>010-2620-4299</td><td>OTA실패연관 개통 DB이상여부(UMC DB등) /유심이동성 </td>
-               </tr>
-               <tr>
-                   <td>VMS (통합사서함)</td><td>용인</td><td>010-3030-1200</td><td>기존 중앙국사는 없어지고 용인으로 통합됨 <br>
-                       예비 연락처 : 010-3040-1200 </td>
-               </tr>
-               <tr>
-                   <td rowspan="2">지능망</td><td>용인</td><td>010-2921-1200<br>031-284-6383</td><td>부가서비스 오류문의/캐쉬선불/캐치콜,SMS이력/에그사용량
-                       <br>비정상 기기변경 단말정보 확인요청 /링투유 이용불가 :지능망 운용팀 1899-3099</td>
-               </tr>
-               <tr>
-               <td>(구)목동지능망</td><td>02-839-0400<br>02-869-0400</td><td>비기알요금제 ,투폰(투넘버)서비스</td>
-               </tr>  
-               <tr>
-                   <td>위즈 커뮤니케이션</td><td>링투유 / V컬러링</td><td>링투유 02-2008-7721 <br>V컬러링 02-2008-7723</td><td></td>
-               </tr>
-               <tr>
-                   <td colspan="2">국제전화 / 문자</td><td>국제전화 발신불가시<br> 080-023-0099 <br>관문국 02-725-4211(국제스위칭 허브팀)</td><td>02-725-4236(문자)</td>
-               </tr>
-               <tr>
-                   <td colspan="2">IP플랫폼 (VOLTE문의)</td></td><td>02-3674-5789</td>
-                   <td>
-                       중앙코어망 제어팀 02-774-7260 <br>
-                       발신자 VOLTE가입자 /착신자 유선 및 SOIP가입자인 경우 문의<br>
-                       -------------------------------------------------------------<br>
-                       ㅇ 볼테 문의시 확인사항 (넷윈도우 HLR) <br>
-           ㅇ CSCF NAME = hhm/hhv = 강북 VOLTE운용팀 ARS 3번<br>
-           ㅇ CSCF NAME = grm/grv = 강남 VOLTE운용팀 ARS 1번<br>
-           ㅇ CSCF NAME = djv5g 충청코어망 제어팀 ARS 2번<br>
-                   </td>
-               </tr>
-               <tr>
-                   <td colspan="2" >P-gate way /구로 제어망</td><td>010-2614-1200</td><td>기가 LTE장비 문의시 </td>
-               </tr>
-               <tr>
-                   <td colspan="2" >KRater OP (데이터 쉐어링 및 qos상태문의)</td><td></td><td>k톡( KRater OP ) OR ITSM접수</td>
-               </tr>
-               <tr>
-                   <td rowspan="4">대전 교환실</td><td>제어망1 (특이voc)</td><td>042-600-0200</td><td>예비 : 010-4200-1200</td>        
-               </tr>
-               <tr>
-                   <td>제어망2 (기지국장애)</td><td>042-600-0220</td><td>예비 : 010-4210-1200</td>        
-               </tr>
-               <tr>
-                   <td>램스 (중계기)</td><td>042-489-6840</td><td></td>        
-               </tr>
-               <tr>
-                   <td>BSM (기지국)</td><td>042-489-6831</td><td></td>        
-               </tr>
-               <tr>
-                   <td rowspan="3">대구 교환실</td><td>제어망</td><td>053-668-4834 <br>053-668-4835</td><td></td>        
-               </tr>
-               <tr>
-                   <td>램스 (중계기)</td><td>042-489-6838</td><td></td>        
-               </tr>
-               <tr>
-                   <td>BSM (기지국)</td><td>042-489-6837</td><td></td>        
-               </tr>
-               <tr>
-                   <td rowspan="4">부산 교환실</td><td>제어망<br>(3G,P/G,음성,LTE)</td><td>010-9500-1200<br>010-9550-1200</td><td></td>        
-               </tr>
-               <tr>
-                   <td>신부산 제어망</td><td>010-9540-1200</td><td></td>        
-               </tr>
-               <tr>
-                   <td>램스 (중계기)</td><td>042-489-6836</td><td></td>        
-               </tr>
-               <tr>
-                   <td>BSM (기지국)</td><td>042-489-6835</td><td></td>        
-               </tr>
-               <tr>
-                   <td rowspan="3">광주교환실</td><td>제어망 1/2</td><td>062-941-4422 </td><td></td>        
-               </tr>
-               <tr>
-                   <td>램스 (중계기)</td><td>042-489-6834</td><td></td>        
-               </tr>
-               <tr>
-                   <td>BSM (기지국)</td><td>042-489-6833</td><td></td>        
-               </tr>
-               <tr>
-                   <td rowspan="4">구로 교환실(강남)</td><td>제어망1<br>(음성,LTE)</td><td>010-2600-1200</td><td>010-2620-4299</td>        
-               </tr>
-               <tr>
-                   <td>제어망1<br>(3G,P/G)</td><td>010-2614-1200</td><td></td>        
-               </tr>
-               <tr>
-                   <td>구로 지능망</td><td>02-2651-9003</td><td>3G 음성관련 로그확인요청</td>        
-               </tr>
-               <tr>
-                   <td>제어망2<br>(기지국 상태,장애확인)</td><td>010-2642-1200<br>010-2643-1200</td><td>강남램스 010-7201-4137</td>        
-               </tr>
-               <tr>
-                   <td rowspan="4">용인교환실(강서)</td><td>제어망1<br>(음성,LTE)</td><td>010-3030-1200</td><td></td>        
-               </tr>
-               <tr>
-                  <td>제어망1<br>(3G,P/G)</td><td>010-3040-1200</td><td>031-287-2991 , 031-287-2992</td>        
-               </tr>
-               <tr>
-                   <td>강서운용팀 램스</td><td>010-2917-2313</td><td></td>        
-                </tr>
-                <tr>
-                   <td>제어망2<br>(기지국상태,장애 유/무)</td><td>02-853-0087<br>02-863-0086</td><td></td>        
-                </tr>
-                <tr>
-                   <td rowspan="4">중앙교환실</td><td>제어망1<br>(음성,LTE)</td><td>010-2500-1200</td><td></td>        
-               </tr>
-               <tr>
-                  <td>제어망1<br>(3G,P/G)</td><td>010-2505-1200</td><td>SPR DB확인/ 02-3673-1200 / 02-3675-1100</td>        
-               </tr>
-               <tr>
-                   <td>중앙4번 강릉램스</td><td>010-3216-0030</td><td></td>        
-                </tr>
-                <tr>
-                   <td>기지국 상태, 장애 유/무</td><td>02-319-0960<br>02-752-7016</td><td>서울/경기<br>강북/강원</td>        
-                </tr>
-                <tr>
-                   <td rowspan="4">번호이동<br>(MNP)</td><td>KT번호이동<br>인증센터</td><td>1588-2935</td><td></td>        
-               </tr>
-               <tr>
-                  <td>kt망 상황실</td><td>02-541-7136</td><td>번호이동 ARS인증 1588-2935</td>        
-               </tr>
-               <tr>
-                   <td>SKT 상황실</td><td>02-6098-4850~9</td><td></td>        
-                </tr>
-                <tr>
-                   <td>LGT 상황실</td><td>02-3416-8700</td><td></td>        
-                </tr>
-                <tr>
-                   <td >플랫폼 품질관리팀</td><td>메시지 서비스</td><td>강영진</td><td>010-2546-8730</td>        
-               </tr>
-               <tr>
-                   <td >위드 네트웍스</td><td></td><td>1588-7103</td><td>공공와이파이 VOC 확인처</td>        
-               </tr>
-               <tr>
-                <td >서초 지원센터</td><td></td><td>02-3495-5988~9</td><td>kt임직원 개통락 해제 요청</td>        
-            </tr>
-            <tr>
-                <td >비즈 센터 (상황실)</td><td></td><td>080-789-0016</td><td>M2M단말기,비즈데이터,기업형 부가서비스</td>        
-            </tr>
-            <tr>
-                <td >비즈 센터 (상황실)</td><td></td><td>080-789-0016</td><td>M2M단말기,비즈데이터,기업형 부가서비스</td>        
-            </tr>
-            <tr>
-                <td >아이서치 (휴빌론)</td><td></td><td>02-571-1477</td><td>아이서치 문의 / ivoc@hubilon.com</td>        
-            </tr>
-            <tr>
-                <td >애플 기술지원센터</td><td></td><td>080-333-4000 (1544-2662)</td><td>애플 핫라인(오픈 금지) 080-500-0019</td>        
-            </tr>
-            </tbody>       
-          </table>
-          <table border="1">
-            <th>부서</th><th>번호</th><th>부서</th><th>번호</th>
-            <tr >
-                <td>kt</td> <td>1588-0010 <br> 080-080-1618</td><td>skt  </td><td>1566-0011     <br>    1599-0011</td>
-            </tr>
-            <tr >
-                <td>LGT</td> <td>1544-0010</td><td>KT선불 / NR커뮤니케이션  </td><td>016-1530  <br>   02-565-6016</td>
-            </tr>
-            <tr >
-                <td>비즈링</td> <td>1588-6587</td><td>번호이동 중립기관 (KTOA)  </td><td>1588-0413</td>
-            </tr>
-            <tr >
-                <td>요금상담센터</td> <td>1577-9500</td><td>수신자 부담차단  </td><td>1644-1736</td>
-            </tr>
-            <tr >
-                <td>실명인증센터</td> <td>080-330-2486</td><td>웹 실명 인증문의 </td><td>02-580-0571/0580</td>
-            </tr><tr >
-                <td>제어망 기술 지원팀</td> <td>장보연 , 김상훈 과장 ,정재윤 과장(엠센스 신청)</td><td>데이터 통화료 문의</td><td></td>
-            </tr>
-          </table>
-         
+        
+            <iframe  frameboder="none" src = "../html/hlr.html" >   </iframe>
         </div>
        
-       
-       
-       
-       
-       
-        <div id="view2">
-          <table border="1">
-            <thead>
-                <th>필드명</th><th>서비스 명</th><th>기본 상태</th><th>FeatueCode</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>CLIP</td><td>발신번호 표시 서비스</td><td>PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>CLIR</td><td>발신번호 표시 제한 서비스</td><td>PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>CNAR</td><td>쇼미 거부 서비스</td><td>PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>CNIRD</td><td>익명호 수신거부 서비스</td><td>PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>CallHold</td><td>호보류 서비스</td><td>PROV, PROV_ACT</td><td>통화중,통화버튼</td>
-                </tr>
-                <tr>
-                    <td>MultiParty</td><td>회의통화 서비스</td><td>PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>Multi CNIP Service</td><td>캐치콜 서비스</td><td>PROV, PROV_ACT</td><td>*05 / *050</td>
-                </tr>
-                <tr>
-                    <td>RCC</td><td>통화가능 알리미</td><td>PROV, PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>RCCD</td><td>통화가능 알리미 거부</td><td>PROV, PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>WOW</td><td>통화요구 알리미</td><td>PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>CMS</td><td>통화 배경음 서비스</td><td>PROV_ACT</td><td>*79 / *790</td>
-                </tr>
-                <tr>
-                    <td>CISS</td><td>쇼미 서비스</td><td>PROV , PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>CallWaiting</td><td>통화중 대기</td><td>PROV , PROV_ACT</td><td> *40 / *400</td>
-                </tr>
-                <tr>
-                    <td>Call Forwarding Unconditional</td><td>착신전환 서비스</td><td>PROV</td><td rowspan="2"> *71 / *710</td>
-                </tr>
-                <tr>
-                    <td>CFU Noti to Calling Party</td><td>착신전환시 ,안내멘트 제공</td><td>ON</td>
-                </tr>
-                <tr>
-                    <td>Call Forwarding Default</td><td>자동연결 서비스</td><td>PROV</td><td rowspan="2"> *72 /*720</td>
-                </tr>
-                <tr>
-                    <td>CFD Noti to Calling Party</td><td>자동연결 서비스</td><td>ON</td>
-                </tr>
-                <tr>
-                    <td>VMS</td><td>음성 사서함</td><td>PROV</td><td> *52 / *520</td>
-                </tr>
-                <tr>
-                    <td>VMU</td><td>무조건 음성 사서함 전환</td><td>PROV</td><td> *51 / *510</td>
-                </tr>
-                <tr>
-                    <td>BAOC</td><td>발신호 제한 중 발신금지</td><td>PROV</td><td></td>
-                </tr>
-                <tr>
-                    <td>BOIC</td><td>국제호 발신 제한</td><td>PROV</td><td></td>
-                </tr>
-                <tr>
-                    <td>BAIC</td><td>착신호 제한(모든 번호 수신제한)</td><td>PROV</td><td>*24 / *240</td>
-                </tr>
-                <tr>
-                    <td>XRS</td><td>링투유 서비스</td><td>PROV</td><td>*55 / *550</td>
-                </tr>
-                <tr>
-                    <td>RCS</td><td>Recall service</td><td>PROV</td><td></td>
-                </tr>
-                <tr>
-                    <td>SNBD</td><td>스팸일괄차단서비스</td><td>PROV , PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>SND</td><td>특정번호 수신차단 서비스</td><td>PROV , PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>STNS</td><td>투폰 서비스</td><td>PROV , PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>IRANN</td><td>국제로밍 안내 서비스</td><td>ON</td><td></td>
-                </tr>
-                <tr>
-                    <td>NZS</td><td>프리존 서비스 FreeZone</td><td>PROV_ACT</td><td></td>
-                </tr>
-                <tr>
-                    <td>ATS1</td><td>텔코인 서비스[TCS]활성화 여부</td><td>ATS1_AT ->Act</td><td> *45 / *450</td>
-                </tr>
-            
-            </tbody>
-          </table>           
-        </div>
+    <div id="view2">
+        <iframe  frameboder="none" src = "../html/featurecode.html" >   </iframe> 
+     
+    </div>
               
        
        
