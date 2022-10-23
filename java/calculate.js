@@ -25,3 +25,6 @@ var all = "";//모든함수에서쓸수있는전역변수
      function pow(all){
        all.value = Math.pow(all.value,2);
      }
+
+
+     
