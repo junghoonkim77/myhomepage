@@ -152,7 +152,8 @@ var htmlvoc_arr = {"평생번호050.html":"평생번호050.html",
 "https://www.imei.info/":"https://www.imei.info/",
 "https://www.wififree.kr/index.do":"https://www.wififree.kr/index.do",
 "알람창.html":"알람창.html",
-"TT&비영업상담양식.html":"TT&비영업상담양식.html"
+"TT&비영업상담양식.html":"TT&비영업상담양식.html",
+"gw.ktcs.co.kr/logon.aspx":"gw.ktcs.co.kr/logon.aspx"                   
 }
 function vocbank(htmlvoc_name){
         window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900' ) ; 
