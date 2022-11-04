@@ -8,24 +8,27 @@
              .leftmove1{
                  position :absolute;
                  top:61px;
-                 left:116px;}
+                 left:99px;
+                 width : 55px;
+                }
               h5 {
                   width:200px;
-                  
-                   }
+                 }
               .leftmove2{
                 position :absolute;
                  top:61px;
-                 left:250px;}
-              .leftmove3{
+                 left:220px;}
+              
+               .leftmove3{
                 position :absolute;
                  top:61px;
-                 left:69px;}
+                 left:46px;
+                  }
               .leftmove4{
                 position :absolute;
                 top:61px;
                  left:8px;
-                 width:60.97px;
+                 width:38px;
                 }
               textarea{
                   font-size:90%;
@@ -35,9 +38,33 @@
                  }
                 button{
                   position :relative;
-                  left :169px;
+                  left :146px;
                 }
-            
+                .dropdown{
+                 
+                display : inline-block;
+                    }
+                span {
+                 font-size : 14px;
+                    }
+                .dropdown-content{
+                display : none;
+                position : absolute;
+                z-index : 1; /*다른 요소들보다 앞에 배치*/
+                
+                }
+                .dropdown-content a{
+                display : block;
+                }
+                .dropdown:hover .dropdown-content {
+                display: block;
+                }
+                .dropbtn {
+                    border :solid 1px gray;
+                    padding : 0 5 0 5 ;
+                    background-color: rgb(36, 85, 148);
+                    color : white;    
+                }
             </style>
              
         <title>메모장</title>
@@ -46,6 +73,35 @@
        
         <h5>메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
         <button id ="btn1">🕑복사</button>
+        <div class="dropdown leftmove2" >
+            <span class="dropbtn">🖱️SR양식</span>
+            <div class="dropdown-content">
+              <input type="button" value="통품SR기본양식" 
+             onclick="copy(SRarray[this.value])">
+             <input type="button" value="개선여부확인TT" 
+             onclick="copy(SRarray[this.value])">
+              <input type="button" value="중계기 설치TT" 
+              onclick="copy(SRarray[this.value])">
+              <input type="button" value="중계기점검AS TT" 
+              onclick="copy(SRarray[this.value])">
+              <input type="button" value="중계기 이설TT" 
+              onclick="copy(SRarray[this.value])">
+              <input type="button" value="중계기 철거TT" 
+              onclick="copy(SRarray[this.value])">
+              <input type="button" value="비영업 불만양식" 
+              onclick="copy(SRarray[this.value])">
+              <input type="button" value="영업 VOC접수양식" 
+              onclick="copy(SRarray[this.value])">
+              <input type="button" value="민원성 요금조정" 
+              onclick="copy(SRarray[this.value])">
+              <input type="button" value="권유[모바일판기발]" 
+              onclick="copy(SRarray[this.value])">
+              <input type="button" value="KT   WIFI   이관" 
+              onclick="copy(SRarray[this.value])">
+              <input type="button" value="LTE EGG   TT" 
+              onclick="copy(SRarray[this.value])">
+            </div>
+          </div> 
        <form name="form">
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <input style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
@@ -57,7 +113,7 @@
             textare_color[0].style.color ='black';
             textare_color[1].style.backgroundColor ='white';
             textare_color[1].style.color ='black';">
-            <input class="leftmove2" type="button" value="지움" onclick="erasertext1()";> 
+            
             <input class="leftmove3" id="toggle1" type="button" value="📘📘" onclick="
             if(this.value==='📘📘'){
                 document.getElementById('hidden1').style.display ='none';
@@ -73,8 +129,7 @@
           <textarea cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
           <textarea id="hidden1" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
      
-    <script src="../java/memo.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    
     <script>
       function sample6_execDaumPostcode() {
           new daum.Postcode({
@@ -123,6 +178,10 @@
               }
           }).open();
       }
+      
   </script>
+  <script src="../java/memo.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  
      </body>
 </html>
