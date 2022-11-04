@@ -30,6 +30,11 @@
                  left:8px;
                  width:38px;
                 }
+              .leftmove5{
+                position :absolute;
+                 top:35px;
+                 left:220px;}
+               
               textarea{
                   font-size:90%;
                  }
@@ -80,13 +85,13 @@
              onclick="copy(SRarray[this.value])">
              <input type="button" value="개선여부확인TT" 
              onclick="copy(SRarray[this.value])">
-              <input type="button" value="중계기 설치TT" 
+              <input type="button" value="설치 중계기 TT" 
               onclick="copy(SRarray[this.value])">
-              <input type="button" value="중계기점검AS TT" 
+              <input type="button" value="점검AS 중계기 TT" 
               onclick="copy(SRarray[this.value])">
-              <input type="button" value="중계기 이설TT" 
+              <input type="button" value="이설TT  중계기 " 
               onclick="copy(SRarray[this.value])">
-              <input type="button" value="중계기 철거TT" 
+              <input type="button" value="철거TT   중계기 " 
               onclick="copy(SRarray[this.value])">
               <input type="button" value="비영업 불만양식" 
               onclick="copy(SRarray[this.value])">
@@ -123,7 +128,9 @@
                 document.querySelector('#toggle1').value = '📘📘';
                }
             ">
-            <input class="leftmove4" type="button" onclick="sample6_execDaumPostcode()" value="주소">             
+            <input class="leftmove4" type="button" onclick="sample6_execDaumPostcode()" value="주소">
+            <input class="leftmove5" type="button" value="그룹웨어📧"
+            onclick="window.open('https://gw.ktcs.co.kr/logon.aspx', '_blank', 'width=1100, height=900' ) ; return false;">             
          </form> 
     
           <textarea cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
