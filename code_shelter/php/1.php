@@ -1,3 +1,5 @@
 <?php
-echo $_GET['id'].",".$_GET['name'];
+echo $_POST['title'];
+echo "<br>";
+echo $_POST['description']; 
 ?>
