@@ -56,6 +56,9 @@ iframe { position :fixed; top:40px; right:230px;
  a {
   text-decoration: none;
  }
+ a:hover{
+  background-color: hsl(120, 75%, 81%);
+ }
  </style>
         <title>통품VOC은행</title> 
  </head>
@@ -67,7 +70,8 @@ iframe { position :fixed; top:40px; right:230px;
           <div class="divTableHeading">
             <div class="divTableRow">
             <div class="divTableHead">통품voc은행</div>
-           
+            <div class="divTableHead"><span>현 등록건수:</span>
+            <span id="count"></span></div>
          </div>
           </div>
           <div class="divTableBody">
@@ -640,10 +644,16 @@ iframe { position :fixed; top:40px; right:230px;
           </div>
          </div>
         </div>
-
-  <script src="../java/voc_bank.js">  </script>
   
-
+  <script src="../java/voc_bank.js">  </script>
+  <script>
+    function count(){
+      let CountAtag = document.getElementsByTagName('a').length;
+      document.getElementById('count').innerHTML = String(`${CountAtag}건`);
+     }
+     count();
+  </script> 
+ 
     </body>
 
 </html>
