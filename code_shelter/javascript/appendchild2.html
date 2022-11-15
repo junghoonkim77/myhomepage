@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table{
+            border : 1px solid gray;
+            border : collapse;
+            
+        }
+        tr{
+            border : 1px solid gray;
+        }
+        td{
+            border : 1px solid gray;
+            border : collapse;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+  <table>
+    <thead>
+        <th>테스트1</th><th>테스트1</th><th>테스트1</th>
+    </thead>
+    <tbody>
+        <tr id="tr">
+        <td>우리집</td><td>항상</td><td>행복하길</td>
+        </tr>
+    </tbody>
+  </table>
+  <script>
+    let tr = document.getElementById('tr');
+    console.log(tr);
+    let tr1 = document.createElement('tr');
+    let td = document.createElement('td');
+    let text1 = document.createTextNode('테스트');
+    let text2 = document.createTextNode('테스트1');
+    let text3 = document.createTextNode('테스트3')
+    let td1 = td.appendChild(text1);
+    let td2 = td.appendChild(text2);
+    let td3 = td.appendChild(text3);
+    console.log(tr1.td1);
+
+
+  </script>
+</body>
+</html>
