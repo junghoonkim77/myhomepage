@@ -6,6 +6,12 @@
              input {
                float:right;
               }
+
+              .text{
+                background-color:black;
+                color:white;
+                font-size:13px;
+              }
             </style>
         <script>
        
@@ -66,29 +72,15 @@ if(current === setValue)
            function copy (value) {
             navigator.clipboard.writeText(value);
            }
-
-        </script>
-            <input type ="reset" value="clear" >    
-            <input id ="toggle" type="button" value="white" onclick="
-            var textare_color = document.querySelectorAll('textarea') ; 
-            if(this.value === 'white' ){
-                textare_color[0].style.backgroundColor ='black';
-                textare_color[0].style.color ='white';
-                textare_color[0].style.fontSize ='13px';
-                textare_color[1].style.backgroundColor ='black';
-                textare_color[1].style.color ='white';
-                textare_color[1].style.fontSize ='13px';
-                document.querySelector('#toggle').value = 'black';
-            } else {
-                textare_color[0].style.backgroundColor ='white';
-                textare_color[0].style.color ='black';
-                textare_color[0].style.fontSize ='13px';
-                textare_color[1].style.backgroundColor ='white';
-                textare_color[1].style.color ='black';
-                textare_color[1].style.fontSize ='13px';
-                document.querySelector('#toggle').value = 'white';
+           function color(){
+            for (let i=0 ; i<textare_color.length ; i++){
+            textare_color[i].classList.toggle('text');
             }
-            ">
+             }
+        </script>
+       <input type ="reset" value="clear" >    
+       <input id ="toggle" type="button" value="white" onclick="color()">      
+                      
        </form>        
         
      </body>
