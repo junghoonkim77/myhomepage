@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //console.log('my'+'cat'); -->mycat
+console.log('1'+2); //12
+console.log(`junghoon's \n\t world`)
+// \n은 줄바꾸기 \t는 탭키
+//"junghoon's 
+//     world"
+let counter = 2;
+//const preincrement = ++counter; //counter = counter +1;
+//console.log(`preincrement: ${preincrement},counter: //${counter}`) //  "preincrement: 3,counter: 3"
+const preincrement = counter++;
+counter = counter+1;
+console.log(`preincrement: ${preincrement}  counter:${counter}`);
+// 앞에 붙는 ++는 증가시키고 할당,뒤에 붙는 ++는 할당 시킨다음 더함 
+let x =3;
+let y =6;
+x += y ; // x=x+y
+
+// (|| or)  (&& and)  (! not)
+const value1 = false;
+const value2 = 4<2;
+function check(){
+   return true;
+}
+console.log(`or ; ${value1 || value2 || check()}`); // true
+console.log(!value1); // !는 값을 반대로 바꿔주는것 >true반환
+
+// equality quizz
+console.log(0 == false); // true
+console.log(0 === false); // false
+console.log(""==false); //true
+console.log(""===false);//false
+console.log(null==undefined);//true
+console.log(null===undefined);//false
+
+// if else
+
+
+
+let name = 'kieun';
+
+if(name === 'junghoon'){
+  console.log('나다 이놈아');
+} else if (name  ==='kijun'){
+  console.log('우리 아들♥');
+} else if (name  ==='kieun'){
+  console.log('천사 우리딸♡ ');
+} else {
+  console.log('넌 누구니?');
+}
+
+//간단한 if구문 ternary operator
+// condition ? value1 :value2 ;
+/*console.log(name==='kieun' ? '우리딸 ♡' :'누구니?');
+
+
+const browser ="ie" ;
+
+switch (browser) {
+  case 'ie' :
+  console.log('개구려');
+  break;
+  
+  case 'chrome':
+  console.log('그나마');
+  break;
+  
+  case 'firefox' : 
+  console.log('쓸만함');
+  break;
+  
+  default :
+  console.log('거기서 거기');
+  break;
+}*/
+
+/* let i=9;
+
+while(i>0){
+  console.log(`while:${i}`);
+  i--;
+}
+ let j=9;
+do{
+  console.log(`do while : ${j}`);
+  j--;
+} while(j>0)  */
+
+/*for (let i=0; i<10 ;i++)
+  { 
+    for(let j=0; j<10 ; j++)
+  { console.log(`i:${i},j:${j}=${i*j}`)
+     }
+  } */
+
+for (let i=0; i<11 ; i++){
+  if(i%2 ===0){    // % 나눈 나머지 구하기
+    console.log(`문제1번 :${i} `)
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
