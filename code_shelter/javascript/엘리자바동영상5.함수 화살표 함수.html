@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.함수 선언
+//자바에서 함수는 object이다.
+/*function printhello(message){
+  console.log(message);
+ }
+printhello('hoon');
+printhello('jjoo');*/
+//2.
+/*function ChangeName(obj) {
+  obj.name ='coder';
+}
+const ellie ={name :'ellie'};
+ChangeName(ellie);
+console.log(ellie);*/
+
+//3.rest parameters
+function printall(...args) {
+  for(let i=0; i<args.length; i++){
+    console.log(args[i]);
+  }
+}
+printall('쭈','쭌','은');
+
+//4.local scope
+let globalMessage ='global';
+function printMessage(){
+  let message ='hello';
+  console.log(message);
+  console.log(globalMessage);
+}
+ printMessage();
+/* 자바에서 scope{}란 안에선 밖이 보이고 밖에선 안이 보이지 않는다 함수 안에 또 다른 함수가 중첩되어 있어도 동일하게 자식은 모 함수의 변수가 보이지만 모 함수에선 자식 함수의 변수가 보이지 않는다
+중첩된 함수에서 자식의 함수가 부모함수에 정의된 변수에 접근하는걸 클로저라고 한다.
+*/
+//7. function expression
+
+const print = function(){
+  console.log('print');
+};
+print(); //익명함수
+
+//콜백함수통한 함수 표현 CallBack함수
+//안에선 밖이 보이니 함수를 만들어 놓고 그 함수를 
+/*파라미터로 전달해 answer입력값에 따라 실행되게 만든 함수*/ 
+/*function randomQuiz(answer,printyes,printno){
+  if (answer === 'love you'){
+    printyes();
+  }else{
+    printno();
+  }
+}
+const printyes = function(){
+  console.log('yes');
+};
+const printno = function(){
+  console.log('no');
+};
+randomQuiz('wrong',printyes,printno);
+randomQuiz('love you',printyes,printno); */
+
+//Arrow function
+/*const simplePrint = function(){
+  console.log('simplePrint!');
+};*/
+
+let simplePrint = () => console.log('simplePrint!');
+simplePrint();
+const add = (a,b) => console.log(a+b);
+add(1,2);
+
+    </script>
+</body>
+</html>
