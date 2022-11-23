@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="target" id="target1">
+        target1
+    </div>
+    <div class="target" id="target2">
+        target2
+    </div>
+    <div id="source">
+        source
+    </div>
+    <input type="button" value="remove target1" id="btn1" />
+    <input type="button" value="empty target2" id="btn2" />
+    <input type="button" value="clone" id="btn3" />
+    <input type="button" value="moving" id="btn4" />
+<script>
+    // replaceAll 은 제어대상을 인자로 전달하고 replaceWith는 제어 대상을 먼저 지정한다.
+    jQuery('div').css('border','1px solid gray');
+    
+    jQuery('#btn1').click(function(){
+        jQuery('<a href="https://junghoonkim77.github.io/myhomepage/html/hidden_gate_new.html#">내 홈피</a>').
+        replaceAll('#target1'); // 노드를 변경하기
+    });
+
+    jQuery('#btn2').click(function(){
+        jQuery('#target2').replaceWith('<a href="https://junghoonkim77.github.io/myhomepage/html/hidden_gate_new.html#">내 홈피</a>')
+    });
+
+    jQuery('#btn3').click(function(){
+        jQuery('#source').clone().replaceAll('#target1'); // 노드를 복사하기 
+    });
+
+    jQuery('#btn4').click(function(){
+        jQuery('#target1').append(jQuery('#source')); //id가 target1인 노드 밑에 하위노드로 들어가게 함
+    }) 
+
+</script>
+
+</body>
+</html>
