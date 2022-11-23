@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+    <li>html</li>
+    <li>css</li>
+    <li id="target">javascript</li> 
+</ul>     
+<input type="button" onclick="calremov1();" value="removechild" />
+<input type="button" onclick="calrepl();" value="replacechild" />
+<input type="button" onclick="location.reload();" value="새로고침" />
+<script>
+    function calremov1() {
+        let target=document.getElementById('target');
+        target.parentNode.removeChild(target); //설계상의 비판을 받는 부분 왜냐 parentnode까지알아야됨으로
+    }
+    function calrepl() {
+        let a = document.createElement('a');
+        a.setAttribute('href','http://naver.com');
+        a.setAttribute('id' ,'test1');
+        let cretex = document.createTextNode('네이버 홈페이지주소')
+        a.appendChild(cretex);
+        let target1 = document.getElementById('target');
+        target1.replaceChild(a,target1.firstChild);
+    } // createElement ->setAttribute -> createTextNode -> getElementById -> replaceChild
+    //function reload1(){  // 새로고침 함수 location.reload()
+    // location.reload();
+   //}
+
+</script>
+</body>
+</html>
