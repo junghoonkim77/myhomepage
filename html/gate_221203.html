@@ -7,10 +7,10 @@
         .container{
             display:flex;
             flex-direction:column;
+          }
+        html{
+            height :80vh;
         }
-      html{
-          height : 80vh;
-         }
         header{
             border-bottom:1px solid gray;
             padding-left:20px;
@@ -22,8 +22,9 @@
         }
         .content{
             display : flex;
-            flex-basis: content;
-            height :80vh;
+            flex-basis:content;
+            height : 80vh;
+            
         }
         .content nav{
             border-right:1px solid gray;
@@ -54,7 +55,7 @@
         }
             iframe.iframe1{
             position:relative;
-            padding :0px 0px opx 10px;
+            padding :0px 0px 0px 10px;
             top:10px;
             width : 100%;
             height : 100%;
@@ -64,6 +65,13 @@
         iframe.iframe2{
             width:350%;
             height:100%;
+         }
+         .iframe11{
+            position:absolute;
+            padding : 0px 0px 0px 10px;
+            top:75px;
+            left :500px;
+            height :75%;
          }
          .iframe3{
             width:400%;
@@ -77,14 +85,15 @@
         .del_day1{
             width :319px;
         }
+       
     </style>
+        <title>동작2통품홈페이지</title>
     </head>
     <body>
     <div class="container">
         <header>
             <a href="https://junghoonkim77.github.io/myhomepage/html/gate.html">동작2통화품질팀 업무 사이트</a>
-                <a href="#"  onclick="line_dp2(7)" > / 📋게시판 Click</a>
-            
+           
         </header>
             <section class="content">
               <nav>
@@ -99,15 +108,15 @@
                  <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(2)">D+XX날짜계산</a><br>
                  <a href="#" class="button btnPush btnPurple"  onclick="line_dp2(5)" >단말기 심플메뉴</a><br> 
                  <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(6)" >업무 연락처</a><br> 
-                 
-                 
+                 <a href="https://gw.ktcs.co.kr/logon.aspx" class="button btnPush btnLightBlue" 
+                    onclick="vocbank('https://gw.ktcs.co.kr/logon.aspx');  return false;">그룹웨어(이메일)</a><br>
                  
               </nav>
               <main>
                 <div id="menuhidden_1" class="menuhidden" style="display:none">
                     <ul>
                     <li><a href="https://koshelper.kt.co.kr/" target="'_blank"> 넷윈도 (우측마우스 클릭->새탭으로 열기) </a></li>
-                        <li><a href="http://172.21.10.217:9091/login.htm" target="'_blank"> 윙 3.0 (우측마우스 클릭->새탭으로 열기) </a></li> 
+                        <li><a href="https://wing.kt.com" target="'_blank"> 윙 3.0 (우측마우스 클릭->새탭으로 열기) </a></li> 
                         <li><a href="https://admin.spam.kt.com/" target="'_blank"> 스팸차단서비스 (우측마우스 클릭->새탭으로 열기) </a></li>
                         <li><a href="https://msens.kt.com/login" target="'_blank"> 엠센스_메시지 (우측마우스 클릭->새탭으로 열기) </a></li>
                         <li> <a href="https://5gnms.kt.co.kr/portal/" target="'_blank">5G NMS (우측마우스 클릭->새탭으로 열기)</a></li>
@@ -116,6 +125,7 @@
                         <li> <a href="https://icrm.nb-iot.kt.com/icrm/app/athn.html#/signIn" target="'_blank">기가IOT(기가빌스)(우측마우스 클릭->새탭으로 열기)</a></li>
                         <li> <a href="https://www.imei.info/" target="'_blank">단말 IMEI조회 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
                         <li> <a href="https://www.wififree.kr/index.do" target="'_blank">공공WIFI 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
+                        <li> <a href="https://checkcoverage.apple.com/kr/ko/;jsessionid=node0jcz99wa6rq3b1fir3t4mead7d67089905.node0 "'_blank">아이폰 단말정보 조회(애플공식) (우측마우스 클릭->새탭으로 열기)</a></li>
                     </ul>
                   </div>
             <div id="menuhidden_2" class="menuhidden" style="display:none">
@@ -145,6 +155,7 @@
                  
                   <div id="menuhidden_3" class="menuhidden" style="display:none">
                     <iframe class="iframe1"  src = "TT&비영업상담양식.html" name="frame" >   </iframe>
+                    <iframe class="iframe11"  src = "기타양식.html" name="frame" >   </iframe>
                   </div>
                   <div id="menuhidden_4" class="menuhidden" style="display:none">
                     <iframe class="iframe2"  src = "통품voc은행.html" >   </iframe>
@@ -153,18 +164,16 @@
                     <iframe class="iframe3"  src = "../html1/phonemanual.html" >   </iframe>
                   </div>
                   <div id="menuhidden_6" class="menuhidden" style="display:none">
-                    <iframe class="iframe4" frameboder="none" src = "../html/WorkPhoneBookcopy.html" >   </iframe>
+                    <iframe class="iframe4" frameboder="none" src = "../html/WorkPhoneBook.html" >   </iframe>
                   </div>
-                  <div id="menuhidden_7" class="menuhidden" style="display:none">
-                    <iframe class="iframe4" frameboder="none" src = "../html/guestbook.html" >   </iframe>
-                  </div>
+                 
+                  
               </main>
               
             </section>
             <footer>
                 <a href="https://junghoonkim77.github.io/myhomepage/html/gate.html">
                     통품홈페이지</a>
-                    
             </footer>
         
     </div>
