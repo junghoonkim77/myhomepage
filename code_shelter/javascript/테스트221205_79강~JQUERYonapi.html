@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!--<input type="button" id="pure" value="pure" />
+    <input type="button" id="jQuery" value="jQuery" />
+    <script>
+       jQuery('#jQuery').on('click' , function(){
+        alert('김정훈');
+       })
+    </script> -->
+
+    <ul>
+        <li><a href="#">html</a></li>
+        <li><a href="#">css</a></li>
+        <li><a href="#">javascript</a></li>
+    </ul>
+    <script>
+        jQuery('ul').on('click','a,li',function(event){
+            console.log(this.tagName);   // 필터 기능 세부적으로 셀렉터를 선택하는 기능?
+        })
+    </script>
+</body>
+</html>
