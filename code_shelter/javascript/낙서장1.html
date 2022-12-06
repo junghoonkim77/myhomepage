@@ -38,7 +38,20 @@
         
         btn.addEventListener('click' ,function() {
             let search = document.getElementById('Search').value;
-              if(search=="박주영"){
+             switch(search){
+                case '박주영' :
+                for(let i=0 ; i<박주영.length ;i++){
+                    td[i].innerHTML = 박주영[i];
+                    break;
+               
+                case '이진우' :
+                for(let i=0 ; i<이진우.length ;i++){
+                    td[i].innerHTML = 이진우[i];
+                    break;
+                }  
+             }
+            
+            /*if(search=="박주영"){
                 for(let i=0 ; i<박주영.length ;i++){
                     td[i].innerHTML = 박주영[i];
                 }
@@ -50,7 +63,8 @@
                 alert('그럼사람 없슈');
             }
 
-        })
+        })*/
+    });
         
         
     </script>
