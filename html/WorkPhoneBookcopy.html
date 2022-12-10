@@ -4,8 +4,11 @@
         <meta charset="utf-8">
         <script src="../java/tabcontent.js" type="text/javascript"></script>
         <link href="../css/tabcontent.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <style>
-                
+            table{ border:1px solid gray}
+            th{ border:1px solid gray}
+            td{ border:1px solid gray}
         </style>
     </head>
 <body>
@@ -30,35 +33,13 @@
               
        
         <div id="view3" >
-            <table border="1">
-                <th>cs사번</th><th>kos id</th><th>입사일</th> <th>이름</th> <th>생일</th><th>휴대폰</th><th>K톡ID</th>
-               <tr> 
-                <td>31330</td> <td>200867639</td> <td>2008.12.15</td> <td>박주영(8-12.2)</td><td>830901</td> <td>010-4870-8149</td> <td>82016684</td>
-               </tr>
-               <tr> 
-                <td>33921</td> <td>118175287</td> <td>2010.05.25</td> <td>이진우(10-5.3)</td><td>830214</td> <td>010-9932-0450</td> <td>82009880</td>
-               </tr>
-               <tr> 
-                <td>34115</td> <td>118175636</td> <td>2010.06.08</td><td>박정범(10-6.1)</td><td>840523</td><td>010-5581-5947</td>  <td>82009540</td>
-               </tr>
-               <tr> 
-                <td>35064</td><td>118176867</td> <td>2010.08.09</td><td>김정훈77(10-8.1)</td> <td>771120</td> <td>010-2209-6279</td> <td>82010195</td>
-               </tr>
-               <tr> 
-                <td>39138</td> <td>118183150</td> <td>2011.05.11</td> <td>최아람(11-5.2)</td><td>880112</td><td>010-6763-6647</td> <td>82009303</td>
-               </tr>
-               <tr> 
-                <td>51658</td> <td>91037307</td> <td>2013.09.16</td><td>최민지(13-9.1)</td> <td>960213</td><td>010-4331-8979</td><td>82046713</td>
-               </tr>
-               <tr> 
-                <td>53292</td> <td>91044016</td><td>2013.12.19</td> <td>이한기(13-12.2)</td> <td>821007</td><td>010-2661-4384</td> <td>82057826</td>
-               </tr>
-               <tr>
-                <td>80020</td><td>91307022</td> <td>2018.10.05</td> <td>이윤복(18-10.1)</td><td>820117</td><td>010-8886-5570</td> <td>82197538</td>
-               </tr>
-               <tr>
-                <td>34424</td><td>118176229</td> <td>2010.06.29</td><td>백금옥(10-6.3)</td> <td>701110</td><td>010-9277-8670</td> <td>82010528</td>
-               </tr>
+            <table style="border:1px;">
+                <thead id="tr" >
+                    <th>cs사번</th><th>kos_id</th><th>입사일</th><th>이름</th><th>생일</th><th>휴대폰</th><th>K톡ID</th><th>내선</th><th>IP</th>
+                    
+                        
+                    </tr>
+                </thead>
             </table>
          
         </div>
