@@ -7,8 +7,8 @@
         <script>
             $(function(){
                 // $(":input").css("background-color","yellow");
-                
-                $(":text").css("background-color","yellow");
+                let $input=document.getElementsByTagName('input');
+                $($input[0]).css("background-color","yellow");
                 $(":password").css("background-color","red");
                 $(":submit").css("background-color","blue");
             });
