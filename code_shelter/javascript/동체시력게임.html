@@ -6,19 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동체시력게임</title>
     <style>
-      
+      button {
+        position :fixed ;
+        bottom : 100px;
+      }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
-    <prompt></prompt>
+    
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
+    <button>새로고침</button>
    
     
 <script>
@@ -93,10 +97,11 @@
         window.open(link)
     }
 
-
     $('div').animate({'margin':'0px','left':'0px','color':'blue','opacity':0},700)
 
-    
+     $('button').on('click',function(){
+        location.reload();
+    })
     
      
   
