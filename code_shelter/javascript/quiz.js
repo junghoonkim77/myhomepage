@@ -14,7 +14,7 @@ $(function(){
         let no9 =['관악역','시청역','서울역','안양역','석수역','금천구청역']
         
         let prom =document.getElementById('GN').value;
-        let link ='https://junghoonkim77.github.io/myhomepage/code_shelter/javascript/게임엔딩.html"'
+        let link ='https://junghoonkim77.github.io/myhomepage/code_shelter/javascript/게임엔딩.html'
         if(prom === "1"){
             $('div').each(function(divs){
             $(this).animate({'left':divs*100+'px','color':'red','margin':divs*50+'px'},600,'swing');
