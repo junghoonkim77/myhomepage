@@ -34,15 +34,20 @@
         //clearInterval(timer);
         // 제이쿼리 집합개체중 특정번째 요소를 선택하는 것 .ep(숫자) ->매우 유용
          imgtree.eq(currindex).fadeIn(); //fadein opcaity를 0에서 1로 알아서 만들어주는 부적 같은 역할
-         setInterval(ShowNextSlide,3500);
+         var timer = setInterval(ShowNextSlide,3500);
          function ShowNextSlide(){
-            var nextIndex = (currindex+1) % imgtreecount; // 매우 중요한 인식
+            var nextIndex = (currindex+1) % imgtreecount; // 매우 중요한 공식
             imgtree.eq(currindex).fadeOut();
             imgtree.eq(nextIndex).fadeIn();
             currindex = nextIndex;
             console.log(currindex);
          }
-        
+          imgtree.on('mouseover',function(){
+            clearInterval(timer);
+          }).on('mouseout',function(){
+            setInterval(ShowNextSlide,3500);});
+          
+         
         })
     </script>
     
