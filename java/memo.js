@@ -101,6 +101,9 @@ $(function(){
       $(this).parent().css('background-color','yellow');
     } else {
       $(this).parent().css('background-color','transparent');
-    }
+    };
+  });
+  $('.schedule').on('click',function(){
+    $('div.task_gate div').toggleClass('task_gate1');
   })
 })
