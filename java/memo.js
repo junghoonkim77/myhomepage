@@ -93,3 +93,14 @@ let SRarray =
 '장애공지양식':'1. 발신 :\n2. 장애일시 :\n3. 장애지역 :\n4. 현상(서비스영향) :\n5. 고객센터응대스크립트유형 :-\n6. 예상복구일시 :\n7. 담당자 :',
 '장애공지댓글':'1. 컨택일시 : (시간까지 기재)\n2. 컨택포인트 : (확인한 담당자 성함+연락처)\n3. 확인내용 :' 
 }
+
+$(function(){
+  let check = $('input:checkbox')
+  check.on('click',function(){
+    if($(this).prop('checked')){
+      $(this).parent().css('background-color','yellow');
+    } else {
+      $(this).parent().css('background-color','transparent');
+    }
+  })
+})
