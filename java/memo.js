@@ -95,10 +95,11 @@ let SRarray =
 }
 
 $(function(){
-  let check = $('input:checkbox')
+  let check = $('label input:checkbox')
+  console.log(check.parent().parent());
   check.on('click',function(){
     if($(this).prop('checked')){
-      $(this).parent().css('background-color','yellow');
+      $(this).parent().remove();
     } else {
       $(this).parent().css('background-color','transparent');
     };
