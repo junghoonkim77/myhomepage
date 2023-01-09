@@ -7,10 +7,10 @@
         .container{
             display:flex;
             flex-direction:column;
-          }
-        html{
-            height :80vh;
         }
+      html{
+          height : 80vh;
+         }
         header{
             border-bottom:1px solid gray;
             padding-left:20px;
@@ -22,9 +22,8 @@
         }
         .content{
             display : flex;
-            flex-basis:content;
-            height : 80vh;
-            
+            flex-basis: content;
+            height :80vh;
         }
         .content nav{
             border-right:1px solid gray;
@@ -85,31 +84,41 @@
         .del_day1{
             width :319px;
         }
-       
+        
     </style>
-        <title>동작2통품홈페이지</title>
-    </head>
+        <title>통품홈</title>
+      </head>
     <body>
     <div class="container">
         <header>
             <a href="https://junghoonkim77.github.io/myhomepage/html/gate.html">동작2통화품질팀 업무 사이트</a>
-           
+                <a href="#"  onclick="line_dp2(7)" > / 
+                    <span style="font-size:20px">📋</span>
+                    <span style="font-size:20px ; color:#4285F4 ; font-weight: bold;">
+                        통품</span>
+                    <span style="font-size:20px ; color:#EA4335; font-weight: bold;"> 
+                        최신 </span> 
+                    <span style="font-size:20px ; color:#Fbbc05;  font-weight: bold;">
+                        ISSUE </span>
+                    <span style="font-size:20px ; color:#4285F4; font-weight: bold;"> 
+                        게시판 </span>
+                </a>
+            
         </header>
             <section class="content">
               <nav>
                 
-                 <a href="#"  class="button btnPush btnBlueGreen" 
-                    onclick="line_dp2(3)">TT&비영업양식</a><br>
-                 <a href="#" class="button btnPush btnLightBlue"
-                    onclick="line_dp2(4)">통품VOC은행</a><br>   
+                 <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(3)">TT&비영업양식</a><br>
+                 <a href="#" class="button btnPush btnLightBlue" onclick="line_dp2(4)">통품VOC은행</a><br>   
                  <a href="memo.html"  class="button btnPush btnPurple" 
                             onclick="vocbank('memo.html');  return false;">상담 메모장</a><br>   
-                 <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(1)">통품전산주소</a><br>
+                 <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(1)">전산&일정&출결</a><br>
                  <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(2)">D+XX날짜계산</a><br>
                  <a href="#" class="button btnPush btnPurple"  onclick="line_dp2(5)" >단말기 심플메뉴</a><br> 
                  <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(6)" >업무 연락처</a><br> 
                  <a href="https://gw.ktcs.co.kr/logon.aspx" class="button btnPush btnLightBlue" 
-                    onclick="vocbank('https://gw.ktcs.co.kr/logon.aspx');  return false;">그룹웨어(이메일)</a><br>
+                    onclick="vocbank('https://gw.ktcs.co.kr/logon.aspx'); return false;">그룹웨어(이메일)</a><br>
+                <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(8)">남부권_당직</a><br>
                  
               </nav>
               <main>
@@ -125,8 +134,8 @@
                         <li> <a href="https://icrm.nb-iot.kt.com/icrm/app/athn.html#/signIn" target="'_blank">기가IOT(기가빌스)(우측마우스 클릭->새탭으로 열기)</a></li>
                         <li> <a href="https://www.imei.info/" target="'_blank">단말 IMEI조회 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
                         <li> <a href="https://www.wififree.kr/index.do" target="'_blank">공공WIFI 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
-                        <li> <a href="https://checkcoverage.apple.com/kr/ko/;jsessionid=node0jcz99wa6rq3b1fir3t4mead7d67089905.node0 "'_blank">아이폰 단말정보 조회(애플공식) (우측마우스 클릭->새탭으로 열기)</a></li>
-                    </ul>
+                        <li> <a href="https://checkcoverage.apple.com/kr/ko/;jsessionid=node0jcz99wa6rq3b1fir3t4mead7d67089905.node0 "target="'_blank">아이폰 단말정보 조회(애플공식) (우측마우스 클릭->새탭으로 열기)</a></li>
+                       </ul>
                   </div>
             <div id="menuhidden_2" class="menuhidden" style="display:none">
                     
@@ -164,9 +173,14 @@
                     <iframe class="iframe3"  src = "../html1/phonemanual.html" >   </iframe>
                   </div>
                   <div id="menuhidden_6" class="menuhidden" style="display:none">
-                    <iframe class="iframe4" frameboder="none" src = "../html/WorkPhoneBook.html" >   </iframe>
+                    <iframe class="iframe4" frameboder="none" src = "../html/WorkPhoneBookcopy.html" >   </iframe>
                   </div>
-                 
+                  <div id="menuhidden_7" class="menuhidden" style="display:none">
+                    <iframe class="iframe4" frameboder="none" src = "../html/guestbook.html" >   </iframe>
+                  </div>
+                  <div id="menuhidden_8" class="menuhidden picture" style="display:none" >
+                    <img src="../imgfolder/23년1월.png" alt="2301당직" >
+                  </div>
                   
               </main>
               
@@ -174,6 +188,7 @@
             <footer>
                 <a href="https://junghoonkim77.github.io/myhomepage/html/gate.html">
                     통품홈페이지</a>
+                    
             </footer>
         
     </div>
