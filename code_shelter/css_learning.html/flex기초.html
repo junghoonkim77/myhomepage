@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+  background:gray;
+  height :100vh;
+  display:flex;
+  flex-direction:row;  
+}
+  .item{
+    height :30%;
+    width : 40px;
+    }
+  
+.item1{
+  background:yellow;
+  order : 1;
+  /* flex-grow:1; 1이면 크기를 유지하려고 한다*/
+  flex-basis :60%;
+  align-self :flex-end;
+  }
+.item2{
+  background:red;
+  order:0;
+}
+.item3{
+  background:blue;
+  order :2;
+}
+
+
+    </style>
+     <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+       
+      </div>
+</body>
+</html>
