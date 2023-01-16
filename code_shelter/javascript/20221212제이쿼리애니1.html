@@ -35,7 +35,9 @@
             function(){
                 jQuery(this).animate({opacity:0,'font-size':'0px'},1500,'linear',
                 function(){
-                    jQuery(this).animate({opacity:1,fontSize:'110px'},500)
+                    jQuery(this).on('click',function(){
+                      animate({opacity:1,fontSize:'110px'},500)
+                    })
                 });
             }
         )
