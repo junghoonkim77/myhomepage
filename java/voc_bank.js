@@ -256,3 +256,9 @@ function line_dp2(num) {
         else{ con.style.display ="none";
         }
         }
+
+ $(function(){
+    $('#netwindow').click(function(){
+        $('#netwindow1').fadeToggle();
+    })
+ })

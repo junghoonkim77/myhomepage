@@ -107,4 +107,6 @@ $(function(){
   $('.schedule').on('click',function(){
     $('div.task_gate div').toggleClass('task_gate1');
   })
+
+  
 })

@@ -84,9 +84,24 @@
         .del_day1{
             width :319px;
         }
+        #netwindow1{
+          position: absolute;
+          left :40%;
+           display : none;
+           font-weight : bold;
+           font-size : 16px;
+           z-index : 1;
+          background-color: beige;
+        }
+        #netwindow1 ul li:hover{
+            background-color: rgb(231, 227, 227);
+        }
         
     </style>
-        <title>통품홈</title>
+     <script src="https://code.jquery.com/jquery-3.6.1.js" 
+     integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>  
+     <title>통품히든홈</title>
       </head>
     <body>
     <div class="container">
@@ -103,7 +118,24 @@
                     <span style="font-size:20px ; color:#4285F4; font-weight: bold;"> 
                         게시판 </span>
                 </a>
-            
+           <span id="netwindow" style="font-size:20px"><b>/ 통화품질 전산(클릭!)</b> </span>  
+           <div id="netwindow1">
+            <ul>
+                <li><a href="https://koshelper.kt.co.kr/" target="'_blank"> 넷윈도 (우측마우스 클릭->새탭으로 열기) </a></li>
+                <li><a href="https://wing.kt.com" target="'_blank"> 윙 3.0 (우측마우스 클릭->새탭으로 열기) </a></li> 
+                <li><a href="https://admin.spam.kt.com/" target="'_blank"> 스팸차단서비스 (우측마우스 클릭->새탭으로 열기) </a></li>
+                <li><a href="https://msens.kt.com/login" target="'_blank"> 엠센스_메시지 (우측마우스 클릭->새탭으로 열기) </a></li>
+                <li> <a href="https://5gnms.kt.co.kr/portal/" target="'_blank">5G NMS (우측마우스 클릭->새탭으로 열기)</a></li>
+                <li> <a href="https://troublemap2.kt.com/kcube_tbm/nmsgis" target="'_blank">트러블 맵 (우측마우스 클릭->새탭으로 열기)</a></li>
+                <li> <a href="https://172.29.23.226:8443/login.html" target="'_blank">특정번호 통화수신거부조회(ATAS) (우측마우스 클릭->새탭으로 열기)</a></li>
+                <li> <a href="https://icrm.nb-iot.kt.com/icrm/app/athn.html#/signIn" target="'_blank">기가IOT(기가빌스)(우측마우스 클릭->새탭으로 열기)</a></li>
+                <li> <a href="https://www.imei.info/" target="'_blank">단말 IMEI조회 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
+                <li> <a href="https://www.wififree.kr/index.do" target="'_blank">공공WIFI 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
+                <li> <a href="https://checkcoverage.apple.com/kr/ko/;jsessionid=node0jcz99wa6rq3b1fir3t4mead7d67089905.node0 "'_blank">아이폰 단말정보 조회(애플공식) (우측마우스 클릭->새탭으로 열기)</a></li>
+                
+            </ul>
+              
+           </div>
         </header>
             <section class="content">
               <nav>
@@ -112,31 +144,19 @@
                  <a href="#" class="button btnPush btnLightBlue" onclick="line_dp2(4)">통품VOC은행</a><br>   
                  <a href="memo.html"  class="button btnPush btnPurple" 
                             onclick="vocbank('memo.html');  return false;">상담 메모장</a><br>   
-                 <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(1)">전산&일정&출결</a><br>
                  <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(2)">D+XX날짜계산</a><br>
                  <a href="#" class="button btnPush btnPurple"  onclick="line_dp2(5)" >단말기 심플메뉴</a><br> 
                  <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(6)" >업무 연락처</a><br> 
-                 <a href="https://gw.ktcs.co.kr/logon.aspx" class="button btnPush btnLightBlue" 
-                    onclick="vocbank('https://gw.ktcs.co.kr/logon.aspx'); return false;">그룹웨어(이메일)</a><br>
-                <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(8)">남부권_당직</a><br>
+                  <a href="일근태.htm"  class="button btnPush btnPurple" 
+                            onclick="window.open('일근태.htm', '_blank', 'width=1100, height=900' ) ;  return false;">AI선생님 출결양식</a><br>
+                 <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(8)">남부권_당직</a><br>
+                 <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(1)">팀 스케쥴</a><br>
                  
               </nav>
               <main>
                 <div id="menuhidden_1" class="menuhidden" style="display:none">
-                    <ul>
-                    <li><a href="https://koshelper.kt.co.kr/" target="'_blank"> 넷윈도 (우측마우스 클릭->새탭으로 열기) </a></li>
-                        <li><a href="https://wing.kt.com" target="'_blank"> 윙 3.0 (우측마우스 클릭->새탭으로 열기) </a></li> 
-                        <li><a href="https://admin.spam.kt.com/" target="'_blank"> 스팸차단서비스 (우측마우스 클릭->새탭으로 열기) </a></li>
-                        <li><a href="https://msens.kt.com/login" target="'_blank"> 엠센스_메시지 (우측마우스 클릭->새탭으로 열기) </a></li>
-                        <li> <a href="https://5gnms.kt.co.kr/portal/" target="'_blank">5G NMS (우측마우스 클릭->새탭으로 열기)</a></li>
-                        <li> <a href="https://troublemap2.kt.com/kcube_tbm/nmsgis" target="'_blank">트러블 맵 (우측마우스 클릭->새탭으로 열기)</a></li>
-                        <li> <a href="https://172.29.23.226:8443/login.html" target="'_blank">특정번호 통화수신거부조회(ATAS) (우측마우스 클릭->새탭으로 열기)</a></li>
-                        <li> <a href="https://icrm.nb-iot.kt.com/icrm/app/athn.html#/signIn" target="'_blank">기가IOT(기가빌스)(우측마우스 클릭->새탭으로 열기)</a></li>
-                        <li> <a href="https://www.imei.info/" target="'_blank">단말 IMEI조회 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
-                        <li> <a href="https://www.wififree.kr/index.do" target="'_blank">공공WIFI 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
-                        <li> <a href="https://checkcoverage.apple.com/kr/ko/;jsessionid=node0jcz99wa6rq3b1fir3t4mead7d67089905.node0 "target="'_blank">아이폰 단말정보 조회(애플공식) (우측마우스 클릭->새탭으로 열기)</a></li>
-                       </ul>
-                  </div>
+                    <img src="../imgfolder/dcnr.jpg" alt="2301당직" >
+                </div>
             <div id="menuhidden_2" class="menuhidden" style="display:none">
                     
                     <input id ="inputyear" class="del_day1" type="text" placeholder="기준연도입력(ex:2022)"><br>
@@ -176,12 +196,11 @@
                     <iframe class="iframe4" frameboder="none" src = "../html/WorkPhoneBookcopy.html" >   </iframe>
                   </div>
                   <div id="menuhidden_7" class="menuhidden" style="display:none">
-                    <iframe class="iframe4" frameboder="none" src = "../html/guestbook.html" >   </iframe>
+                   <iframe class="iframe4" frameboder="none" src = "../html/guestbook.html" > </iframe>
                   </div>
                   <div id="menuhidden_8" class="menuhidden picture" style="display:none" >
                     <img src="../imgfolder/23년1월.png" alt="2301당직" >
                   </div>
-                  
               </main>
               
             </section>
