@@ -262,11 +262,21 @@ function line_dp2(num) {
         $('#netwindow1').fadeToggle();
     })
  })*/
- $(function(){
+ /*$(function(){
     $('#netwindow').click(function(){
         $('#netwindow1').fadeIn();
         $('html').click(function(){
         $('#netwindow1').fadeOut();
         })
     })
- })
+ })*/
+  $(function(){
+    $('#netwindow').click(function(){
+        $('#netwindow1').fadeIn();
+        return false;
+    });
+    $('.container').click(function(){
+        $('#netwindow1').fadeOut();
+        return false;
+    });
+  })
