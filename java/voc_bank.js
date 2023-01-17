@@ -257,8 +257,16 @@ function line_dp2(num) {
         }
         }
 
- $(function(){
+ /*$(function(){
     $('#netwindow').click(function(){
         $('#netwindow1').fadeToggle();
+    })
+ })*/
+ $(function(){
+    $('#netwindow').click(function(){
+        $('#netwindow1').fadeIn();
+        $('html').click(function(){
+        $('#netwindow1').fadeOut();
+        })
     })
  })
