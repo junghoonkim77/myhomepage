@@ -14,11 +14,13 @@
         
         <img src="../../IMGfolder/기계식1.jfif" alt="연습용사진">
     </div>
-    <button id="button1">월 빽</button><span>월별 일정:<span id="month">1월</span></span><button id="button2">월별일정</button>
+    <label><span id="button1">⏪ </span></label>
+    <span>월별 일정:<span id="month">1월</span></span>
+    <label><span id="button2">⏩</span></label>
  <script>
     jQuery(function(){
-        var idx = 0;
-        var $span = 
+        var idx = 1;
+        
         jQuery('#button1').click(function(){
             idx = idx-1;
           if(idx>=1){
@@ -33,8 +35,9 @@
         jQuery('#button2').click(function(){
          idx = idx+1  
          if(idx<=4){
-            $('img').attr('src',`../../IMGfolder/기계식${idx}.jfif`)
-            $('#month').html(`${idx}월`)   
+            $('img').attr('src',`../../IMGfolder/기계식${idx}.jfif`);
+            $('#month').html(`${idx}월`);
+            console.log(idx);   
          }else{
                 alert('아직 없어요');
          }
