@@ -79,7 +79,7 @@
          .iframe4{
             width:400%;
             height:100%;
-            left:30px;
+            left:10px;
          }
         .del_day1{
             width :319px;
@@ -101,7 +101,7 @@
      <script src="https://code.jquery.com/jquery-3.6.1.js" 
      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>  
-     <title>통품히든홈</title>
+     <title>통품홈</title>
       </head>
     <body>
     <div class="container">
@@ -133,7 +133,7 @@
                 <li> <a href="https://www.wififree.kr/index.do" target="'_blank">공공WIFI 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
                 <li> <a href="https://checkcoverage.apple.com/kr/ko/;jsessionid=node0jcz99wa6rq3b1fir3t4mead7d67089905.node0 "'_blank">아이폰 단말정보 조회(애플공식) (우측마우스 클릭->새탭으로 열기)</a></li>
                 <li> <a href="mymemo.html" onclick="vocbank('mymemo.html');  return false;">상담 메모장</a></li>
-                <li> <a href="일근태.htm" target="'_blank">일근태업로드 용(나만보임)</a></li>
+                
             </ul>
               
            </div>
@@ -147,36 +147,17 @@
                             onclick="vocbank('memo.html');  return false;">상담 메모장</a><br>   
                  <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(2)">D+XX날짜계산</a><br>
                  <a href="#" class="button btnPush btnPurple"  onclick="line_dp2(5)" >단말기 심플메뉴</a><br> 
-                 <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(6)" >업무 연락처</a><br> 
-                  <a href="일근태.htm"  class="button btnPush btnPurple" 
-                            onclick="window.open('일근태.htm', '_blank', 'width=1100, height=900' ) ;  return false;">AI선생님 출결양식</a><br>
+                 <a href="#"  class="button btnPush btnLightBlue" onclick="line_dp2(6)" >업무 연락처</a><br> 
+                 <a href="#"  class="button btnPush btnOrange" onclick="line_dp2(9)">일출결양식</a><br>
                  <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(8)">남부권_당직</a><br>
-                 <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(1)">팀 스케쥴</a><br>
+                 <a href="#" class="button btnPush btnOrange" onclick="line_dp2(1)">팀 스케쥴</a><br>
                  
               </nav>
               <main>
                 <div id="menuhidden_1" class="menuhidden" style="display:none">
-                  <img 
-                   src="../imgfolder/20160517_142315.jpg" alt="연습용사진">
-                  <img style="position :absolute;display :none; height : 80vh;"
-                  src="../../IMGfolder/기계식2.jfif" alt="연습용사진">
-                 <img style="position :absolute;display :none; height : 80vh;"
-                 src="../../IMGfolder/기계식3.jfif" alt="연습용사진">
-                 <img style="position :absolute;display :none; height : 80vh;" 
-                 src="../../IMGfolder/기계식4.jfif" alt="연습용사진">
-                
-                 <p style="position:absolute ; bottom:-600px ;width:100px"><span>월별 일정:<span id="month">1월</span></span>
-                    <label><span id="button1">⏩</span></label></p>
+                    <iframe class="iframe4" frameboder="none" src = "../html/팀일정.html" >   </iframe>
                 </div>
-           
-           
-           
-           
-           
-           
-           
-           
-                <div id="menuhidden_2" class="menuhidden" style="display:none">
+            <div id="menuhidden_2" class="menuhidden" style="display:none">
                     
                     <input id ="inputyear" class="del_day1" type="text" placeholder="기준연도입력(ex:2022)"><br>
                     <input id ="inputmonth" class="del_day1" type="text" placeholder="기준월입력(ex:08) "><br>
@@ -218,7 +199,10 @@
                    <iframe class="iframe4" frameboder="none" src = "../html/guestbook.html" > </iframe>
                   </div>
                   <div id="menuhidden_8" class="menuhidden picture" style="display:none" >
-                    <img src="../imgfolder/23년1월.png" alt="2301당직" >
+                    <iframe class="iframe4" frameboder="none" src = "../html/팀일정2.html" >   </iframe>
+                  </div>
+                  <div id="menuhidden_9" class="menuhidden" style="display:none">
+                    <iframe class="iframe4" frameboder="none" src = "../html/일근태.htm" >   </iframe>
                   </div>
               </main>
               
