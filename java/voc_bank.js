@@ -144,8 +144,9 @@ function line_dp2(num) {
         }
         }
 
- $(function(){
-    $('#netwindow').click(function(){
-        $('#netwindow1').fadeToggle();
-    })
- })
+        
+        $(function(){
+            $('#netwindow').click(function(){
+                $('#netwindow1').fadeToggle();
+            })
+         })
