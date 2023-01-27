@@ -4,12 +4,16 @@
      <meta charset="utf-8">
         <link rel="stylesheet"  href="../css/buttontest1.css">
     <style>
-        .container{
+       body{
+        height :100%;
+       }
+       .container{
             display:flex;
             flex-direction:column;
+            height :100%;
         }
-      html{
-          height : 80vh;
+        html{
+          height : 100%;
          }
         header{
             border-bottom:1px solid gray;
@@ -23,7 +27,8 @@
         .content{
             display : flex;
             flex-basis: content;
-            height :80vh;
+            height :100vh;
+            position:relative;
         }
         .content nav{
             border-right:1px solid gray;
@@ -33,9 +38,7 @@
             
             flex-shrink:1;
         }
-        main{
-            padding:10px;
-        }
+        
         #menuhidden_1{
             position:relative;
             top :10px;
@@ -50,7 +53,6 @@
             position:absolue;
             top : 10px;
             left :200px;
-            
         }
             iframe.iframe1{
             position:relative;
@@ -58,20 +60,25 @@
             top:10px;
             width : 100%;
             height : 100%;
-            
-            
         }
         iframe.iframe2{
             width:350%;
             height:100%;
          }
-         .iframe11{
+       .iframe11{
             position:absolute;
             padding : 0px 0px 0px 10px;
-            top:75px;
+            top:0px;
             left :500px;
-            height :75%;
+            height :100%;
          }
+       .iframe1{
+            position:absolute;
+            padding : 0px 0px 0px 10px;
+            top:0px;
+            left :10px;
+            height :100%;
+       }
          .iframe3{
             width:400%;
             height:100%
@@ -151,6 +158,7 @@
                             onclick="window.open('일근태.htm', '_blank', 'width=1100, height=900' ) ;  return false;">AI선생님 출결양식</a><br>
                  <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(8)">남부권_당직</a><br>
                  <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(1)">팀 스케쥴</a><br>
+                 
                  
               </nav>
               <main>
