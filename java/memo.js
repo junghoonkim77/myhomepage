@@ -107,6 +107,16 @@ $(function(){
   $('.schedule').on('click',function(){
     $('div.task_gate div').toggleClass('task_gate1');
   })
-
   
+  var BasicSize = 12;
+  $('.leftmove6').click(function(){
+      BasicSize--
+      $('textarea').css('font-size',BasicSize+'px');
+      console.log($('textarea'));
+  });
+  $('.leftmove7').click(function(){
+      BasicSize++
+      $('textarea').css('font-size',BasicSize);
+  })
+      
 })

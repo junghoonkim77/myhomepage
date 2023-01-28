@@ -34,9 +34,18 @@
                 position :absolute;
                  top:35px;
                  left:220px;}
+              .leftmove6{
+                position :absolute;
+                top:15px;
+                left:220px;}
+
+              .leftmove7{
+                position :absolute;
+                top:15px;
+                left:240px;}
                
               textarea{
-                  font-size:90%;
+                  font-size:12px;
                  }
                  #hidden1 {
                     float:left;
@@ -196,7 +205,9 @@
             <input class="leftmove4" type="button" onclick="sample6_execDaumPostcode()" value="주소">
             <input class="leftmove5" type="button" value="그룹📧"
             onclick="window.open('https://gw.ktcs.co.kr/logon.aspx', '_blank', 'width=1100, height=900' ) ; return false;">             
-         </form> 
+         </form>
+         <input class="leftmove6" type="button" value="-">
+         <input class="leftmove7" type="button" value="+"> 
     
           <textarea cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
           <textarea id="hidden1" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
