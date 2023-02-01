@@ -39,7 +39,7 @@
         <img src="../../IMGfolder/기계식4.jfif" alt="연습용사진">
         
      </div>
-     <p><span>월별 일정:<span id="month">1월</span></span>
+     <p><span>월별 일정:<span id="month"></span></span>
       <label><span id="button1">⏩</span></label></p>
       
     
@@ -54,7 +54,8 @@
         var $month=date.getMonth()+1;
         console.log($month);
         var idx = $month-1;
-        
+        $('#month').html(`${$month}월`);
+
        $img.eq(idx).fadeIn(100);
          jQuery('#button1').click(function(){
           var Nextidx =(idx+1)%$imgCount 
