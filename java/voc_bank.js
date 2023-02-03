@@ -149,4 +149,16 @@ function line_dp2(num) {
             $('#netwindow').click(function(){
                 $('#netwindow1').fadeToggle();
             })
+           $('#code').click(function(){
+                    $('#code1').stop().fadeIn().fadeOut(5000);
+                }) 
+                
+              var codelist = ['UCB0041','UCB0043','UCK0033','UCL0053','UCB0071','KRater OP','118176867'];
+                 console.log($('#code1 ul li'));
+                
+                 $('#code1 ul li').click(function(){
+                 var codevalue = $(this).index();
+                 console.log(codevalue);
+                 navigator.clipboard.writeText(codelist[codevalue]);
+                })      
          })
