@@ -25,6 +25,10 @@
          ul li:nth-child(5) a{
             color : red;
          }
+
+         #password{
+            display : none;
+         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>부서별 코드</title>
@@ -40,23 +44,40 @@
             <li><a title="클릭하면 코드만 복사됨" href=""><b>그냥 서울중앙 무선고객만족팀[UCB0071]</b></a></li>
             <li><a title="클릭하면 코드만 복사됨" href="">KRater OP(데이터 접속불가,속도지연)</a></li>
             <li><a title="클릭하면 코드만 복사됨" href="">김정훈 kos id 118176867</a></li>
-
-
+    </ul>
+    </div>
+    <input type="text" id="key" placeholder="키값 입력">
+    <button>클릭</button>
+    <div id ="password">
+        <ul>
+            <li>kos 비번(매월 바뀜)</li>
+            <li>WFMS 비번</li>
+            <li>LTAS 비번</li>
+            <li>단말기 자급제 사이트 비번 </li>
         </ul>
+    </div>
+    
+    <script>
           
-       </div>
-       <script>
-           $('button').click(function(){
-            $('#code1').stop().fadeIn().fadeOut(5000);
-           })
-
           var codelist = ['UCB0041','UCB0043','UCK0033','UCL0053','UCB0071','KRater OP','118176867'];
+          var passarr =['kimjunghoon02!!','folkball24@','Amho7303^^','amho2721!'];
          $('#code1 ul li').click(function(e){
                  e.preventDefault();
                  var codevalue = $(this).index();
                  console.log(codevalue);
                 navigator.clipboard.writeText(codelist[codevalue]);
                 })
+         $('button').click(function(){
+            if($('#key').val()=="6279"){
+            $('#password').show()
+            }else{ alert('비번이 틀려요')
+            }
+        $('#password ul li').click(function(){
+            var passidx = $(this).index();
+            navigator.clipboard.writeText(passarr[passidx]);
+        })
+
+         })       
        </script>
 </body>
 </html>
