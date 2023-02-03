@@ -30,17 +30,17 @@
     <title>팅일정</title>
 </head>
 <body>
-    <h5>2023년 팀일정</h5>
+    <h5>2023년 <span id="mon"><span>월</span></span> 팀일정</h5>
     <div>
         
         <img src="../imgfolder/팀일정2301.png" alt="연습용사진">
         <img src="../imgfolder/팀일정2302.png" alt="연습용사진">
-        <img src="../../IMGfolder/기계식3.jfif" alt="연습용사진">
+        <img src="../imgfolder/IMG_6369.jpg" alt="연습용사진">
         <img src="../../IMGfolder/기계식4.jfif" alt="연습용사진">
         
      </div>
-     <p><span>월별 일정:<span id="month"></span></span>
-      <label><span id="button1">⏩</span></label></p>
+     <p><span id="button2">⏪</span><span>월별 일정:<span id="month"></span></span>
+              <span id="button1">⏩</span></p>
       
     
     
@@ -55,6 +55,7 @@
         console.log($month);
         var idx = $month-1;
         $('#month').html(`${$month}월`);
+        $('#mon').html(`${$month}월`);
 
        $img.eq(idx).fadeIn(100);
          jQuery('#button1').click(function(){
@@ -63,9 +64,25 @@
           $img.eq(Nextidx).fadeIn(100);
           idx = Nextidx;
           $('#month').html(`${idx+1}월`);
+          $('#mon').html(`${idx+1}월`);
+        })
 
-        
-    })
+        jQuery('#button2').click(function(){
+          var Nextidx2 =(idx-1)
+          $img.eq(idx).fadeOut(100);
+          if(Nextidx2>=0){
+            $img.eq(Nextidx2).fadeIn(100);
+            $('#month').html(`${Nextidx2+1}월`);
+            $('#mon').html(`${Nextidx2+1}월`);
+          }else{
+            //$img.eq(idx).fadeIn();
+            stop();
+          }
+           // $img.eq(Nextidx2).fadeIn(100);
+          //  idx = Nextidx2;
+          //$('#month').html(`${idx+1}월`);
+          //$('#mon').html(`${$idx+1}월`);
+        })
     }) 
  </script>
 
