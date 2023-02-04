@@ -17,7 +17,8 @@
       div img{
         position :absolute;
         display :none;
-        height : 80vh;
+        height : 600px;
+        width :1100px;
       } 
       p {
         position:absolute;
@@ -29,7 +30,7 @@
     <title>팅일정</title>
 </head>
 <body>
-    <h5>2023년 팀일정</h5>
+  <h5>2023년 <span id="mon"><span>월</span></span>당직일정</h5>
     <div>
         
         <img src="../imgfolder/남부2301.png" alt="연습용사진">
@@ -38,14 +39,14 @@
         <img src="../../IMGfolder/기계식4.jfif" alt="연습용사진">
         
      </div>
-     <p><span>월별 일정:<span id="month"></span></span>
-      <label><span id="button1">⏩</span></label></p>
+     <p><span id="button2">⏪</span><span>월별 일정:<span id="month"></span></span>
+      <span id="button1">⏩</span></p>
       
     
     
   
  <script>
-     jQuery(function(){
+    jQuery(function(){
         
         var $img = $('div img');
         var $imgCount = $img.length;
@@ -54,6 +55,7 @@
         console.log($month);
         var idx = $month-1;
         $('#month').html(`${$month}월`);
+        $('#mon').html(`${$month}월`);
 
        $img.eq(idx).fadeIn(100);
          jQuery('#button1').click(function(){
@@ -62,9 +64,29 @@
           $img.eq(Nextidx).fadeIn(100);
           idx = Nextidx;
           $('#month').html(`${idx+1}월`);
+          $('#mon').html(`${idx+1}월`);
+          $('#button2').show();
+        })
 
-        
-    })
+        jQuery('#button2').click(function(){
+          var Nextidx =(idx-1)
+          $img.eq(idx).fadeOut(100);
+          $img.eq(Nextidx).fadeIn(100);
+          idx = Nextidx;
+          if(Nextidx==0){
+            $(this).hide();
+            $('#month').html(`${idx+1}월`);
+            $('#mon').html(`${idx+1}월`);
+          }else{
+            $('#month').html(`${idx+1}월`);
+            $('#mon').html(`${idx+1}월`);
+            
+          }
+           // $img.eq(Nextidx2).fadeIn(100);
+          //  idx = Nextidx2;
+          //$('#month').html(`${idx+1}월`);
+          //$('#mon').html(`${$idx+1}월`);
+        })
     }) 
  </script>
 

@@ -18,7 +18,7 @@
         position :absolute;
         left :30px;
         display :none;
-        height : 80vh;
+        height : 600px;
       } 
       p {
         position:absolute;
@@ -35,8 +35,8 @@
         
         <img src="../imgfolder/팀일정2301.png" alt="연습용사진">
         <img src="../imgfolder/팀일정2302.png" alt="연습용사진">
-        <img src="../imgfolder/" alt="연습용사진">
-        <img src="../../IMGfolder/기계식4.jfif" alt="연습용사진">
+        <img src="../imgfolder/아이폰ESIM오류.png" alt="연습용사진">
+        <img src="../imgfolder/엘베비상장치.jpg" alt="연습용사진">
         
      </div>
      <p><span id="button2">⏪</span><span>월별 일정:<span id="month"></span></span>
@@ -65,18 +65,22 @@
           idx = Nextidx;
           $('#month').html(`${idx+1}월`);
           $('#mon').html(`${idx+1}월`);
+          $('#button2').show();
         })
 
         jQuery('#button2').click(function(){
-          var Nextidx2 =(idx-1)
+          var Nextidx =(idx-1)
           $img.eq(idx).fadeOut(100);
-          if(Nextidx2>=0){
-            $img.eq(Nextidx2).fadeIn(100);
-            $('#month').html(`${Nextidx2+1}월`);
-            $('#mon').html(`${Nextidx2+1}월`);
+          $img.eq(Nextidx).fadeIn(100);
+          idx = Nextidx;
+          if(Nextidx==0){
+            $(this).hide();
+            $('#month').html(`${idx+1}월`);
+            $('#mon').html(`${idx+1}월`);
           }else{
-            //$img.eq(idx).fadeIn();
-            alert('없음')
+            $('#month').html(`${idx+1}월`);
+            $('#mon').html(`${idx+1}월`);
+            
           }
            // $img.eq(Nextidx2).fadeIn(100);
           //  idx = Nextidx2;
