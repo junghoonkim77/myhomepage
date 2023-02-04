@@ -41,7 +41,7 @@ div.minimalistBlack {
   font-size: 11px;
 }
 /* DivTable.com */
-.divTable{ display: table; }
+.divTable{ display: table; grid-area: divtable; }
 .divTableRow { display: table-row; }
 .divTableHeading { display: table-header-group;}
 .divTableCell, .divTableHead { display: table-cell;}
@@ -49,24 +49,39 @@ div.minimalistBlack {
 .divTableFoot { display: table-footer-group;}
 .divTableBody { display: table-row-group;}
 
-iframe { position :fixed; top:65px; right:230px;
- width:43%; 
- height :80%;
- 
+a {
+  text-decoration: none;
  }
+ a:hover{
+  background-color: hsl(120, 75%, 81%);
+ }
+ body{
+  display : grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-areas: 
+    'divtable conten'
+  ;
+ }
+iframe {
+  grid-area : conten;
+  position : fixed;
+  width : 100%;
+  height : 100%;
+  left : 300px;
 
+}
  </style>
         <title>통품VOC은행</title> 
  </head>
  <body>
- <h4>통품voc은행</h4> 
-   <iframe  src = "" name="frame" >
-     </iframe>
+ 
+   <iframe   src = "" name="frame" style="border:none"> </iframe>
         <div class="divTable minimalistBlack">
           <div class="divTableHeading">
             <div class="divTableRow">
             <div class="divTableHead">통품voc은행</div>
-           
+            <div class="divTableHead"><span>현 등록건수:</span>
+            <span id="count"></span></div>
          </div>
           </div>
           <div class="divTableBody">
@@ -347,15 +362,15 @@ iframe { position :fixed; top:65px; right:230px;
               <div class="divTableCell">
                 <a href="타사에서_일시정지된_단말의_경우_KT에서_일반_기변_가능_여부.html"target="frame">타사 일시정지단말 KT(기변가능여부)</a></div>
               <div class="divTableCell">
-                <a href="통화발신불가시(송출멘트).html"target="frame">통화발신불가시 (송출멘트)</a></div>
+                <a href="삼성 해외 5G 단말 APN 설정.html" target="frame">삼성 해외 5G단말 APN설정</a></div>
               <div class="divTableCell">
-                <a href="착신거절시_송출멘트.html"target="frame">착신거절시 송출멘트</a></div>
+                <a href="전자파.html" target="frame">전자파 voc</a> </div>
             </div>
             <div class="divTableRow">
               <div class="divTableCell">
                 <a href="지역번호114__기업대표_번호_발신불가.html"target="frame">지역번호114__기업대표_번호_발신불가</a></div>
               <div class="divTableCell">
-                <a href="정지시_송출멘트.html"target="frame">정지시 송출멘트</a></div>
+                <a href="수신 거절 멘트 최종.html"target="frame">수신 거절멘트_최종</a></div>
               <div class="divTableCell">
                 <a href="재난문자_수신불가시_조치방법.html"target="frame">재난문자_수신불가시_조치방법</a></div>
             </div>
@@ -368,12 +383,12 @@ iframe { position :fixed; top:65px; right:230px;
                 <a href="에이서원_갤럭시북_윈10사용시_APN설정방법.html"target="frame">에이서원 갤럭시북 윈10사용시</a></div>
             </div>
             <div class="divTableRow">
+            <div class="divTableCell">
+              <a href="엘리베이터비상장치(승강기).html"target="frame">승강기(엘리베이터)무선비상장치 신호점검</a></div>
               <div class="divTableCell">
-                cell1_4</div>
+                <a href="삼성단말메시지수신불가.html"target="frame">삼성단말(하위버전)메시지 수신오류(22년9월)(</a></div>
               <div class="divTableCell">
-                cell2_4</div>
-              <div class="divTableCell">
-                cell3_4</div>
+                <a href="omd셀프변경.html"target="frame">omd 셀프변경 마이케이티 앱(</a></div>
             </div>
             <div class="divTableRow">
               <div class="divTableCell">
@@ -612,21 +627,28 @@ iframe { position :fixed; top:65px; right:230px;
                 <a href="DCNR확인방법.html"target="frame">DCNR확인방법</a></div>
               <div class="divTableCell">
                 <a href="esim과금기준.html"target="frame">esim과금기준</a></div>
+             <div class="divTableCell"> 
+                 <a href="esimopen.html"target="frame">Esim발급방법 안내 </a></div>
+            </div>
+            <div class="divTableRow">
               <div class="divTableCell">
-                cell3_4</div>
+                <a href="휴근용양식.html"target="frame">휴근용_문자양식</a></div>
+              <div class="divTableCell">
+                <a href="귀국후_대표번호_발신실패(아이폰).html"target="frame">귀국후 대표번호 발신불가(아이폰)</a></div>
+              <div class="divTableCell">
+<a href="아이폰14esim오류.html"target="frame">아이폰14(MEP단말)개통오류_esim</a></div>
             </div>
             <div class="divTableRow">
-              <div class="divTableCell">cell1_4</div>
-              <div class="divTableCell">cell2_4</div>
-              <div class="divTableCell">cell3_4</div>
+             <div class="divTableCell">
+ <a href="KT이용약관.html" target="frame">KT 이용 약관</a></div>
+              <div class="divTableCell">
+  <a href="모바일_명세서_수신오류.html" target="frame">모바일 명세서 수신오류</a></div>
+   <div class="divTableCell">
+ <a href="자급아이폰_ESIM다운오류.html" target="frame">자급 아이폰 ESIM다운오류</a></div>          
             </div>
             <div class="divTableRow">
-              <div class="divTableCell">cell1_4</div>
-              <div class="divTableCell">cell2_4</div>
-              <div class="divTableCell">cell3_4</div>
-            </div>
-            <div class="divTableRow">
-              <div class="divTableCell">cell1_4</div>
+             <div class="divTableCell">
+ <a href="duplicated오류.html" target="frame">유심(USIM)이동시 DUPLICATED조치</a></div>
               <div class="divTableCell">cell2_4</div>
               <div class="divTableCell">cell3_4</div>
             </div>
@@ -638,10 +660,16 @@ iframe { position :fixed; top:65px; right:230px;
           </div>
          </div>
         </div>
-
-  <script src="../java/voc_bank.js">  </script>
   
-
+  <script src="../java/voc_bank.js">  </script>
+  <script>
+    function count(){
+      let CountAtag = document.getElementsByTagName('a').length;
+      document.getElementById('count').innerHTML = String(`${CountAtag}건`);
+     }
+     count();
+  </script> 
+ 
     </body>
 
 </html>

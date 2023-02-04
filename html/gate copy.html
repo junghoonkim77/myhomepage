@@ -8,25 +8,32 @@
         height :100%;
        }
        .container{
-            display:flex;
-            flex-direction:column;
+            display:grid;
+            grid-template-columns: 1fr 7fr;
+            grid-template-rows: 50px auto 30px;
+            grid-template-areas: 
+              'header header'
+              'nav  main'
+              'footer footer'  
+             ;
             height :100%;
         }
         html{
           height : 100%;
          }
         header{
+            grid-area: header;
             border-bottom:1px solid gray;
             padding-left:20px;
         }
         footer {
+            grid-area : footer;
             border-top:1px solid gray;
             padding-left:20px;
             text-align:center;
         }
         .content{
-            display : flex;
-            flex-basis: content;
+            
             height :100vh;
             position:relative;
         }
@@ -35,8 +42,10 @@
         }
         
         nav  {
-            
-            flex-shrink:1;
+            grid-area:nav;
+        }
+        main {
+            grid-area:main;
         }
         
         #menuhidden_1{
@@ -84,11 +93,10 @@
             height:100%
          }
          .iframe4{
-            position:absolute;
-            padding : 0px;
-            width:100%;
+            margin :0px;
+            width:400%;
             height:100%;
-            left:150px;
+            left:30px;
          }
         .del_day1{
             width :319px;
@@ -104,6 +112,11 @@
         }
         #netwindow1 ul li:hover{
             background-color: rgb(231, 227, 227);
+        }
+        #code1{
+            position :absolute;
+            left : 55%;
+            display : none;
         }
         
     </style>
@@ -127,10 +140,9 @@
                     <span style="font-size:20px ; color:#4285F4; font-weight: bold;"> 
                         게시판 </span>
                 </a>
-           
-           <span id="netwindow" style="font-size:20px"><b>/ 통화품질 전산(클릭!)</b> </span>
+           <span id="netwindow" style="font-size:20px"><b>/ 통화품질 전산(클릭!)</b> </span>  
            <div id="netwindow1">
-              <ul>
+            <ul>
                 <li><a href="https://koshelper.kt.co.kr/" target="'_blank"> 넷윈도 (우측마우스 클릭->새탭으로 열기) </a></li>
                 <li><a href="https://wing.kt.com" target="'_blank"> 윙 3.0 (우측마우스 클릭->새탭으로 열기) </a></li> 
                 <li><a href="https://admin.spam.kt.com/" target="'_blank"> 스팸차단서비스 (우측마우스 클릭->새탭으로 열기) </a></li>
@@ -143,10 +155,14 @@
                 <li> <a href="https://www.wififree.kr/index.do" target="'_blank">공공WIFI 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
                 <li> <a href="https://checkcoverage.apple.com/kr/ko/;jsessionid=node0jcz99wa6rq3b1fir3t4mead7d67089905.node0 "'_blank">아이폰 단말정보 조회(애플공식) (우측마우스 클릭->새탭으로 열기)</a></li>
                 <li> <a href="mymemo.html" onclick="vocbank('mymemo.html');  return false;">상담 메모장</a></li>
+                <li> <a href="https://gr-cti2-fin-2a.ktgg.ipcc2.com/desktop/container/landing.jsp?locale=ko_KR" target="'_blank">비상전화기(코스ID/코스ID/본인내선)</a></li>
+                
             </ul>
+              
            </div>
+               
         </header>
-            <section class="content">
+           
               <nav>
                 
                  <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(3)">TT&비영업양식</a><br>
@@ -155,19 +171,17 @@
                             onclick="vocbank('memo.html');  return false;">상담 메모장</a><br>   
                  <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(2)">D+XX날짜계산</a><br>
                  <a href="#" class="button btnPush btnPurple"  onclick="line_dp2(5)" >단말기 심플메뉴</a><br> 
-                 <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(6)" >업무 연락처</a><br> 
-                  <a href="일근태.htm"  class="button btnPush btnPurple" 
-                            onclick="window.open('일근태.htm', '_blank', 'width=1100, height=900' ) ;  return false;">AI선생님 출결양식</a><br>
+                 <a href="#"  class="button btnPush btnLightBlue" onclick="line_dp2(6)" >연락처/부서코드</a><br> 
+                 <a href="#"  class="button btnPush btnOrange" onclick="line_dp2(9)">일출결양식</a><br>
                  <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(8)">남부권_당직</a><br>
-                 <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(1)">팀 스케쥴</a><br>
-                 
+                 <a href="#" class="button btnPush btnOrange" onclick="line_dp2(1)">팀 스케쥴</a><br>
                  
               </nav>
               <main>
                 <div id="menuhidden_1" class="menuhidden" style="display:none">
-                    <img src="../imgfolder/2301팀일정.png" alt="2301팀일정" >
+                    <iframe class="iframe4" frameboder="none" src = "../html/팀일정.html" >   </iframe>
                 </div>
-            <div id="menuhidden_2" class="menuhidden" style="display:none">
+               <div id="menuhidden_2" class="menuhidden" style="display:none">
                     
                     <input id ="inputyear" class="del_day1" type="text" placeholder="기준연도입력(ex:2022)"><br>
                     <input id ="inputmonth" class="del_day1" type="text" placeholder="기준월입력(ex:08) "><br>
@@ -209,11 +223,14 @@
                    <iframe class="iframe4" frameboder="none" src = "../html/guestbook.html" > </iframe>
                   </div>
                   <div id="menuhidden_8" class="menuhidden picture" style="display:none" >
-                    <img src="../imgfolder/23년1월.png" alt="2301당직" >
+                    <iframe class="iframe4" frameboder="none" src = "../html/팀일정2.html" >   </iframe>
+                  </div>
+                  <div id="menuhidden_9" class="menuhidden" style="display:none">
+                    <iframe class="iframe4" frameboder="none" src = "../html/일근태.htm" >   </iframe>
                   </div>
               </main>
               
-            </section>
+            
             <footer>
                 <a href="https://junghoonkim77.github.io/myhomepage/html/gate.html">
                     통품홈페이지</a>
