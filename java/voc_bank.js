@@ -146,9 +146,13 @@ function line_dp2(num) {
 
         
         $(function(){
-            $('#netwindow').click(function(){
-                $('#netwindow1').fadeToggle();
-            })
+            $('#netwindow').mouseover(function(){
+                    $('#netwindow1').stop().fadeIn();
+                $('#netwindow').mouseout(function(){
+                    $('#netwindow1').stop().fadeOut(500);
+                })  
+                })
+                
            $('#code').click(function(){
                     $('#code1').stop().fadeIn().fadeOut(5000);
                 }) 
