@@ -8,9 +8,9 @@
     <script charset="utf=8">
      i = 0;
      while (i<10) {
-         document.write("<li>hello world</li>");
+         document.write("<li>hello"+i +"world</li>");
          document.write(i);
-         i = i +1 ;
+         i++ ;
         }    
     </script>
 
@@ -20,8 +20,8 @@
     <?php
      $i = 0;
      while($i < 10) {
-         echo " <li> hello world </li>";
-         $i = $i +1 ;
+         echo  ` <li> hello world </li>`;
+         $i++ ;
         echo $i;
 
         }
