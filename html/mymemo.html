@@ -106,16 +106,22 @@
                 }
                 .password{
                     position:absolute;
-                    top :60px;
-                    left :285px;
+                    top :40px;
+                    left :46px;
+                    z-index :1;
                 }
                 
                 .password .passmenu .passvalue {
                     display : none;
-                }
+                    z-index :1 ;
+                 }
                 .passmenu{
                     background-color: aqua;
-                }    
+                }
+                .password .passmenu .passvalue button:hover {
+                    background-color:chartreuse;
+                    
+                 }    
                 
             </style>
          <script src="https://code.jquery.com/jquery-3.6.1.js" 
@@ -198,11 +204,11 @@
     <div class="password">
          <span class="passmenu">각종비번
              <div class="passvalue">
-             <button value="UCB0041">통화품질1팀</button><br>
-             <button value="UCB0043">기스마</button><br>
-             <button value="UCK0033">대전통품</button><br>
-             <button value="UCL0053">대구통품</button><br>
-             <button value="UCB0071">무선고객만족팀</button><br>
+             <button value="UCB0041">서울중앙 통화품질1팀[UCB0041]</button><br>
+             <button value="UCB0043">서울중앙 기술스마트[UCB0043]</button><br>
+             <button value="UCK0033">대전통화품질팀[UCK0033]</button><br>
+             <button value="UCL0053">대구통화품질팀[UCL0053]</button><br>
+             <button value="UCB0071">서울중앙 무선고객만족팀[UCB0071]</button><br>
              <button value="KRater OP">KRater OP</button><br>
              <button value="kimjunghoon02!!">kos비번</button><br>
              <button value="folkball24@">WFMS비번</button><br>
@@ -215,15 +221,8 @@
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <input style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
            <input style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
-           <input class="leftmove1" id ="toggle" type="reset" value="⏰리셋" onclick="
-           
-        var textare_color = document.querySelectorAll('textarea') ; 
-            textare_color[0].style.backgroundColor ='white';
-            textare_color[0].style.color ='black';
-            textare_color[1].style.backgroundColor ='white';
-            textare_color[1].style.color ='black';">
-            
-            <input class="leftmove3" id="toggle1" type="button" value="📘📘" onclick="
+           <input class="leftmove1" id ="toggle" type="button" value="⏰리셋" >
+           <input class="leftmove3" id="toggle1" type="button" value="📘📘" onclick="
             if(this.value==='📘📘'){
                 document.getElementById('hidden1').style.display ='none';
                 document.querySelector('#toggle1').value = '📘';}
@@ -301,13 +300,18 @@
    $('.passmenu').mouseover(function(){
         $('.passvalue').show().mouseout(function(){
             $('.passvalue').hide(); 
-        })
-    })
+        });
+    });
 
    $password.click(function(){
     var $butval = $(this).val();
     navigator.clipboard.writeText($butval);
-   })  
+   });
+   
+   $('#toggle').click(function(){
+    $('textarea').css('background-color','white');
+    $('.inputtime').val("");
+   });
   </script>
      </body>
 </html>
