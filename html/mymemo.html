@@ -51,7 +51,7 @@
                  #hidden1 {
                     float:left;
                  }
-                button{
+                #btn1{
                   position :relative;
                   left :146px;
                 }
@@ -99,10 +99,23 @@
                     
                 }
                 .font-size{
+                    display :inline-block;
                     font-size: 10px;
                     background-color: beige;
 
                 }
+                .password{
+                    position:absolute;
+                    top :60px;
+                    left :285px;
+                }
+                
+                .password .passmenu .passvalue {
+                    display : none;
+                }
+                .passmenu{
+                    background-color: aqua;
+                }    
                 
             </style>
          <script src="https://code.jquery.com/jquery-3.6.1.js" 
@@ -182,6 +195,22 @@
    <label> <input type="checkbox" >월 500콜 무조건 확인<br></label>
             </div>
           </div>
+    <div class="password">
+         <span class="passmenu">각종비번
+             <div class="passvalue">
+             <button value="UCB0041">서울중앙 통화품질1팀[UCB0041]</button><br>
+             <button value="UCB0043">서울중앙 기술스마트상담팀[UCB0043]</button><br>
+             <button value="UCK0033">대전무선 통화품질01팀[UCK0033]</button><br>
+             <button value="UCL0053">대구무선 기술상담01TG[UCL0053]</button><br>
+             <button value="UCB0071">서울중앙 무선고객만족팀[UCB0071]</button><br>
+             <button value="KRater OP">KRater OP(데이터 접속불가,속도지연)</button><br>
+             <button value="kimjunghoon02!!">kos 비번(매월 바뀜)</button><br>
+             <button value="folkball24@">WFMS 비번</button><br>
+             <button value="Amho7303^^">LTAS 비번</button><br>
+             <button value="amho2721!">단말기 자급제 사이트 비번</button><br>
+             </div>
+         </span>            
+    </div>
        <form name="form">
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <input style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
@@ -266,6 +295,19 @@
   </script>
   <script src="../java/memo.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  
+  <script>
+
+   var $password = $('.password .passmenu .passvalue button' )
+   $('.passmenu').mouseover(function(){
+        $('.passvalue').show().mouseout(function(){
+            $('.passvalue').hide(); 
+        })
+    })
+
+   $password.click(function(){
+    var $butval = $(this).val();
+    navigator.clipboard.writeText($butval);
+   })  
+  </script>
      </body>
 </html>
