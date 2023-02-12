@@ -129,15 +129,8 @@
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <input style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
            <input style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
-           <input class="leftmove1" id ="toggle" type="reset" value="⏰리셋" onclick="
-           
-        var textare_color = document.querySelectorAll('textarea') ; 
-            textare_color[0].style.backgroundColor ='white';
-            textare_color[0].style.color ='black';
-            textare_color[1].style.backgroundColor ='white';
-            textare_color[1].style.color ='black';">
-            
-            <input class="leftmove3" id="toggle1" type="button" value="📘📘" onclick="
+           <input class="leftmove1" id ="toggle" type="reset" value="⏰리셋" >         
+           <input class="leftmove3" id="toggle1" type="button" value="📘📘" onclick="
             if(this.value==='📘📘'){
                 document.getElementById('hidden1').style.display ='none';
                 document.querySelector('#toggle1').value = '📘';}
@@ -208,6 +201,12 @@
   </script>
   <script src="../java/memo.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  
-     </body>
+  <script>
+   $('#toggle').click(function(){
+    $('textarea').css('background-color','white');
+    $('.inputtime').val("");
+   });
+
+  </script>
+  </body>
 </html>
