@@ -21,7 +21,7 @@
             display : none;
             position : absolute;
             height : 100vh;
-            width : 100wh;
+            
             
             
            /* transform: rotate(30deg); */
@@ -61,7 +61,11 @@
             clearInterval(timer);
           }).on('mouseout',function(){
             setInterval(ShowNextSlide,3500);});*/
-          
+         
+            function reloading(){
+            location.reload();
+         }
+         setInterval(reloading,10000);
          
         })
     </script>
