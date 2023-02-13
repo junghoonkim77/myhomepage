@@ -53,7 +53,7 @@
          var timer = setInterval(ShowNextSlide,5000);
          function ShowNextSlide(){
             var nextIndex = (currindex+1) % imgtreecount; // 매우 중요한 공식
-            imgtree.eq(currindex).fadeOut();
+            imgtree.eq(currindex).hide();
             imgtree.eq(nextIndex).fadeIn();
             currindex = nextIndex;
             console.log(currindex);
