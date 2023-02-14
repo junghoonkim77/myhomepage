@@ -8,32 +8,25 @@
         height :100%;
        }
        .container{
-            display:grid;
-            grid-template-columns: 1fr 7fr;
-            grid-template-rows: 50px auto 30px;
-            grid-template-areas: 
-              'header header'
-              'nav  main'
-              'footer footer'  
-             ;
+            display:flex;
+            flex-direction:column;
             height :100%;
         }
         html{
           height : 100%;
          }
         header{
-            grid-area: header;
             border-bottom:1px solid gray;
             padding-left:20px;
         }
         footer {
-            grid-area : footer;
             border-top:1px solid gray;
             padding-left:20px;
             text-align:center;
         }
         .content{
-            
+            display : flex;
+            flex-basis: content;
             height :100vh;
             position:relative;
         }
@@ -42,10 +35,8 @@
         }
         
         nav  {
-            grid-area:nav;
-        }
-        main {
-            grid-area:main;
+            
+            flex-shrink:1;
         }
         
         #menuhidden_1{
@@ -59,7 +50,7 @@
             left :35px;
                 }
         #google_calender{
-            position:absolue;
+            
             top : 10px;
             left :200px;
         }
@@ -140,7 +131,7 @@
                     <span style="font-size:20px ; color:#4285F4; font-weight: bold;"> 
                         게시판 </span>
                 </a>
-           <span id="netwindow" style="font-size:20px"><b>/ 통화품질 전산(클릭!)</b> </span>  
+           <span id="netwindow" style="font-size:20px"><b>/ 통화품질전산(👀)</b> 
            <div id="netwindow1">
             <ul>
                 <li><a href="https://koshelper.kt.co.kr/" target="'_blank"> 넷윈도 (우측마우스 클릭->새탭으로 열기) </a></li>
@@ -156,13 +147,12 @@
                 <li> <a href="https://checkcoverage.apple.com/kr/ko/;jsessionid=node0jcz99wa6rq3b1fir3t4mead7d67089905.node0 "'_blank">아이폰 단말정보 조회(애플공식) (우측마우스 클릭->새탭으로 열기)</a></li>
                 <li> <a href="mymemo.html" onclick="vocbank('mymemo.html');  return false;">상담 메모장</a></li>
                 <li> <a href="https://gr-cti2-fin-2a.ktgg.ipcc2.com/desktop/container/landing.jsp?locale=ko_KR" target="'_blank">비상전화기(코스ID/코스ID/본인내선)</a></li>
-                
             </ul>
-              
            </div>
+          </span>  
                
         </header>
-           
+            <section class="content">
               <nav>
                 
                  <a href="#"  class="button btnPush btnBlueGreen" onclick="line_dp2(3)">TT&비영업양식</a><br>
@@ -181,7 +171,7 @@
                 <div id="menuhidden_1" class="menuhidden" style="display:none">
                     <iframe class="iframe4" frameboder="none" src = "../html/팀일정.html" >   </iframe>
                 </div>
-               <div id="menuhidden_2" class="menuhidden" style="display:none">
+            <div id="menuhidden_2" class="menuhidden" style="display:none">
                     
                     <input id ="inputyear" class="del_day1" type="text" placeholder="기준연도입력(ex:2022)"><br>
                     <input id ="inputmonth" class="del_day1" type="text" placeholder="기준월입력(ex:08) "><br>
@@ -211,7 +201,7 @@
                     <iframe class="iframe11"  src = "기타양식.html" name="frame" >   </iframe>
                   </div>
                   <div id="menuhidden_4" class="menuhidden" style="display:none">
-                    <iframe class="iframe2"  src = "통품voc은행.html" >   </iframe>
+                    <iframe class="iframe2"  src = "Sales.html" >   </iframe>
                   </div>
                   <div id="menuhidden_5" class="menuhidden" style="display:none">
                     <iframe class="iframe3"  src = "../html1/phonemanual.html" >   </iframe>
@@ -230,7 +220,7 @@
                   </div>
               </main>
               
-            
+            </section>
             <footer>
                 <a href="https://junghoonkim77.github.io/myhomepage/html/gate.html">
                     통품홈페이지</a>
