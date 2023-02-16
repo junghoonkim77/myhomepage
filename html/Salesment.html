@@ -5,48 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .containers{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto;
-            grid-gap :2px;
+        
+        #radio{
+            background-color:aqua;
+            width : 45%;
+            position : fixed; 
+            padding :0px;
+            margin : 0px 0px 20px 0px;
+            top : 0px;           
         }
-        div {
-            border : 1px solid gray;
+        .ments{
+            display : none;
+        }
+        #comment{
+            position : relative;
+            top : 20px;
+            
         }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <title>각종멘트</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" 
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>Document</title>
 </head>
 <body>
-    <div class="containers">
-        <div class="ments">
-            <pre>
+ <div id="radio">
+ <label><input type="radio" name="check" >반론극복</label>
+ <label><input type="radio" name="check" >인터넷+TV</label>
+ <label><input type="radio" name="check" >TV(복수포함)</label>
+ <label><input type="radio" name="check">TV(ONLY)</label>
+ <label><input type="radio" name="check" >MIT(동시공유)</label> 
+</div>    
+<div id="comment">
+    <div class="ments">
+        <pre>
 <b>반론극복 1</b>
 아니요~! 됐어요~!
-
+            
 ☞ 이번달 선착순 사은품 혜택이 너무 좋아서 챙겨 드리려고
 말슴 드렸어요~
 ☞ 기회가 너무 좋아서 놓치기 아까운데 상담 한번 받아 
 보시는게 어떠세요?
-          </pre>
-         </div>
-         <div class="ments">
-            <pre>
+        </pre>
+        <pre>
 <b>반론극복 2</b>
 시간 없어요~ 바빠요~
-
+            
 ☞통화하시기 편한 시간에 전화 드릴 수 있습니다~
 몇 시가 편하세요?
-
+            
 ☞간단하게 안내해드리고 있어서 잠깐의 통화로도 
 확인 가능하구요 이후에 상세한 상담은  편한 시간에
 다시 전화드릴 수도 있습니다.
-            </pre>
-         </div>
-        <div class="ments">
-            <pre>
+       </pre>
+    </div>
+    <div class="ments">
+      <pre>
 <b>[인터넷 + TV ]</b>
 고객님~ 지금 인터넷과 TV는 가입이 안되어 있으신데 인터넷과 TV 
 
@@ -55,219 +68,170 @@
 더 좋은 혜택을 받을 수 있는데요~ 
             
 전화주신김에 잠깐 상담받아보시는거 어떠세요?
-                 
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+          </pre>
+          <pre>
 <b>[인터넷 + TV ]</b>
-
+            
 요금 넷플릭스를 많이 이용하시는데요~ 지금 KT에서 인터넷과 TV를
-
+            
 함께 가입하시면 상품권도 제공할 뿐만 아니라 , 올레 TV를 통해 
-
+            
 넷플릭스를 바로 시청 할수 있는데요~
-
+            
 이왕 전화주신김에 상담 받아 보시겠습니까?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+        </pre>
+        <pre>
 <b>[인터넷 + TV ]</b>
-
+            
 우리 고객님 저희 kt를 오랜기간 이용해주고 있으신데 인터넷과 
-
+            
 tv를 추가로 이용하시면 기가 와이파이도 무료로 제공해드리고 
-
+            
 가전 제품이나 상품권도 제공해 드리는 혜택이  
-
+            
 있는데요 전화 주신김에 혜택상담 받아보시도록 전문 상담사 
-
+            
 연결 해드릴까요?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+   </pre>
+</div>
+   <div class="ments">
+    <pre>
 <b>[ TV ]</b>
 지금 TV를 가입하시면 집에서 큰 화면으로 넷플릭스를 생생하게 
-
+        
 시청하실수 있고 다양한 프로모션도 진행중인데 상담 받아보시도록 
-
+        
 연결해드릴까요?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+</pre>
+<pre>
 <b>[ TV ]</b>
 지금 TV는 사용을 안하시는데 850만 가입자가 선택한 1등 브랜드인
-
+    
 KT TV를 가입 하시면 다양한 혜택을 누릴 수가 있습니다 . 
-
+    
 마침 이벤트 기간이라 상품권도 제공해 드리는데요 전화 주신김에 
-
+    
 혜택 상담 받아보시도록 연결해드릴까요?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+ </pre>
+ <pre>
 <b>[ TV ]</b>
 현재 고객님게서 kt휴대폰이랑 인터넷으로 결합해서 요금 할인 받고 
-
+    
 계시잖아요~!? 댁에 tv를 사용중이시라면 TV로 KT걸로 가입하시면 
-
+    
 요금할인도 더 많이 받을수 있고 지금 행사기간이라 전화 연결된 고객님께만 
-
+    
 상품권을 제공해드리는데요~ 전화 주신 김에 상담 받아보시도록 
-
+    
 연결해드릴까요?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+ </pre>
+<pre>
 <b>[복수 TV ]</b> 
 추가 TV를 가입하시면 가족끼리 보고 싶은 채널이 다를 땐 편하게 
-
+    
 시청 할 수 있고 기존에 있는 TV요금에 반값으로 가능한데 이왕 
-
+    
 전화주신김에 상담 받아보시겠습니까?
-          </pre>
-         </div>
-         <div class="ments">
-            <pre>
+</pre>
+<pre>
 <b>[복수 TV ]</b>
 현재 평생 50% 할인 된 금액으로 추가 TV를 이용하 실 수 있는 
-
+    
 특별 이벤트가 진행되고 있어요~ 게다가 지금 가입하시면 사은품으로 
-
+    
 상품권도 드리고 있어서 좋은 기회인데 전문 상담사 연결해드릴까요?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+ </pre>
+ <pre>
 <b>[복수 TV ] 갤럭시 탭 활용</b>
 고객님 한시적 이벤트로 갤럭시탭 상품을 5만원에 구입 가능한데요~
-
+    
 집에서는 TV로 보시고 밖에서는 WiFi 연결해서 유튜브등 동영상 볼 수 
-
+    
 있는 TV탭 상품 가입해보시는 건 어떠세요? 
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+</pre>
+   </div>
+<div class="ments">
+    <pre>
 <b>TV온리 고객_[인터넷 추천]</b>
 지금 TV마나 사용 중이신데 인터넷도 추가로 가입해서 결합하면 
-
+        
 TV요금도 할인 받아 저렴하게 이용 가능한데 이왕 전화 주신김에 
-
+        
 상담 받아 보시겠습니까?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+ </pre>
+ <pre>
 <b>TV온리 고객_[인터넷 추천]</b>
 지금 인터넷은 따로 없는 걸로 확인 되시는데요~ 요금에는 대부분 
-
+    
 인터넷도 같이 가입해서 결합해서 많이 사용하시거든요 ~ 때마침 
-
+    
 인터넷만 가입하셔도 상품권 드리는 이벤트 중인데 이왕 전화 주신김에 
-
+    
 상담 받아 보시겠습니까?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+  </pre>
+  <pre>
 <b>TV온리 고객_[인터넷 추천]</b>   
 스마트 폰이 있다면 와이파이로 사용할 수 있어서 휴대폰 통신료 
-
+    
 부담도 줄어들고 인터넷을 사용하신다면 지금 TV요금도 같이 할인이 
-
+    
 되거든요~ 전문 상담사와 통화해보시는건 어떨까요?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+ </pre>    
+</div>
+<div class="ments">
+<pre>
 <b>MIT동시 권유</b>
 지금 저희가 프로모션 기간 중이라..
-
+    
 휴대폰 기기변경과 함께 인터넷과 TV를 가입하시면 
-
-가전제품이나 상품권 제공해드리고 있는데요.　
-
+    
+가전제품이나 상품권 제공해드리고 있는데요.
+    
 전화주신 김에 저희 전문부서와 상담 한번 받아 보시는 건 
-
+    
 어떠세요?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+</pre>
+<pre>
 <b>MIT동시 권유</b>
 고객님~ 지금 본사에서 기간 한정 이벤트 중인데요
-
+    
 kt인터넷을 가입 하시면서 WiFi까지 같이 이용하시면
-
+    
 집에서는 WiFi로 데이터를 이용하실 수 있고 결합혜택도 
-
+    
 받을 수 있는데요~
-
+    
 전화주신 김에 상담한 번 받아보시는 건 어떠세요?
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>
+</pre>
+<pre>
 <b>MIT동시 권유</b>
 그리고 고객님~ 지금 본사에서 기간 한정 이벤트 중이라서
-
+    
 추가TV 가입 하시면~
-
+    
 집에서는 tv로~ 밖에서는 태블릿으로 쓸수 있는 갤럭시탭을
-
+    
 저렴하게 지원해드리고 있는데 안내한번 받아보시겠어요?
-   
-            </pre>
-         </div>
-         <div class="ments">
-            <pre>17</pre>
-         </div>
-         <div class="ments">
-            <pre>18</pre>
-         </div>
-         <div class="ments">
-            <pre>19</pre>
-         </div>
-         <div class="ments">
-            <pre>20</pre>
-         </div>
-         <div class="ments">
-            <pre>21</pre>
-         </div>
-         <div class="ments">
-            <pre>22</pre>
-         </div>
-         <div class="ments">
-            <pre>23</pre>
-         </div>
-         <div class="ments">
-            <pre>24</pre>
-         </div>
-         <div class="ments">
-            <pre>25</pre>
-         </div>
-         <div class="ments">
-            <pre>26</pre>
-         </div>
-         <div class="ments">
-            <pre>27</pre>
-         </div>
-         <div class="ments">
-            <pre>28</pre>
-         </div>
-         <div class="ments">
-            <pre>29</pre>
-         </div>
-         <div class="ments">
-            <pre>30</pre>
-         </div>
+       
+</pre>    
+</div>    
+</div>
+<script>
+    jQuery(function(){
+      $('#radio label').change(function(){
+        var index = $(this).index();
+        $('.ments').eq(index).show().siblings().hide();
+        console.log($('.ments'));
+      })
+      
+      $('pre').mouseenter(function(){
+        $(this).css({'font-size':'17px','font-weight':'bold','background-color': 'cyan'});
+      $('pre').mouseleave(function(){
+        $(this).css({'font-size':'13px','font-weight':'normal','background-color': 'white'});
+      })
+      })
 
-    </div>
+    })
+</script>
 </body>
 </html>
