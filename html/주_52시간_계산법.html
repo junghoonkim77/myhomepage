@@ -1,61 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="../css/htmlvoc.css">
-<title> 주_52시간_계산법 </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table{
+            border : 1px solid gray;
+            border-collapse: collapse;
+        }
+        th{
+            border : 1px solid gray;
+          }
+        thead th:nth-child(1) {
+          background-color: aqua;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <title>주52일 근로시간 계산</title>
 </head>
 <body>
-<pre>
+  <h1>주52시간 초과 계산</h1>
+    <table>
+        <thead>
+            <th>리딩그룹</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th><th>일</th>
+        </thead>
+        <tbody>
+           <tr><th>기본OT</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th>
+            <th class="basic">0</th></tr>
+           <tr><th>포괄적OT</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+          </tr>
+          <tr><th>추가OT</th>
+            <th ><input class="input" style="width:22px;" value="0" type="text"> </th>
+            <th ><input class="input" style="width:22px;" value="0" type="text"></th>
+            <th ><input class="input" style="width:22px;" value="0" type="text"></th>
+            <th ><input class="input" style="width:22px;" value="0" type="text"></th>
+            <th ><input class="input" style="width:22px;" value="0" type="text"></th>
+            <th ><input class="input" style="width:22px;" value="0" type="text"></th>
+            <th ><input class="input" style="width:22px;" value="0" type="text"></th>
+          </tr>
+          <tr><th>합계</th>
+            <th id="total"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+          </tr>        
+        </tbody>
+    </table>
+    <button class="but1">합계</button>
 
-[면사무소] 탄력근로 운영 기간(2주) 및 주 52시간 계산 관련
-- 수신 : 리딩그룹
-대휴 사용 시 탄력근로 운영기간(2주)안에서 근무(주말) + 대휴가 사용되어야 하여 
-해당 짝꿍 기간을 첨부하였습니다. 추가로 주 52시간 초과 관련 계산 
-방법도 공유해드리니 복무관리에 참고 바랍니다.
+    <table>
+      <thead>
+          <th>컨설턴트</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th><th>일</th>
+      </thead>
+      <tbody>
+         <tr><th>기본OT</th>
+          <th class="basic1">20</th>
+          <th class="basic1">20</th>
+          <th class="basic1">20</th>
+          <th class="basic1">20</th>
+          <th class="basic1">20</th>
+          <th class="basic1">20</th>
+          <th class="basic1">0</th></tr>
+         <tr><th>포괄적OT</th>
+          <th class="basic1">0</th>
+          <th class="basic1">0</th>
+          <th class="basic1">0</th>
+          <th class="basic1">0</th>
+          <th class="basic1">0</th>
+          <th class="basic1">0</th>
+          <th class="basic1">0</th>
+        </tr>
+        <tr><th>추가OT</th>
+          <th ><input class="input1" style="width:22px;" value="0" type="text"> </th>
+          <th ><input class="input1" style="width:22px;" value="0" type="text"></th>
+          <th ><input class="input1" style="width:22px;" value="0" type="text"></th>
+          <th ><input class="input1" style="width:22px;" value="0" type="text"></th>
+          <th ><input class="input1" style="width:22px;" value="0" type="text"></th>
+          <th ><input class="input1" style="width:22px;" value="0" type="text"></th>
+          <th ><input class="input1" style="width:22px;" value="0" type="text"></th>
+        </tr>
+        <tr><th>합계</th>
+          <th id="total1"></th>
+          <th ></th>
+          <th ></th>
+          <th ></th>
+          <th ></th>
+          <th ></th>
+          <th ></th>
+        </tr>        
+      </tbody>
+  </table>
+  <button class="but2">합계</button><button class="but3">초기화</button>
 
-1. 탄력근로 관련 대휴 사용
-   - 2주 운영기간 內 근무 + 휴무 필요
-      (첨부파일 - 운영그룹 : 19-6그룹) 
-3월 25일 26일 27일 28일 29일 30일 31일 
-요일 월 화 수 목 금 토 일 
-복무 BK BK BK BK BK . 대BK(8H근무)
-　 　 　 　 　 　 　 　 
-4월 1일 2일 3일 4일 5일 6일 7일
-요일 월 화 수 목 금 토 일
-복무 　 　 　 　 대(대체휴무) . 주휴
-※ 주중 공휴일 대휴 사용
-    - 전주~차주까지 총 3주내 대체휴무 부여 
-       ex)3월 1일 근무시 2월 18일 ~ 3월 10일 內 대체휴무 부여
-2. 주 52시간 초과 계산 관련
-   1) 컨설턴트(ex. 합계 630. 90분만 추가 가능)
-4월 1일 2일 3일 4일 5일 6일 7일 소계
-요일 월 화 수 목 금 토 일
-복무 BK 교A2K BK 연 연 . 휴BK(8H)
-기본OT 30 30 30 　 　 　 30 120 
-초과근무 　 30 　 　 　 　 480 510
-630 
-   2) 리더(ex. 합계 720. 목/금 근무시 초과발생, 초과근무, 포괄시간내_연장근로 불가)
-4월 1일 2일 3일 4일 5일 6일 7일 소계 
-요일 월 화 수 목 금 토 일 　 
-복무 BK 교A2K BK 연 연 . 휴BK(8H) 　 
-기본OT 30 30 30 　 　 　 30 120 
-초과근무 　 30 　 　 　 　 480 510 
-포괄시간내_연장근로 30 　 30 　 30 　 　 90       　 　 
-       합계 720 
+  <pre>
 
-[ OT 관리 기준 ]
-※ OT  주720분(12시간)  등록 가능 
-1. C/T : 일 기본 OT 20분  / 총 100분 제외 - 620분 등록 가능
-2. 팀장 : 일 기본 OT 30분 / 총 150분 제외 - 570분 등록 가능 
-※ 출산 1년 미만 인원 OT 주 360분 (6H)  등록 가능 
-   단 1일 최대 2H만 가능
-1. C/T : 일 기본 OT 20분  / 총 100분 제외 - 260분 등록 가능
-2. 팀장 : 일 기본 OT 30분 / 총 150분 제외 - 210분 등록 가능 
+    [면사무소] 탄력근로 운영 기간(2주) 및 주 52시간 계산 관련
+    - 수신 : 리딩그룹
+    대휴 사용 시 탄력근로 운영기간(2주)안에서 근무(주말) + 대휴가 사용되어야 하여 
+    해당 짝꿍 기간을 첨부하였습니다. 추가로 주 52시간 초과 관련 계산 
+    방법도 공유해드리니 복무관리에 참고 바랍니다.
+    
+    1. 탄력근로 관련 대휴 사용
+       - 2주 운영기간 內 근무 + 휴무 필요
+          (첨부파일 - 운영그룹 : 19-6그룹) 
+    3월 25일 26일 27일 28일 29일 30일 31일 
+    요일 월 화 수 목 금 토 일 
+    복무 BK BK BK BK BK . 대BK(8H근무)
+    　 　 　 　 　 　 　 　 
+    4월 1일 2일 3일 4일 5일 6일 7일
+    요일 월 화 수 목 금 토 일
+    복무 　 　 　 　 대(대체휴무) . 주휴
+    ※ 주중 공휴일 대휴 사용
+        - 전주~차주까지 총 3주내 대체휴무 부여 
+           ex)3월 1일 근무시 2월 18일 ~ 3월 10일 內 대체휴무 부여
+    2. 주 52시간 초과 계산 관련
+       1) 컨설턴트(ex. 합계 630. 90분만 추가 가능)
+    4월 1일 2일 3일 4일 5일 6일 7일 소계
+    요일 월 화 수 목 금 토 일
+    복무 BK 교A2K BK 연 연 . 휴BK(8H)
+    기본OT 30 30 30 　 　 　 30 120 
+    초과근무 　 30 　 　 　 　 480 510
+    630 
+       2) 리더(ex. 합계 720. 목/금 근무시 초과발생, 초과근무, 포괄시간내_연장근로 불가)
+    4월 1일 2일 3일 4일 5일 6일 7일 소계 
+    요일 월 화 수 목 금 토 일 　 
+    복무 BK 교A2K BK 연 연 . 휴BK(8H) 　 
+    기본OT 30 30 30 　 　 　 30 120 
+    초과근무 　 30 　 　 　 　 480 510 
+    포괄시간내_연장근로 30 　 30 　 30 　 　 90       　 　 
+           합계 720 
+    
+    [ OT 관리 기준 ]
+    ※ OT  주720분(12시간)  등록 가능 
+    1. C/T : 일 기본 OT 20분  / 총 100분 제외 - 620분 등록 가능
+    2. 팀장 : 일 기본 OT 30분 / 총 150분 제외 - 570분 등록 가능 
+    ※ 출산 1년 미만 인원 OT 주 360분 (6H)  등록 가능 
+       단 1일 최대 2H만 가능
+    1. C/T : 일 기본 OT 20분  / 총 100분 제외 - 260분 등록 가능
+    2. 팀장 : 일 기본 OT 30분 / 총 150분 제외 - 210분 등록 가능 
+    
+    </pre>
+    <script>
+      $(function(){
+        var $basic = $('.basic')
+        var $input = $('.input');
+       $sum = 0;
+       $sum3 = 0;
+         
+        $('.but1').click(function(){
+         $basic.each(function(idx){
+         var $sum1 = $(this).text()
+         var $sum2 = parseInt($sum1);
+         $sum = $sum2 + $sum ; 
+         });
+         
+         console.log($sum);
+         $input.each(function(idx2){
+         var $sum4 = $(this).val();
+         var $sum5 = parseInt($sum4);
+         $sum3 = $sum5 + $sum3;
+         })
+        $('#total').text($sum+$sum3);
+        $sum = 0 , $sum1 = 0 , $sum2 = 0 ,$sum3 = 0 ,$sum4 = 0 ,$sum5 = 0;
+        })
 
-</pre>
+        var $basic1 = $('.basic1')
+        var $input1 = $('.input1');
+       $sum6 = 0;
+       $sum7 = 0;
+         
+        $('.but2').click(function(){
+         $basic1.each(function(){
+         var $sum8 = $(this).text()
+         var $sum9 = parseInt($sum8);
+         $sum6 = $sum9 + $sum6 ; 
+         });
+         
+         $input1.each(function(){
+         var $sum10 = $(this).val();
+         var $sum11 = parseInt($sum10);
+         $sum7 = $sum11 + $sum7;
+         })
+        $('#total1').text($sum6+$sum7);
+        $sum6 = 0 , $sum7 = 0 , $sum8 = 0 ,$sum9 = 0 ,$sum10 = 0 ,$sum11 = 0;
+        })
+         
+       $('.but3').click(function(){
+        $('input').val(0);
+        $('#total,#total1').text("");
+       })
 
-
-
+      })
+     
+         
+        
+    </script>
 </body>
 </html>
