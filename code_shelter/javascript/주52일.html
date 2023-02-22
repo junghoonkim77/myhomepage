@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table{
+            border : 1px solid gray;
+            border-collapse: collapse;
+        }
+        th{
+            border : 1px solid gray;
+            
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <title>주52일 근로시간 계산</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>리딩그룹</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th><th>일</th>
+        </thead>
+        <tbody>
+           <tr><th>기본OT</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th>
+            <th class="basic">30</th></tr>
+           <tr><th>포괄적OT</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+            <th class="basic">0</th>
+          </tr>
+          <tr><th>추가OT</th>
+            <th ><input style="width:15px;" value="0" type="text"> </th>
+            <th ><input style="width:15px;" value="0" type="text"></th>
+            <th ><input style="width:15px;" value="0" type="text"></th>
+            <th ><input style="width:15px;" value="0" type="text"></th>
+            <th ><input style="width:15px;" value="0" type="text"></th>
+            <th ><input style="width:15px;" value="0" type="text"></th>
+            <th ><input style="width:15px;" value="0" type="text"></th>
+          </tr>
+          <tr><th>합계</th>
+            <th id="total"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+          </tr>        
+        </tbody>
+    </table>
+    <button>합계</button>
+
+    
+    <script>
+      $(function(){
+        var $basic = $('.basic')
+        var $input = $('input');
+       $sum = 0;
+       $sum3 = 0;
+         
+        $('button').click(function(){
+
+            $basic.each(function(idx){
+         var $sum1 = $(this).text()
+         var $sum2 = parseInt($sum1);
+         $sum = $sum2 + $sum ; 
+         });
+         
+         console.log($sum);
+         $input.each(function(idx2){
+         var $sum4 = $(this).val();
+         var $sum5 = parseInt($sum4);
+         $sum3 = $sum5 + $sum3;
+         })
+         
+         $('#total').text($sum+$sum3);
+         
+
+        })
+        
+         
+       
+      })
+     
+         
+        
+    </script>
+</body>
+</html>
