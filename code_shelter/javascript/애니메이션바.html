@@ -31,22 +31,32 @@
 <body>
     <div class="progress-bar">
         <div class="bar"></div>
-        <div class="rate" data-rate=60>0%</div>
+        <div class="rate" data-rate = 60 ></div>
     </div>
     <ul>
-        <li date-value="kim">11</li>
+        <li data-value="kim">11</li>
         <li>12</li>
         <li>13</li>
         <li>14</li>
         <li>15</li>
-    </ul>
+    </ul>'
     <script>
         var progressWrap = $('.progress-bar');
         var progressBar = progressWrap.find('.bar');
         var progressText = progressWrap.find('.rate');
-        var progressRate = progressText.attr('')
-        var test = $('ul li:nth-child(1)').attr('date-value');
-        console.log(test);
+        var progressRate = progressText.attr('data-rate');
+       
+       progressBar.animate({width:progressRate+'%'},1000);
+
+        function TextAnimation(){
+          var currentWidth = progressBar.width();
+          var TotalWidth = progressWrap.width();
+          var CurrentRate = currentWidth/TotalWidth*100
+          var CurrentRate1 = Math.ceil(CurrentRate);
+          progressText.text(CurrentRate1 +'%');
+        };
+        setInterval(TextAnimation,1000/20);
+         
 
     </script>
 </body>

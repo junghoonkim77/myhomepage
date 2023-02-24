@@ -63,13 +63,12 @@
                 .dropdown-content{
                 display : none;
                 position : absolute;
-                z-index : 1; /*다른 요소들보다 앞에 배치*/
+                
+                width : 100%;
                 
                 }
-                .dropdown-content a{
-                display : block;
-                }
-                .dropdown:hover .dropdown-content {
+                
+                .dropdown:hover ul {
                 display: block;
                 }
                 .dropbtn {
@@ -78,8 +77,15 @@
                     background-color: rgb(36, 85, 148);
                     color : rgb(166, 196, 221);    
                 }
-                .srform:hover{
+                .dropdown ul li:hover{
                     background-color: rgb(240, 225, 140);
+                }
+                .dropdown ul {
+                    z-index : 1; /*다른 요소들보다 앞에 배치*/
+                   font-size : 13px;
+                   display : none;
+                   background: white;
+                   line-height:23px;
                 }
             </style>
         <script src="https://code.jquery.com/jquery-3.6.1.js" 
@@ -93,37 +99,25 @@
         <h5>메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
         <button id ="btn1">🕑복사</button>
         <div class="dropdown leftmove2" >
-            <span class="dropbtn">🖱️SR양식</span>
-            <div class="dropdown-content">
-              <input class="srform" type="button" value="통품SR기본양식" 
-             onclick="copy(SRarray[this.value])">
-             <input class="srform" type="button" value="개선여부확인TT" 
-             onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="설치 중계기 TT" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="점검AS 중계기 TT" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="이설TT  중계기 " 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="철거TT   중계기 " 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="비영업 불만양식" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="영업 VOC접수양식" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="민원성 요금조정" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="권유[모바일판기발]" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="KT   WIFI   이관" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="LTE EGG   TT" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="장애공지양식" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="장애공지댓글" 
-              onclick="copy(SRarray[this.value])">  
-            </div>
+            <span class="dropbtn">🖱️SR양식</span>   
+            
+                <ul>
+                    <li data-srname="통품SR기본양식">통품SR기본양식</li>
+                    <li data-srname="개선여부확인TT">개선여부확인TT</li>
+                    <li data-srname="설치 중계기 TT">중계기설치 TT</li>
+                    <li data-srname="점검AS 중계기 TT">중계기점검TT</li>
+                    <li data-srname="이설TT  중계기 ">중계기 이설TT</li>
+                    <li data-srname="철거TT   중계기 ">중계기 철거TT</li>
+                    <li data-srname="비영업 불만양식">비영업 불만양식</li>
+                    <li data-srname="영업 VOC접수양식">영업VOC양식</li>
+                    <li data-srname="민원성 요금조정">민원성 요금조정</li>
+                    <li data-srname="권유[모바일판기발]">권유[모바일판기발]</li>
+                    <li data-srname="KT   WIFI   이관">KT WIFI이관</li>
+                    <li data-srname="LTE EGG   TT">LTE EGG TT</li>
+                    <li data-srname="장애공지양식">장애공지양식</li>
+                    <li data-srname="장애공지댓글">장애공지댓글</li>
+                </ul>
+            
           </div> 
        <form name="form">
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
@@ -207,6 +201,17 @@
     $('.inputtime').val("");
    });
 
+   var li = $('.dropdown ul li');
+  
+     li.click(function(){
+       var srvalue = $(this).attr('data-srname')
+       copy(SRarray[srvalue]);
+       console.log(srvalue);
+     })
+
+
+
+    
   </script>
   </body>
 </html>
