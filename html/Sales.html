@@ -85,6 +85,9 @@
    
 </div>
 <script>
+     $('iframe').eq(0).hide();
+     $('iframe').eq(1).show();
+
     jQuery('button').click(function(){
         var $index1 = $(this).index();
      $('iframe').eq($index1).show().siblings().hide();
