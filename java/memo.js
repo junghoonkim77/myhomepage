@@ -21,7 +21,8 @@ const hour = time.getHours();
 const minutes = time.getMinutes();
 const seconds = time.getSeconds();
 //clock.innerHTML = hour +":" + minutes + ":"+seconds;
-clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`
+//clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`;
+clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}`;
 }
 
 function init(){
@@ -38,6 +39,7 @@ window.onload = function () {
    valOfDIV.addEventListener("click", function () {
        const copyElement = document.querySelector('.h1-clock');
        copy(copyElement.innerHTML)
+      
    })
 }
   function copy (value) {
