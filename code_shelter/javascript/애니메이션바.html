@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .progress-bar{
+        position : relative;
+        width : 960px;
+        height : 30px;
+        margin : 3em auto;
+        border : 1px solid gray;
+    }
+    .bar {
+        position:absolute;
+        left :0 ; top:0 ; bottom:0 ; width :10%;
+        background: green;
+    }
+    .rate {
+        position : absolute;
+        top :0 ; bottom :0 ; right : 15px;
+        font-size :1.2em; color : green;
+        line-height : 30px;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <title>애니메이션 바</title>
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="bar"></div>
+        <div class="rate" data-rate=60>0%</div>
+    </div>
+    <ul>
+        <li date-value="kim">11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+    </ul>
+    <script>
+        var progressWrap = $('.progress-bar');
+        var progressBar = progressWrap.find('.bar');
+        var progressText = progressWrap.find('.rate');
+        var progressRate = progressText.attr('')
+        var test = $('ul li:nth-child(1)').attr('date-value');
+        console.log(test);
+
+    </script>
+</body>
+</html>
