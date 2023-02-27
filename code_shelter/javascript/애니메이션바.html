@@ -31,7 +31,7 @@
 <body>
     <div class="progress-bar">
         <div class="bar"></div>
-        <div class="rate" data-rate = 60 ></div>
+        <div class="rate" data-rate = 0 ></div>
     </div>
     <ul>
         <li data-value="kim">11</li>
@@ -44,18 +44,16 @@
         var progressWrap = $('.progress-bar');
         var progressBar = progressWrap.find('.bar');
         var progressText = progressWrap.find('.rate');
-        var progressRate = progressText.attr('data-rate');
-       
+        var progressratePrompt = prompt() ;
+        //var progressRate = progressText.attr('data-rate',progressratePrompt);
+         progressText.attr('data-rate',progressratePrompt);
+        var  progressRate = progressText.attr('data-rate');
+       console.log(progressRate);
        progressBar.animate({width:progressRate+'%'},1000);
-       /*
-       progressBar.animate({width:'60%'},{
-        duration : 2500,
-        easing : 'easeInOutQuint',
-        complete : function(){...};
-       })
-        css속성중ㅇ서 수치가 있는 요소만 animate
+      
+        //css속성중ㅇ서 수치가 있는 요소만 animate
 
-       /* function TextAnimation(){
+        function TextAnimation(){
           var currentWidth = progressBar.width();
           var TotalWidth = progressWrap.width();
           var CurrentRate = currentWidth/TotalWidth*100
@@ -63,18 +61,24 @@
           progressText.text(CurrentRate1 +'%');
         };
         setInterval(TextAnimation,1000/20);
-        하지만 animate 옵션을 활용하면 사용자 속성을 만들고 속성이 바뀌는걸
-        작성할수 있다 .
-        */
-        $({hour:0}).animate({hour:progressRate},{
+       // 하지만 animate 옵션을 활용하면 사용자 속성을 만들고 속성이 바뀌는걸
+       // 작성할수 있다 .
+        
+        /*$({hour:0}).animate({hour:progressRate},{
             duration : 1500,
             progress:function(){
                 var now = this.hour;
                progressText.text(Math.ceil(now));
                 console.log(now);
             }
-        })
-       
+        })*/
+         /*
+       progressBar.animate({width:'60%'},{
+        duration : 2500,
+        easing : 'easeInOutQuint',
+        complete : function(){...};
+       })
+       */
         
 
     </script>
