@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div{
+            height : 200px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  <div class="test1">테스트1</div>
+  <div class="test2">테스트2</div>
+  <div class="test3">테스트3</div>
+  <div class="test4">테스트4</div>
+  <div class="test5">테스트5</div>
+  <div class="test6">테스트6</div>
+  <div class="test7">테스트7</div>
+  <div class="test8">테스트8</div>
+  <div class="test9">테스트9</div>
+  <div class="test10">테스트10</div>
+  <div class="test11">테스트11</div>
+  <div class="test12">테스트12</div>
+  <div class="test13">테스트13</div>
+  <div class="test14">테스트14</div>
+  <div class="test15">테스트15</div>
+
+
+
+    <script>
+      var test15Heigh = $('.test14').offset().top;
+      var execute = false;
+      var win = $(window);
+      
+    
+       $(window).scroll(function(){
+        var realheight = test15Heigh-600; 
+                
+          if(!execute){
+            if(win.scrollTop() > realheight){
+            $({test:0}).animate({test:100},{
+            duration:3000,
+            progress : function(){
+                var test1 = this.test
+            $('.test14').text(test1);
+            }
+             });execute = true;
+          } 
+          } 
+           
+       })
+
+       
+    </script>
+</body>
+</html>
