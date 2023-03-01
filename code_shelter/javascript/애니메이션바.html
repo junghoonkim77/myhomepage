@@ -24,8 +24,10 @@
         line-height : 30px;
     }
     </style>
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../java/jquery.animateNumber.min.js"></script>
     <title>애니메이션 바</title>
 </head>
 <body>
@@ -53,18 +55,20 @@
       
         //css속성중ㅇ서 수치가 있는 요소만 animate
 
-        function TextAnimation(){
+       /* 숫자 바꾸기 첫번쩨 방법 
+          function TextAnimation(){
           var currentWidth = progressBar.width();
           var TotalWidth = progressWrap.width();
           var CurrentRate = currentWidth/TotalWidth*100
           var CurrentRate1 = Math.ceil(CurrentRate);
           progressText.text(CurrentRate1 +'%');
-        };
-        setInterval(TextAnimation,1000/20);
+        }; 
+        setInterval(TextAnimation,1000/20); */
        // 하지만 animate 옵션을 활용하면 사용자 속성을 만들고 속성이 바뀌는걸
        // 작성할수 있다 .
         
-        /*$({hour:0}).animate({hour:progressRate},{
+        /* 숫자 바꾸기 두번째 방법
+           $({hour:0}).animate({hour:progressRate},{
             duration : 1500,
             progress:function(){
                 var now = this.hour;
@@ -72,15 +76,27 @@
                 console.log(now);
             }
         })*/
-         /*
+       /*
        progressBar.animate({width:'60%'},{
         duration : 2500,
         easing : 'easeInOutQuint',
         complete : function(){...};
        })
        */
-        
-
+       //progressText.animateNumber({ number: progressRate});
+       var percent_number_step = $.animateNumber.numberStepFactories.append(' %');
+       progressText.animateNumber(
+    {
+    number: progressRate,
+    numberStep: percent_number_step
+    },
+    {
+     easing: 'swing',
+     duration: 1000
+    }
+);
+     var executed = false;
+     console.log(!executed);
     </script>
 </body>
 </html>
