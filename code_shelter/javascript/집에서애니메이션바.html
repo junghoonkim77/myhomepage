@@ -34,14 +34,14 @@
 
     <script>
       var test15Heigh = $('.test14').offset().top;
-      var execute = false;
+      var execute = true;
       var win = $(window);
       
     
        $(window).scroll(function(){
         var realheight = test15Heigh-600; 
                 
-          if(!execute){
+          if(execute){
             if(win.scrollTop() > realheight){
             $({test:0}).animate({test:100},{
             duration:3000,
@@ -49,11 +49,10 @@
                 var test1 = this.test
             $('.test14').text(test1);
             }
-             });execute = true;
+             });execute = false;
           } 
           } 
-           
-       })
+         });
 
        
     </script>
