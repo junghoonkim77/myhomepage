@@ -142,11 +142,11 @@ function line_dp2(num) {
         }
         else{ con.style.display ="none";
         }
-        }
+        } 
 
         
         $(function(){
-            $('#netwindow').click(function(){
+            $('#netwindow').mouseover(function(){
                     $('#netwindow1').stop().fadeIn();
                 $('#netwindow').mouseout(function(){
                     $('#netwindow1').stop().fadeOut(500);
