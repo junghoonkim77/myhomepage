@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        #tabcontents1{
+            position :relative;
+        } 
+        #content {
+            position : relative;
+        }
+        .view{
+           position : absolute;
+           border : 1px solid gray;
+           display:none;
+        }
+        .review{
+            display : block;
+        } 
+        #tabcontents1 .tabs li{
+            display:inline;
+            border : 1px solid gray;
+        }
+        #tabcontents1 .tabs li a{
+            text-decoration: none;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="tabcontents1" style="width: 80vw; height:80vh; margin: 0 auto; padding: 120px 0 40px;">
+        <ul class="tabs" >
+            <li data-view="view1">테스트</li>
+            <li data-view="view2">Feature Code/넷윈도 필드명  </li>
+            <li data-view="view3">팀원 정보 </li>
+        </ul>
+        <div id="content" style ="height:100%" >
+            <div data-view="view1" id="view1" class="view">
+            
+                동해물과 백두산이 마르고 닳도록 
+                동해물과 백두산이 마르고 닳도록 
+                동해물과 백두산이 마르고 닳도록 
+                동해물과 백두산이 마르고 닳도록 
+                동해물과 백두산이 마르고 닳도록 
+            </div>
+           
+        <div data-view="view2" id="view2" class="view">
+            하느님이 보우하사 우리 나라만세
+            하느님이 보우하사 우리 나라만세
+            하느님이 보우하사 우리 나라만세
+            하느님이 보우하사 우리 나라만세
+         
+        </div>
+                  
+                   
+        <div data-view="view3"  id="view3" class="view">
+           테스트3  테스트3  테스트3  테스트3  
+           테스트3  테스트3  테스트3  테스트3  
+           테스트3  테스트3  테스트3  테스트3  
+           테스트3  테스트3  테스트3  테스트3  
+        </div>
+      </div>
+     </div>
+ <script>
+    jQuery(function(){
+      /* var list =$('#tabcontents1 li');
+      var view = $('#content .view');
+      var view1 = $('.view');
+      console.log(view);
+      console.log(view1);
+      list.on('click',function(){
+      var idx= $(this).index();
+      view.eq(idx).show().siblings().hide();
+      var $offset = $('#view2').offset()
+     console.log(`left:${$offset.left}top:${$offset.top}`);             
+      })
+     console.log($('#tabcontents1 .tabs li[data-view=view]').text());
+       */
+     var ThisAttr = $('#tabcontents1 .tabs li');
+     var DivView = $('#content div');
+     console.log(ThisAttr);
+     console.log(DivView);
+      ThisAttr.click(function(){
+        var currentAttr = $(this).attr('data-view');
+        console.log(currentAttr);
+        console.log($(`#content div[data-view=${currentAttr}]`));
+        $(`#content div[data-view=${currentAttr}]`).show();
+        $('#content div').not(`#content div[data-view=${currentAttr}]`).hide();
+
+      })
+    })
+ </script>
+</body>
+</html>
