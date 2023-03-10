@@ -33,50 +33,131 @@
 </head>
 <body>
 
-    
-        <img src="../imgfolder/03101.png" >
-        <img src="../imgfolder/03102.png" >
-        <img src="../imgfolder/호전환0310.png" >
-        <img src="../imgfolder/사고한것들.jpg" >
-        
-        
+   <img class="morning" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="" srcset="">
+   <img class="morning" src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014__340.jpg" alt="" srcset="">
+   <img class="morning" src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg" alt="" srcset="">
+   <img class="morning" src="https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297__340.jpg" alt="" srcset="">
+   <img class="morning" src="https://cdn.pixabay.com/photo/2017/02/08/17/24/fantasy-2049567__340.jpg" alt="" srcset="">
+   <img class="morning" src="https://cdn.pixabay.com/photo/2013/07/25/13/01/stones-167089__340.jpg" alt="">
+   <img class="morning" src="https://cdn.pixabay.com/photo/2018/09/23/18/30/drop-3698073__340.jpg" alt="" >
+   <img class="morning" src="https://cdn.pixabay.com/photo/2013/12/17/20/10/bubbles-230014__340.jpg" alt="" >
+   <img class="morning" src="https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055__340.jpg" alt="" >
+   <img class="morning" src="https://cdn.pixabay.com/photo/2016/09/29/13/08/planet-1702788__340.jpg" alt="" > 
+
+  
+   <img class="worktime" src="../imgfolder/03101.png" >
+   <img class="worktime" src="../imgfolder/03102.png" >
+   <img class="worktime" src="../imgfolder/호전환0310.png" >
+   <img class="worktime" src="../imgfolder/호전환0310.png" >
+   
+   
+   <img src="https://cdn.pixabay.com/photo/2017/05/08/13/15/spring-bird-2295434__340.jpg" alt="" class="lunch">
+   <img src="https://cdn.pixabay.com/photo/2014/12/04/14/46/magnolia-trees-556718__340.jpg" alt="" class="lunch">
+   <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg" alt="" class="lunch">
+   <img src="https://cdn.pixabay.com/photo/2016/07/05/16/53/leaves-1498985__340.jpg" alt="" class="lunch">
+   <img src="https://cdn.pixabay.com/photo/2017/04/10/15/07/magnolia-2218788__340.jpg" alt="" class="lunch">
+   <img src="https://cdn.pixabay.com/photo/2015/10/22/17/45/leaf-1001679__340.jpg" alt="" class="lunch">
+   <img src="https://cdn.pixabay.com/photo/2016/02/13/10/35/tulips-1197602__340.jpg" alt="" class="lunch">
+   <img src="https://cdn.pixabay.com/photo/2018/01/06/01/01/oak-3064187__340.jpg" alt="" class="lunch">
+   <img src="https://cdn.pixabay.com/photo/2017/05/18/15/05/chipmunk-2323827__340.jpg" alt="" class="lunch">
+   <img src="https://cdn.pixabay.com/photo/2018/05/02/18/23/landscape-3369304__340.jpg" alt="" class="lunch">
+
+
         
         
        
-        
-    
     <script>
-        jQuery(function(){
-          var imgtree =$('img');
-          var imgtreecount = imgtree.length;
-          currindex = 0;
-        //해당 시간이 지나면 한번만 할일 setTimeout(할일,1000);
-        // var timer = setTimeout(할일,1000);
-        // clearTimeout(timer);
-        //일정시간 마다 할일 var timer = setInterval(할일,시간);
-        //clearInterval(timer);
-        // 제이쿼리 집합개체중 특정번째 요소를 선택하는 것 .ep(숫자) ->매우 유용
-         imgtree.eq(currindex).fadeIn(); //fadein opcaity를 0에서 1로 알아서 만들어주는 부적 같은 역할
-         imgtree.eq(currindex).css('display','block');
-         var timer = setInterval(ShowNextSlide,5000);
-         function ShowNextSlide(){
-            var nextIndex = (currindex+1) % imgtreecount; // 매우 중요한 공식
-            imgtree.eq(currindex).hide();
-            imgtree.eq(nextIndex).css('display','block');
-            imgtree.eq(nextIndex).fadeIn();
-            currindex = nextIndex;
-            console.log(currindex);
-         }
-          /* imgtree.on('mouseover',function(){
-            clearInterval(timer);
-          }).on('mouseout',function(){
-            setInterval(ShowNextSlide,3500);});
-         function reloading(){
-            location.reload();
-         }
-         setInterval(reloading,7000); */ 
-         
-        })
+       jQuery(function(){
+
+            
+var imgtree =$('.morning');
+var imgtreecount = imgtree.length;
+var imgtree1 =$('.worktime');
+var imgtreecount1 = imgtree1.length;
+var imgtree2 =$('.lunch');
+var imgtreecount2 = imgtree2.length;
+var currindex = 0;   
+  imgtree.eq(currindex).fadeIn();
+  imgtree.eq(currindex).css('display','block');
+
+  function ShowNextSlide(){
+$('img').not('.morning').hide();
+var nextIndex = (currindex+1) % imgtreecount; // 매우 중요한 공식
+imgtree.eq(currindex).hide();
+imgtree.eq(nextIndex).css('display','block');
+imgtree.eq(nextIndex).fadeIn();
+currindex = nextIndex;
+console.log(currindex);
+    };
+
+
+  function ShowNextSlide2(){
+$('img').not('.worktime').hide();
+var nextIndex = (currindex+1) % imgtreecount1; // 매우 중요한 공식
+imgtree1.eq(currindex).hide();
+imgtree1.eq(nextIndex).css('display','block');
+imgtree1.eq(nextIndex).fadeIn();
+currindex = nextIndex;
+console.log(currindex);
+    };
+
+
+  function ShowNextSlide3(){
+$('img').not('.lunch').hide();
+var nextIndex = (currindex+1) % imgtreecount2; // 매우 중요한 공식
+imgtree2.eq(currindex).hide();
+imgtree2.eq(nextIndex).css('display','block');
+imgtree2.eq(nextIndex).fadeIn();
+currindex = nextIndex;
+console.log(currindex);
+    };
+
+
+// var timer = setInterval(ShowNextSlide,5000); 
+
+function getTime(){
+const time = new Date();
+const hour = time.getHours();
+const minutes = time.getMinutes();
+const seconds = time.getSeconds();
+
+
+ console.log(hour);
+ console.log(minutes);
+
+ if(hour>=8 && minutes < 9){
+  ShowNextSlide(); 
+} else if(hour>=9 && hour <12 ){
+  ShowNextSlide2();  
+} else if(hour>=12 && hour <13 ){
+  ShowNextSlide3();  
+} else{
+  ShowNextSlide2(); 
+}
+}
+            
+var realTime = setInterval(getTime,5000);
+
+
+ //fadein opcaity를 0에서 1로 알아서 만들어주는 부적 같은 역할
+
+//해당 시간이 지나면 한번만 할일 setTimeout(할일,1000);
+// var timer = setTimeout(할일,1000);
+// clearTimeout(timer);
+//일정시간 마다 할일 var timer = setInterval(할일,시간);
+//clearInterval(timer);
+// 제이쿼리 집합개체중 특정번째 요소를 선택하는 것 .ep(숫자) ->매우 유용
+
+/* imgtree.on('mouseover',function(){
+clearInterval(timer);
+}).on('mouseout',function(){
+setInterval(ShowNextSlide,3500);});
+function reloading(){
+location.reload();
+}
+setInterval(reloading,7000); */ 
+
+})
     </script>
     
 </body>
