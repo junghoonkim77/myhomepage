@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <style>
-        body {
+       /* body {
             height : 100vh;
             width : 100vw;
             background-color: black;
@@ -16,23 +16,24 @@
         div{
            height : 100%;
            width : 100%;
-        }
-        div img{
-            left : 11.5%;
-            display : none;
-            position : absolute;
+        } 
+        div*/ img{
+           /* left : 11.5%; */
+            /*display : none; */
+            /*position : absolute;*/
+            margin : auto;
             height : 100vh;
-            
-            
-            
-           /* transform: rotate(30deg); */
+          /* transform: rotate(30deg); */
         }
+         body{
+            background-color: black;
+         }
     </style>
     <title>j쿼리 페이드인 아웃 연습</title>
 </head>
 <body>
 
-    <div>
+    
         <img src="../imgfolder/B존 이미지_1(수정1).png" >
         <img src="../imgfolder/B존 이미지_2-1(수정1).png" >
         <img src="../imgfolder/B존 이미지_2(수정1).png" >
@@ -42,10 +43,10 @@
         
        
         
-    </div>
+    
     <script>
         jQuery(function(){
-          var imgtree =$('div img');
+          var imgtree =$('img');
           var imgtreecount = imgtree.length;
           currindex = 0;
         //해당 시간이 지나면 한번만 할일 setTimeout(할일,1000);
@@ -55,10 +56,12 @@
         //clearInterval(timer);
         // 제이쿼리 집합개체중 특정번째 요소를 선택하는 것 .ep(숫자) ->매우 유용
          imgtree.eq(currindex).fadeIn(); //fadein opcaity를 0에서 1로 알아서 만들어주는 부적 같은 역할
+         imgtree.eq(currindex).css('display','block');
          var timer = setInterval(ShowNextSlide,5000);
          function ShowNextSlide(){
             var nextIndex = (currindex+1) % imgtreecount; // 매우 중요한 공식
             imgtree.eq(currindex).hide();
+            imgtree.eq(nextIndex).css('display','block');
             imgtree.eq(nextIndex).fadeIn();
             currindex = nextIndex;
             console.log(currindex);
