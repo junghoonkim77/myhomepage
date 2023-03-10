@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="120">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        body {
+            height : 100vh;
+            width : 100vw;
+            
+        }
+        div{
+           height : 100%;
+           width : 100%;
+        }
+        div iframe{
+            
+            display : none;
+            position : absolute;
+            height : 100vh;
+            width : 100%;
+            
+            
+            
+           /* transform: rotate(30deg); */
+        }
+    </style>
+    <title>j쿼리 페이드인 아웃 연습</title>
+</head>
+<body>
+
+    <div>
+       <iframe src="../../코딩교육폴더/통품voc은행폼/duplicated오류.html" width="100px" height="100px" title=""></iframe>
+       <iframe src="../../코딩교육폴더/통품voc은행폼/이심일반기변230222.html" width="100px" height="100px" title=""></iframe>
+       <iframe src="../../코딩교육폴더/통품voc은행폼/투폰오류_수리모드.html" width="100px" height="100px" title=""></iframe>
+       <iframe src="../../코딩교육폴더/통품voc은행폼/자급아이폰_ESIM다운오류.html" width="100px" height="100px" title=""></iframe>
+           
+    </div>
+    <script>
+        jQuery(function(){
+
+            
+            var imgtree =$('div iframe');
+            var imgtreecount = imgtree.length;
+            var currindex = 0;   
+              imgtree.eq(currindex).fadeIn();
+              
+            function ShowNextSlide(){
+            var nextIndex = (currindex+1) % imgtreecount; // 매우 중요한 공식
+            imgtree.eq(currindex).hide();
+            imgtree.eq(nextIndex).fadeIn();
+            currindex = nextIndex;
+            console.log(currindex);
+         }
+          // var timer = setInterval(ShowNextSlide,5000); 
+
+            function getTime(){
+            const time = new Date();
+            const hour = time.getHours();
+            const minutes = time.getMinutes();
+            const seconds = time.getSeconds();
+            
+//clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`;
+            //if( == 52){
+            //    clearInterval(timer)
+           // }else{
+             console.log(hour);
+             console.log(minutes);
+            if(minutes>=34 && minutes < 53){
+               
+              clearInterval(realTime);
+            } else{
+                ShowNextSlide();
+            }
+            }
+                        
+            var realTime = setInterval(getTime,5000);
+          
+           
+             //fadein opcaity를 0에서 1로 알아서 만들어주는 부적 같은 역할
+            
+        //해당 시간이 지나면 한번만 할일 setTimeout(할일,1000);
+        // var timer = setTimeout(할일,1000);
+        // clearTimeout(timer);
+        //일정시간 마다 할일 var timer = setInterval(할일,시간);
+        //clearInterval(timer);
+        // 제이쿼리 집합개체중 특정번째 요소를 선택하는 것 .ep(숫자) ->매우 유용
+       
+          /* imgtree.on('mouseover',function(){
+            clearInterval(timer);
+          }).on('mouseout',function(){
+            setInterval(ShowNextSlide,3500);});
+         function reloading(){
+            location.reload();
+         }
+         setInterval(reloading,7000); */ 
+         
+        })
+    </script>
+    
+</body>
+</html>
