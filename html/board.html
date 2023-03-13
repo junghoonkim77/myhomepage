@@ -59,20 +59,37 @@
    <img src="../imgfolder/pi14.jpg" alt="" class="lunch">
    
 
-
+   <img src="../imgfolder/sales1.png" alt="" class="sales">
+   <img src="../imgfolder/sales2.png" alt="" class="sales">
+   <img src="../imgfolder/sales3.png" alt="" class="sales">
+   <img src="../imgfolder/sales4.jpg" alt="" class="sales">
+   <img src="../imgfolder/sales5.jpg" alt="" class="sales">
+   <img src="../imgfolder/sales6.png" alt="" class="sales">
+   <img src="../imgfolder/sales7.png" alt="" class="sales">
         
-        
+   <img src="../imgfolder/end1.png" alt="" class="ending">
+   <img src="../imgfolder/end2.jpg" alt="" class="ending">     
        
     <script>
        jQuery(function(){
 
 var gateImage =$('.gateImage');            
+
 var imgtree =$('.morning');
 var imgtreecount = imgtree.length;
+
 var imgtree1 =$('.worktime');
 var imgtreecount1 = imgtree1.length;
+
 var imgtree2 =$('.lunch');
 var imgtreecount2 = imgtree2.length;
+
+var imgtree3 = $('.sales');
+var imgtreecount3 = imgtree3.length;
+
+var imgtree4 = $('.ending');
+var imgtreecount4 = imgtree4.length;
+
 var currindex = 0;   
   gateImage.eq(currindex).fadeIn();
   imgtree.eq(currindex).css('display','block');
@@ -109,7 +126,25 @@ currindex = nextIndex;
 console.log(currindex);
     };
 
+    function ShowNextSlide4(){
+$('img').not('.sales').hide();
+var nextIndex = (currindex+1) % imgtreecount3; // 매우 중요한 공식
+imgtree3.eq(currindex).hide();
+imgtree3.eq(nextIndex).css('display','block');
+imgtree3.eq(nextIndex).fadeIn();
+currindex = nextIndex;
+console.log(currindex);
+    };
 
+    function ShowNextSlide5(){
+$('img').not('.ending').hide();
+var nextIndex = (currindex+1) % imgtreecount4; // 매우 중요한 공식
+imgtree4.eq(currindex).hide();
+imgtree4.eq(nextIndex).css('display','block');
+imgtree4.eq(nextIndex).fadeIn();
+currindex = nextIndex;
+console.log(currindex);
+    };
 // var timer = setInterval(ShowNextSlide,5000); 
 
 function getTime(){
@@ -117,9 +152,14 @@ const time = new Date();
 const hour = time.getHours();
 const minutes = time.getMinutes();
 const seconds = time.getSeconds();
+
 var timeToRun = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 7, 10, 0); // 07:10
+var timeToRun2 = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 16, 10, 0); // 16:10
+
 var timeToEnd = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 8, 40, 0); // 08:40
 var timeToEnd1 = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 12, 59, 0); // 12:59
+var timeToEnd2 = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 16, 59, 0); // 16:59
+var timeToEnd3 = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 18, 20, 0); // 18:20
  console.log(hour);
  console.log(minutes);
 
@@ -129,8 +169,12 @@ var timeToEnd1 = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 1
   ShowNextSlide2();  
 } else if(hour>=12 && time < timeToEnd1 ){
   ShowNextSlide3();  
-} else{
-  ShowNextSlide2(); 
+} else if(time>=timeToRun2 && time < timeToEnd2){
+  ShowNextSlide4(); 
+}  else if(hour>=18 && time < timeToEnd3){
+  ShowNextSlide5(); 
+} else {
+   ShowNextSlide2(); 
 }
 }
             
