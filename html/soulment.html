@@ -20,7 +20,7 @@
         display : none;
       }
       input {
-        width : 60px;
+        width : 90px;
       }
       #radiobutton {
         left : 30%;
@@ -41,6 +41,8 @@
     <input type="button" name="check" title ="버튼 클릭시 말머리 복사됨" value="[감성]" >
     <input  type="button" name="check" title ="버튼 클릭시 말머리 복사됨"  value="[정보]">
     <input type="button" name="check" title ="버튼 클릭시 말머리 복사됨"  value="[혜택]" >
+    <input type="button" name="check" title ="버튼 클릭시 말머리 복사됨"  value="[통화품질]" >
+    
     <span>←←← 각버튼 클릭시 말머리 자동복사 및 화면전환</span>
   </div>
   <br><br>
@@ -125,6 +127,40 @@
 </table>
 </div>
 
+<div class="table">
+  <table>
+   말머리 : [통화품질] <br>
+ ■대상고객 : 통화품질 관련 문의 고객<br>
+ ■진행방법 : 통화품질 문제 해결 TIP문자 발송<br><br>
+   <th>멘트</th><th><a id="smscopy" href="#"><b>문자내용</b></a> <--- 클릭하면 아래 문자내용 자동 복사됨</th>
+   <tr>
+     <td>고객님 ~ 갑자기 휴대폰 이용이 안될떄 문제해결 방법도<br>
+      참고하실수 있도록 문자로 보내 드리겠습니다.<br></td>
+     <td id="smsvalue">
+      [KT고객센터] 통화품질 Tip!
+
+안녕하세요. {grade} 고객님, KT입니다.
+휴대폰 사용 중 갑자기 통화가 되지 않아 당황스러웠던 적 한번쯤은 있으시죠?
+ 
+일시적인 신호 불안정의 경우, 전원을 껐다 켜는 것 만으로도 해결되는 경우가 많으며
+본인도 모르는 사이에 서비스가 차단 설정되어 이용이 안되는 경우가 있으니 손쉽게 확인해 볼 수 있는 방법을 안내해 드리겠습니다.
+
+[상황별 차단 여부 확인 경로]
+■ 갑자기 데이터가 안될 때
+- 아이폰 : 설정 ▷ 셀룰러  ▷ 셀룰러 데이터가 켜져 있는지 확인
+- 안드로이드 : 설정 ▷ 연결 ▷ 데이터 사용 ▷ 모바일 데이터가 켜져 있는지 확인
+ 
+■ MMS 문자 수신/발신이 안될 때
+- 아이폰 : 설정 ▷ 셀룰러 ▷ 셀룰러 데이터 켜져 있는지 확인
+- 안드로이드 : 갑자기 안되는 경우, 휴대폰 전원 껐다 켜기
+
+☎ 문의전화: 고객센터 114 
+[마음을 담다 KT] 컨설턴트 {user} 드림 
+     </td> 
+   </tr>
+   
+ </table>
+ </div>
 <script>
   jQuery(function(){
     $('.table').eq(0).show()
@@ -134,9 +170,13 @@
       var thisval = $(this).val();
     $('.table').eq(thisbutt).show().siblings('.table').hide();
     navigator.clipboard.writeText(thisval);  
-    console.log(thisbutt);
+    });
+    
+    $('#smscopy').click(function(e){
+      e.preventDefault();
+      var smsval = $('#smsvalue').text();
+      navigator.clipboard.writeText(smsval);
     })
-
   })
 </script>
 </body>
