@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="600">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+       /* body {
+            height : 100vh;
+            width : 100vw;
+            background-color: black;
+        }
+        div{
+           height : 100%;
+           width : 100%;
+        } 
+        div*/ img{
+           /* left : 11.5%; */
+            /*display : none; */
+            /*position : absolute;*/
+            margin : auto;
+            height : 100vh;
+          /* transform: rotate(30deg); */
+        }
+         body{
+            background-color: black;
+         }
+    </style>
+    <title>j쿼리 페이드인 아웃 연습</title>
+</head>
+<body>
+
+  <img class="gate" src="../imgfolder/대문/ktcs.jpg" >
+
+   <img class="morning" src="../imgfolder/아침/pexels-photo-12900912.jpeg" alt="" >
+   <img class="morning" src="../imgfolder/아침/사1.jpg" alt="" srcset="">
+   <img class="morning" src="../imgfolder/아침/사2.jpg" alt="" srcset="">
+   <img class="morning" src="../imgfolder/아침/사3.jpg" alt="" srcset="">
+   <img class="morning" src="../imgfolder/아침/pexels-photo-13164423.jpeg" alt="" >
+   <img class="morning" src="../imgfolder/아침/사4.jpg" alt="" srcset="">
+   <img class="morning" src="../imgfolder/아침/pexels-photo-15868531.jpeg" alt="" >
+   <img class="morning" src="../imgfolder/아침/사5.jpg" alt="" srcset="">
+   <img class="morning" src="../imgfolder/아침/사6.jpg" alt="">
+   <img class="morning" src="../imgfolder/아침/사7.jpg" alt="" >
+   <img class="morning" src="../imgfolder/아침/pexels-photo-15896384.jpeg" alt="" >
+   
+  
+   <img class="worktime" src="../imgfolder/근무/세일즈 전광판_1.png" >
+   <img class="worktime" src="../imgfolder/근무/세일즈 전광판_2.png" >
+   <img class="worktime" src="../imgfolder/근무/세일즈 전광판_3.png" >
+   <img class="worktime" src="../imgfolder/근무/호전환0315.png" >
+   
+   
+   <img src="../imgfolder/점심/bread-1281053__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/breakfast-1804457__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/cake-1971552__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/cheese-2785__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/egg-sandwich-2761894__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/food-712665__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/macarons-2548827__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/meatloaf-3747129__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/pancakes-2291908__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/pasta-1854245__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/pizza-3010062__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/pizza-329523__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/raspberries-2023404__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/salad-1672505__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/spaghetti-1932466__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/tomatoes-3520004__340.jpg" alt="" class="lunch">
+   <img src="../imgfolder/점심/waffle-hearts-2697904__340.jpg" alt="" class="lunch">
+   
+
+   <img src="../imgfolder/오후세일즈타임/sales1.png" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/sales2.png" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/sales3.png" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/sales4.jpg" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/sales5.jpg" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/sales6.png" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/sales7.png" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/20210807003950_fgalzmpx.png" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/zO0LPl90tx.jpeg" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/가보자고.jfif" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/화이팅.jfif" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/화이팅2.jfif" alt="" class="sales">
+   <img src="../imgfolder/오후세일즈타임/힘내자.png" alt="" class="sales">
+     
+   
+   <img src="../imgfolder/퇴근/end1.png" alt="" class="ending">
+   <img src="../imgfolder/퇴근/end2.jpg" alt="" class="ending">
+   <img src="../imgfolder/퇴근/end1.jfif" alt="" class="ending">
+   <img src="../imgfolder/퇴근/1619066455676_0.jpg" alt="" class="ending"> 
+   <img src="../imgfolder/퇴근/190531_퇴근하고싶다_택배.jpg" alt="" class="ending"> 
+   <img src="../imgfolder/퇴근/end1.jfif" alt="" class="ending"> 
+   <img src="../imgfolder/퇴근/992890335A142FA40A.png" alt="" class="ending"> 
+   <img src="../imgfolder/퇴근/99FA3C375BBFCE6A0B.jfif" alt="" class="ending"> 
+   <img src="../imgfolder/퇴근/maxresdefault.jpg" alt="" class="ending"> 
+   <img src="../imgfolder/퇴근/퇴근1.png" alt="" class="ending">  
+   <img src="../imgfolder/퇴근/퇴근2.png" alt="" class="ending"> 
+   <img src="../imgfolder/퇴근/end5.jpg" alt="" class="ending"> 
+   <img src="../imgfolder/퇴근/end6.jfif" alt="" class="ending">      
+       
+    <script>
+       jQuery(function(){
+
+var gateImage =$('.gateImage');            
+
+var imgtree =$('.morning');
+var imgtreecount = imgtree.length;
+
+var imgtree1 =$('.worktime');
+var imgtreecount1 = imgtree1.length;
+
+var imgtree2 =$('.lunch');
+var imgtreecount2 = imgtree2.length;
+
+var imgtree3 = $('.sales');
+var imgtreecount3 = imgtree3.length;
+
+var imgtree4 = $('.ending');
+var imgtreecount4 = imgtree4.length;
+
+var currindex = 0;   
+  gateImage.eq(currindex).fadeIn();
+  imgtree.eq(currindex).css('display','block');
+
+  function ShowNextSlide(selector, count) {
+    $('img').not(selector).hide();
+    var nextIndex = (currindex + 1) % count;
+    $(selector).eq(currindex).hide();
+    $(selector).eq(nextIndex).css('display', 'block');
+    $(selector).eq(nextIndex).fadeIn();
+    currindex = nextIndex;
+    console.log(currindex);
+}
+
+const time = new Date();
+    const hour = time.getHours();
+    const minutes = time.getMinutes();
+    const seconds = time.getSeconds();
+
+    var timeToRun = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 7, 10, 0);
+    var timeToRun2 = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 16, 10, 0);
+
+    var timeToEnd = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 8, 40, 0);
+    var timeToEnd1 = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 12, 59, 0);
+    var timeToEnd2 = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 16, 59, 0);
+    var timeToEnd3 = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 18, 50, 0);
+   
+    function getTime() {
+
+
+    if (hour >= 7 && time <= timeToEnd) {
+        ShowNextSlide('.morning', imgtreecount);
+    } else if (hour >= 9 && hour < 12) {
+        ShowNextSlide('.worktime', imgtreecount1);
+    } else if (hour >= 12 && time < timeToEnd1) {
+        ShowNextSlide('.lunch', imgtreecount2);
+    } else if (time >= timeToRun2 && time < timeToEnd2) {
+        ShowNextSlide('.sales', imgtreecount3);
+    } else if (hour >= 18 && time < timeToEnd3) {
+        ShowNextSlide('.ending', imgtreecount4);
+    } else {
+        ShowNextSlide('.worktime', imgtreecount1);
+        clearInterval(realTime);
+    }
+}
+    function getTime1(){ if(hour >= 23 && time <=0){
+        ShowNextSlide('.worktime', imgtreecount1);
+    }else {
+        realTime = setInterval(getTime,5000);
+    }
+           
+    }
+            
+var realTime = setInterval(getTime,5000);
+var realTime1 = setInterval(getTime1,5000);
+
+
+})
+    </script>
+    
+</body>
+</html>
