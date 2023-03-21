@@ -33,14 +33,33 @@
 </head>
 <body>
     <div class="container">
-        <div class="item1"><img src="../../imgfolder/birthday/1_0.jpg" alt=""></div>
-        <div class="item2"><img src="../../imgfolder/birthday/1_1.jpg" alt=""></div>
-        <div class="item3"><img src="../../imgfolder/birthday/1_2.jpg" alt=""></div>
-        <div class="item4"><img src="../../imgfolder/birthday/1_3.jpg" alt=""></div>
-        <div class="item5"><img src="../../imgfolder/birthday/1_4.jpg" alt=""></div>
-        <div class="item6"><img src="../../imgfolder/birthday/1_5.jpg" alt=""></div>
-       
+        <div class="item1"><img data-img="2_0.jpg"  src="../../imgfolder/birthday/1_0.jpg" alt=""></div>
+        <div class="item1"><img data-img="2_1.jpg" src="../../imgfolder/birthday/1_1.jpg" alt=""></div>
+        <div class="item1"><img data-img="2_2.jpg" src="../../imgfolder/birthday/1_2.jpg" alt=""></div>
+        <div class="item1"><img data-img="2_3.jpg" src="../../imgfolder/birthday/1_3.jpg" alt=""></div>
+        <div class="item1"><img data-img="2_4.jpg" src="../../imgfolder/birthday/1_4.jpg" alt=""></div>
+        <div class="item1"><img data-img="2_5.jpg" src="../../imgfolder/birthday/1_5.jpg" alt=""></div>
+        
     </div>
+   <script>
+    jQuery(function(){
+     var $img = $('.container div img');
     
+     $img.click(function(){
+        var $Idex = $(this).index();
+        var $curimg = $(this).attr('data-img');
+         $(this).toggleClass('item2');
+         if($(this).hasClass('item2')){
+            $(this).attr('src','../../imgfolder/birthday/'+$curimg);
+         }else{
+          $srcOrigin =  $img.eq($Idex).attr('src');
+          console.log($srcOrigin)
+            $(this).attr('src',$srcOrigin);
+         }
+
+     })
+   
+})
+   </script>
 </body>
 </html>
