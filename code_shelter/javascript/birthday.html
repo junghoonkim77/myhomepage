@@ -22,7 +22,7 @@
         border : 1px solid gray;
         height : 100%;
        }
-       .container div img{
+       .container img{
         width : 100%;
         height : 100%;
         object-fit: cover;        
@@ -44,17 +44,23 @@
    <script>
     jQuery(function(){
      var $img = $('.container div img');
-    
+     var $srcOrigin =[];
+     console.log($img);
+      $img.each(function(){
+         $srcOrigin.push($(this).attr('src'));
+      });
+       console.log($srcOrigin);
+
      $img.click(function(){
-        var $Idex = $(this).index();
+        var $Idex = $(this).index('.container div img');
         var $curimg = $(this).attr('data-img');
-         $(this).toggleClass('item2');
+        console.log($Idex);
+         
+        $(this).toggleClass('item2');
          if($(this).hasClass('item2')){
             $(this).attr('src','../../imgfolder/birthday/'+$curimg);
          }else{
-          $srcOrigin =  $img.eq($Idex).attr('src');
-          console.log($srcOrigin)
-            $(this).attr('src',$srcOrigin);
+             $(this).attr('src',$srcOrigin[$Idex]);
          }
 
      })
