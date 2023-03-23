@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       body{
+         height :100vh;
+         width : 100vw;
+         padding : 5rem;
+       }
+       .container{
+            display:grid;
+            height : 100%;
+            width : 100%;
+            grid-template-columns: 1fr 3fr  ;
+            grid-template-rows: 50px auto ;
+            grid-template-areas: 
+             'a a'
+             'nav main'
+             'b b'
+            ; 
+        }
+    header,nav,main,aside,footer,.menu{
+        border : 1px solid gray;
+        display : flex;
+        align-items : center;
+    }
+     header {
+        grid-area : a;
+     }    
+     nav{
+        grid-area :nav;
+       }
+    main{
+        padding : 0px;
+        grid-area : main;
+        display : flex;
+        justify-items:baseline;
+        align-items :flex-start;
+        justify-content:space-evenly ;
+        flex-wrap:wrap;
+    } 
+   
+    
+    
+    </style>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+   <title>SR다이어트</title>
+</head>
+<body>
+    <div class="container">
+         <header>
+          SR양식 모음
+         </header>
+         
+         <nav>
+            <pre>
+<label><input value="basicForm" type="checkbox" ><b>기본양식</b></label>
+
+<label><input value="oftenForm" type="checkbox" ><b>자주쓰는양식<br>(판매기회,법인모바일가입문의)</b></label>
+
+<label><input value="leaderForm" type="checkbox" ><b>팀장업무요청<br>(분실폰 위치찾기등)</b></label>
+
+<label><input value="centerForm" type="checkbox" ><b>센터업무요청<br>(통열,우편접수 등)</b></label>
+
+<label><input value="mailForm" type="checkbox" ><b>메일접수 업무요청<br>(착전오등록 ,소액결제 예외상향 등)</b></label>
+
+<label><input value="memberForm" type="checkbox" ><b>KT멤버십 업무요청<br>(카드 즉발,포인트양도 등)</b></label>
+
+<label><input value="differForm" type="checkbox" ><b>타부서 업무요청<br>(FUP,총액결합 이관등)</b></label>
+
+<label><input value="proForm" type="checkbox" ><b>전문부서 업무요청<br>(FUP,총액결합 이관등)</b></label>
+
+<label><input value="weekendForm" type="checkbox" ><b>당직 및 주말근무<br>(FUP,총액결합 이관등)</b></label>
+            </pre>
+</nav>
+         <main>
+<pre class="basicForm">
+[기본문의]
+
+SR추천 사용   
+</pre>
+<pre class="basicForm">
+[개인알림발송]
+    
+제목 : ooo-oooo-oooo 홍길동 고객 연락요청 합니다.
+
+안녕하세요. 서울중앙센터 입니다.
+■번호/명의자:
+■연락처 및 요청자:
+■상담사 연락 요청 내용:
+ㅇㅇㅇ 내용으로 고객 연락 알림 드립니다.
+부서SR 이관드린 내용 참고하시어 고객 연락 바랍니다.
+</pre>
+<pre class="oftenForm">
+[무선 판매기회]
+
+[문의] or [권유]
+1. 업무내용 : (우수기변, 번호이동, 신규가입) 
+2. 업무처리 할 번호 / 고객명 : 
+3. 관심/권유기종 : (언급 시에만 기재) 
+4. 연락처 : 
+5. 참고사항 :
+</pre>
+<pre class="oftenForm">
+[일반접수] 법인명의 모바일 개통 문의 
+or [긴급접수] 법인명의 모바일 개통 문의
+
+■법인명 :
+■법인 사업자 등록번호 :
+■법인 소재지(주소) :
+■법인 담당자 성함/직책 :
+■법인 담당자 연락처 :
+■희망모델 및 색상 :
+■희망수량 :
+■기타 요구사항 등(있을 경우) :
+■접수직원 정보(포상을 위함) : 이름 / ktcs 사번
+■휴대폰 번호로 OB진행 관련 고객 수긍 여부 : O / X    
+</pre>
+
+         </main>
+          
+    </div>
+    <script>
+        jQuery(function(){
+            var $inputTotal = $('.container label input[type=checkbox]');
+            $inputTotal.click(function(){
+                var $index = $(this).index('.container label input');
+                var $val = $(this).val();
+             //  $(this).prop("checked", !$(this).prop("checked")); 
+                var propis = $(this).prop('checked');
+                console.log(propis);
+            })
+                
+
+            })
+        
+        
+    </script>
+</body>
+</html>
