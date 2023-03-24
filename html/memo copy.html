@@ -46,6 +46,13 @@
                 position :absolute;
                 top:15px;
                 left:1px;}
+            
+                .leftmove8{
+                position :absolute;
+                display :inline-block;
+                left : 240px;
+                top : 38px;
+                }
                
                 .leftmove2{
                 position :absolute;
@@ -62,23 +69,27 @@
                   position :relative;
                   left :146px;
                 }
-                .dropdown{
-                 
-                display : inline-block;
-                    }
+               
                 span {
                  font-size : 14px;
                     }
+                    
                 .dropdown-content{
                 display : none;
                 position : absolute;
                 z-index : 1; /*다른 요소들보다 앞에 배치*/
+                }
+                .dropdown-content1{
+                display : none;
+                position : absolute;
+                z-index : 1; /*다른 요소들보다 앞에 배치*/
+                }
+               
                 
-                }
-                .dropdown-content a{
-                display : block;
-                }
                 .dropdown:hover .dropdown-content {
+                display: block;
+                }
+                .dropdown:hover .dropdown-content1 {
                 display: block;
                 }
                 .dropbtn {
@@ -88,6 +99,9 @@
                     color : rgb(166, 196, 221);    
                 }
                 .srform:hover{
+                    background-color: rgb(240, 225, 140);
+                }
+                .srform1:hover{
                     background-color: rgb(240, 225, 140);
                 }
             </style>
@@ -137,6 +151,16 @@
              
             </div>
           </div> 
+          <div class="dropdown leftmove8" >
+            <span class="dropbtn">말머리</span>
+            <div class="dropdown-content1">
+              <input class="srform1" type="button" value="[감성]">
+              <input class="srform1" type="button" value="[멀]">
+              <input class="srform1" type="button" value="[공동망]">
+              <input class="srform1" type="button" value="[대외/언론언급]">
+
+            </div>
+        </div>
        <form name="form">
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <input style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
@@ -154,16 +178,8 @@
             <input class="leftmove4" type="button" onclick="sample6_execDaumPostcode()" value="주소">
             <input class="leftmove5" type="button" value="그룹📧"
             onclick="window.open('https://gw.ktcs.co.kr/logon.aspx', '_blank', 'width=1100, height=900' ) ; return false;">
-            <div class="dropdown leftmove8" >
-                <span class="dropbtn">말머리</span>
-                <div class="dropdown-content">
-                  <input class="srform" type="button" value="[감성]">
-                  <input class="srform" type="button" value="[멀]">
-                  <input class="srform" type="button" value="[공동망]">
-                  <input class="srform" type="button" value="[대외/언론언급]">
-
-                </div>
-            </div>          
+            
+                     
          </form> 
          
           <textarea cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
