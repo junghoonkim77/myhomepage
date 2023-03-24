@@ -32,9 +32,12 @@
                 }
               .leftmove5{
                 position :absolute;
-                 top:35px;
-                 left:220px;}
-              .leftmove6{
+                 top:38px;
+                 left:9px;
+                 height : 22px; 
+                }
+              
+                 .leftmove6{
                 position :absolute;
                 top:15px;
                 left:220px;}
@@ -42,35 +45,56 @@
               .leftmove7{
                 position :absolute;
                 top:15px;
-                left:240px;}
+                left:1px;}
+            
+                .leftmove8{
+                position :absolute;
+                display :inline-block;
+                left : 220px;
+                top : 38px;
+                }
+               
+                .leftmove2{
+                position :absolute;
+                 top:61px;
+                 left:220px;}
+
               textarea{
                   font-size:12px;
                  }
-                 #hidden1 {
+              
+              #hidden1 {
                     float:left;
                  }
                 button{
                   position :relative;
                   left :146px;
                 }
-                .dropdown{
-                 
-                display : inline-block;
-                    }
+               
                 span {
                  font-size : 14px;
                     }
+                    
                 .dropdown-content{
                 display : none;
                 position : absolute;
                 z-index : 1; /*다른 요소들보다 앞에 배치*/
+                }
+                .dropdown-content1{
+                display : none;
+                position : absolute;
+                z-index : 1; /*다른 요소들보다 앞에 배치*/
+                }
+               
                 
-                }
-                .dropdown-content a{
-                display : block;
-                }
                 .dropdown:hover .dropdown-content {
                 display: block;
+                }
+                .dropdown:hover .dropdown-content1 {
+                display: block;
+                }
+                .dropdown-content1 {
+                    background-color: beige;
                 }
                 .dropbtn {
                     border :solid 1px gray;
@@ -79,6 +103,9 @@
                     color : rgb(166, 196, 221);    
                 }
                 .srform:hover{
+                    background-color: rgb(240, 225, 140);
+                }
+                .srform1:hover{
                     background-color: rgb(240, 225, 140);
                 }
             </style>
@@ -125,14 +152,19 @@
               onclick="copy(SRarray[this.value])">
               <input class="srform" type="button" value="장애공지댓글" 
               onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="[감성]" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="[멀]" 
-              onclick="copy(SRarray[this.value])">
-              <input class="srform" type="button" value="[공동망]" 
-              onclick="copy(SRarray[this.value])">  
+             
             </div>
           </div> 
+          <div class="dropdown leftmove8" >
+            <span class="dropbtn">말머리</span>
+            <div class="dropdown-content1">
+              <input class="srform1" type="button" value="[감성]">
+              <input class="srform1" type="button" value="[멀]">
+              <input class="srform1" type="button" value="[공동망]">
+              <input class="srform1" type="button" value="[대외/언론언급]">
+
+            </div>
+        </div>
        <form name="form">
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <input style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
@@ -149,10 +181,11 @@
             ">
             <input class="leftmove4" type="button" onclick="sample6_execDaumPostcode()" value="주소">
             <input class="leftmove5" type="button" value="그룹📧"
-            onclick="window.open('https://gw.ktcs.co.kr/logon.aspx', '_blank', 'width=1100, height=900' ) ; return false;">             
+            onclick="window.open('https://gw.ktcs.co.kr/logon.aspx', '_blank', 'width=1100, height=900' ) ; return false;">
+            
+                     
          </form> 
-         <input class="leftmove6" type="button" value="-">
-         <input class="leftmove7" type="button" value="+"> 
+         
           <textarea cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
           <textarea id="hidden1" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
      
@@ -215,6 +248,10 @@
     $('.inputtime').val("");
    });
 
+  $('.dropdown-content1 .srform1').click(function(){
+    var $srvalue = $(this).val();
+    navigator.clipboard.writeText($srvalue);
+  })
   </script>
   </body>
 </html>
