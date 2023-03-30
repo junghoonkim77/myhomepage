@@ -43,8 +43,8 @@ var htmlvoc_arr = {
 "https://gw.ktcs.co.kr/logon.aspx":"https://gw.ktcs.co.kr/logon.aspx",
 "mymemo.html":"mymemo.html"                   
 }
-function vocbank(htmlvoc_name){
-        window.open(htmlvoc_arr[htmlvoc_name], '_blank', 'width=1100, height=900' ) ; 
+function vocbank(htmlvoc_name,size){
+        window.open(htmlvoc_arr[htmlvoc_name], '_blank', `width=${size}, height=900` ) ; 
 }
 var netwindow = "https://koshelper.kt.co.kr/";
 var wingsite = "http://172.21.10.217:9091/login.htm";
