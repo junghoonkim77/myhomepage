@@ -95,12 +95,14 @@
 
       const lottoNumbers = getLottoNumbers();
       const balls = document.querySelectorAll('.ball');
-
+      console.log(lottoNumbers);
       let count = 0;
+      
       const timerId = setInterval(() => {
         balls[count].innerHTML = lottoNumbers[count];
         balls[count].style.backgroundColor = 'orange';
         count++;
+        
         if (count >= balls.length) {
           clearInterval(timerId);
           resultDiv.innerHTML = lottoNumbers.join(', ');
