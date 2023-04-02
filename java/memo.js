@@ -121,5 +121,64 @@ $(function(){
       BasicSize++
       $('textarea').css('font-size',BasicSize);
   })
+  
+  //시간초기화 (공통메뉴)
+  $('#toggle').click(function(){
+    $('textarea').css('background-color','white');
+    $('.inputtime').val("");
+   });
+
+    //sr양식복사
+  $('.dropdown-content1 .srform1').click(function(){
+    var $srvalue = $(this).val();
+    navigator.clipboard.writeText($srvalue);
+  })
+
+  var $password = $('.password .passmenu .passvalue button' ) //mymemo비번메뉴
+  $('.passmenu').mouseover(function(){
+       $('.passvalue').show().mouseout(function(){
+           $('.passvalue').hide(); 
+       });
+   });
+
+  $password.click(function(){  //mymemo 비번 
+   var $butval = $(this).val();
+   navigator.clipboard.writeText($butval);
+  });
+
+ // 애들쓰는 memo.html 수정
+ 
+ var $compass = $('.task_gate .task_gate1 .common');
+      var spe = $('.special');
+      var valuearr = [];
+     //비번 배열
+      var choi =['민지비번','민지ATAS']
+      var jinwoo = ['진우비번','진우ATAS'];
+     
+     
+      // 이름 받기 
+      $('#teamperson').change(function(){
+        valuearr.length = 0;
+        var $selval= $(this).val();
+        valuearr.push($selval);
+       })
       
+       $compass.click(function(){
+        var attrcode = $(this).attr('data-code');
+        console.log(attrcode);
+        navigator.clipboard.writeText(attrcode);
+        
+       });
+       
+       spe.click(function(){
+        var speIdx =parseInt($(this).attr('data-code'));
+        var valName = valuearr[0];
+        if (valName=="choi"){
+          navigator.clipboard.writeText(choi[speIdx]);
+        } else if(valName=="jinwoo"){
+          navigator.clipboard.writeText(jinwoo[speIdx]);
+        } else {
+          alert('이름부터 선택!');
+        }
+       })
 })
