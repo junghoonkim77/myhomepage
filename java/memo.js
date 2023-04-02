@@ -152,7 +152,7 @@ $(function(){
       var spe = $('.special');
       var valuearr = [];
      //비번 배열
-      var choi =['민지비번','민지ATAS']
+      var choi =['wl134679!@','Ktcs134679!']
       var jinwoo = ['dlwlsdn123##','Dlwlsdn1!'];
      
      
