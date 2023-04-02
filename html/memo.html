@@ -3,7 +3,27 @@
     <head>
         <meta charset="utf-8">
              <style>
-             
+             .task_gate {
+                    position:absolute;
+                    top :85px;
+                    left :270px; 
+                }
+                .task_gate>span{
+                    background-color : yellowgreen;
+                    
+                }
+                .task_gate .task_gate1{
+                    
+                    display :none;
+                    z-index : 1;
+                }
+                .font-size input{
+                   /* display :inline-block; */
+                    font-size: 13px;
+                    background-color: beige;
+
+                }
+
               html{
                 margin :0px;
                 padding :0px;
@@ -113,6 +133,11 @@
                 .srform1:hover{
                     background-color: rgb(240, 225, 140);
                 }
+                #teamperson{
+                  position :absolute;
+                 top:65px;
+                 left:273px;
+                }
             </style>
         <script src="https://code.jquery.com/jquery-3.6.1.js" 
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
@@ -125,7 +150,7 @@
         <h5>메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
         <button id ="btn1">🕑복사</button>
         <div class="dropdown leftmove2" >
-            <span class="dropbtn">🖱️SR양식</span>
+            <span class="dropbtn">SR양식</span>
             <div class="dropdown-content">
               <input class="srform" type="button" value="통품SR기본양식" 
              onclick="copy(SRarray[this.value])">
@@ -159,7 +184,14 @@
               onclick="copy(SRarray[this.value])">
              
             </div>
-          </div> 
+          </div>
+          <select name="person" id="teamperson">
+            <option  value="" >이름▼</option>
+            <option  value="choi">최민지</option>
+            <option  value="jinwoo">이진우</option>
+            
+          </select>
+
           <div class="dropdown leftmove8" >
             <span class="dropbtn">말머리</span>
             <div class="dropdown-content1">
@@ -167,9 +199,25 @@
               <input class="srform1" type="button" value="[멀]">
               <input class="srform1" type="button" value="[공동망]">
               <input class="srform1" type="button" value="[대외/언론언급]">
-
             </div>
         </div>
+        <div class="task_gate">
+          <span class="schedule">비번&코드</span>
+          <div class="task_gate1 font-size">
+    <input data-code="UCB0041" class="common"type="button" value="서울통품1팀[UCB0041]" > <br> 
+    <input data-code="UCB0043"class="common"type="button" value="서울기스마[UCB0043]"><br>
+    <input data-code="UCB0071"class="common" type="button" value="서울고만[UCB0071]"><br>  
+    <input data-code="UCK0033"class="common"type="button" value="대전통품[UCK0033]" ><br> 
+    <input data-code="UCL0053"class="common"type="button" value="대구통품[UCL0053]" ><br>
+    <input data-code="KRater OP" class="common"type="button" value="KRater OP"> <br> 
+    <input data-code="folkball24@" class="common" type="button" value="WFMS비번"><br>  
+    <input data-code="0" class="special" type="button" value="kos비번" ><br>  
+    <input data-code="1" class="special" type="button" value="ATAS비번"><br> 
+ 
+ 
+    </div>
+    </div>
+
        <form name="form">
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <input style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
@@ -248,7 +296,7 @@
   <script src="../java/memo.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
-
+  
   </script>
   </body>
 </html>
