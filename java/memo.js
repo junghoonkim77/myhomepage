@@ -153,7 +153,7 @@ $(function(){
       var valuearr = [];
      //비번 배열
       var choi =['민지비번','민지ATAS']
-      var jinwoo = ['진우비번','진우ATAS'];
+      var jinwoo = ['dlwlsdn123##','Dlwlsdn1!'];
      
      
       // 이름 받기 
