@@ -9,6 +9,7 @@
 </head>
 <body>
     <textarea style="width:100px"></textarea>
+    <input type="text" value="" placeholder="제목">;
     <button class="enter">저장</button>
     <button class="outout">출력</button>
 
@@ -18,17 +19,18 @@
 
             var indexnum = 0
             $('.enter').click(function(){
-              indexnum++
+              
+              var ival = $('input').val();
               console.log(indexnum); 
-              localStorage.setItem(`textval${indexnum}`,$textarea.val())
-              console.log(`textval${indexnum}`);
+              localStorage.setItem(ival,$textarea.val())
+              
             })
             
            /* $textarea.on('input',function(){
                ;
             }) */
 
-            $textarea.val(localStorage.getItem(`textval8`)|| '');
+           // $textarea.val(localStorage.getItem(`textval8`)|| '');
 
         });
     </script>
