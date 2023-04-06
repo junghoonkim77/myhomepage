@@ -21,9 +21,10 @@ const hour = time.getHours();
 const minutes = time.getMinutes();
 const seconds = time.getSeconds();
 //clock.innerHTML = hour +":" + minutes + ":"+seconds;
-//clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`;
+var $key = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`;
 clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}`;
 }
+
 
 function init(){
 setInterval(getTime, 1000);
