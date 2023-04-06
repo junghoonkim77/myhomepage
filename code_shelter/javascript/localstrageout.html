@@ -17,18 +17,24 @@
        button{
         width : 60px;
        }
+       .but3{
+        position : absolute ;
+        left : 200px;
+        background-color: red;
+       }
        .srvalue{
         width:400px;
         font-size :13px;
        }
+       
     </style>
     <title>로컬아웃풋</title>
 </head>
 <body>
-    <input class="input1" type="text" value="" placeholder="제목검색">→
-    <button class="but1">클릭</button><br>
+   
     <input class="input2" type="text" value="" placeholder="순번">→
     <button class="but2">db삭제</button>
+    <button class="but3">all삭제</button>
     
  <div class="div1"></div>
  <div class="div2"></div>
@@ -45,7 +51,7 @@
            var $dbkey = localStorage.key($idxstart)   
            $('.div2').
            append(`<div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
-            <div>내용 ▶${values}입니다.</div></div><br>`);
+            <div>내용 ▶${values}</div></div><br>`);
            $idxstart++
         }
         
@@ -62,7 +68,11 @@
             localStorage.removeItem($deldb);
             location.reload();
         })
-    
+       
+        $('.but3').click(function(){
+            localStorage.clear();
+            location.reload();
+        })
         
 
     })
