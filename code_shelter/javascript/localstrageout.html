@@ -5,17 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+       
+       .input1{
+        width:60px;
+        
+       }
+       .input2{
+        width :40px;
+       }
+       button{
+        width : 60px;
+       }
+       .srvalue{
+        width:400px;
+        font-size :13px;
+       }
+    </style>
     <title>로컬아웃풋</title>
 </head>
 <body>
- <div>
-
- </div>
- 
+    <input class="input1" type="text" value="" placeholder="제목검색">→
+    <button class="but1">클릭</button><br>
+    <input class="input2" type="text" value="" placeholder="순번">→
+    <button class="but2">db삭제</button>
+    
+ <div class="div1"></div>
+ <div class="div2"></div>
+  
  <script>
     jQuery(function(){
         
-        $('div').text(localStorage.getItem('엣지')|| '');
+        var savedValues = Object.values(localStorage);
+        var $dblength = localStorage.length;
+        console.log($dblength);
+        console.log(localStorage.key(0));
+        var $idxstart= 0 ;
+        for ( var values of savedValues){
+           var $dbkey = localStorage.key($idxstart)   
+           $('.div2').
+           append(`<div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
+            <div>내용 ▶${values}입니다.</div></div><br>`);
+           $idxstart++
+        }
+        
+        $('.but1').click(function(){
+            var $inputval = $('.input1').val();
+            console.log($inputval);
+            $('.div1').text(localStorage.getItem($inputval)|| '');
+        })
+        
+        $('.but2').click(function(){
+            var $inputval1 = parseInt($('.input2').val()) ;
+            var $deldb = localStorage.key($inputval1);
+            console.log($deldb)
+            localStorage.removeItem($deldb);
+            location.reload();
+        })
+    
+        
 
     })
  </script>

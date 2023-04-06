@@ -10,23 +10,36 @@
 <body>
     <textarea style="width:100px"></textarea>
     <input type="text" value="" placeholder="제목">;
-    <button class="enter">저장</button>
-    <button class="outout">출력</button>
+    <button class="enter"><a href="#">저장</a> </button>
+    
 
     <script>
         jQuery(function(){
             var $textarea=$('textarea');
 
-            var indexnum = 0
-            $('.enter').click(function(){
-              
+            $('textarea').keyup(function(){
+                var $vallength = $(this).val().length;
+                var $texval = $(this).val();
+                console.log($texval);
+               if($vallength>=6){
+               var $keyval = $texval.substring(2,8)
+                $('input').val($keyval);
+                localStorage.setItem($keyval,$texval)
+               }
+
+                
+            }) 
+
+            /* var indexnum = 0
+            $('.enter').click(function(e){
+              e.preventDefault();
               var ival = $('input').val();
               console.log(indexnum); 
               localStorage.setItem(ival,$textarea.val())
               
             })
             
-           /* $textarea.on('input',function(){
+           $textarea.on('input',function(){
                ;
             }) */
 
