@@ -82,10 +82,24 @@
                 .leftmove8{
                 position :absolute;
                 display :inline-block;
-                left : 100px;
+                left : 70px;
                 top : 38px;
                 }
                
+                .leftmove9{
+                  position : absolute;
+                  left:115px;
+                  top : 40px;
+                  font-size: 13px;
+                  background-color: aqua;
+                }
+                .leftmove10{
+                  position : absolute;
+                  left:160px;
+                  top : 40px;
+                  font-size: 13px;
+                  background-color:orange;
+                }
                 .leftmove2{
                 position :absolute;
                  top:61px;
@@ -210,9 +224,10 @@
               <input class="srform1" type="button" value="/TV추가 가입권유">
               <input class="srform1" type="button" value="/TV 가입권유">
               <input class="srform1" type="button" value="/인터넷,TV가입권유">
-              
-            </div>
-        </div>
+             </div>
+          </div>
+          <div class=" leftmove9"><a href="#"> 메모💾</a></div>
+          <div class=" leftmove10"> <a href="localstrageout.html" onclick="vocbank('localstrageout.html','600');  return false;">메모목록[팝업]</a> </div>
         <div class="task_gate">
           <span class="schedule">비번&코드</span>
           <div class="task_gate1 font-size">
@@ -226,15 +241,13 @@
     <input data-code="ktcs1234##" class="common" type="button" value="넷윈도등비번(공통)"><br>  
     <input data-code="0" class="special" type="button" value="kos비번" ><br>  
     <input data-code="1" class="special" type="button" value="ATAS비번"><br> 
- 
- 
-    </div>
-    </div>
+          </div>
+        </div>
 
        <form name="form">
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <input style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
-           <input style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
+        <input style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
            <input class="leftmove1" id ="toggle" type="reset" value="⏰리셋" >         
            <input class="leftmove3" id="toggle1" type="button" value="📘📘" onclick="
             if(this.value==='📘📘'){
@@ -307,9 +320,12 @@
       
   </script>
   <script src="../java/memo.js"></script>
+  <script src="../java/voc_bank.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
-   
+    jQuery(function(){
+      
+    })
   </script>
   </body>
 </html>

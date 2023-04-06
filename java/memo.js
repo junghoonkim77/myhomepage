@@ -171,15 +171,12 @@ $(function(){
        });
        
        spe.click(function(){
-        var speIdx = $(this).index('.special');
+       // var speIdx = $(this).index('.special');
+        var $thiskey = $(this).attr('data-code');
         var valName = valuearr[0];
-        if (valName=="choi"){
-          navigator.clipboard.writeText(choi[speIdx]);
-        } else if(valName=="jinwoo"){
-          navigator.clipboard.writeText(jinwoo[speIdx]);
-        } else {
-          alert('이름부터 선택!');
-        }
+        var $dbval = localStorage.getItem($thiskey);
+        navigator.clipboard.writeText($dbval);
+    
        })
       // 메모저장용 코드
       
@@ -204,6 +201,13 @@ $(function(){
               //$('input').val('');
               keyvalue.length = 0
              })
+
+             $('.leftmove11').click(function(e){
+              e.preventDefault()
+              var $textarea1 = $textarea.eq(0).val(); 
+                 localStorage.setItem(valuearr[0],$textarea1);
+      
+            }) 
           
             
 })

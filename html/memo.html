@@ -88,17 +88,24 @@
                
                 .leftmove9{
                   position : absolute;
-                  left:115px;
+                  left:123px;
                   top : 40px;
                   font-size: 13px;
                   background-color: aqua;
                 }
                 .leftmove10{
                   position : absolute;
-                  left:160px;
+                  left:195px;
                   top : 40px;
                   font-size: 13px;
                   background-color:orange;
+                }
+                .leftmove11{
+                  position : absolute;
+                  left:250px;
+                  top : 40px;
+                  font-size: 13px;
+                  background-color:cadetblue;
                 }
                 .leftmove2{
                 position :absolute;
@@ -207,9 +214,11 @@
             </div>
           </div>
           <select name="person" id="teamperson">
-            <option  value="" >이름▼</option>
-            <option  value="choi">최민지</option>
-            <option  value="jinwoo">이진우</option>
+            <option  value="" >전산명▼</option>
+            <option  value="meid">본인ID(kos id)</option>
+            <option  value="kos">KOS비번</option>
+            <option  value="atas">ATAS비번</option>
+            <option  value="idms">IDMS비번(넷윈..등)</option>
             
           </select>
 
@@ -226,9 +235,12 @@
               <input class="srform1" type="button" value="/인터넷,TV가입권유">
              </div>
           </div>
-          <div class=" leftmove9"><a href="#"> 메모💾</a></div>
-          <div class=" leftmove10"> <a href="localstrageout.html" onclick="vocbank('localstrageout.html','600');  return false;">메모목록[팝업]</a> </div>
-        <div class="task_gate">
+          <div class="leftmove9"><a href="#"> 메모저장💾</a></div>
+          <div class="leftmove10"> <a href="localstrageout.html" onclick="vocbank('localstrageout.html','600');  return false;">메모목록</a> </div>
+          <div title="전산명선택->비번메모장입력->비번변경클릭 끝" 
+          class="leftmove11"><a href="#">비번변경</a></div>
+
+          <div class="task_gate">
           <span class="schedule">비번&코드</span>
           <div class="task_gate1 font-size">
     <input data-code="UCB0041" class="common"type="button" value="서울통품1팀[UCB0041]" > <br> 
@@ -239,8 +251,10 @@
     <input data-code="KRater OP" class="common"type="button" value="KRater OP"> <br> 
     <input data-code="folkball24@" class="common" type="button" value="WFMS비번"><br>
     <input data-code="ktcs1234##" class="common" type="button" value="넷윈도등비번(공통)"><br>  
-    <input data-code="0" class="special" type="button" value="kos비번" ><br>  
-    <input data-code="1" class="special" type="button" value="ATAS비번"><br> 
+    <input data-code="meid" class="special" type="button" value="본인ID(kosid)" ><br>  
+    <input data-code="kos" class="special" type="button" value="KOS비번"><br>
+    <input data-code="atas" class="special" type="button" value="ATAS비번"><br> 
+    <input data-code="idms" class="special" type="button" value="IDMS비번(넷윈도..등)"><br>  
           </div>
         </div>
 
@@ -325,6 +339,7 @@
   <script>
     jQuery(function(){
       
+
     })
   </script>
   </body>
