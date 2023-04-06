@@ -9,41 +9,52 @@
 </head>
 <body>
     <textarea style="width:100px"></textarea>
+    <textarea style="width:100px"></textarea>
     <input type="text" value="" placeholder="제목">;
     <button class="enter"><a href="#">저장</a> </button>
     
 
     <script>
         jQuery(function(){
-            var $textarea=$('textarea');
+            
+            var keyvalue =[];
+            var $textarea = $('textarea');
+            
+            function keyname(){
+            var ti = new Date();
+            var mo = ti.getDay();
+            var ho = ti.getHours();
+            var mi = ti.getMinutes();
+            var se = ti.getSeconds();
+            var $key = mo+"-"+ho+'-'+se ;
+              keyvalue.push($key);
+            }
+            
 
-            $('textarea').keyup(function(){
+           /* $('textarea').keyup(function(){
                 var $vallength = $(this).val().length;
                 var $texval = $(this).val();
                 console.log($texval);
-               if($vallength>=6){
-               var $keyval = $texval.substring(2,8)
-                $('input').val($keyval);
-                localStorage.setItem($keyval,$texval)
-               }
-
-                
-            }) 
-
-            /* var indexnum = 0
+               if($vallength>=5){
+                $('input').val($key);
+            }
+           }) */ 
+             
             $('.enter').click(function(e){
               e.preventDefault();
-              var ival = $('input').val();
-              console.log(indexnum); 
+              keyname();
+
+              var ival = keyvalue[0]
               localStorage.setItem(ival,$textarea.val())
-              
+             //$('input').val('');
+             keyvalue.length = 0
             })
             
-           $textarea.on('input',function(){
+            /*$textarea.on('input',function(){
                ;
-            }) */
-
-           // $textarea.val(localStorage.getItem(`textval8`)|| '');
+            }) 
+           // $textarea.val(localStorage.getItem(`textval8`)|| ''); 
+            */
 
         });
     </script>
