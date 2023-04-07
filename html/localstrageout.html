@@ -16,7 +16,7 @@
         position :fixed ;
         left : 460px;
         top : 40px;
-        background-color: red;
+        background-color: rgb(220, 92, 92);
        }
        .srvalue{
         width:400px;
@@ -25,7 +25,12 @@
        .delkey {
         font-size: 11px;
            }
-       
+        a{
+            text-decoration: none;
+        }
+        .contents:hover {
+            background-color:rgb(191, 231, 191);
+        }
     </style>
     <title>로컬아웃풋</title>
 </head>
@@ -48,7 +53,7 @@
            var $dbkey = localStorage.key($idxstart)   
            $('.div2').
            append(`<button class="delkey">삭제[${$idxstart}]</button><div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
-            <div>내용 ▶${values}</div></div><br>`);
+            <div class="contents"><a href="#">${values}</a></div></div><br>`);
            $idxstart++
         }
         
@@ -67,7 +72,11 @@
             location.reload();
         })
         
-
+         var $content = $('.contents');
+         $content.click(function(){
+         var $thisconTent = $(this).text()
+         navigator.clipboard.writeText($thisconTent);
+         })
     })
  </script>
 
