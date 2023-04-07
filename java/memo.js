@@ -182,7 +182,7 @@ $(function(){
       
        var keyvalue =[];
        var $textarea = $('textarea');
-            
+       var $textareaValue =[];     
             function keyname(){
             var ti = new Date();
             var month = ti.getMonth()+1
@@ -194,14 +194,16 @@ $(function(){
               keyvalue.push($key);
             }
   
-          $('.leftmove9').click(function(e){
-             e.preventDefault()
-             keyname();
-             var ival = keyvalue[0]
-             var $textarea1 = $textarea.eq(0).val(); 
-               localStorage.setItem(ival,$textarea1);
-              //$('input').val('');
+          $('.leftmove9').click(function(s){
+             s.preventDefault();
+             $textarea.each(function(e){
+              keyname();
+              var ival = keyvalue[0];
+              $textareaValue.push($textarea.eq(e).val()) ; 
+              localStorage.setItem(ival+e,$textareaValue[e]);
               keyvalue.length = 0
+             })
+             $textareaValue.length = 0;             
              })
 
              $('.leftmove11').click(function(e){
@@ -210,6 +212,12 @@ $(function(){
                  localStorage.setItem(valuearr[0],$textarea1);
       
             }) 
+
+            $('.leftmove12').click(function(){
+              $textarea.each(function(){
+                $(this).toggleClass('black');
+              })
+            })
           
             
 })
