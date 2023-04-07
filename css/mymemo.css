@@ -1,0 +1,186 @@
+.leftmove8 {
+    position:absolute;
+    top :85px;
+    left :270px; 
+}
+.task_gate:hover .task_gate1  {
+    display : block;
+}   
+
+.task_gate   {
+position :absolute;
+display :inline-block;
+left : 72px;
+top : 38px;
+z-index :1 ;
+}
+.task_gate>span{
+    background-color : yellowgreen;
+    
+}
+.task_gate .task_gate1{
+    
+    display :none;
+    z-index : 1;
+}
+.common:hover {
+   background-color: aqua;
+}
+.special:hover{
+  background-color: aqua;
+}
+
+.font-size input{
+   /* display :inline-block; */
+    font-size: 13px;
+    background-color: beige;
+
+}
+
+html{
+margin :0px;
+padding :0px;
+}
+.leftmove1{
+ position :absolute;
+ top:61px;
+ left:99px;
+ width : 55px;
+}
+h5 {
+  width:200px;
+  padding :0px;
+  
+ }
+.leftmove2{
+position :absolute;
+ top:61px;
+ left:220px;}
+
+.leftmove3{
+position :absolute;
+ top:61px;
+ left:46px;
+  }
+.leftmove4{
+position :absolute;
+top:61px;
+ left:8px;
+ width:38px;
+}
+.leftmove5{
+position :absolute;
+ top:38px;
+ left:9px;
+ height : 22px; 
+}
+
+ .leftmove6{
+position :absolute;
+top:15px;
+left:220px;}
+
+.leftmove7{
+position :absolute;
+top:15px;
+left:1px;}
+
+
+
+.leftmove9{
+  position : absolute;
+  left:129px;
+  top : 40px;
+  font-size: 13px;
+  background-color: aqua;
+}
+.leftmove10{
+  position : absolute;
+  left:200px;
+  top : 40px;
+  font-size: 13px;
+  background-color:orange;
+}
+.leftmove11{
+  position : absolute;
+  left:255px;
+  top : 40px;
+  font-size: 13px;
+  background-color:cadetblue;
+}
+.leftmove12{
+  position : absolute;
+  left:255px;
+  top : 20px;
+  font-size: 13px;
+  background-color:black;
+  
+}
+.leftmove2{
+position :absolute;
+ top:61px;
+ left:220px;}
+
+textarea{
+  font-size:12px;
+ }
+
+textarea.black{
+  font-size:12px;
+  background-color: black;
+  color : white;
+ }
+
+#hidden1 {
+    float:left;
+ }
+button{
+  position :relative;
+  left :146px;
+}
+
+span {
+ font-size : 14px;
+    }
+    
+.dropdown-content{
+display : none;
+position : absolute;
+z-index : 1; /*다른 요소들보다 앞에 배치*/
+}
+.dropdown-content1{
+display : none;
+position : absolute;
+z-index : 1; /*다른 요소들보다 앞에 배치*/
+}
+
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+.dropdown-content1 {
+    background-color: beige;
+    font-size: 8px;
+    width :80px;
+       }
+.dropbtn {
+    border :solid 1px gray;
+    padding : 0 5 0 5 ;
+    background-color: rgb(36, 85, 148);
+    color : rgb(166, 196, 221);    
+}
+.dropbtn1{
+  background-color:blue ;
+}
+.srform:hover{
+    background-color: rgb(240, 225, 140);
+}
+.srform1:hover{
+    background-color: rgb(240, 225, 140);
+}
+#teamperson{
+  position :absolute;
+ top:65px;
+ left:273px;
+}

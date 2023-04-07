@@ -2,187 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-             <style>
-             .leftmove8 {
-                    position:absolute;
-                    top :85px;
-                    left :270px; 
-                }
-                
-             .task_gate   {
-                position :absolute;
-                display :inline-block;
-                left : 70px;
-                top : 38px;
-                }
-                .task_gate>span{
-                    background-color : yellowgreen;
-                    
-                }
-                .task_gate .task_gate1{
-                    
-                    display :none;
-                    z-index : 1;
-                }
-                .common:hover {
-                   background-color: aqua;
-                }
-                .special:hover{
-                  background-color: aqua;
-                }
-
-                .font-size input{
-                   /* display :inline-block; */
-                    font-size: 13px;
-                    background-color: beige;
-
-                }
-
-              html{
-                margin :0px;
-                padding :0px;
-              }
-             .leftmove1{
-                 position :absolute;
-                 top:61px;
-                 left:99px;
-                 width : 55px;
-                }
-              h5 {
-                  width:200px;
-                  padding :0px;
-                  
-                 }
-              .leftmove2{
-                position :absolute;
-                 top:61px;
-                 left:220px;}
-              
-               .leftmove3{
-                position :absolute;
-                 top:61px;
-                 left:46px;
-                  }
-              .leftmove4{
-                position :absolute;
-                top:61px;
-                 left:8px;
-                 width:38px;
-                }
-              .leftmove5{
-                position :absolute;
-                 top:38px;
-                 left:9px;
-                 height : 22px; 
-                }
-              
-                 .leftmove6{
-                position :absolute;
-                top:15px;
-                left:220px;}
-
-              .leftmove7{
-                position :absolute;
-                top:15px;
-                left:1px;}
-            
-               
-               
-                .leftmove9{
-                  position : absolute;
-                  left:123px;
-                  top : 40px;
-                  font-size: 13px;
-                  background-color: aqua;
-                }
-                .leftmove10{
-                  position : absolute;
-                  left:195px;
-                  top : 40px;
-                  font-size: 13px;
-                  background-color:orange;
-                }
-                .leftmove11{
-                  position : absolute;
-                  left:250px;
-                  top : 40px;
-                  font-size: 13px;
-                  background-color:cadetblue;
-                }
-                .leftmove12{
-                  position : absolute;
-                  left:250px;
-                  top : 20px;
-                  font-size: 13px;
-                  background-color:black;
-                  
-                }
-                .leftmove2{
-                position :absolute;
-                 top:61px;
-                 left:220px;}
-
-              textarea{
-                  font-size:12px;
-                 }
-              
-              textarea.black{
-                  font-size:12px;
-                  background-color: black;
-                  color : white;
-                 }
-              
-              #hidden1 {
-                    float:left;
-                 }
-                button{
-                  position :relative;
-                  left :146px;
-                }
-               
-                span {
-                 font-size : 14px;
-                    }
-                    
-                .dropdown-content{
-                display : none;
-                position : absolute;
-                z-index : 1; /*다른 요소들보다 앞에 배치*/
-                }
-                .dropdown-content1{
-                display : none;
-                position : absolute;
-                z-index : 1; /*다른 요소들보다 앞에 배치*/
-                }
-               
-                
-                .dropdown:hover .dropdown-content {
-                display: block;
-                }
-                
-                .dropdown-content1 {
-                    background-color: beige;
-                    font-size: 10px;
-                    width :70px;
-                }
-                .dropbtn {
-                    border :solid 1px gray;
-                    padding : 0 5 0 5 ;
-                    background-color: rgb(36, 85, 148);
-                    color : rgb(166, 196, 221);    
-                }
-                .srform:hover{
-                    background-color: rgb(240, 225, 140);
-                }
-                .srform1:hover{
-                    background-color: rgb(240, 225, 140);
-                }
-                #teamperson{
-                  position :absolute;
-                 top:65px;
-                 left:273px;
-                }
-            </style>
+        <link rel="stylesheet" href="../css/mymemo.css">
         <script src="https://code.jquery.com/jquery-3.6.1.js" 
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -239,7 +59,7 @@
           </select>
 
           <div class="dropdown leftmove8" >
-            <span class="dropbtn">말머리</span>
+            <span class="dropbtn1">일과</span>
             <div class="dropdown-content1">
               <label> <input type="checkbox" > K톡 메신저 로그인 <br></label>
               <label> <input type="checkbox" > 구글캘린더 일정 확인 <br></label>
@@ -268,10 +88,7 @@
    <label><input type="checkbox" > 당직자 서명후 김윤식 과장 측으로 제출 <br></label>
    <label><input type="checkbox" > 주간 보고 수요일 회신 <br></label>
    <label><input type="checkbox" > 복무표 목요일 3시까지 제출 <br></label>
-     -------------------월간 일정<br>
-   <label> <input type="checkbox" > 통품정기 평가 진행 보고<br></label>
-   <label> <input type="checkbox" >조근 당직 승빈 팀장님 회신<br></label>
-   <label> <input type="checkbox" >월 500콜 무조건 확인<br></label>
+   
              </div>
           </div>
           <div class="leftmove9"><a href="#"> 메모저장💾</a></div>
@@ -373,7 +190,7 @@
       }
       
   </script>
-  <script src="../java/mymemo.js"></script>
+  <script src="../java/memo.js"></script>
   <script src="../java/voc_bank.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>

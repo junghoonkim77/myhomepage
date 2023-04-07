@@ -122,16 +122,6 @@ $(function(){
       $('textarea').css('font-size',BasicSize);
   })
   
-  $('.dropbtn').click(function(){
-      $(this).toggleClass('showing');
-      if($(this).hasClass('showing')){
-        $('.dropdown-content1').css('display','block');
-      } else{
-        $('.dropdown-content1').css('display','none');
-      }
-      
-  });
-
   //시간초기화 (공통메뉴)
   $('#toggle').click(function(){
     $('textarea').css('background-color','white');
@@ -162,7 +152,7 @@ $(function(){
       var spe = $('.special');
       var valuearr = [];
      //비번 배열
-           
+      
      
       // 이름 받기 
       $('#teamperson').change(function(){
