@@ -7,33 +7,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
        
-       .input1{
-        width:60px;
-        
-       }
-       .input2{
-        width :40px;
-       }
+     
+       
        button{
         width : 60px;
        }
        .but3{
-        position : absolute ;
-        left : 200px;
+        position :fixed ;
+        left : 460px;
+        top : 40px;
         background-color: red;
        }
        .srvalue{
         width:400px;
         font-size :13px;
        }
+       .delkey {
+        font-size: 11px;
+           }
        
     </style>
     <title>로컬아웃풋</title>
 </head>
 <body>
    
-    <input class="input2" type="text" value="" placeholder="순번">→
-    <button class="but2">db삭제</button>
     <button class="but3">all삭제</button>
     
  <div class="div1"></div>
@@ -50,20 +47,16 @@
         for ( var values of savedValues){
            var $dbkey = localStorage.key($idxstart)   
            $('.div2').
-           append(`<div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
+           append(`<button class="delkey">삭제[${$idxstart}]</button><div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
             <div>내용 ▶${values}</div></div><br>`);
            $idxstart++
         }
         
-        $('.but1').click(function(){
-            var $inputval = $('.input1').val();
-            console.log($inputval);
-            $('.div1').text(localStorage.getItem($inputval)|| '');
-        })
-        
-        $('.but2').click(function(){
-            var $inputval1 = parseInt($('.input2').val()) ;
-            var $deldb = localStorage.key($inputval1);
+        var $delkey =$('.delkey');      
+        $delkey.click(function(){
+            var $delkeyIdx = $(this).index('.delkey');
+            console.log($delkeyIdx);
+            var $deldb = localStorage.key($delkeyIdx);
             console.log($deldb)
             localStorage.removeItem($deldb);
             location.reload();
