@@ -183,15 +183,17 @@ $(function(){
        var keyvalue =[];
        var $textarea = $('textarea');
             
-             function keyname(){
-             var ti = new Date();
-             var mo = ti.getDay();
-             var ho = ti.getHours();
-             var mi = ti.getMinutes();
-             var se = ti.getSeconds();
-             var $key = mo+"-"+ho+'-'+se ;
-               keyvalue.push($key);
-             }
+            function keyname(){
+            var ti = new Date();
+            var month = ti.getMonth()+1
+            var mo = ti.getDate()
+            var ho = ti.getHours();
+            var mi = ti.getMinutes();
+            var se = ti.getSeconds();
+            var $key = month+'월'+mo+"일"+ho+'시'+mi+'분'+se+'초' ;
+              keyvalue.push($key);
+            }
+  
           $('.leftmove9').click(function(e){
              e.preventDefault()
              keyname();
