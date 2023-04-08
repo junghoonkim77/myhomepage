@@ -2,171 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-             <style>
-             .task_gate {
-                    position:absolute;
-                    top :85px;
-                    left :270px; 
-                }
-                .task_gate>span{
-                    background-color : yellowgreen;
-                    
-                }
-                .task_gate .task_gate1{
-                    
-                    display :none;
-                    z-index : 1;
-                }
-                .common:hover {
-                   background-color: aqua;
-                }
-                .special:hover{
-                  background-color: aqua;
-                }
-
-                .font-size input{
-                   /* display :inline-block; */
-                    font-size: 13px;
-                    background-color: beige;
-
-                }
-
-              html{
-                margin :0px;
-                padding :0px;
-              }
-             .leftmove1{
-                 position :absolute;
-                 top:61px;
-                 left:99px;
-                 width : 55px;
-                }
-              h5 {
-                  width:200px;
-                  padding :0px;
-                  
-                 }
-              .leftmove2{
-                position :absolute;
-                 top:61px;
-                 left:220px;}
-              
-               .leftmove3{
-                position :absolute;
-                 top:61px;
-                 left:46px;
-                  }
-              .leftmove4{
-                position :absolute;
-                top:61px;
-                 left:8px;
-                 width:38px;
-                }
-              .leftmove5{
-                position :absolute;
-                 top:38px;
-                 left:9px;
-                 height : 22px; 
-                }
-              
-                 .leftmove6{
-                position :absolute;
-                top:15px;
-                left:220px;}
-
-              .leftmove7{
-                position :absolute;
-                top:15px;
-                left:1px;}
-            
-                .leftmove8{
-                position :absolute;
-                display :inline-block;
-                left : 70px;
-                top : 38px;
-                }
-               
-                .leftmove9{
-                  position : absolute;
-                  left:123px;
-                  top : 40px;
-                  font-size: 13px;
-                  background-color: aqua;
-                }
-                .leftmove10{
-                  position : absolute;
-                  left:195px;
-                  top : 40px;
-                  font-size: 13px;
-                  background-color:orange;
-                }
-                .leftmove11{
-                  position : absolute;
-                  left:250px;
-                  top : 40px;
-                  font-size: 13px;
-                  background-color:cadetblue;
-                }
-                .leftmove2{
-                position :absolute;
-                 top:61px;
-                 left:220px;}
-
-              textarea{
-                  font-size:12px;
-                 }
-              
-              #hidden1 {
-                    float:left;
-                 }
-                button{
-                  position :relative;
-                  left :146px;
-                }
-               
-                span {
-                 font-size : 14px;
-                    }
-                    
-                .dropdown-content{
-                display : none;
-                position : absolute;
-                z-index : 1; /*다른 요소들보다 앞에 배치*/
-                }
-                .dropdown-content1{
-                display : none;
-                position : absolute;
-                z-index : 1; /*다른 요소들보다 앞에 배치*/
-                }
-               
-                
-                .dropdown:hover .dropdown-content {
-                display: block;
-                }
-                .dropdown:hover .dropdown-content1 {
-                display: block;
-                }
-                .dropdown-content1 {
-                    background-color: beige;
-                }
-                .dropbtn {
-                    border :solid 1px gray;
-                    padding : 0 5 0 5 ;
-                    background-color: rgb(36, 85, 148);
-                    color : rgb(166, 196, 221);    
-                }
-                .srform:hover{
-                    background-color: rgb(240, 225, 140);
-                }
-                .srform1:hover{
-                    background-color: rgb(240, 225, 140);
-                }
-                #teamperson{
-                  position :absolute;
-                 top:65px;
-                 left:273px;
-                }
-            </style>
+            <link rel="stylesheet" href="../css/memo.css">
         <script src="https://code.jquery.com/jquery-3.6.1.js" 
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -219,6 +55,7 @@
             <option  value="kos">KOS비번</option>
             <option  value="atas">ATAS비번</option>
             <option  value="idms">IDMS비번(넷윈..등)</option>
+            <option  value="wfms">WFMS비번</option>
             
           </select>
 
@@ -239,6 +76,7 @@
           <div class="leftmove10"> <a href="localstrageout.html" onclick="vocbank('localstrageout.html','600');  return false;">메모목록</a> </div>
           <div title="전산명선택->비번메모장입력->비번변경클릭 끝" 
           class="leftmove11"><a href="#">비번변경</a></div>
+          <div title="눈이피로할때" class="leftmove12"><a href="#">검은바탕</a></div>
 
           <div class="task_gate">
           <span class="schedule">비번&코드</span>
@@ -249,12 +87,12 @@
     <input data-code="UCK0033"class="common"type="button" value="대전통품[UCK0033]" ><br> 
     <input data-code="UCL0053"class="common"type="button" value="대구통품[UCL0053]" ><br>
     <input data-code="KRater OP" class="common"type="button" value="KRater OP"> <br> 
-    <input data-code="folkball24@" class="common" type="button" value="WFMS비번"><br>
     <input data-code="ktcs1234##" class="common" type="button" value="넷윈도등비번(공통)"><br>  
     <input data-code="meid" class="special" type="button" value="본인ID(kosid)" ><br>  
     <input data-code="kos" class="special" type="button" value="KOS비번"><br>
     <input data-code="atas" class="special" type="button" value="ATAS비번"><br> 
-    <input data-code="idms" class="special" type="button" value="IDMS비번(넷윈도..등)"><br>  
+    <input data-code="idms" class="special" type="button" value="IDMS비번(넷윈도..등)"><br>
+    <input data-code="wfms" class="special" type="button" value="WFMS비번">  
           </div>
         </div>
 
