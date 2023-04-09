@@ -184,7 +184,6 @@
 <label><input value="중철요" type="checkbox" >기술_중계기 철거요청</label>
 <label><input value="중이요" type="checkbox" >기술_중계기 이설요청</label>
 <label><input value="개확요" type="checkbox" >기술_개선여부 확인요청</label>
-<label><input value="개확요" type="checkbox" >기술_개선여부 확인요청</label>
 <label><input value="lteegg" type="checkbox" >기술_LTE EGG+ TT접수</label>
 <label><input value="hotline" type="checkbox" >기술_핫라인 요청</label>
 </pre>
@@ -1003,6 +1002,7 @@
             
             $mainPre.click(function(){
                var pretext = $(this).text();
+               console.log(pretext);
                navigator.clipboard.writeText(pretext);
             });
 

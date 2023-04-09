@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       
+       body{
+         height :100vh;
+         width : 100vw;
+         padding : 2rem;
+       }
+       .container{
+            display:grid;
+            height : 100%;
+            width : 100%;
+            grid-template-columns: 1fr 2fr  ;
+            grid-template-rows: 50px auto ;
+            grid-template-areas: 
+             'a a'
+             'nav main'
+             'b b'
+            ; 
+        }
+    header,nav,main,aside,footer,.menu{
+        border : 1px solid gray;
+        display : flex;
+        align-items : center;
+        height : 100%;
+        width : 100%;
+    }
+     header {
+        grid-area : a;
+     }    
+     nav{
+        grid-area :nav;
+        display :grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        font-size : 11px;
+        }
+
+    nav div {
+      border : 1px solid gray;
+      margin :0px;
+      padding : 0px;
+      background-color : white;
+    }
+
+    nav div pre{
+       margin:0px;
+    }
+
+    main{
+        padding : 0px;
+        grid-area : main;
+        display :flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+        flex-wrap : wrap;
+        
+    } 
+     main div{
+        padding :0px;
+        font-size : 12px;
+        border : 2px solid gray;
+        margin : 0px;
+     }
+     main div:hover {
+        background-color: aqua;
+     }   
+    
+    </style>
+   <script src="https://code.jquery.com/jquery-3.6.4.js" 
+   integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+   crossorigin="anonymous"></script>
+
+   <title>SR다이어트</title>
+</head>
+<body>
+ <div class="container">
+         <header>
+          <span> SR선택→우측에 SR표시→마우스Over색 변경시 <b style="color:tomato">"클릭"→자동 복사됨(붙여넣기만 하면됨)</b></span> <button class="button1">전체선택해제</button> ※좌우측 모든 블럭은 클릭후 Drag위치이동 가능※
+         </header>
+         
+<nav>
+
+<div class="srcheckbox" title="자주사용하는 SR구분">
+<pre>  
+<label><input value="분실폰" type="checkbox" >분실폰 위치찾기</label>
+<label><input value="개인알림" type="checkbox" >개인알림</label>
+<label><input value="무선판매기회" type="checkbox" >무선판매기회</label>
+<label><input value="법인모바일" type="checkbox" >법인 모바일 가입문의</label>
+<label><input value="비영업" type="checkbox" >비영업 불만SR발행</label>
+<label><input value="영업" type="checkbox" >영업 대리점 불만SR발행</label>
+<label><input value="cp" type="checkbox" >CP 단선</label>
+<label><input value="통화내역" type="checkbox" >통화내역 열람</label>
+<label><input value="해지일반" type="checkbox" >해지 (일반)</label>
+<label><input value="해지면제" type="checkbox" >해지 (위약금면제)</label>
+<label><input value="해지미성년" type="checkbox" >해지 (미성년)</label>
+<label><input value="해지외국인" type="checkbox" >해지 (외국인)</label>
+<label><input value="개인사업자" type="checkbox" >개인사업자 등록/삭제</label>
+<label><input value="fup예등" type="checkbox" >fup 예외 등록</label>
+<label><input value="fup과해" type="checkbox" >fup 과금 해제</label>
+</pre>     
+</div>            
+
+
+<div class="srcheckbox" title="기타SR모음1">
+<pre>
+<label><input value="fup요정" type="checkbox" >fup 요금 조정</label>
+<label><input value="일건500" type="checkbox" >일 500건 발신제한 예외요청</label>
+<label><input value="일건해500" type="checkbox" >일 500건 차단해제</label>
+<label><input value="기일500취" type="checkbox" >기기변경 불가 일500건 예외등록취소</label>
+<label><input value="택문예" type="checkbox" >택배업 종사자 문자발송 예외</label>
+<label><input value="개명신청" type="checkbox" >개명신청 (일반)</label>
+<label><input value="개명신청미성" type="checkbox" >개명신청 (미성년자)</label>
+<label><input value="카드승인취소" type="checkbox" >일회성 카드승인 취소</label>
+<label><input value="내역서팩스" type="checkbox" >내역서 팩스</label>
+<label><input value="가입내역팩스" type="checkbox" >가입내역 안내서 팩스</label>
+<label><input value="as용가입원부" type="checkbox" >AS용 가입원부 증명서 팩스</label>
+<label><input value="장기혜택" type="checkbox" >장기혜택 쿠폰 재등록</label>
+<label><input value="명도소액" type="checkbox" >명의도용 소액결제 원천차단</label>
+<label><input value="상급자" type="checkbox" >상급자 연결요청</label>
+<label><input value="외국인타인" type="checkbox" >외국인 타인납부 변경</label>
+<label><input value="tip" type="checkbox" >고객상담 TIP 등록요청</label>
+<label><input value="요금조정" type="checkbox" >민원성 요금조정</label>
+</pre>
+</div>
+
+<div class="srcheckbox" title="기타SR모음2">
+   <pre>
+<label><input value="타센터요금" type="checkbox" >타센터 및 센터 귀책 조정</label>
+<label><input value="과납환불" type="checkbox" >과납 환불</label>
+<label><input value="자금이전" type="checkbox" >자금 이전</label>
+<label><input value="서울보증" type="checkbox" >서울보증사 취소</label>
+<label><input value="우편발송" type="checkbox" >우편발송 요청</label>
+<label><input value="장기부달" type="checkbox" >장기부달 우편접수</label>
+<label><input value="이용신청서" type="checkbox" >모바일 이용신청서 등록</label>
+<label><input value="우편상세" type="checkbox" >우편명세서 상세내역 표기</label>
+<label><input value="언론사" type="checkbox" >언론사 인입 접수</label>
+<label><input value="착신전환" type="checkbox" >착신전환 오등록 해제</label>
+<label><input value="해지고객" type="checkbox" >해지고객 이상고액 해제</label>
+<label><input value="소액결제상향" type="checkbox" >소액결제 한도상향</label>
+<label><input value="명의도용콘텐" type="checkbox" >명의도용 콘텐츠 이용료 원천차단</label>
+<label><input value="콘텐otp" type="checkbox" >콘텐츠 otp 인증불가 예외처리</label>
+<label><input value="멤카즉" type="checkbox" >멤버십 카드 즉발</label>
+<label><input value="멤카미불" type="checkbox" >멤버십 카드 미사용 불만</label>
+<label><input value="멤카불" type="checkbox" >멤버십 카드 이용불가 확인</label>
+   </pre>
+</div>
+
+<div class="srcheckbox" title="기타SR모음3">
+   <pre>
+<label><input value="멤포양" type="checkbox" >멤버십 포인트 양도</label>
+<label><input value="멤포문불" type="checkbox" >멤버십 쿠폰관련 문의 및 불만</label>
+<label><input value="멤가취" type="checkbox" >KT 멤버십 가입취소</label>
+<label><input value="멤등불" type="checkbox" >멤버십 등급 불만</label>
+<label><input value="멤포조" type="checkbox" >멤버십 포인트 조정</label>
+<label><input value="비카발" type="checkbox" >비즈 멤버십 카드발급</label>
+<label><input value="비등정" type="checkbox" >비즈 멤버십 등급조정</label>
+<label><input value="비포정" type="checkbox" >비즈 멤버십 포인트조정</label>
+<label><input value="총신" type="checkbox" >총액결합 신규이관</label>
+<label><input value="결유변" type="checkbox" >결합유형 변경</label>
+<label><input value="결삭전해" type="checkbox" >결합회선 삭제/전체 해지</label>
+<label><input value="스팸이용" type="checkbox" >스팸이용 정지</label>
+<label><input value="플연요" type="checkbox" >KT플라자 연락 요청</label>
+<label><input value="kt앱" type="checkbox" >KT어플 문의 및 불만</label>
+<label><input value="정보료" type="checkbox" >정보 이용료 확인</label>
+<label><input value="구풀후" type="checkbox" >구글 플레이스토어 kt후불결제 불가</label>
+<label><input value="구풀취" type="checkbox" >구글 플레이스토어 결제취소 확인</label>
+<label><input value="미신당취" type="checkbox" >미납고객 신용카드 즉납후<br>취소 당일 결제내역확인</label>
+   </pre>
+</div>
+
+<div class="srcheckbox" title="휴근&당직">
+<pre>
+
+<label><input value="기당이" type="checkbox" >기술_당직자 이관</label>
+<label><input value="중점요" type="checkbox" >기술_중계기 점검요청</label>
+<label><input value="중철요" type="checkbox" >기술_중계기 철거요청</label>
+<label><input value="중이요" type="checkbox" >기술_중계기 이설요청</label>
+<label><input value="개확요" type="checkbox" >기술_개선여부 확인요청</label>
+<label><input value="lteegg" type="checkbox" >기술_LTE EGG+ TT접수</label>
+<label><input value="hotline" type="checkbox" >기술_핫라인 요청</label>
+</pre>
+</div>
+
+
+
+</nav>
+
+
+<main>
+
+
+</main>
+          
+ </div>
+    <script>
+        jQuery(function(){
+            var srArray = {'hotline':"[기술 핫라인 요청]<br><br>■고객번호:<br>■고객명:<br>■연락처:<br>■증상:<br>■접촉기준:"}
+            var $inputTotal = $('.container label input[type=checkbox]');
+            
+            
+            $inputTotal.click(function(){
+             var $val = $(this).val();
+             //  $(this).prop("checked", !$(this).prop("checked")); 
+                var propis = $(this).prop('checked');
+                console.log(propis);
+                console.log($val);
+                console.log(srArray[$val]);
+             if(propis){            
+                $('main').append(`<div class="${$val} srcon">${srArray[$val]}</div>`)
+             }else {
+                $('.'+$val).remove();
+             }
+        })
+            
+        $('.container main div').click(function(){
+               var pretext = $(this).html();
+               console.log(pretext)
+             navigator.clipboard.writeText(pretext);
+            });
+
+            $('.button1').click(function(){
+               $inputTotal.each(function(){
+                  $(this).prop('checked',false);
+                  $('.container main div').remove();
+                       
+               })
+            })
+
+            $( ".srcheckbox" ).draggable();
+            
+
+            var $maindiv = $('div'); 
+             console.log($main);
+             $maindiv.draggable();
+             
+             //$main.draggable();
+            })
+        
+        
+    </script>
+</body>
+</html>
