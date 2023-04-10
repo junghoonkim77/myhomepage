@@ -138,6 +138,14 @@ $(function(){
       }
   });
 
+  $('.dropbtn1').click(function(){
+    $(this).toggleClass('showing2');
+    if($(this).hasClass('showing2')){
+      $('.dropdown-content1').css('display','block');
+    } else{
+      $('.dropdown-content1').css('display','none');
+    }
+});
    
   //시간초기화 (공통메뉴)
   $('#toggle').click(function(){
