@@ -115,6 +115,8 @@ $(function(){
         $('.task_gate1').hide();
       })
     })*/
+
+    
   
   var BasicSize = 12;
   $('.leftmove6').click(function(){
@@ -127,16 +129,16 @@ $(function(){
       $('textarea').css('font-size',BasicSize);
   })
   
-  $('.dropbtn1').click(function(){
+  $('.schedule').click(function(){
       $(this).toggleClass('showing');
       if($(this).hasClass('showing')){
-        $('.dropdown-content1').css('display','block');
+        $('.task_gate1').css('display','block');
       } else{
-        $('.dropdown-content1').css('display','none');
+        $('.task_gate1').css('display','none');
       }
-      
   });
 
+   
   //시간초기화 (공통메뉴)
   $('#toggle').click(function(){
     $('textarea').css('background-color','white');

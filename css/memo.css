@@ -12,10 +12,10 @@
     display :none;
     z-index : 1;
 }
-.task_gate:hover .task_gate1  {
+/*.task_gate:hover .task_gate1  {
     display : block;
 
-}
+}*/
 
 .common:hover {
    background-color: aqua;
