@@ -174,7 +174,9 @@
     let TodayText = $('#daily').text()
     $('.MorningCheck').click(function(){
       navigator.clipboard.writeText(TodayText);
-    })
+    });
+
+         
     
     let $inputs = $("#div input[type='text']");
     let $note = $('#note div span');
@@ -195,12 +197,23 @@
     $('.conOutput').click(function(){
        for ( var keyval in localStorage){
          var localStorageVal = localStorage[keyval];
-         if(keyval=="temp"||keyval=="yeoncha"||keyval=="special"||keyval=="corona"){
+         if(keyval=="temp"||keyval=="yeoncha"||keyval=="special"||keyval=="corona" ||keyval=="chooga"){
            $(`.${keyval}`).text(localStorageVal);
          }
        }
-    })
- 
+    });
+
+    $('.Addcon').click(function(){
+      $('#chooga').after('<input id="newafter" style="display: block" type="text" value="" placeholder="추가휴무입력" data-input="chooga" />')
+      $('#append').after('<div style="color :forestgreen"><span class="chooga">■</span></div>');
+       });
+     
+     $('#newafter').keyup(function(){
+      var newval = $(this).val();
+      $('.chooga').text(newval);
+     })
+       
+   
   })
   
   
