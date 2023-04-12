@@ -208,7 +208,8 @@
       $('#append').after('<div style="color :forestgreen"><span class="chooga">■</span></div>');
        });
      
-     $('#newafter').keyup(function(){
+     $('body').on('keyup','#newafter',    
+     function(){
       var newval = $(this).val();
       $('.chooga').text(newval);
      })
