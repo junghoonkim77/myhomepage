@@ -62,7 +62,7 @@
         flex-wrap : wrap;
         
     } 
-     main div{
+     main div div{
         padding :0px;
         font-size : 12px;
         border : 2px solid gray;
@@ -189,20 +189,18 @@
 </pre>
 </div>
 
-
-
 </nav>
 
 
-<main>
+<main class="main"></main>
+ 
 
-
-</main>
-          
  </div>
     <script>
         jQuery(function(){
-            var srArray = {'hotline':"[기술 핫라인 요청]<br><br>■고객번호:<br>■고객명:<br>■연락처:<br>■증상:<br>■접촉기준:"}
+            var srArray = {'hotline':'[기술 핫라인 요청]<br><br>■고객번호:<br>■고객명:<br>■연락처:<br>■증상:<br>■접촉기준:',
+                           'lteegg':'왜 선택이 안되는 걸까?'
+         }
             var $inputTotal = $('.container label input[type=checkbox]');
             
             
@@ -210,21 +208,23 @@
              var $val = $(this).val();
              //  $(this).prop("checked", !$(this).prop("checked")); 
                 var propis = $(this).prop('checked');
-                console.log(propis);
-                console.log($val);
-                console.log(srArray[$val]);
+                              
              if(propis){            
-                $('main').append(`<div class="${$val} srcon">${srArray[$val]}</div>`)
+                $('.main').append(`<div class="${$val}"><div class="srtext">${srArray[$val]}</div></div>`)
              }else {
                 $('.'+$val).remove();
              }
-        })
+                })
             
-        $('.container main div').click(function(){
-               var pretext = $(this).html();
-               console.log(pretext)
-             navigator.clipboard.writeText(pretext);
-            });
+             
+             var $srtex= $('.srtext');
+             $srtex.click(function(){
+               //var $thissrtex =$srtex.$(this).text();
+              // navigator.clipboard.writeText($thissrtex);
+              var texidx = $(this.index());
+              console.log(texidx);
+             })
+
 
             $('.button1').click(function(){
                $inputTotal.each(function(){
@@ -237,9 +237,7 @@
             $( ".srcheckbox" ).draggable();
             
 
-            var $maindiv = $('div'); 
-             console.log($main);
-             $maindiv.draggable();
+           
              
              //$main.draggable();
             })
