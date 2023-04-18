@@ -181,6 +181,6 @@ display: block;
 }
 #teamperson{
   position :absolute;
- top:65px;
- left:273px;
+ top:0px;
+ left:10px;
 }
