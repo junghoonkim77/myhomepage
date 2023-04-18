@@ -34,6 +34,7 @@ init();
 
 //클릭후 특정범위내 글자 복사
 window.onload = function () {
+  getTime();
    const valOfDIV = document.querySelector("#btn1");
 
    valOfDIV.addEventListener("click", function () {
@@ -240,6 +241,11 @@ $(function(){
               $textarea.each(function(){
                 $(this).toggleClass('black');
               })
+            });
+
+            jQuery(function(){
+              $('.drag').draggable(); 
+             
             })
           
             

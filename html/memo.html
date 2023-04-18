@@ -11,9 +11,9 @@
     </head>
     <body>
        
-        <h5>메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
+        <h5 class="drag">메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
         <button id ="btn1">🕑복사</button>
-        <div class="dropdown leftmove2" >
+        <div class="dropdown leftmove2 drag" >
             <span class="dropbtn">SR양식</span>
             <div class="dropdown-content">
               <input class="srform" type="button" value="통품SR기본양식" 
@@ -49,17 +49,19 @@
              
             </div>
           </div>
-          <select name="person" id="teamperson">
+        
+          
+         <select class="drag" name="person" id="teamperson">
             <option  value="" >전산명▼</option>
             <option  value="meid">본인ID(kos id)</option>
             <option  value="kos">KOS비번</option>
             <option  value="atas">ATAS비번</option>
             <option  value="idms">IDMS비번(넷윈..등)</option>
             <option  value="wfms">WFMS비번</option>
-            
-          </select>
+         </select>
+        
 
-          <div class="dropdown leftmove8" >
+          <div class="dropdown leftmove8 drag" >
             <span class="dropbtn">말머리</span>
             <div class="dropdown-content1">
               <input class="srform1" type="button" value="[감성]"><br>
@@ -70,16 +72,15 @@
               <input class="srform1" type="button" value="/TV추가 가입권유">
               <input class="srform1" type="button" value="/TV 가입권유">
               <input class="srform1" type="button" value="/인터넷,TV가입권유">
-              <input class="srform1" type="button" value="/기변권유">
              </div>
           </div>
-          <div class="leftmove9"><a href="#"> 메모저장💾</a></div>
-          <div class="leftmove10"> <a href="localstrageout.html" onclick="vocbank('localstrageout.html','600');  return false;">메모목록</a> </div>
+          <div class="leftmove9 drag"><a href="#"> 메모저장💾</a></div>
+          <div class="leftmove10 drag"> <a href="localstrageout.html" onclick="vocbank('localstrageout.html','600');  return false;">메모목록</a> </div>
           <div title="전산명선택->비번메모장입력->비번변경클릭 끝" 
-          class="leftmove11"><a href="#">비번변경</a></div>
-          <div title="눈이피로할때" class="leftmove12"><a href="#">검은바탕</a></div>
+          class="leftmove11 drag"><a href="#">비번변경</a></div>
+          <div title="눈이피로할때" class="leftmove12 drag"><a href="#" style="color:white;">검은바탕</a></div>
 
-          <div class="task_gate">
+          <div class="task_gate drag">
           <span class="schedule">비번&코드</span>
           <div class="task_gate1 font-size">
     <input data-code="UCB0041" class="common"type="button" value="서울통품1팀[UCB0041]" > <br> 
@@ -111,8 +112,8 @@
                 document.querySelector('#toggle1').value = '📘📘';
                }
             ">
-            <input class="leftmove4" type="button" onclick="sample6_execDaumPostcode()" value="주소">
-            <input class="leftmove5" type="button" value="그룹📧"
+            <input class="leftmove4 drag" type="button" onclick="sample6_execDaumPostcode()" value="주소">
+            <input class="leftmove5 drag" type="button" value="그룹📧"
             onclick="window.open('https://gw.ktcs.co.kr/logon.aspx', '_blank', 'width=1100, height=900' ) ; return false;">
             
                      
@@ -176,10 +177,7 @@
   <script src="../java/voc_bank.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
-    jQuery(function(){
-      
-
-    })
+    
   </script>
   </body>
 </html>
