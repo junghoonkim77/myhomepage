@@ -185,3 +185,10 @@ display: block;
  top:0px;
  left:10px;
 }
+.del{
+  position : absolute;
+  top:0px;
+  left: 170px;
+  font-size:12px;
+  background-color: aliceblue;
+}

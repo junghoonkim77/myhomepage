@@ -245,7 +245,12 @@ $(function(){
 
             jQuery(function(){
               $('.drag').draggable(); 
-             
+            });
+
+            $('.del').click(function(){
+              $textarea.each(function(){
+                $(this).val("");
+              })
             })
           
             
