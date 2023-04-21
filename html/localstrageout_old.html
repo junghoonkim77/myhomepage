@@ -51,7 +51,7 @@
         for ( var values of savedValues){
            var $dbkey = localStorage.key($idxstart)   
            $('.div2').
-           append(`<button class="delkey">삭제[${$idxstart}]</button><div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
+           prepend(`<button class="delkey">삭제[${$idxstart}]</button><div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
             <div class="contents"><a href="#">${values}</a></div></div><br>`);
            $idxstart++
         }
