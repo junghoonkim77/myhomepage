@@ -186,7 +186,7 @@
     <h4>세일즈 달성률</h4>
   <input class="goal" type="text" maxlength="4" placeholder=" 목표값 입력">
   <input class="nowgoal" type="text" maxlength="4" placeholder=" 현재실적 입력">
-  <button id="goalcal">달성률</button><span>현재 (</span><span id="result"></span><span>% )</span>
+   <span>달성률 (</span><span id="result"></span><span>% )</span>
   </div>  
   
   <script>
@@ -249,8 +249,8 @@
      })*/
        
      var button = document.getElementById('goalcal')
- 
- button.addEventListener('click',function(){
+    var button1 = document.querySelector('.nowgoal')
+ button1.addEventListener('keyup',function(){
    
  var goal = document.querySelector('.goal').value;
  var nowgoal = document.querySelector('.nowgoal').value;  
