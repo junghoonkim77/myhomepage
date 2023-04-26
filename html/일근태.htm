@@ -35,7 +35,21 @@
     }
     .hidden{
       display : none;
-    }    
+    }
+    .goalcal input{
+     display : block;
+     }
+     .goalcal{
+      position : absolute ;
+      left :67.5%;
+      margin : 9px 0px 0px 0px;
+     }
+     #result {
+      color : blueviolet;
+    }   
+     h4 {
+      margin : 0px;
+     } 
     </style>
   <title>AI선생출결</title>
 </head>
@@ -167,7 +181,14 @@
   ※코로나 특이사항 :없음<br>
   </div>
  </div>
-
+ 
+  <div class="goalcal">
+    <h4>세일즈 달성률</h4>
+  <input class="goal" type="text" maxlength="4" placeholder=" 목표값 입력">
+  <input class="nowgoal" type="text" maxlength="4" placeholder=" 현재실적 입력">
+  <button id="goalcal">달성률</button><span>현재 (</span><span id="result"></span><span>% )</span>
+  </div>  
+  
   <script>
   
   jQuery(function(){
@@ -227,10 +248,23 @@
       $('.chooga').text(newval);
      })*/
        
-    
+     var button = document.getElementById('goalcal')
+ 
+ button.addEventListener('click',function(){
+   
+ var goal = document.querySelector('.goal').value;
+ var nowgoal = document.querySelector('.nowgoal').value;  
+ var $goal = Number(goal);
+ var $nowgoal = Number(nowgoal);
+ 
+ var $result = document.getElementById('result');
+   var resul =Number($nowgoal*100/$goal) ;
+  $result.innerHTML= resul.toFixed(2) ;
+ 
+  })
+ 
 
   })
-  
   
  
 
