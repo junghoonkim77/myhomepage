@@ -42,25 +42,24 @@
   
  <script>
     jQuery(function(){
-        var $ObjValArr = [];
-        var savedValues = Object.values(localStorage);
-        var $dblength = localStorage.length;
         
+        var savedValues = Object.values(localStorage);
+        var $KeyArray=[];
+        var $KeyArrayend = $KeyArray.sort((a,b)=>{
+            return new Date(localStorage.getItem(a)) - new Date(localStorage.getItem(b));
+        });
+        console.log($KeyArrayend);
         var $idxstart= 0 ;
         for ( var values of savedValues){
            var $dbkey = localStorage.key($idxstart);
            if(values !==""){
-            $ObjValArr.push(values);
-            $ObjValArrLength = $ObjValArr.length ;
-            $('.div2').
-           append(`<button class="delkey">삭제[${$idxstart}]</button><div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
-            <div class="contents"><a href="#">${$ObjValArr[$idxstart]}</a></div></div><br>`);
-           $idxstart++
+            $KeyArray.push($dbkey);
+            $idxstart++
              }else{
                 localStorage.removeItem($dbkey);
              } 
-                   
-        }
+          }
+
         /*
         var $delkey =$('.delkey');      
         $delkey.click(function(){
