@@ -19,10 +19,7 @@ time2 = list(range(5,16))
 shuffle(time2)
 
 #print('운행소요시각은{0},이고 소요시간 15분 이하 고객은{1}이다'.format(time[0],time2[0]))
-i=1
-for pass1 in time :
-    
-    print('[{0}]번째 손님'.format(i))
-    i=i+1
+cnt=0
+
 
 
