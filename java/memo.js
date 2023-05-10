@@ -259,10 +259,5 @@ $(function(){
               })
             })
 
-            $('#must').dblclick(function(){
-              var $must= $(this).val();
-              var $mustkey =$(this).attr('class');
-              localStorage.setItem($mustkey,$must);
-              
-            });
+           
 })
