@@ -247,11 +247,15 @@ $(function(){
               $('.drag').draggable(); 
             });
 
-            $('.del').click(function(){
+            /*$('.del').click(function(){
               $textarea.each(function(){
                 $(this).val("");
               })
-            })
+            }) */
           
-            
+            $('.del').click(function(){
+              $('.delText').each(function(){
+                $(this).val("");
+              })
+            })
 })
