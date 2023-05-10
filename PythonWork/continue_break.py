@@ -18,8 +18,16 @@ shuffle(time)
 time2 = list(range(5,16))
 shuffle(time2)
 
-#print('운행소요시각은{0},이고 소요시간 15분 이하 고객은{1}이다'.format(time[0],time2[0]))
 cnt=0
+for i in range(1,51) :
+    time = randrange(5,51)
+    if 5<= time <=15 :
+        print('[0] {0}번째 손님 (소요시간 : {1}분)'.format(i,time))
+        cnt+=1
+    else:
+        print('[]{0}번째 손님(소요시간 :{1}분)'.format(i,time))
+
+print('총 탐승 승객 : {}'.format(cnt))
 
 
 
