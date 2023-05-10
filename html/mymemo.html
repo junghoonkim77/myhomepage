@@ -138,7 +138,7 @@
          </form> 
           <div>
             <div>
-              <textarea style="font-size: 11px;" id="must" title="꼭할일" cols="40" rows="20"></textarea>
+           <textarea style="font-size: 11px;" class="must" id="must" title="꼭할일" cols="40" rows="20"></textarea>
         </div>
           <textarea class="delText" title="비밀번호셋팅창" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
           <textarea class="delText" id="hidden1" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
@@ -199,7 +199,8 @@
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
    jQuery(function(){
-    var $must= $('#must').value();
+    var $mustval = localStorage.getItem('must');
+   $('#must').val($mustval);
     
    })
     
