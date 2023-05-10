@@ -232,7 +232,7 @@ $(function(){
 
              $('.leftmove11').click(function(e){
               e.preventDefault()
-              var $textarea1 = $textarea.eq(1).val(); 
+              var $textarea1 = $textarea.eq(0).val(); 
                  localStorage.setItem(valuearr[0],$textarea1);
       
             }) 

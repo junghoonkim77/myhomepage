@@ -26,14 +26,15 @@ clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:min
 }
 
 function init(){
-setInterval(getTime, 1000);
-alarm = setInterval(getAlarm, 1000);
+setInterval(getTime, 60000);
+alarm = setInterval(getAlarm, 60000);
 }
 init();
 
 
 //클릭후 특정범위내 글자 복사
 window.onload = function () {
+  getTime();
    const valOfDIV = document.querySelector("#btn1");
 
    valOfDIV.addEventListener("click", function () {
@@ -115,6 +116,8 @@ $(function(){
         $('.task_gate1').hide();
       })
     })*/
+
+    
   
   var BasicSize = 12;
   $('.leftmove6').click(function(){
@@ -127,16 +130,24 @@ $(function(){
       $('textarea').css('font-size',BasicSize);
   })
   
-  $('.dropbtn1').click(function(){
+  $('.schedule').click(function(){
       $(this).toggleClass('showing');
       if($(this).hasClass('showing')){
-        $('.dropdown-content1').css('display','block');
+        $('.task_gate1').css('display','block');
       } else{
-        $('.dropdown-content1').css('display','none');
+        $('.task_gate1').css('display','none');
       }
-      
   });
 
+  $('.dropbtn1').click(function(){
+    $(this).toggleClass('showing2');
+    if($(this).hasClass('showing2')){
+      $('.dropdown-content1').css('display','block');
+    } else{
+      $('.dropdown-content1').css('display','none');
+    }
+});
+   
   //시간초기화 (공통메뉴)
   $('#toggle').click(function(){
     $('textarea').css('background-color','white');
@@ -221,7 +232,7 @@ $(function(){
 
              $('.leftmove11').click(function(e){
               e.preventDefault()
-              var $textarea1 = $textarea.eq(0).val(); 
+              var $textarea1 = $textarea.eq(1).val(); 
                  localStorage.setItem(valuearr[0],$textarea1);
       
             }) 
@@ -230,7 +241,28 @@ $(function(){
               $textarea.each(function(){
                 $(this).toggleClass('black');
               })
-            })
+            });
+
+            jQuery(function(){
+              $('.drag').draggable(); 
+            });
+
+            /*$('.del').click(function(){
+              $textarea.each(function(){
+                $(this).val("");
+              })
+            }) */
           
-            
+            $('.del').click(function(){
+              $('.delText').each(function(){
+                $(this).val("");
+              })
+            })
+
+            $('#must').dblclick(function(){
+              var $must= $(this).val();
+              var $mustkey =$(this).attr('class');
+              localStorage.setItem($mustkey,$must);
+              alert('저장');
+            });
 })
