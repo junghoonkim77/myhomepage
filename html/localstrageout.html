@@ -79,7 +79,7 @@
             var $deldb = localStorage.key($delkeyIdx);
             console.log($deldb)
             
-            if($deldb=='meid' || $deldb=='kos' || $deldb=='atas' || $deldb=='idms' || $deldb=='wfms' )
+            if($deldb=='meid' || $deldb=='kos' || $deldb=='atas' || $deldb=='idms' || $deldb=='wfms' || $deldb=='must')
             { var $delkeyConfirm = confirm('"확인" 클릭후 삭제시 비번 재등록 필요~! 주의~!! ') 
                 if($delkeyConfirm ){
                     localStorage.removeItem($deldb);
