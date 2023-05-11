@@ -165,5 +165,18 @@ function line_dp2(num) {
                  var codevalue = $(this).index();
                  console.log(codevalue);
                  navigator.clipboard.writeText(codelist[codevalue]);
-                })      
+                })
+               
+                // gate.html
+                $('.navhide').click(function(){
+                    $(this).toggleClass('navnone')
+                    if($('.navhide').hasClass('navnone')){
+                      $('nav').hide();
+                      $(this).text('버튼표시')
+                    } else{
+                      $('nav').show();
+                      $(this).text('버튼숨김')
+                    }
+                    
+                  })
          })
