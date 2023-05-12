@@ -259,5 +259,26 @@ $(function(){
               })
             })
 
-           
+            $('#must').dblclick(function(){
+              var $must= $(this).val();
+              var $mustkey =$(this).attr('class');
+              localStorage.setItem($mustkey,$must);
+              $('#btn1').toggleClass('copy');
+              if($('#btn1').hasClass('copy')){
+                $('#btn1').css('backgroundColor','red')
+              }else{$('#btn1').css('backgroundColor','white')}
+            });
+            
+            var $mustval = localStorage.getItem('must');
+            $('#must').val($mustval);
+            
+            $('.buthidden').click(function(){
+             $('.buttonpack').hide()
+             $('.butttonshow').show();
+            })
+         
+            $('.butttonshow').click(function(){
+             $('.buttonpack').show();
+             $(this).hide();
+            })
 })

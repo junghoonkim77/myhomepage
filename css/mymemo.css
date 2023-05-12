@@ -194,3 +194,18 @@ display: block;
   background-color: aliceblue;
 }
 
+.buthidden{
+  position : absolute;
+  top:0px;
+  left: 235px;
+  font-size:12px;
+  background-color: aliceblue;
+}
+
+.butttonshow{
+  background-color:powderblue;
+  display : none;
+}
+
+
+

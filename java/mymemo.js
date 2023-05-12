@@ -268,4 +268,18 @@ $(function(){
                 $('#btn1').css('backgroundColor','red')
               }else{$('#btn1').css('backgroundColor','white')}
             });
+            
+            var $mustval = localStorage.getItem('must');
+            $('#must').val($mustval);
+            
+            $('.buthidden').click(function(){
+             $('.buttonpack').hide()
+             $('.butttonshow').show();
+            })
+         
+            $('.butttonshow').click(function(){
+             $('.buttonpack').show();
+             $(this).hide();
+            })
+
 })
