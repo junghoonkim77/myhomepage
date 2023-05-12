@@ -12,10 +12,10 @@ print(students)
 
 students = ['iron man','thor','i am groot']
 
-# students = [len(i) for i in students]
-# print(students)
+students = [len(i) for i in students]
+print(students)
 
-students = [ i.upper() for i in students]
+students = [ str(i).upper() for i in students] # 숫자를 upper로 만드니 당연히 에러
 print(students)
 
 
