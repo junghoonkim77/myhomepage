@@ -18,7 +18,7 @@ gun = checkpoint_ret(gun,2)
 print('남은총 : {0}'.format(gun))
 
 # 문제
-
+# 내가 푼 방식
 def std_weight(height,gender) :
     if gender == "남자" :
       standard = round( (height/100)*(height/100)*22 ,2)
@@ -30,6 +30,7 @@ def std_weight(height,gender) :
 std_weight(175,"남자")
 std_weight(175,"여자")
 
+#강사가 푼 방식
 def std_weight_exe(height,gender) :
     if gender == "남자" :
         return height*height*22
