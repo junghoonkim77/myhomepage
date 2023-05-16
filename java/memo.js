@@ -220,10 +220,10 @@ $(function(){
   
           $('.leftmove9').click(function(s){
              s.preventDefault();
-             $textarea.each(function(e){
+             $('.delText').each(function(e){
               keyname();
               var ival = keyvalue[0];
-              $textareaValue.push($textarea.eq(e).val()) ; 
+              $textareaValue.push($('.delText').eq(e).val()) ; 
               localStorage.setItem(ival+e,$textareaValue[e]);
               keyvalue.length = 0
              })
