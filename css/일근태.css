@@ -13,15 +13,16 @@
     position : relative;
     height : 80%;
 }
-div {
-  font-size :13px;
-}
+div {  font-size :13px; }
+
+.tg {position : relative;  }
 
 #number {
   position :absolute;
   left :500px;
   top :200px;
 }
+
 #div{
   position :absolute;
   left :500px;
@@ -45,24 +46,21 @@ div {
   bottom : 25px;
   margin : 12px 0px 0px 0px;
  }
- #result {
-  color : blueviolet;
-}   
- h4 {
-  margin : 0px;
- } 
-
  .balance{
-  position : absolute;
-  left :500px;
-  margin : 12px 0px 0px 0px ;
-  bottom : -15px;
-  }
+    position : absolute;
+    left :500px;
+    margin : 12px 0px 0px 0px ;
+    bottom : -15px;
+    }
+ 
+#result {  color : blueviolet;   }   
+ 
+ h4 {   margin : 0px;  } 
+
 
   .balance input{
     display : inline-block;
     width : 50px;
      }
-  .tg {
-    position : relative;
-  }
+
+
