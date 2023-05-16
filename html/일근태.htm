@@ -29,6 +29,7 @@
       position :absolute;
       left :500px;
       top:30px;
+      height : 700px;
     }
     #daily{
       margin : 15px 0px 0px 0px;
@@ -50,6 +51,19 @@
      h4 {
       margin : 0px;
      } 
+
+     .balance{
+      position : absolute;
+      left : 36.5%;
+      margin : 9px 0px 0px 0px ;
+      top : 500px;
+      }
+
+      .balance input{
+        display : inline-block;
+        width : 70px;
+
+      }
     </style>
   <title>AI선생출결</title>
 </head>
@@ -180,15 +194,27 @@
   -반차 : 없음<br>
   ※코로나 특이사항 :없음<br>
   </div>
- </div>
- 
+
   <div class="goalcal">
     <h4>세일즈 달성률</h4>
   <input class="goal" type="text" maxlength="4" placeholder=" 목표값 입력">
   <input class="nowgoal" type="text" maxlength="4" placeholder=" 현재실적 입력">
    <span>달성률 (</span><span id="result"></span><span>% )</span>
   </div>  
+
+  <div class="balance">
+    <h4>상대비율</h4>
+  <input type="text" class="balance1" placeholder="비교1">
+  <input type="text" class="balance1_1" placeholder="비교1_1">
+  <input type="text" class="balance2" placeholder="비교2">
+  <input type="text" class="balance2_2" placeholder="비교2_2">
+  </div>
+</div>
+ 
+ 
   
+  
+
   <script>
   
   jQuery(function(){
@@ -251,18 +277,20 @@
      
     var button1 = document.querySelector('.nowgoal')
  button1.addEventListener('keyup',function(){
-   
  var goal = document.querySelector('.goal').value;
  var nowgoal = document.querySelector('.nowgoal').value;  
  var $goal = Number(goal);
  var $nowgoal = Number(nowgoal);
- 
  var $result = document.getElementById('result');
-   var resul =Number($nowgoal*100/$goal) ;
+ var resul =Number($nowgoal*100/$goal) ;
   $result.innerHTML= resul.toFixed(2) ;
+ })
  
+  $('.balance2').on('keyup',function(){
+    var balresult =(Number($('.balance1_1').val()) * Number($('.balance2').val()) ) / Number($('.balance1').val()); 
+        balresult_end = balresult.toFixed(2);
+    $('.balance2_2').val(balresult_end);
   })
- 
 
   })
   
