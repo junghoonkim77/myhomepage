@@ -10,10 +10,13 @@
        .container{
             display:flex;
             flex-direction:column;
-            height :100%;
+            height :100vh;
         }
         html{
           height : 100%;
+         }
+         main {
+          height : 100vh;
          }
         header{
             border-bottom:1px solid gray;
@@ -27,11 +30,12 @@
         .content{
             display : flex;
             flex-basis: content;
-            height :100vh;
+            height :100%;
             position:relative;
         }
         .content nav{
             border-right:1px solid gray;
+            height : 100%;
         }
         
         nav  {
@@ -39,16 +43,7 @@
             flex-shrink:1;
         }
         
-        #menuhidden_1{
-            position:relative;
-            top :10px;
-            left :70px;
-        }
-        #menuhidden_2{
-            position:relative;
-            top :10px;
-            left :35px;
-                }
+      
         #google_calender{
             
             top : 10px;
@@ -119,7 +114,8 @@
     <body>
     <div class="container">
         <header>
-            <a href="https://junghoonkim77.github.io/myhomepage/html/gate.html">동작2통화품질팀 업무 사이트</a>
+            <a href="https://junghoonkim77.github.io/myhomepage/html/gate.html">서울중앙통품_사이트</a>
+            <button class="navhide">↙️버튼숨김</button> 
                 <a href="#"  onclick="line_dp2(7)" > / 
                     <span style="font-size:20px">📋</span>
                     <span style="font-size:20px ; color:#4285F4 ; font-weight: bold;">
@@ -131,6 +127,7 @@
                     <span style="font-size:20px ; color:#4285F4; font-weight: bold;"> 
                         게시판 </span>
                 </a>
+               
            <span id="netwindow" style="font-size:20px"><b>/ 통품전산(👀)</b> 
            <div id="netwindow1">
             <ul>
@@ -167,11 +164,13 @@
                  <a href="#" class="button btnPush btnOrange" onclick="line_dp2(1)">팀 스케쥴</a><br>
                  <a href="#" class="button btnPush btnBlueGreen" onclick="line_dp2(2)">D+XX날짜계산</a><br>
               </nav>
+
+
               <main>
                 <div id="menuhidden_1" class="menuhidden" style="display:none">
                     <iframe class="iframe4" frameboder="none" src = "../html/팀일정.html" >   </iframe>
                 </div>
-            <div id="menuhidden_2" class="menuhidden" style="display:none">
+               <div id="menuhidden_2" class="menuhidden" style="display:none">
                     
                     <input id ="inputyear" class="del_day1" type="text" placeholder="기준연도입력(ex:2022)"><br>
                     <input id ="inputmonth" class="del_day1" type="text" placeholder="기준월입력(ex:08) "><br>
@@ -235,6 +234,10 @@
         
     </div>
     <script src="../java/voc_bank.js">  </script>
-    
+    <script>
+      jQuery(function(){
+       
+      })
+    </script>
     </body>
 </html>
