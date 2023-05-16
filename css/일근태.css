@@ -1,0 +1,68 @@
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:5px 2px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:5px 2px;word-break:normal;}
+.tg .tg-op75{background-color:#ffffc7;border-color:inherit;color:#000000;font-size:12px;text-align:center;vertical-align:top}
+.tg .tg-mhie{background-color:#00009b;border-color:inherit;color:#ffffff;font-size:12px;text-align:center;vertical-align:top}
+.tg .tg-05qa{border-color:inherit;color:#000000;font-size:12px;text-align:center;vertical-align:top}
+.tg .tg-7zv5{background-color:#656565;color:#ffffff;font-size:12px;text-align:center;vertical-align:top}
+.tg .tg-sv3s{background-color:#9aff99;font-size:12px;text-align:center;vertical-align:top}
+
+.container{
+    position : relative;
+    height : 80%;
+}
+div {
+  font-size :13px;
+}
+
+#number {
+  position :absolute;
+  left :500px;
+  top :200px;
+}
+#div{
+  position :absolute;
+  left :500px;
+  top:30px;
+  height : auto;
+}
+#daily{
+  margin : 15px 0px 0px 0px;
+  width : 200px;
+  position : absolute;
+}
+.hidden{
+  display : none;
+}
+.goalcal input{
+ display : block;
+ }
+ .goalcal{
+  position : absolute ;
+  left :500px;
+  bottom : 25px;
+  margin : 12px 0px 0px 0px;
+ }
+ #result {
+  color : blueviolet;
+}   
+ h4 {
+  margin : 0px;
+ } 
+
+ .balance{
+  position : absolute;
+  left :500px;
+  margin : 12px 0px 0px 0px ;
+  bottom : -15px;
+  }
+
+  .balance input{
+    display : inline-block;
+    width : 50px;
+     }
+  .tg {
+    position : relative;
+  }

@@ -5,14 +5,74 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
-  <link rel="stylesheet" href="../css/일근태.css">
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      overflow:hidden;padding:5px 2px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      font-weight:normal;overflow:hidden;padding:5px 2px;word-break:normal;}
+    .tg .tg-op75{background-color:#ffffc7;border-color:inherit;color:#000000;font-size:12px;text-align:center;vertical-align:top}
+    .tg .tg-mhie{background-color:#00009b;border-color:inherit;color:#ffffff;font-size:12px;text-align:center;vertical-align:top}
+    .tg .tg-05qa{border-color:inherit;color:#000000;font-size:12px;text-align:center;vertical-align:top}
+    .tg .tg-7zv5{background-color:#656565;color:#ffffff;font-size:12px;text-align:center;vertical-align:top}
+    .tg .tg-sv3s{background-color:#9aff99;font-size:12px;text-align:center;vertical-align:top}
+    div {
+      font-size :13px;
+    }
+    
+    #number {
+      position :absolute;
+      left :500px;
+      top :200px;
+    }
+    #div{
+      position :absolute;
+      left :500px;
+      top:30px;
+      height : 700px;
+    }
+    #daily{
+      margin : 15px 0px 0px 0px;
+    }
+    .hidden{
+      display : none;
+    }
+    .goalcal input{
+     display : block;
+     }
+     .goalcal{
+      position : absolute ;
+      left :36.5%;
+      margin : 9px 0px 0px 0px;
+     }
+     #result {
+      color : blueviolet;
+    }   
+     h4 {
+      margin : 0px;
+     } 
+
+     .balance{
+      position : absolute;
+      left : 36.5%;
+      margin : 9px 0px 0px 0px ;
+      top : 500px;
+      }
+
+      .balance input{
+        display : inline-block;
+        width : 70px;
+
+      }
+    </style>
   <title>AI선생출결</title>
 </head>
 <body>
   
-  <div class="container">
   <div style="margin: 2px 2px;">[<span class="today">11/23</span>통화품질1팀 일일출근현황]</div>
   
+  
+
   <table class="tg" style="table-layout: fixed; width: 284px">
     <div id="note">
       <div style="color :red">■체온 이상자 :<span class="temp">없음</span></div>
@@ -126,8 +186,6 @@
   <input style="display: block"type="text" value="" placeholder="결근CT" data-input="kyulC"  />
   <button  class="MorningCheck">출결복사▼</button><button class="Addcon">공가,연차추가</button><br>
   <button class="conSave">내용저장</button> <button class="conOutput">전일내용입력</button>
-  </div>
-  
   <div id="daily">
   [통화품질팀]<span class="daily2"></span> 09시  <br>
   -건강 이상자 :없음 <br>
@@ -153,7 +211,7 @@
   </div>
 </div>
  
-
+ 
   
   
 
