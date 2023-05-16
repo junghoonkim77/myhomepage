@@ -15,7 +15,6 @@
 }
 div {  font-size :13px; }
 
-.tg {position : relative;  }
 
 #number {
   position :absolute;
@@ -37,9 +36,9 @@ div {  font-size :13px; }
 .hidden{
   display : none;
 }
-.goalcal input{
+ .goalcal input{
  display : block;
- }
+ }  
  .goalcal{
   position : absolute ;
   left :500px;
@@ -58,9 +57,9 @@ div {  font-size :13px; }
  h4 {   margin : 0px;  } 
 
 
-  .balance input{
-    display : inline-block;
-    width : 50px;
-     }
+.balance input{
+  display : inline-block;
+  width : 50px;
+   }
 
 
