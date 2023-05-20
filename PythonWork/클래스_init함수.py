@@ -1,31 +1,17 @@
-# class Unit :
-#     def __init__(se,name,hp,damage) : #파이썬에서 __init__은 생성자 함수 
-#         se.name = name  #자바스크립트에서의 this가 여기선 파라미터 첫번쨰 se이다.
-#         se.hp = hp
-#         se.damage = damage
-#         print('{0}유닛이 생성 되었습니다.'.format(se.name))
-#         print('체력{0},공격력{1}'.format(se.hp , se.damage))
-
-# marine1 = Unit('마린',40,5)
-# marine2 = Unit('저그',50,4)
-
-# #만들어놓은 파라미터와 선언하는 파라미터의 갯수가 동일해야 된다.
-
-# marine3 = Unit('병신정훈',20,0)
-
-# print('유닛이름 : {0},공격력 : {1}'.format(marine3.name ,marine3.damage))
-
-# marine4 = Unit('정신병자정훈',40,123)
-# marine4.charac = True
-
-# #기존의 class에 추가로 외부에서 변수를 추가 이렇게 하면 marine4에만 값이 들어가 있다.
-# if marine4.charac == True :
-#     print('{0}은 현재 완벽한 쓰레기가 되었습니다.'.format(marine4.name)) 
-
-class Attackunit :
-    def __init__(self,name,hp,damage) :
-        self.name = name
+class Unit :
+    def __init__(self,name,hp,speed) : #파이썬에서 __init__은 생성자 함수 
+        self.name = name  #자바스크립트에서의 this가 여기선 파라미터 첫번쨰 se이다.
         self.hp = hp
+        self.speed = speed
+
+    def move(self,location):
+        print('[지상 유닛 이동]')
+        print('{0} : {1} 방향으로 이동합니다. [속도 {2}]'\
+              .format(self.name,location,self.speed))
+
+class Attackunit(Unit) :
+    def __init__(self,name,hp,speed,damage) :
+        Unit.__init__(self,name,hp,speed) #Unit클래스를 상속 받은것 
         self.damage=damage
     
     def attack(self,location):
@@ -41,10 +27,75 @@ class Attackunit :
 
 
 #파이어뱃  : 공격유닛 ,화염방사기
-firebat1 = Attackunit('피이어뱃',50,16)
+firebat1 = Attackunit('피이어뱃',50,16,30)
 firebat1.attack('5시')
 
 firebat1.damaged(25)
 firebat1.damaged(25)
 
+#드랍십  : 공중 유닛, 수송기, 마린 / 파이어 뱃등을 수송해주는 유닛
+
+class Flyable :
+    def __init__(self,flying_speed) :
+        self.flying_speed = flying_speed        
+    def fly(self,name,location) :
+        print('{0} : {1} 방향으로 날아갑니다.[속도 {2}]'\
+              .format(name,location,self.flying_speed))
         
+#공중 공격 유닛 클래스
+class FlyableAttackUnit(Attackunit,Flyable) :
+    def __init__(self,name,hp,damage,flying_speed) :
+        Attackunit.__init__(self,name,hp,0,damage) #지상 스피드는 0으로 처리 
+        Flyable.__init__(self,flying_speed)
+        
+    def move(self , location) :
+        print('[공중 유닛 이동]')
+        self.fly(self.name , location)
+
+#발키리 : 공중 공격 유닛,한번에 14발 미사일 발사 
+# valkyrie = FlyableAttackUnit('발키리',200,6,5)
+# valkyrie.fly(valkyrie.name,'3시')
+
+#벌쳐 : 지상 유닛 , 기동성이 좋음 
+
+vulture = Attackunit('벌쳐',80,10,20)
+
+#배틀크루저 : 공중 유닛 ,  체력 공격력 좋음
+
+battlecruiser = FlyableAttackUnit('배틀크루저',500,25,3)
+
+vulture.move('11시')
+
+#battlecruiser.fly(battlecruiser.name , '3시')
+
+# 단 위와 같이 지상유닛이면 move 공중 유닛이면 fly를 구분해서 써야 함으로 
+# 복잡하다 이걸 해결하는 방법을 연산자 오버라이딩 이라고 한다.
+
+battlecruiser.move('9시')
+
+#건물   : pass 에 대해서 다룸 
+#class BuildingUnit(Unit) :
+    # def __init__(self,name,hp,location) :
+    #     pass  # 아무것도 않고 일단 넘어 갈때 쓰는 방법
+
+# #서플라이 디폿 : 건물1개 , 건물=8 유닛
+
+# supply_depot = BuildingUnit('서플라이 디폿',500,'7시')
+
+# def game_start() :
+#     print('새로운 게임을 시작합니다.')
+
+# def game_over() :
+#     pass
+
+# game_start()
+# game_over()
+
+#건물 super 공부
+
+# class BuildingUnit(Unit) :
+#     def __init__(self,name,hp,location) :
+#       #  Unit.__init__(self,name,hp,0) init을 통해서 상속받거나 
+#         super().__init__(name,hp,0) #super를 통해서 할수도 있으나 이경우 self를 제거해야됨
+#         self.location = location
+
