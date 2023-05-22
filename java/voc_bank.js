@@ -171,10 +171,10 @@ function line_dp2(num) {
                 $('.navhide').click(function(){
                     $(this).toggleClass('navnone')
                     if($('.navhide').hasClass('navnone')){
-                      $('nav').hide();
+                      $('nav').fadeOut(300);
                       $(this).text('버튼표시')
                     } else{
-                      $('nav').show();
+                      $('nav').fadeIn(300);
                       $(this).text('버튼숨김')
                     }
                     
