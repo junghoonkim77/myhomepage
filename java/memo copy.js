@@ -99,7 +99,7 @@ let SRarray =
 }
 
 $(function(){
-  let check = $('label input:checkbox')
+  /*let check = $('label input:checkbox')
   console.log(check.parent().parent());
   check.on('click',function(){
     if($(this).prop('checked')){
@@ -107,7 +107,8 @@ $(function(){
     } else {
       $(this).parent().css('background-color','transparent');
     };
-  });
+  }); */
+  
   /* $('.schedule').on('click',function(){
     $('div.task_gate div').toggleClass('task_gate1');
   }) 
@@ -281,5 +282,4 @@ $(function(){
              $('.buttonpack').show();
              $(this).hide();
             })
-
 })

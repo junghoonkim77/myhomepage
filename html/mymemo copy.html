@@ -62,35 +62,16 @@
           <div class="dropdown leftmove8 drag" >
             <span class="dropbtn1">일과</span>
             <div class="dropdown-content1">
-              <label> <input type="checkbox" > K톡 메신저 로그인 <br></label>
-              <label> <input type="checkbox" > 구글캘린더 일정 확인 <br></label>
-              <label> <input type="checkbox" > 벽걸이 TV전원 켜기 <br></label>
-              <label> <input type="checkbox" > 상담일지 관리부 체크     <br></label>
-              <label> <input type="checkbox" > 팀원 회의 일정 배포    <br></label>
-              <label> <input type="checkbox" > WFMS 입력상태 확인 <br></label>
-              <label> <input type="checkbox" > 스마일 입력 & 복무표 작성<br></label>
-              <label> <input type="checkbox" > K-KISS 일근태 업로드 <br></label>
-              <label><input type="checkbox" > 일보 사전 작성 <br></label>
-              <label><input type="checkbox" > 전일 개통건 파일제출 <br></label>             
-              <label> <input type="checkbox" > 면담일지 작성 <br></label>
-              <label> <input type="checkbox" > 보안 수준 진단(점심전) <br></label>
-     -------------------오후 일정 <br>
-           <label> <input type="checkbox" ><b>일보 AI선생 업로드 3시전에</b> <br></label>
-   <label> <input type="checkbox" > 포괄연장근로입력 최영은그룹장님 <br></label>
-   <label><input type="checkbox" > 올레지존 업데이트 필독 <br></label>
-   <label> <input type="checkbox" >부가자일지제출<br></label>
-   <label> <input type="checkbox" >차별화&신완상&세일즈제출 &<u>sr검수파일</u> <br></label>
-   <label> <input type="checkbox" >이관받은<b>진행중SR 확인 必</b> <br></label>
-   <label> <input type="checkbox" > 테스트 폰 정리 확인 <br></label>
-   <label> <input type="checkbox" > 서랍 시건 멀티탭 확인 <br></label>
-   <label> <input type="checkbox" > 내 자리 쓰레기 버리기 <br></label>
-   <label><input type="checkbox" > 페블마우스 전원끄기 <br></label>
-   -------------------주간 일정 <br>
-   <label><input type="checkbox" > 당직자 서명후 김윤식 과장 측으로 제출 <br></label>
-   <label><input type="checkbox" > 주간 보고 수요일 회신 <br></label>
-   <label><input type="checkbox" > 복무표 목요일 3시까지 제출 <br></label>
-   
-             </div>
+              <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                            </ul>
+           </div>
           </div>
           <div class="leftmove9 drag"><a href="#"> 메모저장💾</a></div>
           <div class="leftmove10 drag"> <a href="localstrageout.html" onclick="vocbank('localstrageout.html','600');  return false;">메모목록</a> </div>
@@ -198,15 +179,30 @@
       }
       
   </script>
-  <script src="../java/memo.js"></script>
+  <script src="../java/memo copy.js"></script>
   <script src="../java/voc_bank.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
    jQuery(function(){
     
+    var dailywork ={'k톡':'k톡로그인','일정확인':'일정확인','tv전원':'tv전원',
+    '일지관리부첵':'일지관리부첵','회의일정배포':'회의일정배포','wfms확인':'wfms확인',
+    '스마일&복무표':'스마일&복무표'}
+    
+    $('.dropdown-content1 ul li').each(dailywork,function(key,value){
+      $(this).text(value)
+    })
+        // $.each(dailywork, function(key, value) {
+     //   $('.dropdown-content1 ul li:contains(' + key + ')').text(value);
+    });
+
+
+
    
 
-   })
+
+
+  
     
   </script>
   </body>
