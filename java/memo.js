@@ -98,8 +98,12 @@ let SRarray =
 '비영업 대외민원말머리':'[대외/언론언급]\n[비영업]\n■접수번호 / 성함:\n■연락처 / 요청자:\n■불만내용:\n-\n■요구사항 :\n■귀책부서명 /코드 :',
 }
 
+
 $(function(){
-  let check = $('label input:checkbox')
+ 
+
+  // 체크박스 체크하면 parent node지우는 코드
+ /* let check = $('label input:checkbox')
   console.log(check.parent().parent());
   check.on('click',function(){
     if($(this).prop('checked')){
@@ -107,7 +111,10 @@ $(function(){
     } else {
       $(this).parent().css('background-color','transparent');
     };
-  });
+  }); */
+
+
+  
   /* $('.schedule').on('click',function(){
     $('div.task_gate div').toggleClass('task_gate1');
   }) 
@@ -281,4 +288,25 @@ $(function(){
              $('.buttonpack').show();
              $(this).hide();
             })
+
+ // 내꺼 매일 할일 코드 개 단순 ㅠㅠ
+
+ var dailywork = 
+`1.메신저로그인\n2.캘린더체크\n3.tv전원on\n4.상담일지체크\n5.회의&상담일정배포\n6.wfms일정체크\n7.스마일복무체크\n8.일출결UP\n9.일보사전작성\n10.전일개통파일제출\n11.면담일지작성\n12.보안점검\n13.일보업로드\n14.포괄연장입력\n15.지존_업데이트필독\n
+16.부가자일지제출\n17.차별&모니터&세일즈&sr검수제출\n18.진행중SR체크\n19.테스트폰정리\n20.서랍&멀티탭확인\n21.쓰레기정리`
+
+
+ $('#dailymust').dblclick(function(){
+  var dailymust = $(this).val();
+  localStorage.setItem('dailymust',dailymust);
+ }) 
+ var dailymustval = localStorage.getItem('dailymust')
+ $('#dailymust').val(dailymustval);
+
+ $('#dailysaver').click(function(){
+  $('#dailymust').val("");
+  $('#dailymust').val(dailywork);
+ })
+
+
 })

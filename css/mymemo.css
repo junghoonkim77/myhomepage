@@ -208,5 +208,12 @@ display: block;
   display : none;
 }
 
+#dailymust {
+  background-color: beige;
+  font-size: 8px ;
+  font-weight: bold;
+  line-height:15px;
+  text-align: left;
+}
 
 
