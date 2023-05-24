@@ -189,12 +189,10 @@
     '일지관리부첵':'일지관리부첵','회의일정배포':'회의일정배포','wfms확인':'wfms확인',
     '스마일&복무표':'스마일&복무표'}
     
-    $('.dropdown-content1 ul li').each(dailywork,function(key,value){
-      $(this).text(value)
-    })
-        // $.each(dailywork, function(key, value) {
-     //   $('.dropdown-content1 ul li:contains(' + key + ')').text(value);
-    });
+    
+         $.each(dailywork, function(key, value) {
+        $('.dropdown-content1 ul li').text(value);
+    })});
 
 
 
