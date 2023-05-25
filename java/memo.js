@@ -57,7 +57,7 @@ String.prototype.bytes = function() {
  
  function cal_pre()
  {
- var textare_txt_count = document.querySelectorAll('textarea')
+ var textare_txt_count = document.getElementsByClassName('delText');
  var size_check = textare_txt_count[0].value;
  var size_check2= textare_txt_count[1].value;
  //var size_check = document.comment.value;
