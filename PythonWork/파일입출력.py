@@ -1,6 +1,6 @@
 #3:17:51초 강의 
 #--------------------------  파일 쓰기 
-# score_file = open('score.txt','w',encoding='utf-8') #w는 쓰겠다는 의미의 wright
+# score_file = open('score.txt','w',encoding='utf8') #w는 쓰겠다는 의미의 wright
 # print ('수학:0',file=score_file)
 # print ('영어:50',file=score_file)
 # score_file.close()  #파일을 열었으면 반드시 닫아줘야 한다.
