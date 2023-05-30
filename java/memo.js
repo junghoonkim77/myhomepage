@@ -282,11 +282,13 @@ $(function(){
             $('.buthidden').click(function(){
              $('.buttonpack').hide()
              $('.butttonshow').show();
+             $('.butttonshow').before($('.task_gate.drag'));
             })
          
             $('.butttonshow').click(function(){
              $('.buttonpack').show();
              $(this).hide();
+             $('.buttonpack').append($('.task_gate.drag'));
             })
 
  // 내꺼 매일 할일 코드 개 단순 ㅠㅠ
