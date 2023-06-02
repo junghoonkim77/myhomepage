@@ -94,11 +94,7 @@ button{
   
   <script src="../java/voc_bank.js">  </script>
   <script>
-    function count(){
-      let CountAtag = document.getElementsByTagName('a').length;
-      document.getElementById('count').innerHTML = String(`${CountAtag}건`);
-     } 
-     count();
+         
      jQuery(function(){
       class Knowledge {
         constructor(box1,box1_1,box2,box2_2,box3,box3_3){
@@ -382,6 +378,8 @@ button{
       })  
       })
 
+      let CountAtag = document.getElementsByTagName('a').length;
+      document.getElementById('count').innerHTML = String(`${CountAtag}건`);
 
      })
   </script> 
