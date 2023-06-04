@@ -24,3 +24,11 @@ for student in range(1,10) :
         break # break를 만나면 반복 구문을 끝내 버림
     print('{0},이책을 읽어봐'.format(student))
 
+
+test1 =['김정훈','김개똥','김주남','김기준','김기은']
+for name in test1 :
+    if "김개똥"==name :
+        continue
+    print(name)
+
+        

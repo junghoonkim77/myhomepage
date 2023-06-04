@@ -30,3 +30,4 @@ print('오늘 날짜는 ',datetime.date.today())
 today = datetime.date.today()
 td = datetime.timedelta(days=100)
 print('우리가 만난지 100일은',today+td) #오늘부터 100일
+print(td)

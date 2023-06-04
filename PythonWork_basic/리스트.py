@@ -21,5 +21,7 @@ mix_list =['조세호',20,True]
 num_list.extend(mix_list) # 리스트 합치기
 print(num_list)
 
+print([subway[0]])
+
 
 
