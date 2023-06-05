@@ -42,4 +42,4 @@ for index,lottoNum in enumerate(lottoList) :
         print('그리고 행운의 숫자는{0}'.format(lottoList[7]))
         break
 
-    
+print(sample(lottorange,6))
