@@ -347,7 +347,7 @@ var mon = months.getMonth();
 console.log(mon)
 
 $(`#changemonth label input[value=${mon}]`).prop('checked',true)
-
+$('.date').text(mon+1+'월');
 for (var i=0 ; i<schemonth[mon].length ; i++ ){
 
     $('#firstline').before(` <tr class="delnode">
