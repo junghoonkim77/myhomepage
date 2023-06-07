@@ -4,98 +4,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <style>
-      body{
-        height : 100vh;
-      }
-      
-      img{
-        position :absolute;
-        left :30px;
-        display :none;
-        height : 80vh;
-        object-fit:scale-down;
-        margin : 0px;
-       } 
-     /* p {
-        position:absolute;
-        bottom:60px;
-        left : 25%;
-        font-size:14px;
-      } */
-    </style>
-    <title>팅일정</title>
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+          overflow:hidden;padding:4px 2px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+          font-weight:normal;overflow:hidden;padding:4px 2px;word-break:normal;}
+        .tg .tg-u4ur{background-color:#ffcc67;text-align:left;vertical-align:top}
+        .tg .tg-f7v4{background-color:#c0c0c0;border-color:#000000;text-align:left;vertical-align:top}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+        .tg .tg-ojok{background-color:#ffcc67;border-color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kd4e{background-color:#34ff34;text-align:left;vertical-align:top}
+        .tg .tg-y6fn{background-color:#c0c0c0;text-align:left;vertical-align:top}
+        #changemonth{background-color: aqua;}
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.4.js" 
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+        integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+        crossorigin="anonymous"></script>
+    <title>Document</title>
 </head>
 <body>
-    <h5>2023년 <span id="mon"><span>월</span></span> 팀일정</h5>
-    <p><span id="button2">⏪</span><span>월별 일정:<span id="month"></span></span>
-      <span id="button1">⏩</span></p>
-        
-        <img src="../imgfolder/팀일정2301.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2302.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2303.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2304.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2305.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2306.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2307.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2308.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2309.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2310.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2311.png" alt="연습용사진">
-        <img src="../imgfolder/팀일정2312.png" alt="연습용사진">
-        
+  <div id="changemonth">
+    <label><input value="0" type="radio" name="check" >1월</label>
+    <label><input value="1" type="radio" name="check" >2월</label>
+    <label><input value="2" type="radio" name="check" >3월</label>
+    <label><input value="3" type="radio" name="check" >4월</label>
+    <label><input value="4" type="radio" name="check" >5월</label>
+    <label><input value="5" type="radio" name="check" >6월</label>
+    <label><input value="6" type="radio" name="check">7월</label>
+    <label><input value="7" type="radio" name="check" >8월</label>
+    <label><input value="8" type="radio" name="check" >9월</label> 
+    <label><input value="9" type="radio" name="check" >10월</label> 
+    <label><input value="10" type="radio" name="check" >11월</label> 
+    <label><input value="11" type="radio" name="check" >12월</label> 
     
-     
-      
-    
-    
-  
- <script>
-    jQuery(function(){
-        
-        var $img = $('img');
-        var $imgCount = $img.length;
-        var date = new Date();
-        var $month=date.getMonth()+1;
-        console.log($month);
-        var idx = $month-1;
-        $('#month').html(`${$month}월`);
-        $('#mon').html(`${$month}월`);
+  </div>    
+    <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-0lax date"><b>월</b></th>
+            <th class="tg-0lax">요일</th>
+            <th class="tg-ojok">연차</th>
+            <th class="tg-ojok">연차</th>
+            <th class="tg-ojok">연차</th>
+            <th class="tg-kd4e">헬키</th>
+            <th class="tg-kd4e">헬키</th>
+            <th class="tg-kd4e">헬키</th>
+            <th class="tg-kd4e">헬키시간</th>
+            <th class="tg-y6fn">평일/휴일당직</th>
+            <th class="tg-y6fn"></th>
+            <th class="tg-0lax">날짜</th>
+            <th class="tg-0lax">요일</th>
+            <th class="tg-0lax">메모</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="firstline">
+            <td class="tg-0lax schedule"></td>
+            <td class="tg-0lax schedule"></td>
+            <td class="tg-u4ur schedule"></td>
+            <td class="tg-u4ur schedule"></td>
+            <td class="tg-u4ur schedule"></td>
+            <td class="tg-kd4e schedule"></td>
+            <td class="tg-kd4e schedule"></td>
+            <td class="tg-kd4e schedule"></td>
+            <td class="tg-kd4e schedule"></td>
+            <td class="tg-f7v4 schedule"></td>
+            <td class="tg-f7v4 schedule"></td>
+            <td class="tg-0lax schedule"></td>
+            <td class="tg-0lax schedule"></td>
+            <td class="tg-0lax schedule"></td>
+          </tr>
+        </tbody>
+        </table>
+   <script src="../java/teamscheme.js"></script>
 
-       $img.eq(idx).fadeIn(100);
-         jQuery('#button1').click(function(){
-          var Nextidx =(idx+1)%$imgCount 
-          $img.eq(idx).fadeOut(100);
-          $img.eq(Nextidx).fadeIn(100);
-          idx = Nextidx;
-          $('#month').html(`${idx+1}월`);
-          $('#mon').html(`${idx+1}월`);
-          $('#button2').show();
-        })
-
-        jQuery('#button2').click(function(){
-          var Nextidx =(idx-1)
-          $img.eq(idx).fadeOut(100);
-          $img.eq(Nextidx).fadeIn(100);
-          idx = Nextidx;
-          if(Nextidx==0){
-            $(this).hide();
-            $('#month').html(`${idx+1}월`);
-            $('#mon').html(`${idx+1}월`);
-          }else{
-            $('#month').html(`${idx+1}월`);
-            $('#mon').html(`${idx+1}월`);
-            
-          }
-           // $img.eq(Nextidx2).fadeIn(100);
-          //  idx = Nextidx2;
-          //$('#month').html(`${idx+1}월`);
-          //$('#mon').html(`${$idx+1}월`);
-        })
-    }) 
- </script>
-
+   
 </body>
 </html>
