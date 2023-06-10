@@ -1,4 +1,4 @@
-.leftmove8 {
+.leftmove8 {  /*일과버튼 */
     position:absolute;
     top :85px;
     left :270px; 
@@ -7,7 +7,7 @@
     display : block;
 }   
 
-.task_gate   {
+.task_gate {  /*비번코드 부모태그 */
 position :absolute;
 display :inline-block;
 left : 72px;
@@ -41,7 +41,7 @@ html{
 margin :0px;
 padding :0px;
 }
-.leftmove1{
+.leftmove1{ /*시간 리셋버튼*/
  position :absolute;
  top:61px;
  left:99px;
@@ -52,23 +52,23 @@ h5 {
   padding :0px;
   
  }
-.leftmove2{
+.leftmove2{  /*sr양식 메뉴*/
 position :absolute;
  top:61px;
  left:220px;}
 
-.leftmove3{
+.leftmove3{ /*책모양 아이콘*/
 position :absolute;
  top:61px;
  left:46px;
   }
-.leftmove4{
+.leftmove4{ /*주소버튼*/
 position :absolute;
 top:61px;
  left:8px;
  width:38px;
 }
-.leftmove5{
+.leftmove5{  /*그룹웨어 버튼*/
 position :absolute;
  top:38px;
  left:9px;
@@ -76,19 +76,7 @@ position :absolute;
 }
 
 
- .leftmove6{
-position :absolute;
-top:15px;
-left:220px;}
-
-.leftmove7{
-position :absolute;
-top:15px;
-left:1px;}
-
-
-
-.leftmove9{
+.leftmove9{ /*메모저장 버튼*/
   position : absolute;
   left:129px;
   top : 40px;
@@ -96,21 +84,21 @@ left:1px;}
   background-color: aqua;
 }
 
-.leftmove10{
+.leftmove10{  /*메모목록 버튼*/
   position : absolute;
   left:200px;
   top : 40px;
   font-size: 13px;
   background-color:orange;
 }
-.leftmove11{
+.leftmove11{   /*비번변경 버튼*/
   position : absolute;
   left:255px;
   top : 40px;
   font-size: 13px;
   background-color:cadetblue;
 }
-.leftmove12{
+.leftmove12{   /*검은배경 버튼*/
   position : absolute;
   left:255px;
   top : 20px;
@@ -118,10 +106,6 @@ left:1px;}
   background-color:black;
   
 }
-.leftmove2{
-position :absolute;
- top:61px;
- left:220px;}
 
 textarea{
   font-size:12px;

@@ -125,8 +125,8 @@ $(function(){
     })*/
 
     
-  
-  var BasicSize = 12;
+ //글자크기 줄이고 늘리는 코드 
+ /* var BasicSize = 12;
   $('.leftmove6').click(function(){
       BasicSize--
       $('textarea').css('font-size',BasicSize+'px');
@@ -135,7 +135,7 @@ $(function(){
   $('.leftmove7').click(function(){
       BasicSize++
       $('textarea').css('font-size',BasicSize);
-  })
+  }) */
   
   $('.schedule').click(function(){
       $(this).toggleClass('showing');
