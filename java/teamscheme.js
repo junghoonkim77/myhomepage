@@ -459,6 +459,8 @@ var months = new Date();
 var mon = months.getMonth();
 console.log(mon)
 
+
+
 $(`#changemonth label input[value=${mon}]`).prop('checked',true)
 $('.date').text(mon+1+'월');
 for (var i=0 ; i<schemonth[mon].length ; i++ ){
@@ -485,7 +487,7 @@ for (var i=0 ; i<schemonth[mon].length ; i++ ){
 
 
 
-$('#changemonth label input').change(function(){
+$('#changemonth label input').on('change',function(){
         $('tr').remove('.delnode');            
         var $mon =Number($(this).val())  
         $('.date').text($mon+1+'월');
