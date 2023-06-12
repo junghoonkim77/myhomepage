@@ -460,14 +460,14 @@ var mon = months.getMonth();
 console.log(mon)
 
 
-
 $(`#changemonth label input[value=${mon}]`).prop('checked',true)
 $('.date').text(mon+1+'월');
 for (var i=0 ; i<schemonth[mon].length ; i++ ){
-
+         
+     
     $('#firstline').before(` <tr class="delnode">
         <td class="tg-0lax schedule1">${schemonth[mon][i].mo}</td>
-        <td class="tg-0lax schedule1">${schemonth[mon][i].week}</td>
+        <td class="tg-0lax schedule1">${schemonth[mon][i].week}.</td>
         <td class="tg-u4ur schedule1">${schemonth[mon][i].yun1}</td>
         <td class="tg-u4ur schedule1">${schemonth[mon][i].yun2}</td>
         <td class="tg-u4ur schedule1">${schemonth[mon][i].yun3}</td>
@@ -482,10 +482,10 @@ for (var i=0 ; i<schemonth[mon].length ; i++ ){
         <td class="tg-0lax schedule1">${schemonth[mon][i].memo}</td>
       </tr>`)
     }
-
-
-
-
+    $("td:contains('일.')").css('background-color','lightgrey');
+    $("td:contains('일.')").siblings().css('background-color','lightgrey');
+    $("td:contains('토.')").css('background-color','lightgrey');
+    $("td:contains('토.')").siblings().css('background-color','lightgrey');
 
 $('#changemonth label input').on('change',function(){
         $('tr').remove('.delnode');            
@@ -496,7 +496,7 @@ $('#changemonth label input').on('change',function(){
 
 $('#firstline').before(` <tr class="delnode">
     <td class="tg-0lax schedule1">${schemonth[$mon][i].mo}</td>
-    <td class="tg-0lax schedule1">${schemonth[$mon][i].week}</td>
+    <td class="tg-0lax schedule1">${schemonth[$mon][i].week}.</td>
     <td class="tg-u4ur schedule1">${schemonth[$mon][i].yun1}</td>
     <td class="tg-u4ur schedule1">${schemonth[$mon][i].yun2}</td>
     <td class="tg-u4ur schedule1">${schemonth[$mon][i].yun3}</td>
@@ -509,10 +509,16 @@ $('#firstline').before(` <tr class="delnode">
     <td class="tg-0lax schedule1">${schemonth[$mon][i].day2}</td>
     <td class="tg-0lax schedule1">${schemonth[$mon][i].week2}</td>
     <td class="tg-0lax schedule1">${schemonth[$mon][i].memo}</td>
-  </tr>`)
-}
-    })
+  </tr>`);
+ 
+  $("td:contains('일.')").css('background-color','lightgrey');
+  $("td:contains('일.')").siblings().css('background-color','lightgrey');
+  $("td:contains('토.')").css('background-color','lightgrey');
+  $("td:contains('토.')").siblings().css('background-color','lightgrey');
+
+} //for반복문 끝부분
+    }) //change이벤트 끝부분
     
 
-
   })
+
