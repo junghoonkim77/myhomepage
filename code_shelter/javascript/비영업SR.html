@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .blackconsumer{
+            width :500px;
+        }
+        p{
+            margin :0px;
+        }
+        .blackconsumer1{
+            width :500px;
+        }
+        pre{
+            margin :0px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+   integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+   integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+   crossorigin="anonymous"></script>
+    <title>비영업 작성요령</title>
+</head>
+<body>
+    <fieldset>
+        <legend>비영업 작성</legend>
+        <p>
+            대외 언급시 말머리 복붙-> [대외/언론언급]
+            <input type="text"  class="blacktitle"    value=""> 
+        </p>
+        <p>
+            접수번호 / 성함:
+            <input type="text" class="blackname"   value=""> 
+        </p>
+        <p>
+            연락처 / 요청자:
+            <input type="text" class="blackorder"   value=""> 
+        </p>
+        <p class="blackconsumerGate">
+            불만내용 :
+            <input type="text" class="blackconsumer"   value=""> 
+            <button class="button2">내용추가</button>
+        </p>
+        
+        <p>
+            요구사항 :
+            <input type="text" class="blackdemand"   value=""> 
+        </p>
+        <p>
+            귀책부서명 /코드 :
+            <input type="text" class="blackcode"   value=""> 
+        </p>
+        <button class="button1">복사</button>
+    </fieldset>
+    <div class="content">
+<pre>[비영업]<span class="head"></span></pre>
+<pre>■접수번호/성함:<span class="numbername1"></span></pre>
+<pre>■연락처/요청자:<span class="nembername2"></span></pre>
+<pre>■불만내용:</pre>
+<div class="blackcus">
+<pre>-<span class="blackpeople"></span></pre>
+</div>
+<pre>■요구사항:</pre>
+<pre>-<span class="demand"></span></pre>
+<pre>■귀책부서명/코드:<span class="code"></span></pre>   
+</div>
+   <!-- <pre>[비영업]<span class="head"></span></pre>
+    <pre>■접수번호/성함:<span class="numbername1"></span></pre>
+    <pre>■연락처/요청자:<span class="nembername2"></span></pre>
+    <pre>■불만내용:</pre>
+    <pre class="blackcus">-<span class="blackpeople"></span></pre>
+    <pre>■요구사항:</pre>
+    <pre>-<span class="demand"></span></pre>
+    <pre>■귀책부서명/코드:<span class="code"></span></pre> --> 
+    <script>
+        jQuery(function(){
+
+         
+   
+         $(document).on('click','.button2',function(){
+            $('.blackconsumerGate').append(`<p>
+            불만내용 :
+            <input type="text" class="blackconsumer1"   value=""> 
+            <button class="button2">내용추가</button>
+        </p>`)
+          $('.blackcus').append(`<pre class="blackcus1"></pre>`);
+            
+         }) 
+         
+         // 말머리 고객번호 정보등 사전 셋팅된 정보값만 입력
+         $(document).on('click','.button1',function(){
+         $('.head').text($('.blacktitle').val())
+         $('.numbername1').text($('.blackname').val());
+         $('.nembername2').text($('.blackorder').val());
+         $('.demand').text($('.blackdemand').val());
+         $('.code').text( $('.blackcode').val())
+         $('.blackpeople').text( $('.blackconsumer').val())
+         
+         //동적으로 생성된 입력창
+         var $blackconsumer1 = $('.blackconsumer1');   
+                  
+         $blackconsumer1.each(function(idx){
+            var thisblack = $(this).val();
+            console.log(thisblack);
+            $('.blackcus1').eq(idx).text(thisblack);
+            console.log(idx);
+        })
+         navigator.clipboard.writeText($('.content').text()) 
+
+        })       
+
+    })
+    </script>
+</body>
+</html>
