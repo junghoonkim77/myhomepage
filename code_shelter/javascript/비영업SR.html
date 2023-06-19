@@ -85,9 +85,9 @@
             $('.blackconsumerGate').append(`<p>
             불만내용 :
             <input type="text" class="blackconsumer1"   value=""> 
-            <button class="button2">내용추가</button>
-        </p>`)
-          $('.blackcus').append(`<pre class="blackcus1"></pre>`);
+            <button class="button2">내용추가</button></p>`)
+         
+            $('.blackcus').append(`<pre>-<span class="blackcus1"></pre>`);
             
          }) 
          
@@ -108,9 +108,10 @@
             console.log(thisblack);
             $('.blackcus1').eq(idx).text(thisblack);
             console.log(idx);
-        })
-         navigator.clipboard.writeText($('.content').text()) 
 
+        })
+        var $contents =  document.querySelector('.content').innerText
+         navigator.clipboard.writeText($contents);
         })       
 
     })
