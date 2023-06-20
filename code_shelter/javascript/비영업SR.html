@@ -21,6 +21,9 @@
             color :red;
             font-weight: bold ;
         }
+        fieldset{
+            width : 80%;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.4.js" 
    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
@@ -47,7 +50,7 @@
         <p class="blackconsumerGate">
             불만내용 :
             <input type="text" class="blackconsumer"   value=""> 
-            
+         ※ENTER행추가 → 탭키로 아래행 이동
         </p>
         
         <p>
@@ -56,7 +59,7 @@
         </p>
         <p>
             귀책부서명 /코드 :
-            <input type="text" class="blackcode"   value=""> <button class="button1">내용 완성&복사</button>
+            <input type="text" class="blackcode"   value=""> <button class="button1">내용 완성&복사->클릭후 KOS 바로복붙</button>
         </p>
         
     </fieldset>
@@ -72,14 +75,7 @@
 <pre>-<span class="demand"></span></pre>
 <pre>■귀책부서명/코드:<span class="code"></span></pre>   
 </div>
-   <!-- <pre>[비영업]<span class="head"></span></pre>
-    <pre>■접수번호/성함:<span class="numbername1"></span></pre>
-    <pre>■연락처/요청자:<span class="nembername2"></span></pre>
-    <pre>■불만내용:</pre>
-    <pre class="blackcus">-<span class="blackpeople"></span></pre>
-    <pre>■요구사항:</pre>
-    <pre>-<span class="demand"></span></pre>
-    <pre>■귀책부서명/코드:<span class="code"></span></pre> --> 
+   
     <script>
         jQuery(function(){
          var complain = ['불만국소주소등','불만개요','불만내용','불만내용','불만내용','불만내용','불만내용','불만내용','불만내용',
