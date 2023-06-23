@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    *{font-size : 12px;}
+      div {border :1px;}
+      p{ margin : 0px;}
+    .imsitest{ 
+        width :200px; 
+        height:30px; 
+        background-color: blanchedalmond;
+        display : block;
+     }
+     .tranformer{
+         display : none;
+     }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <button class="trasswitch">데이터</button>
+        <button class="trasswitch">통화</button>
+        <button class="trasswitch">메시지</button>
+    </div>
+
+
+      <div>
+         <select name="srhead" id="srhead">
+                  <option  value="" >말머리 선택</option>
+                  <option  value="[반]">[반]세일즈반려시</option>
+                  <option  value="[감성]">[감성]차별화</option>
+                  <option  value="[공동망]">[공동망]5G공동망</option>
+                  <option  value="/TV탭 가입권유">/TV탭 가입권유</option>
+                  <option  value="/TV추가 가입권유">/TV추가 가입권유</option>
+                  <option  value="/TV 가입권유">/TV 가입권유</option>
+                  <option  value="/TV 가입권유">/인터넷,TV가입권유</option>
+        </select> 
+      
+      
+      
+      
+        <p>1.서비스 번호 : <input type="text" value="" class="contents"></p> 
+        <p>2.민원인 : <input type="text" value="" class="contents"></p> 
+        <p>3.비상연락처 :  <input type="text" value="" class="contents"></p>
+        <p>4.증상 :  <input type="text" value="" class="contents"></p>
+      
+      
+      
+      
+        <p>5.발생시기 :
+        <label><input value="예전부터 간헐적" type="radio" name="when" >예전부터 간헐적</label>
+       <label><input value="현재도 증상발생 중" type="radio" name="when" >갑자기 발생후 현재까지 진행중~!</label>
+       <label><input value="잘 모름" type="radio" name="when" >잘 모름</label>
+       </p> 
+        
+      
+        <p>6.장소상관여부 :
+        <label><input value="특정장소에서만 이용안됨" type="radio" name="place" >특정장소</label>
+       <label><input value="지역무관 & 장소이동해도동일" type="radio" name="place" >지역무관</label>
+       <label><input value="정확히 확인 어려움" type="radio" name="place" >모름</label>
+       </p> 
+        
+        
+        
+        <p>7.주변KT 상관여부 :
+        <label><input value="정상" type="radio" name="around" >정상</label>
+       <label><input value="증상 동일" type="radio" name="around" >증상 동일</label>
+       <label><input value="확인어려움" type="radio" name="around" >비교불가</label>
+       </p> 
+       
+       <!-- 중간 내용 바꿔치기-->
+       
+       <div class="tranformer">
+        <p >8.전산이상여부 : 아래항목 모두 정상이면 이상없음 체크 
+          <ul>
+          <li>무선데이터 차단서비스</li>
+          <li>QOS상태</li>
+          <li>소지한 단말기와 KOS가 일치하는지 </li>
+          <li>OTA상태</li>
+          <label><input value="" type="radio" name="error" >전산이상있음</label>
+        <label><input value="전산 특이사항 없음" type="radio" name="error" >전산이상없음</label>
+        </ul>
+        
+       </p>  
+      
+      
+      <p >#추가탐색 :
+          <ul>
+          <li >특정어플만?</li>
+          <li>WIFI기능은 껐는지</li>
+          <li>단말기 데이터 설정상태_(모바일데이터,사용량 제한설정)<br>
+              아이폰은 (셀룰러 설정 , 프로파일생성여부,VPN활성화여부)      
+          </li>
+        </ul>
+      </p>
+    </div>
+
+    <div class="tranformer">
+        <p >8.전산이상여부 : 아래항목 모두 정상이면 이상없음 체크 
+          <ul>
+          <li>정지상태인지</li>
+          <li>알이 있는지</li>
+          <li>특정번호 상관 있는지 </li>
+          <li>OTA상태</li>
+          <label><input value="" type="radio" name="error" >전산이상있음</label>
+        <label><input value="전산 특이사항 없음" type="radio" name="error" >전산이상없음</label>
+        </ul>
+        
+       </p>  
+      
+      
+      <p >#추가탐색 :
+          <ul>
+          <li >특정어플만?</li>
+          <li>WIFI기능은 껐는지</li>
+          <li>단말기 데이터 설정상태_(모바일데이터,사용량 제한설정)<br>
+              아이폰은 (셀룰러 설정 , 프로파일생성여부,VPN활성화여부)      
+          </li>
+        </ul>
+      </p>
+    </div>
+
+
+    <div class="tranformer">
+        <p >8.전산이상여부 : 아래항목 모두 정상이면 이상없음 체크 
+          <ul>
+          <li>일500건 차단</li>
+          <li>sms기본부가서비스 삭제여부</li>
+          <li>정지 상태인지 </li>
+          <li>OTA상태</li>
+          <label><input value="" type="radio" name="error" >전산이상있음</label>
+        <label><input value="전산 특이사항 없음" type="radio" name="error" >전산이상없음</label>
+        </ul>
+        
+       </p>  
+      
+      
+      <p >#추가탐색 :
+          <ul>
+          <li>최근 7일 이내인지</li>
+          <li>카카오톡은 아닌지</li>
+          <li>내용 추가 예정  </li>
+        </ul>
+      </p>
+    </div>
+
+
+  <!-- 중간 내용 바꿔치기 끝-->
+
+
+
+      <p>전원리셋 및 APN,네트워크 설정 초기화 등 :
+        <label><input value="리셋후 정상" type="radio" name="reset" >리셋후 정상</label>
+       <label><input value="리셋후 증상동일" type="radio" name="reset" >리셋후 증상동일</label>
+      </p> 
+       
+      <textarea cols='40' rows='5'placeholder="기타 전달사항 입력"></textarea>
+      <button class="imsitest">클릭후 코스에 바로 붙여넣기~!</button>
+      
+      <div class="main"></div>
+    </div>   
+       <script>
+      jQuery(function(){
+        
+        var  $srheadarr = []; // 내용이 담길 빈배열
+        var  $srmainval = [];
+        var  $minititle = ['서비스번호 :','민원인 :','비상연락처 :','증상 :','발생시기 :','장소상관여부 :'
+                            ,'주변KT 상관여부','전산이상여부 :','-','-'];
+
+        $('#srhead').change(function(){
+            $srheadval = $(this).val();
+            $srheadarr.push( $srheadval );
+            $('.main').append(`<pre>${$srheadarr[0]}</pre>`);
+            $srheadarr.length = 0;  
+          
+          
+        })
+
+        // li 태그 클릭시 줄긋기 
+        $('li').click(function(){
+         $(this).toggleClass('line');
+        if($(this).hasClass('line')){
+             $(this).css('text-decoration','line-through');
+         }else {
+             $(this).css('text-decoration','none');
+            }
+       }) // li클릭이벤트 끝
+
+       //check상태의 체크박스 밸류값 모으기
+       $('.imsitest').click(function(){
+        
+                         
+        var $text = $('input[type="text"]')
+         $text.each(function(){
+            
+            $srmainval.push( $(this).val() );
+            console.log( $srmainval );
+         }) // text val 모으기 
+       
+         var $radio = $('input[type="radio"]:checked');
+         $radio.each(function(){
+            $srmainval.push( $(this).val() )
+            console.log( $srmainval );
+            //radio val 모으기         
+         }) //each문 끝
+         $srmainval.push($('textarea').val());
+           console.log( $srmainval )
+           
+           for (var j=0 ; j<$srmainval.length ; j++){
+            $('.main').append(`${j+1}.${$minititle[j]} ${$srmainval[j]}`+'<br>');
+           } //for문 끝
+
+          var $totaltex = document.querySelector('.main').innerText 
+          navigator.clipboard.writeText($totaltex);
+          $srmainval.length = 0 ;
+          $('.main').text("");
+       }) //체크박스 밸류값 모으기 끝
+ 
+        // 중간 내용 바꾸기 
+       
+        $('.tranformer').eq(1).show();
+             
+        $('.trasswitch').click(function(){
+             var $switchidx = $(this).index()
+             console.log ($switchidx);
+             $('.tranformer').hide().eq($switchidx).show();
+         })
+
+      
+      })
+      
+     //J쿼리 마지막 블럭
+
+       </script>
+</body>
+</html>
