@@ -17,6 +17,21 @@
      .tranformer{
          display : none;
      }
+     #srhead{
+      background-color: aqua    ;
+     }
+     li {
+  list-style-type: none;
+      }
+
+    li::before {
+  content: "☑";
+  margin-right: 0.5em;
+    }
+
+    li.checked::before {
+    content: "☒";
+    }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.4.js" 
     integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
@@ -50,9 +65,9 @@
       
       
         <p>1.서비스 번호 : <input type="text" value="" class="contents"></p> 
-        <p>2.민원인 : <input type="text" value="" class="contents"></p> 
+        <p>2.민원인(명의자) : <input type="text" value="" class="contents"></p> 
         <p>3.비상연락처 :  <input type="text" value="" class="contents"></p>
-        <p>4.증상 :  <input type="text" value="" class="contents"></p>
+        <p>4.증상(ex.데이터접속불가,전화불가 등) :  <input type="text" value="" class="contents"></p>
       
       
       
@@ -81,7 +96,8 @@
        <!-- 중간 내용 바꿔치기-->
        
        <div class="tranformer">
-        <p >8.전산이상여부 : 아래항목 모두 정상이면 이상없음 체크 
+        <p >8.전산이상여부 : 아래항목 모두 정상이면 
+          <span style="color:blue;font-weight: bold">"전산이상없음"</span> 체크 
           <ul>
           <li>무선데이터 차단서비스</li>
           <li>QOS상태</li>
@@ -106,7 +122,8 @@
     </div>
 
     <div class="tranformer">
-        <p >8.전산이상여부 : 아래항목 모두 정상이면 이상없음 체크 
+        <p >8.전산이상여부 : 아래항목 모두 정상이면 
+          <span style="color:blue;font-weight: bold">"전산이상없음"</span> 체크 
           <ul>
           <li>정지상태인지</li>
           <li>알이 있는지</li>
@@ -132,7 +149,8 @@
 
 
     <div class="tranformer">
-        <p >8.전산이상여부 : 아래항목 모두 정상이면 이상없음 체크 
+        <p >8.전산이상여부 : 아래항목 모두 정상이면 
+          <span style="color:blue;font-weight: bold">"전산이상없음"</span> 체크 
           <ul>
           <li>일500건 차단</li>
           <li>sms기본부가서비스 삭제여부</li>
@@ -235,6 +253,8 @@
              console.log ($switchidx);
              $('.tranformer').hide().eq($switchidx).show();
          })
+            // 중간 내용 바꾸기 끝
+
 
       
       })

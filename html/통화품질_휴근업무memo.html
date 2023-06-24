@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body *:not(h3) {
+    font-size: 12px;
+      }
+
+      div {border :1px;}
+      p{ margin : 2px;}
+    
+      .imsitest{ 
+        width :150px; 
+        height:30px; 
+        background-color: blanchedalmond;
+        display : block;
+        font-weight: bold;
+     }
+     .imsitest1{
+         background-color: tomato;
+         margin : 10px 0 0 0 ;
+         height : 20px;
+         position : relative;
+         left : 200px;
+         top :-30px;
+     }
+   
+     #srhead{
+      background-color: aqua    ;
+     }
+     li {
+  list-style-type: none;
+      }
+
+    li::before {
+  content: "□";
+  margin-right: 0.5em;
+    }
+
+    li.checked::before {
+    content: "□";
+    }
+    
+   
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+    crossorigin="anonymous"></script>
+    <title>휴근업무_통화품질_메시지voc</title>
+</head>
+<body>
+   
+    
+      <div>
+         <select name="srhead" id="srhead">
+                  <option  value="" >말머리 선택 (필수 아님_필요시에만)</option>
+                  <option  value="[반]">[반]세일즈반려시</option>
+                  <option  value="/TV탭 가입권유">TV탭 가입권유</option>
+                  <option  value="/TV추가 가입권유">TV추가 가입권유</option>
+                  <option  value="/TV 가입권유">TV 가입권유</option>
+                  <option  value="/TV 가입권유">인터넷,TV가입권유</option>
+        </select> 
+      
+      
+      
+      
+        <p>1.서비스 번호 : <input type="text" value="" class="contents"></p> 
+        <p>2.민원인(명의자) : <input type="text" value="" class="contents"></p> 
+        <p>3.비상연락처 :  <input type="text" value="" class="contents"></p>
+        <p>4.증상(ex.데이터접속불가,전화불가 등) :  <input type="text" value="" class="contents"></p>
+      
+         
+      
+        <p>5.발생시기 :
+        <label><input value="예전부터 간헐적" type="radio" name="when" >예전부터 간헐적</label>
+       <label><input value="현재도 증상발생 중" type="radio" name="when" >갑자기 발생후 현재까지 진행중~!</label>
+       <label><input value=" 모름" type="radio" name="when" >잘 모르겠음</label>
+       </p> 
+        
+          
+       
+             
+       <div class="tranformer">
+        <p >6.전산이상여부 : 아래항목 모두 정상이면 
+          <span style="color:blue;font-weight: bold">"전산이상없음"</span> 체크 
+          <ul>
+          <li>SMS기본부가서비스 확인</li>
+          <li>일500건 차단 확인</li>
+          <li>114 문장인 경우 퍼미션 차단여부</li>
+          <label><input value="" type="radio" name="error" >전산이상있음</label>
+        <label><input value="전산 특이사항 없음" type="radio" name="error" >전산이상없음</label>
+        </ul>
+       </p>  
+      
+      
+      <p>#추가탐색 :
+        <ul>
+          <li>메시지 수신불가 문의시 7일이내 수신불가여부 (이상일 경우 조회불가)</li>
+          <li>인증 관련 언급시 인증문자 수신불가인지(이관) / 인증 자체가 실패되는지(자체종결)</li>
+          
+        </ul>
+      </p>
+    </div>
+   
+
+      <p><span style="color:blue ; font-weight:bold">※단말기 전원리셋 여부 必 :</span>
+        <label><input value="리셋해도 동일" type="radio" name="reset" >리셋후 동일</label>
+       <label><input value="리셋후 증상개선" type="radio" name="reset" >리셋후 개선</label>
+       <label><input value="리셋 진행 못함" type="radio" name="reset" >리셋진행불가 OR 미진행</label>
+      </p> 
+       
+      <textarea cols='40' rows='5'placeholder="기타 전달사항 입력"></textarea>
+      <button class="imsitest">클릭후 코스 바로 복붙~!</button>
+      <button class="imsitest1">내용 초기화</button>
+      
+      <div class="main"></div>
+    </div>
+    
+       <script>
+      jQuery(function(){
+        
+        var  $srheadarr = []; // 내용이 담길 빈배열
+        var  $srmainval = [];
+        var  $minititle = ['서비스번호 :','민원인 :','비상연락처 :','증상 :','발생시기 :','전산이상여부 :'
+                            ,'단말기 리셋여부 :','메모전달 :'];
+        
+
+        $('#srhead').change(function(){
+            $srheadval = $(this).val();
+            $srheadarr.push( $srheadval );
+            $('.main').append(`<pre>${$srheadarr[0]}</pre>`);
+            $srheadarr.length = 0;  
+          
+          
+        })
+
+        // li 태그 클릭시 줄긋기 
+        $('li').click(function(){
+         $(this).toggleClass('line');
+        if($(this).hasClass('line')){
+             $(this).css('text-decoration','line-through');
+         }else {
+             $(this).css('text-decoration','none');
+            }
+       }) // li클릭이벤트 끝
+
+       //check상태의 체크박스 밸류값 모으기 .1
+       $('.imsitest').click(function(){
+         var $text = $('input[type="text"]')
+         $text.each(function(){
+              $srmainval.push( $(this).val() );
+            console.log( $srmainval );
+         }) // text val 모으기 
+          var $radio = $('input[type="radio"]:checked');
+         $radio.each(function(){
+            $srmainval.push( $(this).val() )
+            console.log( $srmainval );
+            //radio val 모으기         
+         }) //each문 끝
+         $srmainval.push($('textarea').val());
+           console.log( $srmainval );
+
+           for (var j=0 ; j<$srmainval.length ; j++){
+            $('.main').append(`${j+1}.${$minititle[j]} ${$srmainval[j]}`+'<br>');
+           } //for문 끝
+          var $totaltex = document.querySelector('.main').innerText 
+          navigator.clipboard.writeText($totaltex);
+          $srmainval.length = 0 ;
+          $('.main').text("");
+       }) //체크박스 밸류값 모으기 끝
+ 
+       
+      
+      
+        
+       // 내용 지우고 체크 풀기     
+        $('.imsitest1').click(function(){
+            $('input[type="radio"]').each(function(){
+            $(this).prop('checked',false);
+          }) //체크박스 모두 해제하기 */
+       
+          $('input[type="text"]').each(function(){
+            $(this).val('');
+          }) // input text 모두 지우기
+          $('textarea').val(''); //textarea 내용 지우기
+          $('li').css('text-decoration','none'); //라인지우기
+          
+         
+        }) //내용 지우고 체크 풀기  끝
+          
+         //메시지  VOC탭 작업 
+                 
+      })
+      
+     //J쿼리 마지막 블럭
+
+       </script>
+</body>
+</html>

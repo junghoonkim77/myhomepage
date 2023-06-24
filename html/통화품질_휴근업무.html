@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/holidayWork.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+    crossorigin="anonymous"></script>
+    <title>휴근업무_통화품질</title>
+</head>
+<body>
+    <h3>[휴근_통화품질] _1번부터 순서대로 탐색 (입력 OR 체크)</h3>
+    <h3>하단에 "클릭후 코스 붙여넣기 클릭시 내용 자동조합&복사</h3>
+    <div>
+        <button class="trasswitch">데이터VOC</button>
+        <button class="trasswitch">음성통화VOC</button>
+        <button class="trasswitch1">메시지VOC</button>
+    </div>
+
+
+      <div class="maincore">
+         <select name="srhead" id="srhead">
+                  <option  value="" >말머리 선택 (필수 아님_필요시에만)</option>
+                  <option  value="[반]">[반]세일즈반려시</option>
+                  <option  value="/TV탭 가입권유">TV탭 가입권유</option>
+                  <option  value="/TV추가 가입권유">TV추가 가입권유</option>
+                  <option  value="/TV 가입권유">TV 가입권유</option>
+                  <option  value="/TV 가입권유">인터넷,TV가입권유</option>
+        </select> 
+      
+      
+      
+      
+        <p>1.서비스 번호 : <input type="text" value="" class="contents"></p> 
+        <p>2.민원인(명의자) : <input type="text" value="" class="contents"></p> 
+        <p>3.비상연락처 :  <input type="text" value="" class="contents"></p>
+        <p>4.증상(ex.데이터접속불가,전화불가 등) :  <input type="text" value="" class="contents"></p>
+      
+      
+      
+      
+        <p>5.발생시기 :
+        <label><input value="예전부터 간헐적" type="radio" name="when" >예전부터 간헐적</label>
+       <label><input value="현재도 증상발생 중" type="radio" name="when" >갑자기 발생후 현재까지 진행중~!</label>
+       <label><input value=" 모름" type="radio" name="when" >잘 모르겠음</label>
+       </p> 
+        
+      
+        <p>6.장소상관여부 :
+        <label><input value="특정장소에서만 이용안됨" type="radio" name="place" ><span style="color:red; font-weight:bold ;">특정장소</span></label>
+       <label><input value="지역무관 & 장소이동해도동일" type="radio" name="place" >지역무관</label>
+       <label><input value="정확히 확인 어려움" type="radio" name="place" >모름</label>
+       <b style="color:red;"> ☞특정장소는 기술TT진행 확인 必</b>
+       </p> 
+        
+        
+        
+        <p>7.주변KT 상관여부 :
+        <label><input value="정상" type="radio" name="around" >정상</label>
+       <label><input value="증상 동일" type="radio" name="around" >증상 동일</label>
+       <label><input value="확인어려움" type="radio" name="around" >비교불가</label>
+       </p> 
+       
+       <!-- 중간 내용 바꿔치기-->
+       
+       <div class="tranformer">
+        <p >8.전산이상여부 : 아래항목 모두 정상이면 
+          <span style="color:blue;font-weight: bold">"전산이상없음"</span> 체크 
+          <ul>
+          <li>무선데이터 차단서비스</li>
+          <li>QOS상태</li>
+          <li>OTA상태</li>
+          <label><input value="" type="radio" name="error" >전산이상있음</label>
+        <label><input value="전산 특이사항 없음" type="radio" name="error" >전산이상없음</label>
+        </ul>
+       </p>  
+      
+      
+      <p >#추가탐색 :
+          <ul>
+          <li>WIFI설정은 끄셨나요 ?</li>
+          
+        </ul>
+      </p>
+    </div>
+
+    <div class="tranformer">
+        <p >8.전산이상여부 : 아래항목 모두 정상이면 
+          <span style="color:blue;font-weight: bold">"전산이상없음"</span> 체크 
+          <ul>
+          <li>번호 정지 여부</li>
+          <li>미성년 OR 선불고객 잔여알 혹은 충전잔액여부</li>
+          
+          <label><input value="" type="radio" name="error" >전산이상있음</label>
+        <label><input value="전산 특이사항 없음" type="radio" name="error" >전산이상없음</label>
+        </ul>
+        
+       </p>  
+      
+      
+      <p >#추가탐색 :
+          <ul>
+          <li>아예 전화 걸고 받기가 안돼서 다른 번호로 인입한건지</li>
+          <li>특정번호와만 걸고 받기가 안되는건지</li>
+          </ul>
+      </p>
+    </div>
+
+
+    
+
+      <p><span style="color:blue ; font-weight:bold">※단말기 전원리셋 여부 必 :</span>
+        <label><input value="리셋해도 동일" type="radio" name="reset" >리셋후 동일</label>
+       <label><input value="리셋후 증상개선" type="radio" name="reset" >리셋후 개선</label>
+       <label><input value="리셋 진행 못함" type="radio" name="reset" >리셋진행불가 OR 미진행</label>
+      </p> 
+       
+      <textarea cols='40' rows='5'placeholder="기타 전달사항 입력"></textarea>
+      <button class="imsitest">클릭후 코스 바로 복붙~!</button>
+      <button class="imsitest1">내용 초기화</button>
+      
+      <div class="main"></div>
+    </div>
+    <div class="maincore">
+      <iframe src = "통화품질_휴근업무memo.html" ></iframe>
+    </div>   
+       
+        <script src="../java/holidayWork.js"></script>
+
+       
+</body>
+</html>
