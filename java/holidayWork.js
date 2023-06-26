@@ -95,8 +95,17 @@ jQuery(function(){
      // $('.maincore').eq(0).css('display','none');
       
 
-    })
-      
+    })   //메시지  VOC탭 작업 끝
+
+     var $vocplace = $('.vocplace label input');
+     console.log( $vocplace );
+      $vocplace.change(function(){
+        console.log($(this).val());
+        if($(this).val()=='speplace'){
+          vocbank('SR다이어트휴근용.html','700');  return false;
+        }
+      }) 
+
   })
   
  //J쿼리 마지막 블럭

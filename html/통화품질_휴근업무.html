@@ -50,11 +50,11 @@
        </p> 
         
       
-        <p>6.장소상관여부 :
-        <label><input value="특정장소에서만 이용안됨" type="radio" name="place" ><span style="color:red; font-weight:bold ;">특정장소</span></label>
+        <p class="vocplace">6.장소상관여부 :
+        <label><input value="speplace" type="radio" name="place" ><span style="color:red; font-weight:bold ;">특정장소</span></label>
        <label><input value="지역무관 & 장소이동해도동일" type="radio" name="place" >지역무관</label>
        <label><input value="정확히 확인 어려움" type="radio" name="place" >모름</label>
-       <b style="color:red;"> ☞특정장소는 기술TT진행 확인 必</b>
+       <b style="color:red;"> ☞특정장소 체크시 기술TT SR창 팝업~!</b>
        </p> 
         
         
@@ -119,9 +119,9 @@
        <label><input value="리셋 진행 못함" type="radio" name="reset" >리셋진행불가 OR 미진행</label>
       </p> 
        
-      <textarea cols='40' rows='5'placeholder="기타 전달사항 입력"></textarea>
-      <button class="imsitest">클릭후 KOS에 바로 붙여넣기~!</button>
-      <button class="imsitest1">입력내용 지우기</button>
+      <textarea cols='40' rows='5'placeholder="기타 전달사항 입력(ex.빠른 연락요청 ,불만성향 등)"></textarea>
+      <button class="imsitest">클릭후 KOS에 바로 복붙</button>
+      <button class="imsitest1">입력내용 초기화</button>
       
       <div class="main"></div>
     </div>
@@ -130,7 +130,7 @@
     </div>   
        
         <script src="../java/holidayWork.js"></script>
-
+        <script src="../java/voc_bank.js">  </script>
        
 </body>
 </html>

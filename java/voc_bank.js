@@ -42,7 +42,8 @@ var htmlvoc_arr = {
 "TT&비영업상담양식.html":"TT&비영업상담양식.html",
 "https://gw.ktcs.co.kr/logon.aspx":"https://gw.ktcs.co.kr/logon.aspx",
 "mymemo.html":"mymemo.html",
-"localstrageout.html":"localstrageout.html"                   
+"localstrageout.html":"localstrageout.html",
+"SR다이어트휴근용.html":"SR다이어트휴근용.html"                   
 }
 function vocbank(htmlvoc_name,size){
         window.open(htmlvoc_arr[htmlvoc_name], '_blank', `width=${size}, height=900` ) ; 
