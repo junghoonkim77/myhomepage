@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    
+    html,body{
+        height : 100%;
+    
+    }    
+    div > ul > li {
+        float : left;
+        height : 20px;
+        overflow :hidden;
+          
+    }    
+    .header {
+        height : 20px;
+        background-color: aqua;
+        background: linear-gradient(to bottom , green 10% ,yellow 40%,red 30%);
+    } 
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <ul>
+          <li>핸드폰
+            <ol>
+              <li>갤럭시</li>
+              <li>아이폰</li>
+              <li>LG</li>
+              <li>아이리버</li>
+            </ol>
+          </li>
+               
+        
+          <li>노트북
+            <ol>
+              <li>삼성</li>
+              <li>LG그램</li>
+              <li>레노버</li>
+              <li>ASUS</li>
+              <li>HP</li>
+            </ol>    
+          </li>
+         
+        
+        
+          <li>태블릿
+            <ol>
+             <li>갤럭시탭</li>
+             <li>아이패드</li>
+             <li>레노더P탭</li>
+            </ol>
+          </li>
+        
+        </ul>
+        
+    </div>
+        
+        <script>
+            jQuery(function(){
+
+          var  $eachmenu =  $('div > ul > li'),
+               $headerdiv = $('.header'),
+               $headerdivHeight = $($headerdiv).height();
+           
+           
+          $eachmenu.mouseenter(function(){
+            var $eachmenuHeight = $(this).find('ol').outerHeight();
+            
+            var $menuSumhi = $eachmenuHeight+$headerdivHeight ;
+            $(this).css({'overflow':'unset'});
+            $headerdiv.css('height',$menuSumhi+'px');
+          }) ;
+
+           $eachmenu.mouseleave(function(){
+            var $eachmenuHeight = $(this).find('ol').outerHeight();
+            var $menuSumhi = $eachmenuHeight+$headerdivHeight ;
+            $(this).css({'overflow':'hidden'});
+            $headerdiv.css('height', $headerdivHeight+'px');
+            //$headerdiv.css('height',$menuSumhi+'px');
+          }) 
+
+         
+        })
+          
+        </script>
+</body>
+</html>
