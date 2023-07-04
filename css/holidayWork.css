@@ -3,8 +3,20 @@ body *:not(h3) {
       }
 
       div {border :1px;}
+      
       p{ margin : 2px;}
     
+      p:hover{
+        background-color : rgb(172, 232, 124);
+        }
+
+      label:hover{
+          background-color: darkkhaki;   
+       }  
+     
+        li:hover{
+        background-color : rgb(144, 194, 230);
+      }
       .imsitest{ 
         width :150px; 
         height:30px; 

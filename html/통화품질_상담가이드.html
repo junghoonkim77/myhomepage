@@ -49,14 +49,15 @@
       
       
         <p>5.발생시기 :
+        <label><input value=" 모름" type="radio" name="when" >잘 모르겠음</label>
         <label><input value="예전부터 간헐적" type="radio" name="when" >예전부터 간헐적</label>
-       <label><input value="현재도 증상발생 중" type="radio" name="when" >갑자기 발생후 현재까지 진행중~!</label>
-       <label><input value=" 모름" type="radio" name="when" >잘 모르겠음</label>
+        <label><input value="현재도 증상발생 중" type="radio" name="when" >갑자기 발생후 현재까지 진행중~!</label>
+       
        </p>
         
       
         <p class="vocplace">6.장소상관여부 :
-        <label><input value="speplace" type="radio" name="place" ><span style="color:red; font-weight:bold ;">특정장소(체크시TT형식팝업)</span></label>
+        <label><input value="speplace" type="radio" name="place" ><span style="color:red; font-weight:bold ;">특정장소(체크시TT양식팝업)</span></label>
        <label><input value="지역무관하며 간헐적" type="radio" name="place" >지역무관 간헐적</label>
        <label><input value="장소이동해도 동일" type="radio" name="place" >장소이동해도 동일</label>
        <label><input value="장소이동 못함 or 모름" type="radio" name="place" >장소이동 못함 or 모름</label>
@@ -66,9 +67,11 @@
         
         
         <p>7.주변KT 상관여부 :
-        <label><input value="정상" type="radio" name="around" >정상</label>
-       <label><input value="증상 동일" type="radio" name="around" >증상 동일</label>
+          <label><input value="-" type="radio" name="around" ><b style="color :blue">탐색패스</b></label>
+          <label><input value="정상" type="radio" name="around" >정상</label>
+       <label><input value="증상 동일" type="radio" name="around" >증상동일</label>
        <label><input value="확인어려움" type="radio" name="around" >비교불가</label>
+       
        </p> 
        
        <!-- 중간 내용 바꿔치기-->
@@ -112,6 +115,7 @@
           <li>KOS부가서비스 항목 조회시 각종 차단서비스 등록여부</li>
           <li>OTA정상인지</li>
           <li>넷윈도 조회시 Volte Regi상태인지</li>
+          <li>특정번호 수신불가시 ATAS 전산 로그 확인</li>
           
           <label><input value="" type="radio" name="error" >전산이상있음</label>
         <label><input value="전산 특이사항 없음" type="radio" name="error" >전산이상없음</label>
@@ -121,10 +125,21 @@
       
       
       <p >#추가탐색 :
-          <ul>
-          <li>아예 전화 걸고 받기가 안돼서 다른 번호로 인입한건지</li>
-          <li>특정번호와만 걸고 받기가 안되는건지</li>
-          </ul>
+        <ul>
+          <li>지역무관 간헐적인(음끊김,묵음 증상등은) 네트워크 설정 초기화등 진행후 테스트 가급적 금지</li>
+          
+          
+            <ul>단말기 설정 (voc와 관련 사항만 확인) <b><span style="color : green">(안드로이드)</span> </b>
+              <li>단말기내 특정번호 수신차단여부확인</li>
+              <li>후후나 기타 앱에 의한 차단 여부</li>
+            </ul> <br>
+        
+            <ul>단말기 설정 (상동) <b><span style="color : black">(IOS)</span> </b>
+              <li>방해금지 모드 / 알수 없는 번호 음소거 확인</li>
+              <li>설정-전화 에서 차단 목록여부 확인</li>
+            </ul> 
+          
+        </ul>
       </p>
     </div>
 

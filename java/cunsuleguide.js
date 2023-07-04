@@ -40,9 +40,10 @@ jQuery(function(){
      }) //each문 끝
      $srmainval.push($('textarea').val());
        console.log( $srmainval )
-       for (var j=0 ; j<$srmainval.length ; j++){
+       for (var j=0 ; j<$srmainval.length-1 ; j++){
         $('.main').append(`${j+1}.${$minititle[j]} ${$srmainval[j]}`+'<br>');
        } //for문 끝
+       $('.main').append(`<pre>-추가메모-</pre><pre>${$srmainval[$srmainval.length-1]}</pre>`)
       var $totaltex = document.querySelector('.main').innerText 
       navigator.clipboard.writeText($totaltex);
       $srmainval.length = 0 ;

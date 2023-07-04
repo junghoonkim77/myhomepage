@@ -4,14 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <style>
     body *:not(h3) {
     font-size: 12px;
       }
 
       div {border :1px;}
+      
       p{ margin : 2px;}
-    
+      
+      p:hover{background-color : rgb(172, 232, 124); }
+      
+      pre{
+        margin-top: 1px;;
+      }
+
+      label:hover{
+        background-color: darkkhaki;   
+      }
+      li:hover{
+        background-color : rgb(144, 194, 230);
+      }
+
       .imsitest{ 
         width :150px; 
         height:30px; 
@@ -42,7 +57,7 @@
 
     li.checked::before {
     content: "□";
-    }
+    }    
     
    
     </style>
@@ -173,9 +188,10 @@
          $srmainval.push($('textarea').val());
            console.log( $srmainval );
 
-           for (var j=0 ; j<$srmainval.length ; j++){
+           for (var j=0 ; j<$srmainval.length-1 ; j++){
             $('.main').append(`${j+1}.${$minititle[j]} ${$srmainval[j]}`+'<br>');
            } //for문 끝
+           $('.main').append(`<pre>-추가메모-</pre><pre>${$srmainval[$srmainval.length-1]}</pre>`)
           var $totaltex = document.querySelector('.main').innerText 
           navigator.clipboard.writeText($totaltex);
           $srmainval.length = 0 ;
