@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+       
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        테스트
+    </div>
+    
+     <script>
+        jQuery(function(){
+            
+          var text = $('div').text();
+          console.log(text);
+          $('div').on({
+            click : function(){
+                $(this).toggleClass('font');
+                if($(this).hasClass('font')){
+                    $(this).css('font-size','20px');
+                $(this).text('변경돼랏');
+                } else{
+                    $(this).css('font-size','16px');
+                $(this).text('테스트');
+                }
+                
+            },
+            mouseenter : function(){
+                $(this).css('color','blue');
+            },
+            mouseleave : function(){
+                $(this).css('color','black');
+            }
+          })
+          
+
+        })
+     </script>
+
+</body>
+</html>
