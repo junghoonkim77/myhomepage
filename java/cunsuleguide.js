@@ -3,7 +3,7 @@ jQuery(function(){
     var  $srheadarr = []; // 내용이 담길 빈배열
     var  $srmainval = [];
     var  $minititle = ['서비스번호 :','민원인 :','비상연락처 :','증상 :','발생시기 :','장소상관여부 :'
-                        ,'주변KT 상관여부 :','전산이상여부 :','단말리셋여부 :','메모전달 :'];
+                        ,'주변KT 상관여부 :','전산이상여부 :','추가확인 :'];
     
 
     $('#srhead').change(function(){
