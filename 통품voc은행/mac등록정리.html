@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/htmlvoc.css">
+    <title>아이폰14이심오류</title>
+</head>
+<body>
+<pre>
+<b>[서류 요청]</b>
+
+Wi-Fi MAC 주소 확인하시는 경로는 알고 계신가요 ?
+ 1. 안다고 할 경우 → 안심바로등록 or 테스트 휴대폰으로 캡쳐 파일 수신
+ 2. 모를 경우
+ 2-1. (삼성 최신단말 기준) 설정 → 휴대전화 정보 → 상태 → Wi-Fi MAC 주소
+ 2-2. (LG 최신단말 기준) 설정 → 일반 → 휴대폰 정보 → 하드웨어 정보 → Wi-Fi MAC 주소
+ 2-3. 단말에 따라 WLAN MAC으로 표기되는 경우도 있음
+ * MAC 주소 부분이 사용할 수 없음으로 나온다면 단말에서 WiFi 기능을 켜야한다."       
+
+<b>[주요 고객문의]</b>
+ 1. 왜 Wi-Fi MAC 주소를 등록해야 하나요 ?
+-> 1. KT에서 출고하지 않은 단말이기 때문에 전산에 수동으로 등록하는 과정이 
+ 필요합니다.
+
+ 2. 자물쇠 있는 것은 사용이 안되나요 ?
+-> 2. 고객님 단말기에서 지원할 경우 가능합니다. 
+(삼성폰 기준) 설정-연결-Wi-Fi-사용가능한 네트워크-KT WiFi 길게 터치-네트워크 설정 관리- 
+보안 우측 연필 모양 터치 - EAP 방식 - AKA로 변경
+
+ 3. 자물쇠 모양이 없으면 보안에 문제가 생기지 않을까요 ?
+->3. 연결 인증방식의 차이일 뿐 두 가지 연결방식 모두 안전하게 이용하실 수 
+있도록 보안 관리에 최선을 다하고 있습니다.
+
+
+<b>[전산처리방법]</b>
+
+KOS 전산
+1. 계약변경 > 전화번호/단말기/USIM 이력 > 단말기 MAC정보 조회/변경 
+> MAC 주소 입력 후 저장
+2. 고객 문자 발송 후 종결
+* 아이폰의 경우 IOS 14 이후 단말은 비공개 주소 OFF 안내가 필요합니다.
+KT WiFi 비보안 망 우측 i 버튼 터치 > 비공개 주소 OFF로 변경
+
+
+<b>[완료문자]</b>
+
+"[KT 고객센터] MAC 등록 처리완료 안내
+
+안녕하세요. {grade} 고객님, KT 입니다.
+MAC 주소 등록 처리완료 안내입니다.
+
+[안내사항]
+■ 요청하신 업무가 정상적으로 처리되었습니다.
+■ 와이파이 1회 껐다 켜서 KT WiFi 자물쇠 없는 것으로 연결하여 이용바랍니다.
+
+☎ 문의전화 : 고객센터 114
+
+◈ 1등 KT고객센터 {user} 드림 ◈ "       
+
+<b>※상담TIP※</b>
+
+"1. MAC을 입력했는데, 이미 사용중인 MAC이라고 KOS에서 나올 경우는 우선 듀얼심 
+폰이라면 IMEI는 2개지만 MAC은 하나이기 때문에 생기는 문제일 가능성이 높다. 
+반대쪽 IMEI에 장착해서 MAC 보이는지 확인해보고 해당 슬롯 사용 권유, 
+미수긍 할경우 KOS-RDS에서 기존 OMD 등록을 삭제해야한다.
+
+2. MAC 주소의 경우 알파벳 O는 없으니 동그라미는 다 아라비아숫자 0으로 생각하면 
+된다.(16진법으로 1234567890 ABCDEF 만 사용함)
+
+3. 캡처파일을 꼭 받아야 하는지 문의 하는 고객이 있을 수 있으나, 휴대폰 제외 
+타 단말의 MAC 등록하여 부정사용하는 경우를 방지하기 위한 최소한의 
+장치이니 캡처파일 수신은 필수이다."      
+  
+  
+
+</pre>
+<!--<img src="../imgfolder/비공개릴레이.jpg"  style="cursor:pointer" 
+onclick="window.open('../imgfolder/MEPESIM오류.png','scrollbars=yes,width=500,height=400,top=10,left=20');">
+-->
+</body>
+</html>
+
+
+<!--통품voc은행 링크걸기  
+  <div class="divTableCell">
+  <a href="아이폰14esim오류.html"target="frame">아이폰14(MEP단말)개통오류_esim</a></div>  -->
+
