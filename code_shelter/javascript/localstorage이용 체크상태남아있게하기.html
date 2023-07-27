@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkbox with Local Storage</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+   integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+   integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+   crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Checkbox with Local Storage</h1>
+    <input type="checkbox" id="checkbox1" name="checkbox1" value="value1">Checkbox 1</input><br>
+    <input type="checkbox" id="checkbox2" name="checkbox2" value="value2">Checkbox 2</input><br>
+    <input type="checkbox" id="checkbox3" name="checkbox3" value="value3">Checkbox 3</input><br>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+           
+
+            $('input[type=checkbox]').change(function() {
+                var id = $(this).attr('id');
+                var checked = $(this).prop('checked');
+                console.log(checked);
+                localStorage.setItem(id, checked);
+            });
+
+         
+            $('input[type=checkbox]').each(function() {
+                var id = $(this).attr('id');
+                console.log(id);
+                var checked = JSON.parse(localStorage.getItem(id));
+                console.log(checked);
+                if (checked === true) {
+                    $(this).prop('checked', true);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
