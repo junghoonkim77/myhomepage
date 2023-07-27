@@ -9,32 +9,45 @@
    crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Checkbox with Local Storage</h1>
+    <h1>Checkbox with Local Storage</h1><p>모두해제</p>
     <input type="checkbox" id="checkbox1" name="checkbox1" value="value1">Checkbox 1</input><br>
     <input type="checkbox" id="checkbox2" name="checkbox2" value="value2">Checkbox 2</input><br>
     <input type="checkbox" id="checkbox3" name="checkbox3" value="value3">Checkbox 3</input><br>
 
     <script type="text/javascript">
         $(document).ready(function() {
-           
-
-            $('input[type=checkbox]').change(function() {
+            
+            var $ckbox = $('input[type=checkbox]')
+              $ckbox.change(function() {
                 var id = $(this).attr('id');
                 var checked = $(this).prop('checked');
-                console.log(checked);
+                
                 localStorage.setItem(id, checked);
             });
 
          
-            $('input[type=checkbox]').each(function() {
+             $ckbox.each(function() {
                 var id = $(this).attr('id');
                 console.log(id);
+                var $checked = localStorage.getItem(id);
+                console.log($checked);
                 var checked = JSON.parse(localStorage.getItem(id));
                 console.log(checked);
                 if (checked === true) {
                     $(this).prop('checked', true);
                 }
             });
+
+            $('p').click(function(){
+                $ckbox.each(function(){
+                   $(this).prop('checked',false); 
+                   var id = $(this).attr('id');
+                   var $uncheck =  $(this).prop('checked');
+                  console.log($uncheck);
+                  localStorage.setItem(id, $uncheck);
+                })
+            })
+
         });
     </script>
 </body>
