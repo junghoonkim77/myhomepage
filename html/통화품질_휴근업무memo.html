@@ -4,14 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <style>
     body *:not(h3) {
     font-size: 12px;
       }
 
       div {border :1px;}
+      
       p{ margin : 2px;}
-    
+      
+      p:hover{background-color : rgb(172, 232, 124); }
+      
+      pre{
+        margin-top: 1px;;
+      }
+
+      label:hover{
+        background-color: darkkhaki;   
+      }
+      li:hover{
+        background-color : rgb(144, 194, 230);
+      }
+
       .imsitest{ 
         width :150px; 
         height:30px; 
@@ -42,7 +57,7 @@
 
     li.checked::before {
     content: "□";
-    }
+    }    
     
    
     </style>
@@ -51,7 +66,7 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
     integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
     crossorigin="anonymous"></script>
-    <title>휴근업무_통화품질_메시지voc</title>
+    <title>통화품질상담가이드_메시지voc</title>
 </head>
 <body>
    
@@ -77,7 +92,7 @@
         <p>1.서비스 번호 : <input type="text" value="" class="contents"></p> 
         <p>2.민원인(명의자) : <input type="text" value="" class="contents"></p> 
         <p>3.비상연락처 :  <input type="text" value="" class="contents"></p>
-        <p>4.증상(ex.데이터접속불가,전화불가 등) :  <input type="text" value="" class="contents"></p>
+        <p>4.증상(ex.메시지 수신불가,발신불가 등) :  <input type="text" value="" class="contents"></p>
       
          
       
@@ -94,9 +109,9 @@
         <p >6.전산이상여부 : 아래항목 (각항목 클릭통해 체크)  모두 정상이면 
           <span style="color:blue;font-weight: bold">"전산이상없음"</span>최종 체크 
           <ul>
-          <li>SMS기본부가서비스 확인</li>
-          <li>일500건 차단 확인</li>
-          <li>114 문장인 경우 퍼미션 차단여부</li>
+          <li>전체적인 모든 메시지 수발신시 SMS기본부가서비스 누락여부 확인</li>
+          <li>메시지 발신 실패시 일500건 차단 서비스 등록여부 확인</li>
+          <li>114 문자 수신 불가건인 경우 퍼미션 차단여부</li>
           <label><input value="" type="radio" name="error" >전산이상있음</label>
         <label><input value="전산 특이사항 없음" type="radio" name="error" >전산이상없음</label>
         </ul>
@@ -105,21 +120,18 @@
       
       <p>#추가탐색 :
         <ul>
-          <li>메시지 수신불가 문의시 7일이내 수신불가여부 (이상일 경우 조회불가)</li>
-          <li>인증 관련 언급시 인증문자 수신불가인지(이관) / 인증 자체가 실패되는지(자체종결)</li>
-          
+          <li>메시지 수신불가 증상시 최근 7일이내 건인지.</li>
+          <li>인증문자 수신불가시 인증 자체가 실패되는 상황인지 <br>
+            (인증번호 입력창 옆에 시간이 줄면 인증은 성공한 상태)</li> 
+
+        </ul> 
         </ul>
       </p>
     </div>
    
-
-      <p><span style="color:blue ; font-weight:bold">※단말기 전원리셋 여부 必 :</span>
-        <label><input value="리셋해도 동일" type="radio" name="reset" >리셋후 동일</label>
-       <label><input value="리셋후 증상개선" type="radio" name="reset" >리셋후 개선</label>
-       <label><input value="리셋 진행 못함" type="radio" name="reset" >리셋진행불가 OR 미진행</label>
-      </p> 
+         
        
-      <textarea cols='40' rows='5'placeholder="기타 전달사항 입력"></textarea>
+      <textarea cols='40' rows='5'placeholder="전원리셋 및 기타 추가사항 입력"></textarea>
       <button class="imsitest">클릭후 KOS에 바로 복붙</button>
       <button class="imsitest1">입력내용 지우기</button>
       
@@ -132,7 +144,7 @@
         var  $srheadarr = []; // 내용이 담길 빈배열
         var  $srmainval = [];
         var  $minititle = ['서비스번호 :','민원인 :','비상연락처 :','증상 :','발생시기 :','전산이상여부 :'
-                            ,'단말기 리셋여부 :','메모전달 :'];
+                            ,'추가확인 :'];
         
 
         $('#srhead').change(function(){
@@ -170,9 +182,10 @@
          $srmainval.push($('textarea').val());
            console.log( $srmainval );
 
-           for (var j=0 ; j<$srmainval.length ; j++){
+           for (var j=0 ; j<$srmainval.length-1 ; j++){
             $('.main').append(`${j+1}.${$minititle[j]} ${$srmainval[j]}`+'<br>');
            } //for문 끝
+           $('.main').append(`<pre>-추가메모-</pre><pre>${$srmainval[$srmainval.length-1]}</pre>`)
           var $totaltex = document.querySelector('.main').innerText 
           navigator.clipboard.writeText($totaltex);
           $srmainval.length = 0 ;
