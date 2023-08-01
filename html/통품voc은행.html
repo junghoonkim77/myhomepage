@@ -368,9 +368,9 @@ button{
       
       for (var i=0; i<knowledge.length ; i++) {
         $('.divTableBody').append(`<div class="divTableRow">
-            <div class="divTableCell"><a href="${knowledge[i].box1}" target="frame">${knowledge[i].box1_1}</a></div>
-            <div class="divTableCell"><a href="${knowledge[i].box2}"target="frame">${knowledge[i].box2_2}</a></div>
-            <div class="divTableCell"><a href="${knowledge[i].box3}"target="frame">${knowledge[i].box3_3}</a></div>
+            <div class="divTableCell"><a href="${knowledge[i].box1}" target="frame">${i}.${knowledge[i].box1_1}</a></div>
+            <div class="divTableCell"><a href="${knowledge[i].box2}"target="frame">${i}.${knowledge[i].box2_2}</a></div>
+            <div class="divTableCell"><a href="${knowledge[i].box3}"target="frame">${i}.${knowledge[i].box3_3}</a></div>
            </div>`)
       }
      
