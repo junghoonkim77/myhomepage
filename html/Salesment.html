@@ -15,7 +15,8 @@
             padding :0px;
             margin : 0px 0px 20px 0px;
             top : 0px;  
-           font-size: 13px;         
+           font-size: 13px;  
+           z-index: 1;       
         }
 
         #radio label:nth-child(5) b{
@@ -27,13 +28,26 @@
          }
        
         #Salescon {
-         
          position : relative;
          top :20px;
          display : grid;
          grid-template-columns: 550px 550px;
          grid-template-rows: auto;   
         } 
+        .tab2 {
+          position : relative;
+          top :27px;
+          margin : 0px;
+            display : grid;
+            grid-gap :2px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+          }
+        
+        .tab2 img {
+            height : 350px;
+            display : none;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.1.js" 
     integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
@@ -42,6 +56,7 @@
 <body>
  <div id="radio">
  <label><input value="newitm" type="radio" name="check" ><b>I,T,M동시권유</b></label>
+ <label><input value="tab2" type="radio" name="check" >TV탭2자료</label> 
  <label><input value="transfer" type="radio" name="check" ><b>※유선상품이전※</b></label>
  <label><input value="special" type="radio" name="check" >※보유상품(결합별)※</label>
  <label><input value="banron" type="radio" name="check" >반론극복</label>
@@ -49,7 +64,7 @@
  <label><input value="intt" type="radio" name="check" >인터넷+TV</label>
  <label><input value="tv" type="radio" name="check" >TV(복수포함)</label>
  <label><input value="tvonly" type="radio" name="check">TV(ONLY고객)</label>
- <label><input value="mit" type="radio" name="check" >MIT(동시공유)</label> 
+ 
 </div>    
 
 <div id="Salescon">    
@@ -499,23 +514,51 @@ KT 인터넷 TV가격은 어떤지 알아보시고 타사랑 비교해서 금액
 가격 비교부터 해보시는건 어떠세요?
 
 </pre>
-</div>    
+</div> 
+<div class="tab2">
+    <img src="../imgfolder/티비탭4.png" alt="" srcset="">
+    <img src="../imgfolder/티비탭1.png" alt="" srcset="">
+    <img src="../imgfolder/티비탭2.png" alt="" srcset="">
+    <img src="../imgfolder/티비탭3.png" alt="" srcset="">
+</div>   
 
 <script>
     jQuery(function(){
-      $('#radio label input').change(function(){
+      
+      /*$('#radio label input').change(function(){
         var val = $(this).val();
         var thisbal = $('pre.'+val);
         thisbal.show();
         $('pre').not('pre.'+val).hide();
         
-      })
+      }) */
+
+      $('#radio label input').change(function(){
+        var val = $(this).val();
+        if(val !=='tab2'){
+            var thisbal = $('pre.'+val);
+        thisbal.show();
+        $('pre').not('pre.'+val).hide();
+        $('.tab2').hide();
+        }else{
+            $('pre').not('pre.'+val).hide();
+            $('.tab2,img').show();
+        }
+        
+      });
       
       $('pre').mouseenter(function(){
         $(this).css({'font-weight':'bold','background-color': 'beige'});
       $('pre').mouseleave(function(){
         $(this).css({'font-weight':'normal','background-color': 'white'});
       })
+      });
+
+      $('.tab2 img').mouseenter(function(){
+        $(this).css('height','600px').mouseleave(function(){
+            $(this).css('height','350px');
+        })
+
       })
 
     })
