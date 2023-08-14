@@ -554,9 +554,16 @@ KT 인터넷 TV가격은 어떤지 알아보시고 타사랑 비교해서 금액
       })
       });
 
-      $('.tab2 img').mouseenter(function(){
+     /* $('.tab2 img').mouseenter(function(){
         $(this).css('height','600px').mouseleave(function(){
             $(this).css('height','350px');
+        })
+
+      }) */
+
+      $('.tab2 img').mouseenter(function(){
+        $(this).stop().animate({height:600+'px'},500).mouseleave(function(){
+            $(this).stop().animate({height:350+'px'},500);
         })
 
       })
