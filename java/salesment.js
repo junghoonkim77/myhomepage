@@ -329,7 +329,7 @@ new Salesment("banron","기타 반론극복",
     
     });
      
-     $('pre').mouseenter(function(){
+     $('#Salescon').on('mouseenter','pre',function(){
        $(this).css({'font-weight':'bold','background-color': 'beige'});
      $('pre').mouseleave(function(){
        $(this).css({'font-weight':'normal','background-color': 'white'});
