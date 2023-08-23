@@ -314,6 +314,7 @@ $(function(){
   $('#dailymust').val(dailywork);
  })
 
+ 
  $('#musthidden').click(function(){
   $(this).toggleClass('musthidden');
   if($(this).hasClass('musthidden')){
