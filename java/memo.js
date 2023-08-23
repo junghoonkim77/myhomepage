@@ -299,10 +299,13 @@ $(function(){
 16.부가자일지제출\n17.차별&모니터&세일즈&sr검수제출\n18.진행중SR체크\n19.테스트폰정리\n20.서랍&멀티탭확인\n21.쓰레기정리\n22.컵설겆이\n23.키보드,마우스끄기`
 
 
+//매일할일 더블클릭하면 저장됨
  $('#dailymust').dblclick(function(){
   var dailymust = $(this).val();
   localStorage.setItem('dailymust',dailymust);
  }) 
+
+ //매일할일 더블클릭해서 저장된 내용을 텍스트로 보여줌
  var dailymustval = localStorage.getItem('dailymust')
  $('#dailymust').val(dailymustval);
 
@@ -311,5 +314,14 @@ $(function(){
   $('#dailymust').val(dailywork);
  })
 
+ $('#musthidden').click(function(){
+  $(this).toggleClass('musthidden');
+  if($(this).hasClass('musthidden')){
+    $('.must').hide();
+  }else{
+    $('.must').show();
+  }
+
+ })
 
 })
