@@ -317,21 +317,22 @@ $(function(){
 
  //버튼 눌러서 매일할일 텍스트 area사라지게 하기 
  
- $('#musthidden').click(function(){
+  $('#musthidden').click(function(){
   $(this).toggleClass('musthidden');
   if($(this).hasClass('musthidden')){
-    $('.must').hide();
+    $('.must').attr('rows','1');
   }else{
-    $('.must').show();
+    $('.must').attr('rows','20');
   }
- })
+ }) 
 
- /* var $win = $(window);
+ /* 스크롤 하면 attr 속성 변경하기 
+  var $win = $(window);
    $win.scroll(function(){
-    if($win.scrollTop() > 250){
-      $('.must').css('display','none');
+    if($win.scrollTop() > 10){
+      $('.must').attr('rows','1');
     }else{
-      $('.must').css('display','block');
+      $('.must').attr('rows','20');
     }
   })
 
@@ -339,5 +340,5 @@ $(function(){
   console.log(musttop.top);
   console.log($('#must').outerHeight(true));
   console.log($('.buttonpack').outerHeight(true));
-*/
+  */
 })
