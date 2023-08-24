@@ -322,7 +322,20 @@ $(function(){
   }else{
     $('.must').show();
   }
-
  })
 
+ /* var $win = $(window);
+   $win.scroll(function(){
+    if($win.scrollTop() > 250){
+      $('.must').css('display','none');
+    }else{
+      $('.must').css('display','block');
+    }
+  })
+
+  var musttop = $('#must').offset();
+  console.log(musttop.top);
+  console.log($('#must').outerHeight(true));
+  console.log($('.buttonpack').outerHeight(true));
+*/
 })
