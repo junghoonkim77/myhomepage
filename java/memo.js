@@ -314,6 +314,8 @@ $(function(){
   $('#dailymust').val(dailywork);
  })
 
+
+ //버튼 눌러서 매일할일 텍스트 area사라지게 하기 
  
  $('#musthidden').click(function(){
   $(this).toggleClass('musthidden');
