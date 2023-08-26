@@ -5,7 +5,7 @@ is_human2 = 1>5
 age = 47
 print('풍선')
 print('ㅋ'*7) #문자를 곱할수도 있다.
-print(5>10)
+print(5>10) # boolean
 print(5<10)
 print(False)
 print(not 5>10) 
@@ -15,3 +15,10 @@ print(name+ " 은 또라이다.r"+"착할까"+str(is_human))
 print(name ," 은 또라이다.r","착할까" ,is_human)
 print(name, "은 저능아다.그리고 병신같은게 가족들한테 잔소리한다" ,is_human2)
 #애완동물을 소개해 주세요 
+station = "사당"
+print(station,": 행 열차가 들어오고 있습니다.")
+station2 =["사당","신도림","인천공항"]
+for i in station2 :
+    print(i,"행 열차가 들어오고 있습니다.")
+
+
