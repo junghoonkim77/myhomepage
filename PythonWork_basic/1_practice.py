@@ -19,6 +19,6 @@ station = "사당"
 print(station,": 행 열차가 들어오고 있습니다.")
 station2 =["사당","신도림","인천공항"]
 for i in station2 :
-    print(i,"행 열차가 들어오고 있습니다.")
+    print("{0}행 열차가 들어오고 있습니다.".format(i))
 
 
