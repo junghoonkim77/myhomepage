@@ -16,6 +16,6 @@ print(python.replace("Python","java"))
 index = python.index('n')
 print(index)
 index = python.index('n',index+1) #위에 방법대로 하면 첫번째 n의 위치만 나옴으로 두번째 n의 위지를 알고 싶을때 
-print(python.count('n'))
+print(python.count('n')) #n의 갯수를 세어주는 방법 
 
 
