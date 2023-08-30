@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+    crossorigin="anonymous"></script>
+    <title>각종연습장</title>
+</head>
+<body>
+    <input type="date" value="">
+    <button>가져오기</button>
+    <p>만 나이 :<span class="age"></span></p>
+<script>
+    jQuery(function(){
+     var daydata = new Date();
+     var $monadd = "0"+String(daydata.getMonth()+1).slice(-2);
+
+     console.log($monadd);
+     var Realtoday = `${daydata.getFullYear()}-${$monadd}-${daydata.getDate()}`
+      $('input').attr('value',Realtoday);
+      $('button').click(function(){
+      var $val =  $('input').val(); 
+        const birthDate = new Date($val);
+        const today = new Date();
+const age = today.getFullYear() - birthDate.getFullYear() + (today.getMonth() < birthDate.getMonth() ? -1 : 
+ (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate() ? -1 : 0));
+       $('.age').text(age);
+      })
+      
+
+    })
+</script>
+
+</body>
+</html>
