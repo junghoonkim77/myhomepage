@@ -51,7 +51,23 @@ div {  font-size :13px; }
     margin : 12px 0px 0px 0px ;
     bottom : -15px;
     }
- 
+ .dailyreport{
+    position : absolute;
+    left : 500px;
+    top : 450px;
+ }
+ .dailyreport p,.dailyreport2 p{
+  margin : 0px;
+ }
+ .rep,.rep2 {
+  border-style: none;
+ }
+ .dailyreport2{
+  position : absolute;
+    left : 500px;
+    top : 620px;
+ }
+
 #result {  color : blueviolet;   }   
  
  h4 {   margin : 0px;  } 
