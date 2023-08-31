@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+    crossorigin="anonymous"></script>
+
+    
+    <title>테스트</title>
+</head>
+<body>
+    <input type="text" data-key="hoon" value="" />
+    <input type="text" data-key="joo" value="" />
+    <input type="text" data-key="joon" value="" />
+    <input type="text" data-key="eun" value="" />
+    <button>테스트</button>
+    <p class="hoon"></p>
+    <p class="joo"></p>
+    <p class="joon"></p>
+    <p class="eun"></p>
+   <script>
+   jQuery(function(){
+    var obje = {'hoon':"",'joo':"",'joon':"","eun":""};
+    $('button').click(function(){
+        var $input = $('input');
+        $input.each(function(){
+           var $val = $(this).val();
+           var $key = $(this).attr('data-key');
+           obje[$key] = $val ;
+          })
+      
+          $.each(obje,function(key,value){
+            
+            $(`.${key}`).text(value);
+          })
+
+      })
+      
+   })    
+    </script>
+</body>
+</html>
