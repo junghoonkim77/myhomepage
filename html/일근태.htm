@@ -152,6 +152,21 @@
   <input type="text" class="balance2" placeholder="비교2"><span> :</span>
   <input type="text" class="balance2_2" placeholder="Χ">
   </div>
+  <div class="dailyreport">
+    <h5>일보</h5>
+  <p>워치총이관건수:<input type="text"  value="" class="rep"/></p> 
+  <p>워치 처리건수:<input type="text"   value="" class="rep"/></p>
+  <p>워치voc : <input type="text"  value="" class="rep"/></p>
+  <p>장애공지 댓글건수:<input type="text" value="" class="rep"/></p>
+  <p>R-voc검수 건수:  <input type="text"value="" class="rep"/></p>
+    <button class="ilbocopy">MJG제출용복사</button>
+  </div>
+  <div class="dailyreport2">
+    <h5>센터장님 제출일보</h5>
+    <p>권유실패포함 시도건수 :<input type="text"  value="" class="rep2"/></p> 
+    <p>권유성공 :<input type="text"  value="" class="rep2"/></p> 
+    <button class="ilbocopy2">센터장님제출복사</button>
+  </div>
 </div>
  
 
@@ -172,6 +187,46 @@
     $('.MorningCheck').click(function(){
       navigator.clipboard.writeText(TodayText);
     });
+
+  //여기서부터 일보 복사 시작  
+   $('.ilbocopy').click(function(){
+    var rep = $('.rep')
+    var $rep=[];
+    rep.each(function(){
+       $rep.push($(this).val())
+    })
+   var $ilbo =`${dateString2} R-VOC/워치상담/장애공지댓글
+
+■워치VOC
+
+ㅇ총 이관건수 : ${$rep[0]}건 / 처리: ${$rep[1]}건
+ㅇVOC : -${$rep[2]}
+
+■장애공지 긴급정보 댓글건수
+
+ㅇ총 등록건수 : ${$rep[3]}건
+
+■R-VOC 검수
+
+ㅇ총 ${$rep[4]}건 확인 및 각 팀장 개별통보
+` 
+  navigator.clipboard.writeText($ilbo);
+   }) //일보복사 1단계 마무리
+
+
+   $('.ilbocopy2').click(function(){
+    var rep = $('.rep2')
+    var $rep2=[];
+    rep.each(function(){
+       $rep2.push($(this).val())
+    })
+   var $ilbo =`${dateString2} SR검수&상담모니터링&통품차별화&I.T.M권유
+
+ㅇ당일 (권유실패포함): ${$rep2[0]}건 / 권유성공 : ${$rep2[1]}건
+` 
+    
+    navigator.clipboard.writeText($ilbo);
+   }) // 여기까지가 일보 복사칸
 
          
     
