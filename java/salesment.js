@@ -262,7 +262,7 @@ new Salesment("tvonly","tv온리_와이파이 추천",
 // 반론극복 - >  banron
 
 var banron =[
-new Salesment("banron","혜택이 아까워서~",
+new Salesment("banron","난 잘몰라요~! / 혜택 필요없어요~!",
 `아 그러면 고객님 혹시 잘 모르는 혜택을 
 놓치시는 게 아까워서 저희가 본사에서 무료 상담 
 지원하는 거라서 한번 들어보고
