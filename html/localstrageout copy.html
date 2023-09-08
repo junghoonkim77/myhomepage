@@ -44,16 +44,23 @@
     jQuery(function(){
         
         var savedValues = Object.values(localStorage);
-        var $dblength = localStorage.length;
-        console.log($dblength);
-        console.log(localStorage.key(0));
+        var saveskeys = Object.keys(localStorage);
+        console.log( saveskeys );
+        var rer = new Date(saveskeys[0])
+        console.log(rer);
+       
         var $idxstart= 0 ;
         for ( var values of savedValues){
-           var $dbkey = localStorage.key($idxstart)   
-           $('.div2').
-           prepend(`<button class="delkey">삭제[${$idxstart}]</button><div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
+           var $dbkey = localStorage.key($idxstart);
+           if(values !==""){
+            $('.div2').
+           append(`<button class="delkey">삭제[${$idxstart}]</button><div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
             <div class="contents"><a href="#">${values}</a></div></div><br>`);
            $idxstart++
+             }else{
+                localStorage.removeItem($dbkey);
+             } 
+                   
         }
         /*
         var $delkey =$('.delkey');      
@@ -74,7 +81,7 @@
             var $deldb = localStorage.key($delkeyIdx);
             console.log($deldb)
             
-            if($deldb=='meid' || $deldb=='kos' || $deldb=='atas' || $deldb=='idms' || $deldb=='wfms' )
+            if($deldb=='meid' || $deldb=='kos' || $deldb=='atas' || $deldb=='idms' || $deldb=='wfms' || $deldb=='must')
             { var $delkeyConfirm = confirm('"확인" 클릭후 삭제시 비번 재등록 필요~! 주의~!! ') 
                 if($delkeyConfirm ){
                     localStorage.removeItem($deldb);

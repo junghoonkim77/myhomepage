@@ -90,15 +90,12 @@ class Student{
 var numtest = ['2022-01-02','2000-12-16','2011-08-10','2012-04-10','2009-08-15','2023-09-08'];
 
 console.log(numtest);
-var asdf = '2022-01-02'.slice(4)
-var numday = [];
-numtest.forEach((val,idx)=>{
-  numtest.sort((a,b)=>{
-     new Date(a)-new Date(b);
+
+  var numtest1 = numtest.sort((a,b)=>{
+   return new Date(a)-new Date(b) ;
   })
- console.log(numtest);
+  console.log(numtest1);
   
-});
 
 
 
