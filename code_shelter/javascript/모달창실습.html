@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+     .headmenu{
+        position : relative;
+     }
+     .headbutton {
+         position : absolute;
+         left : 45%;
+     }
+     .modal_bg {
+        display : none;
+        position : fixed;
+        width : 100vw ;
+        height : 100vh ;
+        background-color : rgb(212, 208, 208);
+        left : 0px ; right :0px; top : 0px;
+        z-index : 10;
+     }
+     .modal_win {
+        display : none;
+        position: absolute;
+        top : 50% ;
+        left : 50%;
+        transform : translate(-50%,-50%);
+        width : 400px;
+        height: 400px;
+        z-index : 11;
+        background-color : white;
+       }
+    .modal_win p button {
+        position : absolute;
+        left : 40%;
+    }
+    .modal_win div {
+        position : absolute;
+        top : 40px;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+ integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+ integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+ crossorigin="anonymous"></script>
+
+    <title>모달창 만들기 실습</title>
+</head>
+<body>
+    <div class="headmenu">
+        <button class="headbutton">중요공지</button>
+    </div>
+    <div class="modal_bg"></div>
+    <div class="modal_win">
+         <p><button class="close">창닫기X</button></p>
+        <div>
+            xptmxmxptmxmxptmxmxptmxmxptmxmxptmxmxptmxmxptmxmxp
+            tmxmxptmxm
+            xptmxmxptmxmxptmxmxptmxmxptmxmxptmxmxptmxmxptmxm
+        </div>
+    </div>
+    <script>
+        $('.headbutton').on('click',function(){
+            $('.headmenu').hide();
+            $('.modal_bg').fadeIn(500);
+            $('.modal_win').fadeIn(500);
+
+        })
+       
+        $('.close').on('click',function(){
+            $('.modal_bg').fadeOut(500);
+            $('.modal_win').fadeOut(500);
+            $('.headmenu').show();
+
+        })
+        
+    </script>
+</body>
+</html>
