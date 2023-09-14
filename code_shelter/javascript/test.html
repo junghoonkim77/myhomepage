@@ -9,19 +9,19 @@
 </head>
 <body>
     <script>
-    jQuery(function(){
-        var arr =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
-        var arr1 =[3,6,9]
-        for ( val of arr){
-             if(arr1.includes(val) ){
-                continue;
-                
-            }console.log(val);
-
-        }
-
-    })
-       
+        
+        
+    var cnt = 0;
+       for (var i=0; i<50 ; i++){
+       var driveTime =Number( Math.floor ((Math.random()*50)+5) ) 
+        if(5<= driveTime && driveTime <=15){
+            console.log(`[0] ${i+1}번째 손님의 (소요시간 :${driveTime})`);
+            cnt +=1
+        }else{ 
+            console.log(`[ ] ${i+1}번째 손님의 (소요시간 :${driveTime})`)
+          }
+       }  
+       console.log(`총 탑승 승객: ${cnt}분 입니다.`)
     </script>
 </body>
 </html>
