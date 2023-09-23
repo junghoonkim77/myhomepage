@@ -1,6 +1,6 @@
 from random import *
 
-class Unit :
+class Unit :  #__init__ 은 생성자이며 클래스로 만들어지는 것들을 객체라고 함
     def __init__(self,name,hp,speed) : #파이썬에서 __init__은 생성자 함수 
         self.name = name  #자바스크립트에서의 this가 여기선 파라미터 첫번쨰 se이다.
         self.hp = hp
