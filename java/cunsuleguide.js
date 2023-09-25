@@ -63,6 +63,7 @@ jQuery(function(){
   $('.trasswitch').click(function(){
     $('.maincore').eq(0).css('display','block');
     $('.maincore').eq(1).css('display','none');
+    $('.maincore').eq(2).css('display','none');
        var $switchidx = $(this).index()
        console.log ($switchidx);
        $('.tranformer').hide().eq($switchidx).show();
@@ -88,16 +89,26 @@ jQuery(function(){
     
    
   //메시지  VOC탭 작업 
-   console.log ( $('.maincore') ) 
+   
+   console.log ( $('.maincore > iframe'))
    $('.trasswitch1').click(function(){
-    
+    var iframe = $('.maincore > iframe')
     $('.maincore').eq(0).css('display','none');
     $('.maincore').eq(1).css('display','block');
-    $('iframe').css('display','block');
+    $('.maincore').eq(2).css('display','none');
+    $(iframe).eq(0).css('display','block');
    // $('.maincore').eq(0).css('display','none');
-    
+   })   //메시지  VOC탭 작업 끝
 
-  })   //메시지  VOC탭 작업 끝
+   // TT발행 방법 탭 작업
+   $('.trasswitch2').click(function(){
+    var iframe = $('.maincore > iframe')
+    $('.maincore').eq(0).css('display','none');
+    $('.maincore').eq(1).css('display','none');
+    $('.maincore').eq(2).css('display','block');
+    $(iframe).eq(1).css('display','block');
+   // $('.maincore').eq(0).css('display','none');
+   })   //TT발행 방법 탭 작업끝
 
    var $vocplace = $('.vocplace label input');
    console.log( $vocplace );
@@ -107,6 +118,7 @@ jQuery(function(){
         vocbank('SR다이어트휴근용.html','700');  return false;
       }
     }) 
+
 
 })
 
