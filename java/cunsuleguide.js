@@ -110,6 +110,7 @@ jQuery(function(){
    // $('.maincore').eq(0).css('display','none');
    })   //TT발행 방법 탭 작업끝
 
+   //특정지역 클릭시 sr양식창 팝업
    var $vocplace = $('.vocplace label input');
    console.log( $vocplace );
     $vocplace.change(function(){
@@ -117,9 +118,14 @@ jQuery(function(){
       if($(this).val()=='speplace'){
         vocbank('SR다이어트휴근용.html','700');  return false;
       }
-    }) 
+    })  //특정지역 클릭시 sr양식창 팝업 끝
+
+    // 교육자료 창 팝업
+    $('.education').click(function(){
+      vocbank('휴근교육자료.html','1200');  return false;
+    })
 
 
-})
+}) //최종 블럭끝
 
 //J쿼리 마지막 블럭
