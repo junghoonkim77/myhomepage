@@ -170,6 +170,8 @@ $(function(){
     //sr양식복사
   $('.dropdown-content1 .srform1').click(function(){
     var $srvalue = $(this).val();
+    var valN = valuearr[0]
+    console.log(valN);
     navigator.clipboard.writeText($srvalue);
   })
 
