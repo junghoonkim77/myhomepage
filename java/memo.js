@@ -167,13 +167,21 @@ $(function(){
     $('.inputtime').val("");
    });
 
-    //sr양식복사
+    //sr양식복사 
   $('.dropdown-content1 .srform1').click(function(){
+    var hasclass = $(this).hasClass('Sales')
     var $srvalue = $(this).val();
-    var valN = valuearr[0]
-    console.log(valN);
-    navigator.clipboard.writeText($srvalue);
-  })
+    var valN = valuearr[0];
+    console.log($srvalue);
+    console.log(hasclass);
+    var completeTxt =`상품명:${$srvalue}/권유/KOS사번:${valN}/고객번호:`
+    if(hasclass){
+      navigator.clipboard.writeText(completeTxt);
+      console.log(completeTxt)
+    }else{
+      navigator.clipboard.writeText($srvalue);
+    }
+   })
 
   var $password = $('.password .passmenu .passvalue button' ) //mymemo비번메뉴
   $('.passmenu').mouseover(function(){
