@@ -172,15 +172,17 @@ $(function(){
     var hasclass = $(this).hasClass('Sales')
     var $srvalue = $(this).val();
     var valN = valuearr[0];
+    var Telnum = $('.phoneNumber').val();
     console.log($srvalue);
     console.log(hasclass);
-    var completeTxt =`상품명:${$srvalue}/권유/KOS사번:${valN}/고객번호:`
+    var completeTxt =`상품명:${$srvalue}/권유/KOS사번:${valN}/고객번호:${Telnum}`
     if(hasclass){
       navigator.clipboard.writeText(completeTxt);
       console.log(completeTxt)
     }else{
       navigator.clipboard.writeText($srvalue);
     }
+    $('.phoneNumber').val("");
    })
 
   var $password = $('.password .passmenu .passvalue button' ) //mymemo비번메뉴

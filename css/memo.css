@@ -207,3 +207,11 @@ display: block;
 .schedule{
   font-size : 13px;
 }
+
+.phoneNumber{
+  background-color:rgb(138, 202, 146);
+}
+
+.phoneNumber::placeholder{
+  font-weight: bold;
+}
