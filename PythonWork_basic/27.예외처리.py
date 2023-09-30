@@ -17,3 +17,18 @@ except ZeroDivisionError as err:
 
 except:
     print('알수 없는 에러가 발생했습니다.')
+
+sumlist=[]
+condition = True
+realsum = 0
+while condition :
+    sum= int(input('숫자를 입력하세요~!'))
+    sumlist.append(sum)
+    if len(sumlist) == 5:
+        for i in sumlist:
+            realsum+=i
+        condition = False
+        print(realsum)
+
+
+

@@ -1,5 +1,5 @@
 # class BignumberError(Exception):
-#     pass
+#     pass  직접에러를 정의해서 사용하기.
 class BignumberError(Exception):
     def __init__(self,msg):
         self.msg = msg
