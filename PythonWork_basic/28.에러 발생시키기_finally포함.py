@@ -22,6 +22,7 @@ except ValueError:
 except BignumberError as err:
     print('에러가 발생했씁니다. 한자리 숫자만 입력하세요')
     print(err)
+    print('위에 내용은 err내용입니다.')
 
 finally:   # 코드가 성공이던 에러던지 무조건 출력됨
     print('계산기를 이용해 주셔서 감사합니다.')
