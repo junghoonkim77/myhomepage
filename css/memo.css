@@ -214,4 +214,9 @@ display: block;
 
 .phoneNumber::placeholder{
   font-weight: bold;
+  
+}
+.dropdown-content1 p{
+  font-size: 12px;
+  margin : 0px;
 }
