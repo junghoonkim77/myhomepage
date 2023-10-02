@@ -209,11 +209,11 @@ display: block;
 }
 
 .phoneNumber{
-  background-color:rgb(216, 224, 94);
+  background-color:rgb(9, 247, 235);
 }
 
 .phoneNumber::placeholder{
-  font-weight: bold;
+  
   
 }
 .dropdown-content1 p{
