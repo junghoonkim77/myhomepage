@@ -26,7 +26,7 @@ sys.path.append('..')
 
 print(sys.path)
 
-from ..python_moduletest import hoon
+from python_moduletest import hoon
 fam1 = hoon.Father('모지리병신','47세ㅠㅠ')
 fam1.father()
 fam1.father1()
