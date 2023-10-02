@@ -212,10 +212,7 @@ display: block;
   background-color:rgb(9, 247, 235);
 }
 
-.phoneNumber::placeholder{
-  
-  
-}
+
 .dropdown-content1 p{
   font-size: 12px;
   margin : 0px;
