@@ -15,8 +15,9 @@
  </div>
  <input class="start" type="text" value="" placeholder="시작값">
  <input class="endnum" type="text" value="" placeholder="마지막값">
+ 
  <button>출력</button>
- <button class="add">주소창 테스트</button>
+ <button class="ti">시간입력</button>
  <textarea col="20" row="20"></textarea>
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
  <script>
@@ -34,14 +35,34 @@
     $('.add').click(function(){
         $lib.daumpost()
     })
-
-   
-
    $('textarea').on('keyup',function(){
      var texval = $(this).val();
      console.log( $lib.bytes(texval) );
    })
 
+    function test(){
+        const time = new Date();
+        const year = time.getFullYear();
+        const month = time.getMonth()+1
+        const day = time.getDate()
+        const hour = time.getHours();
+        const minutes = time.getMinutes();
+        const seconds = time.getSeconds();
+        const timeHMS = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`
+        const timeYMD =`${year}년 ${month}월 ${day}일`
+        const timeYMD2 =`${year}/${month}/${day}`
+        return {timeHMS,timeYMD,timeYMD2 };
+    }
+ 
+     const{timeHMS,timeYMD,timeYMD2} =test()
+     console.log(timeHMS);
+   
+   $('.ti').click(function(){
+    console.log(te1);
+    console.log(te2);
+    console.log(te3);
+   }
+   ) 
   })   
 
 </script>
