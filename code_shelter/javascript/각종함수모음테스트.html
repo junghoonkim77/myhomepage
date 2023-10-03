@@ -22,6 +22,8 @@
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
  <script>
   jQuery(function(){
+    var{$year,$month,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2} =$lib.$time();
+    $('.answer').text($timeYMD2);
 
     $('button').click(function(){
         var $start = Number( $('.start').val() );
@@ -37,25 +39,12 @@
     })
    $('textarea').on('keyup',function(){
      var texval = $(this).val();
-     console.log( $lib.bytes(texval) );
+     $('.max').text($lib.bytes(texval))  ;
    })
 
-    function test(){
-        const time = new Date();
-        const year = time.getFullYear();
-        const month = time.getMonth()+1
-        const day = time.getDate()
-        const hour = time.getHours();
-        const minutes = time.getMinutes();
-        const seconds = time.getSeconds();
-        const timeHMS = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`
-        const timeYMD =`${year}년 ${month}월 ${day}일`
-        const timeYMD2 =`${year}/${month}/${day}`
-        return {timeHMS,timeYMD,timeYMD2 };
-    }
+   
  
-     const{timeHMS,timeYMD,timeYMD2} =test()
-     $('.answer').text(timeHMS);
+   
    
    $('.ti').click(function(){
     console.log(te1);

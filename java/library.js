@@ -48,11 +48,27 @@ var $lib ={
         var l = 0;
         for (var i=0; i<str.length; i++) l += (str.charCodeAt(i) > 128) ? 2 : 1;
         return l;
-     }
+     },
+      
+      // 날짜,시간 함수  아래껄 꼭 붙여넣고 써야됨
+      //var{$year,$month,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2} =$lib.$time();
+     "$time":function(){
+        var time = new Date();
+        var $year = time.getFullYear();
+        var $month = time.getMonth()+1
+        var $day = time.getDate()
+        var $hour = time.getHours();
+        var $minutes = time.getMinutes();
+        var $seconds = time.getSeconds();
+        var $timeHMS = `${$hour<10 ? `0${$hour}`:$hour}:${$minutes<10 ? `0${$minutes}`:$minutes}:${$seconds<10 ? `0${$seconds}`:$seconds}`
+        var $timeYMD =`${$year}년 ${$month}월 ${$day}일`
+        var $timeYMD2 =`${$year}/${$month}/${$day}`
+        return {$year,$month,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2 };
+     },
 
 
 
 
 
-} //lib의 끝
+} //$lib 객체의 끝
 
