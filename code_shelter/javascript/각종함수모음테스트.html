@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../java/library.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" 
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+ <p><span class="min"></span>&nbsp&nbsp부터<span class="max"></span>&nbsp&nbsp사이</p>
+ <div>
+    무작의 출력값은 :&nbsp&nbsp<span class="answer"></span>입니다.
+ </div>
+ <input class="start" type="text" value="" placeholder="시작값">
+ <input class="endnum" type="text" value="" placeholder="마지막값">
+ <button>출력</button>
+ <button class="add">주소창 테스트</button>
+ <textarea col="20" row="20"></textarea>
+ <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+ <script>
+  jQuery(function(){
+
+    $('button').click(function(){
+        var $start = Number( $('.start').val() );
+    var $end = Number( $('.endnum').val() )
+    var $result = $lib.randomNum($start,$end) 
+    console.log($result);
+
+    var copy = $lib.clipcopy($end);
+    })
+    
+    $('.add').click(function(){
+        $lib.daumpost()
+    })
+
+   
+
+   $('textarea').on('keyup',function(){
+     var texval = $(this).val();
+     console.log( $lib.bytes(texval) );
+   })
+
+  })   
+
+</script>
+
+</body>
+</html>
