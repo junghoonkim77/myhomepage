@@ -175,7 +175,7 @@ $(function(){
     var Telnum = $('.phoneNumber').val();
     console.log($srvalue);
     console.log(hasclass);
-    var completeTxt =`상품명:${$srvalue}/권유/KOS사번:${valN}/고객번호:${Telnum}`
+    var completeTxt =`${$srvalue}/KOS사번:${valN}/고객번호:${Telnum}`
     if(hasclass){
       navigator.clipboard.writeText(completeTxt);
       console.log(completeTxt)
