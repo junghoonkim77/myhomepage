@@ -13,3 +13,6 @@ lst =[1,2,3]
 print(dir(lst))
 #파이선 내장함수 홈피를 통해 확인해볼수 있다.
 print(type(lst))
+
+#list of python builtins 구글에서 검색해보면 나옴
+
