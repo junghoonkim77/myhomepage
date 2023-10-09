@@ -125,6 +125,10 @@ jQuery(function(){
       vocbank('휴근교육자료.html','1200');  return false;
     })
 
+    //주소 검색창 팝업
+    $('.address_daum').click(function(){
+      $lib.daumpost();
+    })
 
 }) //최종 블럭끝
 
