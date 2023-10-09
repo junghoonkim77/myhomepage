@@ -38,7 +38,13 @@ to_y =0
 #이동 속도
 character_speed = 0.6
 
-
+#적 enemy 캐릭터
+enemy = pygame.image.load('C:/Users/82102/Documents/GitHub/myhomepage/Pygame_basic/character.png')
+enemy_size =enemy.get_rect().size #이미지의 크기를 구해옴
+enemy_width = character_size[0] #캐릭터의 가로 크기
+enemy_height = enemy_size[1] # 캐릭터의 세로 크기 
+enemy_x_pos = (screen_width / 2)-(character_width /2) # 화면 가로의 절반 크기에 해당하는 곳에 위치
+enemy_y_pos = screen_height - character_height # 화면 세로 크기 가장 아래에 해당하는 곳에 위치
 
 running = True #게임이 진행중인가?
 
