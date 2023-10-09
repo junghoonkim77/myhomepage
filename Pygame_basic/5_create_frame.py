@@ -34,22 +34,32 @@ character_y_pos = screen_height - character_height # 화면 세로 크기 가장
 #이동할 좌표
 to_x =0
 to_y =0
+
+#이동 속도
+character_speed = 10
+
+
+
 running = True #게임이 진행중인가?
 
 while running:
+    dt = clock.tick(30) #여기에 프레일 설정을 해준다.
+#캐릭터가 1초 동안에 100만큼 이동을 해야함
+# 10fps : 1초 동안에 10번 동작 -> 1번에 10만큼 이동해야 100만큼 이동
+# 20fps : 1초 동안에 20번 동작 -> 1번에 5만큼 5*20 =100만큼 이동 가능하다.
     for event in pygame.event.get():
         if event.type == pygame.QUIT: #창이 닫히는 이벤트가 발생하였는가?
             running = False #게임이 진행중이 아니라는 뜻
             
         if event.type == pygame.KEYDOWN: #키가 눌러졌는지 확인
             if event.key == pygame.K_LEFT: #캐릭터를 왼쪽으로
-                to_x -=5 
+                to_x -=character_speed
             elif event.key == pygame.K_RIGHT: #캐릭터를 오른쪽으로
-                to_x +=5
+                to_x +=character_speed
             elif event.key == pygame.K_UP:   
-                to_y -= 5
+                to_y -= character_speed
             elif event.key == pygame.K_DOWN:
-                to_y += 5
+                to_y += character_speed
         
         if event.type == pygame.KEYUP : # 방향키에서손을 뗐을때
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
@@ -57,8 +67,8 @@ while running:
             elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                 to_y = 0
 
-    character_x_pos += to_x #if문을 빠져나와서 for문 안에서 진행
-    character_y_pos += to_y
+    character_x_pos += to_x * dt   #if문을 빠져나와서 for문 안에서 진행
+    character_y_pos += to_y * dt #frame별로 바뀌는 값을 dt값을 곱해서 일정하게 만들어준다.
     
     #가로 경계값 처리
     if character_x_pos <0 :
