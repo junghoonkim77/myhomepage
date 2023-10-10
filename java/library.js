@@ -51,7 +51,7 @@ var $lib ={
      },
       
       // 날짜,시간 함수  아래껄 꼭 붙여넣고 써야됨
-      //var{$year,$month,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2} =$lib.$time();
+      //var[$year,$month,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2] =$lib.$time();
      "$time":function(){
         var time = new Date();
         var $year = time.getFullYear();
@@ -63,7 +63,7 @@ var $lib ={
         var $timeHMS = `${$hour<10 ? `0${$hour}`:$hour}:${$minutes<10 ? `0${$minutes}`:$minutes}:${$seconds<10 ? `0${$seconds}`:$seconds}`
         var $timeYMD =`${$year}년 ${$month}월 ${$day}일`
         var $timeYMD2 =`${$year}/${$month}/${$day}`
-        return {$year,$month,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2 };
+        return [$year,$month,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2 ];
      },
 
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {margin:0; padding:0;}
+ul li {list-style:none;}
+.clearfix:after{content:'';display:block; clear:both;}
+body {background:green; overflow-y:scroll;}
+header {	
+	margin-top:20px;
+	background:linear-gradient(white 50px, rgba(255,255,255,0.5) 50px, rgba(255,255,255,0.5) );
+	height:50px; 
+	/*overflow:auto */
+}
+
+nav {width:960px; margin:0 auto;}
+nav > ul > li {float:left; line-height:50px; margin-right:40px; position: relative;}
+nav > ul > li ul{ width:100%; position: absolute; background-color: gray; display:none;}
+/*nav > ul > li:hover ul{display : block; } */
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+   integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+   integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+   crossorigin="anonymous"></script>
+    <title>2depth Hover menu</title>
+</head>
+<body>
+    <header>
+        <nav>
+                <ul class="clearfix">
+                    <li>1st menu
+                            <ul>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                            </ul>
+                    </li>
+                    <li>2nd menu
+                            <ul>
+                                <li>2nd menu menu</li>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                            </ul>
+                    </li>
+                    <li>3rd menu
+                            <ul>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                            </ul>
+                    </li>
+                    <li>4th menu
+                            <ul>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                                <li>2nd menu</li>
+                            </ul>
+                    </li>				
+    
+                </ul>
+        </nav>
+    </header>
+    <script>
+        jQuery(function(){
+           var $firstMenu = $('nav > ul > li')
+           /* $header = $('header');    
+           $headerHeight = $header.outerHeight();
+           $firstMenu.mouseenter(function(){
+            var subHeight =  $(this).find('ul').outerHeight();
+            $header.stop().animate({height : $headerHeight+subHeight+'px'},300) 
+           })
+           .mouseleave(function(){
+            $header.stop().animate({height : $headerHeight+'px' },300);
+           })   */
+         
+          $firstMenu.mouseover(function(){
+            $(this).find('ul').stop().slideDown();
+          }).mouseout(function(){
+            $(this).find('ul').stop().slideUp();
+          });
+        })
+    </script>
+</body>
+</html>

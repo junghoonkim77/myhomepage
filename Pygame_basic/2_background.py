@@ -25,8 +25,8 @@ while running:
             running = False #게임이 진행중이 아니라는 뜻
   #  pass 코드를 채 입력하기 전에 오류가 나는걸 pass로 방지한다.
 
-    #screen.fill((0,0,255))    
+    #screen.fill((0,0,255)) # ->배경 화면을 만들지 않고 fill로채우는 방법도 있다.
     screen.blit(background,(0,0)) #배경 그리기 (0,0)->이건 어디부터 배경을 채워 넣을건지를 의미
-    pygame.display.update()  #게임 화면을 다시 그리기 
+    pygame.display.update()  #게임 화면을 계속 다시 그리기 
     #pygame 종료
 pygame.quit() # 들여쓰기가 너무 중요해서 더 피곤할수 있다. ㅠㅠ

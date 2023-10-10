@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Style>
+        body{ position : relative;  }
+        div{ 
+            position: absolute;
+            width : 100px;
+            left:300px;
+        }               
+    
+    </Style>
     <script src="https://code.jquery.com/jquery-3.7.1.js" 
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="../../java/library.js"></script>
     <title>각종테스트</title>
 </head>
 <body>
+    <div>
+     드라이나~!
+    </div>
+    
     <script>
-        
-        
+          
+     
+    
     var cnt = 0;
        for (var i=0; i<50 ; i++){
        var driveTime =Number( Math.floor ((Math.random()*50)+5) ) 
@@ -29,6 +44,25 @@
        }
      var test=  test();
      console.log(test);
+
+     var[년,월,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2] =$lib.$time()
+
+     $L=0;
+    $(document).keydown(function(e){
+        var divpo = $('div').offset();
+        var divL = divpo.left;
+        var divH = divpo.top;
+        console.log(divL);
+        if(e.key =="ArrowLeft"){
+            $('div').css('left',(divL+$L--)+'px');
+            console.log(divL);
+        }else if(e.key =="ArrowRight"){
+            $('div').css('left',(divL-$L++)+'px');
+        }
+        
+    })
+
+
     </script>
 </body>
 </html>

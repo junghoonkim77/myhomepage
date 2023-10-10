@@ -28,13 +28,45 @@ character_y_pos = screen_height - character_height # 화면 세로 크기 가장
 # 여기까지만 실행하면 프로그램이 실행되자 마자 밑에 아무것도 없어서 끝난다 
 #그래서 이벤트 루프를 만들어 줘야 한다.
 
+#이동할 좌표
+to_x =0
+to_y =0
 running = True #게임이 진행중인가?
 
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: #창이 닫히는 이벤트가 발생하였는가?
             running = False #게임이 진행중이 아니라는 뜻
-  #  pass 코드를 채 입력하기 전에 오류가 나는걸 pass로 방지한다.
+            
+        if event.type == pygame.KEYDOWN: #키가 눌러졌는지 확인
+            if event.key == pygame.K_LEFT: #캐릭터를 왼쪽으로
+                to_x -=5 
+            elif event.key == pygame.K_RIGHT: #캐릭터를 오른쪽으로
+                to_x +=5
+            elif event.key == pygame.K_UP:   
+                to_y -= 5
+            elif event.key == pygame.K_DOWN:
+                to_y += 5
+        
+        if event.type == pygame.KEYUP : # 방향키에서손을 뗐을때
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                to_x = 0
+            elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                to_y = 0
+
+    character_x_pos += to_x #if문을 빠져나와서 for문 안에서 진행
+    character_y_pos += to_y
+    
+    #가로 경계값 처리
+    if character_x_pos <0 :
+        character_x_pos =0
+    elif character_x_pos >screen_width  - character_width:
+        character_x_pos = screen_width  - character_width  
+  #  세로 경계값 처리
+    if character_y_pos < 0 :
+        character_y_pos = 0
+    elif character_y_pos >screen_height -character_height:
+        character_y_pos = screen_height-character_height
 
     #screen.fill((0,0,255))    
     screen.blit(background,(0,0)) #배경 그리기 (0,0)->이건 어디부터 배경을 채워 넣을건지를 의미
