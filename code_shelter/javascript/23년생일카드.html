@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+	font-family: 'Indie Flower', cursive !important;
+  background: #FDE3A7; /*CAPE HONEY*/
+	margin: 0px;
+	padding: 0px;
+}
+
+::selection {
+	background: transparent;
+}
+
+h4 {
+	font-size: 26px;
+	line-height: 1px;
+	font-family: 'Amatic SC', cursive !important;
+}
+
+.color1{color:#1BBC9B}/*MOUNTAIN MEADOW*/
+.color2{color:#C0392B/*TALL POPPY*/}
+
+
+.card {
+	color: #013243; /*SHERPA BLUE*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 500px;
+	background: #e0e1dc;
+	transform-style: preserve-3d;
+	transform: translate(-50%,-50%) perspective(2000px);
+	box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
+	transition: 1s;
+}
+
+.card:hover {
+	transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
+	box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
+}
+
+.card:before {
+	content:'';
+	position: absolute;
+	top: -5px;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	background: #BAC1BA;
+	transform-origin: bottom;
+	transform: skewX(-45deg);
+}
+
+.card:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: -5px;
+	width: 5px;
+	height: 100%;
+	background: #92A29C;
+	transform-origin: left;
+	transform: skewY(-45deg);
+}
+
+.card .imgBox {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform-origin: left;
+	transition: .7s;
+}
+
+.card .bark {
+	position: absolute;
+	background: #e0e1dc;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: .7s;
+}
+
+/*.card .imgBox img {
+	/*min-width: 250px;
+	max-height: 400px;
+    height : 100%;
+}  */
+
+.card .imgBox{
+    background-image: url('https://www.apple.com/v/apple-events/home/ab/images/meta/overview__bcphzsdb4fpu_og.png?202309072342');
+    background-position: center;
+    background-size :cover;
+}
+.card:hover .imgBox {
+	transform: rotateY(-135deg);
+}
+
+.card:hover .bark {
+	opacity: 1;
+	transition: .6s;
+  box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+}
+
+.card .details {
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	padding: 0 0 0 10px;
+	z-index: -1;
+	margin-top: 70px;
+}
+
+.card .details p {
+	font-size: 13px;
+	line-height: 3px;
+	transform: rotate(-10deg);
+	padding: 0 0 0 20px;
+}
+
+.card .details h4 {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="card">
+		<div class="imgBox">
+			<div class="bark"></div>
+		<!--  
+            <img src="https://www.apple.com/v/apple-events/home/ab/images/meta/overview__bcphzsdb4fpu_og.png?202309072342">
+         -->	
+		</div>
+		<div class="details">
+			<h4 class="color1">사랑하는 쭈~! 생축~ 데헷</h2>
+			<h4 class="color2 margin">(HAPPY BIRTHDAY)</h3>
+			<p>사랑하는 쭈에게</p>
+			<p>나이를 먹다보니 시간에 가속도가 붙는것 같구만</p>
+			<p>그럴수록 마눌이를 사랑하는 마음과 소중함이 점점 커져만 </p>
+			<p>올 2023년도 마눌이의 생일을 마지막으로 서서히 </p>
+			<p>가끔 일이 안풀리고 번거로운 일이 생길때 왜  </p>
+			<p>마음을 가졌다 가도 주남이란 로또에 맞았단 </p>
+            <p>힘을 얻을수 있어서 그저 감사하고 고마울 </p>
+			<p>소중한 두 보물 기준이와 기은이와 함께 </p>
+			<p>우주에서 제일 이쁘고 착하고 똑똑한 마눌 주남이</p> 
+            <p>너무 차고 넘치게 고마울 뿐이니 </p>
+           
+			<p class="text-right">Happy Birthday, JJOO!</p>
+			<p class="text-right">♥🍞이</p>
+		</div>
+	</div>
+</body>
+</html>
