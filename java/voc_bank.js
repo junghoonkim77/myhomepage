@@ -149,12 +149,19 @@ function line_dp2(num) {
 
         
         $(function(){
-            $('#netwindow').mouseover(function(){
+           /* $('#netwindow').mouseover(function(){
                     $('#netwindow1').stop().fadeIn();
                 $('#netwindow').mouseout(function(){
                     $('#netwindow1').stop().fadeOut(500);
                 })  
-                })
+                })*/
+
+             $('#netwindow').mouseover(function(){
+                  $('#netwindow1').stop().slideDown();
+              $('#netwindow').mouseout(function(){
+                  $('#netwindow1').stop().slideUp(500);
+              })  
+              })    
                 
            $('#code').click(function(){
                     $('#code1').stop().fadeIn().fadeOut(5000);
