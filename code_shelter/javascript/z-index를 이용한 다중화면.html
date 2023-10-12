@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /*포지션 속성은 대물림 되지 않는다.
+position: static은 위치 속성이 안먹힌다..
+그냥 흐름에 따르겠다는 의미가 된다.
+*/
+
+.container {
+  width : 40%;
+  height : 50%;
+  
+}
+
+.container div{
+  display : inline-block;
+  height : 100px;
+  width : 100px;
+  border : 1px gray solid;
+  margin : 5px;
+}
+.container div:nth-child(5){
+  position: relative;
+  /* relative속성은 의자는 가만있고 앉아있던 사람만 움직이는 꼴, 즉 그 공간을 다른 요소가
+  차지 하지 않는다.
+  */
+  left : 15px;
+  top : 15px;
+}
+
+.container div:nth-child(9){
+  position: absolute;
+  /*복습 absolute는 바로 위에 아버지 요소중 
+  static이 아닌 요소에 의해 위치가 결정됨
+  */
+  left : 100px;
+  top : 10px;
+  background-color: rgba(244,200,200,50%)}
+
+.container div:nth-child(4) div{
+  position : absolute;
+  height: 10px;
+  width : 10px;
+  margin : 0;
+  left : 50%;
+  font-size: 5px;
+}
+.container div:nth-child(4){
+  position : relative;
+}
+
+.container div:nth-child(7){
+    position : fixed;
+  top : 20px;
+  right : 40%;
+  }
+.container div:nth-child(8){
+    position : sticky;
+  /* sticky는 요소안에 넣는 것보다 
+  바깥쪽에 독립적으로 넣는것이 좋다.
+  */
+    top : 20px;
+  bottom: 100px;;
+    text-align : center;
+  }
+    
+/*z-index는 static이 아닌 요소들간 위아래 배치 순서를 정하는 것 ... .와 이걸 지금 알았네.어쩐지 드럽게 안되더라 .....
+*/
+.container2 {
+  position : relative;
+  }
+.container2 div{
+  position : absolute;
+  height: 100px;
+  width : 100px;
+}
+.container2 div:nth-child(1){
+  background-color : yellow;
+}
+.container2 div:nth-child(2){
+  background-color : green;
+}
+.container2 div:nth-child(3){
+  background-color : orange;
+}
+.container2 div:nth-child(4){
+  background-color : blue;
+}
+.container2 div>button {
+  position :absolute;
+  left:20%;
+  top : 45%;
+} </style>
+<script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+    crossorigin="anonymous"></script>
+
+    
+    <title>z-index활용</title>
+</head>
+<body>
+    <div class="container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div>
+          <div class="mini">
+            1
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+        <div>7</div>
+        <div>8</div>
+        <div></div>
+      </div>
+      <select name="" id="test">
+        <option value="">--가족선택</option>
+        <option value="hoon">김정훈</option>
+        <!-- selected를 해놓으면 그 내용부터 먼저 표시된다. 
+          multiple을 하면 다중 선택이 가능하다   
+      -->
+        <option value="jjoo">김주남</option>
+        <option value="jjoon">김기준</option>
+        <option value="eun">김기은</option>
+      </select>
+      
+      <div class="container2">
+        <div class="zidx hoon"> 
+          <button>김정훈</button>
+         </div>
+        <div class="zidx jjoo"><button>김주남</button></div>
+        <div class="zidx jjoon"><button>김기준</button></div>
+        <div class="zidx eun"><button>김기은</button></div>
+      </div>
+</body>
+<script>
+    $('#test').change(function(){
+  var val = $(this).val()
+  console.log(val)
+ $(`.${val}`).css('z-index','1')
+ $('.zidx').not(`.zidx.${val}`).css('z-index','auto')
+  
+  
+})
+
+</script>
+</html>
