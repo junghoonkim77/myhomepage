@@ -171,7 +171,7 @@ $(function(){
   $('.dropdown-content1 .srform1').click(function(){
     var hasclass = $(this).hasClass('Sales')
     var $srvalue = $(this).val();
-    var valN = valuearr[0];
+    var valN = localStorage.getItem('meid');
     var Telnum = $('.phoneNumber').val();
     console.log($srvalue);
     console.log(hasclass);
