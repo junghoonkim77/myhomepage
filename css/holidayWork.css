@@ -73,3 +73,7 @@ body *:not(h3) {
       height : 17px;
       width : 25px;
     }
+
+    button{
+      cursor : pointer;
+    }
