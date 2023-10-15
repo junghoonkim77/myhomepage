@@ -70,10 +70,72 @@ body *:not(h3) {
       background-color :rgb(236, 190, 121);
      }
     .address_daum img{
-      height : 17px;
+      height : 13px;
       width : 25px;
     }
 
     button{
       cursor : pointer;
+    }
+
+    #buttonpack {
+      position : relative;
+      height : 3rem;
+    }
+
+    #buttonpack button{
+      position : absolute;
+      display : inline-block;
+    }
+    #buttonpack button:nth-child(1){
+      bottom:0px;
+      
+    }
+    #buttonpack button:nth-child(2){
+      bottom:0px;
+      left : 79px;
+    }
+    #buttonpack button:nth-child(3){
+      bottom:0px;
+      left : 169px;
+    }
+    #buttonpack button:nth-child(4){
+      top:0px;
+      left : 0px;
+    }
+    #buttonpack button:nth-child(5){
+      top:0px;
+      left : 40px;
+    }
+    #buttonpack button:nth-child(6){
+      top:0px;
+      left : 90px;
+    }
+    #buttonpack button:nth-child(7){
+      top:0px;
+      left : 300px;
+    }
+    #buttonpack button:nth-child(8){
+      top:0px;
+      left : 389px;
+    }
+    #buttonpack button:nth-child(9){
+      top:0px;
+      left : 489px;
+    }
+    #buttonpack button:nth-child(10){
+      bottom:0px;
+      left : 300px;
+    }
+    #buttonpack button:nth-child(11){
+      bottom:0px;
+      left : 401px;
+    }
+    #buttonpack div{
+      display : inline-block;
+      position : absolute;
+      bottom:0px;
+      left : 520px;
+      opacity: 0;
+      background-color: aqua;
     }

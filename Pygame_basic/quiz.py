@@ -118,7 +118,7 @@ while running:
         print('충돌했어요')
         running = False
     
-
+    
     #screen.fill((0,0,255))    화면에 그리기
     screen.blit(background,(0,0)) #배경 그리기 (0,0)->이건 어디부터 배경을 채워 넣을건지를 의미
     

@@ -5,7 +5,7 @@ jQuery(function(){
     var  $minititle = ['서비스번호 :','민원인 :','비상연락처 :','증상 :','발생시기 :','장소상관여부 :'
                         ,'주변KT 상관여부 :','전산이상여부 :','단말리셋여부 :','메모전달 :'];
     
-
+    
     $('#srhead').change(function(){
         $srheadval = $(this).val();
         $srheadarr.push( $srheadval );
@@ -106,6 +106,7 @@ jQuery(function(){
         }
       }) 
 
+    
   })
   
  //J쿼리 마지막 블럭
