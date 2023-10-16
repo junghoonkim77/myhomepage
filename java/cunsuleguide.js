@@ -121,7 +121,23 @@ jQuery(function(){
     $vocplace.change(function(){
       console.log($(this).val());
       if($(this).val()=='speplace'){
-        vocbank('SR다이어트휴근용.html','700');  return false;
+       $('.techsr').addClass('blink');
+       $('.ttalarm').css('opacity','1');
+       function backcol(){
+        $('#buttonpack button').removeClass('blink');
+        $('.ttalarm').css('opacity','0');
+        
+       }
+       setTimeout(backcol,4000);
+      
+        /*  var colors =['blue','none'];
+        var i =0;
+        function blink(){
+          $('.techsr').animate({backgroundColor :colors[i]},3000);
+          i =(i+1)%colors.length;
+          blink()
+        }
+        blink() */        
       }
     })  //특정지역 클릭시 sr양식창 팝업 끝
 

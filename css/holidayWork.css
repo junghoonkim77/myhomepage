@@ -139,3 +139,15 @@ body *:not(h3) {
       opacity: 0;
       background-color: aqua;
     }
+
+    .techsr.blink{
+      background-color: blue;
+    }
+    .techsr{
+      background-color: none;
+    }
+    .ttalarm{
+      background-color: tomato;
+      font-size : 16px;
+      opacity: 0;
+    }
