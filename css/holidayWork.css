@@ -69,11 +69,7 @@ body *:not(h3) {
     .address_daum{
       background-color :rgb(236, 190, 121);
      }
-    .address_daum img{
-      height : 13px;
-      width : 25px;
-    }
-
+   
     button{
       cursor : pointer;
     }
@@ -105,11 +101,11 @@ body *:not(h3) {
     }
     #buttonpack button:nth-child(5){
       top:0px;
-      left : 40px;
+      left : 97px;
     }
     #buttonpack button:nth-child(6){
       top:0px;
-      left : 90px;
+      left : 178px;
     }
     #buttonpack button:nth-child(7){
       top:0px;
@@ -140,14 +136,23 @@ body *:not(h3) {
       background-color: aqua;
     }
 
-    .techsr.blink{
-      background-color: blue;
+    .blink{
+      animation : blink 3s infinite;
     }
-    .techsr{
-      background-color: none;
+    @keyframes blink {
+      0% {color: black;font-weight : 100;}
+      50% {color: orange;font-weight : 900;}
+      100% {color: red;font-weight : 100;}
     }
+
     .ttalarm{
       background-color: tomato;
       font-size : 16px;
-      opacity: 0;
+      visibility: hidden;
+      animation : blink2 3s infinite
+    }
+    @keyframes blink2{
+      0% {background-color: black;}
+      50% {background-color: orange;}
+      100% {background-color: red;}
     }
