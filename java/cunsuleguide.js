@@ -123,12 +123,12 @@ jQuery(function(){
       if($(this).val()=='speplace'){
        $('.techsr').addClass('blink');
        $('.ttalarm').css('opacity','1');
-       function backcol(){
+      function backcol(){
         $('#buttonpack button').removeClass('blink');
         $('.ttalarm').css('opacity','0');
         
        }
-       setTimeout(backcol,4000);
+      setTimeout(backcol,4000);
       
         /*  var colors =['blue','none'];
         var i =0;
