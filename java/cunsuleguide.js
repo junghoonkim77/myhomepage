@@ -89,6 +89,8 @@ jQuery(function(){
     $('li').css('text-decoration','none'); //라인지우기
     $('#srhead').val("");
     $srheadarr.length = 0;
+    $('#buttonpack button').removeClass('blink');
+    $('.ttalarm').css('visibility','hidden');
 
   }) //내용 지우고 체크 풀기  끝
     
@@ -122,13 +124,13 @@ jQuery(function(){
       console.log($(this).val());
       if($(this).val()=='speplace'){
        $('.techsr').addClass('blink');
-       $('.ttalarm').css('opacity','1');
-      function backcol(){
+       $('.ttalarm').css('visibility','visible');
+     /* function backcol(){
         $('#buttonpack button').removeClass('blink');
         $('.ttalarm').css('opacity','0');
         
        }
-      setTimeout(backcol,4000);
+      setTimeout(backcol,4000);*/
       
         /*  var colors =['blue','none'];
         var i =0;
@@ -138,6 +140,9 @@ jQuery(function(){
           blink()
         }
         blink() */        
+      }else{
+        $('#buttonpack button').removeClass('blink');
+        $('.ttalarm').css('visibility','hidden');
       }
     })  //특정지역 클릭시 sr양식창 팝업 끝
 

@@ -137,12 +137,12 @@ body *:not(h3) {
     }
 
     .blink{
-      animation : blink 3s infinite;
+      animation : blink 1s infinite;
     }
     @keyframes blink {
-      0% {color: black;font-weight : 100;}
-      50% {color: orange;font-weight : 900;}
-      100% {color: red;font-weight : 100;}
+      0% {color: black;}
+      50% {color: orange;}
+      100% {color: red;}
     }
 
     .ttalarm{
