@@ -117,7 +117,7 @@ jQuery(function(){
    // $('.maincore').eq(0).css('display','none');
    })   //TT발행 방법 탭 작업끝
 
-   //특정지역 클릭시 sr양식창 팝업
+   //특정지역 클릭시 animation효과
    var $vocplace = $('.vocplace label input');
    console.log( $vocplace );
     $vocplace.change(function(){
@@ -125,26 +125,31 @@ jQuery(function(){
       if($(this).val()=='speplace'){
        $('.techsr').addClass('blink');
        $('.ttalarm').css('visibility','visible');
-     /* function backcol(){
-        $('#buttonpack button').removeClass('blink');
-        $('.ttalarm').css('opacity','0');
-        
-       }
-      setTimeout(backcol,4000);*/
-      
-        /*  var colors =['blue','none'];
-        var i =0;
-        function blink(){
-          $('.techsr').animate({backgroundColor :colors[i]},3000);
-          i =(i+1)%colors.length;
-          blink()
-        }
-        blink() */        
+           
       }else{
         $('#buttonpack button').removeClass('blink');
         $('.ttalarm').css('visibility','hidden');
       }
     })  //특정지역 클릭시 sr양식창 팝업 끝
+
+    // 주변kt 상관여부 클릭시 animation효과
+
+
+    var $around = $('.around label input');
+    console.log( $around );
+     $around.change(function(){
+       console.log($(this).val());
+       if($(this).val()=='samepeople'){
+        $('.techsr').addClass('blink');
+        $('.ttalarm').css('visibility','visible');
+            
+       }else{
+         $('#buttonpack button').removeClass('blink');
+         $('.ttalarm').css('visibility','hidden');
+       }
+     }) 
+
+
 
     // 교육자료 창 팝업
     $('.education').click(function(){
