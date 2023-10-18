@@ -45,12 +45,22 @@ character_y_pos = screen_height - character_height -stage_height # 화면 세로
 # 여기까지만 실행하면 프로그램이 실행되자 마자 밑에 아무것도 없어서 끝난다 
 #그래서 이벤트 루프를 만들어 줘야 한다.
 
-#이동할 좌표
-to_x =0
-to_y =0
+#캐릭터 이동 방향
+character_to_x =0
 
 #이동 속도
-character_speed = 0.6
+character_speed = 5
+
+#무기 만들기
+weapon = pygame.image.load(os.path.join(image_path,"weapon.png"))
+weapon_size = weapon.get_rect().size
+weapon_width = weapon_size[0]
+
+#무기는 한 번에 여러발 발사 가능
+weapons =[]
+
+#무기 이동 속도
+weapon_speed = 10
 
 #적 enemy 캐릭터
 enemy = pygame.image.load('C:/Users/82102/Documents/GitHub/myhomepage/Pygame_basic/enemy.png')
@@ -88,22 +98,23 @@ while running:
             
         if event.type == pygame.KEYDOWN: #키가 눌러졌는지 확인
             if event.key == pygame.K_LEFT: #캐릭터를 왼쪽으로
-                to_x -=character_speed
+                character_to_x -=character_speed
             elif event.key == pygame.K_RIGHT: #캐릭터를 오른쪽으로
-                to_x +=character_speed
-            elif event.key == pygame.K_UP:   
-                to_y -= character_speed
-            elif event.key == pygame.K_DOWN:
-                to_y += character_speed
-        
+                character_to_x +=character_speed
+            elif event.key == pygame.K_SPACE:   #무기발사
+                weapon_x_pos = character_x_pos + (character_width /2 ) -(weapon_width / 2)
+                #무기가 캐릭터의 중간에서 나가게 하는
+                weapon_y_pos = character_y_pos
+                weapons.append([weapon_x_pos,weapon_y_pos])
+                
+            
         if event.type == pygame.KEYUP : # 방향키에서손을 뗐을때
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                to_x = 0
-            elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
-                to_y = 0
+                character_to_x = 0
+            
 
-    character_x_pos += to_x * dt   #if문을 빠져나와서 for문 안에서 진행
-    character_y_pos += to_y * dt #frame별로 바뀌는 값을 dt값을 곱해서 일정하게 만들어준다.
+    character_x_pos += character_to_x   #if문을 빠져나와서 for문 안에서 진행
+    
     
     #가로 경계값 처리
     if character_x_pos <0 :
@@ -115,6 +126,14 @@ while running:
         character_y_pos = 0
     elif character_y_pos >screen_height -character_height:
         character_y_pos = screen_height-character_height
+        
+  #무기 위치 조정
+  # 100,200 -> 180,160,140 , ...
+  # 500,200 -> 180,160,140 , ... 
+    weapons = [ [w[0],w[1] - weapon_speed] for w in weapons]     
+  
+  #천장에 닿은 무기 없애기 한줄 for문임  즉 무기의 y좌표가 0보다 작을때만 리스트에 포함 시키겠다는 의미이다.
+    weapons = [[w[0],w[1]] for w in weapons if w[1] > 0]
 
   # 충돌처리를 위한 rect 정보 업데이트 
     character_rect = character.get_rect()
@@ -133,8 +152,12 @@ while running:
 
     #screen.fill((0,0,255))    화면에 그리기
     screen.blit(background,(0,0)) #배경 그리기 (0,0)->이건 어디부터 배경을 채워 넣을건지를 의미
+    for weapon_x_pos , weapon_y_pos in weapons:
+        screen.blit(weapon,(weapon_x_pos ,weapon_y_pos))
+        
     screen.blit(stage,(0,screen_height -stage_height))
     screen.blit(character,(character_x_pos , character_y_pos)) #캐릭터 그리기
+    
     
     screen.blit(enemy,(enemy_x_pos,enemy_y_pos)) #적그리기
     
@@ -147,10 +170,8 @@ while running:
     #출력할 글자 ,True ,글자 색상
     screen.blit(timer,(10,10))
     
-    #만약 시간이 0 이하이면 게임종료
-    if total_time -elapsed_time <= 0 :
-        print('타임아웃')
-        running =False
+    
+   
     
     pygame.display.update()  #게임 화면을 다시 그리기  무조건 해야 되는것 
 
