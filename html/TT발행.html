@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
     integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
     crossorigin="anonymous"></script>
+    <script src="../java/library.js"></script>
 <style>
     .container{width : 65%;
     display : grid;
@@ -58,7 +59,7 @@
         </div>
         <div class="tt4">
             <figure>
-                <figcaption><span>4.</span>팝업된 검색창에<span class="teamcod">UCB0041</span>(서울중앙 통화품질팀)입력후 조회</figcaption>
+                <figcaption><span>4.</span>팝업된 검색창에<span class="teamcod" style="cursor:pointer" >UCB0041</span>(서울중앙 통화품질팀)입력후 조회</figcaption>
                 <img class="address tt4" src="../imgfolder/회사자료/TT_4.png" alt="">
             </figure>
         </div>
@@ -71,6 +72,10 @@
 
 
     </div>
-   
+   <script>
+    $('.teamcod').click(function(){
+        $lib.clipcopy($(this).text())
+    })
+    </script>
 </body>
 </html>
