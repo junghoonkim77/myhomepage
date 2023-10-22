@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/holidayWork.css">
+    <link rel="stylesheet" href="../css/holidayWork copy.css">
     <script src="../java/library.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.js" 
@@ -17,7 +17,7 @@
 <body>
     <h3>[통화품질 휴근상담Guide] _1번부터 순서대로 탐색 (입력 OR 체크)</h3>
     <h3>하단에 "클릭후 코스 붙여넣기 클릭시 내용 자동조합&복사 <span class="ttalarm">&nbsp&nbsp&nbsp&nbspTT접수진행▼</span></h3>
-    
+    <h3>장소상관여부 중 특정장소(TT발행 or 발행전 협의) 체크시 TT작성창 보임</h3>
     <div id="buttonpack">
         <button class="trasswitch">데이터VOC</button>
         <button class="trasswitch">음성통화VOC</button>
@@ -72,7 +72,7 @@
         <label><input value="speplace" data-flex="장소상관여부" type="radio" name="place" ><span style="color:red; font-weight:bold ;">특정장소(TT발행 or 발행전 협의)</span></label>
        <label><input value="지역무관하며 간헐적" data-flex="장소상관여부" type="radio" name="place" >지역무관 간헐적</label>
        <label><input value="장소이동해도 동일" data-flex="장소상관여부"type="radio" name="place" >장소이동해도 동일</label>
-       <label><input value="장소이동 못함 or 모름" data-flex="장소상관여부" type="radio" name="place" >장소이동 못함 or 모름</label>
+       <label><input value="장소이동 못함 or 모름" data-flex="장소상관여부" type="radio" name="place" >장소이동못함 or 모름</label>
        
        </p> <br>
         
@@ -81,7 +81,7 @@
         <p class="around">7.주변KT 상관여부 :
           <label><input value="-" data-flex="주변KT 상관여부" type="radio" name="around" ><b style="color :blue">탐색패스</b></label>
           <label><input value="정상" data-flex="주변KT 상관여부" type="radio" name="around" >정상</label>
-       <label><input  value="samepeople" data-flex="주변KT 상관여부" type="radio" name="around" ><span style="color:red; font-weight:bold ;">증상동일(TT발행 or 발행전 협의)</span></label>
+       <label><input  value="증상동일주장" data-flex="주변KT 상관여부" type="radio" name="around" ><span style="color:red; font-weight:bold ;">증상동일주장(기술담당자 협의)</span></label>
        <label><input value="확인어려움" data-flex="주변KT 상관여부" type="radio" name="around" >비교불가</label>
        
        </p> 
@@ -134,7 +134,7 @@
 
            
        
-      <textarea cols='40' rows='5'placeholder="전원리셋 및 기타 추가사항 입력"></textarea>
+      <textarea cols='40' rows='5' placeholder="전원리셋 및 기타 추가사항 입력"></textarea>
       <button class="imsitest">클릭후 KOS에 바로 복붙</button>
       <button class="imsitest1">입력내용 초기화</button>
       
@@ -147,6 +147,13 @@
     <div class="maincore">
       <iframe  src = "TT발행.html" ></iframe>
     </div> 
+
+    <div class="srnote">
+    <div class="close_tt" >창닫기✖</div>
+     <textarea class="srnote_text" placeholder="우측 상단 반짝이는 TT SR양식 5개중 클릭시 내용이 자동으로 들어옴" rows="28.5" cols="84"></textarea>
+     <button class="srnote_text_button">작성내용복사</button>
+    
+    </div>
     
         <script src="../java/cunsuleguide.js"></script>
         <script src="../java/voc_bank.js">  </script>
