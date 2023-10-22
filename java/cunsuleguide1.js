@@ -127,32 +127,16 @@ jQuery(function(){
       if($(this).val()=='speplace'){
        $('.techsr').addClass('blink');
        $('.ttalarm').css('visibility','visible');
+       $('.srnote').css('visibility','visible');
            
       }else{
         $('#buttonpack button').removeClass('blink');
         $('.ttalarm').css('visibility','hidden');
+        $('.srnote').css('visibility','hidden');
       }
     })  //특정지역 클릭시 sr양식창 팝업 끝
 
-    // 주변kt 상관여부 클릭시 animation효과
-
-
-    var $around = $('.around label input');
-    
-     $around.change(function(){
-       console.log($(this).val());
-       if($(this).val()=='samepeople'){
-        $('.techsr').addClass('blink');
-        $('.ttalarm').css('visibility','visible');
-            
-       }else{
-         $('#buttonpack button').removeClass('blink');
-         $('.ttalarm').css('visibility','hidden');
-       }
-     }) 
-
-
-
+ 
     // 교육자료 창 팝업
     $('.education').click(function(){
       vocbank('휴근교육자료.html','1200');  return false;
@@ -170,8 +154,16 @@ jQuery(function(){
      $lib.clipcopy($techsr[tx]);
      $('.copyalarm').animate({opacity:1},500);
      $('.copyalarm').animate({opacity:0},1000);
+     $('.srnote_text').val($techsr[tx]);
     })
 
+    $('.close_tt').click(function(){
+      $('.srnote').css('visibility','hidden');
+    })
+
+    $('.srnote_text_button').click(function(){
+      $lib.clipcopy($('.srnote_text').val());
+    })
 }) //최종 블럭끝
 
 //J쿼리 마지막 블럭

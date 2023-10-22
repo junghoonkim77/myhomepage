@@ -161,8 +161,39 @@ body *:not(h3) {
       position : sticky;
       border : 1px solid gray;
       display : inline-block;
-      width : 530px;
-      height : 330px;
-      bottom : 300px;
-      background-color:rgb(219, 236, 236);
+      width : 526px;
+      height : 395px;
+      bottom : 230px;
+      background-color: white;
+      visibility : hidden;
+      border : 1px solid gray;
+    }
+
+    .srnote_text{
+      position : absolute;
+      border : none;
+      z-index : 1;
+    }
+
+    .srnote_text::placeholder{
+      color :rgb(223, 89, 89);
+      font-weight: bold;
+    }
+    .srnote_text_button{
+      position : absolute;
+      bottom: 0px;
+      background-color: rgb(99, 99, 173);
+      z-index :2;
+     }
+    
+    .close_tt{
+      position : absolute;
+      display : inline-block;
+      right : 2px;
+      height: 24px;
+      cursor : pointer;
+      background-color: rgb(196, 157, 157);
+      font-weight : bold;
+      font-size : 16px;
+      z-index :2
     }
