@@ -2,13 +2,21 @@ var textare_color = document.querySelectorAll('textarea') ;
 const clock = document.querySelector('.h1-clock');
 const setTime = document.querySelector('.inputtime');
 
+$('.inputtime').blur(function(){
+  var timeVal = $(this).val();
+  localStorage.setItem('alarmTime',timeVal);
+  })
+
+  var $alarmTime = localStorage.getItem('alarmTime');
+  $('.inputtime').val($alarmTime);
+
 function getAlarm()
-{  const setValue = setTime.value;  
+{  const setValue = setTime.value; 
 const date = new Date();  
 const hours = date.getHours();  
 const minute = date.getMinutes();  
 const current = `${hours < 10 ? `0${hours}` : hours}:${minute < 10 ? `0${minute}` : minute}`;
-  
+
 //알람 시간이 되면 색깔을 변경하기
 /*if(current == setValue)
 { textare_color[0].style.backgroundColor ='tomato';
@@ -165,6 +173,7 @@ $(function(){
   $('#toggle').click(function(){
     $('body').css('background-color','white');
     $('.inputtime').val("");
+    localStorage.removeItem('alarmTime');
    });
 
     //sr양식복사 
