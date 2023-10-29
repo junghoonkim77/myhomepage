@@ -34,7 +34,7 @@ if(current == setValue)
 }}
 
 $('.xbutton').click(function(){
-  $lib.clipcopy($('.alarmpop').text() )
+  $lib.clipcopy(localStorage.getItem('alarmval'))
   $('.alarmpop').removeClass('alrmblink');
   $('body').css('background-color','white');
     $('.inputtime').val("");
