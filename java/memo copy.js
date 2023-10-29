@@ -2,9 +2,13 @@ var textare_color = document.querySelectorAll('textarea') ;
 const clock = document.querySelector('.h1-clock');
 const setTime = document.querySelector('.inputtime');
 
+// 알람시간 입력하고 포인트 벗어나면 할일들 
 $('.inputtime').blur(function(){
   var timeVal = $(this).val();
   localStorage.setItem('alarmTime',timeVal);
+  var alarmval = $('#alarmText').val()
+  localStorage.setItem('alarmval',alarmval)
+  $('.alarmpop').append(localStorage.getItem('alarmval'));
   })
 
   var $alarmTime = localStorage.getItem('alarmTime');
@@ -23,10 +27,19 @@ const current = `${hours < 10 ? `0${hours}` : hours}:${minute < 10 ? `0${minute}
 textare_color[1].style.backgroundColor ='tomato';
 }} */
 
+// 알람시간이 되면 알람창이 팝업되고 전체 색깔을 바꾸는 코드
 if(current == setValue)
-{ document.querySelector('body').style.backgroundColor ='tomato';
-
+{ $('body').css('background-color','tomato');
+  $('.alarmpop').addClass('alrmblink');
 }}
+
+$('.xbutton').click(function(){
+  $lib.clipcopy($('.alarmpop').text() )
+  $('.alarmpop').removeClass('alrmblink');
+  $('body').css('background-color','white');
+    $('.inputtime').val("");
+    localStorage.removeItem('alarmTime');
+})
 
 function getTime(){
 const time = new Date();
@@ -39,8 +52,8 @@ clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:min
 }
 
 function init(){
-setInterval(getTime, 60000);
-alarm = setInterval(getAlarm, 60000);
+setInterval(getTime, 20000);
+alarm = setInterval(getAlarm, 20000);
 }
 init();
 

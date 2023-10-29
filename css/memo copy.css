@@ -222,7 +222,37 @@ display: block;
   position : absolute;
   top : 0px;
   left : 0px;
-  z-index : 2;
+  visibility:hidden;
   display : inline-block;
-  background-color: aqua;
+  background-color: rgb(230, 238, 113);
+  font-size : 12px;
+  width : 250px;
+  height : 200px;
+  
+}
+
+.alarmpop .xbutton {
+  position : absolute;
+  display : inline-block;
+  left :230px;
+  width : 15px;
+  padding : 0px;
+  
+}
+.alarmpop.alrmblink{
+  visibility: visible;
+  z-index :2;
+  animation-name: blink;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}  
+
+@keyframes blink{
+  0% {background-color: rgb(209, 184, 184);}
+  20% {background-color: rgb(188, 221, 69);}
+  40% {background-color: rgb(150, 179, 24);}
+  60% {background-color: rgb(233, 196, 32);}
+  80% {background-color: rgb(233, 169, 32);}
+  100% {background-color: rgb(250, 250, 250);}
+  
 }

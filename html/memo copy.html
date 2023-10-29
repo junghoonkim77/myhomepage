@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="alarmpop">
-            테스트
+            <button class="xbutton">✖</button>
         </div>
         <button class="butttonshow">버튼보이기</button>
         <div class="buttonpack">
@@ -136,7 +136,7 @@
         <div>
             <textarea style="font-size: 11px;font-weight: bold;" class="must" id="must" title="꼭할일&더블클릭" cols="35" rows="20"></textarea>
          </div>
-          <textarea class="delText" cols="40" rows="50" title="비밀번호셋팅창" onKeyUP="javascript:cal_pre();"></textarea> 
+          <textarea class="delText" id="alarmText" cols="40" rows="50" title="비밀번호셋팅창" onKeyUP="javascript:cal_pre();"></textarea> 
           <textarea class="delText" id="hidden1" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
         </div>
     
@@ -190,6 +190,7 @@
       }
       
   </script>
+  <script src="../java/library.js"></script>
   <script src="../java/memo copy.js"></script>
   <script src="../java/voc_bank.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
