@@ -50,11 +50,18 @@
              keyvalue.length = 0
             })
             
-            /*$textarea.on('input',function(){
-               ;
-            }) 
-           // $textarea.val(localStorage.getItem(`textval8`)|| ''); 
-            */
+          var localtest = {'정훈':'병신','주남':'천사'};
+
+          console.log(typeof(localtest));
+          var localtest = JSON.stringify(localtest);
+
+          localStorage.setItem('type',localtest);
+          var back = localStorage.getItem('type');
+          console.log(back);
+          console.log(typeof(back));
+          var back1 = JSON.parse ( back);
+          console.log(back1);
+          console.log(typeof(back1));
 
         });
     </script>
