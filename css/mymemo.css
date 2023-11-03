@@ -200,4 +200,11 @@ display: block;
   text-align: left;
 }
 
-
+.salescount{  
+  position :absolute;
+   top:61px;
+   left:272px;
+   font-size: 13px ;
+   background-color: yellow;
+   cursor : pointer;
+  }

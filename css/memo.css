@@ -257,3 +257,13 @@ animation-iteration-count: infinite;
 100% {background-color: rgb(250, 250, 250);}
 
 }
+
+.salescount{  
+  position :absolute;
+   top:61px;
+   left:272px;
+   font-size: 13px ;
+   background-color: yellow;
+   cursor : pointer;
+   height : 19px;
+  }
