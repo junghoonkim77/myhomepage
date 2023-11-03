@@ -384,4 +384,6 @@ $(function(){
   $('.salescount').click(function(){
     window.open('세일즈실적관리.html', '_blank', 'width=1100, height=900' )
   })
+
+
 })

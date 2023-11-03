@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
     integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
     crossorigin="anonymous"></script>
+    <script src="../java/library.js"></script>
 
     <style>
         *{
@@ -115,7 +116,7 @@
       for ( var i=0 ; i<$salesview.length ; i++){
         $('.thead').before(`<tr class="salesCount">
             <td>${$salesview[i].순번}</td>
-            <td>${$salesview[i].고객번호}</td>
+            <td class="phoneNumber">${$salesview[i].고객번호}</td>
             <td>${$salesview[i].고객명}</td>
             <td>${$salesview[i].가설일자}</td>
             <td>${$salesview[i].설치예정일}</td>
@@ -131,6 +132,12 @@
            localStorage.removeItem($deleteKey);
            location.reload();
          }) 
+
+       
+         $('.phoneNumber').click(function(){
+          var $phonenum = $(this).text();
+            $lib.clipcopy($phonenum);
+             })
 
         })
        
