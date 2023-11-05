@@ -121,7 +121,7 @@
         var  $salesob_str = JSON.stringify ( $salesobj ); //객체값을 str변수로
          //텍스트 값을 localstorage에 담는다.
 
-        localStorage.setItem(`SA${$keySep}@${$keyName }`,$salesob_str);
+        localStorage.setItem(`SA${$keySep}@${$keyName}`,$salesob_str);
         location.reload();
              
       }) // 여기까지가 localstorage에 값 저장하기
@@ -151,25 +151,15 @@
             <td>${$salesview[i].컨설턴트}</td>
             <td>${$salesview[i].상품종류}</td>
             <td>${$salesview[i].고객특이사항}</td>
-            <td class="salesdel" data-key="${$salesview[i].고객명}">삭제❌</td>
+            <td class="salesdel" id="${$salesview[i].순번}" data-key="${$salesview[i].고객명}">삭제❌</td>
             </tr>`)      
          }  
          //  로컬스토리지 번호 지우기
          $('.salesdel').click(function(){
-           var $deleteKey = $(this).attr('data-key');
-           for ( key in localStorage){
-            if(key.slice(0,2)=="SA"){
-                var keyidx = key.indexOf("@");
-                console.log ( key.slice(keyidx,3) );
-            }
-          // 
-           
-           //   if(key.slice(keyidx,2)==$deleteKey ){
-        //     console.log ('대박')
-        //   } 
-           }
-          // localStorage.removeItem($deleteKey);
-          // location.reload();
+           var $delKey = $(this).attr('data-key');
+           var $delid = $(this).attr('id');
+           localStorage.removeItem(`SA${$delid}@${$delKey}`)
+           location.reload();
          }) 
 
           // 휴대폰 번호 복사하기

@@ -116,27 +116,32 @@
         }) //여기까지 반복해서 값을  $salesobj 객체에 담는다.
 
         // key값이 중복되지 않게 고객번호와 순서를 변수에 담는다.
-        var $keyName = $('input[type=text]').eq(1).val() ;
+        var $keyName = $('input[type=text]').eq(2).val() ;
         var $keySep = $('input[type=text]').eq(0).val() 
         var  $salesob_str = JSON.stringify ( $salesobj ); //객체값을 str변수로
          //텍스트 값을 localstorage에 담는다.
 
-        localStorage.setItem(`SA${$keySep}${$keyName }`,$salesob_str);
+        localStorage.setItem(`SA${$keySep}@${$keyName}`,$salesob_str);
         location.reload();
              
       }) // 여기까지가 localstorage에 값 저장하기
-
+      
       for ( k in localStorage){
          if (k.slice(0,2)=="SA"){
           var Keysa =  localStorage.getItem(k);
           var $Keysa = JSON.parse (Keysa );
           $salesview.push($Keysa);
-          $salesDelkey.push(k);
-         }
-      }
+          
+          }
+       }
+         
+        $salesview.sort((a, b) => a['순번'] - b['순번']);
+        
+       
        
        // 로컬스토리지 내용 꺼내서 테이블에 보여주기
       for ( var i=0 ; i<$salesview.length ; i++){
+          
         $('.thead').before(`<tr class="salesCount">
             <td>${$salesview[i].순번}</td>
             <td class="phoneNumber">${$salesview[i].고객번호}</td>
@@ -146,13 +151,14 @@
             <td>${$salesview[i].컨설턴트}</td>
             <td>${$salesview[i].상품종류}</td>
             <td>${$salesview[i].고객특이사항}</td>
-            <td class="salesdel" data-key="${$salesDelkey[i]}">삭제❌</td>
+            <td class="salesdel" id="${$salesview[i].순번}" data-key="${$salesview[i].고객명}">삭제❌</td>
             </tr>`)      
          }  
          //  로컬스토리지 번호 지우기
          $('.salesdel').click(function(){
-           var $deleteKey = $(this).attr('data-key')
-           localStorage.removeItem($deleteKey);
+           var $delKey = $(this).attr('data-key');
+           var $delid = $(this).attr('id');
+           localStorage.removeItem(`SA${$delid}@${$delKey}`)
            location.reload();
          }) 
 
