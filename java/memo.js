@@ -382,7 +382,7 @@ $(function(){
   */
 
   $('.salescount').click(function(){
-    window.open('세일즈실적관리.html', '_blank', 'width=1400, height=900' )
+    window.open('세일즈실적관리.html', '_blank', 'width=1200, height=650' )
   })
 
 
