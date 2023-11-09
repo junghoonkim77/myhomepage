@@ -87,15 +87,20 @@
         <input placeholder="컨설턴트"type="text">
         <input placeholder="상품종류"type="text">
         <input placeholder="고객특이사항"type="text">
-        <input type="button" value="가설 고객추가">
+        <input class="button1" type="button" value="가설 고객추가">
+        <input class="button2" type="button" value="내용 전체카피">
      </div>
     </div>
     <div id="notepad">
         <textarea placeholder="취소 및 기타사항 입력" cols="100" rows="20">
 
         </textarea>
-      
     </div>
+      <div class="backup">
+       <ul></ul>
+        
+      </div>
+        
 
     <script>
         jQuery(function(){
@@ -105,7 +110,7 @@
     var $salesobj = {};
     var $salesview =[];
     var $salesDelkey =[];
-      $('input[type=button]').click(function(){
+      $('.button1').click(function(){
         $('input[type=text]').each(function(idx){
         // input의 placeholder값을 가져와서 $salesobj의 키값으로 사용하고 거기에 input의 밸류를 담는다.
 
@@ -178,9 +183,25 @@
         var $notepadTextval_val = localStorage.getItem('$notepadval');
         $('textarea').val($notepadTextval_val);
        
-         })
+         // 백업하기 위해 전체 내용을 복사하기 
+        $('.button2').click(function(){
+       $salesview.forEach(ele => {
+           $('.backup ul').append(`<li>${ele.순번}/${ele.고객번호}/${ele.고객명}/${ele.가설일자}/${ele.설치예정일}/${ele.컨설턴트}
+           /${ele.상품종류}/${ele.고객특이사항}</li>`)
+        });
+         $('.backup').append(`<pre>${$notepadTextval_val}</pre>`)
+        var $totalText = document.querySelector('.backup').innerText
+        navigator.clipboard.writeText($totalText );
+        $('.backup ul').remove();
+        $('.backup pre').remove();
+         
+    })
+
+}) //제일바깥쪽
+        
+      
+        
        
-    
     </script>
 </body>
 </html>
