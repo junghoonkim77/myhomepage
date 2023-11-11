@@ -72,9 +72,9 @@
                 </div>
                <div id="menuhidden_2" class="menuhidden" style="display:none">
                     
-                    <input id ="inputyear" class="del_day1" type="text" placeholder="기준연도입력(ex:2022)"><br>
-                    <input id ="inputmonth" class="del_day1" type="text" placeholder="기준월입력(ex:08) "><br>
-                    <input id ="inputday" class="del_day1" type="text" placeholder="기준날짜입력(ex:11) "><br>
+                    <input id ="inputyear" class="del_day1" type="number" min="2023" max="2025" placeholder="기준연도입력(ex:2022)"><br>
+                    <input id ="inputmonth" class="del_day1" type="number" min="1" max="12" placeholder="기준월입력(ex:08) "><br>
+                    <input id ="inputday" class="del_day1" type="number" min="1" max="31" placeholder="기준날짜입력(ex:11) "><br>
                     <select id="dday">
                         <option selected >업무선택 방식</option>
                         <option value="opencancel">     개통취소가능일 ,   우수기변취소가능일</option>
@@ -86,8 +86,9 @@
                     <button id="inputdate">계산</button>
                     <button class = "erase" onclick="erase_1()">입력값지움</button>
                 
-                    
+                     <p>계산일자 ⬇
                      <div style="font-weight:bold " class="canseldate" > </div>
+                     </p>
                      <div id="google_calender">
                         <iframe src="https://calendar.google.com/calendar/embed?height=350&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FSeoul&src=a28uc291dGhfa29yZWEjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%230B8043" 
                         style="border:solid 1px #777" width="490" height="350" frameborder="0" scrolling="no"></iframe>
