@@ -1,168 +1,205 @@
 body *:not(h3) {
-    font-size: 12px;
-      }
-
-      div {border :1px;}
-      
-      p{ margin : 2px;}
-    
-      p:hover{
-        background-color : rgb(172, 232, 124);
-        }
-
-      label:hover{
-          background-color: darkkhaki;   
-       }  
-     
-        li:hover{
-        background-color : rgb(144, 194, 230);
-      }
-      .imsitest{ 
-        width :150px; 
-        height:30px; 
-        background-color: blanchedalmond;
-        display : block;
-        font-weight: bold;
-     }
-     .imsitest1{
-         background-color: tomato;
-         margin : 10px 0 0 0 ;
-         height : 20px;
-         position : relative;
-         left : 200px;
-         top :-30px;
-     }
-     .tranformer{
-         display : none;
-     }
-     #srhead{
-      background-color: aqua    ;
-     }
-     li {
-      list-style-type: none;
-      }
-
-    li::before {
-    content: "□";
-    margin-right: 0.5em;
+  font-size: 12px;
     }
 
-    li.checked::before {
-    content: "□";
-    }
+  h3{
+    display : inline-block;
+    width : 40vw;
+    margin : 10px;
+    box-shadow : 4px 4px 4px 4px gray;
+  }
+    div {border :1px;}
     
+    p{ margin : 2px;}
   
+    p:hover{
+      background-color : rgb(172, 232, 124);
+      }
+
+    label:hover{
+        background-color: darkkhaki;   
+     }  
    
-    iframe{
-      width :100%;
-      height :80vh;
-      border : none;
-      display : none;
+      li:hover{
+      background-color : rgb(144, 194, 230);
+    }
+    .imsitest{ 
+      width :150px; 
+      height:30px; 
+      background-color: blanchedalmond;
+      display : block;
+      font-weight: bold;
+   }
+   .imsitest1{
+       background-color: tomato;
+       margin : 10px 0 0 0 ;
+       height : 20px;
+       position : relative;
+       left : 200px;
+       top :-30px;
+   }
+   .tranformer{
+       display : none;
+   }
+   #srhead{
+    background-color: aqua    ;
+   }
+   li {
+    list-style-type: none;
     }
 
-    .trasswitch2{
-      background-color: rgb(203, 166, 224);
-    }
-    .education{
-      background-color: pink;
-    }
-    .address_daum{
-      background-color :rgb(236, 190, 121);
-     }
-   
-    button{
-      cursor : pointer;
-    }
+  li::before {
+  content: "□";
+  margin-right: 0.5em;
+  }
 
-    #buttonpack {
-      position : relative;
-      height : 3rem;
-    }
+  li.checked::before {
+  content: "□";
+  }
+  
 
-    #buttonpack button{
-      position : absolute;
-      display : inline-block;
-    }
-    #buttonpack button:nth-child(1){
-      bottom:0px;
-      
-    }
-    #buttonpack button:nth-child(2){
-      bottom:0px;
-      left : 79px;
-    }
-    #buttonpack button:nth-child(3){
-      bottom:0px;
-      left : 169px;
-    }
-    #buttonpack button:nth-child(4){
-      top:0px;
-      left : 0px;
-    }
-    #buttonpack button:nth-child(5){
-      top:0px;
-      left : 97px;
-    }
-    #buttonpack button:nth-child(6){
-      top:0px;
-      left : 178px;
-    }
-    #buttonpack button:nth-child(7){
-      top:0px;
-      left : 300px;
-    }
-    #buttonpack button:nth-child(8){
-      top:0px;
-      left : 389px;
-    }
-    #buttonpack button:nth-child(9){
-      top:0px;
-      left : 489px;
-    }
-    #buttonpack button:nth-child(10){
-      bottom:0px;
-      left : 300px;
-    }
-    #buttonpack button:nth-child(11){
-      bottom:0px;
-      left : 401px;
-    }
-    #buttonpack div{
-      display : inline-block;
-      position : absolute;
-      bottom:0px;
-      left : 520px;
-      opacity: 0;
-      background-color: aqua;
-    }
+ 
+  iframe{
+    width :100%;
+    height :80vh;
+    border : none;
+    display : none;
+  }
 
-    .blink{
-      animation : blink 1s infinite;
-    }
-    @keyframes blink {
-      0% {color: black;}
-      50% {color: orange;}
-      100% {color: red;}
-    }
+  .trasswitch2{
+    background-color: rgb(203, 166, 224);
+  }
+  .education{
+    background-color: pink;
+  }
+  .address_daum{
+    background-color :rgb(236, 190, 121);
+   }
+ 
+  button{
+    cursor : pointer;
+  }
 
-    .ttalarm{
-      background-color: tomato;
-      font-size : 16px;
-      visibility: hidden;
-      animation : blink2 3s infinite
-    }
-    @keyframes blink2{
-      0% {background-color: black;}
-      50% {background-color: orange;}
-      100% {background-color: red;}
-    }
+  #buttonpack {
+    position : relative;
+    height : 3rem;
+  }
 
-    .srnote{
-      position : sticky;
-      border : 1px solid gray;
-      display : inline-block;
-      width : 530px;
-      height : 330px;
-      bottom : 300px;
-      background-color:rgb(219, 236, 236);
-    }
+  #buttonpack button{
+    position : absolute;
+    display : inline-block;
+  }
+  #buttonpack button:nth-child(1){
+    bottom:0px;
+    
+  }
+  #buttonpack button:nth-child(2){
+    bottom:0px;
+    left : 79px;
+  }
+  #buttonpack button:nth-child(3){
+    bottom:0px;
+    left : 169px;
+  }
+  #buttonpack button:nth-child(4){
+    top:0px;
+    left : 0px;
+  }
+  #buttonpack button:nth-child(5){
+    top:0px;
+    left : 97px;
+  }
+  #buttonpack button:nth-child(6){
+    top:0px;
+    left : 178px;
+  }
+  #buttonpack button:nth-child(7){
+    top:0px;
+    left : 300px;
+  }
+  #buttonpack button:nth-child(8){
+    top:0px;
+    left : 389px;
+  }
+  #buttonpack button:nth-child(9){
+    top:0px;
+    left : 489px;
+  }
+  #buttonpack button:nth-child(10){
+    bottom:0px;
+    left : 300px;
+  }
+  #buttonpack button:nth-child(11){
+    bottom:0px;
+    left : 401px;
+  }
+  #buttonpack div{
+    display : inline-block;
+    position : absolute;
+    bottom:0px;
+    left : 520px;
+    opacity: 0;
+    background-color: aqua;
+  }
+
+  .blink{
+    animation : blink 1s infinite;
+  }
+  @keyframes blink {
+    0% {color: black;}
+    50% {color: orange;}
+    100% {color: red;}
+  }
+
+  .ttalarm{
+    background-color: tomato;
+    font-size : 16px;
+    visibility: hidden;
+    animation : blink2 3s infinite
+  }
+  @keyframes blink2{
+    0% {background-color: black;}
+    50% {background-color: orange;}
+    100% {background-color: red;}
+  }
+
+  .srnote{
+    position : sticky;
+    border : 1px solid gray;
+    display : inline-block;
+    width : 526px;
+    height : 395px;
+    bottom : 230px;
+    background-color: white;
+    visibility : hidden;
+    border : 1px solid gray;
+  }
+
+  .srnote_text{
+    position : absolute;
+    border : none;
+    z-index : 1;
+  }
+
+  .srnote_text::placeholder{
+    color :rgb(223, 89, 89);
+    font-weight: bold;
+  }
+  .srnote_text_button{
+    position : absolute;
+    bottom: 0px;
+    background-color: rgb(99, 99, 173);
+    z-index :2;
+   }
+  
+  .close_tt{
+    position : absolute;
+    display : inline-block;
+    right : 2px;
+    height: 24px;
+    cursor : pointer;
+    background-color: rgb(196, 157, 157);
+    font-weight : bold;
+    font-size : 16px;
+    z-index :2
+  }
