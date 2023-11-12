@@ -5,161 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="500">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+    crossorigin="anonymous"></script>
     <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <style>
-       /* body {
-            height : 100vh;
-            width : 100vw;
+       body {
+           
             background-color: black;
+            text-align : center;
         }
-        div{
-           height : 100%;
-           width : 100%;
-        } 
-        div*/ img{
+        
+         img{
            /* left : 11.5%; */
-            /*display : none; */
+            display :inline-block;
             /*position : absolute;*/
             margin : auto;
             height : 100vh;
+            
           /* transform: rotate(30deg); */
         }
-         body{
-            background-color: black;
-         }
+         
     </style>
     <title>CS2센터 게시판</title>
 </head>
 <body>
 
-  <img class="gate" src="../imgfolder/대문/센터로고.jpg" >
+   <img  src="../imgfolder/대문/센터로고.jpg" >
 
-   <img class="morning" src="../imgfolder/아침/pexels-photo-12900912.jpeg" alt="" >
-   <img class="morning" src="../imgfolder/아침/사1.jpg" alt="" srcset="">
-   <img class="morning" src="../imgfolder/아침/사2.jpg" alt="" srcset="">
-   <img class="morning" src="../imgfolder/아침/사3.jpg" alt="" srcset="">
-   <img class="morning" src="../imgfolder/아침/pexels-photo-13164423.jpeg" alt="" >
-   <img class="morning" src="../imgfolder/아침/사4.jpg" alt="" srcset="">
-   <img class="morning" src="../imgfolder/아침/pexels-photo-15868531.jpeg" alt="" >
-   <img class="morning" src="../imgfolder/아침/사5.jpg" alt="" srcset="">
-   <img class="morning" src="../imgfolder/아침/사6.jpg" alt="">
-   <img class="morning" src="../imgfolder/아침/사7.jpg" alt="" >
-   <img class="morning" src="../imgfolder/아침/pexels-photo-15896384.jpeg" alt="" >
-   
-
-   <img class="worktime" src="../imgfolder/근무/세일즈 전광판_센터실적.jpg" >
-   <img class="worktime" src="../imgfolder/근무/세일즈 전광판_팀실적.jpg" >
-   <img class="worktime" src="../imgfolder/근무/세일즈 전광판_전일개통인원-1.jpg" >
   
-     
-    
-   <img src="../imgfolder/점심/bread-1281053__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/breakfast-1804457__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/cake-1971552__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/cheese-2785__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/egg-sandwich-2761894__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/food-712665__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/macarons-2548827__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/meatloaf-3747129__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/pancakes-2291908__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510bachelor-business-2640909__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510bibimbap-1738580__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510chicken-soup-1346310__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510gopchang-734303__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510i-2545938__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510market-1971125__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510namdaemun-market-326146__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510noodles-3029172__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510pork-1098553__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510pork-1582916__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/510ramen-4647411__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/pasta-1854245__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/pizza-3010062__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/pizza-329523__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/raspberries-2023404__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/salad-1672505__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/spaghetti-1932466__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/tomatoes-3520004__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/waffle-hearts-2697904__340.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/시1.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/시2.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/시3.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/시4.jpg" alt="" class="lunch">
-   <img src="../imgfolder/점심/시5.jpg" alt="" class="lunch">
-   
-
-   <img src="../imgfolder/오후세일즈타임/alexander-grey-ZihPQeQR2wM-unsplash.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/decoration-3297060__340.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/fortune-cookie-5680728__340.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/good-luck-1993688__340.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/hand-6626349__340.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/illiya-vjestica-j4dD5iLp78Y-unsplash.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/pexels-miguel-á-padriñán-932261.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/sorrel-2212863__340.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/symbol-2085311__340.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈1.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈10.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈11.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈12.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈12.png" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈13.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈15.png" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈2.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈3.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈4.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈5.png" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈6.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈7.jpg" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈8.png" alt="" class="sales">
-   <img src="../imgfolder/오후세일즈타임/세일즈9.jpg" alt="" class="sales">
-   
-     
-   
-   <img src="../imgfolder/퇴근/end1.png" alt="" class="ending">
-   <img src="../imgfolder/퇴근/end2.jpg" alt="" class="ending">
-   <img src="../imgfolder/퇴근/end1.jfif" alt="" class="ending">
-   <img src="../imgfolder/퇴근/1619066455676_0.jpg" alt="" class="ending"> 
-   <img src="../imgfolder/퇴근/190531_퇴근하고싶다_택배.jpg" alt="" class="ending"> 
-   <img src="../imgfolder/퇴근/end1.jfif" alt="" class="ending"> 
-   <img src="../imgfolder/퇴근/992890335A142FA40A.png" alt="" class="ending"> 
-   <img src="../imgfolder/퇴근/99FA3C375BBFCE6A0B.jfif" alt="" class="ending"> 
-   <img src="../imgfolder/퇴근/maxresdefault.jpg" alt="" class="ending"> 
-   <img src="../imgfolder/퇴근/퇴근1.png" alt="" class="ending">  
-   <img src="../imgfolder/퇴근/퇴근2.png" alt="" class="ending"> 
-   <img src="../imgfolder/퇴근/end5.jpg" alt="" class="ending"> 
-   <img src="../imgfolder/퇴근/end6.jfif" alt="" class="ending">      
-       
     <script>
        jQuery(function(){
 
-var gateImage =$('.gateImage');            
 
-var imgtree =$('.morning');
-var imgtreecount = imgtree.length;
 
-var imgtree1 =$('.worktime');
-var imgtreecount1 = imgtree1.length;
+//클래스 morning
+var morning_url ="../imgfolder/아침/"
+var morning =['pexels-photo-12900912.jpeg','pexels-photo-13164423.jpeg','pexels-photo-15868531.jpeg',
+'pexels-photo-15896384.jpeg','사1.jpg','사2.jpg','사3.jpg','사4.jpg','사5.jpg','사6.jpg','사7.jpg','231112-4.jpg',
+'231112-3.jpg','231112-2.jpg','231112-1.jpg','231112.jpg'];
+var morning_count = morning.length;
 
-var imgtree2 =$('.lunch');
-var imgtreecount2 = imgtree2.length;
+//클래스 work
+var work_url ="../imgfolder/근무/"
+var work =['세일즈 전광판_센터실적.jpg','세일즈 전광판_전일개통인원-1.jpg','세일즈 전광판_팀실적.jpg'];
+var work_count = work.length;
 
-var imgtree3 = $('.sales');
-var imgtreecount3 = imgtree3.length;
+//클래스 lunch
+var lunch_url ="../imgfolder/점심/"
+var lunch =['510bachelor-business-2640909__340.jpg','510bibimbap-1738580__340.jpg'
+,'510chicken-soup-1346310__340.jpg','510gopchang-734303__340.jpg','510i-2545938__340.jpg',
+'510market-1971125__340.jpg','510namdaemun-market-326146__340.jpg','510noodles-3029172__340.jpg',
+'510pork-1098553__340.jpg','510pork-1582916__340.jpg','510ramen-4647411__340.jpg','bread-1281053__340.jpg',
+'breakfast-1804457__340.jpg','cake-1971552__340.jpg','cheese-2785__340.jpg','egg-sandwich-2761894__340.jpg',
+'food-712665__340.jpg','macarons-2548827__340.jpg','meatloaf-3747129__340.jpg','pancakes-2291908__340.jpg',
+'pasta-1854245__340.jpg','pizza-3010062__340.jpg','pizza-329523__340.jpg','raspberries-2023404__340.jpg','salad-1672505__340.jpg',
+'spaghetti-1932466__340.jpg','tomatoes-3520004__340.jpg','waffle-hearts-2697904__340.jpg','시1.jpg','시2.jpg',
+'시3.jpg','시4.jpg','시5.jpg']
+var lunch_count = lunch.length;
 
-var imgtree4 = $('.ending');
-var imgtreecount4 = imgtree4.length;
+var sales_url ="../imgfolder/오후세일즈타임/"
+var sales =['alexander-grey-ZihPQeQR2wM-unsplash.jpg','decoration-3297060__340.jpg','fortune-cookie-5680728__340.jpg',
+'good-luck-1993688__340.jpg','hand-6626349__340.jpg','illiya-vjestica-j4dD5iLp78Y-unsplash.jpg','pexels-miguel-a-padrinan-932261.jpg',
+'sorrel-2212863__340.jpg','symbol-2085311__340.jpg','세일즈1.jpg','세일즈10.jpg','세일즈11.jpg','세일즈12.jpg',
+'세일즈12.png','세일즈13.jpg','세일즈15.png','세일즈2.jpg','세일즈3.jpg','세일즈4.jpg','세일즈5.png',
+'세일즈6.jpg','세일즈7.jpg','세일즈8.png','세일즈9.jpg']
+var sales_count = sales.length;
+
+var end_url ="../imgfolder/퇴근/"
+var end =['1619066455676_0.jpg','190531_퇴근하고싶다_택배.jpg','992890335A142FA40A.png',
+'99FA3C375BBFCE6A0B.jfif','end1.jfif','end1.png','end2.jpg','end3.jfif','end4.jfif','end5.jpg',
+'end6.jfif','maxresdefault.jpg','퇴근1.png','퇴근2.png']
+var end_count = end.length;
 
 var currindex = 0;   
-  gateImage.eq(currindex).fadeIn();
-  imgtree.eq(currindex).css('display','block');
-
-  function ShowNextSlide(selector, count) {
-    $('img').not(selector).hide();
-    var nextIndex = (currindex + 1) % count;
-    $(selector).eq(currindex).hide();
-    $(selector).eq(nextIndex).css('display', 'block');
-    $(selector).eq(nextIndex).fadeIn();
+ 
+  function ShowNextSlide(url,$array) {
+    $('img').attr('src',`${url}${$array[currindex]}`);
+    currindex++
+    var nextIndex = currindex % $array.length;
     currindex = nextIndex;
     console.log(currindex);
 }
@@ -179,17 +102,17 @@ function getTime() {
     var timeToEnd3 = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 18, 50, 0);
 
     if (hour >= 7 && time <= timeToEnd) {
-        ShowNextSlide('.morning', imgtreecount);
+        ShowNextSlide(morning_url, morning);
     } else if (hour >= 9 && hour < 12) {
-        ShowNextSlide('.worktime', imgtreecount1);
+        ShowNextSlide(work_url, work );
     } else if (hour >= 12 && time < timeToEnd1) {
-        ShowNextSlide('.lunch', imgtreecount2);
+        ShowNextSlide(lunch_url, lunch);
     } else if (time >= timeToRun2 && time < timeToEnd2) {
-        ShowNextSlide('.sales', imgtreecount3);
+        ShowNextSlide( sales_url, sales);
     } else if (hour >= 18 && time < timeToEnd3) {
-        ShowNextSlide('.ending', imgtreecount4);
+        ShowNextSlide(end_url, end);
     } else {
-        ShowNextSlide('.worktime', imgtreecount1);
+        ShowNextSlide(work_url, work);
     }
 }
             
