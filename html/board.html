@@ -80,11 +80,11 @@ var end_count = end.length;
 var currindex = 0;   
  
   function ShowNextSlide(url,$array) {
-    $('img').attr('src',`${url}${$array[currindex]}`);
+    $('img').attr('src',url+$array[currindex]);
     currindex++
     var nextIndex = currindex % $array.length;
     currindex = nextIndex;
-    console.log(currindex);
+    
 }
 
 function getTime() {
