@@ -39,9 +39,22 @@ let team =
      <td>${team[i].ip}</td>
      </tr>`)
     } 
-  
+     var $tdarray = [];
+     $('td').on('click',function(){
+      var $td= $(this).text();
+      $tdarray.push($td);
+      $(this).css('background-color','yellow');
+     })
     
-
+     $('#copy_name').on('click',function(){
+      $tdarray.forEach((val)=>{
+        $('#copy_val').append(`<span>${val}&nbsp</span>`)
+      })
+      $tdarray.length =0;
+      $lib.clipcopy($('#copy_val').text() ) 
+      $('#copy_val > *').remove();
+      $('td').css('background-color','transparent')
+     })
 
   }) //마지막 스코프 
 
