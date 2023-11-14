@@ -51,7 +51,8 @@ let team =
         $('#copy_val').append(`<span>${val}&nbsp</span>`)
       })
       $tdarray.length =0;
-      $lib.clipcopy($('#copy_val').text() ) 
+      var $copyval = document.querySelector('#copy_val').innerText;
+      $lib.clipcopy($copyval);
       $('#copy_val > *').remove();
       $('td').css('background-color','transparent')
      })
