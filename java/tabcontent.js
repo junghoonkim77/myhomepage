@@ -40,12 +40,32 @@ let team =
      </tr>`)
     } 
      var $tdarray = [];
-     $('td').on('click',function(){
+     
+     
+     //배열에 클릭할때 마다 td안에 텍스트 값을 넣기 
+     $('td').on({
+      click : function(){
       var $td= $(this).text();
-      $tdarray.push($td);
+      if($tdarray.includes($td)==false){
+        $tdarray.push($td);
       $(this).css('background-color','yellow');
-     })
+      }
+       },
+
+      dblclick : function(){
+       var $td1= $(this).text(); 
+      var $tdidx = $tdarray.indexOf($td1);
+      console.log( $tdidx );
+      $tdarray.splice($tdidx,1);
+      $(this).css('background-color','transparent');
+      console.log($tdarray );
+      }
+     
+    })
     
+
+
+
      $('#copy_name').on('click',function(){
       $tdarray.forEach((val)=>{
         $('#copy_val').append(`<span>${val}&nbsp</span>`)
