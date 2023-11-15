@@ -59,25 +59,27 @@ let team =
       $tdarray.splice($tdidx,1);
       $(this).css('background-color','transparent');
       console.log($tdarray );
-      }
+      }      
      
     })
     
 
-
-
-     $('#copy_name').on('click',function(){
-      $tdarray.forEach((val)=>{
-        $('#copy_val').append(`<span>${val}&nbsp</span>`)
+    //#tabs-3
+      $("body").mouseleave(function(){
+        $tdarray.forEach((val)=>{
+          $('#copy_val').append(`<span>${val}&nbsp</span>`)
+        })
+        $tdarray.length =0;
+        var $copyval = document.querySelector('#copy_val').innerText;
+        $lib.clipcopy($copyval);
+        $('#copy_val > *').remove();
+        $('td').css('background-color','transparent')
       })
-      $tdarray.length =0;
-      var $copyval = document.querySelector('#copy_val').innerText;
-      $lib.clipcopy($copyval);
-      $('#copy_val > *').remove();
-      $('td').css('background-color','transparent')
-     })
-
+    
+  
   }) //마지막 스코프 
+
+
 
 
 
