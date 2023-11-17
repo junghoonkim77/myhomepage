@@ -2,11 +2,12 @@ body *:not(h3) {
   font-size: 12px;
     }
 
-  h3{
+  h4{
     display : inline-block;
     width : 40vw;
-    margin : 10px;
-    box-shadow : 4px 4px 4px 4px gray;
+    margin : 2px;
+    padding : 0;
+  
   }
     div {border :1px;}
     
