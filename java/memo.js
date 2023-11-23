@@ -1,8 +1,11 @@
+
 var textare_color = document.querySelectorAll('textarea') ; 
 const clock = document.querySelector('.h1-clock');
 const setTime = document.querySelector('.inputtime');
 
+
 // 알람시간 입력하고 포인트 벗어나면 할일들 
+
 $('.inputtime').blur(function(){
   var timeVal = $(this).val();
   localStorage.setItem('alarmTime',timeVal);
@@ -11,8 +14,10 @@ $('.inputtime').blur(function(){
   $('.alarmpop').append(localStorage.getItem('alarmval'));
   })
 
+
   var $alarmTime = localStorage.getItem('alarmTime');
   $('.inputtime').val($alarmTime);
+
 
 function getAlarm()
 {  const setValue = setTime.value; 
@@ -21,17 +26,19 @@ const hours = date.getHours();
 const minute = date.getMinutes();  
 const current = `${hours < 10 ? `0${hours}` : hours}:${minute < 10 ? `0${minute}` : minute}`;
 
+
 //알람 시간이 되면 색깔을 변경하기
 /*if(current == setValue)
 { textare_color[0].style.backgroundColor ='tomato';
 textare_color[1].style.backgroundColor ='tomato';
 }} */
-
 // 알람시간이 되면 알람창이 팝업되고 전체 색깔을 바꾸는 코드
+
 if(current == setValue)
 { $('body').css('background-color','tomato');
   $('.alarmpop').addClass('alrmblink');
 }}
+
 
 $('.xbutton').click(function(){
   $lib.clipcopy(localStorage.getItem('alarmval'))
@@ -40,6 +47,7 @@ $('.xbutton').click(function(){
     $('.inputtime').val("");
     localStorage.removeItem('alarmTime');
 })
+
 
 function getTime(){
 const time = new Date();
@@ -51,6 +59,7 @@ const seconds = time.getSeconds();
 clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}`;
 }
 
+
 function init(){
 setInterval(getTime, 20000);
 alarm = setInterval(getAlarm, 20000);
@@ -58,21 +67,23 @@ alarm = setInterval(getAlarm, 20000);
 init();
 
 
+
 //클릭후 특정범위내 글자 복사
 window.onload = function () {
   getTime();
    const valOfDIV = document.querySelector("#btn1");
-
    valOfDIV.addEventListener("click", function () {
        const copyElement = document.querySelector('.h1-clock');
        copy(copyElement.innerHTML)
-      
    })
 }
+
   function copy (value) {
    navigator.clipboard.writeText(value);
   }
+
 //글자수 카운트 함수 
+
 
 String.prototype.bytes = function() {
  var str = this;
@@ -80,17 +91,21 @@ String.prototype.bytes = function() {
  for (var i=0; i<str.length; i++) l += (str.charCodeAt(i) > 128) ? 2 : 1;
  return l;
  }
+
  
+
  function cal_pre()
  {
  var textare_txt_count = document.getElementsByClassName('delText');
  var size_check = textare_txt_count[0].value;
  var size_check2= textare_txt_count[1].value;
  //var size_check = document.comment.value;
+
  document.form.size.value = size_check.bytes();
  //document.form.size1.value =size_check2.bytes();
  document.form.size1.value = size_check2.bytes();
  }
+
 
  //textarea 내용 지우기 함수 
 
@@ -99,11 +114,14 @@ String.prototype.bytes = function() {
   textare_color[0].value="";
   textare_color[1].value="";
     }
-    
+
+  
+
 function erasertext2(){
   var textare_color = document.querySelectorAll('textarea') ;
   textare_color[1].value="";
     }  
+
 
 
 let SRarray = 
@@ -126,8 +144,11 @@ let SRarray =
 }
 
 
+
 $(function(){
+
  
+
 
   // 체크박스 체크하면 parent node지우는 코드
  /* let check = $('label input:checkbox')
@@ -140,8 +161,6 @@ $(function(){
     };
   }); */
 
-
-  
   /* $('.schedule').on('click',function(){
     $('div.task_gate div').toggleClass('task_gate1');
   }) 
@@ -152,6 +171,7 @@ $(function(){
     })*/
 
     
+
  //글자크기 줄이고 늘리는 코드 
  /* var BasicSize = 12;
   $('.leftmove6').click(function(){
@@ -159,11 +179,14 @@ $(function(){
       $('textarea').css('font-size',BasicSize+'px');
       console.log($('textarea'));
   });
+
   $('.leftmove7').click(function(){
       BasicSize++
       $('textarea').css('font-size',BasicSize);
   }) */
+
   
+
   $('.schedule').click(function(){
       $(this).toggleClass('showing');
       if($(this).hasClass('showing')){
@@ -173,6 +196,7 @@ $(function(){
       }
   });
 
+
   $('.dropbtn1').click(function(){
     $(this).toggleClass('showing2');
     if($(this).hasClass('showing2')){
@@ -181,15 +205,20 @@ $(function(){
       $('.dropdown-content1').css('display','none');
     }
 });
+
    
+
   //시간초기화 (공통메뉴)
+
   $('#toggle').click(function(){
     $('body').css('background-color','white');
     $('.inputtime').val("");
     localStorage.removeItem('alarmTime');
    });
 
+
     //sr양식복사 
+
   $('.dropdown-content1 .srform1').click(function(){
     var hasclass = $(this).hasClass('Sales')
     var $srvalue = $(this).val();
@@ -204,6 +233,7 @@ $(function(){
     }else{
       navigator.clipboard.writeText($srvalue);
     }
+
     $('.phoneNumber').val("");
    })
 
@@ -214,43 +244,53 @@ $(function(){
        });
    });
 
+
   $password.click(function(){  //mymemo 비번 
    var $butval = $(this).val();
    navigator.clipboard.writeText($butval);
   });
 
+
  // 애들쓰는 memo.html 수정
+
  
  var $compass = $('.task_gate .task_gate1 .common');
       var spe = $('.special');
       var valuearr = [];
+
      //비번 배열
-           
-     
+          
       // 이름 받기 
+
       $('#teamperson').change(function(){
         valuearr.length = 0;
         var $selval= $(this).val();
         valuearr.push($selval);
        })
+
       
+
        $compass.click(function(){
         var attrcode = $(this).attr('data-code');
         console.log(attrcode);
         navigator.clipboard.writeText(attrcode);
-        
        });
+
        
+
        spe.click(function(){
        // var speIdx = $(this).index('.special');
         var $thiskey = $(this).attr('data-code');
         var valName = valuearr[0];
         var $dbval = localStorage.getItem($thiskey);
         navigator.clipboard.writeText($dbval);
-    
+
        })
+
       // 메모저장용 코드
+
       
+
        var keyvalue =[];
        var $textarea = $('textarea');
        var $textareaValue =[];     
@@ -264,7 +304,9 @@ $(function(){
             var $key = month+'월'+mo+"일"+ho+'시'+mi+'분'+se+'초' ;
               keyvalue.push($key);
             }
+
   
+
           $('.leftmove9').click(function(s){
              s.preventDefault();
              $('.delText').each(function(e){
@@ -277,12 +319,13 @@ $(function(){
              $textareaValue.length = 0;             
              })
 
+
              $('.leftmove11').click(function(e){
               e.preventDefault()
               var $textarea1 = $textarea.eq(1).val(); 
                  localStorage.setItem(valuearr[0],$textarea1);
-      
-            }) 
+           }) 
+
 
             $('.leftmove12').click(function(){
               $textarea.each(function(){
@@ -290,21 +333,25 @@ $(function(){
               })
             });
 
+
             jQuery(function(){
-              $('.drag').draggable(); 
+             $('.drag').draggable(); 
             });
 
-            /*$('.del').click(function(){
-              $textarea.each(function(){
-                $(this).val("");
-              })
-            }) */
+
+         
           
+
             $('.del').click(function(){
+
               $('.delText').each(function(){
+
                 $(this).val("");
+
               })
+
             })
+
 
             $('#must').dblclick(function(){
               var $must= $(this).val();
@@ -315,47 +362,87 @@ $(function(){
                 $('#btn1').css('backgroundColor','red')
               }else{$('#btn1').css('backgroundColor','white')}
             });
+
             
+
             var $mustval = localStorage.getItem('must');
             $('#must').val($mustval);
-            
+
             $('.buthidden').click(function(){
              $('.buttonpack').hide()
              $('.butttonshow').show();
              $('.butttonshow').before($('.task_gate.drag'));
             })
-         
+
             $('.butttonshow').click(function(){
              $('.buttonpack').show();
              $(this).hide();
              $('.buttonpack').append($('.task_gate.drag'));
+
             })
+
 
  // 내꺼 매일 할일 코드 개 단순 ㅠㅠ
 
- var dailywork = 
-`1.메신저로그인\n2.캘린더체크\n3.tv전원on\n4.상담일지체크\n5.회의&상담일정배포\n6.wfms일정체크\n7.스마일복무체크\n8.일출결UP\n9.일보사전작성\n10.전일개통파일제출\n11.면담일지작성\n12.보안점검\n------------\n13.일보업로드\n14.포괄연장입력\n15.지존_업데이트필독\n
-16.부가자일지제출\n17.차별&모니터&세일즈&sr검수제출\n18.진행중SR체크\n19.테스트폰정리\n20.서랍&멀티탭확인\n21.쓰레기정리\n22.컵설겆이\n23.세일즈,필기백업(원노트)\n24.키보드,마우스끄기`
+
+ var $dailywork =`<ol>
+ <li>메신저로그</li>
+ <li>일정체크</li>
+ <li>tv전원on</li>
+ <li>상담일지체크</li>
+ <li>회의상담일정배포</li>
+ <li>wfms체크</li>
+ <li>스마일체크</li>
+ <li>일출결UP</li>
+ <li>일보작성</li>
+ <li>전일세일즈제출</li>
+ <li>면담일지작성</li>
+ <li>보안점검</li>
+ <li>---오후---</li>
+ <li>일보UP</li>
+ <li>포괄연장근무</li>
+ <li>지존UP필독</li>
+ <li><mark>부가일지_제출</mark></li>
+ <li><mark>차&SR&신&세_제출</mark></li>
+ <li><mark>진행중SR체크</mark></li>
+ <li>TEST폰정리</li>
+ <li>서랍&멀티탭</li>
+ <li>쓰레기정리</li>
+ <li>컵설겆이</li>
+ <li>세일즈&필기백업</li>
+ <li>키보드,마우스끄기</li>
+</ol>`
 
 
-//매일할일 더블클릭하면 저장됨
- $('#dailymust').dblclick(function(){
-  var dailymust = $(this).val();
-  localStorage.setItem('dailymust',dailymust);
- }) 
+localStorage.setItem('dailywork',$dailywork)
 
- //매일할일 더블클릭해서 저장된 내용을 텍스트로 보여줌
- var dailymustval = localStorage.getItem('dailymust')
- $('#dailymust').val(dailymustval);
+
+
+ // 매일할일에 기존 입력값을 append해서 표시해줌
 
  $('#dailysaver').click(function(){
-  $('#dailymust').val("");
-  $('#dailymust').val(dailywork);
+  $('.dropdown-content1 > *').remove()
+  var dailywork = localStorage.getItem('dailywork');
+  $('.dropdown-content1').append(dailywork);
  })
 
+  $(document).on('click','.dropdown-content1 ol li',function(){
+    $(this).remove();
+     var testhtml = $('.dropdown-content1').html();
+      localStorage.removeItem('RenewalHtml');
+      localStorage.setItem('RenewalHtml',testhtml);
+      $('.dropdown-content1 > *').remove();
+     $('.dropdown-content1').append(localStorage.getItem('RenewalHtml'));
+    })
+
+    $('.dropdown-content1').append(localStorage.getItem('RenewalHtml'));
+
+    //
+
+    
 
  //버튼 눌러서 매일할일 텍스트 area사라지게 하기 
- 
+
   $('#musthidden').click(function(){
   $(this).toggleClass('musthidden');
   if($(this).hasClass('musthidden')){
@@ -365,25 +452,58 @@ $(function(){
   }
  }) 
 
+
  /* 스크롤 하면 attr 속성 변경하기 
+
   var $win = $(window);
+
    $win.scroll(function(){
+
     if($win.scrollTop() > 10){
+
       $('.must').attr('rows','1');
+
     }else{
+
       $('.must').attr('rows','20');
+
     }
+
   })
 
+
   var musttop = $('#must').offset();
+
   console.log(musttop.top);
+
   console.log($('#must').outerHeight(true));
+
   console.log($('.buttonpack').outerHeight(true));
+
   */
+
 
   $('.salescount').click(function(){
     window.open('세일즈실적관리.html', '_blank', 'width=1200, height=650' )
+
   })
 
 
+  
+
+ // 메모창 하나 없애는 코드 분리작업
+
+ 
+
+  $('#toggle1').click(function(){
+    var toggleval = $(this).val();
+    if(toggleval == '📘📘'){
+         $('#hidden1').css('display','none');
+         $(this).val('📘')
+    } else{
+      $('#hidden1').css('display','block');
+      $(this).val('📘📘')
+    }
+  })
+ 
 })
