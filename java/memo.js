@@ -101,9 +101,12 @@ String.prototype.bytes = function() {
  var size_check2= textare_txt_count[1].value;
  //var size_check = document.comment.value;
 
+$('#musthidden').val(size_check.bytes())
+$('#dailysaver').val(size_check2.bytes())
  document.form.size.value = size_check.bytes();
- //document.form.size1.value =size_check2.bytes();
  document.form.size1.value = size_check2.bytes();
+ 
+
  }
 
 
