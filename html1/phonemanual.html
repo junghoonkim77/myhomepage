@@ -4,30 +4,28 @@
         <meta charset="utf-8">
 
     <style>
+        .container{
+            display: grid;
+            grid-template-columns: 300px 600px;
+            height :80%;
+        
+        }
+
         table{
             border-collapse :collapse;
             font-size: 78%;
             border:1px solid gray ;
-            position : absolute;
-            left : 20px ;
-            top : 30px;
             text-align: center;
-            font-size :80%;
+          /*  font-size :80%; */
         }
         th{
             border:1px solid gray;
         }
         td{ padding:2px;
             border:1px solid gray;
-            font-size:85%;
+           /*font-size:85%; */ 
         }
-        div{
-            position :relative;
-            margin :10px;
-            left:105px;
-            width:200px;
-            font-size:85%;
-        }
+        
         .samsung{
             background-color:aqua;
         }
@@ -37,17 +35,18 @@
         .apple{
             background-color:greenyellow
         }
-        .manualframe { position :fixed; top:30px; right:400px;
-             width:30%; 
-             height :90%; 
+        .manualframe { 
+             width:100%; 
+             height :100%; 
              border:none;
-            }
+            } 
     </style>
      <title>단말기 매뉴얼</title>
     </head>
     <body>
-        <iframe class="manualframe" src = "" name="frame" > </iframe>
-     <div>제조사별 단말기 설정경로</div>
+        
+     <h3>제조사별 단말기 설정경로</h3>
+     <div class="container">
       <table>
        <thead>
         <th ></th><th class="samsung">삼성</th><th class="lg">LG</th><th class="apple">아 이 폰</th>
@@ -119,9 +118,15 @@
             <td class="samsung"><a href="galwatch4.html" target="frame">갤럭시워치(4이후~)</a></td>
             <td class="apple"><a href="applewatch.html" target="frame">애플워치</a></td>
         </tr>
+        <tr>
+            <td style="background-color: lightblue" >삼성 네트워트설정 초기화</td>
+            <td class="samsung"><a href="네초6이전.html" target="frame">One Ui 6.0이전</a></td>
+            <td class="samsung"><a href="네초6이후.html" target="frame">One Ui <mark>6.0이후</mark></a></td>
+            <td>""</td>
+        </tr>
        </tbody>
     </table>
-
- 
+    <iframe class="manualframe" src = "" name="frame" > </iframe>
+</div>
     </body>
 </html>
