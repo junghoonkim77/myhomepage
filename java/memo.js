@@ -219,7 +219,7 @@ $(function(){
 
     //sr양식복사 
 
-  $('.dropdown-content1 .srform1').click(function(){
+  $('.dropdown-content2 .srform1').click(function(){
     var hasclass = $(this).hasClass('Sales')
     var $srvalue = $(this).val();
     var valN = localStorage.getItem('meid');

@@ -149,7 +149,7 @@ display : none;
 position : absolute;
 z-index : 1; /*다른 요소들보다 앞에 배치*/
 }
-.dropdown-content1{
+.dropdown-content2{
 display : none;
 position : absolute;
 z-index : 1; /*다른 요소들보다 앞에 배치*/
@@ -159,10 +159,10 @@ z-index : 1; /*다른 요소들보다 앞에 배치*/
 .dropdown:hover .dropdown-content {
 display: block;
 }
-.dropdown:hover .dropdown-content1 {
+.dropdown:hover .dropdown-content2 {
 display: block;
 }
-.dropdown-content1 {
+.dropdown-content2 {
   background-color: beige;
 }
 .dropbtn {
@@ -213,7 +213,7 @@ background-color:rgb(9, 247, 235);
 }
 
 
-.dropdown-content1 p{
+.dropdown-content2 p{
 font-size: 12px;
 margin : 0px;
 }
