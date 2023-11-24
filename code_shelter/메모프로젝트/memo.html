@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-            <link rel="stylesheet" href="../css/memo copy.css">
+            <link rel="stylesheet" href="../css/memo.css">
         <script src="https://code.jquery.com/jquery-3.6.1.js" 
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -14,37 +14,8 @@
             <button title="클릭하면 복사와 창닫기 동시수행"class="xbutton">✖</button>
         </div>
         <button class="butttonshow">버튼보이기</button>
-        <select class="drag" name="person" id="teamperson">
-            <option  value="" >전산명 &본인사번▼</option>
-            <option  value="meid">본인ID(kos id)</option>
-            <option  value="kos">KOS비번</option>
-            <option  value="atas">ATAS비번</option>
-            <option  value="idms">IDMS비번(넷윈..등)</option>
-            <option  value="wfms">WFMS비번</option>
-         </select>
-         <h5 class="drag">메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
         <div class="buttonpack">
-       
-        <input class="leftmove5 drag" style="cursor:pointer;" type="button" value="그룹📧"
-        onclick="window.open('https://gw.ktcs.co.kr/logon.aspx', '_blank', 'width=1100, height=900' ) ; return false;">
-        <div class="dropdown leftmove8 drag" >
-            <span class="dropbtn">말머리</span>
-            <div class="dropdown-content2">
-              <input class="srform1" type="button" value="[감성]"><br>
-              <input class="srform1" type="button" value="[멀]"><br>
-              <input class="srform1" type="button" value="[공동망]">
-              <input class="srform1" type="button" value="[대외/언론언급]">
-              <input class="srform1" type="button" value="[반]">
-              <p>연락처입력▶종류별권유클릭<br>연락처 미입력해도 무관<input class="phoneNumber" type="text" value="" placeholder="                  ◁연락처[형식X]"></p>
-              <input class="srform1 Sales" type="button" value="TV탭권유">
-              <input class="srform1 Sales" type="button" value="TV추가권유">
-              <input class="srform1 Sales" type="button" value="TV권유">
-              <input class="srform1 Sales" type="button" value="인터넷권유">
-              <input class="srform1 Sales" type="button" value="인터넷,TV권유">
-              <input class="srform1 Sales" type="button" value="권유/모바일(기변)">
-            
-             </div>
-          </div>
+        <h5 class="drag">메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
         <button id ="btn1">🕑복사</button>
         <div class="dropdown leftmove2 drag" >
             <span class="dropbtn">SR양식</span>
@@ -86,10 +57,34 @@
           </div>
         
           
-        
+         <select class="drag" name="person" id="teamperson">
+            <option  value="" >전산명 &본인사번▼</option>
+            <option  value="meid">본인ID(kos id)</option>
+            <option  value="kos">KOS비번</option>
+            <option  value="atas">ATAS비번</option>
+            <option  value="idms">IDMS비번(넷윈..등)</option>
+            <option  value="wfms">WFMS비번</option>
+         </select>
           <div class="salescount">가설목록</div>
 
-         
+          <div class="dropdown leftmove8 drag" >
+            <span class="dropbtn">말머리</span>
+            <div class="dropdown-content2">
+              <input class="srform1" type="button" value="[감성]"><br>
+              <input class="srform1" type="button" value="[멀]"><br>
+              <input class="srform1" type="button" value="[공동망]">
+              <input class="srform1" type="button" value="[대외/언론언급]">
+              <input class="srform1" type="button" value="[반]">
+              <p>연락처입력▶종류별권유클릭<br>연락처 미입력해도 무관<input class="phoneNumber" type="text" value="" placeholder="                  ◁연락처[형식X]"></p>
+              <input class="srform1 Sales" type="button" value="TV탭권유">
+              <input class="srform1 Sales" type="button" value="TV추가권유">
+              <input class="srform1 Sales" type="button" value="TV권유">
+              <input class="srform1 Sales" type="button" value="인터넷권유">
+              <input class="srform1 Sales" type="button" value="인터넷,TV권유">
+              <input class="srform1 Sales" type="button" value="권유/모바일(기변)">
+              
+             </div>
+          </div>
           <div class="leftmove9 drag"><a href="#"> 메모저장💾</a></div>
           <div class="leftmove10 drag"> <a href="localstrageout.html" onclick="vocbank('localstrageout.html','600');  return false;">메모목록</a> </div>
           <div title="전산명선택->비번메모장입력->비번변경클릭 끝" 
@@ -117,7 +112,7 @@
           </div>
         </div>
 
-    
+       <form name="form">
         <input class='inputtime' type='time' min='00:00' max='23:59'/>
         <input  id="musthidden" style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
         <input style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
@@ -125,14 +120,17 @@
            <input class="leftmove3" id="toggle1" type="button"  value="📘📘" >
            
             <input class="leftmove4 drag" style="cursor:pointer;" type="button" onclick="sample6_execDaumPostcode()" value="주소">
-           
+            <input class="leftmove5 drag" style="cursor:pointer;" type="button" value="그룹📧"
+            onclick="window.open('https://gw.ktcs.co.kr/logon.aspx', '_blank', 'width=1100, height=900' ) ; return false;">
                             
-        
+         </form> 
         </div> 
-        <div class="textarea_container">
+            <div>
+        <div>
             <textarea style="font-size: 11px;font-weight: bold;" class="must" id="must" title="꼭할일&더블클릭" cols="35" rows="20"></textarea>
-            <textarea class="delText" title="비밀번호셋팅창" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
-            <textarea class="delText" id="hidden1" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
+         </div>
+          <textarea class="delText" id="alarmText" cols="40" rows="50" title="비밀번호셋팅창" onKeyUP="javascript:cal_pre();"></textarea> 
+          <textarea class="delText" id="hidden1" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
         </div>
     
     <script>

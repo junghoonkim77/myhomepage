@@ -90,7 +90,7 @@ top : 0px;
 .buttonpack > *{
 
 flex-grow :1;
-
+padding : 0px;
 }
 
 
@@ -165,7 +165,7 @@ color : rgb(166, 196, 221);
 
 .dropdown-content1{display : none;position : absolute;z-index : 1;
 
-background-color: beige;font-size: 8px;width :90px; }
+background-color: beige;font-size: 9px;width :90px; font-weight: bold; }
 
 .dropdown-content1 ol{padding : 2px; }
 

@@ -132,20 +132,21 @@
      <div title="버튼감춤" class="buthidden drag"><a href="#">버튼감춤</a></div>
 
    <input class='inputtime' type='time' min='00:00' max='23:59'/>
+   
+   <input id="musthidden" style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
+   <input id="dailysaver" style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
    <button class="salescount">가설목록</button>
 
      <div class="dropdown leftmove8 drag" >
        <span class="dropbtn1">일과</span>
        <div class="dropdown-content1"></div>
      </div>
-   <input id="musthidden" style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
-   <input id="dailysaver" style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
 </div>   
 
      <div class="textarea_container">
      <textarea style="font-size: 11px;font-weight: bold;" class="must" id="must" title="꼭할일&더블클릭" cols="35" rows="20"></textarea>
-     <textarea class="delText" title="비밀번호셋팅창" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
-     <textarea class="delText" id="hidden1" cols="40" rows="50" onKeyUP="javascript:cal_pre();"></textarea> 
+     <textarea class="delText" title="비밀번호셋팅창" cols="40" rows="35" onKeyUP="javascript:cal_pre();"></textarea> 
+     <textarea class="delText" id="hidden1" cols="40" rows="35" onKeyUP="javascript:cal_pre();"></textarea> 
    </div>
     
     <script>

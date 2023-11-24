@@ -103,8 +103,8 @@ String.prototype.bytes = function() {
 
 $('#musthidden').val(size_check.bytes())
 $('#dailysaver').val(size_check2.bytes())
- document.form.size.value = size_check.bytes();
- document.form.size1.value = size_check2.bytes();
+// document.form.size.value = size_check.bytes();
+// document.form.size1.value = size_check2.bytes();
  
 
  }
@@ -422,25 +422,26 @@ localStorage.setItem('dailywork',$dailywork)
 
 
  // 매일할일에 기존 입력값을 append해서 표시해줌
-
+ // 즉 새로 매일할일을 넣어주는것 
  $('#dailysaver').click(function(){
   $('.dropdown-content1 > *').remove()
   var dailywork = localStorage.getItem('dailywork');
   $('.dropdown-content1').append(dailywork);
  })
 
-  $(document).on('click','.dropdown-content1 ol li',function(){
+
+ $(document).on('click','.dropdown-content1 ol li',function(){
     $(this).remove();
      var testhtml = $('.dropdown-content1').html();
-      localStorage.removeItem('RenewalHtml');
-      localStorage.setItem('RenewalHtml',testhtml);
-      $('.dropdown-content1 > *').remove();
-     $('.dropdown-content1').append(localStorage.getItem('RenewalHtml'));
+     localStorage.removeItem('RenewalHtml');
+     localStorage.setItem('RenewalHtml',testhtml);
+    //  $('.dropdown-content1 > *').remove();
+   //  $('.dropdown-content1').append(localStorage.getItem('RenewalHtml'));
     })
 
     $('.dropdown-content1').append(localStorage.getItem('RenewalHtml'));
 
-    //
+    
 
     
 
