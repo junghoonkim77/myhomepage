@@ -160,6 +160,9 @@ jQuery(function(){
     $('.close_tt').click(function(){
       $('.srnote').css('visibility','hidden');
       $('.srnote_text').val("");
+      $('#buttonpack button').removeClass('blink');
+      $('.ttalarm').css('visibility','hidden');
+      
     })
 
     $('.srnote_text_button').click(function(){

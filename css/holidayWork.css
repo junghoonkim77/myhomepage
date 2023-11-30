@@ -164,7 +164,17 @@ body *:not(h3) {
     100% {background-color: red;}
   }
 
- 
+  /*.srnote{
+    position : sticky;
+    border : 1px solid gray;
+    display : inline-block;
+    width : 526px;
+    height : 395px;
+    bottom : 230px;
+    background-color: white;
+    visibility : hidden;
+    border : 1px solid gray;
+  } */
 
   .srnote{
     position:relative;
@@ -174,6 +184,7 @@ body *:not(h3) {
     bottom : 320px;
     background-color: white;
     border : 1px solid gray;
+    visibility : hidden;
   }
 
   .srnote_text{
