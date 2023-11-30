@@ -1,4 +1,7 @@
-from random import *
+#from random import *
+#import random as ra
+from random import randint
+#print (ra.random())
 
 # print(random()) # 0.0~1.0미만의 임의의 값생성
 # print(random() * 10) 
