@@ -164,15 +164,15 @@ body *:not(h3) {
     100% {background-color: red;}
   }
 
+ 
+
   .srnote{
-    position : sticky;
+    position:relative;
     border : 1px solid gray;
-    display : inline-block;
     width : 526px;
     height : 395px;
-    bottom : 230px;
+    bottom : 320px;
     background-color: white;
-    visibility : hidden;
     border : 1px solid gray;
   }
 
