@@ -1,98 +1,52 @@
-
-.task_gate:hover .task_gate1  {
-
-  display : block;
-
-  position : absolute;
-
-  z-index :1;
-
-}   
-
-
 .task_gate {  /*비번코드 부모태그 */
-
-
-
-z-index :1 ;
-
-}
+  z-index :1 ;
+  }
 
 .task_gate>span{
-
   background-color : yellowgreen;
+ }
 
-  
-
-}
+.task_gate:hover .task_gate1  {
+  display : block;
+  position : absolute;
+  z-index :1;
+}   
 
 .task_gate .task_gate1{
-
   display :none;
-
   z-index : 1;
-
 }
 
 .common:hover {
-
  background-color: aqua;
-
 }
 
+
 .special:hover{
-
 background-color: aqua;
-
 }
 
 
 .font-size input{
-
  /* display :inline-block; */
-
   font-size: 13px;
-
-  background-color: beige;
-
+ background-color: beige;
 }
 
 
-html{
+html{margin :0px;padding :0px;}
 
-margin :0px;
-
-padding :0px;
-
-}
-
+.buttonpack {
+  display : flex;
+  width : 300px;
+  flex-wrap : wrap;
+  position : sticky;
+  top : 0px;}
+  
+.buttonpack > *{flex-grow :1;padding : 0px;}
 
 
 h5 {  width:200px;  padding :0px; margin:2px; }
-
-
-.buttonpack {
-
-display : flex;
-
-width : 300px;
-
-flex-wrap : wrap;
-
-position : sticky;
-
-top : 0px;
-
-
-
-}
-
-.buttonpack > *{
-
-flex-grow :1;
-padding : 0px;
-}
-
 
 
 .leftmove9{font-size: 13px; background-color: aqua;}
@@ -111,10 +65,6 @@ padding : 0px;
 /*검은배경 버튼*/
 
 .leftmove12{font-size: 13px;  background-color:black;}
-
-
-
-
 
 
 textarea{font-size:12px; margin-top:1px;}
@@ -139,15 +89,10 @@ span {font-size : 14px; }
 /*다른 요소들보다 앞에 배치 "SR양식" 부분임*/
 
 .dropbtn {
-
 border :solid 1px gray;
-
 padding : 0 5 0 5 ;
-
 background-color: rgb(36, 85, 148);
-
 color : rgb(166, 196, 221);    
-
 }
 
 .dropdown-content{display : none;position : absolute;z-index : 1;}
@@ -187,38 +132,61 @@ background-color: beige;font-size: 9px;width :90px; font-weight: bold; }
 .del{font-size:12px;background-color: aliceblue; }
 
 
-.buthidden{font-size:12px; background-color: aliceblue;
-
-}
+.buthidden{font-size:12px; background-color: aliceblue;}
 
 
 .butttonshow{background-color:powderblue;display : none;}
 
 
 #dailymust {
-
 background-color: beige;
-
 font-size: 8px ;
-
 font-weight: bold;
-
 line-height:15px;
-
 text-align: left;
-
 }
 
-
-.salescount{  
-
- font-size: 13px ;
-
- background-color: yellow;
-
- cursor : pointer;
-
-}
-
+.salescount{font-size: 13px ; background-color: yellow; cursor : pointer;}
 
 .phoneNumber{cursor : pointer;}
+
+
+.alarmpop{
+  position : absolute;
+  top : 0px;
+  left : 0px;
+  visibility:hidden;
+  display : inline-block;
+  background-color: rgb(230, 238, 113);
+  font-size : 12px;
+  width : 250px;
+  height : 200px;
+  
+  }
+  
+  .alarmpop .xbutton {
+  position : absolute;
+  display : inline-block;
+  left :230px;
+  width : 15px;
+  padding : 0px;
+  
+  
+  }
+  .alarmpop.alrmblink{
+  visibility: visible;
+  z-index :2;
+  animation-name: blink;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  }  
+  
+  @keyframes blink{
+  0% {background-color: rgb(209, 184, 184);}
+  20% {background-color: rgb(188, 221, 69);}
+  40% {background-color: rgb(150, 179, 24);}
+  60% {background-color: rgb(233, 196, 32);}
+  80% {background-color: rgb(233, 169, 32);}
+  100% {background-color: rgb(250, 250, 250);}
+  
+  }

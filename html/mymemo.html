@@ -10,19 +10,17 @@
         <title>메모장</title>
     </head>
     <body>
-     
- <button class="butttonshow">버튼보이기</button>
-
+      <div class="alarmpop">
+        <button title="클릭하면 복사와 창닫기 동시수행" class="xbutton">✖</button>
+    </div>   
+  <button class="butttonshow">버튼보이기</button>
  <select name="person" id="teamperson">
    <option  value="" >전산명▼</option>
    <option  value="meid">본인ID(kos id)</option>
    <option  value="kos">KOS비번</option>
    <option  value="atas">ATAS비번</option>
-
    <option  value="idms">IDMS비번(넷윈..등)</option>
-
    <option  value="wfms">wfms비번</option>
-
  </select>
  <button title="전산명선택->비번메모장입력->비번변경클릭 끝" 
 
@@ -145,7 +143,7 @@
 
      <div class="textarea_container">
      <textarea style="font-size: 11px;font-weight: bold;" class="must" id="must" title="꼭할일&더블클릭" cols="35" rows="20"></textarea>
-     <textarea class="delText" title="비밀번호셋팅창" cols="40" rows="37" onKeyUP="javascript:cal_pre();"></textarea> 
+     <textarea class="delText" id="alarmText" title="비밀번호셋팅창" cols="40" rows="37" onKeyUP="javascript:cal_pre();"></textarea> 
      <textarea class="delText" id="hidden1" cols="40" rows="37" onKeyUP="javascript:cal_pre();"></textarea> 
    </div>
     
@@ -200,6 +198,7 @@
       
   </script>
   <script src="../java/memo.js"></script>
+  <script src="../java/library.js"></script>
   <script src="../java/voc_bank.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>

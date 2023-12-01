@@ -40,7 +40,6 @@ html{margin :0px;padding :0px;}
 .buttonpack > *{  flex-grow :1; }
   
 
-
 h5 {width:200px;padding :0px;margin : 2px;}
 
 .leftmove1{padding:0px;}
@@ -66,9 +65,7 @@ textarea{font-size:12px;}
 textarea.black{font-size:12px;background-color: black;color : white;}
 
 
-span {
-font-size : 14px;
-  }
+span {font-size : 14px; }
   
   /*다른 요소들보다 앞에 배치*/
 .dropdown-content{display : none;position : absolute;z-index : 1; 
