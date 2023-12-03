@@ -20,7 +20,7 @@ def btncmd():
     #삭제 listbox.delete(END) 
     #END는맨뒤에 항목을 삭제
     #0은 맨 앞에 항목을 삭제
-    #print('리스트에는',listbox.size(),"개가 있어요")
+    print('리스트에는',listbox.size(),"개가 있어요")
     #항목확인 (시작idx , 끝idx)
     #print('1번째부터 3번째까지의 항목은: ',listbox.get(0,2))
     #선택된 항목 확인 (위치로 반환 ex 1,2,3)

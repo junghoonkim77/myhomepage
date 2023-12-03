@@ -11,7 +11,7 @@ txt.pack()
 
 txt.insert(END,"글자를 입력하세요")
 
-e=Entry(root,width=30) #한줄로 짧게 아이디나 비번등을 입력할때 사용
+e=Entry(root,width=30,justify="right") #한줄로 짧게 아이디나 비번등을 입력할때 사용
 e.pack()
 e.insert(0,"한줄만 입력하세요")
 

@@ -1,20 +1,20 @@
-# class Home:
+class Home:
 
-#   def __init__(self, hoon, jjoo, jjun, eun):
-#     self.hoon = hoon
-#     self.jjoo = jjoo
-#     self.jjun = jjun
-#     self.eun = eun
+  def __init__(self, hoon, jjoo, jjun, eun):
+    self.hoon = hoon
+    self.jjoo = jjoo
+    self.jjun = jjun
+    self.eun = eun
 
-#   def charac(self, cha1, cha2, cha3, cha4):
-#     print('{0}의 성격은 :{1}'.format(self.hoon, cha1))
-#     print('{0}의 성격은 :{1}'.format(self.jjoo, cha2))
-#     print('{0}의 성격은 :{1}'.format(self.jjun, cha3))
-#     print('{0}의 성격은 :{1}'.format(self.eun, cha4))
+  def charac(self, cha1, cha2, cha3, cha4):
+    print('{0}의 성격은 :{1}'.format(self.hoon, cha1))
+    print('{0}의 성격은 :{1}'.format(self.jjoo, cha2))
+    print('{0}의 성격은 :{1}'.format(self.jjun, cha3))
+    print('{0}의 성격은 :{1}'.format(self.eun, cha4))
 
 
-# home = Home('김정훈', '김주남', '김기준', '김기은')
-# home.charac('개판', '하늘이 내린 성격', '인생최고의 선물', '인생최고의 선물2')
+home = Home('김정훈', '김주남', '김기준', '김기은')
+home.charac('개판', '하늘이 내린 성격', '인생최고의 선물', '인생최고의 선물2')
 
 
 # class Family(Home):
