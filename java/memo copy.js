@@ -3,7 +3,8 @@ var textare_color = document.querySelectorAll('textarea') ;
 const clock = document.querySelector('.h1-clock');
 //const setTime = document.querySelector('.inputtime');
 
-
+console.log($('.alarm_memo'));
+console.log($('.inputtime'));
 
 // 알람시간 입력하고 포인트 벗어나면 할일들 
 
@@ -12,12 +13,14 @@ const clock = document.querySelector('.h1-clock');
 var $alarm_list = $('.inputtime')
 $alarm_list.blur(function(){
   var timeVal = $(this).val();
+  console.log($(this).index())
   var $alarmKey = $(this).attr('date-num');  
   localStorage.setItem($alarmKey,timeVal);
   var alarmval = $('#alarmText').val()
   localStorage.setItem('alarmval',alarmval)
   $('.alarmpop').append(localStorage.getItem('alarmval'));
   })
+
 
   for ( var i=1 ; i<5 ; i++){
     var $alarmTime = localStorage.getItem('input_time'+i);
