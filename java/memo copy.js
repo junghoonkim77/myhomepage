@@ -3,29 +3,36 @@ var textare_color = document.querySelectorAll('textarea') ;
 const clock = document.querySelector('.h1-clock');
 //const setTime = document.querySelector('.inputtime');
 
-console.log($('.alarm_memo'));
-console.log($('.inputtime'));
 
 // 알람시간 입력하고 포인트 벗어나면 할일들 
 
 //var $alarm_list = $('.alarm-list ol li > input');
 
+var $alarmobject ={};
 var $alarm_list = $('.inputtime')
 $alarm_list.blur(function(){
   var timeVal = $(this).val();
-  console.log($(this).index())
-  var $alarmKey = $(this).attr('date-num');  
-  localStorage.setItem($alarmKey,timeVal);
-  var alarmval = $('#alarmText').val()
-  localStorage.setItem('alarmval',alarmval)
-  $('.alarmpop').append(localStorage.getItem('alarmval'));
+  var timeValidx = $(this).index();
+  var $alarmKey = $(this).attr('class')+timeValidx
+  $alarmobject[$alarmKey] = timeVal
+  var alarmobjString =JSON.stringify($alarmobject)
+  console.log(alarmobjString);
+  localStorage.setItem('$alarmString',alarmobjString);
+
+ // var alarmval = $('#alarmText').val()
+ // localStorage.setItem('alarmval',alarmval)
+ // $('.alarmpop').append(localStorage.getItem('alarmval'));
   })
+  const $alarmobjParse = JSON.parse(localStorage.getItem('$alarmString'))
+  
+  const inputEq = 0
+  $.each($alarmobjParse,function(key,val){
+    $(`#inputtime${inputEq}`).val(val);
+    inputEq++
+  })
+  
+ 
 
-
-  for ( var i=1 ; i<5 ; i++){
-    var $alarmTime = localStorage.getItem('input_time'+i);
-  $('.input_time'+i).val($alarmTime);
-  }
   
   const setTime1 = $('.input_time1').val();
   const setTime2 = $('.input_time2').val();
@@ -216,6 +223,7 @@ $(function(){
       } else{
         $('.task_gate1').css('display','none');
       }
+      
   });
 
 

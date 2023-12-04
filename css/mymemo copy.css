@@ -32,7 +32,9 @@ background-color: aqua;
   font-size: 13px;
  background-color: beige;
 }
-
+.inputtime{
+  height :17px;
+}
 
 html{margin :0px;padding :0px;}
 
@@ -203,13 +205,12 @@ text-align: left;
     display : flex;
     
   }
-  .alarm-list:nth-child(1) input{
+  .alarm-list:nth-child(1){
     flex-grow : 1;
     padding : 0px;
     margin : 0px;
-    height : 21px;
-    
-  }
+   }
+
 
   .alarm-list:nth-child(2){
     flex-grow : 1;
@@ -223,6 +224,12 @@ text-align: left;
     display : flex;
     flex-direction: column;
     justify-content:space-evenly;
+    
+  }
+
+  .alarm_memo{ width : 160px;   }
+  .alarmX {font-size:9px;
+  height :21px;
   }
   
   
