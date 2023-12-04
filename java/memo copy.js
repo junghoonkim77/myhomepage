@@ -25,10 +25,10 @@ $alarm_list.blur(function(){
   })
   const $alarmobjParse = JSON.parse(localStorage.getItem('$alarmString'))
   
-  const inputEq = 0
+  
   $.each($alarmobjParse,function(key,val){
-    $(`#inputtime${inputEq}`).val(val);
-    inputEq++
+    $(`#${key}`).val(val);
+    
   })
   
  
