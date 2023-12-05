@@ -46,7 +46,8 @@ h5 {width:200px;padding :0px;margin : 2px;}
 .leftmove3 {padding:0px;}
 .leftmove4 {padding:0px;}
 .leftmove5 {padding:0px;}
-.leftmove9{font-size: 13px;background-color: aqua;padding:0px;}
+.leftmove9{font-size: 13px;
+  background-color: aqua;padding:0px; cursor:pointer;}
 
 .leftmove10{font-size: 13px; background-color:orange;padding:0px;}
 
