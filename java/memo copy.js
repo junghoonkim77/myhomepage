@@ -65,7 +65,7 @@ for (let i=0; i<conditions.length; i++){
   //  $('body').css('background-color','tomato');
   //  $('.alarmpop').addClass('alrmblink');
   console.log ($alarmobjParse ) 
-  delete $alarmobjParse[names[i]];
+  console.log(names[i] ) 
   console.log ($alarmobjParse ) 
  //  var alarmobjString =JSON.stringify($alarmobjParse)
   // localStorage.setItem('$alarmString',alarmobjString);
