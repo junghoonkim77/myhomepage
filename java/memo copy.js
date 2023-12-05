@@ -19,22 +19,29 @@ $alarm_list.blur(function(){
   var timeVal = $(this).val();
   var timeValidx = $(this).index();
   var $alarmKey = $(this).attr('class')+timeValidx
-  $alarmobject[$alarmKey] = timeVal
-  var alarmobjString =JSON.stringify($alarmobject)
-  console.log(alarmobjString);
-  localStorage.setItem('$alarmString',alarmobjString);
-
- // var alarmval = $('#alarmText').val()
- // localStorage.setItem('alarmval',alarmval)
- // $('.alarmpop').append(localStorage.getItem('alarmval'));
+  localStorage.setItem($alarmKey ,timeVal );
+ 
   })
-  const $alarmobjParse = JSON.parse(localStorage.getItem('$alarmString'))
-  
-  
-  $.each($alarmobjParse,function(key,val){
+ 
+ $.each(localStorage,function(key,val){
+  if(key.slice(0,9)=="inputtime"){
     $(`#${key}`).val(val);
-    })
-  
+  }
+ })
+//알람메모 저장하기 
+
+const alarm_memo ={}
+$('.alarm_memo').blur(function(){
+ const alarmKey = $(this).attr('id'); 
+ const alarm_memoVal = $(this).val();
+ alarm_memo[alarmKey]=alarm_memoVal
+ const $alarm_memo = JSON.stringify(alarm_memo);
+ localStorage.setItem('alarmMemo',$alarm_memo);
+})
+ const $alarm_memo1 =JSON.parse(localStorage.getItem('alarmMemo'))
+ 
+
+//알람 시간 맞추기  
   
 function getAlarm()
 {  
@@ -59,21 +66,17 @@ const cond4 = current == setTime4;
 const conditions = [cond1, cond2, cond3, cond4];
 const names = {0: "inputtime0", 1: "inputtime1", 2: "inputtime2", 3: "inputtime3"}
 
+// 시간이 맞으면 로컬스토리지 값과 시간 밸류를 지움 
 for (let i=0; i<conditions.length; i++){
   if(conditions[i]){
     
-  //  $('body').css('background-color','tomato');
-  //  $('.alarmpop').addClass('alrmblink');
-  console.log ($alarmobjParse ) 
-  console.log(names[i] ) 
-  console.log ($alarmobjParse ) 
- //  var alarmobjString =JSON.stringify($alarmobjParse)
-  // localStorage.setItem('$alarmString',alarmobjString);
- //  $alarmobjParse =JSON.parse(localStorage.getItem('$alarmString'));
-  // $.each($alarmobjParse,function(key,val){
-  //  $(`#${key}`).val(val);
-  //  })
-  }
+    $('body').css('background-color','tomato');
+    $('.alarmpop').addClass('alrmblink');
+    console.log($alarm_memo1['alarm_memo1'])
+    $('.alarmpop').append($alarm_memo1['alarm_memo1'])
+    $(`#${names[i]}`).val(""); 
+    localStorage.removeItem(names[i]);
+   }
   } //바로 위에 for문
  } //getAlarm 함수끝임
 
@@ -81,11 +84,9 @@ for (let i=0; i<conditions.length; i++){
 
 
 $('.xbutton').click(function(){
-  $lib.clipcopy(localStorage.getItem('alarmval'))
   $('.alarmpop').removeClass('alrmblink');
   $('body').css('background-color','white');
-    $('.inputtime').val("");
-    localStorage.removeItem('alarmTime');
+  
 })
 
 
@@ -194,9 +195,6 @@ let SRarray =
 
 
 $(function(){
-
- 
-
 
   // 체크박스 체크하면 parent node지우는 코드
  /* let check = $('label input:checkbox')
