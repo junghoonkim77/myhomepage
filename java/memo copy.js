@@ -62,11 +62,17 @@ const names = {0: "inputtime0", 1: "inputtime1", 2: "inputtime2", 3: "inputtime3
 for (let i=0; i<conditions.length; i++){
   if(conditions[i]){
     
-    $('body').css('background-color','tomato');
-    $('.alarmpop').addClass('alrmblink');
-   delete $alarmobjParse[names[i]];
-   var alarmobjString =JSON.stringify($alarmobjParse)
-   localStorage.setItem('$alarmString',alarmobjString);
+  //  $('body').css('background-color','tomato');
+  //  $('.alarmpop').addClass('alrmblink');
+  console.log ($alarmobjParse ) 
+  delete $alarmobjParse[names[i]];
+  console.log ($alarmobjParse ) 
+ //  var alarmobjString =JSON.stringify($alarmobjParse)
+  // localStorage.setItem('$alarmString',alarmobjString);
+ //  $alarmobjParse =JSON.parse(localStorage.getItem('$alarmString'));
+  // $.each($alarmobjParse,function(key,val){
+  //  $(`#${key}`).val(val);
+  //  })
   }
   } //바로 위에 for문
  } //getAlarm 함수끝임
