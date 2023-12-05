@@ -1,7 +1,12 @@
+//알람 시간이 되면 색깔을 변경하기
+/*if(current == setValue)
+{ textare_color[0].style.backgroundColor ='tomato';
+textare_color[1].style.backgroundColor ='tomato';
+}} */
+// 알람시간이 되면 알람창이 팝업되고 전체 색깔을 바꾸는 코드
 
 var textare_color = document.querySelectorAll('textarea') ; 
 const clock = document.querySelector('.h1-clock');
-//const setTime = document.querySelector('.inputtime');
 
 
 // 알람시간 입력하고 포인트 벗어나면 할일들 
@@ -28,37 +33,45 @@ $alarm_list.blur(function(){
   
   $.each($alarmobjParse,function(key,val){
     $(`#${key}`).val(val);
-    
-  })
+    })
   
- 
-
   
-  const setTime1 = $('.input_time1').val();
-  const setTime2 = $('.input_time2').val();
-  const setTime3 = $('.input_time3').val();
-  const setTime4 = $('.input_time4').val();
-  console.log(setTime1,setTime2,setTime3,setTime4);
-
 function getAlarm()
-{  const setValue = setTime.value; 
+{  
+const $setTime1 = $('#inputtime0');
+const $setTime2 = $('#inputtime1');
+const $setTime3 = $('#inputtime2');
+const $setTime4 = $('#inputtime3');
+
+const setTime1 = $setTime1.val();
+const setTime2 = $setTime2.val();
+const setTime3 = $setTime3.val();
+const setTime4 = $setTime4.val();
+
 const date = new Date();  
 const hours = date.getHours();  
 const minute = date.getMinutes();  
 const current = `${hours < 10 ? `0${hours}` : hours}:${minute < 10 ? `0${minute}` : minute}`;
+const cond1 = current == setTime1;
+const cond2 = current == setTime2;
+const cond3 = current == setTime3;
+const cond4 = current == setTime4;
+const conditions = [cond1, cond2, cond3, cond4];
+const names = {0: "inputtime0", 1: "inputtime1", 2: "inputtime2", 3: "inputtime3"}
+
+for (let i=0; i<conditions.length; i++){
+  if(conditions[i]){
+      
+   { $('body').css('background-color','tomato');
+    $('.alarmpop').addClass('alrmblink');
+   delete $alarmobjParse.names[i];
+   var alarmobjString =JSON.stringify($alarmobjParse)
+   localStorage.setItem('$alarmString',alarmobjString);
+  }}
+  }
+ } //getAlarm 함수끝임
 
 
-//알람 시간이 되면 색깔을 변경하기
-/*if(current == setValue)
-{ textare_color[0].style.backgroundColor ='tomato';
-textare_color[1].style.backgroundColor ='tomato';
-}} */
-// 알람시간이 되면 알람창이 팝업되고 전체 색깔을 바꾸는 코드
-
-if(current == setValue)
-{ $('body').css('background-color','tomato');
-  $('.alarmpop').addClass('alrmblink');
-}}
 
 
 $('.xbutton').click(function(){
