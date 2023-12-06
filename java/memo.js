@@ -83,6 +83,13 @@ for (let i=0; i<conditions.length; i++){
   } //바로 위에 for문
  } //getAlarm 함수끝임
 
+   const memoDisplay= JSON.parse(localStorage.getItem('alarmMemo'))
+   var meidx = 0
+   for ( $k in memoDisplay){
+    $('#alarm_memo'+meidx).val(memoDisplay[$k]);
+    meidx++
+   }
+
 
 $('.xbutton').click(function(){
   $('.alarmpop').removeClass('alrmblink');
