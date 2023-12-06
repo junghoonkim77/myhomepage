@@ -30,7 +30,7 @@ $alarm_list.blur(function(){
  })
 //알람메모 저장하기 
 
-const alarm_memo ={}
+const alarm_memo ={'alarm_memo0':'.','alarm_memo1':'.','alarm_memo2':'.','alarm_memo3':'.'}
 $('.alarm_memo').blur(function(){
  const alarmKey = $(this).attr('id'); 
  const alarm_memoVal = $(this).val();
@@ -38,13 +38,13 @@ $('.alarm_memo').blur(function(){
  const $alarm_memo = JSON.stringify(alarm_memo);
  localStorage.setItem('alarmMemo',$alarm_memo);
 })
- const $alarm_memo1 =JSON.parse(localStorage.getItem('alarmMemo'))
+// const $alarm_memo1 =JSON.parse(localStorage.getItem('alarmMemo'))
  
 
 //알람 시간 맞추기  
   
 function getAlarm()
-{  
+{  const $alarm_memo1 =JSON.parse(localStorage.getItem('alarmMemo'))
 const $setTime1 = $('#inputtime0');
 const $setTime2 = $('#inputtime1');
 const $setTime3 = $('#inputtime2');
@@ -65,22 +65,23 @@ const cond3 = current == setTime3;
 const cond4 = current == setTime4;
 const conditions = [cond1, cond2, cond3, cond4];
 const names = {0: "inputtime0", 1: "inputtime1", 2: "inputtime2", 3: "inputtime3"}
-
+const names1 = {0: "alarm_memo0", 1: "alarm_memo1", 2: "alarm_memo2", 3: "alarm_memo3"}
 // 시간이 맞으면 로컬스토리지 값과 시간 밸류를 지움 
 for (let i=0; i<conditions.length; i++){
   if(conditions[i]){
     
     $('body').css('background-color','tomato');
     $('.alarmpop').addClass('alrmblink');
-    console.log($alarm_memo1['alarm_memo1'])
-    $('.alarmpop').append($alarm_memo1['alarm_memo1'])
+    console.log(i);
+    console.log(names1[i]);
+   // console.log($alarm_memo1[names1[i]])
+   $('.alarmpop pre').remove()
+    $('.alarmpop').append(`<pre>${$alarm_memo1[names1[i]]}</pre>`)
     $(`#${names[i]}`).val(""); 
     localStorage.removeItem(names[i]);
    }
   } //바로 위에 for문
  } //getAlarm 함수끝임
-
-
 
 
 $('.xbutton').click(function(){
@@ -461,7 +462,7 @@ $(function(){
 </ol>`
 
 
-localStorage.setItem('dailywork',$dailywork)
+
 
 
 
@@ -469,6 +470,7 @@ localStorage.setItem('dailywork',$dailywork)
  // 즉 새로 매일할일을 넣어주는것 
  $('#dailysaver').click(function(){
   $('.dropdown-content1 > *').remove()
+  localStorage.setItem('dailywork',$dailywork)
   var dailywork = localStorage.getItem('dailywork');
   $('.dropdown-content1').append(dailywork);
  })

@@ -1,32 +1,3 @@
-
-var textare_color = document.querySelectorAll('textarea') ; 
-const clock = document.querySelector('.h1-clock');
-const setTime = document.querySelector('.inputtime');
-
-
-// 알람시간 입력하고 포인트 벗어나면 할일들 
-
-$('.inputtime').blur(function(){
-  var timeVal = $(this).val();
-  localStorage.setItem('alarmTime',timeVal);
-  var alarmval = $('#alarmText').val()
-  localStorage.setItem('alarmval',alarmval)
-  $('.alarmpop').append(localStorage.getItem('alarmval'));
-  })
-
-
-  var $alarmTime = localStorage.getItem('alarmTime');
-  $('.inputtime').val($alarmTime);
-
-
-function getAlarm()
-{  const setValue = setTime.value; 
-const date = new Date();  
-const hours = date.getHours();  
-const minute = date.getMinutes();  
-const current = `${hours < 10 ? `0${hours}` : hours}:${minute < 10 ? `0${minute}` : minute}`;
-
-
 //알람 시간이 되면 색깔을 변경하기
 /*if(current == setValue)
 { textare_color[0].style.backgroundColor ='tomato';
@@ -34,18 +5,89 @@ textare_color[1].style.backgroundColor ='tomato';
 }} */
 // 알람시간이 되면 알람창이 팝업되고 전체 색깔을 바꾸는 코드
 
-if(current == setValue)
-{ $('body').css('background-color','tomato');
-  $('.alarmpop').addClass('alrmblink');
-}}
+var textare_color = document.querySelectorAll('textarea') ; 
+const clock = document.querySelector('.h1-clock');
+
+
+// 알람시간 입력하고 포인트 벗어나면 할일들 
+
+//var $alarm_list = $('.alarm-list ol li > input');
+
+var $alarmobject ={};
+var $alarm_list = $('.inputtime')
+$alarm_list.blur(function(){
+  var timeVal = $(this).val();
+  var timeValidx = $(this).index();
+  var $alarmKey = $(this).attr('class')+timeValidx
+  localStorage.setItem($alarmKey ,timeVal );
+ 
+  })
+ 
+ $.each(localStorage,function(key,val){
+  if(key.slice(0,9)=="inputtime"){
+    $(`#${key}`).val(val);
+  }
+ })
+//알람메모 저장하기 
+
+const alarm_memo ={'alarm_memo0':'.','alarm_memo1':'.','alarm_memo2':'.','alarm_memo3':'.'}
+$('.alarm_memo').blur(function(){
+ const alarmKey = $(this).attr('id'); 
+ const alarm_memoVal = $(this).val();
+ alarm_memo[alarmKey]=alarm_memoVal
+ const $alarm_memo = JSON.stringify(alarm_memo);
+ localStorage.setItem('alarmMemo',$alarm_memo);
+})
+// const $alarm_memo1 =JSON.parse(localStorage.getItem('alarmMemo'))
+ 
+
+//알람 시간 맞추기  
+  
+function getAlarm()
+{  const $alarm_memo1 =JSON.parse(localStorage.getItem('alarmMemo'))
+const $setTime1 = $('#inputtime0');
+const $setTime2 = $('#inputtime1');
+const $setTime3 = $('#inputtime2');
+const $setTime4 = $('#inputtime3');
+
+const setTime1 = $setTime1.val();
+const setTime2 = $setTime2.val();
+const setTime3 = $setTime3.val();
+const setTime4 = $setTime4.val();
+
+const date = new Date();  
+const hours = date.getHours();  
+const minute = date.getMinutes();  
+const current = `${hours < 10 ? `0${hours}` : hours}:${minute < 10 ? `0${minute}` : minute}`;
+const cond1 = current == setTime1;
+const cond2 = current == setTime2;
+const cond3 = current == setTime3;
+const cond4 = current == setTime4;
+const conditions = [cond1, cond2, cond3, cond4];
+const names = {0: "inputtime0", 1: "inputtime1", 2: "inputtime2", 3: "inputtime3"}
+const names1 = {0: "alarm_memo0", 1: "alarm_memo1", 2: "alarm_memo2", 3: "alarm_memo3"}
+// 시간이 맞으면 로컬스토리지 값과 시간 밸류를 지움 
+for (let i=0; i<conditions.length; i++){
+  if(conditions[i]){
+    
+    $('body').css('background-color','tomato');
+    $('.alarmpop').addClass('alrmblink');
+    console.log(i);
+    console.log(names1[i]);
+   // console.log($alarm_memo1[names1[i]])
+   $('.alarmpop pre').remove()
+    $('.alarmpop').append(`<pre>${$alarm_memo1[names1[i]]}</pre>`)
+    $(`#${names[i]}`).val(""); 
+    localStorage.removeItem(names[i]);
+   }
+  } //바로 위에 for문
+ } //getAlarm 함수끝임
 
 
 $('.xbutton').click(function(){
-  $lib.clipcopy(localStorage.getItem('alarmval'))
   $('.alarmpop').removeClass('alrmblink');
   $('body').css('background-color','white');
-    $('.inputtime').val("");
-    localStorage.removeItem('alarmTime');
+  
 })
 
 
@@ -65,6 +107,11 @@ setInterval(getTime, 20000);
 alarm = setInterval(getAlarm, 20000);
 }
 init();
+
+//멀티 알람정보 입력창 toggle 메소드 적용
+$('.alarm-gateName').on('click',function(){
+  $('.alarm-list').toggle();
+})
 
 
 
@@ -150,9 +197,6 @@ let SRarray =
 
 $(function(){
 
- 
-
-
   // 체크박스 체크하면 parent node지우는 코드
  /* let check = $('label input:checkbox')
   console.log(check.parent().parent());
@@ -197,6 +241,7 @@ $(function(){
       } else{
         $('.task_gate1').css('display','none');
       }
+      
   });
 
 
@@ -417,7 +462,7 @@ $(function(){
 </ol>`
 
 
-localStorage.setItem('dailywork',$dailywork)
+
 
 
 
@@ -425,6 +470,7 @@ localStorage.setItem('dailywork',$dailywork)
  // 즉 새로 매일할일을 넣어주는것 
  $('#dailysaver').click(function(){
   $('.dropdown-content1 > *').remove()
+  localStorage.setItem('dailywork',$dailywork)
   var dailywork = localStorage.getItem('dailywork');
   $('.dropdown-content1').append(dailywork);
  })

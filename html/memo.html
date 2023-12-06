@@ -95,14 +95,28 @@
              
             </div>
           </div>
-        
-          
-        
+              
           <div class="salescount">가설목록</div>
           <div title="눈이피로할때" class="leftmove12 drag"><a href="#" style="color:white;">야간</a></div>
          
               
-        <input class='inputtime' type='time' min='00:00' max='23:59'/>
+          <div class="dropdown-alarmGate" >
+            <span class="alarm-gateName">멀티알람설정</span>
+            <div class="alarm-list" style="display:none" >
+              <div>
+                <input class='inputtime' id="inputtime0"  type='time' min='08:00' max='19:59'/>
+                <input class='inputtime' id="inputtime1"  type='time' min='08:00' max='19:59'/>
+                <input class='inputtime' id="inputtime2"  type='time' min='08:00' max='19:59'/>
+                <input class='inputtime' id="inputtime3"  type='time' min='08:00' max='19:59'/>
+             </div>
+               <div>
+                <input type="text" class="alarm_memo" id="alarm_memo0" placeholder="1.알람메모">
+                <input type="text" class="alarm_memo" id="alarm_memo1" placeholder="2.알람메모">
+                <input type="text" class="alarm_memo" id="alarm_memo2" placeholder="3.알람메모">
+                <input type="text" class="alarm_memo" id="alarm_memo3" placeholder="4.알람메모">
+               </div> 
+        </div>
+        </div>
         <input  id="musthidden" style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
         <input id="dailysaver" style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
         <div class="task_gate drag">
@@ -122,7 +136,7 @@
       <input data-code="wfms" class="special" type="button" value="WFMS비번">  
             </div>
           </div>
-        
+        </div>
            
             
            
@@ -186,7 +200,7 @@
       
   </script>
   <script src="../java/library.js"></script>
-  <script src="../java/memo.js"></script>
+  <script src="../java/../java/memo.js"></script>
   <script src="../java/voc_bank.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>

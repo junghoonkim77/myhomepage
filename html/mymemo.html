@@ -129,7 +129,32 @@
      <div title="눈이피로할때" class="leftmove12 drag"><a href="#">야간</a></div>
      <div title="버튼감춤" class="buthidden drag"><a href="#">버튼감춤</a></div>
 
-   <input class='inputtime' type='time' min='00:00' max='23:59'/>
+   <!--<input class='inputtime' type='time' min='00:00' max='23:59'/> -->
+   <div class="dropdown-alarmGate" >
+    <span class="alarm-gateName">멀티알람설정</span>
+    <div class="alarm-list" style="display:none" >
+      <div>
+        <input class='inputtime' id="inputtime0"  type='time' min='08:00' max='19:59'/>
+        <input class='inputtime' id="inputtime1"  type='time' min='08:00' max='19:59'/>
+        <input class='inputtime' id="inputtime2"  type='time' min='08:00' max='19:59'/>
+        <input class='inputtime' id="inputtime3"  type='time' min='08:00' max='19:59'/>
+     </div>
+       <div>
+        <input type="text" class="alarm_memo" id="alarm_memo0" placeholder="1.알람메모">
+        <input type="text" class="alarm_memo" id="alarm_memo1" placeholder="2.알람메모">
+        <input type="text" class="alarm_memo" id="alarm_memo2" placeholder="3.알람메모">
+        <input type="text" class="alarm_memo" id="alarm_memo3" placeholder="4.알람메모">
+       </div> 
+     <!--  <div>
+        <button class="alarmX">X</button>
+        <button class="alarmX">X</button>
+        <button class="alarmX">X</button>
+        <button class="alarmX">X</button>
+       </div> --> 
+        
+      
+    </div>
+  </div>
    
    <input id="musthidden" style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
    <input id="dailysaver" style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
