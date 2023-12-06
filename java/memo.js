@@ -103,8 +103,8 @@ clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:min
 
 
 function init(){
-setInterval(getTime, 20000);
-alarm = setInterval(getAlarm, 20000);
+setInterval(getTime, 1000);
+alarm = setInterval(getAlarm, 1000);
 }
 init();
 
