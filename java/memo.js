@@ -92,6 +92,7 @@ for (let i=0; i<conditions.length; i++){
 
 
 $('.xbutton').click(function(){
+  $lib.clipcopy($('.alarmpop pre').text()); 
   $('.alarmpop').removeClass('alrmblink');
   $('body').css('background-color','white');
   
