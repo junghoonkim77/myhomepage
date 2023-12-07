@@ -364,12 +364,13 @@ $(function(){
   
 
           $('.leftmove9').click(function(s){
-             s.preventDefault();
+             
              $('.delText').each(function(e){
               keyname();
+              var sortIdx = localStorage.length;
               var ival = keyvalue[0];
               $textareaValue.push($('.delText').eq(e).val()) ; 
-              localStorage.setItem(ival+e,$textareaValue[e]);
+              localStorage.setItem('MEMO'+ival+sortIdx,$textareaValue[e]);
               keyvalue.length = 0
              })
              $textareaValue.length = 0;             
