@@ -1,6 +1,0 @@
-list.txt
-
-
-.jpg
-
-
