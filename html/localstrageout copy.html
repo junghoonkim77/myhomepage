@@ -42,20 +42,24 @@
   
  <script>
     jQuery(function(){
+        class LocalObj {
+            constructor(_$num,_$localval){
+             this.$num = _$num;
+             this.$localval =_$localval
+            }
+        }
+
         
-        var savedValues = Object.values(localStorage);
         var $dblength = localStorage.length;
-        var $idxstart= 0 ;
-        for ( var values of savedValues){
-           var $dbkey = localStorage.key($idxstart);
-           var $memoDbkey =  $dbkey.slice(0,4);
+        var $dbArr =[];
+        for ( var localkey in localStorage){
+           var $memoDbkey =  localkey.slice(0,4);
+           var values = localStorage.getItem(localkey);
+            console.log(values); console.log($memoDbkey)
+           //if(values !=="" && $memoDbkey=="MEMO"){
+           // new LocalObj($localval,$memoDbkey)
            
-           if(values !=="" && $memoDbkey=="MEMO"){
-            $('.div2').
-           append(`<button class="delkey">삭제[${$idxstart}]</button><div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
-            <div class="contents"><a href="#">${values}</a></div></div><br>`);
-           $idxstart++
-             }  
+            // }  
         }
         /*
         var $delkey =$('.delkey');      
