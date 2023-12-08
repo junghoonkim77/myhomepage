@@ -54,14 +54,31 @@
         var $dbArr =[];
         for ( var localkey in localStorage){
            var $memoDbkey =  localkey.slice(0,4);
+           var $numKey = localkey.slice(4,localkey.indexOf('^'));
            var values = localStorage.getItem(localkey);
-            console.log(values); console.log($memoDbkey)
-           //if(values !=="" && $memoDbkey=="MEMO"){
-           // new LocalObj($localval,$memoDbkey)
-           
-            // }  
-        }
-        /*
+            if(values !=="" && $memoDbkey=="MEMO"){
+             $dbArr.push(new LocalObj($numKey,values) ) ;
+              }  
+        } // for문 끝 
+
+            $dbArr.sort((a,b)=>a['$num']-b['$num'])
+            
+            for ( var i =0 ; i<$dbArr.length; i++){
+            $('.div2').
+           append(`
+            <button class="delkey">삭제[${idx}]</button>
+            <div class="srvalue">
+            <div style="color:blue;font-weight: bold;">순서[${val.$num}] 제목 :${val.$localval}</div>
+            <div class="contents" style="cursor:pointer">${val}</div>
+            </div><br>
+            `);  
+            }
+            
+            
+            
+      
+
+        
         var $delkey =$('.delkey');      
         $delkey.click(function(){
             var $delkeyIdx = $(this).index('.delkey');
@@ -71,7 +88,7 @@
             localStorage.removeItem($deldb);
             location.reload();
         })
-         */
+         
 
          var $delkey =$('.delkey');      
         $delkey.click(function(){
@@ -93,7 +110,7 @@
          })
 
 
-        $('.but3').click(function(){
+       /* $('.but3').click(function(){
             
             const $keyname = []
             const $notdel =['meid','kos','atas','idms','wfms','must','dailymust',
@@ -104,10 +121,9 @@
                 }else{
                     localStorage.removeItem($key);
                 }
-                
-            }
+             }
             location.reload();
-         })
+         }) */
         
          var $content = $('.contents');
          $content.click(function(){
@@ -121,10 +137,7 @@
             }
             
          }
-          
-         
-
-    })
+     })
  </script>
 
 </body>

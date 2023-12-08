@@ -362,18 +362,20 @@ $(function(){
             }
 
   
-
+           var $LocalIdx = 0;
           $('.leftmove9').click(function(s){
-             
-             $('.delText').each(function(e){
+            localStorage.setItem('$memoSort',$LocalIdx++)
+            var LocalIdx = localStorage.getItem('$memoSort')
+              $('.delText').each(function(e){
               keyname();
-              var sortIdx = localStorage.length;
               var ival = keyvalue[0];
               $textareaValue.push($('.delText').eq(e).val()) ; 
-              localStorage.setItem('MEMO'+ival+sortIdx,$textareaValue[e]);
+              localStorage.setItem('MEMO'+LocalIdx+'^'+ival+e,$textareaValue[e]);
+
               keyvalue.length = 0
              })
-             $textareaValue.length = 0;             
+             $textareaValue.length = 0;
+             ;            
              })
 
 
