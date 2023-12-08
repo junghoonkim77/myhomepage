@@ -66,14 +66,14 @@
             for ( var i =0 ; i<$dbArr.length; i++){
             $('.div2').
            append(`
-            <button class="delkey">삭제[${idx}]</button>
+            <button class="delkey">삭제[${i}]</button>
             <div class="srvalue">
-            <div style="color:blue;font-weight: bold;">순서[${val.$num}] 제목 :${val.$localval}</div>
-            <div class="contents" style="cursor:pointer">${val}</div>
+            <div style="color:blue;font-weight: bold;">순서[${i}] 제목 :${$dbArr[i].$localval.slice(0,4)}</div>
+            <div class="contents" style="cursor:pointer">${$dbArr[i].$localval}</div>
             </div><br>
             `);  
             }
-            
+            console.log($dbArr);
             
             
       
