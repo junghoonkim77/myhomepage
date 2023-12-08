@@ -362,7 +362,7 @@ $(function(){
             }
 
   
-           var $LocalIdx = 0;
+            var $LocalIdx = 0;
           $('.leftmove9').click(function(s){
             localStorage.setItem('$memoSort',$LocalIdx++)
             var LocalIdx = localStorage.getItem('$memoSort')
@@ -372,11 +372,14 @@ $(function(){
               $textareaValue.push($('.delText').eq(e).val()) ; 
               localStorage.setItem('MEMO'+LocalIdx+'^'+ival+e,$textareaValue[e]);
 
+              
               keyvalue.length = 0
              })
              $textareaValue.length = 0;
              ;            
              })
+
+
 
 
              $('.leftmove11').click(function(e){

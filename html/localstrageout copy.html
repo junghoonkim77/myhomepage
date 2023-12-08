@@ -11,14 +11,9 @@
        button{
         width : 60px;
        }
-       .but3{
-        position :fixed ;
-        left : 460px;
-        top : 40px;
-        background-color: rgb(220, 92, 92);
-       }
+       
        .srvalue{
-        width:400px;
+        
         font-size :13px;
        }
        .delkey {
@@ -30,22 +25,27 @@
         .contents:hover {
             background-color:rgb(191, 231, 191);
         }
+        .container {
+            display:grid;
+            grid-template-columns: 400px 300px;
+        }
     </style>
     <title>로컬아웃풋</title>
 </head>
 <body>
    
-    <button class="but3">all삭제</button>
-    
- <div class="div1"></div>
- <div class="div2"></div>
+ <div class="container">
+  <div class="div1"></div>
+  <div class="div2"></div>
+ </div>
   
  <script>
     jQuery(function(){
         class LocalObj {
-            constructor(_$num,_$localval){
+            constructor(_$num,_$localval,_$KEY){
              this.$num = _$num;
-             this.$localval =_$localval
+             this.$localval =_$localval;
+             this.$KEY =_$KEY
             }
         }
 
@@ -57,73 +57,41 @@
            var $numKey = localkey.slice(4,localkey.indexOf('^'));
            var values = localStorage.getItem(localkey);
             if(values !=="" && $memoDbkey=="MEMO"){
-             $dbArr.push(new LocalObj($numKey,values) ) ;
+             $dbArr.push(new LocalObj($numKey,values,localkey) ) ;
               }  
         } // for문 끝 
 
             $dbArr.sort((a,b)=>a['$num']-b['$num'])
             
             for ( var i =0 ; i<$dbArr.length; i++){
-            $('.div2').
+            $('.div1').
            append(`
-            <button class="delkey">삭제[${i}]</button>
+            <button class="delkey" data-key="${$dbArr[i].$KEY}">삭제[${i}]</button>
             <div class="srvalue">
             <div style="color:blue;font-weight: bold;">순서[${i}] 제목 :${$dbArr[i].$localval.slice(0,4)}</div>
             <div class="contents" style="cursor:pointer">${$dbArr[i].$localval}</div>
             </div><br>
             `);  
             }
-            console.log($dbArr);
+            
             
             
       
 
+
         
         var $delkey =$('.delkey');      
-        $delkey.click(function(){
-            var $delkeyIdx = $(this).index('.delkey');
-            console.log($delkeyIdx);
-            var $deldb = localStorage.key($delkeyIdx);
-            console.log($deldb)
-            localStorage.removeItem($deldb);
+         $delkey.click(function(){
+            var $delkeyVal = $(this).attr('data-key');
+             localStorage.removeItem($delkeyVal);
             location.reload();
         })
          
 
-         var $delkey =$('.delkey');      
-        $delkey.click(function(){
-            var $delkeyIdx = $(this).index('.delkey');
-            console.log($delkeyIdx);
-            var $deldb = localStorage.key($delkeyIdx);
-            console.log($deldb)
-            
-            if($deldb=='meid' || $deldb=='kos' || $deldb=='atas' || $deldb=='idms' || $deldb=='wfms' || $deldb=='must')
-            { var $delkeyConfirm = confirm('"확인" 클릭후 삭제시 비번 재등록 필요~! 주의~!! ') 
-                if($delkeyConfirm ){
-                    localStorage.removeItem($deldb);
-                     location.reload();
-                }
-            } else{
-                localStorage.removeItem($deldb);
-                location.reload();
-            }
-         })
+      
 
+      
 
-       /* $('.but3').click(function(){
-            
-            const $keyname = []
-            const $notdel =['meid','kos','atas','idms','wfms','must','dailymust',
-            'alarmTime','alarmval' ]
-            for ( $key in localStorage){
-                if($notdel.includes($key)){
-                    continue ; 
-                }else{
-                    localStorage.removeItem($key);
-                }
-             }
-            location.reload();
-         }) */
         
          var $content = $('.contents');
          $content.click(function(){
