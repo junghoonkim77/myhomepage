@@ -7,113 +7,119 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
             
-       
        button{
         width : 60px;
        }
-       .but3{
-        position :fixed ;
-        left : 460px;
-        top : 40px;
-        background-color: rgb(220, 92, 92);
-       }
+       
        .srvalue{
-        width:400px;
         font-size :13px;
        }
        .delkey {
         font-size: 11px;
            }
-        a{
-            text-decoration: none;
-        }
-        .contents:hover {
+       .contents:hover {
             background-color:rgb(191, 231, 191);
         }
+        .container {
+            width :100%;
+            display:grid;
+            grid-template-columns: 3fr 1fr;
+        }
+        .div2{
+            font-size :10px;
+            background-color: rgb(171, 165, 165);}
+
     </style>
     <title>로컬아웃풋</title>
 </head>
 <body>
-   
-    <button class="but3">all삭제</button>
     
- <div class="div1"></div>
- <div class="div2"></div>
+ <div class="container">
+  <div class="div1">
+    <h4>상담메모 <button class="hiddenShow" style="font-size:12px;">전체로컬보기</button></h4>
+  </div>
+  <div class="div2" style="display:none;">
+    <h4>저장된 전체값</h4>
+    <table>
+
+    </table>
+  </div>
+ </div>
   
  <script>
     jQuery(function(){
-        
-        var savedValues = Object.values(localStorage);
-        var $dblength = localStorage.length;
-        console.log($dblength);
-        console.log(localStorage.key(0));
-        var $idxstart= 0 ;
-        for ( var values of savedValues){
-           var $dbkey = localStorage.key($idxstart);
-           if(values !==""){
-            $('.div2').
-           append(`<button class="delkey">삭제[${$idxstart}]</button><div class="srvalue"><div style="color:blue;font-weight: bold;">순서[${$idxstart}] 제목 :${$dbkey}</div>
-            <div class="contents"><a href="#">${values}</a></div></div><br>`);
-           $idxstart++
-             }else{
-                localStorage.removeItem($dbkey);
-             } 
-                   
+        class LocalObj {
+            constructor(_$num,_$localval,_$KEY){
+             this.$num = _$num;
+             this.$localval =_$localval;
+             this.$KEY =_$KEY
+            }
         }
-        /*
+
+        
+        var $dblength = localStorage.length;
+        var $dbArr =[];
+        for ( var localkey in localStorage){
+           var $memoDbkey =  localkey.slice(0,4);
+           var $numKey = localkey.slice(4,localkey.indexOf('^'));
+           var values = localStorage.getItem(localkey);
+            if(values !=="" && $memoDbkey=="MEMO"){
+             $dbArr.push(new LocalObj($numKey,values,localkey) ) ;
+              }  
+        } // for문 끝 
+
+            $dbArr.sort((a,b)=>a['$num']-b['$num'])
+            
+            for ( var i =0 ; i<$dbArr.length; i++){
+            $('.div1').
+           append(`
+            <button class="delkey" data-key="${$dbArr[i].$KEY}">삭제[${i}]</button>
+            <div class="srvalue">
+            <div style="color:blue;font-weight: bold;">순서[${i}] 제목 :${$dbArr[i].$localval.slice(0,4)}</div>
+            <div class="contents" style="cursor:pointer">${$dbArr[i].$localval}</div>
+            </div><br>
+            `);  
+            }
+            
+            for ( k in localStorage){
+                $('.div2 table').append(
+                `<tr><td>${k}</td><td>${localStorage.getItem(k)}</td></tr>`)
+            }
+            
+      
+        $('.hiddenShow').click(function(){
+            $(this).toggleClass('localshow');
+            if ($(this).hasClass('localshow')){
+                $(this).text('로컬DB숨기기');
+                $('.div2').show()
+            }else{
+                $(this).text('전체로컬보기');
+                $('.div2').hide(); 
+        }
+        })
+
+        
         var $delkey =$('.delkey');      
-        $delkey.click(function(){
-            var $delkeyIdx = $(this).index('.delkey');
-            console.log($delkeyIdx);
-            var $deldb = localStorage.key($delkeyIdx);
-            console.log($deldb)
-            localStorage.removeItem($deldb);
+         $delkey.click(function(){
+            var $delkeyVal = $(this).attr('data-key');
+             localStorage.removeItem($delkeyVal);
             location.reload();
         })
-         */
-
-         var $delkey =$('.delkey');      
-        $delkey.click(function(){
-            var $delkeyIdx = $(this).index('.delkey');
-            console.log($delkeyIdx);
-            var $deldb = localStorage.key($delkeyIdx);
-            console.log($deldb)
-            
-            if($deldb=='meid' || $deldb=='kos' || $deldb=='atas' || $deldb=='idms' || $deldb=='wfms' || $deldb=='must')
-            { var $delkeyConfirm = confirm('"확인" 클릭후 삭제시 비번 재등록 필요~! 주의~!! ') 
-                if($delkeyConfirm ){
-                    localStorage.removeItem($deldb);
-                     location.reload();
-                }
-            } else{
-                localStorage.removeItem($deldb);
-                location.reload();
-            }
-         })
-
-
-        $('.but3').click(function(){
-            
-            const $keyname = []
-            const $notdel =['meid','kos','atas','idms','wfms','must','dailymust',
-            'alarmTime','alarmval' ]
-            for ( $key in localStorage){
-                if($notdel.includes($key)){
-                    continue ; 
-                }else{
-                    localStorage.removeItem($key);
-                }
-                
-            }
-            location.reload();
-         })
-        
+         
+       
          var $content = $('.contents');
          $content.click(function(){
          var $thisconTent = $(this).text()
          navigator.clipboard.writeText($thisconTent);
          })
-    })
+
+         for ( emptyKey in localStorage){
+            if(localStorage.getItem(emptyKey)==""){
+                localStorage.removeItem(emptyKey)
+            }
+            
+         }
+     })
  </script>
 
 </body>

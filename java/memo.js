@@ -362,19 +362,24 @@ $(function(){
             }
 
   
-            var $LocalIdx = 0;
+            var $LocalIdx = localStorage.getItem('$memoSort');
+            if($LocalIdx === null){
+              count = 0;
+             }else{
+              count = Number($LocalIdx);
+             }
           $('.leftmove9').click(function(s){
-            localStorage.setItem('$memoSort',$LocalIdx++)
-            var LocalIdx = localStorage.getItem('$memoSort')
+              count++
+              localStorage.setItem('$memoSort',count); 
+              var LocalIdx = localStorage.getItem('$memoSort');
               $('.delText').each(function(e){
               keyname();
               var ival = keyvalue[0];
               $textareaValue.push($('.delText').eq(e).val()) ; 
               localStorage.setItem('MEMO'+LocalIdx+'^'+ival+e,$textareaValue[e]);
-
-              
-              keyvalue.length = 0
+              keyvalue.length = 0 ;
              })
+             
              $textareaValue.length = 0;
              ;            
              })
