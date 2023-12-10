@@ -112,13 +112,17 @@
         //전체 메모 일괄삭제
 
         $('.allclear').on('click',function(){
-            for ( alldel in localStorage){
+            var result = confirm('작성했던 메모를 모두 삭제하시겠습니까?')
+            if(result){
+                for ( alldel in localStorage){
                 if(alldel.slice(0,4)=='MEMO'){
                    localStorage.removeItem(alldel);
                 }
               }
               localStorage.removeItem('$memoSort');
               location.reload();
+            }
+            
         })
          
         // 각 메모 내용 클릭하면 복사하기 
