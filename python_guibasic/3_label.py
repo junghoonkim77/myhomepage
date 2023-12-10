@@ -17,7 +17,7 @@ def change():
     label1.config(text="또만나요")
     global photo2 #전역변수로 선언하지 않으면 메모리가 청소되기 때문에 적용이 안된다.
     photo2 = PhotoImage(file="myhomepage\python_guibasic\엑스.png")
-    label2.config(image=photo2)
+    label2.config(image=photo2) # config라는건 기존에 내용을 변경할때 사용하는것 
     
 btn = Button(root,text="클릭",command=change)
 btn.pack()

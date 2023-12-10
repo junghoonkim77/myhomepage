@@ -31,7 +31,4 @@ btn7 = Button(root,text="동작하는 버튼",command=btnprint)
 btn7.pack()
 
 
-
-
-
 root.mainloop()
