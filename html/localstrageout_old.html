@@ -37,7 +37,7 @@
  <div class="container">
   <div class="div1">
     <h4>상담메모 <button class="hiddenShow" style="font-size:10px;">전체로컬보기</button>
-    <button style="width:75px; font-size:10px; background-color:red;"class="allclear">전체삭제</button></h4>
+    <button style="width:75px; font-size:10px; background-color:red;"class="allclear">전체 한번에 삭제</button></h4>
   </div>
   <div class="div2" style="display:none;">
     <h4>저장된 전체값</h4>
@@ -107,6 +107,18 @@
             var $delkeyVal = $(this).attr('data-key');
              localStorage.removeItem($delkeyVal);
             location.reload();
+        })
+
+        //전체 메모 일괄삭제
+
+        $('.allclear').on('click',function(){
+            for ( alldel in localStorage){
+                if(alldel.slice(0,4)=='MEMO'){
+                   localStorage.removeItem(alldel);
+                }
+              }
+              localStorage.removeItem('$memoSort');
+              location.reload();
         })
          
         // 각 메모 내용 클릭하면 복사하기 
