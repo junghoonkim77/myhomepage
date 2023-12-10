@@ -56,7 +56,8 @@
             }
         }
 
-        
+        //로컬에서 값을 가져와 키값을 쪼개고 MEMO라는 이름과 빈내용만 아니면 클래스에 집어 넣는다.
+        //그렇게 배열에 값을 집어 넣는다. 
         var $dblength = localStorage.length;
         var $dbArr =[];
         for ( var localkey in localStorage){
@@ -67,7 +68,7 @@
              $dbArr.push(new LocalObj($numKey,values,localkey) ) ;
               }  
         } // for문 끝 
-
+         //배열안에 각 값은 객체이다. 그 객체중 $num의 키 값을 소트해서 배열의 순서를 정리한다.  
             $dbArr.sort((a,b)=>a['$num']-b['$num'])
             
             for ( var i =0 ; i<$dbArr.length; i++){
