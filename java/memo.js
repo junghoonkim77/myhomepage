@@ -369,6 +369,7 @@ $(function(){
               count = Number($LocalIdx);
              }
           $('.leftmove9').click(function(s){
+              $(this).css('background-color','yellow').text('저장완료💾')
               count++
               localStorage.setItem('$memoSort',count); 
               var LocalIdx = localStorage.getItem('$memoSort');
@@ -379,9 +380,11 @@ $(function(){
               localStorage.setItem('MEMO'+LocalIdx+'^'+ival+e,$textareaValue[e]);
               keyvalue.length = 0 ;
              })
-             
              $textareaValue.length = 0;
-             ;            
+             function savealarm(){
+              $('.leftmove9').css('background-color','aqua').text('메모저장💾')
+             }
+             setTimeout(savealarm,2000);           
              })
 
 
