@@ -1,8 +1,9 @@
+from tkinter import *
 import tkinter.ttk as ttk  #combobox와 progress바는 꼭 ttk에서 import 해줘야 한다.
 #combobox는 이런식으로 하나를 import해와야 하며 
 import time
 
-from tkinter import *
+
 
 
 root =Tk()
