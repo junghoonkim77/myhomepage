@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+    crossorigin="anonymous"></script>
+    <style>
+        div{
+            position :absolute;
+            font-weight: bold;
+            font-size :20px;
+        }
+    </style>
+    <title>연말퀴즈</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+     jQuery(function(){
+        
+        const word1 =['양명고','연현중','시청역','코스트코','학여울역','답십리','관악역','이마트','대림마트','U마트'];
+        const word2 =['망상해수욕장','부산여행','황학동','덕수궁','통일전망대','아야진해수욕장','충주여행','종로나들이'
+        ,'베트남여행','드라이나~!'];
+        const word3 =['괴물','우주전쟁','스파이더맨','인피티니워','백투더퓨처','미션임파서블','범죄도시','부산행',
+        '가오갤','엔드게임'];
+        const word4 =['마동석','류승룡','이정재','설경구','정유미','권상우','강하늘','한지민','안성기','조정석'];
+        const word5 =['계룡산','삼성산','관악산','수리산','설악산','지리산','한라산','도봉산','북한산','인왕산'];
+        const word6 =['수박','멜론','참외','딸기','용과','두리안','사과','귤','무화과','오렌지'];
+        
+         
+        const wordArray =[word1,word2,word3,word4,word5,word6];
+        var idx = 0 ;
+         var quizNumber =Number(prompt('번호를 입력하세요~!')); 
+         function order(){
+            var speed = 1000
+             if (idx < $('div').length){
+                $('div').eq(idx).text(wordArray[quizNumber][idx])
+                $('div').eq(idx).animate({right:0+'px'},speed);
+                $('div').eq(idx).animate({bottom:0+'px'},speed);
+                $('div').eq(idx).animate({left:0+'px'},speed);
+                $('div').eq(idx).animate({top:0+'px'},speed);
+                $('div').eq(idx).animate({opacity:0},speed);
+
+                idx++
+            }else{
+                clearInterval(orderTime);
+            }
+            
+         }
+         
+        var orderTime = setInterval(order,2000);
+
+        
+      
+      //  animate({right:0+'px'},3000)
+     })  
+    </script>
+</body>
+
+</html>
