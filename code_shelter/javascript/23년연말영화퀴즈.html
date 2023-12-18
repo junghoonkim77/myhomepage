@@ -6,21 +6,23 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" 
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <style>
+       
       img{
         position: relative;
-        width :100%;
+        width :60%; 
         height : 98vh;
-        z-index : 0
-      }
+        z-index : 0;
+       }
       .container {
         height : 100%;
-        width : 100%;
-        position : absolute;
+        width : 60%;
+       position : absolute; 
+      /* position : relative; */
         display : grid;
         grid-template-columns: repeat(20,1fr);
         grid-template-rows: auto;
         top : 0px;
-        left : 0px;
+        margin : auto;
         z-index :1;
       }
       .container div{
@@ -54,9 +56,23 @@
     
     </div>
     <script>
-      const movieUrl='../../imgfolder/무비/'
-      const movieAraay =['겨울왕국2.jpg'];
-      $('img').attr('src',movieUrl+movieAraay);
+     const $conWidth = $('.container').outerWidth();
+     const $imgWidth = $('img').outerWidth();
+     const $bodyWidth = $('body').outerWidth();
+     $('.container').css('left',($bodyWidth-$conWidth+6)/2);
+     $('img').css('left',($bodyWidth-$imgWidth)/2);
+      
+      const movieAraay =['https://i.namu.wiki/i/F73QcXtFyb8zNsbaA4WP9qOBKdXb__Q-sU6ew-7KI41s5lnP_4EUF3T7umeHPFxfnd0Uw_nn_ytFYUkCcir18Q.webp',
+    'https://upload.wikimedia.org/wikipedia/ko/f/f2/%EC%96%B4%EB%B2%A4%EC%A0%B8%EC%8A%A4-_%EC%97%94%EB%93%9C%EA%B2%8C%EC%9E%84_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg',
+  'https://img.movist.com/?img=/x00/05/88/80_p1.jpg',
+  'https://upload.wikimedia.org/wikipedia/ko/7/7b/%EC%9A%B0%EC%A3%BC_%EC%A0%84%EC%9F%81_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg',
+  'https://spnimage.edaily.co.kr/images/Photo/files/NP/S/2019/10/PS19102200134.jpg',
+  'https://dimg.donga.com/wps/SPORTS/IMAGE/2021/09/13/109231093.1.jpg',
+  'https://img.danawa.com/prod_img/500000/884/604/img/7604884_2.jpg?_v=20190402114840',
+  'https://i.namu.wiki/i/WD7rfAQZJr_nZ731GU9Tm_DgV3-ZCu089avXKIeSlCHxDskktOzFEaepFbB2ySn7-K7bWnnqHc1s1kvk9E4M3g.webp'
+
+];
+      $('img').attr('src',movieAraay[0]);
       
       for ( var j=0 ; j<460 ;j++){
         $('.container').append(`<div>${j}</div>`)
@@ -66,18 +82,27 @@
         $(this).css('opacity',0);
       })
       
-      var i = 0;
+      var i = 1;
       $('.button1').on({
         click : function(){
-        $(this).text(`문제${i}`);
+        if(i<movieAraay.length){
+            $(this).text(`문제${i}`);
         $('.container div').css('opacity',1);
+        $('img').attr('src',movieAraay[i]);
         i++;
+        }else {
+            i=0;
+        }
+       
         }
       })
 
       $('.button2').click(function(){
         $('.container div').css('opacity',0);
       })
+
+      
+      
     </script>
 </body>
 </html>
