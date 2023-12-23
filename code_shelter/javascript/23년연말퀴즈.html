@@ -13,13 +13,22 @@
         div{
             position :absolute;
             font-weight: bold;
-            font-size :20px;
+            font-size :30px;
+            color : black;
         }
         input {
             position : absolute;
             top : 250px;
             left : 250px;
             display: inline-block;
+        }
+        body{
+            height : 100vh;
+            background-image: url('../../imgfolder/23년송년회/_cdf13525-d5e5-4f9d-85f3-0a8bfef31ffd.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            
         }
     </style>
     <title>연말퀴즈</title>
@@ -51,6 +60,10 @@
         
          
         const wordArray =[word1,word2,word3,word4,word5,word6];
+        const backImage =['20120807_104121.jpg','20230105_222618.jpg','20230106_104306.jpg'
+        ,'20230722_120704.jpg','20231028_114420.jpg','20231028_200953.jpg']
+        const backUrl ='../../imgfolder/23년송년회/'
+
         var idx = 0 ;
         
         $('input').on('blur',start);
@@ -58,6 +71,7 @@
          function order(){
              var speed = 1000
              const quizNumber= Number( $('input').val() ); 
+             $('body').css('background-image',`url(${backUrl}${backImage[quizNumber]})`)
              if (idx < $('div').length){
                 $('div').eq(idx).text(wordArray[quizNumber][idx])
                 $('div').eq(idx).animate({right:0+'px'},speed);
