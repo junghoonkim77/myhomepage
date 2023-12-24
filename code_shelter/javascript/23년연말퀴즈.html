@@ -71,7 +71,7 @@
          function order(){
              var speed = 1000
              const quizNumber= Number( $('input').val() ); 
-            // $('body').css('background-image',`url(${backUrl}${backImage[quizNumber]})`)
+            $('body').css('background-image',`url(${backUrl}${backImage[quizNumber]})`)
              if (idx < $('div').length){
                 $('div').eq(idx).text(wordArray[quizNumber][idx])
                 $('div').eq(idx).animate({right:0+'px'},speed);
@@ -89,7 +89,7 @@
          }
 
          function start(){
-            $('body').css('background-image',`url(${backUrl}${backImage[quizNumber]})`)
+           
           const orderTime = setInterval(order,1000);
          }
 
