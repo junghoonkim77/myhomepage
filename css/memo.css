@@ -160,6 +160,7 @@ animation-iteration-count: infinite;
 .alarm-gateName{
   background-color: chartreuse;
   cursor: pointer;
+  box-shadow: 2px 2px 2px 2px gray;
 }
 
 .alarm-list{
