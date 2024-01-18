@@ -205,43 +205,6 @@ let SRarray =
 
 $(function(){
 
-  // 체크박스 체크하면 parent node지우는 코드
- /* let check = $('label input:checkbox')
-  console.log(check.parent().parent());
-  check.on('click',function(){
-    if($(this).prop('checked')){
-      $(this).parent().remove();
-    } else {
-      $(this).parent().css('background-color','transparent');
-    };
-  }); */
-
-  /* $('.schedule').on('click',function(){
-    $('div.task_gate div').toggleClass('task_gate1');
-  }) 
-    $('.schedule').mouseover(function(){
-      $('.task_gate1').show().mouseout(function(){
-        $('.task_gate1').hide();
-      })
-    })*/
-
-    
-
- //글자크기 줄이고 늘리는 코드 
- /* var BasicSize = 12;
-  $('.leftmove6').click(function(){
-      BasicSize--
-      $('textarea').css('font-size',BasicSize+'px');
-      console.log($('textarea'));
-  });
-
-  $('.leftmove7').click(function(){
-      BasicSize++
-      $('textarea').css('font-size',BasicSize);
-  }) */
-
-  
-
   $('.schedule').click(function(){
       $(this).toggleClass('showing');
       if($(this).hasClass('showing')){
@@ -525,36 +488,8 @@ $(function(){
  }) 
 
 
- /* 스크롤 하면 attr 속성 변경하기 
 
-  var $win = $(window);
-
-   $win.scroll(function(){
-
-    if($win.scrollTop() > 10){
-
-      $('.must').attr('rows','1');
-
-    }else{
-
-      $('.must').attr('rows','20');
-
-    }
-
-  })
-
-
-  var musttop = $('#must').offset();
-
-  console.log(musttop.top);
-
-  console.log($('#must').outerHeight(true));
-
-  console.log($('.buttonpack').outerHeight(true));
-
-  */
-
-
+//세일즈 실적관리창 팝업 시키는 코드
   $('.salescount').click(function(){
     window.open('세일즈실적관리.html', '_blank', 'width=1200, height=650' )
 
