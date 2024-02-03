@@ -27,7 +27,9 @@
      //mysqli_fetch_array  배열로 뿌려주는 함수 
      // $row는 배열이 되며 index값으로 접근이 가능하다.
      //따옴표 앞에 역 슬레시를 해줘야 완벽한 문자 취급을 받는다.
-     while($row = mysqli_fetch_array($result)){
+     //배열안에 있는 갯수만큼만 이란 의미가 있다. ↓
+     
+     while($row = mysqli_fetch_array($result)){ 
         $list = $list."<li>{$row['number']}:<a href=\"view.php?number={$row['number']}\">{$row['name']}</a></li>";
      }
 
