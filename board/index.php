@@ -8,6 +8,7 @@
 <body>
     <h1>게시판</h1>
     <h2>글 목록</h2>
+    <ul>
     <?php 
      $conn = mysqli_connect('localhost','root','amho73032721','abc_corp');
 
@@ -18,6 +19,7 @@
      }
      // msg_board 테이블에 글조회 데이터를 조회하는건 SELECT이다 
      $sql = "SELECT * FROM msg_board"; //msg_board에 있는 내용을 모두 가져오는 코드
+     // 만약 위에서 *표로 다 갖고 오는게 아니라면 name이나 number 같이 지정한 값만 가져올수 있다.
      $result = mysqli_query($conn,$sql);
      $list = '';
      // echo 는 값을 그대로 출력 , print도 거의  똑같음
@@ -31,10 +33,11 @@
 
      while($row = mysqli_fetch_array($result)){ 
         $list = $list."<li>{$row['number']}번:<a href=\"view.php?number={$row['number']}\">{$row['name']}</a></li>";
+        
      }
-
-
+     echo $list;
     ?>
+    </ul>
     <hr>
         <p><a href="write.php">글쓰기</a></p>
     <hr>
