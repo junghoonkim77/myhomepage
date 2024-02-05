@@ -7,18 +7,16 @@
 </head>
 <body>
     <h1>게시판</h1>
-    <h2>글 목록1</h2>
+    <h2>글 목록</h2>
     <ul>
     <?php 
-    /* $conn = mysqli_connect('localhost','root','amho73032721','abc_corp');
+     $conn = mysqli_connect('localhost','root','amho73032721','abc_corp');
 
      if(!$conn){
          echo 'db에 연결하지 못했습니다.'.mysqli_connect_error();
      } else{
          echo '데이터 베이스에 접속했습니다.';
-     } */
-
-     include("mysqlpass.php");
+     }
      // msg_board 테이블에 글조회 데이터를 조회하는건 SELECT이다 
      $sql = "SELECT * FROM msg_board"; //msg_board에 있는 내용을 모두 가져오는 코드
      // 만약 위에서 *표로 다 갖고 오는게 아니라면 name이나 number 같이 지정한 값만 가져올수 있다.
