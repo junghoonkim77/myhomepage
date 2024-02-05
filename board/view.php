@@ -29,13 +29,20 @@
     <h2>글 내용 </h2>
 
     <?php
-if ($row = mysqli_fetch_array($result)) {
+ /* if ($row = mysqli_fetch_array($result)) {
     ?>
     <h3>글번호 : <?= $row['number'] ?> / 글쓴이: <?= $row['name'] ?> </h3>
     <div>
         <?= $row['message'] ?>
-    </div>
-<?php } ?>
+    </di8v>
+<?php } */ ?> 
+
+<?php
+if ($row = mysqli_fetch_array($result)) {
+    echo '<h3>글번호 : ' . $row['number'] . ' / 글쓴이: ' . $row['name'] . '</h3>';
+    echo '<div>' . $row['message'] . '</div>';
+}
+?>
   
 </body>
 </html>
