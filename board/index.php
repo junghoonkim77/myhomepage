@@ -38,7 +38,7 @@
         <p><a href="write.php">글쓰기</a></p>
     <hr>
     <h2>글 검색</h2>
-    <form action="search.php" method="post">
+    <form action="search_result.php" method="post">
         <h3>검색할 키워드를 입력하세요.</h3>
         <p>
             <label for="search">키워드 :</label>
