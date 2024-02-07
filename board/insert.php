@@ -18,7 +18,7 @@ if($result === false){
 
 mysqli_close($conn);
 
-print "<hr><a href='index.html'>메인화면으로 이동하기</a>";
+print "<hr><a href='http://folkball.dothome.co.kr/board/index.php'>메인화면으로 이동하기</a>";
 
 
 

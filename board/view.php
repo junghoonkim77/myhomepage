@@ -43,6 +43,6 @@ if ($row = mysqli_fetch_array($result)) {
     echo '<div>' . $row['message'] . '</div>';
 }
 ?>
-  
+  <a href="index.php">처음으로 돌아가기</a>
 </body>
 </html>
