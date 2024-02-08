@@ -76,9 +76,21 @@
             <td class="tg-0lax">010-3422-9118</td>
             <td class="tg-0lax"></td>
           </tr>
-          <?php 
-          echo ``
-          ?>
+           <tr>
+            <?php 
+            include('../board/mysqlpass.php');
+            
+            $sql = "SELECT * FROM msg_board" ;
+            $result =mysqli_query($conn,$sql);
+            $table_td = '';
+
+            while($row = mysqli_fetch_array($result)){
+              $table_td = $table_td . "<td class='tg-0lax'>" . $row['message'] . "</td>";
+            }
+
+            print $table_td ;
+            ?>
+            </tr>
         </tbody>
         </table>
 </body>
