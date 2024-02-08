@@ -6,7 +6,7 @@
     <title>글쓰기</title>
 </head>
 <body>
-    <h1>글쓰기</h1>
+    <h3>글쓰기</h3>
     <form action="insert.php" method="post">
     <p>
         <label for="name">이름 :</label>

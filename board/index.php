@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abc-게시판</title>
+    <title>통화품질 게시판</title>
 </head>
 <body>
-    <h1>게시판</h1>
-    <h2>글 목록1</h2>
+    <h3>게시판</h3>
+    <h4>글 목록1</h4>
     <ul>
     <?php 
     
@@ -27,9 +27,12 @@
      //따옴표 앞에 역 슬레시를 해줘야 완벽한 문자 취급을 받는다.
      //배열안에 있는 갯수만큼만 이란 의미가 있다. ↓
 
-     while($row = mysqli_fetch_array($result)){ 
+    /* while($row = mysqli_fetch_array($result)){ 
         $list = $list."<li>{$row['number']}번:<a href=\"view.php?number={$row['number']}\">{$row['name']}</a></li>";
         
+     } 아래는 내가 수정한 코드 _대가리가 나쁜 사람이 쓰기 좋음    */
+     while($row = mysqli_fetch_array($result)){ 
+        $list = $list."<li>".$row['number']."번:<a href="."view.php?number=".$row['number'].">".$row['name']."</a></li>";
      }
      echo $list;
     ?>
@@ -37,9 +40,9 @@
     <hr>
         <p><a href="write.php">글쓰기</a></p>
     <hr>
-    <h2>글 검색</h2>
+    <h3>글 검색</h3>
     <form action="search_result.php" method="post">
-        <h3>검색할 키워드를 입력하세요.</h3>
+        <h4>검색할 키워드를 입력하세요.</h4>
         <p>
             <label for="search">키워드 :</label>
             <input type="text" id="search" name="skey">
@@ -47,9 +50,9 @@
         <input type="submit" value="검색">
     </form>
     <hr>
-    <h2>글 삭제</h2>
+    <h3>글 삭제</h3>
     <form action="delete.php" method="post">
-        <h3>삭제할 메시지 번호를 선택하세요~!</h3>
+        <h4>삭제할 메시지 번호를 선택하세요~!</h4>
         <p>
             <label for="msgdel">번호 :</label>
             <input type="text" id="msgdel" name="delnum">

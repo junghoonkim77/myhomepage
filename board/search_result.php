@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abc-게시판</title>
+    <style>
+        .noanswer {
+            color : red;
+            font-weight: bold;
+        }
+    </style>
+    <title>통화품질 게시판</title>
 </head>
 <body>
-    <h1>게시판</h1>
-    <h2>검색 결과</h2>
+    <h3>게시판</h3>
+    <h4>검색 결과</h4>
     <ul>
     <?php 
     
@@ -22,11 +28,15 @@
      $result = mysqli_query($conn,$sql);
      $list = '';
    
+      if(mysqli_num_rows($result) == 0){
+        echo "<li"." class="."noanswer".">결과값이 없습니다.</li>";
+      }else{
+        while($row = mysqli_fetch_array($result)){ 
+            $list = $list."<li>{$row['number']}번:<a href=\"view.php?number={$row['number']}\">{$row['name']}</a></li>";
+          };
+      }
 
-     while($row = mysqli_fetch_array($result)){ 
-        $list = $list."<li>{$row['number']}번:<a href=\"view.php?number={$row['number']}\">{$row['name']}</a></li>";
-        
-     }
+     
      echo $list;
 
      mysqli_close($conn);

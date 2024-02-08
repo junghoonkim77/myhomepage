@@ -22,11 +22,11 @@
             color : red;
         }
     </style>
-    <title>view - abc게시판</title>
+    <title>통화품질 게시판</title>
 </head>
 <body>
-    <h1>게시판</h1>
-    <h2>글 내용 </h2>
+    <h3>게시판</h3>
+    <h4>글 내용 </h4>
 
     <?php
  /* if ($row = mysqli_fetch_array($result)) {
