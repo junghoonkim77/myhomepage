@@ -10,7 +10,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){ //$_SERVER 는 현재 파일의 주소
 } */
 
 if(isset($_POST['login'])){
-    output($_POST);
+      output($_POST);
+  $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL); //이메일 형식이 맞는지 필터링 하는 함수 
+  if($email == false){
+    $status ='이메일 형식에 맞게 입력해 주세요~!';
+  }
 }
 ?> 
 <form action="" method="post">
@@ -27,7 +31,15 @@ if(isset($_POST['login'])){
         <input type="submit" name="login" value="Login">
     </p>
 </form>
-
+<div class="error">
+    <p>
+        <?php 
+        if(isset($status)){
+            echo $status;
+        }
+        ?>
+    </p>
+</div>
 
 <?php 
 include('footer.php');
