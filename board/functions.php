@@ -13,5 +13,17 @@
 
     function redirect($url){
         header("location:$url");
+        
+    };
+
+    function is_user_authenticated(){
+        return isset($_SESSION['email']);
+    };
+
+    function ensure_user_is_authenticated(){
+        if(!is_user_authenticated()){
+            redirect('login.php');
+            die();
+        }
     };
 ?>
