@@ -24,7 +24,10 @@ if(isset($_POST['login'])){
   }
 
   if(authenticate_user($email,$password)){  //authenticate함수에 인자를 받아서실행후 true라면 할일
-        
+        $_SESSION['email'] = $email; //세션에 변수를 만들어주고 이메일 값을 저장해주는 것
+        redirect('admin.php');
+  }else{
+    $status = '비번이 맞지 않습니다';
   }
 }
 ?> 

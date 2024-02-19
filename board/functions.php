@@ -10,4 +10,8 @@
             return true;
         }
     }
+
+    function redirect($url){
+        header("location:$url");
+    };
 ?>
