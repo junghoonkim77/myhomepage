@@ -1,257 +1,222 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <meta charset="utf-8">
 <html>
     <head>
         <title>TT&비영업상담양식</title>
         <style type=text/css>
-        div 
-        {font-size:12px;
-                        }    
+        pre{
+            font-size :12px;
+            cursor : pointer;
+            display : grid;
+            grid-template-columns: 1fr;
+            margin-top : 45px;
+            margin-bottom: 45px;
+                    }   
+
+      pre:hover{
+        background-color: aquamarine;
+      }
      
     </style>
-    <script>
-      function textcopy_1(_id,_btn){document.getElementById(_btn).onclick = function(){
-        var valOfDIV = document.getElementById(_id).innerText;
-        var textArea = document.createElement('textarea');
-        document.body.appendChild(textArea);
-        textArea.value = valOfDIV;
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        }}
-    </script>
+ <script src="https://code.jquery.com/jquery-3.6.4.js" 
+     integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+     integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+     crossorigin="anonymous"></script>
+    
     </head>
 
     <body>
-<button id ="btn0">복사</button>
-<div id="sr0">
-<script>textcopy_1("sr0","btn0")</script>
-[통품SR양식] <br>
-■서비스 번호 :<br> 
-■민원인 :<br>
-■연락처 :<br>
-■증상 :<br>
-■발생 시기 :<br>
-■확인 및 안내사항 :<br>
+<h4>각 SR양식별 클릭만 하면 자동 카피됨</h4>
+<pre>
+[통품SR양식] 
+■서비스 번호 :
+■민원인 :
+■연락처 :
+■증상 :
+■발생 시기 :
+■확인 및 안내사항 :
 #단말기 오류문구 :
-</div>
-<br>
-<br>
-<button id ="btn1">복사</button>
-<div id="sr1">
-<script>textcopy_1("sr1","btn1")</script>
-★ 개선여부 확인 요청 ★ <br>
-■개통14일이내 여부 :N / Y<br>
-    y일 경우 개통일자 : <br>
-    개통단말 전산일치 : Y,N <br>
-■명의자/요청자 :<br>
-■고객번호/비상연락처 :<br>
-■발생주소 :<br>
-■발생증상 :<br>
-■발생시기 :<br>
-■중계기 유/무 :<br>
-■모델명 : <br>
-■요금제 : <br>
-■기타요청사항 :<br> 
-</div>
-<br>
-<br>
-<button id ="btn2">복사</button>
-<div id="sr2">
+</pre>
 
-<script>textcopy_1("sr2","btn2")</script>
-★중계기 시설요청 ★<br>
-■개통14일이내 여부 :N / Y<br>
-    y일 경우 개통일자 : <br>
-    개통단말 전산일치 : Y,N <br>
-■명의자/요청자 :<br>
-■고객번호/비상연락처 :<br>
-■발생주소 :<br>
-■발생증상 :<br>
-■발생시기 :<br>
-■중계기 유/무 :<br>
-■모델명 : <br>
-■요금제 : <br>
-■기타요청사항 :<br>
-</div>
-<br>
-<br>
-<button id ="btn3">복사</button>
-<div id="sr3">
+<pre>
+★ 개선여부 확인 요청 ★ 
+■개통14일이내 여부 :N / Y
+    y일 경우 개통일자 : 
+    개통단말 전산일치 : Y,N 
+■명의자/요청자 :
+■고객번호/비상연락처 :
+■발생주소 :
+■발생증상 :
+■발생시기 :
+■중계기 유/무 :
+■모델명 : 
+■요금제 : 
+■기타요청사항 :
+</pre>
 
-<script>textcopy_1("sr3","btn3")</script>
-★중계기 점검요청 ★<br>
-■개통14일이내 여부 :N / Y<br>
-    y일 경우 개통일자 : <br>
-    개통단말 전산일치 : Y,N <br>
-■명의자/요청자 :<br>
-■고객번호/비상연락처 :<br>
-■발생주소 :<br>
-■발생증상 :<br>
-■발생시기 :<br>
-■램프색 :<br>
-■중계기 전원리셋여부 : <br>
-■기타요청사항 :<br>
-</div>
-<br>
-<br>
-<button id ="btn4">복사</button><br>
-<div id="sr4">
+<pre>
+★중계기 시설요청 ★
+■개통14일이내 여부 :N / Y
+    y일 경우 개통일자 : 
+    개통단말 전산일치 : Y,N 
+■명의자/요청자 :
+■고객번호/비상연락처 :
+■발생주소 :
+■발생증상 :
+■발생시기 :
+■중계기 유/무 :
+■모델명 : 
+■요금제 : 
+■기타요청사항 :
+</pre>
 
-<script>textcopy_1("sr4","btn4")</script>
-★중계기 이설요청 ★<br>
-■명의자 / 요청자 <br>
-■고객번호/비상연락처 :<br>
-■현주소 :<br>
-■이전할 주소 :<br>
-■사유 :<br>
-■기타요청사항 :<br>
-</div>     
-<br>
-<br>
-<button id ="btn5">복사</button><br>
-<div id="sr5">
+<pre>
+★중계기 점검요청 ★
+■개통14일이내 여부 :N / Y
+    y일 경우 개통일자 : 
+    개통단말 전산일치 : Y,N 
+■명의자/요청자 :
+■고객번호/비상연락처 :
+■발생주소 :
+■발생증상 :
+■발생시기 :
+■램프색 :
+■중계기 전원리셋여부 : 
+■기타요청사항 :
+</pre>
 
-<script>textcopy_1("sr5","btn5")</script>
-★중계기 철거요청 ★<br>
-■접수자<br>
-■고객번호/비상연락처 :<br>
-■주소 :<br>
-■사유 :<br>
-■기타요청사항 :<br>
-</div>  
-<br>
-<br>
+<pre>
+★중계기 이설요청 ★
+■명의자 / 요청자 
+■고객번호/비상연락처 :
+■현주소 :
+■이전할 주소 :
+■사유 :
+■기타요청사항 :
+</pre>
+
+
+<pre>
+★중계기 철거요청 ★
+■접수자
+■고객번호/비상연락처 :
+■주소 :
+■사유 :
+■기타요청사항 :
+</pre>  
+
+
   
-<button id ="btn13">복사</button>
-<div id="sr13">
-<script>textcopy_1("sr13","btn13")</script>
-[시설사 ( )_차 재인입] <br>
-■ 고객번호/고객명 : <br>
-■ 요청자 : <br>
-■ 비상연락처 : <br>
-■ 요청사항 :<br>
-■ 기존TT발행 SRTT번호 : <br>
-■ 주소 : <br>
-■ 기존TT 상태확인 : 완료 / 진행중<br>
-■ 현재처리부서 : 시설사<br>
-■ 시설사명 : <br>
-■ TT처리자명(시설사 담당자) : 홍길동 <br>
-</div>
- <br>
- <br>     
+<pre>
+[시설사 ( )_차 재인입] 
+■ 고객번호/고객명 : 
+■ 요청자 : 
+■ 비상연락처 : 
+■ 요청사항 :
+■ 기존TT발행 SRTT번호 : 
+■ 주소 : 
+■ 기존TT 상태확인 : 완료 / 진행중
+■ 현재처리부서 : 시설사
+■ 시설사명 : 
+■ TT처리자명(시설사 담당자) : 홍길동 
+</pre>
+ 
+ <pre>
+[비영업]
+■접수번호 / 성함:
+■연락처 / 요청자:
+■불만내용:
+-
+■요구사항 :
+■귀책부서명 /코드 :
+</pre>
 
-<button id ="btn6">복사</button><br>
-<div id="sr6">
-<script>textcopy_1("sr6","btn6")</script>
-[비영업]<br>
-■접수번호 / 성함:<br>
-■연락처 / 요청자:<br>
-■불만내용:<br>
--<br>
-■요구사항 :<br>
-■귀책부서명 /코드 :<br>
-</div>
-<br>
-<br>
-
-<button id ="btn7">복사</button><br>
-<div id="sr7">
-<script>textcopy_1("sr7","btn7")</script>
-[영업]<br>
-■접수번호 / 성함:<br>
-■연락처/요청자/명의자와의 관계:<br>
-■불만내용: 주요 불만 요약정리<br>
--<br>
+<pre>
+[영업]
+■접수번호 / 성함:
+■연락처/요청자/명의자와의 관계:
+■불만내용: 주요 불만 요약정리
+-
 ■서식지 확인내용: ex.서식지 확인시 36개월이나 24개월로 안내받음 등
-■요구사항 :<br>
-■귀책대리점명 /코드 :<br>
+■요구사항 :
+■귀책대리점명 /코드 :
 ■대리점 기경유/긴급/접촉거부: 
-</div>
-<br>
-<br>
+</pre>
 
-<button id ="btn8">복사</button><br>
-<div id="sr8">
-<script>textcopy_1("sr8","btn8")</script>
-[민원성 요금조정 SR양식]<br>
-■고객번호<br>
-■청구계정번호 :<br>
-■명의자:<br>
-■납부방법 :<br>
-■요청자 :<br>
-■고객불만(언제/무엇을) :<br>
-<br>
-■금액산정 : <br>
-■적용기간 및 처리금액 :<br>
-■기타요청사항 :<br>
-</div> 
- <br>
- <br>
 
- <button id ="btn9">복사</button>
-<div id="sr9">
-<script>textcopy_1("sr9","btn9")</script>
-[권유] <br>
-1.업무처리 할 번호 /고객명 :<br>
-2.약정만료 or 180일 이내 여부 :<br>
-3.관심기종 : <br>
-4.통화가능연락처 :<br>
-5.특정사항 : :<br>
-6.관심도 상/중/하 :<br>
- 가입-가입권유-컨설팅요청-컨설팅요청(무선SMG)<br>
- <br>  
- </div> 
+<pre>
+[민원성 요금조정 SR양식]
+■고객번호
+■청구계정번호 :
+■명의자:
+■납부방법 :
+■요청자 :
+■고객불만(언제/무엇을) :
 
- <br>
- <br>
+■금액산정 : 
+■적용기간 및 처리금액 :
+■기타요청사항 :
+</pre>
+ 
+<pre>
+[권유] 
+1.업무처리 할 번호 /고객명 :
+2.약정만료 or 180일 이내 여부 :
+3.관심기종 : 
+4.통화가능연락처 :
+5.특정사항 : :
+6.관심도 상/중/하 :
+ 가입-가입권유-컨설팅요청-컨설팅요청(무선SMG)
+ </pre>
 
- <button id ="btn10">복사</button>
-<div id="sr10">
-<script>textcopy_1("sr10","btn10")</script>
-[kt-wifi 문의 및 불만] <br>
-■서비스 번호 /명의자 : :<br>
-■연락처 / 민원인 :<br>
-■이용서비스 : <br>
- 코스개통상태 ,전용요금제 또는 부가서비스 확인<br>
-■요청사항 :<br>
+<pre>
+[kt-wifi 문의 및 불만] 
+■서비스 번호 /명의자 : :
+■연락처 / 민원인 :
+■이용서비스 : 
+ 코스개통상태 ,전용요금제 또는 부가서비스 확인
+■요청사항 :
 ■부서명 : UCB0043  
- </div> 
-    <br>
-    <br>
+</pre>
+    
+<pre>
+[LTE Egg+ TT접수] 
+■개통14일이내 여부 : 
+■코로나 관련 여부 확인 :
+■서비스 번호 : 
+■명의자 :
+■요청자 :  
+■연락처 :
+■주소 :
+■신호 : 초록(강함) ,주황(보통) ,빨강(약함) 등 
+■모델명 :
+■증상 : 
+■지상위치 : (지하1층~2층 등)
+■건물유형 : (아파트 주택가 사무실 등) 
+■개통일 :
+</pre>
+  
 
-<button id ="btn11">복사</button>
-<div id="sr11">
-<script>textcopy_1("sr11","btn11")</script>
-[LTE Egg+ TT접수] <br>
-■개통14일이내 여부 : <br>
-■코로나 관련 여부 확인 :<br>
-■서비스 번호 : <br>
-■명의자 :<br>
-■요청자 : <br> 
-■연락처 :<br>
-■주소 :<br>
-■신호 : 초록(강함) ,주황(보통) ,빨강(약함) 등 <br>
-■모델명 :<br>
-■증상 : <br>
-■지상위치 : (지하1층~2층 등)<br>
-■건물유형 : (아파트 주택가 사무실 등)<br> 
-■개통일 :<br>
-</div>
-<br>
-<br>  
+<pre>
+[장애공지] 
+1.발신 :
+2.장애일시 :
+3.장애지역 : 
+4.현상(서비스영향) :
+5.고객센터 응대스크립트유형 :  
+6.예상복구일시 :
+7.담당자 :
+</pre>
 
-<button id ="btn12">복사</button>
-<div id="sr12">
-<script>textcopy_1("sr12","btn12")</script>
-[장애공지] <br>
-1.발신 :<br>
-2.장애일시 :<br>
-3.장애지역 : <br>
-4.현상(서비스영향) :<br>
-5.고객센터 응대스크립트유형 : <br> 
-6.예상복구일시 :<br>
-7.담당자 :<br>
- <br>     
- </div> 
+<script>
+    $('pre').click(function(){
+       const $preVal =  $(this).text();
+        console.log($preVal);
+        navigator.clipboard.writeText($preVal);
+    })
+</script>
 </body>
+
+
+
