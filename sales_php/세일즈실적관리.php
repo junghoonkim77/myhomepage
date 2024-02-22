@@ -92,8 +92,32 @@
         <input class="button1" type="submit" value="가설 고객추가">
     
      </form>    
-     </div>
     </div>
+    </div>
+    <pre>
+       <?php 
+       function test(){
+        $inum = $_POST['inum'];
+        $cusname = $_POST['cusname'];
+        $comdate = $_POST['comdate'];
+        $hopedate = $_POST['hopedate'];
+        $teamname = $_POST['teamname'];
+        $prodname = $_POST['prodname'];
+        $spememo = $_POST['spememo'];
+       // $ordernum = $_POST['ordernum'];
+       if(isset($inum)&&isset($cusname)&&isset($comdate)&&isset($hopedate)&& 
+       isset($teamname) &&isset($prodname) && isset($spememo ) ){
+        echo $inum.'/'.$cusname.'/'.$comdate.'/'.$hopedate.'/'.$teamname.'/'
+        .$prodname.'/'.$spememo;
+       }
+       }
+        
+        
+      test();
+
+       
+      ?> 
+    </pre>
     <div id="notepad">
         <textarea placeholder="취소 및 기타사항 입력" cols="100" rows="28">
 
