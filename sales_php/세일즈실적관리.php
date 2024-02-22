@@ -115,7 +115,24 @@
         
       test();
 
-       
+       /*
+function test() {
+    $inum = $_POST['inum'] ?? ''; // 기본값 설정
+    $cusname = $_POST['cusname'] ?? '';
+    $comdate = $_POST['comdate'] ?? '';
+    $hopedate = $_POST['hopedate'] ?? '';
+    $teamname = $_POST['teamname'] ?? '';
+    $prodname = $_POST['prodname'] ?? '';
+    $spememo = $_POST['spememo'] ?? '';
+
+    if (isset($comdate)) {
+        echo "가설일자: " . $comdate;
+    } else {
+        echo "가설일자를 입력해주세요.";
+    }
+    // 나머지 필드도 동일한 방식으로 처리 가능
+}
+       */
       ?> 
     </pre>
     <div id="notepad">
