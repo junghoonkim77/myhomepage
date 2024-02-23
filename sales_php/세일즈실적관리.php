@@ -173,9 +173,33 @@ $conn = mysqli_connect('localhost','root','amho73032721','abc_corp');
     <script>
         jQuery(function(){
 
-            $(".button1").click(function(){
-                location.reload();
-            })
+            $('#myform').submit(function(e){
+        e.preventDefault(); // 폼 기본 제출 동작 방지
+
+        // 폼 데이터를 직렬화하여 가져옴
+        var formData = $(this).serialize();
+
+        // Ajax 요청
+        $.ajax({
+            type: 'POST',
+            url: '세일즈실적관리.php',
+            data: formData,
+            success: function(response){
+                // 성공적으로 응답을 받으면 새로운 레코드 메시지를 표시
+                alert(response);
+
+                // 성공적으로 데이터를 추가한 경우, 테이블을 갱신
+                $('#sales_data').load('세일즈실적관리.php #sales_data');
+                
+                // 폼을 초기화하여 입력 필드를 비움
+                $('#myform')[0].reset();
+            },
+            error: function(xhr, status, error){
+                // 오류 발생 시 오류 메시지를 표시
+                console.error(xhr.responseText);
+            }
+        });
+    });
 
        
           // 휴대폰 번호 복사하기
