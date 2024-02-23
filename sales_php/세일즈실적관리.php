@@ -1,3 +1,14 @@
+<?php
+$conn = mysqli_connect('localhost','root','amho73032721','abc_corp');
+
+ if(!$conn){
+     echo 'db에 연결하지 못했습니다.'.mysqli_connect_error();
+ } else{
+     echo '데이터 베이스에 접속했습니다.';
+ }
+?>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -74,7 +85,16 @@
                 <td>고객특이사항_메모</td>
                 <td>삭제❌</td>
             </thead>
-         
+    <?php 
+      $sql = "SELECT * FROM msg_board";
+      $result = mysqli_query($conn,$sql);
+      $td = '';
+      while($row = mysqli_fetch_array($result)){ 
+        $td = $td."<tr><td>".$row['ordernum'].'</td>'.'<td>'.$row['inum'].'</td>'.
+        '<td>'.$row['cusname'].'</td>'.'<td>'.$row['comdate'].'</td>'.'<td>'.$row['hopedate'].'</td>'.
+        '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>';
+     }
+    ?>     
         </table>
     </div>
     
@@ -94,47 +114,18 @@
      </form>    
     </div>
     </div>
-    <pre>
        <?php 
-       function test(){
-        $inum = $_POST['inum'];
-        $cusname = $_POST['cusname'];
-        $comdate = $_POST['comdate'];
-        $hopedate = $_POST['hopedate'];
-        $teamname = $_POST['teamname'];
-        $prodname = $_POST['prodname'];
-        $spememo = $_POST['spememo'];
+        $inum = $_POST['inum'] ?? ''; // 기본값 설정
+        $cusname = $_POST['cusname'] ?? '';
+        $comdate = $_POST['comdate'] ?? '';
+        $hopedate = $_POST['hopedate'] ?? '';
+        $teamname = $_POST['teamname'] ?? '';
+        $prodname = $_POST['prodname'] ?? '';
+        $spememo = $_POST['spememo'] ?? '';
        // $ordernum = $_POST['ordernum'];
-       if(isset($inum)&&isset($cusname)&&isset($comdate)&&isset($hopedate)&& 
-       isset($teamname) &&isset($prodname) && isset($spememo ) ){
-        echo $inum.'/'.$cusname.'/'.$comdate.'/'.$hopedate.'/'.$teamname.'/'
-        .$prodname.'/'.$spememo;
-       }
-       }
-        
-        
-      test();
-
-       /*
-function test() {
-    $inum = $_POST['inum'] ?? ''; // 기본값 설정
-    $cusname = $_POST['cusname'] ?? '';
-    $comdate = $_POST['comdate'] ?? '';
-    $hopedate = $_POST['hopedate'] ?? '';
-    $teamname = $_POST['teamname'] ?? '';
-    $prodname = $_POST['prodname'] ?? '';
-    $spememo = $_POST['spememo'] ?? '';
-
-    if (isset($comdate)) {
-        echo "가설일자: " . $comdate;
-    } else {
-        echo "가설일자를 입력해주세요.";
-    }
-    // 나머지 필드도 동일한 방식으로 처리 가능
-}
-       */
-      ?> 
-    </pre>
+      
+       ?> 
+    
     <div id="notepad">
         <textarea placeholder="취소 및 기타사항 입력" cols="100" rows="28">
 
@@ -150,7 +141,6 @@ function test() {
         jQuery(function(){
 
    
-       
     var $salesobj = {};
     var $salesview =[];
     var $salesDelkey =[];
