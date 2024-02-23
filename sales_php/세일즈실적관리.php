@@ -67,6 +67,8 @@ $conn = mysqli_connect('localhost','root','amho73032721','abc_corp');
             left : 45em;
             bottom : 10px;
         }
+
+        
                
     </style>
 
@@ -119,7 +121,7 @@ $conn = mysqli_connect('localhost','root','amho73032721','abc_corp');
         <input placeholder="설치예정일"type="text" name="hopedate">
         <input placeholder="컨설턴트"type="text" name="teamname">
         <input placeholder="상품종류"type="text" name="prodname">
-        <input placeholder="고객특이사항"type="text" name="spememo">
+        <input placeholder="고객특이사항"type="text" name="spememo"><br>
         <input class="button1" type="submit" value="가설 고객추가">
     
      </form>    
@@ -189,8 +191,10 @@ $conn = mysqli_connect('localhost','root','amho73032721','abc_corp');
                 alert(response);
 
                 // 성공적으로 데이터를 추가한 경우, 테이블을 갱신
-                $('#sales_data').load('세일즈실적관리.php #sales_data');
+                $('#sales_data').html(response);
+                //load('세일즈실적관리.php #sales_data');
                 
+            
                 // 폼을 초기화하여 입력 필드를 비움
                 $('#myform')[0].reset();
             },
@@ -219,18 +223,7 @@ $conn = mysqli_connect('localhost','root','amho73032721','abc_corp');
         $('textarea').val($notepadTextval_val);
        
          // 백업하기 위해 전체 내용을 복사하기 
-        $('.button2').click(function(){
-       $salesview.forEach(ele => {
-           $('.backup ul').append(`<li>${ele.순번}/${ele.고객번호}/${ele.고객명}/${ele.가설일자}/${ele.설치예정일}/${ele.컨설턴트}
-           /${ele.상품종류}/${ele.고객특이사항}</li>`)
-        });
-         $('.backup').append(`<pre>${$notepadTextval_val}</pre>`)
-        var $totalText = document.querySelector('.backup').innerText
-        navigator.clipboard.writeText($totalText );
-        $('.backup ul').remove();
-        $('.backup pre').remove();
-         
-    })
+      
 
 }) //제일바깥쪽
         
