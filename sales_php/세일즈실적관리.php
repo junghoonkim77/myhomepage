@@ -72,6 +72,7 @@
 include('phpgate.php');
 ?>
     <div class="container">
+    
     <div class="view">
         <table>
             <thead class="thead">
@@ -87,7 +88,23 @@ include('phpgate.php');
             </thead>
             <tbody id="sales_data">
     <?php 
-      $sql = "SELECT * FROM sales_board";
+    
+    $ordernum = $_POST['ordernum'] ?? ''; 
+    $inum = $_POST['inum'] ?? ''; // 기본값 설정
+    $cusname = $_POST['cusname'] ?? '';
+    $comdate = $_POST['comdate'] ?? '';
+    $hopedate = $_POST['hopedate'] ?? '';
+    $teamname = $_POST['teamname'] ?? '';
+    $prodname = $_POST['prodname'] ?? '';
+    $spememo = $_POST['spememo'] ?? '';
+   
+    if (!empty($inum) && !empty($cusname) && !empty($comdate) && !empty($hopedate) &&
+    !empty($teamname) && !empty($prodname) && !empty($spememo)) {
+
+    $sql1 = "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
+            VALUES ('$inum', '$cusname', '$comdate', '$hopedate', '$teamname', '$prodname', '$spememo')";
+    }
+    $sql = "SELECT * FROM sales_board";
       $result = mysqli_query($conn,$sql);
       $td = '';
       while($row = mysqli_fetch_array($result)){ 
@@ -99,51 +116,14 @@ include('phpgate.php');
     ?>     
         </tbody>
         </table>
+        <a href="sales_Gate.html">추가 입력창 이동 </a>
     </div>
     
-    <div class="control">
-      <form id="myform" action="세일즈실적관리.php" method="post">
-      
-        
-        <input placeholder="고객번호" type="text" name="inum">
-        <input placeholder="고객명" type="text" name="cusname">
-        <input placeholder="가설일자" type="text" name="comdate">
-        <input placeholder="설치예정일"type="text" name="hopedate">
-        <input placeholder="컨설턴트"type="text" name="teamname">
-        <input placeholder="상품종류"type="text" name="prodname">
-        <input placeholder="고객특이사항"type="text" name="spememo"><br>
-        <input class="button1" type="submit" value="가설 고객추가">
     
-     </form>    
-    </div>
     </div>
        <?php
     
 
-
-        $ordernum = $_POST['ordernum'] ?? ''; 
-        $inum = $_POST['inum'] ?? ''; // 기본값 설정
-        $cusname = $_POST['cusname'] ?? '';
-        $comdate = $_POST['comdate'] ?? '';
-        $hopedate = $_POST['hopedate'] ?? '';
-        $teamname = $_POST['teamname'] ?? '';
-        $prodname = $_POST['prodname'] ?? '';
-        $spememo = $_POST['spememo'] ?? '';
-       
-        if (!empty($inum) && !empty($cusname) && !empty($comdate) && !empty($hopedate) &&
-        !empty($teamname) && !empty($prodname) && !empty($spememo)) {
-
-        $sql1 = "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
-                VALUES ('$inum', '$cusname', '$comdate', '$hopedate', '$teamname', '$prodname', '$spememo')";
-
-        if (mysqli_query($conn, $sql1)) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
-        }
-    } else {
-        echo "All fields are required";
-    };
 
         
        
@@ -156,16 +136,12 @@ include('phpgate.php');
 
         </textarea>
     </div>
-      <div class="backup">
-       <ul></ul>
-        
-      </div>
-        
+      
 
     <script>
         jQuery(function(){
 
-            $('#myform').submit(function(e){
+    /*        $('#myform').submit(function(e){
         e.preventDefault(); // 폼 기본 제출 동작 방지
 
         // 폼 데이터를 직렬화하여 가져옴
@@ -193,7 +169,7 @@ include('phpgate.php');
                 console.error(xhr.responseText);
             }
         });
-    });
+    });     */
 
        
           // 휴대폰 번호 복사하기
