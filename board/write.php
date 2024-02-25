@@ -15,10 +15,11 @@
 
     <p>
         <label for="message">내용 :</label>
-        <textarea  id="message" name="message" cols='30' rows='10'></textarea>
+        <textarea  id="message" name="message" cols='60' rows='25'></textarea>
     </p>
       <input type="submit" value="글쓰기">
 
     </form>
+    <a href="index.php">처음으로 돌아가기</a>
 </body>
 </html>
