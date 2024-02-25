@@ -71,6 +71,7 @@
 <?php 
 include('phpgate.php');
 ?>
+<h2><a href="sales_Gate.html">추가 입력창 이동 </a> </h2>
     <div class="container">
     
     <div class="view">
@@ -84,11 +85,12 @@ include('phpgate.php');
                 <td>컨설명</td>
                 <td>상품명</td>
                 <td>고객특이사항_메모</td>
+                <td>삭제</td>
                 
             </thead>
             <tbody id="sales_data">
     <?php 
-    
+       
     $ordernum = $_POST['ordernum'] ?? ''; 
     $inum = $_POST['inum'] ?? ''; // 기본값 설정
     $cusname = $_POST['cusname'] ?? '';
@@ -98,22 +100,36 @@ include('phpgate.php');
     $prodname = $_POST['prodname'] ?? '';
     $spememo = $_POST['spememo'] ?? '';
    
-    if (!empty($inum) && !empty($cusname) && !empty($comdate) && !empty($hopedate) &&
+    /*if (!empty($inum) && !empty($cusname) && !empty($comdate) && !empty($hopedate) &&
     !empty($teamname) && !empty($prodname) && !empty($spememo)) {
 
     $sql1 = "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
             VALUES ('$inum', '$cusname', '$comdate', '$hopedate', '$teamname', '$prodname', '$spememo')";
-    }
-    $sql = "SELECT * FROM sales_board";
+    } */
+
+   $sql =  "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
+            VALUES ('$inum', '$cusname', '$comdate', '$hopedate', '$teamname', '$prodname', '$spememo')";
+   mysqli_query($conn, $sql);
+
+   $sql = "SELECT * FROM sales_board";
       $result = mysqli_query($conn,$sql);
       $td = '';
       while($row = mysqli_fetch_array($result)){ 
         $td = $td."<tr><td>".$row['ordernum'].'</td>'.'<td>'.$row['inum'].'</td>'.
         '<td>'.$row['cusname'].'</td>'.'<td>'.$row['comdate'].'</td>'.'<td>'.$row['hopedate'].'</td>'.
-        '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>';
+        '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>'.
+        '<td>'.'<form action='.'salesdel.php'." ".'method='.'post'.'>'.
+        '<input type=submit'." ".'name='.'delkey'." ".'value='.$row['ordernum'].''.'>'.'</form>'.
+        '</td>';
      }
      echo $td;
-    ?>     
+     
+    ?> 
+      
+     <?php 
+     
+     ?>
+     
         </tbody>
         </table>
         <a href="sales_Gate.html">추가 입력창 이동 </a>
