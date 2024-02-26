@@ -98,18 +98,20 @@ include('phpgate.php');
     $hopedate = $_POST['hopedate'] ?? '';
     $teamname = $_POST['teamname'] ?? '';
     $prodname = $_POST['prodname'] ?? '';
-    $spememo = $_POST['spememo'] ?? '';
+    $spememo = $_POST['spememo'] ?? ''; 
    
-    /*if (!empty($inum) && !empty($cusname) && !empty($comdate) && !empty($hopedate) &&
+    if (!empty($inum) && !empty($cusname) && !empty($comdate) && !empty($hopedate) &&
     !empty($teamname) && !empty($prodname) && !empty($spememo)) {
 
     $sql1 = "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
             VALUES ('$inum', '$cusname', '$comdate', '$hopedate', '$teamname', '$prodname', '$spememo')";
-    } */
+            mysqli_query($conn, $sql1);
+    } 
 
-   $sql =  "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
+  /* $sql1 =  "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
             VALUES ('$inum', '$cusname', '$comdate', '$hopedate', '$teamname', '$prodname', '$spememo')";
-   mysqli_query($conn, $sql);
+            mysqli_query($conn, $sql1); */
+   
 
    $sql = "SELECT * FROM sales_board";
       $result = mysqli_query($conn,$sql);
@@ -118,7 +120,7 @@ include('phpgate.php');
         $td = $td."<tr><td>".$row['ordernum'].'</td>'.'<td>'.$row['inum'].'</td>'.
         '<td>'.$row['cusname'].'</td>'.'<td>'.$row['comdate'].'</td>'.'<td>'.$row['hopedate'].'</td>'.
         '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>'.
-        '<td>'.'<form action='.'salesdel.php'." ".'method='.'post'.'>'.
+        '<td>'.'<form action='.'세일즈실적관리.php'." ".'method='.'post'.'>'.
         '<input type=submit'." ".'name='.'delkey'." ".'value='.$row['ordernum'].''.'>'.'</form>'.
         '</td>';
      }
@@ -126,12 +128,19 @@ include('phpgate.php');
      
     ?> 
       
-     <?php 
-     
-     ?>
+  
      
         </tbody>
         </table>
+        <?php 
+     $user_delnum =$_POST['delkey'] ?? ''; 
+
+     if(!empty($user_delnum)){
+         $sqlDEL = "DELETE FROM sales_board WHERE ordernum = $user_delnum"; 
+         mysqli_query($conn,$sqlDEL);
+         echo $user_delnum.'번이 삭제됐습니다.' ;
+     }
+     ?>
         <a href="sales_Gate.html">추가 입력창 이동 </a>
     </div>
     
