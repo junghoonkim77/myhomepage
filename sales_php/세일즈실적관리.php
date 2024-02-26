@@ -108,10 +108,6 @@ include('phpgate.php');
             mysqli_query($conn, $sql1);
     } 
 
-  /* $sql1 =  "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
-            VALUES ('$inum', '$cusname', '$comdate', '$hopedate', '$teamname', '$prodname', '$spememo')";
-            mysqli_query($conn, $sql1); */
-   
 
    $sql = "SELECT * FROM sales_board";
       $result = mysqli_query($conn,$sql);
@@ -127,10 +123,7 @@ include('phpgate.php');
      echo $td;
      
     ?> 
-      
-  
-     
-        </tbody>
+       </tbody>
         </table>
         <?php 
      $user_delnum =$_POST['delkey'] ?? ''; 
@@ -144,22 +137,24 @@ include('phpgate.php');
         <a href="sales_Gate.html">추가 입력창 이동 </a>
     </div>
     
-    
+  
     </div>
-       <?php
-    
-
-
-        
-       
-
-     
-       ?> 
-    
+   
     <div id="notepad">
-        <textarea placeholder="취소 및 기타사항 입력" cols="100" rows="28">
-
-        </textarea>
+        <form action="세일즈실저관리.php" method="post">
+    <?php 
+        $test2 = '';
+        $sqlmemo = "SELECT * FROM textmemo";
+        $result2 = mysqli_query($conn,$sqlmemo);
+        
+        while($row2 = mysqli_fetch_array($result2)){
+            $test2 = $test2.$row2['com_num'].".".$row2['memo'];
+        };
+        //echo '<textarea cols="45" rows="25" name="texmemo">'. $test2.'</textarea>';
+        echo $test2;
+        ?>
+        <input type="submit" value='메모저장'>;
+       </form>
     </div>
       
 
