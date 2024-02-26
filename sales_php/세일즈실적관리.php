@@ -90,7 +90,7 @@ include('phpgate.php');
             </thead>
             <tbody id="sales_data">
     <?php 
-       
+      
     $ordernum = $_POST['ordernum'] ?? ''; 
     $inum = $_POST['inum'] ?? ''; // 기본값 설정
     $cusname = $_POST['cusname'] ?? '';
@@ -99,7 +99,7 @@ include('phpgate.php');
     $teamname = $_POST['teamname'] ?? '';
     $prodname = $_POST['prodname'] ?? '';
     $spememo = $_POST['spememo'] ?? ''; 
-   
+       
     if (!empty($inum) && !empty($cusname) && !empty($comdate) && !empty($hopedate) &&
     !empty($teamname) && !empty($prodname) && !empty($spememo)) {
 
@@ -141,8 +141,18 @@ include('phpgate.php');
     </div>
    
     <div id="notepad">
-        <form action="세일즈실저관리.php" method="post">
+        
     <?php 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $texmemo = $_POST['texmemo'] ?? '';
+    
+            // SQL Injection 방지를 위해 prepared statement를 사용하는 것이 좋습니다.
+            $stmt = $conn->prepare("UPDATE textmemo SET memo = ? WHERE com_num = 1");
+            $stmt->bind_param("s", $texmemo);
+            $stmt->execute();
+            $stmt->close();
+        }
+       
         $test2 = '';
         $sqlmemo = "SELECT * FROM textmemo";
         $result2 = mysqli_query($conn,$sqlmemo);
@@ -150,9 +160,10 @@ include('phpgate.php');
         while($row2 = mysqli_fetch_array($result2)){
             $test2 = $test2.$row2['com_num'].".".$row2['memo'];
         };
-        //echo '<textarea cols="45" rows="25" name="texmemo">'. $test2.'</textarea>';
-        echo $test2;
+               
         ?>
+        <form action="세일즈실적관리.php" method="post">
+        <textarea cols="45" rows="25" id="texmemo" name="texmemo"><?php echo $test2; ?></textarea>
         <input type="submit" value='메모저장'>;
        </form>
     </div>
@@ -198,15 +209,6 @@ include('phpgate.php');
             $lib.clipcopy($phonenum);
              })
 
-        $('#notepad textarea').on('input',function(){
-            var $notepadTextval = $('textarea').val();
-            localStorage.setItem('$notepadval',$notepadTextval);
-            
-            console.log ( $notepadTextval_val )
-            
-        })
-        var $notepadTextval_val = localStorage.getItem('$notepadval');
-        $('textarea').val($notepadTextval_val);
        
          // 백업하기 위해 전체 내용을 복사하기 
       

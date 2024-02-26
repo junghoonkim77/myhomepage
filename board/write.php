@@ -15,7 +15,7 @@
 
     <p>
         <label for="message">내용 :</label>
-        <textarea  id="message" name="message" cols='60' rows='25'></textarea>
+        <textarea  id="message" name="message" cols='60' rows='25'>테스트</textarea>
     </p>
       <input type="submit" value="글쓰기">
 
