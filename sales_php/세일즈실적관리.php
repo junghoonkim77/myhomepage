@@ -163,7 +163,7 @@ include('phpgate.php');
                
         ?>
         <form action="세일즈실적관리.php" method="post">
-        <textarea cols="45" rows="25" id="texmemo" name="texmemo"><?php echo $test2; ?></textarea>
+        <textarea class="texmemo" cols="45" rows="25" id="texmemo" name="texmemo"><?php echo $test2; ?></textarea>
         <input type="submit" value='메모저장'>;
        </form>
     </div>
@@ -171,6 +171,14 @@ include('phpgate.php');
 
     <script>
         jQuery(function(){
+
+            $('.texmemo').on('input',function(){
+            var $notepadTextval = $('this').val();
+            localStorage.setItem('$notepadval',$notepadTextval);
+            
+            console.log ( $notepadTextval )
+            
+        })
 
     /*        $('#myform').submit(function(e){
         e.preventDefault(); // 폼 기본 제출 동작 방지
