@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+
+        .tg  {border-collapse:collapse;border-spacing:0;}
+
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+
+          overflow:hidden;padding:10px 5px;word-break:normal;}
+
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+
+          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+
+        .tg .tg-p1nr{border-color:inherit;font-size:11px;text-align:left;vertical-align:top}
+
+        .tg .tg-gzo9{border-color:inherit;font-size:11px;text-align:center;vertical-align:top}
+
+        .tg .tg-9xki{background-color:#ffffc7;border-color:inherit;font-size:11px;text-align:center;vertical-align:top}
+
+        .tg .tg-1dax{border-color:inherit;font-size:11px;text-align:center;vertical-align:middle}
+
+        .tg .tg-ncrr{border-color:inherit;font-size:11px;text-align:left;vertical-align:middle}
+
+
+        .container {
+
+            display : grid;
+
+            grid-template-columns: 2fr 1fr;
+
+            grid-template-rows: auto;
+
+            grid-gap: 10px;
+
+            position : relative;
+
+           }
+
+        .inputbox1 div {
+
+            display : flex;
+
+            flex-direction: column;
+
+            position : sticky ;
+
+            top :  50px;
+
+        }
+
+        #repeat {
+            margin-bottom: 20px;
+            background-color: aqua;
+        }
+        </style>
+
+        
+
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+
+</script>
+
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+
+</script> 
+
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+     <div class="container">
+
+        
+
+            <table class="tg">
+
+            <thead>
+
+              <tr>
+
+                <th class="tg-9xki" colspan="6">NW119의뢰서 <br>(nw119@kt.com)</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+
+                <td class="tg-p1nr" colspan="3">중복&amp;리스크 VOC여부 (Y/N)<br>(※고객센터 관리자 팀장이상 사전검토 必)</td>
+
+                <td id="중복" class="tg-p1nr"></td>
+
+                <td class="tg-p1nr">사전 검토자명</td>
+
+                <td id="검토자" class="tg-p1nr"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-gzo9" colspan="6">□신청인 정보</td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-gzo9" colspan="4">신청일자</td>
+
+                <td id="신청일자" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="4">신청인</td>
+
+                <td class="tg-1dax" colspan="3">소속</td>
+
+                <td id="소속" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" colspan="3">성명</td>
+
+                <td id="성명" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="2">연락처</td>
+
+                <td class="tg-1dax" colspan="2">전화번호</td>
+
+                <td id="전화번호" class="tg-p1nr"></td>
+
+                <td class="tg-p1nr"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" colspan="2">이메일</td>
+
+                <td id="이메일" class="tg-p1nr"></td>
+
+                <td class="tg-p1nr"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-gzo9" colspan="6">□VOC 의뢰내용</td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="3">단말정보</td>
+
+                <td class="tg-1dax" colspan="3">모델명 (KOS기준명)</td>
+
+                <td id="모델명" class="tg-p1nr" colspan="2" rowspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" colspan="3">펫네임</td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" colspan="3">전화번호<br>(※투폰/듀얼번호/웨어러블 단말의 경우) <br>해당 번호 모두 기재</td>
+
+                <td id="회선번호" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="9">VOC인입이력</td>
+
+                <td class="tg-1dax" rowspan="9">1차 인입</td>
+
+                <td class="tg-1dax">인입일자</td>
+
+                <td class="tg-1dax">시각</td>
+
+                <td id="시각" class="tg-p1nr"></td>
+
+                <td class="tg-p1nr"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" colspan="2">SR번호</td>
+
+                <td id="sr" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="4">고객불만사항</td>
+
+                <td class="tg-1dax">증상개요</td>
+
+                <td id="증상" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">발생시기</td>
+
+                <td id="발생" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">발생지역</td>
+
+                <td id="지역" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">불만세부내용<br>(양식무관,상세기술)</td>
+
+                <td class="tg-p1nr" colspan="2"><pre id="불만세부"></pre></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="3">점검내역<br>(조치사항)</td>
+
+                <td class="tg-1dax">재현시험 결과</td>
+
+                <td id="재현" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">NW점검결과</td>
+
+                <td id="점검" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">고객 (임시) 조치사항</td>
+
+                <td id="임시" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="8">VOC인입이력</td>
+
+                <td class="tg-1dax" rowspan="8">2차 인입</td>
+
+                <td class="tg-1dax">인입일자</td>
+
+                <td class="tg-1dax">시각</td>
+
+                <td id="시각2" class="tg-p1nr"></td>
+
+                <td class="tg-p1nr"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="4">고객 불만사항</td>
+
+                <td class="tg-1dax">증상개요</td>
+
+                <td id="증상2" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">발생시기</td>
+
+                <td id="발생2" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">발생지역</td>
+
+                <td id="지역2" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">불만세부내용<br>(양식무관 ,상세기술)</td>
+
+                <td class="tg-p1nr" colspan="2"><pre id="불만세부2"></pre></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="3">점검내역<br> / 조치사항<br></td>
+
+                <td class="tg-1dax">재현시험결과</td>
+
+                <td id="재현2" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">NW점검결과</td>
+
+                <td id="임시2" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">고객 (임시) 조치사항</td>
+
+                <td class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="8">VOC인입이력</td>
+
+                <td class="tg-1dax" rowspan="8">3차 인입</td>
+
+                <td class="tg-1dax">인입일자</td>
+
+                <td class="tg-1dax">시각</td>
+
+                <td id="시각3" class="tg-p1nr"></td>
+
+                <td class="tg-p1nr"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="4">고객 불만사항</td>
+
+                <td class="tg-1dax">증상개요</td>
+
+                <td id="증상3" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">발생시기</td>
+
+                <td id="발생3" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">발생지역</td>
+
+                <td id="지역3" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">불만세부내용<br>(양식무관,상세기술)</td>
+
+                <td class="tg-p1nr" colspan="2"><pre id="불만세부3"></pre></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax" rowspan="3">점검내역<br> / 조치사항</td>
+
+                <td class="tg-1dax">재현시험결과</td>
+
+                <td id="재현3"  class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">NW점검결과</td>
+
+                <td id="점검3" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-1dax">고객(임시)조치사항</td>
+
+                <td id="임시3" class="tg-p1nr" colspan="2"></td>
+
+              </tr>
+
+              <tr>
+
+                <td class="tg-ncrr" rowspan="3">□기타사항</td>
+
+                <td class="tg-p1nr" colspan="5" rowspan="3"></td>
+
+              </tr>
+
+              <tr>
+
+              </tr>
+
+              <tr>
+
+              </tr>
+
+            </tbody>
+
+            </table>
+
+        
+
+            <div class="inputbox1">
+
+            <div>
+
+                <select  name="person" id="repeat">
+                    <option  value="">1차인입</option>
+                    <option  value="2">2차인입</option>
+                    <option  value="3">3차인입</option>
+                </select>
+        
+
+            <input type="text" placeholder="중복&리스크 여부 Y/N입력" name="" class="중복">
+
+            <input type="text" placeholder="사전검토자명 ex.ㅇㅇㅇ 팀장" name="" class="검토자">
+
+            <input type="text" placeholder="신청일자(년월일기재)" name="" class="신청일자">
+
+            <input type="text" placeholder="소속 (ktcs xx센터)" name="" class="소속">
+
+            <input type="text" placeholder="접수자 이름" name="" class="성명">
+
+            <input type="text" placeholder="접수자 연락처" name="" class="전화번호">
+
+            <input type="text" placeholder="접수자 이메일주소" name="" class="이메일">
+
+            <input type="text" placeholder="모델명 /펫네임" name="" class="모델명">
+
+            <input type="text"  placeholder="고객 전화번호" name="" class="회선번호">
+
+            <input type="text" placeholder="인입일자 /시각" name="" class="시각">
+
+            <input type="text" placeholder="SR번호" name="" class="sr">
+
+            <input type="text" placeholder="증상개요" name="" class="증상">
+
+            <input type="text" placeholder="발생시기" name="" class="발생">
+
+            <input type="text" placeholder="발생지역" name="" class="지역">
+
+            <textarea class="불만세부" placeholder="불만세부내용 (양식무관 , 상세기술)" rows="5" cols="10" ></textarea>
+
+            <input placeholder="재현시험결과" type="text" name="" class="재현">
+
+            <input placeholder="NW점검결과" type="text" name="" class="점검">
+
+            <input placeholder="고객(임시)조치사항" type="text" name="" class="임시">
+
+            </div>
+
+        </div>
+
+        
+
+    </div>
+
+    <script>
+
+        jQuery(function(){
+         const $inputs = $('input');
+         const $textarea =$('textarea');
+         const $repeat =[];
+         //input 태그에 placehold값을 title에 attr하는 코드
+         $inputs.each(function(e,t){
+          $placeholder =  $(this).attr('placeholder');
+          $(this).attr('title',$placeholder);
+          })    
+        
+          // 각 차수별 입력 내용 수정하기 
+        $('#repeat').change(function(){
+            $repeat.length = 0 ;
+            const $selectval = $(this).val();
+            $repeat.push($selectval);
+            $inputs.eq(9).attr('class','시각'+$repeat[0]);
+            $inputs.eq(11).attr('class','증상'+$repeat[0]);
+            $inputs.eq(12).attr('class','발생'+$repeat[0]);
+            $inputs.eq(13).attr('class','지역'+$repeat[0]);
+            $inputs.eq(14).attr('class','재현'+$repeat[0]);
+            $inputs.eq(15).attr('class','점검'+$repeat[0]);
+            $inputs.eq(16).attr('class','임시'+$repeat[0]);
+            $textarea.eq(0).attr('class','불만세부'+$repeat[0]);
+        })
+
+        $inputs.on('keyup',function(){
+            const inputval = $(this).val();
+            const ipclassval = $(this).attr('class');
+            $('#'+ipclassval).text(inputval);
+        })
+        
+        $textarea.on('keyup',function(){
+            const texval = $(this).val();
+            const texclass = $(this).attr('class');
+            $('#'+texclass).text(texval);
+        })
+
+        })
+
+    </script>
+
+</body>
+
+</html>
