@@ -15,7 +15,7 @@
 
         .tg  {border-collapse:collapse;border-spacing:0;}
 
-        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        .tg td{border-color:black;border-style:solid;border-width:2px;font-family:Arial, sans-serif;font-size:14px;
 
           overflow:hidden;padding:10px 5px;word-break:normal;}
 
@@ -437,7 +437,7 @@
 
                 <td class="tg-ncrr" rowspan="3">□기타사항</td>
 
-                <td class="tg-p1nr" colspan="5" rowspan="3"></td>
+                <td class="tg-p1nr" id="기타사항" colspan="5" rowspan="3"></td>
 
               </tr>
 
@@ -501,6 +501,8 @@
             <input placeholder="NW점검결과" type="text" name="" class="점검">
 
             <input placeholder="고객(임시)조치사항" type="text" name="" class="임시">
+
+            <input placeholder="기타사항" type="text" name="" class="기타사항">
              <button>복사</button>
             </div>
 
@@ -527,14 +529,26 @@
             $repeat.length = 0 ;
             const $selectval = $(this).val();
             $repeat.push($selectval);
-            $inputs.eq(9).attr('class','시각'+$repeat[0]);
-            $inputs.eq(11).attr('class','증상'+$repeat[0]);
-            $inputs.eq(12).attr('class','발생'+$repeat[0]);
-            $inputs.eq(13).attr('class','지역'+$repeat[0]);
-            $inputs.eq(14).attr('class','재현'+$repeat[0]);
-            $inputs.eq(15).attr('class','점검'+$repeat[0]);
-            $inputs.eq(16).attr('class','임시'+$repeat[0]);
-            $textarea.eq(0).attr('class','불만세부'+$repeat[0]);
+            if($selectval == 2 || $selectval == 3){
+              $inputs.eq(9).attr('class','시각'+$repeat[0]).css('background-color','yellow');
+            $inputs.eq(11).attr('class','증상'+$repeat[0]).css('background-color','yellow');;
+            $inputs.eq(12).attr('class','발생'+$repeat[0]).css('background-color','yellow');;
+            $inputs.eq(13).attr('class','지역'+$repeat[0]).css('background-color','yellow');;
+            $inputs.eq(14).attr('class','재현'+$repeat[0]).css('background-color','yellow');;
+            $inputs.eq(15).attr('class','점검'+$repeat[0]).css('background-color','yellow');;
+            $inputs.eq(16).attr('class','임시'+$repeat[0]).css('background-color','yellow');;
+            $textarea.eq(0).attr('class','불만세부'+$repeat[0]).css('background-color','yellow');;
+            } else {
+              $inputs.eq(9).attr('class','시각').css('background-color','transparent');
+            $inputs.eq(11).attr('class','증상').css('background-color','transparent');;
+            $inputs.eq(12).attr('class','발생').css('background-color','transparent');;
+            $inputs.eq(13).attr('class','지역').css('background-color','transparent');;
+            $inputs.eq(14).attr('class','재현').css('background-color','transparent');;
+            $inputs.eq(15).attr('class','점검').css('background-color','transparent');;
+            $inputs.eq(16).attr('class','임시').css('background-color','transparent');;
+            $textarea.eq(0).attr('class','불만세부').css('background-color','transparent');;
+            }
+           
         })
 
         $inputs.on('keyup',function(){
@@ -551,9 +565,10 @@
 
         $('button').on('click', function() {
     // 표 내용을 선택
-    const tg = $('.tg');
+   // const tg = $('.tg');
+    const $tg =document.querySelector('.tg');
     const range = document.createRange();
-    range.selectNode(this);
+    range.selectNode($tg);
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
 
