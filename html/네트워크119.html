@@ -501,7 +501,7 @@
             <input placeholder="NW점검결과" type="text" name="" class="점검">
 
             <input placeholder="고객(임시)조치사항" type="text" name="" class="임시">
-
+             <button>복사</button>
             </div>
 
         </div>
@@ -548,6 +548,25 @@
             const texclass = $(this).attr('class');
             $('#'+texclass).text(texval);
         })
+
+        $('button').on('click', function() {
+    // 표 내용을 선택
+    const tg = $('.tg');
+    const range = document.createRange();
+    range.selectNode(this);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+
+    // 복사
+    document.execCommand('copy');
+
+    // 선택 해제
+    window.getSelection().removeAllRanges();
+
+    
+}); 
+
+
 
         })
 
