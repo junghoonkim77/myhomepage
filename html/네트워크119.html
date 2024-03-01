@@ -507,11 +507,8 @@
             </div>
 
         </div>
-
-        
-
     </div>
-
+    <script src="../java/library.js"></script>
     <script>
 
         jQuery(function(){
@@ -563,27 +560,13 @@
             $('#'+texclass).text(texval);
         })
 
-        $('button').on('click', function() {
-    // 표 내용을 선택
-   // const tg = $('.tg');
-    const $tg =document.querySelector('.tg');
-    const range = document.createRange();
-    range.selectNode($tg);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-
-    // 복사
-    document.execCommand('copy');
-
-    // 선택 해제
-    window.getSelection().removeAllRanges();
-
-    
-}); 
-
-
-
-        })
+       
+     $('button').click(function(){
+     $lib.rangecopy('.tg');
+     });
+   
+   
+    }); //마지막 줄 
 
     </script>
 

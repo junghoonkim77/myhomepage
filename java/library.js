@@ -66,6 +66,23 @@ var $lib ={
         return [$year,$month,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2 ];
      },
 
+     //영역을 카피해주는 함수 대박 좋음   $lib.rangecopy('.tg');
+
+     "rangecopy":function(node){
+        const $node =document.querySelector(node);
+    const range = document.createRange();
+    range.selectNode($node);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+     console.log(1);
+    // 복사
+    document.execCommand('copy');
+
+    // 선택 해제
+    window.getSelection().removeAllRanges();
+
+     }
+
 
 
 
