@@ -74,7 +74,7 @@ var $lib ={
     range.selectNode($node);
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
-     console.log(1);
+    
     // 복사
     document.execCommand('copy');
 

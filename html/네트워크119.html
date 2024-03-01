@@ -12,14 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style type="text/css">
-
+        
         .tg  {border-collapse:collapse;border-spacing:0;}
 
         .tg td{border-color:black;border-style:solid;border-width:2px;font-family:Arial, sans-serif;font-size:14px;
 
           overflow:hidden;padding:10px 5px;word-break:normal;}
 
-        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        .tg th{border-color:black;border-style:solid;border-width:2px;font-family:Arial, sans-serif;font-size:14px;
 
           font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 
@@ -27,7 +27,7 @@
 
         .tg .tg-gzo9{border-color:inherit;font-size:11px;text-align:center;vertical-align:top}
 
-        .tg .tg-9xki{background-color:#ffffc7;border-color:inherit;font-size:11px;text-align:center;vertical-align:top}
+        .tg .tg-9xki{background-color:#ffffc7;border-color:inherit;font-size:15px;text-align:center;vertical-align:top}
 
         .tg .tg-1dax{border-color:inherit;font-size:11px;text-align:center;vertical-align:middle}
 
@@ -503,7 +503,7 @@
             <input placeholder="고객(임시)조치사항" type="text" name="" class="임시">
 
             <input placeholder="기타사항" type="text" name="" class="기타사항">
-             <button>복사</button>
+             <button style="background-color:aqua; cursor:pointer ;">의뢰서_복사</button>
             </div>
 
         </div>
@@ -552,17 +552,33 @@
             const inputval = $(this).val();
             const ipclassval = $(this).attr('class');
             $('#'+ipclassval).text(inputval);
+            if(inputval.length >0){
+              $(this).css('background-color','#98fb98');
+            } else {
+              $(this).css('background-color','transparent');
+            }
         })
         
         $textarea.on('keyup',function(){
             const texval = $(this).val();
             const texclass = $(this).attr('class');
             $('#'+texclass).text(texval);
+            if(texval.length >0){
+              $(this).css('background-color','#98fb98');
+            } else {
+              $(this).css('background-color','transparent');
+            }
         })
 
        
      $('button').click(function(){
      $lib.rangecopy('.tg');
+     $(this).html('의뢰서복사 완료').css('background-color','yellow');
+     function back(){
+      $('button').html('의뢰서_복사').css('background-color','aqua');
+     }
+     setTimeout(back,2000);
+
      });
    
    

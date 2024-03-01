@@ -11,9 +11,10 @@
 <body>
   
   <div class="container">
-  <div style="margin: 2px 2px;">[<span class="today">11/23</span>통화품질1팀 일일출근현황]</div>
   
+  <div style="cursor :pointer" id="copy_range">
   <table class="tg" style="table-layout: fixed; width: 284px">
+    <div style="margin: 2px 2px;">[<span class="today">11/23</span>통화품질1팀 일일출근현황]</div>
     <div id="note">
       <div style="color :red">■체온 이상자 :<span class="temp">없음</span></div>
       <div >■sldm정상 확인자 : <span class="note">8명</span></div>
@@ -109,7 +110,7 @@
   </tbody>
   </table>
 
-
+</div>  
   
   <div id="div">
   <input style="display: block" type="text" value="" placeholder="체온이상유무" data-input="temp" />
@@ -128,7 +129,9 @@
   <button  class="MorningCheck">출결복사▼</button><button class="Addcon">공가,연차추가</button><br>
   <button class="conSave">내용저장</button> <button class="conOutput">전일내용입력</button>
   </div>
-  
+
+
+
   <div id="daily">
  안녕하세요~!<br>
 [통화품질팀]<span class="daily2"></span> 09시  <br>
@@ -172,9 +175,7 @@
 </div>
  
 
-  
-  
-
+  <script src="../java/library.js"></script>
   <script>
   
   jQuery(function(){
@@ -291,8 +292,12 @@
         balresult_end = balresult.toFixed(2);
     $('.balance2_2').val(balresult_end);
   })
-
+  // 표 영역 복사
+  $('#copy_range').click(function(){
+    $lib.rangecopy('#copy_range');
   })
+
+  }) // 마지막 줄
   
  
 
