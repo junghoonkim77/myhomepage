@@ -71,7 +71,7 @@
 <?php 
 include('phpgate.php');
 ?>
-<h2><a href="sales_Gate.html">추가 입력창 이동 </a> </h2>
+
     <div class="container">
     
     <div class="view">
@@ -158,32 +158,26 @@ include('phpgate.php');
         $result2 = mysqli_query($conn,$sqlmemo);
         
         while($row2 = mysqli_fetch_array($result2)){
-            $test2 = $test2.$row2['com_num'].".".$row2['memo'];
+            $test2 = $test2.$row2['memo'];
         };
                
         ?>
         <form action="세일즈실적관리.php" method="post">
-        <textarea class="texmemo" cols="45" rows="25" id="texmemo" name="texmemo"><?php echo $test2; ?></textarea>
+        <textarea class="texmemo" cols="60" rows="30" id="texmemo" name="texmemo"><?php echo $test2; ?></textarea>
         <input type="submit" value='메모저장'>;
        </form>
     </div>
       
-
+    <script src="../java/library.js"></script>
     <script>
         jQuery(function(){
 
-            $('.texmemo').on('input',function(){
-            var $notepadTextval = $('this').val();
-            localStorage.setItem('$notepadval',$notepadTextval);
-            
-            console.log ( $notepadTextval )
-            
-        })
+         
 
-    /*        $('#myform').submit(function(e){
-        e.preventDefault(); // 폼 기본 제출 동작 방지
+           /* $('#myform').submit(function(e){
+        e.preventDefault();  폼 기본 제출 동작 방지
 
-        // 폼 데이터를 직렬화하여 가져옴
+         폼 데이터를 직렬화하여 가져옴
         var formData = $(this).serialize();
 
         // Ajax 요청
@@ -212,16 +206,16 @@ include('phpgate.php');
 
        
           // 휴대폰 번호 복사하기
-         $('.phoneNumber').click(function(){
+        $('.phoneNumber').click(function(){
           var $phonenum = $(this).text();
             $lib.clipcopy($phonenum);
-             })
+             })  
 
        
          // 백업하기 위해 전체 내용을 복사하기 
       
 
-}) //제일바깥쪽
+})*/   //제일바깥쪽
         
       
         
