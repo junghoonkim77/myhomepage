@@ -495,10 +495,7 @@ $(function(){
 
   }) ;
 
-  $('.salescount1').click(function(){
-    window.open('http://folkball.dothome.co.kr/practice/sales_php/%EC%84%B8%EC%9D%BC%EC%A6%88%EC%8B%A4%EC%A0%81%EA%B4%80%EB%A6%AC.php', '_blank', 'width=1200, height=650' )
-
-  })
+ 
 
 
   
