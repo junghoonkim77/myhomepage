@@ -144,6 +144,9 @@ include('phpgate.php');
         
     <?php 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+           
+          // 폼 제출이 데이터 삭제를 위한 것이 아닌지 확인
+        if(!isset($_POST['delkey'])) {
             $texmemo = $_POST['texmemo'] ?? '';
     
             // SQL Injection 방지를 위해 prepared statement를 사용하는 것이 좋습니다.
@@ -152,6 +155,7 @@ include('phpgate.php');
             $stmt->execute();
             $stmt->close();
         }
+    }
        
         $test2 = '';
         $sqlmemo = "SELECT * FROM textmemo";
