@@ -1,8 +1,8 @@
 <?php 
-    require('view/functions.php');
-    $title = 'hello world';
+    require('functions.php');
+    $title = 'hello world2';
     
   //  include('view/index.view.php');
-   view('index');
+   view('index',$title);
 
 ?>

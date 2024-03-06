@@ -49,12 +49,11 @@
             margin-top : 15px;
         }
 
-        #notepad button{
-            position : absolute;
-            left : 45em;
-            bottom : 10px;
-        }
-
+       .subbtn{
+        position : absolute;
+        top : 10px;
+       }
+        
         
                
     </style>
@@ -176,7 +175,7 @@ include('phpgate.php');
         ?>
         <form action="세일즈실적관리.php" method="post">
         <textarea class="texmemo" cols="60" rows="30" id="texmemo" name="texmemo"><?php echo $test2; ?></textarea>
-        <input type="submit" value='메모저장'>;
+        <input class="subbtn" type="submit" value='메모저장'>;
        </form>
     </div>
       
@@ -218,9 +217,10 @@ include('phpgate.php');
 
        
           // 휴대폰 번호 복사하기
-        $('.phoneNumber').click(function(){
-          var $phonenum = $(this).text();
-            $lib.clipcopy($phonenum);
+        $('td').click(function(){
+          var $tdtext = $(this).text();
+          console.log($tdtext);
+            $lib.clipcopy($tdtext);
              })  
 
        
