@@ -145,9 +145,12 @@ include('phpgate.php');
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(!isset($_POST['delkey'])) {
                 $texmemo = $_POST['texmemo'] ?? '';
-                $sql2 = "INSERT INTO textmemo (memo) VALUES ('$texmemo')";
-                mysqli_query($conn, $sql2);
-
+    
+               // 새로운 메모를 데이터베이스에 업데이트
+        $stmt = $conn->prepare("UPDATE textmemo SET memo = ? WHERE com_num = 1");
+        $stmt->bind_param("s", $texmemo);
+        $stmt->execute();
+        $stmt->close();
             }
         }
        
