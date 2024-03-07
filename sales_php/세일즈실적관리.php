@@ -146,21 +146,11 @@ include('phpgate.php');
             if(!isset($_POST['delkey'])) {
                 $texmemo = $_POST['texmemo'] ?? '';
     
-                // 데이터베이스에서 이전 메모 가져오기
-                $stmt = $conn->prepare("SELECT memo FROM textmemo WHERE com_num = 1");
-                $stmt->execute();
-                $stmt->bind_result($prevMemo);
-                $stmt->fetch();
-                $stmt->close();
-    
-                // 새로운 메모와 이전 메모를 결합하여 저장
-                $newMemo = $prevMemo . $texmemo;
-    
-                // 이전 메모와 새로운 메모를 데이터베이스에 업데이트
-                $stmt = $conn->prepare("UPDATE textmemo SET memo = ? WHERE com_num = 1");
-                $stmt->bind_param("s", $newMemo);
-                $stmt->execute();
-                $stmt->close();
+               // 새로운 메모를 데이터베이스에 업데이트
+        $stmt = $conn->prepare("UPDATE textmemo SET memo = ? WHERE com_num = 1");
+        $stmt->bind_param("s", $texmemo);
+        $stmt->execute();
+        $stmt->close();
             }
         }
        
