@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+
     <title>php테스트</title>
 </head>
 <body>
@@ -12,5 +18,59 @@
         <input type="checkbox" name="checkbox" id="checkbox" >
         <input type="submit" value="보내기">
     </form>
+  <div id="functest">
+
+  </div>  
+  <button id="yourel">테스트</button>
+    <script>
+      // 동적으로 form 요소를 생성합니다.
+
+function subMit_button ($phpurl,$method,$form_position,$inputtype,$name,$placeholder){
+    var $form = $('<form>', {
+  'action': $phpurl,
+  'method': $method
+}).appendTo($form_position);
+ 
+  $('<input>').attr({
+  'type': $inputtype,
+  'name': $name,
+  'value': '',
+  'placeholder':$placeholder
+}).appendTo($form);
+     return $form;
+}
+
+var $form1 =subMit_button (
+    'checkbox_test.php',
+    'post',
+    '#functest',
+    'text',
+    'test_query',
+     '잘될까??');
+
+     $('#yourel').click(function() {
+  $form1.submit();
+});
+
+  /*    var $form = $('<form>', {
+  'action': 'checkbox_test.php',
+  'method': 'post'
+}).appendTo('body');
+
+// form에 input 데이터를 추가합니다.
+$('<input>').attr({
+  'type': 'text',
+  'name': 'test_query',
+  'value': '',
+  'placeholder':'j쿼리테스트'
+}).appendTo($form);
+
+// 클릭 이벤트를 이용해 form을 제출합니다.*/
+$('#yourel').click(function() {
+  $form.submit();
+});
+
+
+    </script>
 </body>
 </html>

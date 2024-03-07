@@ -142,7 +142,17 @@ include('phpgate.php');
     <div id="notepad">
         
     <?php 
-       
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if(!isset($_POST['delkey'])) {
+                $texmemo = $_POST['texmemo'] ?? '';
+    
+               // 새로운 메모를 데이터베이스에 업데이트
+        $stmt = $conn->prepare("UPDATE textmemo SET memo = ? WHERE com_num = 1");
+        $stmt->bind_param("s", $texmemo);
+        $stmt->execute();
+        $stmt->close();
+            }
+        }
        
         $test2 = '';
         $sqlmemo = "SELECT * FROM textmemo";

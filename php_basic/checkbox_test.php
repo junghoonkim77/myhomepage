@@ -7,11 +7,13 @@
 </head>
 <body>
     <?php 
-    $test = $_POST['test'];
+    $test = $_POST['test'] ?? '';
+    $testqr = $_POST['test_query'] ?? '';
     echo '<h3>'.$test.'</h3>';
+    echo '<h3>'.$testqr.'</h3>'
     ?>
     <?php
-     $checkbox = $_POST['checkbox']; 
+     $checkbox = $_POST['checkbox'] ?? ''; 
      if(isset($checkbox)){
         echo '체크 상태입니다.';
      }else{

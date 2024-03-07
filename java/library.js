@@ -75,13 +75,37 @@ var $lib ={
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
     
-    // 복사
     document.execCommand('copy');
-
-    // 선택 해제
     window.getSelection().removeAllRanges();
 
-     }
+     },
+    
+  //동적으로 submit버튼 형성 해주는 함수
+  /*사용법 
+    var $form1 =subMit_button ( php파일경로,
+    post나 get,
+    어떤ID나클래스로 들어갈지,
+    input타입종류,
+    전달할 name,
+    placeholder);
+
+     $('#yourel').click(function() {
+  $form1.submit();
+}); */
+    "subMit_button": function($phpurl,$method,$form_position,$inputtype,$name,$placeholder){
+        var $form = $('<form>', {
+      'action': $phpurl,
+      'method': $method
+    }).appendTo($form_position);
+     
+      $('<input>').attr({
+      'type': $inputtype,
+      'name': $name,
+      'value': '',
+      'placeholder':$placeholder
+    }).appendTo($form);
+         return $form;
+    }
 
 
 
