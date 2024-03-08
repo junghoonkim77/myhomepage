@@ -6,6 +6,6 @@
     <title><?= $model ?></title>
 </head>
 <body>
-    
+    <?php require("$name.view.php"); ?>
 </body>
 </html>

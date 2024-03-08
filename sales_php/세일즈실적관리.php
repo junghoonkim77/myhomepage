@@ -142,21 +142,24 @@ include('phpgate.php');
     <div id="notepad">
         
     <?php 
-       
-       
+    $txtmemo = $_POST['texmemo'] ?? '';
+        if(!empty($txtmemo)){
+            $sql2 = "INSERT INTO textmemo (memo) VALUES ('$txtmemo')";
+            mysqli_query($conn, $sql2);
+         }
+        
+          
         $test2 = '';
         $sqlmemo = "SELECT * FROM textmemo";
         $result2 = mysqli_query($conn,$sqlmemo);
         
         while($row2 = mysqli_fetch_array($result2)){
-            $test2 = $test2.$row2['memo'];
-        };
+            $test2 = $test2.'<li>'.$row2['memo'].'</li>';
+        }; 
                
         ?>
-        <form action="세일즈실적관리.php" method="post">
-        <textarea class="texmemo" cols="60" rows="30" id="texmemo" name="texmemo"><?php echo $test2; ?></textarea>
-        <input class="subbtn" type="submit" value='메모저장'>;
-       </form>
+        <ol><?php echo $test2  ?></ol>
+       
     </div>
       
     <script src="../java/library.js"></script>
