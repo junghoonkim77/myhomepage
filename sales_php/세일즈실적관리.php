@@ -143,7 +143,13 @@ include('phpgate.php');
         
     <?php 
     $txtmemo = $_POST['texmemo'] ?? '';
-        if(!empty($txtmemo)){
+    $deltex = $_POST['deltex'] ?? '';
+    if(!empty($deltex)){
+        $sqlDEL1 = "DELETE FROM textmemo WHERE com_num = $deltex ";
+        mysqli_query($conn, $sqlDEL1);
+     }
+    
+     if(!empty($txtmemo)){
             $sql2 = "INSERT INTO textmemo (memo) VALUES ('$txtmemo')";
             mysqli_query($conn, $sql2);
          }
@@ -154,14 +160,19 @@ include('phpgate.php');
         $result2 = mysqli_query($conn,$sqlmemo);
         
         while($row2 = mysqli_fetch_array($result2)){
-            $test2 = $test2.'<li>'.$row2['memo'].'</li>';
+            $test2 = $test2.'<li>'.'<span>'.$row2['com_num'].'_'.$row2['memo'].'</li>';
         }; 
                
         ?>
-        <ol><?php echo $test2  ?></ol>
+        <ul><?php echo $test2  ?></ul>
        
     </div>
-      
+      <div>
+        <form action="세일즈실적관리.php" method="post">
+            <input type="text" name="deltex" placeholder="삭제할메모번호 입력">
+            <input type="submit" value="하단메모삭제">
+        </form>
+      </div>
     <script src="../java/library.js"></script>
     <script>
         jQuery(function(){
