@@ -11,7 +11,7 @@
     crossorigin="anonymous"></script>
   <script src="../java/library.js"></script>
     <style>
-        *{
+        :not(h2) {
             font-size : 12px;
         }
         .container{
@@ -54,8 +54,23 @@
         top : 10px;
        }
         
-        
-               
+       li{
+        list-style :none;
+       } 
+       
+       a{
+        text-decoration : none;
+       }
+       .texframe{
+        display : inline-block;
+        border : 1px solid gray;
+        width : 45%;
+       }
+
+       .addlink{
+        display : block;
+        margin-top : 10px;
+       }
     </style>
 
     
@@ -133,7 +148,7 @@ include('phpgate.php');
          echo $user_delnum.'번이 삭제됐습니다.' ;
      }
      ?>
-        <a href="sales_Gate.html">추가 입력창 이동 </a>
+        
     </div>
     
   
@@ -143,7 +158,7 @@ include('phpgate.php');
         
     <?php 
     $txtmemo = $_POST['texmemo'] ?? '';
-    $deltex = $_POST['deltex'] ?? '';
+    $deltex = $_GET['deltex'] ?? '';
     if(!empty($deltex)){
         $sqlDEL1 = "DELETE FROM textmemo WHERE com_num = $deltex ";
         mysqli_query($conn, $sqlDEL1);
@@ -160,56 +175,26 @@ include('phpgate.php');
         $result2 = mysqli_query($conn,$sqlmemo);
         
         while($row2 = mysqli_fetch_array($result2)){
-            $test2 = $test2.'<li>'.'<span>'.$row2['com_num'].'_'.$row2['memo'].'</li>';
-        }; 
+            $test2 = $test2.'<li>'.'<span>'.'_'.
+            $row2['memo'].'<a href="세일즈실적관리.php?deltex='.$row2['com_num'].'"'.'>'.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   삭제'.
+            '</a>'.'</li>'
+             ;
+           }; 
                
         ?>
-        <ul><?php echo $test2  ?></ul>
+       
        
     </div>
-      <div>
-        <form action="세일즈실적관리.php" method="post">
-            <input type="text" name="deltex" placeholder="삭제할메모번호 입력">
-            <input type="submit" value="하단메모삭제">
-        </form>
-      </div>
+    <div class="texframe"><?php echo $test2 ?></div>
+    <a class="addlink" href="sales_Gate.html">추가 입력창 이동 </a>
+      
+    
+
     <script src="../java/library.js"></script>
     <script>
         jQuery(function(){
 
-         
-
-           /* $('#myform').submit(function(e){
-        e.preventDefault();  폼 기본 제출 동작 방지
-
-         폼 데이터를 직렬화하여 가져옴
-        var formData = $(this).serialize();
-
-        // Ajax 요청
-        $.ajax({
-            type: 'POST',
-            url: '세일즈실적관리.php',
-            data: formData,
-            success: function(response){
-                // 성공적으로 응답을 받으면 새로운 레코드 메시지를 표시
-                alert(response);
-
-                // 성공적으로 데이터를 추가한 경우, 테이블을 갱신
-                $('#sales_data').html(response);
-                //load('세일즈실적관리.php #sales_data');
                 
-            
-                // 폼을 초기화하여 입력 필드를 비움
-                $('#myform')[0].reset();
-            },
-            error: function(xhr, status, error){
-                // 오류 발생 시 오류 메시지를 표시
-                console.error(xhr.responseText);
-            }
-        });
-    });     */
-
-       
           // 휴대폰 번호 복사하기
         $('td').click(function(){
           var $tdtext = $(this).text();
@@ -217,7 +202,7 @@ include('phpgate.php');
             $lib.clipcopy($tdtext);
              })  
 
-       
+       //HTTPS 환경에서 실행: navigator.clipboard.writeText()는 보안상의 이유로 HTTPS 환경에서만 동작합니다. 따라서 코드가 HTTPS로 제공되고 있는지 확인하세요.
          // 백업하기 위해 전체 내용을 복사하기 
       
 
