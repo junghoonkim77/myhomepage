@@ -1,6 +1,6 @@
 
 name = '김정훈'
-is_human = False 
+is_human = False
 is_human2 = 1>5
 age = 47
 print('풍선')

@@ -1,8 +1,8 @@
 <?php 
-    require('functions.php');
+    require ('app/app.php');
     $title = 'hello world2';
     
-  //  include('view/index.view.php');
-   view('index',$title);
+ $data = get_date();
+   view('index','');
 
 ?>
