@@ -240,6 +240,7 @@ $(function(){
 
   $('.dropdown-content2 .srform1').click(function(){
     var hasclass = $(this).hasClass('Sales')
+    var hasclass1 = $(this).hasClass('mutv')
     var $srvalue = $(this).val();
     var valN = localStorage.getItem('meid');
     var Telnum = $('.phoneNumber').val();
@@ -249,7 +250,10 @@ $(function(){
     if(hasclass){
       navigator.clipboard.writeText(completeTxt);
       console.log(completeTxt)
-    }else{
+    }else if(hasclass1){
+      navigator.clipboard.writeText(completeTxt+'/탭안내꼭!');
+    }
+    else{
       navigator.clipboard.writeText($srvalue);
     }
 
