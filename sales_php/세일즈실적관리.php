@@ -174,21 +174,25 @@ include('phpgate.php');
         $sqlmemo = "SELECT * FROM textmemo";
         $result2 = mysqli_query($conn,$sqlmemo);
         
-        while($row2 = mysqli_fetch_array($result2)){
+       /* while($row2 = mysqli_fetch_array($result2)){
             $test2 = $test2.'<li>'.'<span>'.'_'.
             $row2['memo'].'<a href="세일즈실적관리.php?deltex='.$row2['com_num'].'"'.'>'.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   삭제'.
             '</a>'.'</li>'
              ;
-           }; 
-               
+           }; */
+           while($row2 = mysqli_fetch_array($result2)){
+            $test2 = $test2.$row2['memo'].'<a href="세일즈실적관리.php?deltex='.$row2['com_num'].'"'.'>'.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   삭제'.
+            '</a>'
+                  ;
+           };    
         ?>
        
        
     </div>
     <div class="texframe">
-    <ul>
+    <pre>
     <?php echo $test2 ?>
-    </ul>
+    </pre>
     </div>
     <a class="addlink" href="sales_Gate.html">추가 입력창 이동 </a>
       
