@@ -499,6 +499,11 @@ $(function(){
 
   }) ;
 
+  $('.salescount1').click(function(){
+    window.open('http://folkball.dothome.co.kr/mypage/sales_php/세일즈실적관리.php', '_blank', 'width=1000, height=650' )
+
+  }) ;
+
  
 
 
