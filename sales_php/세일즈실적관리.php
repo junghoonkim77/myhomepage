@@ -185,7 +185,11 @@ include('phpgate.php');
        
        
     </div>
-    <div class="texframe"><?php echo $test2 ?></div>
+    <div class="texframe">
+    <ul>
+    <?php echo $test2 ?>
+    </ul>
+    </div>
     <a class="addlink" href="sales_Gate.html">추가 입력창 이동 </a>
       
     

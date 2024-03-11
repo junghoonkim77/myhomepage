@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    input {
+        width :300px;
+    }
+    .div1,.div2 {
+        cursor : pointer;
+    }
+</style>    
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+<script src="../../java/library.js"></script>
+    <title>php경로조작</title>
+</head>
+<body>
+    <input type="text" placeholder="경로를 넣으세요" name="" id="">
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <script>
+        $('input').on('keyup',function(){
+            $val = $(this).val();
+            $chval = $val.replaceAll("\\","/")
+            $result = $chval.replaceAll("htdocs","localhost")
+            $result1 = $result.replace('che2/','★');
+            $staridx = $result1.indexOf('★')+1
+            $result2 = $result1.slice($staridx);
+            $result3=$result2.replace('localhost/gitHub/myhomepage','http://folkball.dothome.co.kr/mypage');
+            $('.div1').text($result2);
+            $('.div2').text($result3);
+           
+        })
+        $('.div1').click(function(){
+            $lib.clipcopy($(this).text());
+        });
+
+        $('.div2').click(function(){
+            $lib.clipcopy($(this).text());
+        })
+    </script>
+</body>
+</html>
