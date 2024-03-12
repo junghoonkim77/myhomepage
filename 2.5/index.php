@@ -3,6 +3,6 @@
     $title = 'hello world2';
     
  $data = get_data();
-   view('index','');
+   view('index',$data);
 
 ?>
