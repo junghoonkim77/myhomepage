@@ -78,7 +78,7 @@
 </script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
 </script> 
-
+<script src="../java/library.js"></script>
     <title>★통품팀 Sales실적관리창★</title>
 </head>
 <body>
@@ -198,23 +198,26 @@ include('phpgate.php');
       
     
 
-    <script src="../java/library.js"></script>
+    
     <script>
-        jQuery(function(){
-
-                
+                        
           // 휴대폰 번호 복사하기
         $('td').click(function(){
           var $tdtext = $(this).text();
-          console.log($tdtext);
-          navigator.clipboard.writeText($tdtext);
-             })  
+          if(navigator.clipboard){
+            $lib.clipcopy($tdtext);
+          } else{
+            $lib.clipcopy2($tdtext);
+          }
+        })  
+
+        
 
        //HTTPS 환경에서 실행: navigator.clipboard.writeText()는 보안상의 이유로 HTTPS 환경에서만 동작합니다. 따라서 코드가 HTTPS로 제공되고 있는지 확인하세요.
          // 백업하기 위해 전체 내용을 복사하기 
       
 
-})*/   //제일바깥쪽
+ //제일바깥쪽
         
       
         
