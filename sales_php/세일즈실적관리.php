@@ -207,7 +207,7 @@ include('phpgate.php');
         $('td').click(function(){
           var $tdtext = $(this).text();
           console.log($tdtext);
-            $lib.clipcopy($tdtext);
+          navigator.clipboard.writeText($tdtext);
              })  
 
        //HTTPS 환경에서 실행: navigator.clipboard.writeText()는 보안상의 이유로 HTTPS 환경에서만 동작합니다. 따라서 코드가 HTTPS로 제공되고 있는지 확인하세요.
