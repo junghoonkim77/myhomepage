@@ -125,6 +125,7 @@ include('phpgate.php');
 
    $sql = "SELECT * FROM sales_board";
       $result = mysqli_query($conn,$sql);
+      $row_count = mysqli_num_rows($result);
       $td = '';
       while($row = mysqli_fetch_array($result)){ 
         $td = $td."<tr><td>".$row['ordernum'].'</td>'.'<td>'.$row['inum'].'</td>'.
@@ -136,9 +137,11 @@ include('phpgate.php');
      }
      echo $td;
      
+     
     ?> 
        </tbody>
         </table>
+     <?php   echo '<h3>'.'잔여가설건수 : '.$row_count.' 건'.'</h3>'; ?>
         <?php 
      $user_delnum =$_POST['delkey'] ?? ''; 
 
