@@ -25,7 +25,7 @@
     
      }
     ?>
-    <form action="insert.php" method="post">
+    <form action="insert_update.php" method="post">
     <input type="hidden" name="number" value="<?=$view_num ?>">
     <p>
         <label for="name">제목 :</label>

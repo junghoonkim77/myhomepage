@@ -100,7 +100,6 @@ include('phpgate.php');
                 <td>상품명</td>
                 <td>고객특이사항_메모</td>
                 <td>삭제</td>
-                <td>성공</td>
                 
             </thead>
             <tbody id="sales_data">
@@ -134,8 +133,7 @@ include('phpgate.php');
         '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>'.
         '<td>'.'<form action='.'세일즈실적관리.php'." ".'method='.'post'.'>'.
         '<input type=submit'." ".'name='.'delkey'." ".'value='.$row['ordernum'].''.'>'.'</form>'.
-        '</td>'.'<td>'.'<a href="'.'세일즈누적.php?cusnum='.$row['inum'].'&'.'cusname='.$row['cusname']
-        .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'"'.'>'.'성공'.'</a>';
+        '</td>';
      }
      echo $td;
      
