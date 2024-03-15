@@ -60,6 +60,7 @@
        
        a{
         text-decoration : none;
+       
        }
        .texframe{
         display : inline-block;
@@ -68,9 +69,14 @@
        }
 
        .addlink{
-        display : block;
+        display : inline-block;
         margin-top : 10px;
+
        }
+       h2{
+        display : inline-block;
+       }
+       
     </style>
 
     
@@ -82,12 +88,18 @@
     <title>★통품팀 Sales실적관리창★</title>
 </head>
 <body>
-<?php 
+    <header>
+    <?php 
 include('phpgate.php');
+echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</h2>';
 ?>
 
+    </header>
+
+
+
     <div class="container">
-    
+  
     <div class="view">
         <table>
             <thead class="thead">
@@ -135,7 +147,7 @@ include('phpgate.php');
         '<td>'.'<form action='.'세일즈실적관리.php'." ".'method='.'post'.'>'.
         '<input type=submit'." ".'name='.'delkey'." ".'value='.$row['ordernum'].''.'>'.'</form>'.
         '</td>'.'<td>'.'<a href="'.'세일즈누적.php?cusnum='.$row['inum'].'&'.'cusname='.$row['cusname']
-        .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'"'.'>'.'성공'.'</a>';
+        .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'"'.'>'.'성공'.'</a>';
      }
      echo $td;
      
@@ -144,6 +156,8 @@ include('phpgate.php');
        </tbody>
         </table>
      <?php   echo '<h3>'.'잔여가설건수 : '.$row_count.' 건'.'</h3>'; ?>
+     <a class="addlink" href="sales_Gate.html"><button>입력창 이동</button></a>
+     <a class="addlink" href="세일즈누적.php"><button>세일즈 누적실적 현황</button></a>
         <?php 
      $user_delnum =$_POST['delkey'] ?? ''; 
 
@@ -199,7 +213,7 @@ include('phpgate.php');
     <?php echo $test2 ?>
     </pre>
     </div>
-    <a class="addlink" href="sales_Gate.html">추가 입력창 이동 </a>
+    
       
     
 
