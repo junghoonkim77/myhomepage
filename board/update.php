@@ -26,7 +26,7 @@
      }
     ?>
     <form action="insert.php" method="post">
-    <input type="hidden" name="number value="<?=$view_num ?>">
+    <input type="hidden" name="number" value="<?=$view_num ?>">
     <p>
         <label for="name">제목 :</label>
         <input type="text" id="name" name="name" value=" <?=$Nam ?>">
