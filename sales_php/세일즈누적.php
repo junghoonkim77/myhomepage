@@ -66,7 +66,7 @@
      if(!empty($delkey)){
          $sqlDEL = "DELETE FROM sales_success WHERE order_add = $delkey"; 
          mysqli_query($conn,$sqlDEL);
-         
+         echo  $delkey.'번이 삭제됐습니다.' ;}
      
     ?>
    <div class="delinput">
@@ -75,7 +75,7 @@
     <input type="submit" value="click">
    </form>
    </div>   
-   <?php echo  $delkey.'번이 삭제됐습니다.' ; }; ?>
+   
 </div>  
 </body>
 </html>
