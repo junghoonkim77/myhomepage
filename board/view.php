@@ -35,6 +35,8 @@ if ($row = mysqli_fetch_array($result)) {
 
 <hr>
   <a href="index.php">처음으로 돌아가기</a>
+  <a href="update.php?number=<?php echo $row['number'] ?>">수정하기</a>
+  
   <script src="../java/library.js"></script>
   <script>
   jQuery(function(){
