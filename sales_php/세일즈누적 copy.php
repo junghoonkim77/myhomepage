@@ -56,7 +56,7 @@
     $td='';
 
     while($row=mysqli_fetch_array($result)){
-    $td=$td.'<tr><td>'.$row['order_add'].'</td>'.'<td>'.$row['cusnum'].'</td>'.
+    $td=$td.'<tr class="tr"><td>'.$row['order_add'].'</td>'.'<td>'.$row['cusnum'].'</td>'.
     '<td>'.$row['cusname'].'</td>'.'<td>'.$row['teamname'].'</td>'.
     '<td>'.$row['comdate'].'</td>'.'<td>'.$row['prodname'].'</td>'.'</tr>';
     };
@@ -86,7 +86,29 @@
     <input type="submit" value="click">
    </form>
    </div>   
-   
 </div>  
+   <select name="" class="teamname">
+    <option value="팀원명"></option>
+    <option value="이한기">이한기</option>
+    <option value="최민지">최민지</option>
+    <option value="박정범">박정범</option>
+    <option value="백금옥">백금옥</option>
+    <option value="이윤복">이윤복</option>
+   </select>
+<script>
+ $('.teamname').change(function(){
+   var $name = $(this).val();
+   var test =[];
+   $('.tr').each(function(){
+      var $thistext = $(this).find('td:eq(3)').text()   ;
+      if($thistext =='백금옥'){
+       test.push($thistext);
+       console.log(test.length);
+      }
+    //  var $thistext_len= $(this).find('td:eq(5)').text().length;
+   }) 
+ });
+ 
+</script>
 </body>
 </html>
