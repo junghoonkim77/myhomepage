@@ -65,7 +65,7 @@
        .texframe{
         display : inline-block;
         border : 1px solid gray;
-        width : 45%;
+        width : 38%;
        }
 
        .addlink{
@@ -76,7 +76,9 @@
        h2{
         display : inline-block;
        }
-       
+       .edit{
+        margin-top : 20px;
+       }
     </style>
 
     
@@ -214,8 +216,12 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
     </pre>
     </div>
     
-      
-    
+    <div class="edit">
+    <form action="editsales.php" method="post">
+    <input type="number"  name="editsales" placeholder="수정할 번호 선택">
+    <input type="submit" value="수정창 이동">
+        </form>     
+        </div>
 
     
     <script>

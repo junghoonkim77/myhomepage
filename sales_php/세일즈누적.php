@@ -16,6 +16,11 @@
      td {
         border : 1px solid gray;
      }
+
+     .delinput{
+        width : 30px;
+        
+     }
     </style>
     <title>세일즈누적</title>
 </head>
@@ -23,7 +28,7 @@
     
     <?php
     include('phpgate.php');
-    echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈누적'.'</h2>';
+    echo '<h5>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈누적'.'</h5>';
     echo '<a href="세일즈실적관리.php">세일즈실적관리창 이동</a>';
     
     
