@@ -27,6 +27,12 @@
         width : 30px;
         
      }
+     .total {
+        border : 1px solid gray;
+        width : 60px;
+        background-color : skyblue;
+        font-size : 12px;
+     }
     </style>
     <title>세일즈누적</title>
 </head>
@@ -80,33 +86,47 @@
          echo  $delkey.'번이 삭제됐습니다.' ;}
      
     ?>
+    <div class=gridcontainer>
    <div class="delinput">
     <form action="" method="post">
     <input type="text" name="delkey" placeholder="지울데이터 베이스 번호입력">
     <input type="submit" value="click">
    </form>
-   </div>   
-</div>  
+   </div> 
+   <div>
    <select name="" class="teamname">
-    <option value="팀원명"></option>
+    <option value="">팀원명</option>
     <option value="이한기">이한기</option>
     <option value="최민지">최민지</option>
     <option value="박정범">박정범</option>
     <option value="백금옥">백금옥</option>
     <option value="이윤복">이윤복</option>
-   </select>
+   </select> 
+     </div>
+     <div class="total"><span class="context"></span>&nbsp&nbsp&nbsp&nbsp&nbsp:건</div> 
+     </div>
+</div>  
+   
 <script>
  $('.teamname').change(function(){
    var $name = $(this).val();
-   var test =[];
-   $('.tr').each(function(){
+   var sum = 0;
+   $("table tr td:nth-child(4)").each(function(){
+            if($(this).text() === $name){
+                // 해당 팀원이름이 있는 행의 다섯 번째(td:nth-child(5)) 열에서 실적 가져와 합산
+                sum += parseInt($(this).siblings("td:nth-child(6)").text().length);
+            }
+        });
+        $('.context').text(sum);
+  /* $('.tr').each(function(){
       var $thistext = $(this).find('td:eq(3)').text()   ;
-      if($thistext =='백금옥'){
-       test.push($thistext);
-       console.log(test.length);
+      if($thistext ==$name){
+       console.log ($(this).siblings("td:nth-child()").text() ) 
+        //sum += parseInt($(this).siblings("td:nth-child(6)").text());
+       
       }
     //  var $thistext_len= $(this).find('td:eq(5)').text().length;
-   }) 
+   }) */
  });
  
 </script>
