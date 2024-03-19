@@ -107,7 +107,8 @@
      </div>
      <div class="total"><span class="context"></span>&nbsp&nbsp&nbsp:건</div> 
      </div>
-     
+   <?php  mysqli_close($conn); ?>
+  
 </div>  
    
 <script>
