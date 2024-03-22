@@ -8,7 +8,6 @@
 </script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
 </script> 
-<link href="https://fonts.googleapis.com/css2?family=YourSelectedFont&display=swap" rel="stylesheet">
 
 <style>
     
@@ -16,7 +15,7 @@
     body{
         height : 100vh;
         position : relative;
-        font-family: 'YourSelectedFont', cursive;
+      
     }
     img {
         height : 200px;
@@ -34,13 +33,15 @@
         background-color: white;
         margin-top : 0px;
         margin-bottom : 0px;
-    }
+     }
     .pre2 {
         z-index : 1; 
+        
     }
     .container2 {
         position : absolute;
-        bottom : 40px;
+        
+        
     }
     button {
         position : absolute;
@@ -113,6 +114,11 @@ And I'll call this nickname until
     </div>
     <button>번역</button>
     <script>
+
+    var preheight = $('.pre1').outerHeight(true);
+    var preheight1 = $('.pre2').outerHeight(true);
+    $('.container2').css('top',preheight+'px');
+    
     const kieunurl ="../../imgfolder/김기은/" ;
     const kieun =['1419746814308.jpg','2010-11-04 22.09.18.jpg','2011-11-21 14.35.51 (1).jpg',
     '2011-11-21 14.35.51.jpg','2011-12-03 11.23.50 (1).jpg','2011-12-03 11.23.50.jpg',
@@ -132,9 +138,23 @@ And I'll call this nickname until
     ShowNextSlide(kieunurl, kieun);
 }, 1000);
 
- $('button').click(function(){
+/* $('button').click(function(){
     $('.pre1').toggle();
- })
+ }) */
+
+ $('button').click(function(){
+    $('.pre1').toggleClass('hide');
+    if($('.pre1').hasClass('hide')){
+        $('.pre1').hide();
+        $('.container2').css('top',preheight1+'px');
+    } else{
+        $('.pre1').show();
+        $('.container2').css('top',preheight+'px');
+    }
+ }) 
+
+
+ 
     </script>
 </body>
 </html>
