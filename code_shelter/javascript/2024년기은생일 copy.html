@@ -8,50 +8,51 @@
 </script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
 </script> 
-<link href="https://fonts.googleapis.com/css2?family=YourSelectedFont&display=swap" rel="stylesheet">
-
 <style>
-    
-  
     body{
         height : 100vh;
-        position : relative;
-        font-family: 'YourSelectedFont', cursive;
+        
     }
     img {
         height : 200px;
         
     }
     .container{
-        position: relative;
+        display : flex;
+        flex-direction: column;
     }
-    .container pre {
-        position : absolute;
-        
+    .letter {
+        position : relative;
     }
-    .pre1 {
+   
+    .letter .pre1 {
         z-index : 2;
         background-color: white;
-        margin-top : 0px;
-        margin-bottom : 0px;
-    }
-    .pre2 {
-        z-index : 1; 
-    }
-    .container2 {
         position : absolute;
-        bottom : 40px;
     }
+    .letter .pre2 {
+        z-index : 1; 
+        position : absolute;
+        background-color: white;
+    }
+    
     button {
         position : absolute;
         bottom : 10px;
         left : 300px;
+    } 
+
+    .picture{
+        position : relative;
     }
 </style>
     <title>사랑하는 우리 딸 생일</title>
 </head>
 <body>
 <div class="container">
+ 
+  <div class="letter">
+
     <pre class="pre1">
 Happy birthday Eunbbang!
 My dad is pretty, nice, and young like 
@@ -88,26 +89,16 @@ I'm 19 years old
 </pre>
 <pre class="pre2">
 생일 진심으로 축하해 은빵아~!
-
 아빠는 우리 기은이 같이 이쁘고 착하고 어질고
-
 현명한 딸이 아빠의 딸로 태어나 줄은 정말 꿈에
-
 도 몰랐단다. ㅎㅎㅎㅎㅎㅎㅎ
-
 아빠는 종교는 없지만 항상 매일매일 하늘에 감사 
-
 하며 살고 있단다.^^
-
 지치고 힘들수도 있는 하루하루겠지만 엄마,아빠
-
 걱정시키지 않으려 항상 담담하게 평정심을 갖고
 열심히 본인의 임무에 충실하는 우리 기은이~! 
-
 아빠는 매년 생일마다 말하지만 우리 기은이 한테
-
 더이상 바랄게 없단다.
-
 딱 지금처럼만 건강하고 더도 말고 덜도 말고 
 지금 처럼만 해준다면 하늘에 그저 감사할 뿐이
 란다.
@@ -118,11 +109,14 @@ I'm 19 years old
 ㅋㅋㅋㅋㅋㅋㅋ
              
   2024.3.22 From my beloved dad,<mark> Tom Cruise </mark> 
-    </pre>
+ </pre>
 </div>
-    <div class="container2">
+
+    <div class="picture">
         <img src="" alt="" srcset="">
     </div>
+
+</div>
     <button>번역</button>
     <script>
     const kieunurl ="../../imgfolder/김기은/" ;
