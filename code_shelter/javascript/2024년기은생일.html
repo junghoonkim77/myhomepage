@@ -35,6 +35,11 @@
         position : absolute;
         bottom : 20px;
     }
+    button {
+        position : absolute;
+        bottom : 10px;
+        left : 300px;
+    }
 </style>
     <title>사랑하는 우리 딸 생일</title>
 </head>
@@ -86,11 +91,12 @@ I'm 19 years old
 열심히 본인의 임무에 충실하는 우리 기은이~! 
 아빠는 매년 생일마다 말하지만 우리 기은이 한테
 더이상 바랄게 없단다.
-딱 지금처럼만 건강하고 더도 말고 덜도 말고 지금
-처럼만 해준다면 하늘에 그저 감사할 뿐이란다.
-아빠,엄마의 딸로 태어나 줘서 진심으로 감사하다는
-말 다시한번 전하며 매일 매일 즐거운 일이 가득
-하기만을 빌고 또 빌께 우리 사랑하는 은빵이~!
+딱 지금처럼만 건강하고 더도 말고 덜도 말고 
+지금 처럼만 해준다면 하늘에 그저 감사할 뿐이
+란다.
+아빠,엄마의 딸로 태어나 줘서 진심으로 감사하다
+는 말 다시한번 전하며 매일 매일 즐거운 일이 가
+득하기만을 빌고 또 빌께 우리 사랑하는 은빵이~!
 그리고 기은이 별명은 딱 19살때까지만 부를께 
 ㅋㅋㅋㅋㅋㅋㅋ
              
@@ -100,6 +106,7 @@ I'm 19 years old
     <div class="container2">
         <img src="" alt="" srcset="">
     </div>
+    <button>번역</button>
     <script>
     const kieunurl ="../../imgfolder/김기은/" ;
     const kieun =['1419746814308.jpg','2010-11-04 22.09.18.jpg','2011-11-21 14.35.51 (1).jpg',
@@ -119,6 +126,10 @@ I'm 19 years old
     var realTime = setInterval(()=> {
     ShowNextSlide(kieunurl, kieun);
 }, 1000);
+
+ $('button').click(function(){
+    $('.pre1').toggle();
+ })
     </script>
 </body>
 </html>
