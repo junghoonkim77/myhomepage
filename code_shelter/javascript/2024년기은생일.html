@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+<style>
+    img {
+        height : 200px;
+    }
+</style>
+    <title>사랑하는 우리 딸 생일</title>
+</head>
+<body>
+    <pre>
+Happy birthday dear Eunbbang
+Dad is always grateful and grateful that Ki-eun has such a pretty, 
+nice, young, and smart daughter.
+Ki-eun, who always has a normal heart and is calm and faithful to her duty, 
+is tired and tired, but she always tries not to worry about her father and mother.
+I tell you every birthday, but my dad doesn't want anything from my Ki-eun. 
+If he grows up as he is now and healthy, that's all he wants. lol.
+I'm sad that the long winter vacation is over, 
+but thank you for having a strong semester and being born as 
+a daughter of father and mother.
+        I love you, Ki Eun!
+         
+          2024.3.22 From my beloved dad, Tom Cruise 
+    </pre>
+    <div>
+        <img src="" alt="" srcset="">
+    </div>
+    <script>
+    const kieunurl ="../../imgfolder/김기은/" ;
+    const kieun =['1419746814308.jpg','2010-11-04 22.09.18.jpg','2011-11-21 14.35.51 (1).jpg',
+    '2011-11-21 14.35.51.jpg','2011-12-03 11.23.50 (1).jpg','2011-12-03 11.23.50.jpg',
+    '20120131_141013.jpg','20120414_161159.jpg','20150114_153007.jpg','20170507_120436.jpg',
+    '20180819_114948.jpg','20190105_115624.jpg','20200115_214139.jpg','20200409_185937.jpg',
+    '20240225_130439.jpg']
+    var currindex = 0;
+    
+        function ShowNextSlide(url,array) {
+    var img = document.querySelector('img');
+    img.setAttribute('src',url+array[currindex]);
+    currindex++
+    var nextIndex = currindex % array.length;
+    currindex = nextIndex; }
+
+    var realTime = setInterval(()=> {
+    ShowNextSlide(kieunurl, kieun);
+}, 2000);
+    </script>
+</body>
+</html>
