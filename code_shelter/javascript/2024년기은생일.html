@@ -9,8 +9,13 @@
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
 </script> 
 <style>
+    body{
+        height : 100vh;
+        position : relative;
+    }
     img {
         height : 200px;
+        
     }
     .container{
         position: relative;
@@ -18,14 +23,24 @@
     .container pre {
         position : absolute;
         top : 10px;
-        
+    }
+    .pre1 {
+        z-index : 2;
+        background-color: gray;
+    }
+    .pre2 {
+        z-index : 1; 
+    }
+    .container2 {
+        position : absolute;
+        bottom : 20px;
     }
 </style>
     <title>사랑하는 우리 딸 생일</title>
 </head>
 <body>
 <div class="container">
-    <pre>
+    <pre class="pre1">
 Happy birthday Eunbbang!
 My dad is pretty, nice, and young like 
 Ki-eun
@@ -59,7 +74,7 @@ I'm 19 years old
          
    2024.3.22 From my beloved dad,<mark> Tom Cruise </mark> 
 </pre>
-<pre>
+<pre class="pre2">
 생일 진심으로 축하해 은빵아~!
 아빠는 우리 기은이 같이 이쁘고 착하고 어질고
 현명한 딸이 아빠의 딸로 태어나 줄은 정말 꿈에
@@ -82,7 +97,7 @@ I'm 19 years old
   2024.3.22 From my beloved dad,<mark> Tom Cruise </mark> 
     </pre>
 </div>
-    <div>
+    <div class="container2">
         <img src="" alt="" srcset="">
     </div>
     <script>
