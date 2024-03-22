@@ -17,7 +17,7 @@
         .container{
             display : grid;
             grid-template-columns: 2fr 1fr;
-            width : 65%;
+            width : 80%;
         }
         table {
             border :  1px solid gray ;
@@ -64,8 +64,7 @@
        }
        .texframe{
         display : inline-block;
-        border : 1px solid gray;
-        width : 38%;
+        width : 60%;
        }
 
        .addlink{
@@ -177,7 +176,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
     </div>
    
     <div id="notepad">
-        
+       <ol> 
     <?php 
     $txtmemo = $_POST['texmemo'] ?? '';
     $deltex = $_GET['deltex'] ?? '';
@@ -203,13 +202,13 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
              ;
            }; */
            while($row2 = mysqli_fetch_array($result2)){
-            $test2 = $test2.$row2['memo'].'<a href="세일즈실적관리.php?deltex='.$row2['com_num'].'"'.'>'.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   삭제'.
-            '</a>'
+            $test2 = $test2.'<li>'.$row2['memo'].'<a class="textdel" href="세일즈실적관리.php?deltex='.$row2['com_num'].'"'.'>'.'삭제'.
+            '</a>.'.'</li>'
                   ;
            };    
         ?>
        
-       
+        </ol>
     </div>
     <div class="texframe">
     <pre>
@@ -245,8 +244,15 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
             }
            
           });
+         // 기타 메모 삭제방지 코드
+          $(".textdel").click(function(e){
+           const $editcheck = $('#edit').prop('checked');
+            if(!$editcheck){
+                e.preventDefault();
+            }
+           
+          });
         
-
        //HTTPS 환경에서 실행: navigator.clipboard.writeText()는 보안상의 이유로 HTTPS 환경에서만 동작합니다. 따라서 코드가 HTTPS로 제공되고 있는지 확인하세요.
          // 백업하기 위해 전체 내용을 복사하기 
       
