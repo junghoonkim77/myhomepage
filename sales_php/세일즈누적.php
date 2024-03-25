@@ -100,7 +100,7 @@
     <h3><?=$phpmon.'월 현재'?> 개통건수 : <span class="nowmonth"></span></h3>
     <div class="container">
     <table data-mon=<?="'".$phpmon."'"?>> 
-     <td>순서</td><td>고객번호</td><td>고객명</td><td>팀원명</td><td>개통일자</td><td>상품</td>
+     <thead><td>순서</td><td>고객번호</td><td>고객명</td><td>팀원명</td><td>개통일자</td><td>상품</td></thead>
      
         <?php echo $td ?>
      
