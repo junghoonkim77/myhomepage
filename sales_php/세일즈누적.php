@@ -25,10 +25,7 @@
         border : 1px solid gray;
      }
 
-     .delinput{
-        
-        
-     }
+   
      .total {
         border : 1px solid gray;
         width : 60px;
