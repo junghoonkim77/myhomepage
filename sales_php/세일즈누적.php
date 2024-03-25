@@ -25,11 +25,6 @@
         border : 1px solid gray;
      }
 
-<<<<<<< HEAD
-   
-=======
-    
->>>>>>> b81802530cb93cbe68990d4f3ee816d3ea0e47ea
      .total {
         border : 1px solid gray;
         width : 60px;
@@ -37,6 +32,7 @@
         font-size : 12px;
         padding-left : 10px;
         display : inline-block;
+        margin-top : 5px;
      }
      .total1{
         border : 1px solid gray;
@@ -45,10 +41,25 @@
         font-size : 12px;
         padding-left : 10px;
         display : inline-block;
+        margin-top : 5px;
+     }
+     .total2{
+        border : 1px solid gray;
+        width : 70px;
+        background-color : skyblue;
+        font-size : 12px;
+        padding-left : 10px;
+        display : inline-block;
+        margin-top : 5px;
      }
     #teamname{
         display : inline-block; 
     }
+
+   .gridcontainer{
+    margin-left :20px;
+   }
+   
     </style>
     <title>세일즈누적</title>
 </head>
@@ -79,7 +90,7 @@
     $td='';
 
     while($row=mysqli_fetch_array($result)){
-    $td=$td.'<tr class="tr"><td>'.$row['order_add'].'</td>'.'<td>'.$row['cusnum'].'</td>'.
+    $td=$td.'<tr><td>'.$row['order_add'].'</td>'.'<td>'.$row['cusnum'].'</td>'.
     '<td>'.$row['cusname'].'</td>'.'<td>'.$row['teamname'].'</td>'.
     '<td>'.$row['comdate'].'</td>'.'<td>'.$row['prodname'].'</td>'.'</tr>';
     };
@@ -103,7 +114,7 @@
          echo  $delkey.'번이 삭제됐습니다.' ;}
      
     ?>
-    <div class=gridcontainer>
+    <div class="gridcontainer">
    <div class="delinput">
     <form action="" method="post">
     <input type="text" name="delkey" placeholder="지울데이터 베이스 번호입력">
@@ -121,8 +132,26 @@
    </select> 
      </div>
      <div class="total">총건수:<span class="context"></span></div>
-     <div class="total1">이번달:<span class="context1"></span></div> 
-     </div> 
+     <div class="total1">이번달:<span class="context1"></span></div><br>
+     
+     <select name="" class="sellectmon">
+    <option value="montotal">월별건수</option>
+    <option value="01">1월</option>
+    <option value="02">2월</option>
+    <option value="03">3월</option>
+    <option value="04">4월</option>
+    <option value="05">5월</option>
+    <option value="06">6월</option>
+    <option value="07">7월</option>
+    <option value="08">8월</option>
+    <option value="09">9월</option>
+    <option value="10">10월</option>
+    <option value="11">11월</option>
+    <option value="12">12월</option>
+   </select>  
+   <div class="total2">.<span class="context2"></span></div>
+     </div>
+   
      </div>
      
    <?php  mysqli_close($conn); ?>
@@ -131,16 +160,11 @@
    
 <script>
     //날짜 함수
-var[$year,$month,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2] =$lib.$time();
 
-if ($('table').attr('data-mon')==="03" ){
-  console.log('맞다는데?')
-} else {
-    console.log('아니랴');
-}
-
-$nummonth = parseInt($month); // 누적건수 표시를 위한 숫자 변환
-$nummonth1 = parseInt($month);// 누적건수 표시를 위한 숫자 변환
+var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
+ 
+//$nummonth = parseInt($month); // 누적건수 표시를 위한 숫자 변환
+//$nummonth1 = parseInt($month);// 누적건수 표시를 위한 숫자 변환
  var totalsum = 0;
  var totalsum1 = 0;
 
@@ -152,9 +176,9 @@ $nummonth1 = parseInt($month);// 누적건수 표시를 위한 숫자 변환
 
   // 이번달 개통건수 표시창 코드 
   $("table tr td:nth-child(5)").each(function(){
-   var $monthtxt1 = parseInt( $(this).text().slice(5,7) )  //.slice(4);  `${hours < 10 ? `0${hours}` : hours}
+   var $monthtxt1 =  $(this).text().slice(5,7) ;  //.slice(4);  `${hours < 10 ? `0${hours}` : hours}
       
-       if($monthtxt1 == $nummonth1) {
+       if($monthtxt1 === $tablemonth) {
         totalsum1 +=  parseInt($(this).siblings("td:nth-child(6)").text().length);
        }
     });
@@ -174,14 +198,40 @@ $nummonth1 = parseInt($month);// 누적건수 표시를 위한 숫자 변환
         $('.context').text(sum);
        
     $("table tr td:nth-child(5)").each(function(){
-   var $monthtxt = parseInt( $(this).text().slice(5,7) )  //.slice(4);
-       if(($monthtxt == $nummonth) && $name == $(this).siblings("td:nth-child(4)").text()) {
+   var $monthtxt =$(this).text().slice(5,7) ;  //.slice(4);
+       if(($monthtxt == $tablemonth) && $name == $(this).siblings("td:nth-child(4)").text()) {
         sum1 +=  parseInt($(this).siblings("td:nth-child(6)").text().length);
        }
     }); //두번째 each문 끈
     $('.context1').text(sum1);  
       
- });
+ });  //change이벤트 마지막
+
+  // tr태그에 월별 클래스명 hide 넣기 
+ $('tr').each(function(){
+    var $addcla = ( $(this).children('td').eq(4).text().slice(5,7) );
+    $(this).addClass('hide'+$addcla);
+  });
+  
+  // 셀렉트 태그를 이용해 월별 결과 숨기고 보이기 montotal
+  $montotal = 0;
+  $('.sellectmon').change(function(){
+    var $sellectmonVAl = $(this).val();
+    if($sellectmonVAl === "montotal"){
+        $('tr').show();
+    }else{
+        $('tr').not('.'+'hide'+$sellectmonVAl).hide() ;
+        $('.'+'hide'+$sellectmonVAl).show();
+        $('.'+'hide'+$sellectmonVAl).each(function(){
+         $montotal+= parseInt ($(this).children('td').eq(5).text().length)  ;
+           })
+         $('.context2').text($sellectmonVAl+'월: '+$montotal+'건')
+         $montotal = 0 ;
+    };    
+    
+
+  })
+  
  
  
 </script>
