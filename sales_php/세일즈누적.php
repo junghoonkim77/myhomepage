@@ -25,10 +25,7 @@
         border : 1px solid gray;
      }
 
-     .delinput{
-        
-        
-     }
+    
      .total {
         border : 1px solid gray;
         width : 60px;
@@ -83,11 +80,11 @@
     '<td>'.$row['comdate'].'</td>'.'<td>'.$row['prodname'].'</td>'.'</tr>';
     };
     
-    
+    $phpmon = date("m");
     ?>
-    <h3><?=date("m").'월 현재'?> 개통건수 : <span class="nowmonth"></span></h3>
+    <h3><?=$phpmon.'월 현재'?> 개통건수 : <span class="nowmonth"></span></h3>
     <div class="container">
-    <table> 
+    <table data-mon=<?="'".$phpmon."'"?>> 
      <td>순서</td><td>고객번호</td><td>고객명</td><td>팀원명</td><td>개통일자</td><td>상품</td>
      
         <?php echo $td ?>
@@ -132,6 +129,12 @@
     //날짜 함수
 var[$year,$month,$day,$hour,$minutes,$timeHMS,$timeYMD,$timeYMD2] =$lib.$time();
 
+if ($('table').attr('data-mon')==="03" ){
+  console.log('맞다는데?')
+} else {
+    console.log('아니랴');
+}
+
 $nummonth = parseInt($month); // 누적건수 표시를 위한 숫자 변환
 $nummonth1 = parseInt($month);// 누적건수 표시를 위한 숫자 변환
  var totalsum = 0;
@@ -145,7 +148,8 @@ $nummonth1 = parseInt($month);// 누적건수 표시를 위한 숫자 변환
 
   // 이번달 개통건수 표시창 코드 
   $("table tr td:nth-child(5)").each(function(){
-   var $monthtxt1 = parseInt( $(this).text().slice(5,7) )  //.slice(4);
+   var $monthtxt1 = parseInt( $(this).text().slice(5,7) )  //.slice(4);  `${hours < 10 ? `0${hours}` : hours}
+      
        if($monthtxt1 == $nummonth1) {
         totalsum1 +=  parseInt($(this).siblings("td:nth-child(6)").text().length);
        }
