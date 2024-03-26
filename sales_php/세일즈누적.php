@@ -221,6 +221,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
         $('tr').show();
     }else{
         $('tr').not('.'+'hide'+$sellectmonVAl).hide() ;
+        $('.hide').show();
         $('.'+'hide'+$sellectmonVAl).show();
         $('.'+'hide'+$sellectmonVAl).each(function(){
          $montotal+= parseInt ($(this).children('td').eq(5).text().length)  ;
