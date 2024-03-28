@@ -13,7 +13,7 @@ if(!empty($number)){
 
 
 ?>
-<a href="main.php?nu=0">1번</a>
+<a href="main.php?nu=strange">1번</a>
 <a href="main.php?nu=1">2번</a>
 <a href="main.php?nu=2">3번</a>
 <a href="main.php?nu=3">4번</a>
