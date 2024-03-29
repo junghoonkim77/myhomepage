@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+    <head>
+        <title>기타양식</title>
+        <style type=text/css>
+        pre{
+            font-size :12px;
+            cursor : pointer;
+            display : grid;
+            grid-template-columns: 1fr;
+            margin-top : 45px;
+            margin-bottom: 45px;
+                    }   
+
+      pre:hover{
+        background-color: aquamarine;
+      }
+     
+    </style>
+ <script src="https://code.jquery.com/jquery-3.6.4.js" 
+     integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+     integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+     crossorigin="anonymous"></script>
+    
+    </head>
+
+    <body>
+<h4>각 SR양식별 클릭만 하면 자동 카피됨</h4>
+<pre>
+[차별화/스마일 챌린지 우수사례 접수양식] 
+■센터: 동작2센터 통화품질팀 
+■ktcs사번/KOS ID :     / 
+■상담사명 : 
+■고객칭찬유형 : 통화중칭찬
+■상담일/접수일 : 
+■청구계정 : 
+■접수내용 : ex.IN콜 11:16분경 이렇게 친절하게 ...
+■차별화아이템명 : -없음
+</pre>
+
+<pre>
+[고객 만족]친절접수
+ㅇ팀/컨설턴트 : 통화품질팀 / 
+ㅇktcs 사번/연락처 :  
+ㅇ인입날짜/인입시간 : 
+ㅇ고객번호/고객명 :
+ㅇSR번호 : 
+-상담SR : 
+-친절접수 SR :
+ㅇ문의내용 :
+ㅇ친절접수 방법 : 상급자 연결 / 홈페이지 / 타센터 재인입 등
+ㅇ고객의견 :
+ㅇ인터뷰 내용 :
+</pre>
+
+<pre>
+[언론사 기자 인입시]
+■인입일시 : 년 /월/일 /
+■인입센터 :  
+■언론매체 : mbc,sbs등 /기자명 연락처
+■요청사항 : 
+■내용 : 
+※내용 기재후 고객만족팀 전달
+※본고실TF 메일주소 : ollehvoc@ktcs.co.kr
+</pre>
+
+<pre>
+ㅇ그룹웨어 접속경로 : CS마케팅팀(일반) > AICC/전산 > 전산요청
+ㅇ양식
+ 1. 데이터 보정/ 데이터 요청의 경우 전산국 또는 지존 확인 후 요청 必
+  1) 1차 KOS 포탈 > KT IS 만족센터(ITSM_전산국 1588-3391)으로 문의 시 데이터변경 답변시 
+  2) K-지존 문서 內 ITMS 보정(데이터보정) 으로 처리해야한다고 기재되어 있는 경우
+  3) 데이터 보정/데이터 요청 양식  ※ 게시글 제목 말머리 [센터명] [서울])
+    ■ 시스템 :  ※ ICIS, KOS 등 시스템 이름 기재
+    ■ 상품명/서비스번호/SAID(서비스계약번호) :
+    ■ 요청자 정보(센터명/이름/KOS ID) :
+    ■ 요청내용 : ※ 되도록 상세히 기재 요청(오류 팝업문구/오류내용/요청사유 등등)
+    ■ 요청근거 : ※ K지존 문서명 or KT IS 만족센터로 문의했던 SR ID 
+    (서비스 문의 ID : SRM200000000 로 되어있음)
+</pre>
+
+<pre>
+[당월 발생 반차(조퇴) 보고]
+■대상 : 
+■신청일자 :
+■날짜 :
+■시간 :
+■내용 :
+※센터장님 승인완료 
+</pre>
+
+
+<pre>
+[외출 보고]
+■팀명 : 통화품질팀
+■대상자 : 
+■날짜 : 
+■외출 시작시간 :
+■사유 및 내용 :
+</pre>  
+
+
+  
+<pre>
+[당월 발생 연차보고]
+■대상자 :
+■신청날짜 :
+■당월 휴무날짜:
+■내용 :
+■보고받은 시간 : 9시 이전 /이후
+※센터장님 승인 완료 
+</pre>
+ 
+<pre>
+[연차일정 변경보고]
+■팀 / 대상자 : 통화품질팀 / 
+■신청일자 :
+■변경 일정
+-기존 :
+-변경 :
+■사유 : 
+※센터장님 승인완료 
+</pre>
+
+<pre>
+
+&lt;script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+&lt;/script>
+&lt;script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+&lt;/script> 
+</pre>
+
+<script>
+    $('pre').click(function(){
+       const $preVal =  $(this).text();
+        navigator.clipboard.writeText($preVal);
+    })
+</script>
+</body>
+
+
+
+

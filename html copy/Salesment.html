@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        
+        
+        #radio{
+            background-color:aqua;
+            width : 80%;
+            position : fixed; 
+            padding :0px;
+            margin : 0px 0px 20px 0px;
+            top : 0px;  
+           font-size: 13px;  
+           z-index: 1;       
+        }
+
+        #radio label:nth-child(5) b{
+            font-size : 17px;
+        }
+      
+            
+        #Salescon {
+         position : relative;
+         top :20px;
+         display : grid;
+         grid-template-columns: 550px 550px;
+         grid-template-rows: auto;   
+        } 
+        .tab2 {
+          position : relative;
+          top :27px;
+          margin : 0px;
+            display : grid;
+            grid-gap :2px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+          }
+        
+        .tab2 img {
+            height : 350px;
+            display : none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" 
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+ <div id="radio">
+  <label><input value="tab2" type="radio" name="check" ><b>★TV탭2자료</b></label>
+  <label><input value="killing" type="radio" name="check" ><b>쌈마이멘트 <mark>up</mark></b></label> 
+  <label><input value="tv" type="radio" name="check" >TV(복수포함)</label>
+  <label><input value="tvonly" type="radio" name="check">TV(ONLY고객)</label>
+  <label><input value="banron" type="radio" name="check" >반론극복</label>
+  <label><input value="intt" type="radio" name="check" >인터넷+TV</label>
+  <label><input value="transfer" type="radio" name="check" ><b>※유선상품이전※</b></label>
+  <label><input value="newitm" type="radio" name="check" ><mark>ITM동시M트리거</mark></label>
+ 
+</div>    
+<div id="Salescon">    
+
+</div> 
+<div class="tab2">
+    <img src="../imgfolder/티비탭4.png" alt="" srcset="">
+    <img src="../imgfolder/티비탭1.png" alt="" srcset="">
+    <img src="../imgfolder/티비탭2.png" alt="" srcset="">
+    <img src="../imgfolder/티비탭3.png" alt="" srcset="">
+</div>   
+
+<script src="../java/salesment.js"></script>
+</body>
+</html>

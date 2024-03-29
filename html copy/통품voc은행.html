@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+
+
+          
+div.minimalistBlack {
+  border: 3px solid #000000;
+  width: 30%;
+  text-align: left;
+  border-collapse: collapse;
+}
+.divTable.minimalistBlack .divTableCell, .divTable.minimalistBlack .divTableHead {
+  border: 1px solid #000000;
+  padding: 3px 1px;
+}
+.divTable.minimalistBlack .divTableBody .divTableCell {
+  font-size: 11px;
+}
+.divTable.minimalistBlack .divTableHeading {
+  background: #CFCFCF;
+  background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+  background: -webkit-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+  background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+  border-bottom: 3px solid #000000;
+  border-collapse: collapse;
+}
+.divTable.minimalistBlack .divTableHeading .divTableHead {
+  font-size: 11px;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+}
+.minimalistBlack .tableFootStyle {
+  font-size: 11px;
+  font-weight: bold;
+  color: #000000;
+  border-top: 3px solid #000000;
+}
+.minimalistBlack .tableFootStyle {
+  font-size: 11px;
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
+
+
+ a {
+  text-decoration: none;
+ }
+ a:hover{
+  background-color: hsl(120, 75%, 81%);
+ }
+ 
+button{
+  background-color: aqua;;
+}
+  
+.container{
+  display : grid;
+  grid-template-columns: 300px 600px;
+  grid-template-rows: auto;
+ 
+}
+iframe{
+  width : 600px;
+  height : 100vh;  
+  position: sticky;
+  top:50px;
+}
+
+  
+ </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <title>통품VOC은행</title> 
+ </head>
+ <body>
+  <h4>통품voc은행</h4> 
+     <div class="container">
+       <div class="basicframe">
+        <div class="divTable minimalistBlack">
+          <div class="divTableHeading">
+            <div class="divTableRow">
+            <div class="divTableHead">통품voc은행</div>
+            <div class="divTableHead"><span>현 등록건수:</span>
+            <span id="count"></span></div>
+            <div class="divTableHead">
+              <button class="button1">최하단이동⏬</button></div>
+           </div>
+          </div>
+          <div class="divTableBody">
+          </div>
+         <button class="button2">최상위이동⏫</button></div>
+        </div>
+        
+        <div class="basicframe1" >
+          <iframe  src = "" name="frame" style="border:none"></iframe>
+        </div>
+        
+      </div>
+        
+  
+  <script src="../java/voc_bank.js">  </script>
+  <script>
+         
+     jQuery(function(){
+      class Knowledge {
+        constructor(box1,box1_1,box2,box2_2,box3,box3_3){
+          this.box1=box1;
+          this.box1_1=box1_1;
+          this.box2=box2;
+          this.box2_2=box2_2;
+          this.box3=box3;
+          this.box3_3=box3_3;
+        }
+      }
+      var url = "../통품voc은행/"
+      var knowledge =[
+        new Knowledge(`${url}`+"평생번호050.html","평생번호050",`${url}`+"마이케이티_위젯_자동_로그아웃_증상.html",
+        "마이케이티 위젯 자동 로그아웃",`${url}`+"문서보안_해제요청.html","문서보안 해제요청"),
+
+        new Knowledge(`${url}`+"유심이동시_인증_절차.html","유심이동시_인증_절차",`${url}`+"wfms_설치_경로.html",
+        "wfms_설치_경로",`${url}`+"마이케이티_조회_회선_번호_변경하기,_동일명의,_2회선_이상일_경우.html","마이케이티 조회회선 변경(2회선이상)"),
+
+        new Knowledge(`${url}`+"스마트_팜_연락처.html","스마트_팜_연락처",`${url}`+"ITSM_접수결과_확인방법_(타인_접수건).html",
+        "ITSM 타인접수건 확인방법",`${url}`+"구글_결제_ID_확인방법.html","구글_결제_ID_확인방법"),
+
+        new Knowledge(`${url}`+"넷윈도_권한_신청_방법.html","넷윈도_권한_신청_방법",`${url}`+"모바일_팩스_과금_(팩스앱).html",
+        "모바일_팩스_과금_(팩스앱)",`${url}`+"프렌드_메일_ktfriend_메일.html","프렌드_메일_ktfriend_메일"),
+
+        new Knowledge(`${url}`+"언론사_인입,_기자_ 방송_등.html","언론사 인입, 기자  방송",`${url}`+"트러블_맵_활용방법.html",
+        "트러블_맵_활용방법",`${url}`+"안심바로 등록_서식지_오매칭.html","안심바로 등록_서식지_오매칭"),
+
+        new Knowledge(`${url}`+"M-sens_잠금해제.html","M-sens_잠금해제",`${url}`+"지역화폐_문의시.html","지역화폐 문의시",
+        `${url}`+"D 14_이내_일반기변_시_AS기변_불가.html","D 14 이내 일반기변 시 AS기변"),
+
+        new Knowledge(`${url}`+"외국인_상담_전화번호.html","외국인_상담_전화번호",`${url}`+"kt.com_마이_케이티_앱_메뉴_구성_확인방법.html",
+        "kt.com 마이 케이티 앱 메뉴구성",`${url}`+"VOLTE_only단말_번호_변경_재처리_불가_케이스.html","volte only단말 번호변경 재처리 불가 케이스"),
+
+        new Knowledge(`${url}`+"OMD단말_삭제_및_등록방법.html","OMD단말_삭제_및_등록방법",`${url}`+"무선환경지표_용어_설명.html",
+        "무선환경지표_용어_설명",`${url}`+"핸즈프리.html","핸즈프리 핸즈프리"),
+
+        new Knowledge(`${url}`+"kos_보안테스트_정답.html","kos_보안테스트_정답",`${url}`+"렌탈_심_렌탈,_임대폰_렌탈_voc_인입시.html",
+        "렌탈 심,렌탈 임대폰 voc인입시",`${url}`+"비즈센터_호전환대상.html","비즈센터 호전환대상"),
+
+        new Knowledge(`${url}`+"선제적_케어_SR.html","선제적_케어_SR",`${url}`+"WING전산신청.html","WING전산신청",
+        `${url}`+"해외_불법사이트_차단_확인주소.html","해외_불법사이트_차단_확인주소"),
+
+        new Knowledge(`${url}`+"PTA _단어의_유례.html","PTA _단어의_유례",`${url}`+"고객센터ARS(call_avo)_VOC_고객센터_연결시_단말오류_백화현상.html",
+        "고객센터ARS 단말오류",`${url}`+"CAPRI_(_카프리_)_현행화_요청_ITSM접수방법.html","CAPRI 요청"),
+
+        new Knowledge(`${url}`+"검찰_혹은_경찰서에서_중계기_설치_위치_문의시.html","검찰,경찰 중계시 설치 위치 문의시",
+        `${url}`+"KT해양_서비스팀.html","KT해양 서비스팀",`${url}`+"제어망기술지원팀_담당자.html","제어망기술지원팀 담당자"),
+
+        new Knowledge(`${url}`+"중계기철거_해피콜_팀장.html","중계기철거_해피콜_팀장",`${url}`+"프라자_직원_OC확인경로.html",
+        "프라자_직원_OC확인경로",`${url}`+"소액결제_오류_kt가입자가_아닙니다_오류시.html","소액결제 오류 kt가입자가 아닙니다"),
+
+        new Knowledge(`${url}`+"v컬러링_아이폰_음원_설정_변경_방법.html","v컬러링 아이폰 음원 설정,변경방법",
+        `${url}`+"안심박스_이용불가_및회원탈퇴_불가.html","안심박스_이용불가_및회원탈퇴_불가",
+        `${url}`+"투폰서비스_(업데이트후_오류)_22년_3월_3일_공지_강제_활성화.html","투폰서비스 (업데이트후오류) 3월(공지이상)"),
+
+        new Knowledge(`${url}`+"데이터를_가져오는데_실패하였습니다_팝업_VOC_대응_가이드.html","데이터를_가져오는데_실패했습니다 팝업",
+        `${url}`+"5G_데이터_쉐어링_변경후_정지_및_이용불가_VOC.html","5G_쉐어링_변경후_정지_및_이용불가",`${url}`+"안심박스_설치된_자녀_단말기_원스토어_설치_불가.html","안심박스 자녀 단말 원스토어 설치불가"),
+
+        new Knowledge(`${url}`+"안심박스_권한_4가지_설정방법,_가족_추가하기,_페어링.html","안심박스 권한4가지,가족추가하기 페어링",
+        `${url}`+"데이터_쉐어링_문의시_krater_op_로_케이톡_대화.html","데이터 쉐어링_krater_op 문의",`${url}`+"커넥트_태그_오류_및_정지시_처리방법.html","커넥트_태그_오류_및_정지시"),
+
+        new Knowledge(`${url}`+"나라사랑_데이터_이월혜택_QOS_적용여부.html","나라사랑_데이터_이월혜택_QOS",
+        `${url}`+"투넘버플러스_국제전화_수신불가.html","투넘버플러스_국제전화_수신불가",`${url}`+"통화가능_알리미_문자_도착시_번호.html","통화가능 알리미 문자 도착시"),
+
+        new Knowledge(`${url}`+"투폰SMS_재전송_하였으나_원폰모드_투폰모드에_동일_내용으로_부재중.html","투폰sms재전송 조치후 오류발생조치",
+        `${url}`+"중복으로_통화중대기가_되는지_여부_관련.html","중복으로 통화중대기가 되는지 여부",`${url}`+"라우터_관련_다수_voc_발생시_문의처_공유.html",
+        "라우터 다수 voc발생시 문의처"),
+        
+        new Knowledge(`${url}`+"wifi(싱글)_무료_삭제_후_재등록_방법.html","wifi(싱글)무료 삭제후 재등록 방법",
+        `${url}`+"에그사용량_관련문의시_용인지능망_확인가능.html","에그사용량_문의_용인지능망_확인",
+        `${url}`+"자동연결_착신전환이용중_연결받을_번호를_미지원번호로_변경시.html","착신전환,자동연결 미지원 번호로 변경시"),
+
+        new Knowledge(`${url}`+"갤럭시워치_동시착신_이용시_(애플워치동일)_통화중_대기와_연관.html","갤럭시워치,애플워치,통화중대기 관계",
+        `${url}`+"국제전화_수신차단_서비스_-_차단범위조회24.html","국제전화 수신차단 서비스(009 불가)",
+        `${url}`+"투넘버플러스_+_착신전환_적용_여부조회_(타사연동).html","투넘버플러스 착신전환 타사연동여부"),
+
+        new Knowledge(`${url}`+"(악성앱_설치_유도_사이트로_사용_제한됩니다)_사이트_접속불가.html","악성앱 사이트 사이트 접속불가",
+        `${url}`+"기업LTE_부가서비스_해지후_데이터_접속불가.html","기업LTE 부가서비스 해지후 데이터 접불",
+        `${url}`+"버스_정류장에_시설된_EGG_고장접수.html","버스정류당 EGG고장접수"),
+
+        new Knowledge(`${url}`+"인터넷_페이지당_데이터_요금.html","인터넷_페이지당_데이터_요금",`${url}`+"데이터_속도.html",
+        "데이터 속도",`${url}`+"wifi_맥등록.html","wifi 맥등록"),
+
+        new Knowledge(`${url}`+"OMD변경후_기타에러_처리방법.html","OMD변경후_기타에러_처리방법",`${url}`+"데이터_쉐어링_VOC_처리부서.html",
+        "데이터_쉐어링_VOC_처리부서",`${url}`+"단말기_인증절차_(전원on시_HLR에_등록까지).html","단말기 인증절차 전원on시 HLR에"),
+
+        new Knowledge(`${url}`+"분실정지후_유심이동불가(BLACK단말로_잡히는_경우_조치방법_특이사례).html","분실정지후 조치방법",
+        `${url}`+"M-SENS_에서_IPSMGW_상세조회_기능_ON_시_공지사항.html","M-SENS IPSMGW _상세조회 기능_ON",`${url}`+"LTE,WCDMA_밴드_및_주파수.html",
+        "LTE,WCDMA_밴드_및_주파수"),
+
+        new Knowledge(`${url}`+"아토중계기_전기료.html","아토중계기 전기료",`${url}`+"올레투폰_이용제한_(서버정책_문구오류).html",
+        "올레투폰_이용제한_(서버정책_문구오류)",`${url}`+"올레똑똑_인증실패_5회초과시.html","올레똑똑_인증실패_5회초과시"),
+
+        new Knowledge(`${url}`+"비즈데이터_안심차단형_요금제.html","비즈데이터_안심차단형_요금제",
+        `${url}`+"KT_유선상품_만족도_URL_접속_후_인증문자_수신_불가_퍼미션_차단.html","kt유선상품 만족도 문자수신불가(퍼미션)",
+        `${url}`+"불법TM_차단서비스_등록된_차단번호가_채팅_서비스로_수신되어_문의.html","불법TM차단서비스 채팅+ 관계"),
+
+        new Knowledge(`${url}`+"아래_문자_수신되는_특이_케이스_공유_,_채팅.html","your verification아이폰수신(채팅)",
+        `${url}`+"무선데이터_차단서비스_가입시_원내비_실행여부.html","무선데이터 차단서비스 +원내비 실행여부",
+        `${url}`+"엠센스_장비_메시지매니저_서비스에_의한_차단 메세지(MMS)_로그_관련.html","엠센스 로그 (메시지매니저 서비스)"),
+
+        new Knowledge(`${url}`+"MMS_사진파일이_URL_링크로_공유되어_오는_경우(_채팅서비스_관련_내용).html","MMS 사진파일이 URL링크로 수신",
+        `${url}`+"투넘버_문자_수신시_간헐적_77_미표기.html","투넘버문자 수신시 간헐적77미표기",
+        `${url}`+"발신정지된_단말로_등기문자_발송시_지원되지_않는_단말로_표시.html","발신정지번호+등기문자발송 미지원표시"),
+
+        new Knowledge(`${url}`+"문자수신불가_특정번호수신차단(SNBD2)_코드.html","문자수신불가_특정번호수신차단(SNBD2)_코드",
+        `${url}`+"삼성단말_특정번호_문자_수신_해제_방법조회.html","삼성단말 특정번호 문자차단 해제방법",
+        `${url}`+"아이폰_문자_발송시_이메일_주소_입력후_발송시_발송_불가.html","아이폰 이메일주소 입력후 발신불가"),
+
+        new Knowledge(`${url}`+"고객_본인_번호로_문자_수신되는_증상조회.html","본인 번호로 문자수신되는 증상",
+        `${url}`+"5G요금제_LTE단말기_마이케티이_LTE요금제변경하기.html","5G요금제+LTE단말기_마이케이티변경",
+        `${url}`+"VOLTE_&_3G_HD(와이드오디오밴드)_&_3G_차이.html","VOLTE/3G HD보이스 차이"),
+
+        new Knowledge(`${url}`+"PLMN_네트워크수동검색_450의미.html","PLMN_네트워크수동검색_450의미",
+        `${url}`+"LTE_모바일데이터_상태_휴대폰_업그레이드불가.html","모바일 데이터상태 _폰 업그레이드불가",
+        `${url}`+"kt-1570_사서함_발신불가.html","kt-1570_사서함_발신불가"),
+
+        new Knowledge(`${url}`+"해지_아이폰_문자전화수신_아이메시지_다른기기 연속성.html","해지 아이폰문자 수신_다른 기기 연속성",
+        `${url}`+"특정고객_유선발신시__LG유플러스_멘트_송출되며_통화연결_불가_증상.html","LG유플러스 멘트송출(통화연결불가)",
+        `${url}`+"투폰모드_벨소리.html","투폰모드 벨소리 설정"),
+
+        new Knowledge(`${url}`+"투폰_모드에서_후후앱등_알수_없는_연락처_차단설정시_착신불가.html","투폰모드_후후앱 차단설정 연동(수신불가)",
+        `${url}`+"통화품질_LTE_해상_서비스_문의.html","LTE_해상_서비스",
+        `${url}`+"통화중일때_통화중이라는_멘트_송출되지_않고,_고객님께서_현재_전화를_받을수_없습니다_투폰.html","통화중 멘트X /전화를 받을수없습니다 송출"),
+
+        new Knowledge(`${url}`+"통화중대기_볼륨설정.html","통화중대기 볼륨설정",`${url}`+"타사_모델_volte_이용불가시_설정확인.html",
+        "타사 모델 volte 이용불가시 설정",`${url}`+"크롬에서_네이버동영상_실행안될때.html","크롬에서_네이버동영상_실행안될때"),
+
+        new Knowledge(`${url}`+"타사에서_일시정지된_단말의_경우_KT에서_일반_기변_가능_여부.html","타사 일시정지단말 KT(기변가능여부)",
+        `${url}`+"삼성 해외 5G 단말 APN 설정.html","삼성 해외 5G단말 APN설정",`${url}`+"전자파.html","전자파 voc"),
+
+        new Knowledge(`${url}`+"지역번호114__기업대표_번호_발신불가.html","지역번호114__기업대표_번호_발신불가",
+        `${url}`+"수신 거절 멘트 최종.html","수신 거절멘트_최종",`${url}`+"재난문자_수신불가시_조치방법.html","재난문자_수신불가시_조치방법"),
+
+        new Knowledge(`${url}`+"원내비_사용_중_통화수신불가증상.html","원내비_사용_중_통화수신불가증상",
+        `${url}`+"영화관입니다.잠시후_전화하겠습니다._문자_자동발송되며_전화수신불가.html","영화관입니다/ 자동 수신거절",
+        `${url}`+"에이서원_갤럭시북_윈10사용시_APN설정방법.html","에이서원 갤럭시북 윈10사용시"),
+
+        new Knowledge(`${url}`+"엘리베이터비상장치(승강기).html","승강기(엘리베이터)무선비상장치 신호점검",
+        `${url}`+"삼성단말메시지수신불가.html","삼성단말(하위버전)메시지 수신오류(22년9월)",`${url}`+"omd셀프변경.html","omd 셀프변경 마이케이티 앱"),
+
+        new Knowledge(`${url}`+"에그_USB테더링_설정방법.html","에그_USB테더링_설정방법",`${url}`+"연락처에_등록된_가입자외_통화수신불가증상.html",
+        "연락처_등록된_가입자외_수신불가증상",`${url}`+"에그_IML520_단말기USB_테더링불가.html","에그_IML520_단말기USB_테더링불가"),
+
+        new Knowledge(`${url}`+"애플워치_voc.html","애플워치 voc",`${url}`+"애플워치_설정_상담에_필요_부분_요약.html","애플워치 설정 요약",
+        `${url}`+"애플워치_번호확인방법.html","애플워치 번호확인방법"),
+
+        new Knowledge(`${url}`+"알요금제(_지능망가입자)___Y틴ON_요금제(포함)_정지시_114전화발신불가.html","알요금제 정지시 114발신불가",
+        `${url}`+"안드로이드_자급단말기_모델명변경후mms이용불가시.html","안드 자급단말_mms이용불가시",
+        `${url}`+"아이폰SMS_URL접속불가.html","아이폰SMS URL접속불가"),
+
+        new Knowledge(`${url}`+"아이폰12_RSRP확인방법_디버그모드.html","아이폰12_RSRP확인방법_디버그모드",`${url}`+"아이폰+82표시.html",
+        "아이폰 +82 표시",`${url}`+"아이폰_통화수신불가_알수없는_발신자_음소거.html","아이폰 알수없는 발신자 음소거"),
+
+        new Knowledge(`${url}`+"아이폰_전원off시_애플워치 동작.html","아이폰_전원off시_애플워치 동작",
+        `${url}`+"아이폰_아이패드 자급 모델정보 확인하는 사이트 주소.html","아이폰(패드) 모델정보 확인 사이트",
+        `${url}`+"아이폰_비공개_릴레이.html","아이폰_비공개_릴레이"),
+
+        new Knowledge(`${url}`+"아이폰_번호변경및_OTA처리후_예전구번호_계속표시증상.html","아이폰 번호변경및 OTA처리후 구번호표시",
+        `${url}`+"아이폰_방해금지_해제해도_동일하게_수신이_안될경우,_애플워치_방해금지모드.html","아이폰(애플워치)방해금지모드 연동",
+        `${url}`+"아이폰_마지막사용한_회선은_더 이상_사용할수없음.html","아이폰 마지막 사용한 회선 문구"),
+
+        new Knowledge(`${url}`+"슬롯2_IMEI값__개통_상태가_아닌_경우_OMD단말_변경_불가능합니다.html","슬롯2 IMEI값 상태(OMD단말이상)",
+        `${url}`+"수신자부담_전화_차단해지경로(kos).html","수신자부담_전화_차단해지경로(kos)",`${url}`+"쇼미_약관동의_문구팝업_발신불가.html","쇼미_약관동의_문구팝업_발신불가"),
+
+        new Knowledge(`${url}`+"삼성_단말기_기저대역CP_빌드번호AP_확인하기.html","삼성 단말기 기저대역CP 빌드번호AP",
+        `${url}`+"불법TM_스팸신고_연락처.html","불법TM_스팸신고_연락처",`${url}`+"분실정지_복구이후_유심_이동불가.html","분실정지_복구이후_유심_이동불가"),
+
+        new Knowledge(`${url}`+"번호차단시_음성사서함_이용가능_여부.html","번호차단시_음성사서함_이용가능_여부",
+        `${url}`+"발신정지(미납_정지등)_상태_1633등_콜렉트콜_발신_불가_관련.html","발신정지(미납 정지등) 콜렉트콜 발신불가",
+        `${url}`+"발신번호표시제한_외산.html","발신번호표시제한 외산"),
+
+        new Knowledge(`${url}`+"미납정지전_사용했던_단말기_미납정지후_미납정지사유로_이동성_불가.html","미납정지전 사용 단말기 유심이동불가",
+        `${url}`+"무민키즈폰_등록된_연락처_외_수신불가.html","무민키즈폰 등록된 연락처 외 수신불가",
+        `${url}`+"모든_전화수신불가_앱으로차단_설정방법.html","앱 별 모든전화 수신차단방법"),
+
+        new Knowledge(`${url}`+"마이케이티_지원_미지원_모델_간략_정리.html","마이케이티 지원 미지원 단말모델정리",
+        `${url}`+"링백톤_문의시_확인할_사항.html","링백톤_문의시_확인할_사항",`${url}`+"라인키즈폰_imei_일련번호_확인방법.html",
+        "라인키즈폰_imei_일련번호_확인방법"),
+
+        new Knowledge(`${url}`+"라인키즈폰_보호자발신시_음성사서함_연결되는증상.html","라인키즈_보호자발신시_음성사서함_연결",
+        `${url}`+"기술TT_처리_조직변경(충청북도_음성군_감곡면).html","충북 음성군 감곡명 기술TT조직",
+        `${url}`+"네이버아키_특정번호_메시지_발신_실패_문의시.html","네이버 아키 특정번호 메시지 발신실패"),
+
+        new Knowledge(`${url}`+"단말품질관련_VOC제조사별_담당자.html","단말품질관련_VOC제조사별_담당자",`${url}`+"단말기_히든메뉴_접속방법.html",
+        "단말기_히든메뉴_접속방법",`${url}`+"국제전화_VOC.html","국제전화 VOC"),
+
+        new Knowledge(`${url}`+"갤럭시_워치4.html","갤럭시 워치4",`${url}`+"갤럭시워치_애플워치_담당자.html","갤럭시워치_애플워치_담당자",
+        `${url}`+"갤럭시_워치_VOC.html","갤럭시_워치_voc"),
+
+        new Knowledge(`${url}`+"갤럭시_워치_삼성계정으로_원격연결.html","갤럭시_워치_삼성계정으로_원격연결",
+        `${url}`+"개통락_판매자셋팅해제_임직원 개통락.html","개통락_판매자셋팅해제_임직원 개통락",
+        `${url}`+"010을_제외_후_발신시_발신_불가_증상.html","010 제외후 발신시 발신불가증상"),
+
+        new Knowledge(`${url}`+"5G테더링_핫스팟_속도지연_문의시_설정방법.html","5G테더링 핫스팟 속도지연 문의시",
+        `${url}`+"5G단말기_배터리설정_모드_5G접속불가시.html","5G단말기_배터리설정_모드_5G접속불가",
+        `${url}`+"5G LTE_VOC문의__HLR_VOLTE_문의처.html","5G LTE_VOC문의__HLR_VOLTE_문의처"),
+
+        new Knowledge(`${url}`+"080_문자_수신_불가.html","080_문자_수신_불가",`${url}`+"SMSS_수신장비_결과코드_-_결과코드_-_SC_CONGESTION조회15.html",
+        "SMS수신장비 결과 SC_CONGESTION조회",`${url}`+"MMS발신_가능한_이미지_개수_자사_10건_타사_4건.html","mms발신가능 이미지수(자사10건,타사4건)"),
+
+        new Knowledge(`${url}`+"M-RBL문자차단___CB_M_RBL_BLOCK.html","M-RBL문자차단___CB_M_RBL_BLOCK",
+        `${url}`+"등기문자_거부서비스_타사적용불가.html","등기문자_거부서비스_타사적용불가",`${url}`+"엠센스_장비조회시_주의사항_(_시간을_더_길게_셋팅).html",
+        "엠센스 주의( 조회시간 길게 셋팅)"),
+
+        new Knowledge(`${url}`+"엠센스_계정오류나_권한_신청_방법.html","엠센스 계정오류시 권한 신청",`${url}`+"엠센스_내에_채팅서비스(_RCS_)조회방법.html",
+        "엠센스 RCS 조회방법",`${url}`+"투폰으로_메시지_수신시_엠센스_로그값.html","투폰으로 메시지 수신시 엠센스 로그"),
+
+        new Knowledge(`${url}`+"kt_단체문자발송_가능건수.html","kt_단체문자발송_가능건수",`${url}`+"mms_첨부가능용량및_파일갯수.html",
+        "mms_첨부가능용량및_파일갯수",`${url}`+"sms기본부가서비스_해지시_SMS_LMS_MMS_발송가능여부.html","SMS해지시 각문자 발송가능여부"),
+
+        new Knowledge(`${url}`+"택배_안심번호(050)로_문자발송실패증상.html","택배 안심번호050 문자발송실패",
+        `${url}`+"MSENS로그_조회가능일_확대_(응대는_7일이내로만).html","MSENS로그 조회가능일 확대 (응대는 7일)",
+        `${url}`+"KISA_스팸신고로_메시지_차단시_응대안.html","KISA_스팸신고로_메시지_차단 응대안"),
+
+        new Knowledge(`${url}`+"메시지_폐기_주기.html","메시지_폐기_주기",`${url}`+"선박_(_배_)_TT_접수_혹은_신호불량_요청시.html","선박 신호불량 개선요청",
+        `${url}`+"kt_wifi_이용권_및_플래시_상품_문의시.html","kt_wifi_이용권_및_플래시_상품_문의시"),
+
+        new Knowledge(`${url}`+"LTE빔_프로젝터_유심이동_문의.html","LTE빔_프로젝터_유심이동_문의",
+        `${url}`+"OTA실패_관련_특정번호_수신차단_부가서비스_0000_설정.html","OTA실패_관련_특정번호_수신차단_0000_설정",
+        `${url}`+"가족폰_이어쓰기_팝업경로_변경.html","가족폰_이어쓰기_팝업경로_변경"),
+
+        new Knowledge(`${url}`+"각지역_소방서에서_통신사장비_위치문의로_인입시_참고하세요_기지국_위치.html",
+        "소방서_관공서_통신사장비_기지국 위치 문의시",`${url}`+"공용화_국소_관련.html","공용화_국소_관련",
+        `${url}`+"금융_유심_(usim)_관리_어플_설치.html","금융_유심_(usim)_관리_어플_설치"),
+
+        new Knowledge(`${url}`+"배터리_절감_기술(C-DRX)이_GIGA_LTE_사용중에도_적용.html","배터리_절감_기술(C-DRX)이_GIGA_LTE_사용중에도_적용",
+        `${url}`+"복합정지상태에서_일부정지만_복구시_이용가능여부.html","복합정지상태에서_일부정지만_복구시_이용가능여부",
+        `${url}`+"불법TM수신차단서비스_번호_입력시_주의,_차단_번호_입력_방법.html","불법TM수신차단서비스_번호_입력시_주의,_차단_번호_입력_방법"),
+
+        new Knowledge(`${url}`+"신호값_확인_TT_확인_요령_RSSI_RSRP.html","신호값_확인_TT_확인_요령_RSSI_RSRP",
+        `${url}`+"아토 시설후 자택에서 현위치가 전혀 다르게 나올 경우.html","아토 시설후 자택에서 현위치가 전혀 다르게 나올 경우",
+        `${url}`+"요양보호사_NFC테그_TT.html","요양보호사_NFC테그_TT"),
+       
+        new Knowledge(`${url}`+"이사이후_GPS위치가_이사_전_주소지로_나오는 경우.html","이사이후_GPS위치가_이사_전_주소지로_나오는 경우",
+        `${url}`+"인빌딩장비_or_외부장비_소음_voc_이관처.html","인빌딩장비_or_외부장비_소음_voc_이관처",
+        `${url}`+"주_52시간_계산법.html","주_52시간_계산법"),
+
+        new Knowledge(`${url}`+"중계기_시설관련_법규.html","중계기_시설관련_법규",`${url}`+"커넥트태그_가입사실확인서_발급_요청관련.html",
+        "커넥트태그_가입사실확인서_발급_요청관련",`${url}`+"케이티_(_kt_)_어플_앱_설치_URL.html","케이티_(_kt_)_어플_앱_설치_URL"),
+
+        new Knowledge(`${url}`+"통화내역열람_기지국_정보_제공_가능_여부.html","통화내역열람_기지국_정보_가능_여부",
+        `${url}`+"DCNR확인방법.html","DCNR확인방법",`${url}`+"esim과금기준.html","esim과금기준"),
+
+        new Knowledge(`${url}`+"esimopen.html","Esim발급방법 안내 ",`${url}`+"휴근용양식.html","휴근용_문자양식",
+        `${url}`+"귀국후_대표번호_발신실패(아이폰).html","귀국후 대표번호 발신불가(아이폰)"),
+
+        new Knowledge(`${url}`+"아이폰14esim오류.html","아이폰14(MEP단말)개통오류_esim",`${url}`+"KT이용약관.html",
+        "KT 이용 약관",`${url}`+"모바일_명세서_수신오류.html","모바일 명세서 수신오류"),
+
+        new Knowledge(`${url}`+"자급아이폰_ESIM다운오류.html","자급 아이폰 ESIM다운오류",`${url}`+"duplicated오류.html",
+        "유심(USIM)이동시 DUPLICATED 조치",`${url}`+"투폰오류_수리모드.html","투폰오류_원번호모드만 보일때 조치"),
+
+        new Knowledge(`${url}`+"이심셀프기변.html","Esim셀프기변(self)",`${url}`+"국제전화통열.html",
+        "국제전화통열(통화내역열람)(kt.com)",`${url}`+"삼성TOS투폰오류.html","삼성단말기 TOS업데이트후 투폰오류"),
+
+        new Knowledge(`${url}`+"패박wifi.html","kt-wifi pin등록방법",
+        `${url}`+"애플워치메시지실패.html","애플워치 메시지 이용불가시",
+        `${url}`+"듀얼심_kait정보제공공의.html","듀얼심_kait정보제공공의"),
+        
+        new Knowledge(`${url}`+"mac등록정리.html","mac등록 총정리",
+        `${url}`+"패박5.html","패밀리박스5.0 가족대표변경",
+        `${url}`+"v컬러링링투유.html","v컬러링앱내 링투유설정경로"),
+
+        new Knowledge(`${url}`+"아이폰음성메시지수신불가.html","아이폰 정크 메시지,전화수신불가설정 추가",
+        `${url}`+"우체국pda.html","우체국 PDA이용불가",
+        `${url}`+"법대인증문자.html","미성년 업무중 법대측 인증문자 수신불가시"),
+
+        new Knowledge(url+"아이폰메시지이메일.html","아이폰 메시지 이메일 형태로 수신되는 증상",
+        url+"삼페티머니이용불가_타사향단말.html","타사향단말_삼성페이_티머니 이용불가",
+        url+"애플워치 2개연결(아이폰_듀얼회선).html","아이폰에 워치2대연결(듀얼회선)"),
+
+        new Knowledge(url+"231214투폰오류조치.html","231214투폰오류조치(투폰음성메시지오류)",
+        url+"애플사용이력없음리퍼.html","애플리퍼후 사용이력없는 경우",
+        url+"050통화수신불가.html","050통화수신불가"),
+
+        new Knowledge(url+"국제인증문자수신불가(특이).html","국제인증문자수신불가(민지공유)",
+        url+"아이폰 미국IP오류뜨며 접속불가.html","아이폰 미국IP오류뜨며 접속불가(비공개 릴레이)",
+        url+"테더링사용량lte.html","단말기별 테더링QOS적용여부(LTE/5G)"),
+
+        new Knowledge(url+"문자별전송길이.html","문자별 전송가능 길이",
+        url+"","추가전",
+        url+"","추가전"),
+
+
+
+      ]
+  
+      
+      for (var i=0; i<knowledge.length ; i++) {
+        $('.divTableBody').append(`<div class="divTableRow">
+            <div class="divTableCell"><a href="${knowledge[i].box1}" target="frame">
+              <span class="order"></span>${knowledge[i].box1_1}</a></div>
+            <div class="divTableCell"><a href="${knowledge[i].box2}"target="frame">
+                <span class="order"></span>${knowledge[i].box2_2}</a></div>
+            <div class="divTableCell"><a href="${knowledge[i].box3}"target="frame">
+                <span class="order"></span>${knowledge[i].box3_3}</a></div>
+           </div>`)
+      }
+     
+      var $atotal = $('.order');
+     console.log($atotal);
+         $atotal.each(function($idx){
+            $(this).text(`${$idx}.`);
+         })
+     
+      
+
+      $('.button1').click(function(){
+        var basicframeHi = $('.basicframe').height();
+       $('html').stop().animate({scrollTop:basicframeHi});
+      
+      $('.button2').click(function(){
+      $('html').stop().animate({scrollTop:'0px'});
+      })  
+      })
+
+      let CountAtag = document.getElementsByTagName('a').length;
+      document.getElementById('count').innerHTML = String(`${CountAtag}건`);
+
+     })
+  </script> 
+ 
+    </body>
+
+</html>

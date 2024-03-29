@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+          overflow:hidden;padding:4px 2px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+          font-weight:normal;overflow:hidden;padding:4px 2px;word-break:normal;}
+        .tg .tg-u4ur{background-color:#ffcc67;text-align:left;vertical-align:top}
+        .tg .tg-f7v4{background-color:#c0c0c0;border-color:#000000;text-align:left;vertical-align:top}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+        .tg .tg-ojok{background-color:#ffcc67;border-color:#000000;text-align:center;vertical-align:top}
+        .tg .tg-kd4e{background-color:#34ff34;text-align:left;vertical-align:top}
+        .tg .tg-y6fn{background-color:#c0c0c0;text-align:left;vertical-align:top}
+        #changemonth{background-color: aqua;}
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.4.js" 
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+        integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+  <div id="changemonth">
+    <label><input value="0" type="radio" name="check" >1월</label>
+    <label><input value="1" type="radio" name="check" >2월</label>
+    <label><input value="2" type="radio" name="check" >3월</label>
+    <label><input value="3" type="radio" name="check" >4월</label>
+    <label><input value="4" type="radio" name="check" >5월</label>
+    <label><input value="5" type="radio" name="check" >6월</label>
+    <label><input value="6" type="radio" name="check">7월</label>
+    <label><input value="7" type="radio" name="check" >8월</label>
+    <label><input value="8" type="radio" name="check" >9월</label> 
+    <label><input value="9" type="radio" name="check" >10월</label> 
+    <label><input value="10" type="radio" name="check" >11월</label> 
+    <label><input value="11" type="radio" name="check" >12월</label> 
+    
+  </div>    
+    <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-0lax date"><b>월</b></th>
+            <th class="tg-0lax">요일</th>
+            <th class="tg-ojok">연차</th>
+            <th class="tg-ojok">연차</th>
+            <th class="tg-ojok">연차</th>
+            <th class="tg-kd4e">헬키</th>
+            <th class="tg-kd4e">헬키</th>
+            <th class="tg-kd4e">헬키</th>
+            <th class="tg-kd4e">헬키시간</th>
+            <th class="tg-y6fn">평일/휴일당직</th>
+            <th class="tg-y6fn"></th>
+            <th class="tg-0lax">날짜</th>
+            <th class="tg-0lax">요일</th>
+            <th class="tg-0lax">메모</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="firstline">
+            <td class="tg-0lax schedule"></td>
+            <td class="tg-0lax schedule"></td>
+            <td class="tg-u4ur schedule"></td>
+            <td class="tg-u4ur schedule"></td>
+            <td class="tg-u4ur schedule"></td>
+            <td class="tg-kd4e schedule"></td>
+            <td class="tg-kd4e schedule"></td>
+            <td class="tg-kd4e schedule"></td>
+            <td class="tg-kd4e schedule"></td>
+            <td class="tg-f7v4 schedule"></td>
+            <td class="tg-f7v4 schedule"></td>
+            <td class="tg-0lax schedule"></td>
+            <td class="tg-0lax schedule"></td>
+            <td class="tg-0lax schedule"></td>
+          </tr>
+        </tbody>
+        </table>
+   <script src="../java/teamscheme.js"></script>
+
+   
+</body>
+</html>

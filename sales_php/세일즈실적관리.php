@@ -148,7 +148,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
         '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>'.
         '<td>'.'<form action='.'세일즈실적관리.php'." ".'method='.'post'.'>'.
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['ordernum'].''.'>'.'</form>'.
-        '</td>'.'<td>'.'<a href="'.'세일즈누적.php?cusnum='.$row['inum'].'&'.'cusname='.$row['cusname']
+        '</td>'.'<td>'.'<a class="success" href="'.'세일즈누적.php?cusnum='.$row['inum'].'&'.'cusname='.$row['cusname']
         .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'"'.'>'.'예정'.'</a>';
      }
      echo $td;
@@ -253,6 +253,13 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
            
           });
         
+          $(".success").click(function(e){
+           const $editcheck = $('#edit').prop('checked');
+            if(!$editcheck){
+                e.preventDefault();
+            }
+           
+          });
        //HTTPS 환경에서 실행: navigator.clipboard.writeText()는 보안상의 이유로 HTTPS 환경에서만 동작합니다. 따라서 코드가 HTTPS로 제공되고 있는지 확인하세요.
          // 백업하기 위해 전체 내용을 복사하기 
       

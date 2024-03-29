@@ -1,0 +1,12 @@
+pre{
+    font-size :12px;
+    cursor : pointer;
+    display : grid;
+    grid-template-columns: 1fr;
+    margin-top : 45px;
+    margin-bottom: 45px;
+            }   
+
+pre:hover{
+background-color: aquamarine;
+}

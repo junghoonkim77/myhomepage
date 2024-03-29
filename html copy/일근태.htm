@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+  <link rel="stylesheet" href="../css/일근태.css">
+  <title>AI선생출결</title>
+</head>
+<body>
+  
+  <div class="container">
+  
+  <div style="cursor :pointer" id="copy_range">
+  <table class="tg" style="table-layout: fixed; width: 284px">
+    <div style="margin: 2px 2px;">[<span class="today">11/23</span>통화품질1팀 일일출근현황]</div>
+    <div id="note">
+      <div style="color :red">■체온 이상자 :<span class="temp">없음</span></div>
+      <div >■sldm정상 확인자 : <span class="note">9명</span></div>
+      <div id="append" style="color :forestgreen">■연차:<span class="yeoncha">없음</span></div>
+      <div class="hidden" style="color :forestgreen">■<span class="yeonchachoo"></span></div>
+      <div >■소프트폰재택 :<span class="note">없음</span></div>
+      <div >■소프트폰재택 中 센터출근:<span class="note">없음</span></div>
+      <div style="color:darkred"><span class="special"></span></div>
+    <!--<div style="color:blue">※임신초기단축 근무(10~17) :최아람(2.8~3.22)</div> -->  
+      <div>※코로나 특이사항 :<span class="corona">없음</span></div>
+     </div> 
+  <colgroup>
+  <col style="width: 97px">
+  <col style="width: 65px">
+  <col style="width: 60px">
+  <col style="width: 62px">
+  </colgroup>
+  <thead>
+    <tr>
+      <th class="tg-mhie">통화품질1팀</th>
+      <th class="tg-mhie"></th>
+      <th class="tg-mhie"></th>
+      <th class="tg-mhie">무선</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="tg-mhie"></td>
+      <td class="tg-mhie"></td>
+      <td class="tg-mhie"></td>
+      <td class="tg-mhie">CS2센터</td>
+    </tr>
+    <tr>
+      <td class="tg-op75">현원</td>
+      <td class="tg-op75">현원</td>
+      <td class="tg-op75">팀장</td>
+      <td class="tg-05qa">1</td>
+    </tr>
+    <tr>
+      <td class="tg-op75"></td>
+      <td class="tg-op75"></td>
+      <td class="tg-op75">CT</td>
+      <td class="tg-05qa">8</td>
+    </tr>
+    <tr>
+      <td class="tg-7zv5">미출근</td>
+      <td class="tg-7zv5">출장</td>
+      <td class="tg-7zv5">팀장</td>
+      <td  class="tg-sv3s number michul" ></td>
+    </tr>
+    <tr>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5">CT</td>
+      <td class="tg-sv3s number michulc" ></td>
+    </tr>
+    <tr>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5">연차</td>
+      <td class="tg-7zv5">팀장</td>
+      <td class="tg-sv3s number yeonT" ></td>
+    </tr>
+    <tr>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5">CT</td>
+      <td class="tg-sv3s number yeonC" ></td>
+    </tr>
+    <tr>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5">경조</td>
+      <td class="tg-7zv5">팀장</td>
+      <td class="tg-sv3s number kyungT"  ></td>
+    </tr>
+    <tr>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5">CT</td>
+      <td class="tg-sv3s number kyungC" ></td>
+    </tr>
+    <tr>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5">결근</td>
+      <td class="tg-7zv5">팀장</td>
+      <td class="tg-sv3s number kyulT" ></td>
+    </tr>
+    <tr>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5"></td>
+      <td class="tg-7zv5">CT</td>
+      <td class="tg-sv3s number kyulC" ></td>
+    </tr>
+  </tbody>
+  </table>
+
+</div>  
+  
+  <div id="div">
+  <input style="display: block" type="text" value="" placeholder="체온이상유무" data-input="temp" />
+  <input id="chooga" style="display: block" type="text" value="" placeholder="연차자" data-input="yeoncha" />
+  <input class="hidden" type="text" value="" placeholder="연,반차주가" data-input="yeonchachoo" />
+  <input style="display: block"type="text" value="" placeholder="※" data-input="special"/>
+  <input style="display: block"type="text" value="" placeholder="코로나 특이사항" data-input="corona" />
+  <input style="display: block" type="text" value="" placeholder="출장팀장" data-input="michul"  />
+  <input style="display: block" type="text" value="" placeholder="출장CT" data-input="michulc" />
+  <input style="display: block"type="text" value="" placeholder="연차팀장" data-input="yeonT"  />
+  <input style="display: block"type="text" value="" placeholder="연차CT" data-input="yeonC"  />
+  <input style="display: block"type="text" value="" placeholder="경조팀장" data-input="kyungT"  />
+  <input style="display: block"type="text" value="" placeholder="경조CT" data-input="kyungC"  />
+  <input style="display: block"type="text" value="" placeholder="결근팀장" data-input="kyulT"  />
+  <input style="display: block"type="text" value="" placeholder="결근CT" data-input="kyulC"  />
+  <button  class="MorningCheck">출결복사▼</button><button class="Addcon">공가,연차추가</button><br>
+  <button class="conSave">내용저장</button> <button class="conOutput">전일내용입력</button>
+  </div>
+
+
+
+  <div id="daily">
+ 안녕하세요~!<br>
+[통화품질팀]<span class="daily2"></span> 09시  <br>
+-건강 이상자 :없음 <br>
+-업무지각 : 없음 <br>
+-백신접종공가 : 없음<br>
+-반차 : 없음<br>
+※코로나 특이사항 :없음<br>
+  </div>
+
+  <div class="goalcal">
+    <h4>세일즈 달성률</h4>
+  <input class="goal" type="text" maxlength="4" placeholder=" 목표값 입력">
+  <input class="nowgoal" type="text" maxlength="4" placeholder=" 현재실적 입력">
+   <span>달성률 (</span><span id="result"></span><span>% )</span>
+  </div>  
+
+  <div class="balance">
+    <h4>상대비율</h4>
+  <input type="text" class="balance1" placeholder="비교1"><span> :</span>
+  <input type="text" class="balance1_1" placeholder="비교1_1"><span> =</span>
+  <input type="text" class="balance2" placeholder="비교2"><span> :</span>
+  <input type="text" class="balance2_2" placeholder="Χ">
+  </div>
+  <div class="dailyreport">
+    <h5>일보</h5>
+  <p>워치총이관건수:<input type="text"  value="" class="rep"/></p> 
+  <p>워치 처리건수:<input type="text"   value="" class="rep"/></p>
+  <p>워치voc : <input type="text"  value="" class="rep"/></p>
+  <p>장애공지 댓글건수:<input type="text" value="" class="rep"/></p>
+  <p>R-voc검수 건수:  <input type="text"value="" class="rep"/></p>
+    <button class="ilbocopy">MJG제출용복사</button>
+  </div>
+  <div class="dailyreport2">
+    <h5>센터장님 제출일보</h5>
+    <p>권유실패포함 시도건수 :<input type="text"  value="" class="rep2"/></p> 
+    <p>권유성공 :<input type="text"  value="" class="rep2"/></p> 
+    <button class="ilbocopy2">센터장님제출복사</button>
+  </div>
+</div>
+ 
+
+  <script src="../java/library.js"></script>
+  <script>
+  
+  jQuery(function(){
+    let today= new Date();
+    let month = ('0' + (today.getMonth() + 1)).slice(-2);
+    let day =  ('0' + today.getDate()).slice(-2);
+    let dateString = month  + '/' + day;
+    let dateString2 = `${month}월 ${day}일`
+    $('.today').text(dateString); 
+    $('.daily2').text(dateString2);    
+    let TodayText = $('#daily').text()
+    $('.MorningCheck').click(function(){
+      navigator.clipboard.writeText(TodayText);
+    });
+
+  //여기서부터 일보 복사 시작  
+   $('.ilbocopy').click(function(){
+    var rep = $('.rep')
+    var $rep=[];
+    rep.each(function(){
+       $rep.push($(this).val())
+    })
+   var $ilbo =`${dateString2} R-VOC/워치상담/장애공지댓글
+
+■워치VOC
+
+ㅇ총 이관건수 : ${$rep[0]}건 / 처리: ${$rep[1]}건
+ㅇVOC : -${$rep[2]}
+
+■장애공지 긴급정보 댓글건수
+
+ㅇ총 등록건수 : ${$rep[3]}건
+
+■R-VOC 검수
+
+ㅇ총 ${$rep[4]}건 확인 및 각 팀장 개별통보
+` 
+  navigator.clipboard.writeText($ilbo);
+   }) //일보복사 1단계 마무리
+
+
+   $('.ilbocopy2').click(function(){
+    var rep = $('.rep2')
+    var $rep2=[];
+    rep.each(function(){
+       $rep2.push($(this).val())
+    })
+   var $ilbo =`${dateString2} SR검수&상담모니터링&통품차별화&I.T.M권유
+
+ㅇ당일 (권유실패포함): ${$rep2[0]}건 / 권유성공 : ${$rep2[1]}건
+` 
+    
+    navigator.clipboard.writeText($ilbo);
+   }) // 여기까지가 일보 복사칸
+
+         
+    
+    let $inputs = $("#div input[type='text']");
+    let $note = $('#note div span');
+
+    $inputs.keyup(function(){
+      $thisdata = $(this).attr('data-input');
+      $thisvalue = $(this).val();
+      $(`.${$thisdata}`).text($thisvalue);
+    })
+
+    $('.conSave').click(function(){
+      $note.each(function(){
+        $thisdata = $(this).attr('class');  $thisvalue = $(this).text();
+        localStorage.setItem($thisdata,$thisvalue);
+     });
+    })
+
+    $('.conOutput').click(function(){
+       for ( var keyval in localStorage){
+         var localStorageVal = localStorage[keyval];
+         if(keyval=="temp"||keyval=="yeoncha"||keyval=="special"||keyval=="corona" ||keyval=="yeonchachoo"){
+           $(`.${keyval}`).text(localStorageVal);
+         }
+       }
+    });
+
+    $('.Addcon').click(function(){
+        $(this).toggleClass('showhidden');
+        if($('.Addcon').hasClass('showhidden')){
+          $('.hidden').show();
+        } else{
+          $('.hidden').hide();
+        } 
+        
+      //$('#chooga').after('<input id="newafter" style="display: block" type="text" value="" placeholder="추가휴무입력" data-input="chooga" />')
+      //$('#append').after('<div style="color :forestgreen"><span class="chooga">■</span></div>');
+       });
+     
+     /*$('body').on('keyup','#newafter',function(){
+      var newval = $(this).val();
+      $('.chooga').text(newval);
+     })*/
+       
+     
+    var button1 = document.querySelector('.nowgoal')
+ button1.addEventListener('keyup',function(){
+ var goal = document.querySelector('.goal').value;
+ var nowgoal = document.querySelector('.nowgoal').value;  
+ var $goal = Number(goal);
+ var $nowgoal = Number(nowgoal);
+ var $result = document.getElementById('result');
+ var resul =Number($nowgoal*100/$goal) ;
+  $result.innerHTML= resul.toFixed(2) ;
+ })
+ 
+  $('.balance2').on('keyup',function(){
+    var balresult =(Number($('.balance1_1').val()) * Number($('.balance2').val()) ) / Number($('.balance1').val()); 
+        balresult_end = balresult.toFixed(2);
+    $('.balance2_2').val(balresult_end);
+  })
+  // 표 영역 복사
+  $('#copy_range').click(function(){
+    $lib.rangecopy('#copy_range');
+  })
+
+  }) // 마지막 줄
+  
+ 
+
+  
+    
+  </script>
+</body>
+</html>

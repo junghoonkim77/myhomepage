@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       body{
+         height :100vh;
+         width : 100vw;
+         padding :2rem;
+       }
+       .container{
+            display:grid;
+            border:1px solid gray;
+            height : 100%;
+            width : 100%;
+            grid-template-columns: 0.5fr 4fr 1fr ;
+            grid-template-rows: 50px auto 30px;
+            grid-template-areas: 
+             'header header header'
+             'nav main main'
+             'footer footer footer'
+            ;
+        }
+    header,nav,main,aside,footer,.menu{
+        display : flex;
+        align-items : center;
+    }
+     header {
+        grid-area : header;
+        border-bottom : 1px solid gray;
+     }    
+     nav{
+        grid-area :nav;
+        border-right : 1px solid gray;
+        border-bottom : 1px solid gray;
+       }
+    main{
+        grid-area : main;
+        border-bottom : 1px solid gray;
+    } 
+    
+    footer{
+        grid-area :footer;
+    }
+    #netwindow1{
+          position: absolute;
+          left :40%;
+           display : none;
+           font-weight : bold;
+           font-size : 16px;
+           z-index : 1;
+          background-color: beige;
+        }
+        #netwindow1 ul li:hover{
+            background-color: rgb(231, 227, 227);
+        }
+        #code1{
+            position :absolute;
+            left : 55%;
+            display : none;
+        }
+        a{ 
+          text-decoration : none;
+        }
+        #google_calender{
+            top : 10px;
+            left :200px;
+        }
+        #code1{
+            position :absolute;
+            left : 55%;
+            display : none;
+        }
+    </style>
+     <script src="https://code.jquery.com/jquery-3.6.1.js" 
+     integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> 
+    <title>새통품홈페이지</title>
+</head>
+<body>
+    <div class="container">
+         <header>
+            <a href="https://junghoonkim77.github.io/myhomepage/html/gate.html">홈페이지 새로고침</a>
+            <a href="#"  onclick="line_dp2(7)" > / 
+                <span style="font-size:20px">📋</span>
+                <span style="font-size:20px ; color:#4285F4 ; font-weight: bold;">
+                    통품</span>
+                <span style="font-size:20px ; color:#EA4335; font-weight: bold;"> 
+                    최신 </span> 
+                <span style="font-size:20px ; color:#Fbbc05;  font-weight: bold;">
+                    ISSUE </span>
+                <span style="font-size:20px ; color:#4285F4; font-weight: bold;"> 
+                    게시판 </span>
+            </a>
+       <span id="netwindow" style="font-size:20px"><b>/ 통화품질전산(👀)</b> 
+       <div id="netwindow1">
+        <ul>
+            <li><a href="https://koshelper.kt.co.kr/" target="'_blank"> 넷윈도 (우측마우스 클릭->새탭으로 열기) </a></li>
+            <li><a href="https://wing.kt.com" target="'_blank"> 윙 3.0 (우측마우스 클릭->새탭으로 열기) </a></li> 
+            <li><a href="https://admin.spam.kt.com/" target="'_blank"> 스팸차단서비스 (우측마우스 클릭->새탭으로 열기) </a></li>
+            <li><a href="https://msens.kt.com/login" target="'_blank"> 엠센스_메시지 (우측마우스 클릭->새탭으로 열기) </a></li>
+            <li> <a href="https://5gnms.kt.co.kr/portal/" target="'_blank">5G NMS (우측마우스 클릭->새탭으로 열기)</a></li>
+            <li> <a href="https://troublemap2.kt.com/kcube_tbm/nmsgis" target="'_blank">트러블 맵 (우측마우스 클릭->새탭으로 열기)</a></li>
+            <li> <a href="https://172.29.23.226:8443/login.html" target="'_blank">특정번호 통화수신거부조회(ATAS) (우측마우스 클릭->새탭으로 열기)</a></li>
+            <li> <a href="https://icrm.nb-iot.kt.com/icrm/app/athn.html#/signIn" target="'_blank">기가IOT(기가빌스)(우측마우스 클릭->새탭으로 열기)</a></li>
+            <li> <a href="https://www.imei.info/" target="'_blank">단말 IMEI조회 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
+            <li> <a href="https://www.wififree.kr/index.do" target="'_blank">공공WIFI 사이트 (우측마우스 클릭->새탭으로 열기)</a></li>
+            <li> <a href="https://checkcoverage.apple.com/kr/ko/;jsessionid=node0jcz99wa6rq3b1fir3t4mead7d67089905.node0 "'_blank">아이폰 단말정보 조회(애플공식) (우측마우스 클릭->새탭으로 열기)</a></li>
+            <li> <a href="mymemo.html" onclick="vocbank('mymemo.html');  return false;">상담 메모장</a></li>
+            <li> <a href="https://gr-cti2-fin-2a.ktgg.ipcc2.com/desktop/container/landing.jsp?locale=ko_KR" target="'_blank">비상전화기(코스ID/코스ID/본인내선)</a></li>
+        </ul>
+       </div>
+      </span>
+            
+         </header>
+         
+         <nav>
+            <ul>
+                <li class="menulist">TT&비영업양식</li>
+                <li class="menulist">통품VOC은행</li>
+                <li class="menulist">통품_SALES</li>
+                <li class="menulist">
+                    <a href="memo.html"  class="button btnPush btnPurple" 
+                            onclick="vocbank('memo.html');  return false;">상담 메모장</a>
+                </li>
+                <li class="menulist">단말기 심플메뉴</li>
+                <li class="menulist">연락처/부서코드</li>
+                <li class="menulist">일출결양식</li>
+                <li class="menulist">남부권_당직</li>
+                <li class="menulist">팀 스케쥴</li>
+                <li class="menulist">D+XX날짜계산</li>
+            </ul>
+         </nav>
+         <main>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt velit laudantium similique aspernatur provident? Enim quidem repellat aliquid recusandae excepturi? Consequatur natus inventore velit asperiores, eius voluptatibus aliquam officiis veritatis?
+         </main>
+        
+      <footer>
+        아래 추가될 허드레 내용들
+      </footer>   
+    </div>
+</div>
+    <script src="../java/voc_bank copy.js">  </script>
+   
+</body>
+</html>

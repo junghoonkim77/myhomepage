@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+    crossorigin="anonymous"></script>
+    <script src="../java/library.js"></script>
+<style>
+    .container{width : 65%;
+    display : grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    }
+    .TT{
+        height :400px;
+     }
+    .address{
+        height :300px;
+     }
+     figcaption{
+        font-size: 12px;
+     }
+     span {
+        font-size: 16px;
+        font-weight: bold;
+        color : red;
+     }   
+     
+</style>
+
+    <title>TT발행접수요령</title>
+</head>
+<body>
+    <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp기술TT 발행요령 
+        (1번~5번 순서대로)</h3>
+    <div class="container">
+
+        <div class="tt1">
+            <figure>
+                <figcaption><span>1.</span>업무유형검색 TIP("특정지역","설치","점검" 등)</figcaption>
+                <img class="TT" src="../imgfolder/회사자료/TT_1.png" alt="티티발행 첫단계">
+            </figure>
+        </div>
+        <div class="tt2">
+            <figure>
+                <figcaption><span>2.</span>기술TT로 변경 후 아래 본문내용 작성</figcaption>
+                <img class="TT"  src="../imgfolder/회사자료/TT_2.png" alt="티티발행 첫단계">
+            </figure>
+        </div>
+        <div class="tt3">
+            <figure>
+                <figcaption><span>3.</span>하단 "상세" 클릭 →주소는 지번입력 → 기술파트 클릭</figcaption>
+                    <img  class="TT"  src="../imgfolder/회사자료/TT_3.png" alt="">
+            </figure>
+        </div>
+        <div class="tt4">
+            <figure>
+                <figcaption><span>4.</span>팝업된 검색창에<span class="teamcod" style="cursor:pointer" >UCB0041</span>(서울중앙 통화품질팀)입력후 조회</figcaption>
+                <img class="address tt4" src="../imgfolder/회사자료/TT_4.png" alt="">
+            </figure>
+        </div>
+        <div class="tt5">
+            <figure>
+                <figcaption><span>5.</span>하단에 서울중앙통화품질팀 입력상태 확인후 이관버튼 클릭</figcaption>
+                <img class="TT tt5"  src="../imgfolder/회사자료/TT_5.png" alt="">
+            </figure>
+        </div>
+
+
+    </div>
+   <script>
+    $('.teamcod').click(function(){
+        $lib.clipcopy($(this).text())
+    })
+    </script>
+</body>
+</html>
