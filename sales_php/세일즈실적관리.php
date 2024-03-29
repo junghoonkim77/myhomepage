@@ -128,6 +128,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
     $teamname = $_POST['teamname'] ?? '';
     $prodname = $_POST['prodname'] ?? '';
     $spememo = $_POST['spememo'] ?? ''; 
+
        
     if (!empty($inum) && !empty($cusname) && !empty($comdate) && !empty($hopedate) &&
     !empty($teamname) && !empty($prodname) && !empty($spememo)) {
