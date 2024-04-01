@@ -14,7 +14,7 @@
     ?>
     <?php
      $checkbox = $_POST['checkbox'] ?? ''; 
-     if(isset($checkbox)){
+     if($checkbox){
         echo '체크 상태입니다.';
      }else{
         echo '체크 상태가 아닙니다';
