@@ -19,7 +19,7 @@ div {  font-size :13px;
 }
 
 input {
-  width : 100px;
+  width : 180px;
 }
 
 h4 {
@@ -47,65 +47,3 @@ h5{
 .situation {
   display : none;
 }
-/*
-#number {
-  position :absolute;
-  left :500px;
-  top :200px;
-}
-
-#div{
-  position :absolute;
-  left :500px;
-  top:30px;
-  height : auto;
-}
-#daily{
-  margin : 15px 0px 0px 0px;
-  width : 200px;
-  position : absolute;
-}
-.hidden{
-  display : none;
-}
- .goalcal input{
- display : block;
- }  
- .goalcal{
-  position : absolute ;
-  left :500px;
-  bottom : 25px;
-  margin : 12px 0px 0px 0px;
- }
- .balance{
-    position : absolute;
-    left :500px;
-    margin : 12px 0px 0px 0px ;
-    bottom : -15px;
-    }
- .dailyreport{
-    position : absolute;
-    left : 500px;
-    top : 450px;
- }
- .dailyreport p,.dailyreport2 p{
-  margin : 0px;
- }
- .rep,.rep2 {
-  border-style: none;
- }
- .dailyreport2{
-  position : absolute;
-    left : 500px;
-    top : 620px;
- }
-
-#result {  color : blueviolet;   }   
- 
- h4 {   margin : 0px;  } 
-
-
-.balance input{
-  display : inline-block;
-  width : 50px;
-   }   */
