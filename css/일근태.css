@@ -10,12 +10,44 @@
 .tg .tg-sv3s{background-color:#9aff99;font-size:12px;text-align:center;vertical-align:top}
 
 .container{
-    position : relative;
+    display : flex;
     height : 80%;
+    flex-direction: row;
+    gap: 20px;;
 }
-div {  font-size :13px; }
+div {  font-size :13px;
+}
 
+input {
+  width : 100px;
+}
 
+h4 {
+  margin : 5px;
+}
+
+h5{
+  margin : 5px;
+}
+.dailyreport p {
+  margin : 0px;
+}
+
+.dailyreport2 p {
+  margin : 0px;
+}
+
+.situation label{
+  display: block;
+  }
+  .situation label >input{
+    width : 50px;
+    }
+
+.situation {
+  display : none;
+}
+/*
 #number {
   position :absolute;
   left :500px;
@@ -76,6 +108,4 @@ div {  font-size :13px; }
 .balance input{
   display : inline-block;
   width : 50px;
-   }
-
-
+   }   */
