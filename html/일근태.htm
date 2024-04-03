@@ -9,9 +9,11 @@
   <title>AI선생출결</title>
 </head>
 <body>
-  
+  <button class="situbut">긴급연반차</button>
+  <button class="situbut">긴급병가</button>
+  <button class="situbut">청원</button>
   <div class="container">
-  
+  <div>
   <div style="cursor :pointer" id="copy_range">
   <table class="tg" style="table-layout: fixed; width: 284px">
     <div style="margin: 2px 2px;">[<span class="today">11/23</span>통화품질1팀 일일출근현황]</div>
@@ -110,8 +112,22 @@
   </tbody>
   </table>
 
-</div>  
+</div> 
   
+
+<div id="daily">
+    안녕하세요~!<br>
+   [통화품질팀]<span class="daily2"></span> 09시  <br>
+   -건강 이상자 :없음 <br>
+   -업무지각 : 없음 <br>
+   -백신접종공가 : 없음<br>
+   -반차 : 없음<br>
+   ※코로나 특이사항 :없음<br>
+</div>
+
+</div>
+
+
   <div id="div">
   <input style="display: block" type="text" value="" placeholder="체온이상유무" data-input="temp" />
   <input id="chooga" style="display: block" type="text" value="" placeholder="연차자" data-input="yeoncha" />
@@ -128,19 +144,8 @@
   <input style="display: block"type="text" value="" placeholder="결근CT" data-input="kyulC"  />
   <button  class="MorningCheck">출결복사▼</button><button class="Addcon">공가,연차추가</button><br>
   <button class="conSave">내용저장</button> <button class="conOutput">전일내용입력</button>
-  </div>
-
-
-
-  <div id="daily">
- 안녕하세요~!<br>
-[통화품질팀]<span class="daily2"></span> 09시  <br>
--건강 이상자 :없음 <br>
--업무지각 : 없음 <br>
--백신접종공가 : 없음<br>
--반차 : 없음<br>
-※코로나 특이사항 :없음<br>
-  </div>
+ 
+  
 
   <div class="goalcal">
     <h4>세일즈 달성률</h4>
@@ -152,7 +157,7 @@
   <div class="balance">
     <h4>상대비율</h4>
   <input type="text" class="balance1" placeholder="비교1"><span> :</span>
-  <input type="text" class="balance1_1" placeholder="비교1_1"><span> =</span>
+  <input type="text" class="balance1_1" placeholder="비교1_1"><span> =</span><br>
   <input type="text" class="balance2" placeholder="비교2"><span> :</span>
   <input type="text" class="balance2_2" placeholder="Χ">
   </div>
@@ -172,7 +177,49 @@
     <button class="ilbocopy2">센터장님제출복사</button>
   </div>
 </div>
- 
+<div id="div2">
+<div class="situation"> <!-- 처음부분-->
+    <h4>당월발생 연차 OR 반차 발생시</h4>
+    <label for="">1.센터장님 보고 및 구두 승인요청<input type="checkbox" name="" id=""></label>
+    <label for="">2.AI선생님 실시간 복무에 양식맞춰 업로드<input type="checkbox" name="" id=""></label>
+    <label for="">3.2번 작성 내용 센터장님,운영팀 쪽지회신<input type="checkbox" name="" id=""></label>
+    <label for="">4.스마일 변경입력<input type="checkbox" name="" id=""></label>
+    <label for="">5.복무표 변경입력<input type="checkbox" name="" id=""></label>
+    <label for="">6.WFMS변경입력<input type="checkbox" name="" id=""></label>
+    <label for="">7.팀일정 엑셀파일 수정입력<input type="checkbox" name="" id=""></label>
+    <label for="">8.통품홈피에 변경사항 수정입력 및 깃허브 연동<input type="checkbox" name="" id=""></label>
+</div>
+
+<div class="situation"> <!-- 처음부분-->
+    <h4>병가 발생시</h4>
+    <label for="">1.센터장님 보고 및 구두 승인요청<input type="checkbox" name="" id=""></label>
+    <label for="">2.AI선생님 실시간 복무에 양식맞춰 업로드<input type="checkbox" name="" id=""></label>
+    <label for="">3.2번 작성 내용 센터장님,운영팀 쪽지회신<input type="checkbox" name="" id=""></label>
+    <label for="">#쪽지 회신시 병원진단서 파일 첨부해 같이 쪽지줄것<input type="checkbox" name="" id=""></label>
+    <label for="">4.스마일 변경입력<input type="checkbox" name="" id=""></label>
+    <label for="">5.복무표 변경입력<input type="checkbox" name="" id=""></label>
+    <label for="">7.WFMS 변경입력<input type="checkbox" name="" id=""></label>
+    <label for="">8.팀일정 엑셀파일에 수정입력<input type="checkbox" name="" id=""></label>
+    <label for="">9.통품홈피에 변경사항 수정입력 및 깃허브 연동<input type="checkbox" name="" id=""></label>
+</div>
+
+<div class="situation"> <!-- 처음부분-->
+    <h4>청원 발생시</h4>
+    <label for="">1.센터장님 보고 및 구두 승인요청<input type="checkbox" name="" id=""></label>
+    <label for="">2.부고작성 후 밴드에 먼저 올릴것<input type="checkbox" name="" id=""></label>
+    <label for="">#올릴때 화환 혹은 경조금 여부 확인 해야됨<input type="checkbox" name="" id=""></label>
+    <label for="">3.출근후 AI선생님 신시간 복무에 양식에 맞춰 업로드<input type="checkbox" name="" id=""></label>
+    <label for="">4.3번에 작성내용 센터장님 운영팀 쪽지 회신<input type="checkbox" name="" id=""></label>
+    <label for="">5.스마일 변경입력<input type="checkbox" name="" id=""></label>
+    <label for="">6.복무표 변경입력<input type="checkbox" name="" id=""></label>
+    <label for="">7.WFMS변경 입력<input type="checkbox" name="" id=""></label>
+    <label for="">8.팀일정 엑셀파일에 수정입력<input type="checkbox" name="" id=""></label>
+    <label for="">9.통품홈피에 변경사항 수정입력 및 깃허브 연동<input type="checkbox" name="" id=""></label>
+    <label for="">10.청원종료후 양식에 맞춰 작성후 운영팀 제출<input type="checkbox" name="" id=""></label>
+</div>
+
+</div> <!-- 세번째 플렉스 박스 끝 -->
+</div>
 
   <script src="../java/library.js"></script>
   <script>
@@ -294,6 +341,13 @@
   // 표 영역 복사
   $('#copy_range').click(function(){
     $lib.rangecopy('#copy_range');
+  })
+
+ // 긴급 업무시 할일 코드
+
+  $('.situbut').on('click',function(){
+   var $idx =  $(this).index();
+   $('.situation').eq($idx).css('display','block').siblings().css('display','none');
   })
 
   }) // 마지막 줄
