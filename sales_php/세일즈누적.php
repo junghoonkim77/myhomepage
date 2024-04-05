@@ -58,6 +58,10 @@
 
    .gridcontainer{
     margin-left :20px;
+    position : fixed;
+    top : 170px;
+    left : 320px;
+
    }
    
     </style>
@@ -229,6 +233,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
          $('.context2').text($sellectmonVAl+'월: '+$montotal+'건')
          $montotal = 0 ;
     };    
+    
     
 
   })
