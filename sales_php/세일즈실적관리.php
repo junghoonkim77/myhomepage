@@ -223,7 +223,8 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
     <input type="submit" value="수정창 이동">
         </form>     
         </div>
-
+   
+ 
     
     <script>
                         
