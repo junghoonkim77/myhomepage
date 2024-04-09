@@ -4,7 +4,7 @@ def show_form(form_name):
     form_label.config(text=f"{form_name} 작성양식:")
     if form_name == "통화품질 기본상담":
         form_text.delete(1.0, tk.END)
-        form_text.insert(tk.END, "통화품질 기본상담 작성양식을 여기에 입력하세요.")
+        form_text.insert(tk.END, "★통품SR양식★\n■서비스 번호 :\n■민원인 :\n■연락처 :\n■증상 :\n■발생 시기 :\n■확인 및 안내사항 :\n")
     elif form_name == "중계기 설치":
         form_text.delete(1.0, tk.END)
         form_text.insert(tk.END, "중계기 설치 작성양식을 여기에 입력하세요.")
