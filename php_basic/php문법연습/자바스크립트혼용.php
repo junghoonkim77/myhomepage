@@ -1,7 +1,13 @@
 <?php 
+session_start();
+if(isset($_SESSION["name"])){
+  echo $_SESSION["name"]."있다"."<br>";
+}else{
+    echo "없슈"."<br>";
+}
 $test = $_GET['test'] ?? '';
 if(empty($test)){
- echo "입력값이 없습니다.";
+ echo "입력값이 없습니다."."<br>";
 } ;
 ?>
 <!DOCTYPE html>
