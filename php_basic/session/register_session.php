@@ -5,4 +5,5 @@ session_start();
 $_SESSION["username"]='김정훈';
 
 echo '세션등록' ;
+print_r($_SESSION["username"]);
 ?>
