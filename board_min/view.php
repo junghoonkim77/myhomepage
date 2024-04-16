@@ -10,7 +10,7 @@
     </style>
     <script src="https://code.jquery.com/jquery-3.7.1.js" 
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <title>통화품질 게시판</title>
+    <title>MJ 게시판</title>
 </head>
 <body>
     <h3>게시판</h3>

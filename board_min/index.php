@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>통화품질 게시판</title>
+    <title>MJ 게시판</title>
 </head>
 <body>
     <h3>게시판</h3>

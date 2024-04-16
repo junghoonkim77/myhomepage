@@ -9,7 +9,7 @@
             font-weight: bold;
         }
     </style>
-    <title>통화품질 게시판</title>
+    <title>MJ 게시판</title>
 </head>
 <body>
     <h3>게시판</h3>
