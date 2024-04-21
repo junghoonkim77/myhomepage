@@ -10,6 +10,7 @@
         }
         td {
             border : 1px solid gray;
+            
         }
     </style>
     
@@ -22,9 +23,27 @@
 </head>
 <body>
     <div>
+        <select>
+            <option value="01">1월</option>
+            <option value="02">2월</option>
+            <option value="03">3월</option>
+            <option value="04">4월</option>
+            <option value="05">5월</option>
+            <option value="06">6월</option>
+            <option value="07">7월</option>
+            <option value="08">8월</option>
+            <option value="09">9월</option>
+            <option value="10">10월</option>
+            <option value="11">11월</option>
+            <option value="12">12월</option>
+        </select>
+    </div>
+    <div>
      <table>
-        <thead><td>순서</td><td>날짜</td><td>연차</td><td>연차</td><td>연차</td></thead>
-        <tbody></tbody>
+        <thead class="thead"><td>순서</td><td>날짜</td><td>연차</td><td>연차</td><td>연차</td></thead>
+        <tbody>
+
+        </tbody>
 
      </table>
     </div>
@@ -40,9 +59,25 @@
        
 
         for ( var i =1 ; i<=366 ; i++){
-            var date = new Date(2024,00,i);
-         $('tbody').append(`<tr><td>${date.toLocaleDateString()}</td><td></td><td></td><td></td><td></td></tr>`);
-        }
+            var date = new Date(2024,0,i);
+            var $mon = date.getMonth()+1;
+            var $day = date.getDate();
+             if($mon.toString().length<2){
+                $('tbody').append(`<tr class="${0}${$mon} tr"><td>${0}${$mon}월/${$day}일</td><td>111111111</td><td>1</td><td>1</td><td>1</td></tr>`);
+             }else{
+                $('tbody').append(`<tr class="${$mon} tr"><td>${$mon}월/${$day}일</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>`);
+             }  
+         } // 테이블 생성 코드 
+           
+            
+           $('select').change(function(){
+            $thisval = $(this).val();
+            $('.tr').not('.'+$thisval).css('display','none');
+            $('.'+$thisval).css('display','block');
+            
+           
+           
+         }) 
         
     </script>
 </body>
