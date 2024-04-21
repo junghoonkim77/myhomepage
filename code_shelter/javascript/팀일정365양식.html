@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border : 1px solid gray;
+        }
+    </style>
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+
+    <title>365일용 양식</title>
+</head>
+<body>
+    <div>
+     <table>
+        <thead><td>순서</td><td>날짜</td><td>연차</td><td>연차</td><td>연차</td></thead>
+        <tbody></tbody>
+
+     </table>
+    </div>
+    <script>
+         var $table = "";
+         
+       // var $year =  date.setFullYear(2024)
+       // var $mon = date.setMonth(0)+1
+        //var $date = date.setDate(1)
+       //  console.log(date.getFullYear());
+       //  console.log(date.getDate())
+       
+       
+
+        for ( var i =1 ; i<=366 ; i++){
+            var date = new Date(2024,00,i);
+         $('tbody').append(`<tr><td>${date.toLocaleDateString()}</td><td></td><td></td><td></td><td></td></tr>`);
+        }
+        
+    </script>
+</body>
+</html>
