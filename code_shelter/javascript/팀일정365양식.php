@@ -72,6 +72,18 @@
              }  
          } // 테이블 생성 코드 
            
+          
+           var date1 = new Date();
+            if ((date1.getMonth()+1).toString().length<2 ){
+               var mon1 = "0"+(date1.getMonth()+1).toString();
+            } else {
+               var mon1 =  date1.getMonth()+1;
+            }
+            
+
+            $('select').val(mon1.toString()).prop('selected',true);
+
+            $('.tr').not('.'+mon1.toString()).hide();
             
            $('select').change(function(){
             $thisval = $(this).val();
