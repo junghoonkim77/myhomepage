@@ -139,7 +139,7 @@
      <div class="total1">이번달:<span class="context1"></span></div><br>
      
      <select name="" class="sellectmon">
-    <option value="montotal">월별건수</option>
+    <option value="montotal">총누적건수</option>
     <option value="01">1월</option>
     <option value="02">2월</option>
     <option value="03">3월</option>
@@ -217,7 +217,19 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
     $(this).addClass('hide'+$addcla);
   });
   
-  // 셀렉트 태그를 이용해 월별 결과 숨기고 보이기 montotal
+  
+ // 사이트 열리자마자 이번달 실적만 표로 보여주기
+ var $minimontotal = 0;
+  $('.sellectmon').val($tablemonth).prop('selected',true);
+  $('.hide').show();
+  $('tr').not('.'+'hide'+$tablemonth).hide();
+  $('.'+'hide'+$tablemonth).each(function(){
+         $minimontotal+= parseInt ($(this).children('td').eq(5).text().length)  ;
+           })
+         $('.context2').text($tablemonth+'월: '+$minimontotal+'건');
+
+
+// 셀렉트 태그를 이용해 월별 결과 숨기고 보이기 montotal
   $montotal = 0;
   $('.sellectmon').change(function(){
     var $sellectmonVAl = $(this).val();
