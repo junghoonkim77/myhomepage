@@ -14,6 +14,7 @@ $TableBuild =
     `internet` INT NOT NULL,
     `tv` INT NOT NULL,
     `mobile` INT NOT NULL,
+    `success` INT NOT NULL,
     PRIMARY KEY (`num`)
   );" ;
   
