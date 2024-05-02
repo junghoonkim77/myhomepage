@@ -10,6 +10,7 @@ $conn = mysqli_connect('localhost','root','amho73032721','abc_corp');
 $TableBuild =
  "CREATE TABLE `sales_today` (
     `num` INT NOT NULL AUTO_INCREMENT,
+    `teamname` VARCHAR(20) NOT NULL,
     `sr` VARCHAR(30) NOT NULL,
     `internet` INT NOT NULL,
     `tv` INT NOT NULL,
