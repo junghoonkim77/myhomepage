@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <style>
+        .showtable td{
+           border : 1px solid gray;
+        }
+        .realtable{
+            opacity : 0;
+        }
+    </style>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
 </script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
@@ -13,12 +20,16 @@
     <title>당일 시도건취합</title>
 </head>
 <body>
-    <table >
-
+    <h4>당일일괄복사(클릭)</h4>
+    <table class="showtable" >
+    <thead><td>순서번호</td><td>컨설턴트명</td><td>인터넷</td><td>TV</td><td>Mobile</td><td>권유성공</td>
+    <td>SR번호</td>
+    </thead>
     <?php 
     include('connect.php');
     
     $td ="";
+    $td1 ="";
     $sql = "SELECT * FROM sales_today";
     $result = mysqli_query($conn,$sql);
  
@@ -29,6 +40,12 @@
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['num'].''.'>'.'</form>'.
         '</td>';
     }
+
+    while($row1 = mysqli_fetch_array($result)){
+        $td1 = $td1.'<tr><td>'.$row1['internet'].'</td>'.'<td>'.$row1['tv'].'</td>'.'<td>'.$row1['mobile'].'</td>'
+        .'<td>'.$row['success'].'</td>'.'<td>'.$row['sr'].'</td>';
+    }
+    
     echo $td;
 
     $user_delnum =$_POST['delkey'] ?? ''; 
@@ -40,10 +57,17 @@
     }
     ?>
     </table>
+    <table class="realtable">
+        <?php 
+        echo $td1;
+        ?>
+    </table>
     <script src="../java/library.js"></script>
     <script> 
-    $('table').click(function(){
-        $lib.rangecopy('table');
+    $('h4').click(function(){
+        $('.realtable').css('opacity','1');
+        $lib.rangecopy('.realtable');
+        $('.realtable').css('opacity','0');
     })
  
 </script>

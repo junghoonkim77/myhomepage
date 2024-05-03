@@ -13,7 +13,7 @@
 <body>
     <?php 
     $name = $_GET['name'];
-    $srname = $_GET['sr'];
+    $srname = trim($_GET['sr']);
 
     echo'<h3>'. $name.' 님'.' SR:'.$srname.' 입력완료'.'</h3>';
     print "<button><a href='input.html'>입력창 이동하기</a></button>";
