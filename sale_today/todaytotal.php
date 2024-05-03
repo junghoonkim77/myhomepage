@@ -9,6 +9,16 @@
         }
         .realtable{
             opacity : 0;
+            font-size: 10px;
+        }
+        .realtable td{
+            padding : 0px;
+        }
+        .head{
+            display : inline-block;
+            cursor : pointer;
+            background-color: skyblue;
+            box-shadow: 2px 2px 2px 0;
         }
     </style>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
@@ -20,30 +30,35 @@
     <title>당일 시도건취합</title>
 </head>
 <body>
-    <h4>당일일괄복사(클릭)</h4>
+    <?php 
+    include('connect.php');
+    echo "<br>"
+    ?>
+    <h4 class="head">당일일괄복사(클릭)</h4>
     <table class="showtable" >
     <thead><td>순서번호</td><td>컨설턴트명</td><td>인터넷</td><td>TV</td><td>Mobile</td><td>권유성공</td>
     <td>SR번호</td>
     </thead>
     <?php 
-    include('connect.php');
+    
     
     $td ="";
     $td1 ="";
     $sql = "SELECT * FROM sales_today";
     $result = mysqli_query($conn,$sql);
+    $result1 = mysqli_query($conn,$sql);
  
     while($row = mysqli_fetch_array($result)){
         $td = $td.'<tr><td>'.$row['num'].'</td>'.'<td>'.$row['teamname'].'</td>'
         .'<td>'.$row['internet'].'</td>'.'<td>'.$row['tv'].'</td>'.'<td>'.$row['mobile'].'</td>'
         .'<td>'.$row['success'].'</td>'.'<td>'.$row['sr'].'</td>'.'<td>'.'<form action='.'todaytotal.php'." ".'method='.'post'.'>'.
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['num'].''.'>'.'</form>'.
-        '</td>';
+        '</td>'.'</tr>';
     }
 
-    while($row1 = mysqli_fetch_array($result)){
+    while($row1 = mysqli_fetch_array($result1)){
         $td1 = $td1.'<tr><td>'.$row1['internet'].'</td>'.'<td>'.$row1['tv'].'</td>'.'<td>'.$row1['mobile'].'</td>'
-        .'<td>'.$row['success'].'</td>'.'<td>'.$row['sr'].'</td>';
+        .'<td>'.$row1['success'].'</td>'.'<td>'.$row1['sr'].'</td>'.'</tr>';
     }
     
     echo $td;
