@@ -28,13 +28,19 @@
         
        #sr {
         display : inline-block;
-        width : 300px;
+        width : 220px;
        }
 
        input {
         height : 30px;
        }
     </style>
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+
     <title>★매일 세일즈 취합★</title>
 </head>
 <body>
@@ -42,7 +48,7 @@
   
     <h2>세일즈 시도 입력창</h2>
             
-            <form action="todayinsert.php" method="post">
+            <form id="todayinsert" action="todayinsert.php" method="post">
              <fieldset>
                 <select name="teamname" id="select">
                     <option value="">본인명 선택 必</option>
@@ -64,40 +70,26 @@
                   <input id="success" class="inputnum"  placeholder="권유성공" type="number" max =1 min=0 value=0 name="success">
                   <label for="sr">sr번호:</label>  
                   <input id="sr"  placeholder="sr번호" type="text" name="sr">
-                  <input  class="button1" type="submit" value="가설 고객추가">
+                  <button class="button1" >추가버튼 클릭</button> 
              </fieldset> 
               
            </form>    
         
-           
-          
-    
-   
+     
      
      <a href="todaytotal.php">당일 세일즈 목록창 이동</a>
           
    
     <script>
-        jQuery(function(){
-      
-
-          // 휴대폰 번호 복사하기
-         $('.phoneNumber').click(function(){
-          var $phonenum = $(this).text();
-            $lib.clipcopy($phonenum);
-             })
-
-        $('#notepad textarea').on('input',function(){
-            var $notepadTextval = $('textarea').val();
-            localStorage.setItem('$notepadval',$notepadTextval);
-            
-            console.log ( $notepadTextval_val )
-         })
-        
-
-}) //제일 바깥쪽 
-        
-      
+        $('.button1').click(function(e){
+          if($('#select').val() !== ""){
+            $('#todayinsert').submit();
+          }else{
+            alert('이름을 선택하세요~!')
+            e.preventDefault();
+          }
+          
+        })
         
        
     </script>

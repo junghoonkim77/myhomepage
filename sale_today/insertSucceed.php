@@ -16,7 +16,7 @@
     $srname = trim($_GET['sr']);
 
     echo'<h3>'. $name.' 님'.' SR:'.$srname.' 입력완료'.'</h3>';
-    print "<button><a href='input.html'>입력창 이동하기</a></button>";
+    print "<button><a href='index.html'>입력창 이동하기</a></button>";
     print "<button><a href='todaytotal.php'>당일 세일즈 목록 이동하기</a></button>";
     ?>
 </body>

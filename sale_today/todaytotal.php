@@ -9,7 +9,7 @@
         }
         .realtable{
             opacity : 0;
-            font-size: 10px;
+            font-size: 14px;
         }
         .realtable td{
             padding : 0px;
@@ -28,6 +28,10 @@
             bottom : 0px;
             left : 280px;
         }
+        .back{
+            margin-bottom:20px;
+            }
+        
     </style>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
 </script>
@@ -38,11 +42,15 @@
     <title>당일 시도건취합</title>
 </head>
 <body>
+    
     <?php 
     include('connect.php');
+    echo "<a class=\"alldel\" href=\"alldel.php\">&nbsp&nbsp&nbsp&nbsp취합자 외 클릭 금지</a>";
+    echo "<input id=\"edit\" type=\"checkbox\">";
     echo "<br><br>"
     ?>
-    <a href="input.html">당일 입력창이동</a> 
+    
+    <button class="back"><a  href="index.html">입력창 복귀</a></button>
     <div class="board">
     <label for="select">팀원별 당일 시도건수</label>    
     <select id="select" name="" class="teamname">
@@ -118,22 +126,52 @@
         location.reload();
     })
   
+    // 이름을 선택했을때 나오는 
     var namearray =[];
     $('.teamname').change(function(){
+     $('.showtable tr td').css('background-color','transparent')  
      var selval = $(this).val();
+     var sum = 0 ;
         $('.name').each(function(){
       var nametext =  $(this).text() ;
 
        if(selval == nametext){
          namearray.push(nametext);
          }
-       }) //each문 끝
-       $('#miniboard').text(namearray.length+':건');
+       }) //첫번째 each문 끝
+       
+      
+    $('.showtable tr td:nth-child(2)').each(function(){
+        if ($(this).text()===selval){
+            sum += parseInt($(this).siblings("td:nth-child(6)").text());
+            $(this).siblings().css('background-color','skyblue');
+          }
+    }) //두번째 each문 끝 
 
-       namearray.length = 0;
 
-    })
+
+    $('#miniboard').text('시도 '+namearray.length+':건'+'/ 권유 :'+sum+' 건');
+    namearray.length = 0;
+
+    }) //change이벤트 끝 
    
+    //초기화 방지 코드
+     $(".alldel").click(function(e){
+           const $editcheck = $('#edit').prop('checked');
+            if(!$editcheck){
+                e.preventDefault();
+            }
+     });
+
+     $('#edit').click(function(){
+       var opt = $(this).prop('checked');
+       if (opt){
+        $('.alldel').text('초기화 클릭');
+       }else{
+        $('.alldel').text('취합자 외 클릭 금지');
+       }
+        
+     })
 </script>
 </body>
 </html>
