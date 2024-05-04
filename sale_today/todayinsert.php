@@ -1,5 +1,7 @@
 <?php 
 include('connect.php');
+echo "<br>";
+echo "저장중입니다.";
 $year = date("Y");
 $month = date("m");
 $day = date("d");
@@ -23,7 +25,7 @@ if($result === false){
    }else{
     echo "
    <script>
-     location.href ='insertSucceed.php?name=$teamname&sr=$sr';
+     location.href ='todaytotal.php';
    </script>
    ";
    }

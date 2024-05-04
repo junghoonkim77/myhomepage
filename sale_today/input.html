@@ -11,9 +11,7 @@
     crossorigin="anonymous"></script>
   <script src="../java/library.js"></script>
     <style>
-        *{
-            font-size : 12px;
-        }
+        
       
        .inputnum {
         display : inline-block;
@@ -23,10 +21,18 @@
        #select {
         margin-bottom: 20px;
        }
+
+       #select {
+        background-color: yellow;
+       }
         
        #sr {
         display : inline-block;
         width : 300px;
+       }
+
+       input {
+        height : 30px;
        }
     </style>
     <title>★매일 세일즈 취합★</title>
@@ -34,28 +40,28 @@
 <body>
     
   
-    <h2>세일즈 가설건 입력창</h2>
+    <h2>세일즈 시도 입력창</h2>
             
             <form action="todayinsert.php" method="post">
              <fieldset>
                 <select name="teamname" id="select">
-                    <option value="">컨설턴트명</option>
+                    <option value="">본인명 선택 必</option>
                     <option value="이한기">이한기</option>
                     <option value="박정범">박정범</option>
                     <option value="최민지">최민지</option>
                     <option value="백금옥">백금옥</option>
                     <option value="이윤복">이윤복</option>
-                    <option value="이윤복">박주영</option>
-                    <option value="이윤복">최아람</option>
+                    <option value="박주영">박주영</option>
+                    <option value="최아람">최아람</option>
                   </select> <br>
                   <label for="internet">인터넷:</label>  
-                  <input id="internet" class="inputnum" placeholder="인터넷" type="number" max =1 value=0 name="internet">
+                  <input id="internet" class="inputnum" placeholder="인터넷" type="number" max =1 min=0 value=0 name="internet">
                   <label for="tv">TV:</label>  
-                  <input id="tv" class="inputnum"  placeholder="티비" type="number" max =1 value=0 name="tv">
+                  <input id="tv" class="inputnum"  placeholder="티비" type="number" max =1 min=0 value=0 name="tv">
                   <label for="mobile">모바일:</label>  
-                  <input id="mobile" class="inputnum"  placeholder="모바일" type="number" max =1 value=0 name="mobile">
+                  <input id="mobile" class="inputnum"  placeholder="모바일" type="number" max =1 min=0 value=0 name="mobile">
                   <label for="success">권유성공:</label>  
-                  <input id="success" class="inputnum"  placeholder="권유성공" type="number" max =1 value=0 name="success">
+                  <input id="success" class="inputnum"  placeholder="권유성공" type="number" max =1 min=0 value=0 name="success">
                   <label for="sr">sr번호:</label>  
                   <input id="sr"  placeholder="sr번호" type="text" name="sr">
                   <input  class="button1" type="submit" value="가설 고객추가">
@@ -68,7 +74,7 @@
     
    
      
-     <a href="세일즈실적관리.php">세일즈실적관리 창 이동</a>
+     <a href="todaytotal.php">당일 세일즈 목록창 이동</a>
           
    
     <script>
