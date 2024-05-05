@@ -6,6 +6,7 @@
     <style>
         .showtable td{
            border : 1px solid gray;
+           font-size: 11px;
         }
         .realtable{
             opacity : 0;
@@ -63,17 +64,20 @@
     <option value="이윤복">이윤복</option>
     <option value="최아람">최아람</option>
    </select>
+   <div class="totalsum">
+    <span class="totaltry"></span><span class="totalok"></span><span class="mobile"></span>
+    </div>
     <div class="miniboard">
         <span id="miniboard"> :건</span>
     </div>
     
     </div>
-
+    
 
     <h4 class="head">당일일괄복사(클릭)</h4>
     <table class="showtable" >
     <thead><td>순서번호</td><td>팀원명</td><td>인터넷</td><td>TV</td><td>Mobile</td><td>권유성공</td>
-    <td>SR번호</td><td>삭제▽(클릭후 새로고침)</td>
+    <td>SR번호</td><td>삭제필요시 클릭</td>
     </thead>
     <?php 
     
@@ -85,9 +89,9 @@
     $result1 = mysqli_query($conn,$sql);
  
     while($row = mysqli_fetch_array($result)){
-        $td = $td.'<tr><td>'.$row['num'].'</td>'.'<td class="name">'.$row['teamname'].'</td>'
+        $td = $td.'<tr class="'.$row['teamname'].' namesort"><td>'.$row['num'].'</td>'.'<td class="name">'.$row['teamname'].'</td>'
         .'<td>'.$row['internet'].'</td>'.'<td>'.$row['tv'].'</td>'.'<td>'.$row['mobile'].'</td>'
-        .'<td>'.$row['success'].'</td>'.'<td>'.$row['sr'].'</td>'.'<td>'.'<form action='.'todaytotal.php'." ".'method='.'post'.'>'.
+        .'<td class="succount">'.$row['success'].'</td>'.'<td>'.$row['sr'].'</td>'.'<td>'.'<form action='.'todaysaleDel.php'." ".'method='.'post'.'>'.
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['num'].''.'>'.'</form>'.
         '</td>'.'</tr>';
     }
@@ -99,13 +103,7 @@
     
     echo $td;
 
-    $user_delnum =$_POST['delkey'] ?? ''; 
 
-    if(!empty($user_delnum)){
-        $sqlDEL = "DELETE FROM sales_today WHERE num = $user_delnum"; 
-        mysqli_query($conn,$sqlDEL);
-        echo $user_delnum.'번이 삭제됐습니다.' ;
-    }
     ?>
     </table>
     <table class="realtable">
@@ -122,14 +120,10 @@
         $('.realtable').css('opacity','0');
     })
 
-    $('.delsubmit').click(function(){
-        location.reload();
-    })
-  
     // 이름을 선택했을때 나오는 
     var namearray =[];
     $('.teamname').change(function(){
-     $('.showtable tr td').css('background-color','transparent')  
+     // $('.showtable tr td').css('background-color','transparent')  
      var selval = $(this).val();
      var sum = 0 ;
         $('.name').each(function(){
@@ -144,13 +138,17 @@
     $('.showtable tr td:nth-child(2)').each(function(){
         if ($(this).text()===selval){
             sum += parseInt($(this).siblings("td:nth-child(6)").text());
-            $(this).siblings().css('background-color','skyblue');
+          //  $(this).siblings().css('background-color','skyblue');
+          $('.namesort').show();
+          $('.namesort').not('.'+selval).hide();
+          }else if(selval === ""){
+            $('.namesort').show();
           }
     }) //두번째 each문 끝 
 
 
 
-    $('#miniboard').text('시도 '+namearray.length+':건'+'/ 권유 :'+sum+' 건');
+    $('#miniboard').text(selval+': '+'시도 '+namearray.length+':건'+'/ 권유 :'+sum+' 건');
     namearray.length = 0;
 
     }) //change이벤트 끝 
@@ -163,6 +161,8 @@
             }
      });
 
+    
+    // 초기화 체크박스 클릭스 경고문구
      $('#edit').click(function(){
        var opt = $(this).prop('checked');
        if (opt){
@@ -170,8 +170,18 @@
        }else{
         $('.alldel').text('취합자 외 클릭 금지');
        }
-        
-     })
+      })
+
+    //전체창에 총 시도건수 권유성공건수 모바일 성공건수 포함하기
+     
+    var succount  = 0 ;
+     $('.totaltry').text('총 시도건수 :'+ $('.namesort').length ) ;
+    
+     $('.succount').each(function(){
+       succount += parseInt($(this).text()) ;
+      })
+      $('.totalok').text('   /권유성공 :'+succount);
+
 </script>
 </body>
 </html>
