@@ -24,11 +24,7 @@
         .board {
             position : relative;
         }
-        .miniboard {
-            position : absolute;
-            bottom : 0px;
-            left : 280px;
-        }
+     
         .back{
             margin-bottom:20px;
             }
@@ -65,11 +61,10 @@
     <option value="최아람">최아람</option>
    </select>
    <div class="totalsum">
-    <span class="totaltry"></span><span class="totalok"></span><span class="mobile"></span>
+    <mark><span class="totaltry"></span><span class="totalok"></span><span class="mobile"></span></mark><br>
+    <span id="miniboard"> :건</span>
     </div>
-    <div class="miniboard">
-        <span id="miniboard"> :건</span>
-    </div>
+    
     
     </div>
     
@@ -181,6 +176,18 @@
        succount += parseInt($(this).text()) ;
       })
       $('.totalok').text('   /권유성공 :'+succount);
+
+     
+      // 모바일 성공건수 카운트  
+      var $mobilesum = 0 
+      $('.showtable tr td:nth-child(5)').each(function(){
+        if ($(this).text()==='1'){
+            $mobilesum += parseInt($(this).siblings("td:nth-child(6)").text());
+         
+          }
+    }) //두번째 each문 끝  
+    
+      $('.mobile').text('  /모바일 이관건수:'+$mobilesum);
 
 </script>
 </body>
