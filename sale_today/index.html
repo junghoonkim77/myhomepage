@@ -83,6 +83,9 @@
           
    
     <script>
+        var $salesname = localStorage.getItem('SaleIpName');
+        $('#select').val($salesname).prop('selected',true);
+
         $('.button1').click(function(e){
           if($('#select').val() !== ""){
             $('#todayinsert').submit();
@@ -90,11 +93,19 @@
             alert('이름을 선택하세요~!')
             e.preventDefault();
           }
-          
         })
-        
+               
         var $mon = new Date().getMonth()+1
         $('.nowmonth').text($mon);
+
+        // 이름 선택하면 계속 머물러 있게 하기 
+
+        $('#select').change(function(){
+          var $thisval = $(this).val();
+          localStorage.setItem('SaleIpName',$thisval);
+        })
+
+        
        
        
     </script>

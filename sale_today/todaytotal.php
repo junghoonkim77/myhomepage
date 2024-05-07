@@ -109,6 +109,25 @@
    
     <script src="../java/library.js"></script>
     <script> 
+   var $outname = localStorage.getItem('SaleOpName');
+   $('#select').val($outname).prop('selected',true);
+   var sortsum = 0 ;
+   var namearray2 =[];
+   //열자마자 sort된 화면으로 표시하기
+   $('.showtable tr td:nth-child(2)').each(function(){
+        if ($(this).text()===$outname){
+            sortsum += parseInt($(this).siblings("td:nth-child(6)").text());
+          //  $(this).siblings().css('background-color','skyblue');
+          namearray2.push($(this).text());
+          $('.namesort').show();
+          $('.namesort').not('.'+$outname).hide();
+          }else if($outname === ""){
+            $('.namesort').show();
+          }
+    }) // 로컬값을 추출해 반복문으로 돌리고 고정값으로 표시해준다
+    $('#miniboard').text($outname+': '+'시도 '+namearray2.length+':건'+'/ 권유 :'+sortsum+' 건');
+    namearray2.length = 0;
+
     $('h4').click(function(){
         $('.realtable').css('opacity','1');
         $lib.rangecopy('.realtable');
@@ -119,7 +138,10 @@
     var namearray =[];
     $('.teamname').change(function(){
      // $('.showtable tr td').css('background-color','transparent')  
+     // localstorage에 value값 넣기
+       
      var selval = $(this).val();
+     localStorage.setItem('SaleOpName',selval);
      var sum = 0 ;
         $('.name').each(function(){
       var nametext =  $(this).text() ;
