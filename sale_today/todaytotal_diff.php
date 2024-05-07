@@ -36,7 +36,7 @@
 </script> 
 
 
-    <title>당일 시도건취합</title>
+    <title>당일 차별화 취합</title>
 </head>
 <body>
     
@@ -84,7 +84,7 @@
  
     while($row = mysqli_fetch_array($result)){
         $td = $td.'<tr class="'.$row['teamname'].' namesort"><td>'.$row['num'].'</td>'.'<td class="name">'.$row['teamname'].'</td>'
-        .'<td>'.$row['sr'].'</td>'.'<td>'.$row['srhead'].'<form action='.'todaysaleDel_diff.php'." ".'method='.'post'.'>'.
+        .'<td>'.$row['sr'].'</td>'.'<td>'.$row['srhead'].'</td>'.'<td>'.'<form action='.'todaysaleDel_diff.php'." ".'method='.'post'.'>'.
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['num'].''.'>'.'</form>'.
         '</td>'.'</tr>';
     }
@@ -114,7 +114,7 @@
    //열자마자 sort된 화면으로 표시하기
    $('.showtable tr td:nth-child(2)').each(function(){
         if ($(this).text()===$outname){
-            sortsum += parseInt($(this).siblings("td:nth-child(6)").text());
+          //  sortsum += parseInt($(this).siblings("td:nth-child(6)").text());
           //  $(this).siblings().css('background-color','skyblue');
           namearray2.push($(this).text());
           $('.namesort').show();
@@ -123,7 +123,7 @@
             $('.namesort').show();
           }
     }) // 로컬값을 추출해 반복문으로 돌리고 고정값으로 표시해준다
-    $('#miniboard').text($outname+': '+'시도 '+namearray2.length+':건'+'/ 권유 :'+sortsum+' 건');
+    $('#miniboard').text($outname+': '+'시도 '+namearray2.length+':건');
     namearray2.length = 0;
 
     $('h4').click(function(){
@@ -152,7 +152,7 @@
       
     $('.showtable tr td:nth-child(2)').each(function(){
         if ($(this).text()===selval){
-            sum += parseInt($(this).siblings("td:nth-child(6)").text());
+          
           //  $(this).siblings().css('background-color','skyblue');
           $('.namesort').show();
           $('.namesort').not('.'+selval).hide();
@@ -163,7 +163,7 @@
 
 
 
-    $('#miniboard').text(selval+': '+'시도 '+namearray.length+':건'+'/ 권유 :'+sum+' 건');
+    $('#miniboard').text(selval+': '+'시도 '+namearray.length+':건');
     namearray.length = 0;
 
     }) //change이벤트 끝 
@@ -188,49 +188,11 @@
       })
 
     //전체창에 총 시도건수 권유성공건수 모바일 성공건수 포함하기
+   
      
-    var succount  = 0 ;
-     $('.totaltry').text('총 시도건수 :'+ $('.namesort').length ) ;
-    
-     $('.succount').each(function(){
-       succount += parseInt($(this).text()) ;
-      })
-      $('.totalok').text('   /권유성공 :'+succount);
-
-     
-      // 모바일 성공건수 카운트  
-      var $mobilesum = 0 
-      $('.showtable tr td:nth-child(5)').each(function(){
-        if ($(this).text()==='1'){
-            $mobilesum += parseInt($(this).siblings("td:nth-child(6)").text());
-         
-          }
-    }) //두번째 each문 끝  
-    
-      $('.mobile').text('  /모바일 이관건수:'+$mobilesum);
-
       //중복값 찾아내기 
       
-      var $sr = $('.sr');
-      function findduple(arr){
-        var firstArr =[];
-        arr.each(function(idx,el){
-          firstArr.push(($(this).text()));
-        })
-        
-       var sorted_arr = firstArr.slice().sort();
-        //배열의 복사본을 만든다.
-        var dupl_result =[];
-        $.each(sorted_arr,function(idx,el){
-            if(sorted_arr[idx+1]=== el){
-                dupl_result.push(el);
-            }
-
-        });
-        return dupl_result 
-      }
-     var test =  findduple($sr);
-     console.log(test);
+      
       
 </script>
 </body>

@@ -13,7 +13,7 @@ $srhead = $_POST['srhead'] ?? '';
 
 
 $sql ="INSERT INTO difference (teamname,sr,srhead) 
-VALUES ('$teamname','$diffsr','$tv','$srhead')";
+VALUES ('$teamname','$diffsr','$srhead')";
 
 $result = mysqli_query($conn,$sql);
 

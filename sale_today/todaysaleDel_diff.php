@@ -60,21 +60,20 @@
      $user_delnum =$_POST['delkey'] ?? ''; 
 
      if(!empty($user_delnum)){
-         $sqlDEL = "DELETE FROM sales_today WHERE num = $user_delnum"; 
+         $sqlDEL = "DELETE FROM difference WHERE num = $user_delnum"; 
          mysqli_query($conn,$sqlDEL);
          echo '<mark>'.$user_delnum.'번이 삭제됐습니다.'.'</mark>' ;
          
      }
      echo "<button class=\"back\"><a  href=\"index.html\">입력창 복귀</a></button>";
     $td ="";
-    $sql = "SELECT * FROM sales_today";
+    $sql = "SELECT * FROM difference";
     $result = mysqli_query($conn,$sql);
 
  
     while($row = mysqli_fetch_array($result)){
-        $td = $td.'<tr><td>'.$row['num'].'</td>'.'<td class="name">'.$row['teamname'].'</td>'
-        .'<td>'.$row['internet'].'</td>'.'<td>'.$row['tv'].'</td>'.'<td>'.$row['mobile'].'</td>'
-        .'<td>'.$row['success'].'</td>'.'<td>'.$row['sr'].'</td></tr>';
+        $td = $td.'<tr class="'.$row['teamname'].' namesort"><td>'.$row['num'].'</td>'.'<td class="name">'.$row['teamname'].'</td>'
+        .'<td>'.$row['sr'].'</td>'.'<td>'.$row['srhead'].'</td>'.'<td></td>'.'</tr>';
     }
 
    
