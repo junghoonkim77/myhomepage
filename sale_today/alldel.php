@@ -2,7 +2,7 @@
 include('connect.php');
 
 // 테이블을 초기화하는 SQL 명령을 실행합니다.
-$query = "TRUNCATE TABLE difference";
+$query = "TRUNCATE TABLE sales_today";
 $result = mysqli_query($conn,$query);
 
 if($result) {

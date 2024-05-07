@@ -42,7 +42,7 @@
     
     <?php 
     include('connect.php');
-    echo "<a class=\"alldel\" href=\"alldel.php\">&nbsp&nbsp&nbsp&nbsp취합자 외 클릭 금지</a>";
+    echo "<a class=\"alldel\" href=\"alldel_diff.php\">&nbsp&nbsp&nbsp&nbsp취합자 외 클릭 금지</a>";
     echo "<input id=\"edit\" type=\"checkbox\">";
     echo "<br><br>"
     ?>
