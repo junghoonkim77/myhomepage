@@ -86,7 +86,7 @@
     while($row = mysqli_fetch_array($result)){
         $td = $td.'<tr class="'.$row['teamname'].' namesort"><td>'.$row['num'].'</td>'.'<td class="name">'.$row['teamname'].'</td>'
         .'<td>'.$row['internet'].'</td>'.'<td>'.$row['tv'].'</td>'.'<td>'.$row['mobile'].'</td>'
-        .'<td class="succount">'.$row['success'].'</td>'.'<td>'.$row['sr'].'</td>'.'<td>'.'<form action='.'todaysaleDel.php'." ".'method='.'post'.'>'.
+        .'<td class="succount">'.$row['success'].'</td>'.'<td class="sr">'.$row['sr'].'</td>'.'<td>'.'<form action='.'todaysaleDel.php'." ".'method='.'post'.'>'.
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['num'].''.'>'.'</form>'.
         '</td>'.'</tr>';
     }
@@ -211,6 +211,29 @@
     
       $('.mobile').text('  /모바일 이관건수:'+$mobilesum);
 
+      //중복값 찾아내기 
+      
+      var $sr = $('.sr');
+      function findduple(arr){
+        var firstArr =[];
+        arr.each(function(idx,el){
+          firstArr.push(($(this).text()));
+        })
+        
+       var sorted_arr = firstArr.slice().sort();
+        //배열의 복사본을 만든다.
+        var dupl_result =[];
+        $.each(sorted_arr,function(idx,el){
+            if(sorted_arr[idx+1]=== el){
+                dupl_result.push(el);
+            }
+
+        });
+        return dupl_result 
+      }
+     var test =  findduple($sr);
+     console.log(test);
+      
 </script>
 </body>
 </html>
