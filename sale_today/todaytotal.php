@@ -28,6 +28,21 @@
         .back{
             margin-bottom:20px;
             }
+       
+       .blink{
+       animation : blink 1s infinite;
+       font-size: 16px;
+       font-weight: bold;
+  }
+      @keyframes blink {
+      0% {color: black;}
+      50% {color: orange;}
+      100% {color: red;}
+  }
+
+   .mobile{
+    margin-right : 15px;
+   }
         
     </style>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
@@ -61,7 +76,8 @@
     <option value="최아람">최아람</option>
    </select>
    <div class="totalsum">
-    <mark><span class="totaltry"></span><span class="totalok"></span><span class="mobile"></span></mark><br>
+    <mark><span class="totaltry"></span><span class="totalok"></span>
+    <span class="mobile"></span></mark><span class="double"></span><br>
     <span id="miniboard"> :건</span>
     </div>
     
@@ -232,7 +248,16 @@
         return dupl_result 
       }
      var test =  findduple($sr);
-     console.log(test);
+     console.log(typeof(test));
+     if(test.length > 0){
+      $('.double').text('중복입력!').addClass('blink');
+      $.each(test,function(idx,elem){
+        $('.double').after(`<span style="font-size:10px;">/ ${elem}</span>`)
+      })
+
+     }else{
+      $('.double').removeClass('blink').text('');
+     } 
       
 </script>
 </body>
