@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #sr {
+            width : 200px;
+        }
+        h3{
+            margin-bottom: 15px;
+        }
+    </style>
     <title>세일즈 수정창</title>
 </head>
 <body>
     <?php 
     include('connect.php');
+    echo '<h3>내용 수정창</h3>';
     $editnum = $_GET['editkey']??'';
     
     $sql = "SELECT * FROM sales_today WHERE num = $editnum"; 
@@ -39,14 +48,13 @@
                   <label for="sr">sr번호:</label>  
                   <input id="sr"  placeholder="sr번호" type="text" value=<?=$sr?> name="sr">
                   <input id="num"  placeholder="sr번호" type="hidden" value=<?=$editnum?> name="ordernum">
-                  <input type="submit"  >추가버튼 클릭</input> 
+                  <input type="submit"  >
              </fieldset> 
               
            </form>  
     
 
 
-
-    <a href="세일즈실적관리.php">세일즈실적 관리창으로 이동</a>
+           <a href="index.html">일실적 입력창 이동</a>
 </body>
 </html>

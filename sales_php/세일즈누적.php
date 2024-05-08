@@ -224,6 +224,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
   $('.sellectmon').val($tablemonth).prop('selected',true);
   $('.hide').show();
   $('tr').not('.'+'hide'+$tablemonth).hide();
+  $('thead').show();
   $('.'+'hide'+$tablemonth).each(function(){
          $minimontotal+= parseInt ($(this).children('td').eq(5).text().length)  ;
            })

@@ -15,8 +15,8 @@ if($result === false){
     echo '수정하지 못했습니다.';
     error_log(mysqli_error($conn)); // 에러 로그 기록
 }else{
-    echo '수정성공';
+    echo '   '.$order.'번 :수정성공'.'<br><br><br>';
 }
 ?>
 
-<a href="세일즈실적관리.php">세일즈실적 관리창으로 이동</a>
+<a href="index.html">일실적 입력창 이동</a>&nbsp;&nbsp;&nbsp; <a href="todaytotal.php">오늘 세일즈 목록창 이동</a>
