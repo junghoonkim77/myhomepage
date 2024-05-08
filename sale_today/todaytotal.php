@@ -88,7 +88,7 @@
     <h4 class="head">당일일괄복사(클릭)</h4>
     <table class="showtable" >
     <thead><td>순서번호</td><td>팀원명</td><td>인터넷</td><td>TV</td><td>Mobile</td><td>권유성공</td>
-    <td>SR번호</td><td>삭제필요시 클릭</td>
+    <td>SR번호</td><td>삭제필요시 클릭</td><td>수정필요시 클릭</td>
     </thead>
     <?php 
     
@@ -102,8 +102,10 @@
     while($row = mysqli_fetch_array($result)){
         $td = $td.'<tr class="'.$row['teamname'].' namesort"><td>'.$row['num'].'</td>'.'<td class="name">'.$row['teamname'].'</td>'
         .'<td>'.$row['internet'].'</td>'.'<td>'.$row['tv'].'</td>'.'<td>'.$row['mobile'].'</td>'
-        .'<td class="succount">'.$row['success'].'</td>'.'<td class="sr">'.$row['sr'].'</td>'.'<td>'.'<form action='.'todaysaleDel.php'." ".'method='.'post'.'>'.
+        .'<td class="succount">'.$row['success'].'</td>'.'<td class="sr">'.$row['sr'].'</td>'.
+        '<td>'.'<form action='.'todaysaleDel.php'." ".'method='.'post'.'>'.
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['num'].''.'>'.'</form>'.
+        '</td>'.'<td>'.'<a href='.'edittoday.php?editkey='.$row['num'].'>'.$row['num'].'번수정'.'</a>'.
         '</td>'.'</tr>';
     }
 
