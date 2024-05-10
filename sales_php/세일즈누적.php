@@ -81,7 +81,7 @@
     $cusname = $_GET['cusname'] ??'';
     $comdate = $_GET['hopedate'] ??'';
     $teamname = $_GET['teamname'] ??'';
-    $prodname = $_GET['prodname'] ??'';
+    $prodname = trim($_GET['prodname']) ??'';
 
     if (!empty($cusnum)&&!empty($cusname)&&!empty($comdate)&&!empty($teamname)&&!empty($prodname)){
         $sql = "INSERT INTO sales_success(cusnum,cusname,teamname,comdate,prodname)

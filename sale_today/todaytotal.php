@@ -58,7 +58,7 @@
     <?php 
     include('connect.php');
     $current_datetime = new DateTime();
-    $nowTime = $current_datetime->format('H시i분s초');
+    $nowTime = $current_datetime->format('m월d일H시i분s초');
     $timesql = "SELECT lasttime FROM timetable ORDER BY lasttime DESC LIMIT 1";
     // 행의 마지막 값만 가져오는 코드 임 
     $timeresult = mysqli_query($conn,$timesql);
