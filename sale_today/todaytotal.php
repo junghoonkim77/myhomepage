@@ -57,7 +57,21 @@
     
     <?php 
     include('connect.php');
-    echo "<a class=\"alldel\" href=\"alldel.php\">&nbsp&nbsp&nbsp&nbsp취합자 외 클릭 금지</a>";
+    $current_datetime = new DateTime();
+    $nowTime = $current_datetime->format('H시i분s초');
+    $timesql = "SELECT lasttime FROM timetable ORDER BY lasttime DESC LIMIT 1";
+    // 행의 마지막 값만 가져오는 코드 임 
+    $timeresult = mysqli_query($conn,$timesql);
+
+    if ($timeresult->num_rows > 0) {
+      // 결과의 첫 번째 행을 가져옴
+      $row = $timeresult->fetch_assoc();
+      echo "  마지막 초기화 시간: " . $row['lasttime'];
+  } else {
+      echo "결과가 없습니다.";
+  }
+
+    echo "<a class=\"alldel\" href=\"alldel.php?now=$nowTime\">&nbsp&nbsp&nbsp&nbsp취합자 외 클릭 금지</a>";
     echo "<input id=\"edit\" type=\"checkbox\">";
     echo "<br><br>"
     ?>
