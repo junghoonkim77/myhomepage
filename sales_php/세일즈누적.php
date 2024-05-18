@@ -222,15 +222,14 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
  // 사이트 열리자마자 이번달 실적만 표로 보여주기
  var $minimontotal = 0;
   $('.sellectmon').val($tablemonth).prop('selected',true);
-  $('.hide').show();
   $('tr').not('.'+'hide'+$tablemonth).hide();
-  $('thead').show();
+  $('.hide').show();
   $('.'+'hide'+$tablemonth).each(function(){
          $minimontotal+= parseInt ($(this).children('td').eq(5).text().length)  ;
            })
          $('.context2').text($tablemonth+'월: '+$minimontotal+'건');
 
-
+  
 // 셀렉트 태그를 이용해 월별 결과 숨기고 보이기 montotal
   $montotal = 0;
   $('.sellectmon').change(function(){
