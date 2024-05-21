@@ -82,8 +82,7 @@ var end =['1619066455676_0.jpg','190531_퇴근하고싶다_택배.jpg','99289033
 'end6.jfif','maxresdefault.jpg','퇴근1.png','퇴근2.png']
 var end_count = end.length;
 
-var currindex = 0;  
-var realTime; // realtime이란 그냥 빈 변수를 만들어 준다. 
+var currindex = 0;   
  
   function ShowNextSlide(url,$array) {
     var img = document.querySelector('img');
@@ -92,17 +91,6 @@ var realTime; // realtime이란 그냥 빈 변수를 만들어 준다.
     var nextIndex = currindex % $array.length;
     currindex = nextIndex;
     
-}
-
-function clearExistingInterval() {
-    if (realTime) {
-        clearInterval(realTime);
-    }
-}
-
-function setNewInterval(interval) {
-    clearExistingInterval();
-    realTime = setInterval(getTime, interval);
 }
 
 function getTime() {
@@ -121,26 +109,20 @@ function getTime() {
 
     if (hour >= 7 && time <= timeToEnd) {
         ShowNextSlide(morning_url, morning);
-        setNewInterval(10000);
     } else if (hour >= 9 && hour < 12) {
         ShowNextSlide(work_url, work );
-        setNewInterval(5000);
     } else if (hour >= 12 && time < timeToEnd1) {
         ShowNextSlide(lunch_url, lunch);
-        setNewInterval(8000);
     } else if (time >= timeToRun2 && time < timeToEnd2) {
         ShowNextSlide( sales_url, sales);
-        setNewInterval(3000);
     } else if (hour >= 18 && time < timeToEnd3) {
         ShowNextSlide(end_url, end);
-        setNewInterval(7000);
     } else {
         ShowNextSlide(work_url, work);
-        setNewInterval(5000);
     }
 }
             
-    getTime();
+var realTime = setInterval(getTime,5000);
 
 
 }
