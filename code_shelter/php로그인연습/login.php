@@ -5,10 +5,10 @@ const id = 'folkball';
 const password = "amho7303";
 
 if( !($id==id and $password==password)){
- header('location:login.php');
+ header('location:index.html');
  die();
 }else{
-    echo "맞아유";
+    $success = "맞아유";
 }
 ?>
 
@@ -24,6 +24,7 @@ if( !($id==id and $password==password)){
    <?php 
     echo "아이디는 : ".$id."<br>";
     echo "비밀번호는 : ".$password."<br>";
+    echo $success;
     ?>
 </body>
 </html>
