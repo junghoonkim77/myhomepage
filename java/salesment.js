@@ -404,12 +404,34 @@ new Salesment("banron","기타 반론극복",
  var talklist ={'killing':killing,'special':special,'newitm':newitm,
                 'transfer':transfer,'intt':intt,'tv':tv,'tvonly':tvonly,
                'banron':banron };
+  
+    //각 항목에 ID값 넣기
+    $('#radio label input').each(function(){
+      var $raval = $(this).val();
+      $(this).attr('id',$raval);
+    })
+
+    //셀렉트하고 미리 보여주기
+    var show_val = localStorage.getItem('salradio');
+    var ment1 = talklist[show_val];
+    $('#'+show_val).prop('checked',true);
+    $('pre').not('pre.'+show_val).hide();
+    if(show_val !=='tab2'){
+     for ( var i=0 ; i < ment1.length ; i++){
+         $('#Salescon').append(`<pre class="${ment1[i].classname}"><b>${ment1[i].title}</b><br><br>${ment1[i].salecon}</pre>`)
+     }
+     $('.tab2,img').hide();
+     }else{
+         $('pre').not('pre.'+show_val).hide();
+         $('.tab2,img').show();
+     }
 
 
      $('#radio label input').change(function(){
        
        var val = $(this).val();
        var ment = talklist[val]
+       localStorage.setItem('salradio',val);
        $('pre').not('pre.'+val).hide();
        if(val !=='tab2'){
         for ( var i=0 ; i < ment.length ; i++){
