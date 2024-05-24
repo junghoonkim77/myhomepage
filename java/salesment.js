@@ -412,19 +412,22 @@ new Salesment("banron","기타 반론극복",
     })
 
     //셀렉트하고 미리 보여주기
-    var show_val = localStorage.getItem('salradio');
-    var ment1 = talklist[show_val];
-    $('#'+show_val).prop('checked',true);
-    $('pre').not('pre.'+show_val).hide();
-    if(show_val !=='tab2'){
-     for ( var i=0 ; i < ment1.length ; i++){
-         $('#Salescon').append(`<pre class="${ment1[i].classname}"><b>${ment1[i].title}</b><br><br>${ment1[i].salecon}</pre>`)
-     }
-     $('.tab2,img').hide();
-     }else{
-         $('pre').not('pre.'+show_val).hide();
-         $('.tab2,img').show();
-     }
+    function start_show(){
+      var show_val = localStorage.getItem('salradio');
+      var ment1 = talklist[show_val];
+      $('#'+show_val).prop('checked',true);
+      $('pre').not('pre.'+show_val).hide();
+      if(show_val !=='tab2'){
+       for ( var i=0 ; i < ment1.length ; i++){
+           $('#Salescon').append(`<pre class="${ment1[i].classname}"><b>${ment1[i].title}</b><br><br>${ment1[i].salecon}</pre>`)
+       }
+       $('.tab2,img').hide();
+       }else{
+           $('pre').not('pre.'+show_val).hide();
+           $('.tab2,img').show();
+       }
+    }
+  
 
 
      $('#radio label input').change(function(){
@@ -465,5 +468,7 @@ new Salesment("banron","기타 반론극복",
        })
 
      })
+
+     start_show();
 
    })
