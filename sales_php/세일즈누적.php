@@ -134,6 +134,7 @@
     <option value="박정범">박정범</option>
     <option value="백금옥">백금옥</option>
     <option value="이윤복">이윤복</option>
+    <option value="박주영">박주영</option>
    </select> 
      </div>
      <div class="total">총건수:<span class="context"></span></div>

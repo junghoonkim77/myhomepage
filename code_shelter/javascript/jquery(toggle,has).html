@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+    img {width: 300px;
+    }
+    .Change { 
+        display:none;
+            }
+   </style> 
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+   
+    <title>AttriBute연습</title>
+</head>
+<body>
+    <div id="picture">
+        <img class="change" src="../../IMGfolder/애플이미지테스트.jpg" alt="테스트">
+    </div>
+   <button>이미지 변경</button>
+   <button>크기변경</button>
+ <script>
+    
+    /*document.querySelectorAll('button')[1].addEventListener('click',function(){
+     let change=document.getElementsByClassName('change');
+     change[0].classList.toggle('Change');
+    })*/
+   // document.querySelectorAll('button')[0].addEventListener('click',function(){
+   // document.querySelector('img').setAttribute('src','../../IMGfolder/전원버튼1.jpg')
+   //    });
+    $(function(){
+       let btn = 'div'
+       let butt ='button:nth-child'
+    jQuery(butt+'(3)').on('click',function(){
+        jQuery('div img').toggleClass('Change');
+        if(jQuery('div img').hasClass('Change')){
+           $(butt+'(3)').text('짜잔')
+        }    else{
+           $(butt+'(3)').text('없어져')  
+            }
+       })  ;
+    })  ;
+ </script>
+</body>
+</html>
