@@ -20,6 +20,20 @@
      var nunu= new 기계();
      console.log(nunu);
 
+      function Test(_t1,_t2,_t3,_t4){
+        this.t1 = _t1;
+        this.t2 = _t2;
+        this.t3 = _t3;
+        this.t4 = _t4;
+        this.sum =function(){
+          return 1
+        };
+        }
+
+        var test = new Test('김정훈','김주남','김기준','김기은');
+
+        console.log( test.t1);
+        console.log(test.sum());
     </script> 
 </body>
 </html>

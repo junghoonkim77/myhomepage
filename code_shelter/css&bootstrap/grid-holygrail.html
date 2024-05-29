@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       body{
+         height :100vh;
+         width : 100vw;
+         padding :2rem;
+       }
+       .container{
+            display:grid;
+            border:1px solid gray;
+            height : 100%;
+            width : 100%;
+            grid-template-columns: 0.5fr 4fr 1fr ;
+            grid-template-rows: 50px auto 30px;
+            grid-template-areas: 
+             'header header header'
+             'nav main main'
+             'footer footer footer'
+            ;
+        }
+    header,nav,main,aside,footer,.menu{
+        display : flex;
+        align-items : center;
+    }
+     header {
+        grid-area : header;
+        border-bottom : 1px solid gray;
+     }    
+     nav{
+        grid-area :nav;
+        border-right : 1px solid gray;
+        border-bottom : 1px solid gray;
+       }
+    main{
+        grid-area : main;
+        border-bottom : 1px solid gray;
+    } 
+    
+    footer{
+        grid-area :footer;
+    }
+    
+    
+    </style>
+    <title>그리드 홀리그레일</title>
+</head>
+<body>
+    <div class="container">
+         <header>
+          제목 로고 들어감
+          <div class="menu">
+            테스트
+            </div>
+         </header>
+         
+         <nav>
+            <ul>
+                <li>이름</li>
+                <li>주소</li>
+                <li>직업</li>
+            </ul>
+         </nav>
+         <main>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt velit laudantium similique aspernatur provident? Enim quidem repellat aliquid recusandae excepturi? Consequatur natus inventore velit asperiores, eius voluptatibus aliquam officiis veritatis?
+         </main>
+        
+      <footer>
+        아래 추가될 허드레 내용들
+      </footer>   
+    </div>
+</body>
+</html>
