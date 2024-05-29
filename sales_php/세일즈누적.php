@@ -65,7 +65,7 @@
 
     #teamname{
         display : inline-block; 
-        background-color: yellowgreen ;
+        
     }
 
    .gridcontainer{
@@ -139,7 +139,7 @@
    </form>
    </div> 
    <div id="teamname">
-   
+   <p style="font-size :12px">개인별 :
    <select name="" class="teamname">
     <option value="">팀원명</option>
     <option value="이한기">이한기</option>
@@ -165,12 +165,13 @@
     <option value="11">11월</option>
     <option value="12">12월</option>
    </select>  
-
+   </p>
      </div>
      <div class="total">年누적:<span class="context"></span></div>
      <div class="total1">당月누적:<span class="context1"></span></div>
-     <div class="newtotal2">각月별:<span class="newtext2"></span></div><br>
+     <div class="newtotal2">月별:<span class="newtext2"></span></div><br>
      
+     <p style="font-size :12px ; display:inline-block;">팀단위 :
      <select name="" class="sellectmon">
     <option value="montotal">총누적건수</option>
     <option value="01">1월</option>
@@ -185,7 +186,8 @@
     <option value="10">10월</option>
     <option value="11">11월</option>
     <option value="12">12월</option>
-   </select>  
+   </select> 
+   </p> 
    <div class="total2">.<span class="context2"></span></div>
      </div>
    
@@ -303,7 +305,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
        }
     });
 
-    $('.newtext2').text($seltmonVAl+'월 ('+$('.'+nowmon_nameArray[0]).children('td:nth-child(6)').text().length+')' );
+    $('.newtext2').text($seltmonVAl+'월('+$('.'+nowmon_nameArray[0]).children('td:nth-child(6)').text().length+'건)' );
    
       nowmon_nameArray.length = 0 ;
    // $('tr').toggleClass(nowmon_nameArray);
