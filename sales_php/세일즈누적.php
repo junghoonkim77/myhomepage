@@ -28,7 +28,7 @@
      .total {
         border : 1px solid gray;
         width : 60px;
-        background-color : skyblue;
+        background-color : yellowgreen;
         font-size : 12px;
         padding-left : 10px;
         display : inline-block;
@@ -37,7 +37,7 @@
      .total1{
         border : 1px solid gray;
         width : 60px;
-        background-color : skyblue;
+        background-color : yellowgreen;
         font-size : 12px;
         padding-left : 10px;
         display : inline-block;
@@ -52,8 +52,20 @@
         display : inline-block;
         margin-top : 5px;
      }
+
+     .newtotal2{
+        border : 1px solid gray;
+        width : 100px;
+        background-color : yellowgreen;
+        font-size : 12px;
+        padding-left : 10px;
+        display : inline-block;
+        margin-top : 5px;
+     }
+
     #teamname{
         display : inline-block; 
+        background-color: yellowgreen ;
     }
 
    .gridcontainer{
@@ -127,6 +139,7 @@
    </form>
    </div> 
    <div id="teamname">
+   
    <select name="" class="teamname">
     <option value="">팀원명</option>
     <option value="이한기">이한기</option>
@@ -135,10 +148,28 @@
     <option value="백금옥">백금옥</option>
     <option value="이윤복">이윤복</option>
     <option value="박주영">박주영</option>
-   </select> 
+   </select>
+
+   <select name="" class="sellectmon1">
+    <option value="montotal1">월별팀원실적</option>
+    <option value="01">1월</option>
+    <option value="02">2월</option>
+    <option value="03">3월</option>
+    <option value="04">4월</option>
+    <option value="05">5월</option>
+    <option value="06">6월</option>
+    <option value="07">7월</option>
+    <option value="08">8월</option>
+    <option value="09">9월</option>
+    <option value="10">10월</option>
+    <option value="11">11월</option>
+    <option value="12">12월</option>
+   </select>  
+
      </div>
-     <div class="total">총건수:<span class="context"></span></div>
-     <div class="total1">이번달:<span class="context1"></span></div><br>
+     <div class="total">年누적:<span class="context"></span></div>
+     <div class="total1">당月누적:<span class="context1"></span></div>
+     <div class="newtotal2">각月별:<span class="newtext2"></span></div><br>
      
      <select name="" class="sellectmon">
     <option value="montotal">총누적건수</option>
@@ -191,8 +222,15 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
     $('.nowmonth').text(totalsum1); // 이번달 개통건수 옆에 표시될 내용
 
 
+
+ const $teamname =[];   
  $('.teamname').change(function(){
    var $name = $(this).val();
+   // 새로 추가한 코드 월별 컨설턴트 실적을 보이게 하는 코드를 위해 배열에 넣기 
+   $teamname.length = 0;
+   $teamname.push($name);
+   console.log ($teamname);
+
    var sum = 0;
    var sum1 = 0;
    $("table tr td:nth-child(4)").each(function(){
@@ -247,12 +285,40 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
          $('.context2').text($sellectmonVAl+'월: '+$montotal+'건')
          $montotal = 0 ;
     };    
+  }) //월별 결과 숨기기 코드 끝
+
+  var $minitotal = 0
+  var nowmon_nameArray = [];
+  $('.sellectmon1').change(function(){
+    var $seltmonVAl = $(this).val();
+    var tname = $teamname[0];
+    var nowmon_name = $seltmonVAl+tname ;
+    nowmon_nameArray.push(nowmon_name);
+   
+    $("table tr td:nth-child(5)").each(function(){
+   var $monthtxt =$(this).text().slice(5,7) ;  //.slice(4);
+       if(($monthtxt == $seltmonVAl) && tname == $(this).siblings("td:nth-child(4)").text()) {
+         $(this).parent().addClass(nowmon_nameArray[0]);
+        //sum1 +=  parseInt($(this).siblings("td:nth-child(6)").text().length);
+       }
+    });
+
+    $('.newtext2').text($seltmonVAl+'월 ('+$('.'+nowmon_nameArray[0]).children('td:nth-child(6)').text().length+')' );
+   
+      nowmon_nameArray.length = 0 ;
+   // $('tr').toggleClass(nowmon_nameArray);
+    // $('tr').addClass(nowmon_nameArray[1]);
+  // if($('tr').hasClass(nowmon_nameArray)){
+
+  // }
     
     
 
+    //$('tr').addClass(nowmon_name);
+    
   })
   
- 
+  
  
 </script>
 </body>
