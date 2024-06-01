@@ -10,6 +10,7 @@
     integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
     crossorigin="anonymous"></script>
   <script src="../java/library.js"></script>
+
     <style>
         
       
@@ -115,14 +116,14 @@
              
           </form>   
      
-     <button><a href="todaytotal.php">오늘 세일즈 목록창 이동</a></button>
+          <button><a href="todaytotal.php">오늘 세일즈 목록창 이동</a></button>
      <button><a href="../sales_php/세일즈누적.php"><span class="nowmonth"></span>월 세일즈 현황창 이동</a></button>
      <button><a href="todaytotal_diff.php">당일 차별화 취합목록</a></button>
      <button id="sales_home"><a href="https://junghoonkim77.github.io/myhomepage/html/Sales.html">통품홈피 세일즈탭 이동</a></button>
      <button id="tip"><a href="http://folkball.dothome.co.kr/?page_id=275">Sales전용게시판(꿀팁모음)</a></button>
   
           
-   
+    
     <script>
         var $salesname = localStorage.getItem('SaleIpName');
         $('#select').val($salesname).prop('selected',true);
