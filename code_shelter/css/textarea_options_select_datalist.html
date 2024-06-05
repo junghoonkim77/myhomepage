@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea cols="30" rows="5">본문 입력창</textarea><br>
+<!--cols는 입력가능한 폭글자수 rows는 줄수 -->
+<select name="" id="lang" multiple>
+  <option value="">--언어선택</option>
+  <option value="korean" selected>한국어</option>
+  <!-- selected를 해놓으면 그 내용부터 먼저 표시된다. 
+    multiple을 하면 다중 선택이 가능하다   
+-->
+  <option value="english">영어</option>
+  <option value="japanese">일본어</option>
+  <option value="china">짱깨어</option>
+</select>
+
+<label for="shopping">쇼핑목록</label>
+<select name="" id="shopping">
+  <optgroup label="과일">
+  <option value="apl">사과</option>
+  <option value="peach">배</option>
+  <option value="straw">딸기</option>
+</optgroup>
+  <optgroup label="육류">
+  <option value="pork">돼지고기</option>
+  <option value="beef">소고기</option>
+  <option value="chicken">닭고기</option>
+ </optgroup>
+  <optgroup label="공산품">
+  <option value="pants">바지</option>
+  <option value="note">노트</option>
+  <option value="pencil">연필</option>
+ </optgroup>
+</select><br>
+
+<!-- 독특한 방식 -->
+<label for="job">현재직업</label><br>
+<input id="job" list="jobs">
+
+ <datalist id="jobs">
+  <option value="학생"></option>
+  <option value="디자이너"></option>
+  <option value="퍼블리셔"></option>
+  <option value="개발자"></option>
+</datalist>
+</body>
+</html>

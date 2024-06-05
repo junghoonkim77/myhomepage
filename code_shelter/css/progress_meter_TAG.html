@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #progressBar {
+            height : 30px;
+            width :  300px;
+           }
+          meter {
+            width : 500px;
+            height : 40px;
+            box-shadow : 5px 5px 5px 0;
+          }
+    </style>
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js"
+ integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+
+    <title>Document</title>
+</head>
+<body>
+    <progress id="progressBar" max="100"
+          value="50">
+  50%
+</progress><span id="prorate"></span>
+<br><br>
+<label for="numrate">달성률입력
+<input type="text" id="numrate"> <br>
+<input type="text" id="numrate1"> <br>
+  
+<meter min="0" max="100" low="33" high="67"
+       optimum="45" value="67">80달러</meter>
+  <!-- low는 33까지고 67부터는 하이의 영역이란  뜻 (3등분)해서 
+  그중 이상적인 값 optimum을 기준으로 value값에 따라 녹색 적색 노란색등으로 
+표시된다고 보면 된다. 아주 유용한데...-->
+  
+  
+ <script>
+    $('#numrate').on('input',function(){
+        var $val = $(this).val()
+        var $maxval = $('#progressBar').attr('value',$val)
+        $('#prorate').text($val)
+        
+      })
+
+    $('#numrate1').on('input',function(){
+        var $val =$(this).val();
+        var $nowval = $('meter').attr('value',$val);
+
+    })
+ </script>
+
+</body>
+</html>
