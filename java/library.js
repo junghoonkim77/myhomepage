@@ -141,7 +141,7 @@ var $lib ={
    사용예시 함수안에 파라미터로 배열을 넣고 함수를 변수에 담는다.
    변수의 길이를 측정해 길이가 0보다 크면 이후에 취할 조치를 조건문등을
    적용해 처리한다.
-     var test =  findduple($sr);
+     var test =  fdoubleearr($sr);
      console.log(typeof(test));
      if(test.length > 0){
       $('.double').text('중복입력!').addClass('blink');

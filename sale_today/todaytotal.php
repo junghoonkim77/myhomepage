@@ -139,7 +139,8 @@
         ?>
     </table>
    
-    <script src="../java/library.js"></script>
+  <!--<script src="../java/library.js"></script> -->  
+   <script src="https://junghoonkim77.github.io/myhomepage/java/library.js"></script>
     <script> 
    var $outname = localStorage.getItem('SaleOpName');
    $('#select').val($outname).prop('selected',true);
@@ -245,28 +246,11 @@
 
       //중복값 찾아내기 
       
-      var $sr = $('.sr');
-      function findduple(arr){
-        var firstArr =[];
-        arr.each(function(idx,el){
-          firstArr.push(($(this).text()));
-        })
-        
-       var sorted_arr = firstArr.slice().sort();
-        //배열의 복사본을 만든다.
-        var dupl_result =[];
-        $.each(sorted_arr,function(idx,el){
-            if(sorted_arr[idx+1]=== el){
-                dupl_result.push(el);
-            }
-
-        });
-        return dupl_result 
-      }
-     var test =  findduple($sr);
+     var $sr = $('.sr');
+     var test =  $lib.fdoubleearr($sr);
      console.log(typeof(test));
      if(test.length > 0){
-      $('.double').text('중복입력!').addClass('blink');
+      $('.double').text('중복입력!☞').addClass('blink');
       $.each(test,function(idx,elem){
         $('.double').after(`<span style="font-size:10px;">/ ${elem}</span>`)
       })
