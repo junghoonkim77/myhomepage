@@ -250,7 +250,7 @@
      var test =  $lib.fdoubleearr($sr);
      console.log(typeof(test));
      if(test.length > 0){
-      $('.double').text('중복입력!☞').addClass('blink');
+      $('.double').text('중복입력!☞.').addClass('blink');
       $.each(test,function(idx,elem){
         $('.double').after(`<span style="font-size:10px;">/ ${elem}</span>`)
       })
