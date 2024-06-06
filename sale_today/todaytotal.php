@@ -57,7 +57,6 @@
     
     <?php 
     include('connect.php');
-    echo $serverName;
     $current_datetime = new DateTime();
     $nowTime = $current_datetime->format('m월d일H시i분s초');
     $timesql = "SELECT lasttime FROM timetable ORDER BY lasttime DESC LIMIT 1";
