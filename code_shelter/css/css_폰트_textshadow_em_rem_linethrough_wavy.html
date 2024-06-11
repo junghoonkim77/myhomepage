@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+.style{  font-style : italic; font-size :20px;} /*px는 절대값*/
+.style1{  font-style :oblique; font-size : 20%; }/*%는 부모요소에 비례*/
+.style2{font-weight : bold; font-size :0.5em;} /*부모요소에 비례 100%는 1em
+태그의 중첩에 영향을 받음 */
+.style3{font-weight : 800 ; font-size :1rem } /* rem은 HTML에 비례하기 때문에
+요소의 중첩에 영향을 받지 않는다.*/
+.style4{text-decoration:line-through}
+.style5{text-decoration:underline}
+.style6{text-decoration:overline line-through underline}
+.style7{text-decoration:wavy  4px red underline}
+.style8{text-decoration:underline}
+.style9{text-shadow : 4px 4px gray} /*오른쪽으로 4px 아래족으로 4px 그림자*/
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+font-style 은 글자를 기울일때 사용함  italic oblique는 기울여서 쓴 서체 / oblique는 본래 서체를 기울임
+-->
+<label for="font_style">폰트 스타일</label>
+<ul id="font_style" >
+<li class="style">  김정훈  fonc-style 기울기 italic </li>
+<li class="style1">  김정훈  font-style 기울기 oblique </li>
+<li class="style2">김정훈 font-weight normal과 bold중 아님 숫자로</li>  
+<li class="style3">김정훈 font-weight normal과 bold중  숫자로</li>  
+<li class="style4">김정훈 텍스트 decoration <span class="style5">김정훈</span>
+<li class="style6">김정훈 텍스트 decoration </li>  
+<li class="style7">김정훈 텍스트 decoration </li>  
+<li class="style8">html & css programming is fun</li>  
+<li class="style9">html & css programming is fun</li>  
+</ul>
+
+
+
+</body>
+</html>
