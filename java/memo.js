@@ -527,3 +527,17 @@ $(function(){
   })
  
 })
+
+// 말머리 고정 
+ $('#dropbtn').click(function(){
+      $(this).toggleClass('class_change');
+     if($(this).hasClass('class_change')){
+      $('#dropdown-content2').removeClass('dropdown-content2')
+      .addClass('dropdown-contentsp');
+      $(this).text('머리⛔')
+     }else{
+      $('#dropdown-content2').removeClass('dropdown-contentsp')
+      .addClass('dropdown-content2');
+      $(this).text('말머리');
+     }
+ })
