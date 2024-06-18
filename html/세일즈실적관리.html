@@ -92,7 +92,11 @@
      </div>
     </div>
     <div id="notepad">
-        <textarea placeholder="취소 및 기타사항 입력" cols="100" rows="28">
+        <textarea class="text1" placeholder="취소 및 기타사항 입력" cols="70" rows="28">
+
+        </textarea>
+        
+        <textarea class="text2" placeholder="Sales_추가메모" cols="50" rows="28">
 
         </textarea>
     </div>
@@ -173,16 +177,26 @@
             $lib.clipcopy($phonenum);
              })
 
-        $('#notepad textarea').on('input',function(){
-            var $notepadTextval = $('textarea').val();
+        //각 텍스트  area에 값입력하고 유지하기
+        $('#notepad .text1').on('input',function(){
+            var $notepadTextval = $('.text1').val();
             localStorage.setItem('$notepadval',$notepadTextval);
-            
-            console.log ( $notepadTextval_val )
-            
+                    
         })
         var $notepadTextval_val = localStorage.getItem('$notepadval');
-        $('textarea').val($notepadTextval_val);
+        $('.text1').val($notepadTextval_val);
+
+        $('#notepad .text2').on('input',function(){
+            var $notepadTextval2 = $('.text2').val();
+            localStorage.setItem('$notepadval2',$notepadTextval2);
+                    
+        })
+        var $notepadTextval_val2 = localStorage.getItem('$notepadval2');
+        $('.text2').val($notepadTextval_val2);
        
+
+
+
          // 백업하기 위해 전체 내용을 복사하기 
         $('.button2').click(function(){
        $salesview.forEach(ele => {
