@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .div{width : 20vmax;
+height : 150px;
+background-color : gray;
+line-height :150px;
+}/*
+문장이 한줄일때 박스모델의 높이와 line-height의 크기가 같을때
+세로 방향에서 가운데로 정렬한 것과 같은 모습이 된다.
+*/
+.div1{
+  width : calc(50% + 300px);
+    background-color:yellow;
+} /* calc 대박신기 뭔가 있어보인다 ㅋㅋㅋ*/
+
+/*블록 요소는 마진겹침이 발생된다 그래서 둘중 마진이 큰쪽이 작은쪽을 상쇄시키게 된다.
+※Margin : auto는 너비가 지정된 블록 요소의 가로 방향에서 남은 공간을 채우는 방식 / 즉 화면 가운대로 배치하는 방식으로 널리 사용됐으나 현재는 flex방식으로 많이 대체됨
+*/
+.container {
+  background-color : gray;
+  height: 200px;
+  text-align : center;
+ /* 이런식으로 자식 요소가 inline-block인 경우 text-align을 
+  이용해서 가로의 중간으로 정렬할수 있다.
+  자식까지 그 속성이 상속되기 때문임
+    */
+}
+.content {
+  background-color : white;
+  width : 30%;
+  height : 50%;
+  margin : 20px;
+  padding : 20px;
+  display : inline-block;
+  border: 2px dashed red;
+  
+  /*box-sizing:border-box; */ 
+  border-radius : 20px 0;  /*테두리를 둥글게 하는것 4군데 모서리를 각각 조절할수 있다. */
+}
+ /* 이런식으로 자식 요소가 inline-block인 경우 text-align을 
+  이용해서 가로의 중간으로 정렬할수 있다.
+  box-sizing은 margin과 padding이 추가 됨에 따라 일반적으로 사이즈가 커진다. 하지만 border-box로 하게되면 정해진 width값에
+margin과 padding이 포함되게 됨으로 사이즈 맞추기가 훨씬 쉬워진다. 아니 어려원지다고 봐야 하겠지만 어쨋든 맞추기 쉬워진다는 뜻이다 
+  */
+.div5 ul li:not(:last-child){
+  border-bottom :1px solid
+}
+
+.div6{
+  width : 200px; height : 200px;
+  border : 5px solid blue;
+  border-radius : 50%;
+}
+/*ov
+*/
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="div">
+        김정훈 입니다.
+      </div>
+      <div class="div1">
+        김정훈 입니다.
+      </div>
+      
+      <div class="container">
+        <div class="content">
+         김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈김정훈
+        </div>
+      </div>
+      <div class="div5">
+        <ul>
+          <li>동해물</li>
+          <li>과백두산</li>
+          <li>이마르고</li>
+          <li>닳도록</li>
+          <li>하느님이</li>
+        </ul>
+      </div>
+      <div class="div6"></div>
+</body>
+</html>
