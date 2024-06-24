@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" 
+crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+crossorigin="anonymous">
+</script> 
+
+    <style>
+ input[type="button"]:nth-child(1) {cursor : pointer;}
+input[type="button"]:nth-child(2) {cursor : not-allowed;}
+input[type="button"]:nth-child(3) {cursor : zoom-in;}
+
+
+.test1,.test2,.test3,.test4{
+  display : inline-block;
+  width : 100px;
+  height: 100px;
+}
+.test1{ background-color: gray;
+  opacity : 0;
+  /* opacity는 자리도 차지하고 기능동작도 되는데 그저 투명인간이 될뿐*/
+} 
+.test2{ background-color:yellow;
+ visibility : hidden; 
+  /*visibility가 히든이 되면 공간만 차지하고
+  기능적인것 까지 모두 작동이 안된다.*/
+}
+.test3{background-color : tomato;
+  
+}
+.test4{background-color : blue;
+  
+}
+
+.container div{
+  cursor : pointer;
+}
+
+.flexcontainer {
+  display: flex;
+  justify-content : row;
+}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- cursor는 마우스의 포인터를 관리하는 요소이며 이중 pointer속성등은 대박이다 A태그를 대체할수 있음 개 신기 짱짱짱
+-->
+<input type="button" value="버튼">
+<input type="button" value="not-allowd">
+<input type="button" value="버튼2">
+<input type="button" value="버튼3"><br><br>
+
+<div class="container">
+  <div class="test1">
+  <button class="opacity">opacity</button>  
+  </div>
+  <div class="test2">
+   <button class="visibilty">visibilty</button>
+  </div>
+  <div  class="test3">테스트3</div>
+  <div class="test4">테스트4</div>
+</div>
+  
+  <div class="flexcontainer">
+    <div class="test">1</div>
+    <div class="test">1</div>
+    <div class="test">1</div>
+    <div class="test">1</div>
+    <div class="test">1</div>
+  </div>
+  <script>
+    $('.opacity').click(function(){
+        console.log('opacity');
+      })
+      
+      $('.visibilty').click(function(){
+        console.log('visibilty');
+        /*visibility는 안보임 + 자리는 차지 + 각종 기능 동작안됨
+        */
+      })
+      
+      var testcol = $('.test');
+      var col =0;
+      testcol.each(function(){
+        col+=20
+        $(this).css('background-color',`rgb(${50+col},${100+col},${130+col}`)
+      })
+  </script>
+</body>
+</html>
