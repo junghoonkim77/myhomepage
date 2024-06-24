@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /*overflow는 부모 속성에 주는거지 자식 속성에 주는게 아니다. 매우 중요
+*/
+.parent{
+  width : 150px; height:150px;
+  border : 1px solid red;
+  overflow : scroll;
+  box-shadow : 4px 4px 4px 4px gray;
+  /*박스 쉐도우는 박스에 음영을 넣어주는것 
+   x  ,  y , 번짐효과 , 4번째는 음영의 확대 
+  */
+  /*scroll을 넣는 이유는 auto로 넣으면
+  생겼다 안생겼다 하는 문제가 생기다 보니 위치 잡기가 어려워 진다 . 그럴때 쓴다.
+  */
+}
+.child{
+  width:180px; height:300px;
+  border: 1px solid blue;
+}
+.shadow1 {
+  height : 200px;
+  width : 200px;
+  margin : auto;
+  box-shadow :10px 10px 5px -2px
+    /*boxshadow는 각종 테스트 가능한 사이트가 있음 , 구글링해서 참고 할것 
+    */
+}
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+      </div>
+      
+      <div class="shadow1">
+        </div>
+</body>
+</html>
