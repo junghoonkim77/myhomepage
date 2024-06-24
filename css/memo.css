@@ -80,6 +80,10 @@ font-size:12px;}
 {display : block ;position : absolute;z-index : 1; /*다른 요소들보다 앞에 배치*/
 font-size:12px; background-color: beige;}
 
+.dropdown-contentsp1
+{display : block ;position : absolute;z-index : 1; /*다른 요소들보다 앞에 배치*/
+font-size:12px;}
+
 .dropdown-contentsp p{
   font-size: 12px;
   margin : 0px;

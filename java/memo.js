@@ -543,3 +543,17 @@ $(function(){
       $(this).text('말머리');
      }
  })
+
+//말머리 고정2
+ $('.dropbtn').click(function(){
+  $(this).toggleClass('class_change1');
+ if($(this).hasClass('class_change1')){
+  $('#dropdown-content').removeClass('dropdown-contentsp1')
+  .addClass('dropdown-contentsp1');
+  $(this).text('양식⛔')
+ }else{
+  $('#dropdown-content').removeClass('dropdown-contentsp1')
+  .addClass('dropdown-content2');
+  $(this).text('SR양식');
+ }
+})
