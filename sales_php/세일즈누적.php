@@ -72,7 +72,7 @@
     margin-left :20px;
     position : fixed;
     top : 170px;
-    left : 320px;
+  /*  left : 320px; */
 
    }
    
@@ -308,18 +308,11 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
     $('.newtext2').text($seltmonVAl+'월('+$('.'+nowmon_nameArray[0]).children('td:nth-child(6)').text().length+'건)' );
    
       nowmon_nameArray.length = 0 ;
-   // $('tr').toggleClass(nowmon_nameArray);
-    // $('tr').addClass(nowmon_nameArray[1]);
-  // if($('tr').hasClass(nowmon_nameArray)){
-
-  // }
-    
-    
-
-    //$('tr').addClass(nowmon_name);
-    
-  })
+   
   
+  })
+  const tablewidth = $('table').outerWidth(true)+20
+   $('.gridcontainer').css('left',tablewidth+'px');
   
  
 </script>
