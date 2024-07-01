@@ -259,6 +259,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
     $(this).addClass('hide'+$addcla);
   });
   
+
   
  // 사이트 열리자마자 이번달 실적만 표로 보여주기
  var $minimontotal = 0;
@@ -270,13 +271,16 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
            })
          $('.context2').text($tablemonth+'월: '+$minimontotal+'건');
 
-  
+ //var tablewidth = $('table').outerWidth(true)+20  
 // 셀렉트 태그를 이용해 월별 결과 숨기고 보이기 montotal
   $montotal = 0;
   $('.sellectmon').change(function(){
+   
     var $sellectmonVAl = $(this).val();
     if($sellectmonVAl === "montotal"){
         $('tr').show();
+        var tablewidth = $('table').outerWidth(true)+20 
+        $('.gridcontainer').css('left',tablewidth+'px');
     }else{
         $('tr').not('.'+'hide'+$sellectmonVAl).hide() ;
         $('.hide').show();
@@ -286,6 +290,8 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
            })
          $('.context2').text($sellectmonVAl+'월: '+$montotal+'건')
          $montotal = 0 ;
+         var tablewidth1 = $('table').outerWidth(true)+20 
+        $('.gridcontainer').css('left',tablewidth1+'px');
     };    
   }) //월별 결과 숨기기 코드 끝
 
@@ -311,8 +317,8 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
    
   
   })
-  const tablewidth = $('table').outerWidth(true)+20
-   $('.gridcontainer').css('left',tablewidth+'px');
+  const $tablewidth = $('table').outerWidth(true)+20 
+   $('.gridcontainer').css('left',$tablewidth+'px');
   
  
 </script>
