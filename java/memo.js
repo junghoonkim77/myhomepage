@@ -229,12 +229,10 @@ $(function(){
 
    
 
-  //시간초기화 (공통메뉴)
+  //맞춤법(공통메뉴)
 
   $('#toggle').click(function(){
-    $('body').css('background-color','white');
-    $('.inputtime').val("");
-    localStorage.removeItem('alarmTime');
+    window.open("https://alldic.daum.net/grammar_checker.do","_blank","width=1000 , height=900")
    });
 
 
