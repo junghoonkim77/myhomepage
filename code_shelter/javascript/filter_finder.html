@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js"
+integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+
+    <title>filter_finder</title>
+</head>
+<body>
+    <button>테스트</button>
+    <div class="test test1">1</div>
+    <div class="test">2</div>
+    <div class="test">3</div>
+    <div class="test">4</div>
+    <div class="test">5</div>
+    <div class="test">6</div>
+    <div class="test test1">7</div>
+    <div class="test">8</div>
+    <div class="test">9</div>
+    <div class="test">10</div>
+    <script>
+        $('button').on('click',function(){
+           var $test= $('body').find('.test');
+           console.log($test.text());
+           var $test1 = $test.filter('.test1');
+           console.log($test1.text());
+        })
+    </script>
+</body>
+</html>
