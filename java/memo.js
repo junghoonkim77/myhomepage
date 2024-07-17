@@ -543,7 +543,7 @@ $(function(){
  })
 
 //말머리 고정2
- $('.dropbtn').click(function(){
+ $('.dropbtn_se').click(function(){
   $(this).toggleClass('class_change1');
  if($(this).hasClass('class_change1')){
   $('#dropdown-content').removeClass('dropdown-contentsp1')
