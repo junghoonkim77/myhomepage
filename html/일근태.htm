@@ -167,7 +167,7 @@
   <p>워치 처리건수:<input type="text"   value="" class="rep"/></p>
   <p>워치voc : <input type="text"  value="" class="rep"/></p>
   <p>장애공지 댓글건수:<input type="text" value="" class="rep"/></p>
-  <p>R-voc검수 건수:  <input type="text"value="" class="rep"/></p>
+  
     <button class="ilbocopy">MJG제출용복사</button>
   </div>
   <div class="dailyreport2">
@@ -244,7 +244,7 @@
     rep.each(function(){
        $rep.push($(this).val())
     })
-   var $ilbo =`${dateString2} R-VOC/워치상담/장애공지댓글
+   var $ilbo =`${dateString2}  워치상담/장애공지댓글
 
 ■워치VOC
 
@@ -255,9 +255,6 @@
 
 ㅇ총 등록건수 : ${$rep[3]}건
 
-■R-VOC 검수
-
-ㅇ총 ${$rep[4]}건 확인 및 각 팀장 개별통보
 ` 
   navigator.clipboard.writeText($ilbo);
    }) //일보복사 1단계 마무리
