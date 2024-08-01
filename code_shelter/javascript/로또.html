@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>로또 추첨기</title>
+
+  <style>
+
+    .ball {
+
+      display: inline-block;
+
+      width: 50px;
+
+      height: 50px;
+
+      margin: 10px;
+
+      border-radius: 50%;
+
+      background-color: #eee;
+
+      font-size: 30px;
+
+      font-weight: bold;
+
+      text-align: center;
+
+      line-height: 50px;
+
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    }
+
+    #result {
+
+      text-align: center;
+
+      margin-top: 30px;
+
+      font-size: 24px;
+
+      font-weight: bold;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <button id="startBtn">추첨 시작</button>
+
+  <div id="result"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+
+
+
+  <script>
+
+    function getRandomNumber() {
+      return Math.floor(Math.random() * 45) + 1;
+    }
+
+    function getLottoNumbers() {
+      const lottoNumbers = [];
+      while (lottoNumbers.length < 6) {
+        const number = getRandomNumber();
+        if (!lottoNumbers.includes(number)) {
+          lottoNumbers.push(number);
+        }
+      }
+      return lottoNumbers;
+    }
+
+    const startBtn = document.getElementById('startBtn');
+    const resultDiv = document.getElementById('result');
+    let isDrawing = false;
+
+    startBtn.addEventListener('click', () => {
+      if (isDrawing) {
+        return;
+      }
+      isDrawing = true;
+
+      const lottoNumbers = getLottoNumbers();
+      const balls = document.querySelectorAll('.ball');
+      console.log(lottoNumbers);
+      let count = 0;
+      
+      const timerId = setInterval(() => {
+        balls[count].innerHTML = lottoNumbers[count];
+        balls[count].style.backgroundColor = 'orange';
+        count++;
+        
+        if (count >= balls.length) {
+          clearInterval(timerId);
+          resultDiv.innerHTML = lottoNumbers.join(', ');
+          isDrawing = false;
+        }
+      }, 500);
+    });
+  </script>
+
+</body>
+
+</html>
+
