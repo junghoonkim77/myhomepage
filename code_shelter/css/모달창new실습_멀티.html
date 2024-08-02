@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" 
+crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+crossorigin="anonymous">
+</script> 
+<style>
+    dialog::backdrop{
+        background: rgba(0,0,0,0.5);
+    }
+    .modal div{
+        white-space: pre-wrap;
+    }
+</style>
+    <title>Document</title>
+</head>
+<body>
+    <button class="modalOpen">대화창 열기</button>
+    <button class="modalOpen">대화창 열기1</button>
+    <button class="modalOpen">대화창 열기2</button>
+    <dialog class="modal">
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos voluptas 
+            commodi obcaecati, blanditiis animi tenetur porro alias possimus voluptate 
+            consequuntur,
+             dicta voluptatem, vel ab minus esse? Commodi repellat quod dignissimos!
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos voluptas 
+            commodi obcaecati, blanditiis animi tenetur porro alias possimus voluptate 
+            consequuntur,
+             dicta voluptatem, vel ab minus esse? Commodi repellat quod dignissimos!Lorem
+              ipsum dolor sit amet consectetur adipisicing elit. Eos voluptas 
+             commodi obcaecati, blanditiis animi tenetur porro alias possimus voluptate 
+             consequuntur,
+              dicta voluptatem, vel ab minus esse? Commodi repellat quod dignissimos!
+        </div>
+        <button class="modalClose">대화창 닫기</button>
+    </dialog>
+    <dialog class="modal">
+        <div>
+           동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 
+           동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 
+           동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 
+           동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 
+           동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 동해물과 백두산이 
+        </div>
+        <button class="modalClose">대화창 닫기</button>
+    </dialog>
+    <dialog class="modal">
+        <div>
+            대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국
+            대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국
+            대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국
+            대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국
+            대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국대한민국
+        </div>
+        <button class="modalClose">대화창 닫기</button>
+    </dialog>
+<script>
+ /*  const $modal =  $('#modal');
+    $('#modalOpen').click(function(){
+        $modal[0].showModal();
+    });
+    $('#modalClose').click(function(){
+        $modal[0].close();
+    })  */
+
+    const $modal =  $('.modal');
+    const $modalOpen = $('.modalOpen');
+    $modalOpen.on('click',function(){
+      var $this =  $(this).index();
+      $modal[$this].showModal();
+    })
+
+    $('.modalClose').click(function(){
+        $('.modalClose').each(function(idx,ele){
+            $modal[idx].close(); 
+        })
+    })
+
+ 
+
+     
+
+</script>
+</body>
+</html>
