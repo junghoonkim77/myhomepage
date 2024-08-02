@@ -167,10 +167,13 @@
    </select>  
    </p>
      </div>
+     
+     <div>
      <div class="total">年누적:<span class="context"></span></div>
      <div class="total1">당月누적:<span class="context1"></span></div>
      <div class="newtotal2">月별:<span class="newtext2"></span></div><br>
-     
+     </div>
+
      <p style="font-size :12px ; display:inline-block;">팀단위 :
      <select name="" class="sellectmon">
     <option value="montotal">총누적건수</option>
