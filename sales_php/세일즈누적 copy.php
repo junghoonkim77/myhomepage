@@ -115,7 +115,7 @@
     ?>
     <h3><?=$phpmon.'월 현재'?> 개통건수 : <span class="nowmonth"></span></h3>
     <div class="container">
-    <table data-mon=<?="'".$phpmon."'"?>> 
+    <table id="table1" data-mon=<?="'".$phpmon."'"?>> 
      <thead><td>순서</td><td>고객번호</td><td>고객명</td><td>팀원명</td><td>개통일자</td><td>상품</td></thead>
      
         <?php echo $td ?>
@@ -219,13 +219,13 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
  var totalsum1 = 0;
 
  // 누적 실적표시창 코드
- $("table tr td:nth-child(6)").each(function(){
+ $("#table1 tr td:nth-child(6)").each(function(){
   totalsum+=   parseInt( $(this).text().length ) ;
  });
   $('.tsum').text(totalsum-2);
 
   // 이번달 개통건수 표시창 코드 
-  $("table tr td:nth-child(5)").each(function(){
+  $("#table1 tr td:nth-child(5)").each(function(){
    var $monthtxt1 =  $(this).text().slice(5,7) ;  //.slice(4);  `${hours < 10 ? `0${hours}` : hours}
       
        if($monthtxt1 === $tablemonth) {
@@ -246,7 +246,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
 
    var sum = 0;
    var sum1 = 0;
-   $("table tr td:nth-child(4)").each(function(){
+   $("#table1 tr td:nth-child(4)").each(function(){
             if($(this).text() === $name){
                 // 해당 팀원이름이 있는 행의 다섯 번째(td:nth-child(5)) 열에서 실적 가져와 합산
                 sum += parseInt($(this).siblings("td:nth-child(6)").text().length);
@@ -254,7 +254,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
         }); //첫번째 each문 끝 
         $('.context').text(sum);
        
-    $("table tr td:nth-child(5)").each(function(){
+    $("#table1 tr td:nth-child(5)").each(function(){
    var $monthtxt =$(this).text().slice(5,7) ;  //.slice(4);
        if(($monthtxt == $tablemonth) && $name == $(this).siblings("td:nth-child(4)").text()) {
         sum1 +=  parseInt($(this).siblings("td:nth-child(6)").text().length);
@@ -314,7 +314,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
     var nowmon_name = $seltmonVAl+tname ;
     nowmon_nameArray.push(nowmon_name);
    
-    $("table tr td:nth-child(5)").each(function(){
+    $("#table1 tr td:nth-child(5)").each(function(){
    var $monthtxt =$(this).text().slice(5,7) ;  //.slice(4);
        if(($monthtxt == $seltmonVAl) && tname == $(this).siblings("td:nth-child(4)").text()) {
          $(this).parent().addClass(nowmon_nameArray[0]);
@@ -328,7 +328,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
    
   
   })
-  const $tablewidth = $('table').outerWidth(true)+20 
+  const $tablewidth = $('#table1').outerWidth(true)+20 
    $('.gridcontainer').css('left',$tablewidth+'px');
   
  
