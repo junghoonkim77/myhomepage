@@ -194,7 +194,12 @@
      </div>
   
      <div>
-    김정훈 입니다.
+     <table data-mon=<?="'".$phpmon."'"?>> 
+     <thead><td>순서</td><td>고객번호</td><td>고객명</td><td>팀원명</td><td>개통일자</td><td>상품</td></thead>
+     
+        <?php echo $td ?>
+     
+    </table>
     </div>
 
      </div> <!--플렉스 박스 끝줄-->
