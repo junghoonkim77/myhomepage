@@ -70,13 +70,10 @@
 
    .gridcontainer{
     margin-left :20px;
+    position : fixed;
+    top : 170px;
   /*  left : 320px; */
 
-   }
-
-   li{
-    font-size : 10px;
-    display : none;
    }
    
     </style>
@@ -108,21 +105,18 @@
     $result = mysqli_query($conn,$sql1);
    
     $td='';
-    $ul='';
+
     while($row=mysqli_fetch_array($result)){
     $td=$td.'<tr><td>'.$row['order_add'].'</td>'.'<td>'.$row['cusnum'].'</td>'.
     '<td>'.$row['cusname'].'</td>'.'<td>'.$row['teamname'].'</td>'.
     '<td>'.$row['comdate'].'</td>'.'<td>'.$row['prodname'].'</td>'.'</tr>';
-
-    $ul=$ul.'<li class='.$row['teamname'].substr($row['comdate'],5,2).'>'.$row['comdate'].' /'.$row['cusname'].' /'.$row['teamname'].' /'.$row['cusnum'].' /'
-    .$row['prodname'].'</li>';
     };
     
     $phpmon = date("m");
     ?>
     <h3><?=$phpmon.'월 현재'?> 개통건수 : <span class="nowmonth"></span></h3>
     <div class="container">
-    <table  data-mon=<?="'".$phpmon."'"?>> 
+    <table data-mon=<?="'".$phpmon."'"?>> 
      <thead><td>순서</td><td>고객번호</td><td>고객명</td><td>팀원명</td><td>개통일자</td><td>상품</td></thead>
      
         <?php echo $td ?>
@@ -199,15 +193,9 @@
    </p> 
    <div class="total2">.<span class="context2"></span></div>
      </div>
-  
-     <div>
-     <ul>
-     <?php echo $ul ?>
-     </ul>
-    </div>
-
-     </div> <!--플렉스 박스 끝줄-->
-    
+   
+     </div>
+     
    <?php  mysqli_close($conn); ?>
   
 </div>  
@@ -247,7 +235,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
    $teamname.length = 0;
    $teamname.push($name);
    console.log ($teamname);
-   
+
    var sum = 0;
    var sum1 = 0;
    $("table tr td:nth-child(4)").each(function(){
@@ -265,8 +253,6 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
        }
     }); //두번째 each문 끈
     $('.context1').text(sum1);  
-
-    $('li.'+$name).css('display','block')
       
  });  //change이벤트 마지막
 
@@ -319,8 +305,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
     var tname = $teamname[0];
     var nowmon_name = $seltmonVAl+tname ;
     nowmon_nameArray.push(nowmon_name);
-    $('li').css('display','none'); //li없애고 시작
-
+   
     $("table tr td:nth-child(5)").each(function(){
    var $monthtxt =$(this).text().slice(5,7) ;  //.slice(4);
        if(($monthtxt == $seltmonVAl) && tname == $(this).siblings("td:nth-child(4)").text()) {
@@ -333,10 +318,8 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
    
       nowmon_nameArray.length = 0 ;
    
-      $('.'+tname+$seltmonVAl).css('display','block');
+  
   })
-
-  //이건 css로 폭 유지하는 코드
   const $tablewidth = $('table').outerWidth(true)+20 
    $('.gridcontainer').css('left',$tablewidth+'px');
   
