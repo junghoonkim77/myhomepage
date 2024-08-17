@@ -16,4 +16,4 @@ if($result === false){
     echo '수정성공';
    }
 ?>
-<a href="세일즈실적관리.php">세일즈실적 관리창으로 이동</a>
+<a href="sales_siljukcon.php">세일즈실적 관리창으로 이동</a>

@@ -88,7 +88,7 @@
     include('phpgate.php');
     echo '<h5>'.'('.date("Y/m/d").')'."   ".'서울중앙통품세일즈&nbsp&nbsp&nbsp&nbsp총누적:&nbsp'.
     '<span class="'.'tsum">'.'</span>'.'<span>건</span>'.'</h5>';
-    echo '<a href="세일즈실적관리.php">세일즈 가설관리창</a>&nbsp&nbsp&nbsp&nbsp&nbsp';
+    echo '<a href="sales_siljukcon.php">세일즈 가설관리창</a>&nbsp&nbsp&nbsp&nbsp&nbsp';
     echo '<a href="../sale_today/">당일시도입력창</a>';
     
     

@@ -14,6 +14,6 @@ if(isset($user_delnum)){
 
 
 
-echo '<a href='.'세일즈실적관리.php'.'>'.'메인으로 이동하기'.'</a>';
+echo '<a href='.'sales_siljukcon.php'.'>'.'메인으로 이동하기'.'</a>';
 include('footer.php');
 ?>

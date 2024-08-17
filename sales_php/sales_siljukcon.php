@@ -160,7 +160,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
         </table>
      <?php   echo '<h3>'.'잔여가설건수 : '.$row_count.' 건'.'</h3>'; ?>
      <a class="addlink" href="sales_Gate.html"><button>입력창 이동</button></a>
-     <a class="addlink" href="세일즈누적.php"><button>세일즈 누적실적 현황</button></a>
+     <a class="addlink" href="sales_nujuk.php"><button>세일즈 누적실적 현황</button></a>
         <?php 
      $user_delnum =$_POST['delkey'] ?? ''; 
 
@@ -203,7 +203,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
              ;
            }; */
            while($row2 = mysqli_fetch_array($result2)){
-            $test2 = $test2.'<li>'.$row2['memo'].'<a class="textdel" href="세일즈실적관리.php?deltex='.$row2['com_num'].'"'.'>'.'삭제'.
+            $test2 = $test2.'<li>'.$row2['memo'].'<a class="textdel" href="sales_siljukcon.php?deltex='.$row2['com_num'].'"'.'>'.'삭제'.
             '</a>.'.'</li>'
                   ;
            };    
