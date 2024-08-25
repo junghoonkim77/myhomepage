@@ -135,6 +135,15 @@ body *:not(h3) {
     bottom:0px;
     left : 401px;
   }
+
+  #calltransTip{
+    background-color: coral;
+    height : 30px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+
   #buttonpack div{
     display : inline-block;
     position : absolute;
