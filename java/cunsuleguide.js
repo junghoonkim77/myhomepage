@@ -71,6 +71,7 @@ jQuery(function(){
     $('.maincore').eq(0).css('display','block');
     $('.maincore').eq(1).css('display','none');
     $('.maincore').eq(2).css('display','none');
+    $('.maincore').eq(3).css('display','none');
        var $switchidx = $(this).index()
        console.log ($switchidx);
        $('.tranformer').hide().eq($switchidx).show();
@@ -105,6 +106,7 @@ jQuery(function(){
     $('.maincore').eq(0).css('display','none');
     $('.maincore').eq(1).css('display','block');
     $('.maincore').eq(2).css('display','none');
+    $('.maincore').eq(3).css('display','none');
     $(iframe).eq(0).css('display','block');
    // $('.maincore').eq(0).css('display','none');
    })   //메시지  VOC탭 작업 끝
@@ -115,9 +117,22 @@ jQuery(function(){
     $('.maincore').eq(0).css('display','none');
     $('.maincore').eq(1).css('display','none');
     $('.maincore').eq(2).css('display','block');
+    $('.maincore').eq(3).css('display','none');
     $(iframe).eq(1).css('display','block');
    // $('.maincore').eq(0).css('display','none');
    })   //TT발행 방법 탭 작업끝
+
+
+   $('#calltransTip').click(function(){
+    var iframe = $('.maincore > iframe')
+    $('.maincore').eq(0).css('display','none');
+    $('.maincore').eq(1).css('display','none');
+    $('.maincore').eq(2).css('display','none');
+    $('.maincore').eq(3).css('display','block');
+    $(iframe).eq(2).css('display','block');
+   // $('.maincore').eq(0).css('display','none');
+   })   //TT발행 방법 탭 작업끝
+
 
    //특정지역 클릭시 animation효과
    var $vocplace = $('.vocplace label input');
