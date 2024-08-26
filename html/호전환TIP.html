@@ -1,11 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>호전환 TIP</title>
+
+    <style>
+        .container {
+            display : flex;
+        }
+        .menu {
+            flex-grow: 1;
+        }
+        .content {
+            flex-grow: 4;
+            white-space : pre-wrap;
+            line-height: 30px;
+        }
+        li ul>li::marker{
+            content: "-";
+        }
+
+        ol li ul>li {
+            cursor : pointer;
+        }
+        ol li:last-child {
+            margin-bottom: 10px;
+        }
+    </style>
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js"
+ integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+ integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+
+    <title>통품호전환전 확인</title>
 </head>
 <body>
-    제작중
+    <div class="container">
+        <div class="menu">
+            <p>각종 상황별</p>
+            <ol>
+                <p>음성</p>
+            <li>
+                <ul>
+                    <li id="galaxy_w">갤럭시 워치</li>
+                    <li id="apple_w">애플 워치</li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            </ol>
+    </div>
+        <div class="content">
+        
+        </div>
+    </div>
+    <script>
+        const content = {"galaxy_w" :`
+        1.워치번호 조회후 "착신전환(무료)_대표" 서비스 가입여부 확인
+        2.HD보이스 서비스 정상 가입여부 확인
+        3.해당 서비스 클릭후 착신전환 그룹 설정에 고객의 메인 휴대폰 번호 그룹설정 여부 확인
+        4."원넘버서비스(무료)" 가입여부 확인
+        => 1,2,3,4, 정상 등록 및 가입상태 확인시 즉시 기술 호전환
+        `,
+        "apple_w" :`
+        1.워치번호 조회후 "원넘버서비스(무료)_애플" 가입여부 확인
+        2.HD보이스 정상 가입여부 확인
+        ※애플워치는 착신전환 서비스와 전혀 무관한 기기입니다.
+         1,2  정상 등록 및 가입상태 확인시 즉시 기술 호전환
+        `
+        };
+
+        const $li = $('ol li ul>li');
+        
+        $li.click(function(){
+            var $id = $(this).attr('id');
+            var $content = content[$id];
+            $('.content').text($content);
+        })
+    </script>
 </body>
 </html>
