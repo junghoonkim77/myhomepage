@@ -27,14 +27,16 @@ const content = {
     const $li_M =$('ol li ul li ul');
     const $li_m =$('ol li ul li ul>li');
     const $first_menu = $('.first_menu');
-    const $small_name = $('.small_name')
-    console.log ($small_name.find('li'));
+    const $small_name = $('.small_name');
+    const realmenu = $first_menu.find('li');
         
-    $li.click(function(){
+    realmenu.click(function(){
         var $id = $(this).attr('id');
-        console.log($id);
+        var $imgfile = $id+'.jpg'
+        console.log($imgfile);
+        var $url = "../imgfolder/";
         var $content = content[$id];
-        $('#picture img').attr("src","../IMGfolder_copy/"+$id+".png");
+        $('#picture img').attr("src",$url+$imgfile );
         $('#real_content').text($content);
         
         
