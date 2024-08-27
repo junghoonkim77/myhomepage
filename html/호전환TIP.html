@@ -6,27 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        
         .container {
             display : flex;
+            font-size: 12px;
         }
         .menu {
             flex-grow: 1;
+            line-height: 20px;
         }
         .content {
             flex-grow: 4;
             white-space : pre-wrap;
             line-height: 30px;
+            background-color: rgb(225, 238, 238);
         }
         li ul>li::marker{
             content: "-";
         }
 
-        ol li ul>li {
+        ol li ul li {
             cursor : pointer;
         }
+      
         ol li:last-child {
             margin-bottom: 10px;
         }
+        
+        ol li ul li ul>li {
+            display : none;
+        }
+        ol li ul li ul>li:hover{
+            background-color: aqua;
+        }
+        
+        img {
+            height : 100px;
+        }
+
     </style>
     
 <script src="https://code.jquery.com/jquery-3.6.4.js"
@@ -46,26 +63,71 @@
                 <p>음성</p>
             <li>
                 <ul>
-                    <li id="galaxy_w">갤럭시 워치</li>
-                    <li id="apple_w">애플 워치</li>
-                    <li></li>
-                    <li></li>
+                    
+                    <li class="first_menu"><span class="small_name">갤럭시 워치</span>
+                        <ul>
+                            <li id="galaxy_1">일반팀 전산체크사항</li>
+                            <li id="galaxy_2">KT웨어러블 콜이란?</li>
+                            <li id="galaxy_3">동시착신이란?</li>
+                            <li id="galaxy_4">착신전환 그룹설정의 이해</li>
+                        </ul>
+                    </li>
+                
+                  
+                    <li class="first_menu"><span class="small_name">애플워치</span>
+                        <ul>
+                            <li id="apple_1">일반팀 전산체크사항</li>
+                            <li id="apple_2">애플워치 원넘버 서비스란?</li>
+                            <li id="apple_3">애플워치 번호의 이해</li>
+                            <li id="apple_4">각종 앱알림</li>
+                        </ul>
+                    </li>
+                    <li>
+
+                    </li>
+                    <li>
+
+                    </li>
                 </ul>
             </li>
             <p>데이터</p>
             <li>
                 <ul>
-                    <li id="qos">데이터 속도가 너무 느려요~!</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li >데이터 속도가 너무 느려요~!
+                        <ul>
+                            <li id="apple_1">일반팀 전산체크사항</li>
+                            <li id="apple_2">애플워치 원넘버 서비스란?</li>
+                            <li id="apple_3">애플워치 번호의 이해</li>
+                            <li id="apple_3">각종 앱알림</li>
+                        </ul>
+                    </li>
+                    <li>
+
+                    </li>
+                    <li>
+
+                    </li>
+                    <li>
+
+                    </li>
                 </ul>
             </li>
             <li>
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>추가 진행중 
+                        <ul>
+                            <li id="apple_1">일반팀 전산체크사항</li>
+                            <li id="apple_2">애플워치 원넘버 서비스란?</li>
+                            <li id="apple_3">애플워치 번호의 이해</li>
+                            <li id="apple_3">각종 앱알림</li>
+                        </ul>
+                    </li>
+                    <li>
+
+                    </li>
+                    <li>
+
+                    </li>
                     <li></li>
                 </ul>
             </li>
@@ -80,7 +142,15 @@
             </ol>
     </div>
         <div class="content">
-        
+           <div id="real_content">
+
+           </div>
+            
+            <div id="picture">
+                <img src="../IMGfolder_copy/galaxy_1.png"  alt="">
+            </div>
+                
+            
         </div>
     </div>
     <script src="../java/callTrans.js">  </script>
