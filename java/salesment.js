@@ -1,15 +1,15 @@
 jQuery(function(){
       
-    class Salesment {
-     constructor(classname,title,salecon){
-       this.classname = classname;
-       this.title = title;
-       this.salecon = salecon;
-     }
-    }
+  class Salesment {
+   constructor(classname,title,salecon){
+     this.classname = classname;
+     this.title = title;
+     this.salecon = salecon;
+   }
+  }
 
 //쌈마이 멘트 killing     
-    var killing =[
+  var killing =[
 new Salesment ("killing","3월27일교육 멘트(탭)",
 `요즘은 큰TV 대신에 삼성갤럭시태블릿
 으로TV를 볼수가 있는데 고객님께서는지금이벤트
@@ -122,7 +122,7 @@ new Salesment ("Killing","인터넷+tv권유",
 
 // 보유상품(결합별) special
 var special =[
- new Salesment("special","■ 모바일 or 유선전화 단독 고객 ☞ 인터넷+TV 권유",
+new Salesment("special","■ 모바일 or 유선전화 단독 고객 ☞ 인터넷+TV 권유",
 `혹시 혜택 챙겨드릴거 있는지 확인하다보니
 인터넷 TV 가입 시 사은혜택으로 가전제품이나 백화점 상품권 제공되는데요,
 안내 받아보시겠어요?
@@ -143,7 +143,7 @@ new Salesment("special","■ 인터넷+TV 기 이용 고객 ☞ 추가 티비 �
 확인되세요~
 이런 혜택 이벤트가 언제 끝날지 모르는건데,
 기회되실 때 안내 받아보시는건 어떠세요?
-   
+ 
 (TV 없어요)
 마침 지니TV 탭 행사도 있어서,
 TV가 없는 고객님들도 신청 많이 하고 계시거든요~
@@ -158,13 +158,13 @@ TV가 없는 고객님들도 신청 많이 하고 계시거든요~
 var newitm =[
 new Salesment("newitm","트리거/통리",
 `1.우리는 kos화면에 [통] 아이콘 표기 고객만 합시다.
- 
+
 [멘트 : ]
- “제가 업무 처리 하면서 확인해보니 때마침 고객님이 
- 휴대폰(과 인터넷을 함께) 오랜 기간 이용한
- 우수 고객님이어서 다양한 혜택을 먼저 챙겨 드리는 
- 프로모션 대상으로 확인되고 있는데요~
- 제가 고객님의 전담 부서로 바로 연결해드릴까요?"
+“제가 업무 처리 하면서 확인해보니 때마침 고객님이 
+휴대폰(과 인터넷을 함께) 오랜 기간 이용한
+우수 고객님이어서 다양한 혜택을 먼저 챙겨 드리는 
+프로모션 대상으로 확인되고 있는데요~
+제가 고객님의 전담 부서로 바로 연결해드릴까요?"
 
 [호전환 경로]
 ㅇKOS 360뷰 하단 > 연계 > CRG 호전환 > M트리거징후_통합CRG
@@ -333,28 +333,29 @@ new Salesment("tv","평생 티비 50%할인",
 `현재 평생 50% 할인 된 금액으로 추가 TV를 이용하 실 수 있는 
 특별 이벤트가 진행되고 있어요~ 게다가 지금 가입하시면 사은품으로 
 상품권도 드리고 있어서 좋은 기회인데 전문 상담사 연결해드릴까요?
+`),
+new Salesment("tv","tv온리 인터넷 추천",
+`지금 TV마나 사용 중이신데 인터넷도 추가로 가입해서 결합하면 
+TV요금도 할인 받아 저렴하게 이용 가능한데 이왕 전화 주신김에 
+상담 받아 보시겠습니까?
+`),
+new Salesment("tv","tv온리 인터넷 추천",
+`지금 인터넷은 따로 없는 걸로 확인 되시는데요~ 요금에는 
+대부분 인터넷도 같이 가입해서 결합해서 많이 사용하시거든요 ~ 
+때마침 인터넷만 가입하셔도 상품권 드리는 이벤트 중인데 
+이왕 전화 주신김에 상담 받아 보시겠습니까?
+`),
+new Salesment("tv","tv온리_와이파이 추천",
+`스마트 폰이 있다면 와이파이로 사용할 수 있어서 휴대폰 통신료 
+부담도 줄어들고 인터넷을 사용하신다면 지금 TV요금도 같이 할인이 
+되거든요~ 전문 상담사와 통화해보시는건 어떨까요?
 `)
 ]
 
 
 // tv온리 고객  -> tvonly
 var tvonly =[
-new Salesment("tvonly","tv온리 인터넷 추천",
-`지금 TV마나 사용 중이신데 인터넷도 추가로 가입해서 결합하면 
-TV요금도 할인 받아 저렴하게 이용 가능한데 이왕 전화 주신김에 
-상담 받아 보시겠습니까?
-`),
-new Salesment("tvonly","tv온리 인터넷 추천",
-`지금 인터넷은 따로 없는 걸로 확인 되시는데요~ 요금에는 
-대부분 인터넷도 같이 가입해서 결합해서 많이 사용하시거든요 ~ 
-때마침 인터넷만 가입하셔도 상품권 드리는 이벤트 중인데 
-이왕 전화 주신김에 상담 받아 보시겠습니까?
-`),
-new Salesment("tvonly","tv온리_와이파이 추천",
-`스마트 폰이 있다면 와이파이로 사용할 수 있어서 휴대폰 통신료 
-부담도 줄어들고 인터넷을 사용하신다면 지금 TV요금도 같이 할인이 
-되거든요~ 전문 상담사와 통화해보시는건 어떨까요?
-`)
+
 ]
 
 
@@ -409,7 +410,7 @@ KT 인터넷 TV가격은 어떤지 알아보시고 타사랑 비교해서 금액
 new Salesment("banron","시간없어요 바빠요~!!",
 `☞통화하시기 편한 시간에 전화 드릴 수 있습니다~
 몇 시가 편하세요?
-            
+          
 ☞간단하게 안내해드리고 있어서 잠깐의 통화로도 
 확인 가능하구요 이후에 상세한 상담은  편한 시간에
 다시 전화드릴 수도 있습니다.
@@ -428,74 +429,88 @@ new Salesment("banron","기타 반론극복",
 ]
 
 // 각 라디오 버튼 별 밸류 모음 / 클래스 이름도 되고 배열 이름도 됨 ↓
- var talklist ={'killing':killing,'special':special,'newitm':newitm,
-                'transfer':transfer,'intt':intt,'tv':tv,'tvonly':tvonly,
-               'banron':banron };
-  
-    //각 항목에 ID값 넣기
-    $('#radio label input').each(function(){
-      var $raval = $(this).val();
-      $(this).attr('id',$raval);
-    })
+var talklist ={'killing':killing,'special':special,'newitm':newitm,
+              'transfer':transfer,'intt':intt,'tv':tv,'tvonly':tvonly,
+             'banron':banron };
 
-    //셀렉트하고 미리 보여주기
-    function start_show(){
-      var show_val = localStorage.getItem('salradio');
-      var ment1 = talklist[show_val];
-      $('#'+show_val).prop('checked',true);
-      $('pre').not('pre.'+show_val).hide();
-      if(show_val !=='tab2'){
-       for ( var i=0 ; i < ment1.length ; i++){
-           $('#Salescon').append(`<pre class="${ment1[i].classname}"><b>${ment1[i].title}</b><br><br>${ment1[i].salecon}</pre>`)
+  //각 항목에 ID값 넣기
+  $('#radio label input').each(function(){
+    var $raval = $(this).val();
+    $(this).attr('id',$raval);
+  })
+
+  //셀렉트하고 미리 보여주기
+  function start_show(){
+    var show_val = localStorage.getItem('salradio');
+    var ment1 = talklist[show_val];
+    $('#'+show_val).prop('checked',true);
+    $('pre').not('pre.'+show_val).hide();
+    if(show_val !=='tab2'){
+     for ( var i=0 ; i < ment1.length ; i++){
+         $('#Salescon').append(`<pre class="${ment1[i].classname}"><b>${ment1[i].title}</b><br><br>${ment1[i].salecon}</pre>`)
+     }
+     $('.tab2,img').hide();
+     }else{
+         $('pre').not('pre.'+show_val).hide();
+         $('.tab2,img').show();
+     }
+  }
+
+
+
+   $('#radio label input').change(function(){
+    var val = $(this).val();
+     if( val !== 'onse'){
+      var ment = talklist[val]
+      localStorage.setItem('salradio',val);
+      $('pre').not('pre.'+val).hide();
+      if(val !=='tab2'){
+       for ( var i=0 ; i < ment.length ; i++){
+           $('#Salescon').append(`<pre class="${ment[i].classname}"><b>${ment[i].title}</b><br><br>${ment[i].salecon}</pre>`)
        }
        $('.tab2,img').hide();
+       $('.onse,iframe').hide();
        }else{
-           $('pre').not('pre.'+show_val).hide();
+           $('pre').not('pre.'+val).hide();
            $('.tab2,img').show();
        }
-    }
-  
-
-
-     $('#radio label input').change(function(){
-       
-       var val = $(this).val();
-       var ment = talklist[val]
-       localStorage.setItem('salradio',val);
-       $('pre').not('pre.'+val).hide();
-       if(val !=='tab2'){
-        for ( var i=0 ; i < ment.length ; i++){
-            $('#Salescon').append(`<pre class="${ment[i].classname}"><b>${ment[i].title}</b><br><br>${ment[i].salecon}</pre>`)
-        }
-        $('.tab2,img').hide();
-        }else{
-            $('pre').not('pre.'+val).hide();
-            $('.tab2,img').show();
-        }
+     } else{
+      $('pre').not('pre.'+val).hide();
+      $('.tab2,img').hide();
+      $('.onse,iframe').show();
+     }
     
-    });
-     
-     $('#Salescon').on('mouseenter','pre',function(){
-       $(this).css({'font-weight':'bold','background-color': 'beige'});
-     $('pre').mouseleave(function(){
-       $(this).css({'font-weight':'normal','background-color': 'white'});
-     })
-     });
+  
+  });
+   
+   $('#Salescon').on('mouseenter','pre',function(){
+     $(this).css({'font-weight':'bold','background-color': 'beige'});
+   $('pre').mouseleave(function(){
+     $(this).css({'font-weight':'normal','background-color': 'white'});
+   })
+   });
 
-    /* $('.tab2 img').mouseenter(function(){
-       $(this).css('height','600px').mouseleave(function(){
-           $(this).css('height','350px');
-       })
-
-     }) */
-
-     $('.tab2 img').mouseenter(function(){
-       $(this).stop().animate({height:600+'px'},500).mouseleave(function(){
-           $(this).stop().animate({height:350+'px'},500);
-       })
-
+  /* $('.tab2 img').mouseenter(function(){
+     $(this).css('height','600px').mouseleave(function(){
+         $(this).css('height','350px');
      })
 
-     start_show();
+   }) */
+
+   $('.tab2 img').mouseenter(function(){
+     $(this).stop().animate({height:600+'px'},500).mouseleave(function(){
+         $(this).stop().animate({height:350+'px'},500);
+     })
 
    })
+
+   start_show();
+
+ })
+
+
+
+
+
+
+
