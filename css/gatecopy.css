@@ -1,0 +1,109 @@
+body{
+    height :100%;
+   }
+   .container{
+        display:flex;
+        flex-direction:column;
+        height :100vh;
+    }
+    html{
+      height : 100%;
+     }
+     main {
+      height : 100vh;
+      width : 100vw;
+      
+     }
+    header{
+        border-bottom:1px solid gray;
+        padding-left:20px;
+    }
+    footer {
+        border-top:1px solid gray;
+        padding-left:20px;
+        text-align:center;
+    }
+    .content{
+        display : flex;
+        flex-basis: content;
+        height :100%;
+        position:relative;
+    }
+    .content nav{
+        border-right:1px solid gray;
+        height : 100%;
+    }
+    
+    nav  {
+        
+        flex-shrink:1;
+    }
+    
+    #menuhidden_1{
+        position:relative;
+        top :10px;
+        left :70px;
+    }
+    #menuhidden_2{
+        position:relative;
+        top :10px;
+        left :35px;
+            }
+    #google_calender{
+        
+        top : 10px;
+        left :200px;
+    }
+       
+    .iframe2{
+        width:100%;
+        height:100%;
+     }
+   .iframe11{
+        position:absolute;
+        padding : 0px 0px 0px 10px;
+        top:0px;
+        left :500px;
+        height :100%;
+     }
+   .iframe1{
+        position:absolute;
+        padding : 0px 0px 0px 10px;
+        top:0px;
+        left :10px;
+        height :100%;
+   }
+     .iframe3{
+        width:100%;
+        height:100%
+     }
+     .iframe4{
+        margin :0px;
+        width:100%;
+        height:100%;
+        left:30px;
+     }
+    .del_day1{
+        width :319px;
+    }
+    #netwindow1{
+      position: absolute;
+      left :40%;
+       display : none;
+       font-weight : bold;
+       font-size : 16px;
+       z-index : 1;
+      background-color: beige;
+    }
+    #netwindow1 ul li:hover{
+        background-color: rgb(231, 227, 227);
+    }
+    #code1{
+        position :absolute;
+        left : 55%;
+        display : none;
+    }
+    .canseldate {
+        height : 20px;
+        border : 1px solid gray;
+    }
