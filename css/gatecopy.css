@@ -12,7 +12,7 @@ body{
      
      main {
       height : 100vh;
-      width : 100vw;
+      position:relative;
      }
     header{
         border-bottom:1px solid gray;
@@ -27,7 +27,7 @@ body{
         display : flex;
         flex-basis: content;
         height :100%;
-        position:relative;
+       /* position:relative; */
     }
     .content nav{
         border-right:1px solid gray;
@@ -49,6 +49,12 @@ body{
         top :10px;
         left :35px;
             }
+   
+    #menuhidden_3{
+    position:relative;
+    top :10px;
+    left :35px;
+                    }
     #google_calender{
         
         top : 10px;
@@ -56,13 +62,9 @@ body{
     }
 
     .iframe1{
-        position:absolute;
-        display : block;
-        padding : 0px 0px 0px 10px;
-        top:0px;
-        left :10px;
+      
         height :100%;
-        width : 100vw;
+        width : 300%;
    }
        
     .iframe2{
