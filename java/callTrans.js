@@ -156,10 +156,7 @@ const content = {
         $('#real_content').html($content);
     })
 
-    $('img').click(function(){
-      window.open($(this).attr('src'),'scrollbars=yes,width=500,height=400,top=10,left=20')
-    })
-
+   
     $('img').stop().mouseover(function(){
       $(this).animate({height:80+'vh'},1000);
     })
