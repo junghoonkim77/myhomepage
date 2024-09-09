@@ -157,11 +157,11 @@ const content = {
     })
 
    
-    $('img').stop().mouseover(function(){
-      $(this).animate({height:80+'vh'},500);
+    $('img').mouseover(function(){
+      $(this).stop().animate({height:80+'vh'},500);
     })
-    $('img').stop().mouseout(function(){
-      $(this).animate({height:300+'px'},500);
+    $('img').mouseout(function(){
+      $(this).stop().animate({height:300+'px'},500);
     })
    /* $first_menu.mouseover(function(){
         $(this).children().children().stop().slideDown()
