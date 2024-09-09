@@ -158,10 +158,10 @@ const content = {
 
    
     $('img').stop().mouseover(function(){
-      $(this).animate({height:80+'vh'},1000);
+      $(this).animate({height:80+'vh'},500);
     })
     $('img').stop().mouseout(function(){
-      $(this).animate({height:300+'px'},1000);
+      $(this).animate({height:300+'px'},500);
     })
    /* $first_menu.mouseover(function(){
         $(this).children().children().stop().slideDown()
