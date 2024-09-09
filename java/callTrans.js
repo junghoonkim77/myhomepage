@@ -170,7 +170,7 @@ const content = {
 
    
     $('img').mouseover(function(){
-      $(this).stop().animate({height:80+'vh'},500);
+      $(this).stop().animate({height:90+'vh'},500);
     })
     $('img').mouseout(function(){
       $(this).stop().animate({height:300+'px'},500);
