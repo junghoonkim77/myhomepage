@@ -77,6 +77,15 @@ let team =
       })
     
   
+      $('#password').keyup(function(){
+        const $passval = $(this).val();
+        if($passval ==="6279"){
+          $('#tabs-3 table').show();
+        }
+      })
+
+
+
   }) //마지막 스코프 
 
 
