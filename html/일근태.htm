@@ -155,10 +155,10 @@
   </div>  
 
   <div class="balance">
-    <h4>상대비율</h4>
-  <input type="text" class="balance1" placeholder="비교1"><span> :</span>
-  <input type="text" class="balance1_1" placeholder="비교1_1"><span> =</span><br>
-  <input type="text" class="balance2" placeholder="비교2"><span> :</span>
+    <h4 id="compare" style="cursor:pointer">상대비율</h4><span id="compare_resul"></span>
+  <input type="text" class="balance1" placeholder="기준점1(인원 등)"><span> :</span>
+  <input type="text" class="balance1_1" placeholder="기준점1결과"><span> =</span><br>
+  <input type="text" class="balance2" placeholder="기준점2(인원 등)"><span> :</span>
   <input type="text" class="balance2_2" placeholder="Χ">
   </div>
   <div class="dailyreport">
@@ -327,7 +327,7 @@
  var $nowgoal = Number(nowgoal);
  var $result = document.getElementById('result');
  var resul =Number($nowgoal*100/$goal) ;
-  $result.innerHTML= resul.toFixed(2) ;
+  $result.innerHTML= resul.toFixed(3) ;
  })
  
   $('.balance2').on('keyup',function(){
@@ -347,8 +347,17 @@
    $('.situation').eq($idx).css('display','block').siblings().css('display','none');
   })
 
-  }) // 마지막 줄
+  $('#compare').on('click',function(){
+  const seoul =  Number( $('.balance1_1').val() ) /  Number( $('.balance1').val() ) ;
+  const others =  Number( $('.balance2_2').val() ) /  Number( $('.balance2').val() ) ;
   
+  if(seoul > others ) {
+    $('#compare_resul').text('우세');
+  } else{
+    $('#compare_resul').text('열위');
+  }
+  }) 
+}) // 마지막 줄
  
 
   
