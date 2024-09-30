@@ -46,7 +46,28 @@ echo "<br>". min(12,3,44,55,54);
 $rand = rand(1,6);
 echo "<br>".$rand; //난수발생 아주 좋다.
 
+$arr = [
+  1 => "사과",
+  2 => "배",
+  3 => "딸기",
+  4 => "바나나"
+];
 
+foreach($arr AS $ar){
+  echo $ar ;
+}
+
+
+$arr1 =[
+  "hoon" => ['fullname'=>'김정훈','hobby'=>'coding','age'=>'48'],
+  "jjoo" => ['fullname'=>'김주남','hobby'=>'stock','age'=>'48'],
+  "joon" => ['fullname'=>'김기준','hobby'=>'computer','age'=>'18'],
+  "eun" => ['fullname'=>'김기은','hobby'=>'sleeping','age'=>'16']
+];
+$arr1_first ="hoon";
+echo '<br> 배열의 길이는'. count($arr1).' 입니다.';
+echo '<br> 배열안에 첫번째 요소의 길이는'. count($arr1['hoon']).' 입니다.';
+var_dump( $arr1[$arr1_first]) ;
 ?>
 <!DOCTYPE html>
 <html lang="en">
