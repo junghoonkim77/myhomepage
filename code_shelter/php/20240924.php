@@ -68,6 +68,7 @@ $arr1_first ="hoon";
 echo '<br> 배열의 길이는'. count($arr1).' 입니다.';
 echo '<br> 배열안에 첫번째 요소의 길이는'. count($arr1['hoon']).' 입니다.';
 var_dump( $arr1[$arr1_first]) ;
+echo $arr1[$arr1_first]['fullname'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
