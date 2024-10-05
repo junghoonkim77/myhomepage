@@ -11,7 +11,7 @@ var_dump($test1);
 echo $test1[0];
 
 $test2=["김정훈"=>'인격장애자','2','3'];
-echo strlen($test2['김정훈']) ;
+echo '이것은 strlen :'. strlen($test2['김정훈']) ;
 echo "<br>";
 echo str_word_count('word');
 
