@@ -12,12 +12,31 @@ $str ="a,b,c,d,e";
 $arr = explode(',',$str);
 print_r($arr);
 echo count($arr);
-
-echo end($arr);  //배열의 마지막 값을 리컨 , 구해주는 함수
 echo "<br>";
-$ext = 'aaa.exe';
+echo end($arr);  //배열의 마지막 값을 리턴 , 구해주는 함수
+
+/*$ext = 'aaa.exe';
 $extarr = explode('.',$ext);
 print_r($extarr);
+echo "<br>";
+echo end($extarr); */
+
+function extention($ext){
+    $textarr = explode('.',$ext);
+    $endtext = end($textarr );
+    echo $endtext ;
+}
+
+
+if(isset($_GET['extention'])){
+   $text = $_GET['extention'] ;
+   extention($text);
+ 
+}else{
+    echo "br";
+    echo "전달된 내용이 없슈";
+}
+
 ?>
 
 <script>
