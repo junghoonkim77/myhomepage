@@ -11,7 +11,13 @@
 $str ="a,b,c,d,e";
 $arr = explode(',',$str);
 print_r($arr);
+echo count($arr);
 
+echo end($arr);  //배열의 마지막 값을 리컨 , 구해주는 함수
+echo "<br>";
+$ext = 'aaa.exe';
+$extarr = explode('.',$ext);
+print_r($extarr);
 ?>
 
 <script>
