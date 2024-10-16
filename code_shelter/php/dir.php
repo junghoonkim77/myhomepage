@@ -9,14 +9,21 @@
     <?php 
     $dir_name = "./uploadfile";
     $d = dir($dir_name); // 인스턴스를 만들어 준다.
-    $file_name = $d -> read();    
+   /* $file_name = $d -> read();    
     echo $file_name.'<br>' ; 
     $file_name = $d -> read();
     echo $file_name."<br>";
     $file_name = $d -> read();
-    echo $file_name."<br>";
+    echo $file_name."<br>"; */
+
+    while(($file_name =$d -> read()) !== false){
+        if($file_name == "." || $file_name ==".."){
+          continue;  
+        }
+        echo $file_name."<br>";
+    }
     
-    $d -> close(); 
+    $d -> close();  // 메모리를 반납하는 절차 
     ?>
 </body>
 </html>
