@@ -18,10 +18,10 @@
               $ext= end($arr);
               if( $ext=="jpg" || $ext =="JPG" || $ext == "png" || $ext == "PNG" || $ext == "jpeg" ){
                 echo "
-                <div class='img_div'>
-
-                </div>
-                " ;
+                <div class='img_div'>".
+                    "<img src = "."upload/".$file.">".
+                "</div>";
+                
               }
          }
         ?>
