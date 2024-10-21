@@ -1,6 +1,16 @@
 <?php 
 include "menu.html";
 
+/*if($_FILES['photo']['name']==""){
+    echo "
+    <script>
+    alert('파일을 선택하지 않으셨습니다.');
+    self.location.href='./fileUploadForm.php';
+    </script>
+    ";
+    exit;
+    } */
+
 $file_name = $_FILES['photo']['name'];
 $arr  = explode('.',$file_name);
 $ext = end($arr); // 확장자를 갖고 오는 것 
