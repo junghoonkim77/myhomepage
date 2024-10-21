@@ -19,7 +19,7 @@
               if( $ext=="jpg" || $ext =="JPG" || $ext == "png" || $ext == "PNG" || $ext == "jpeg" ){
                 echo "
                 <div class='img_div'>".
-                    "<img src = "."upload/".$file.">".
+                    "<img src = "."upload/".$file." width="."100".">".
                 "</div>";
                 
               }
