@@ -228,41 +228,53 @@
       font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
     .tg .tg-lboi{border-color:inherit;text-align:center;vertical-align:middle}
     .tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
+    .background{background-color: rgb(218, 213, 213);}
+    .salesinput {width :70px;}
     </style>
     <table class="tg" id="sales_total"><thead>
       <tr>
-        <th class="tg-0pky" rowspan="2"></th>
-        <th class="tg-lboi" rowspan="2">인티</th>
-        <th class="tg-lboi" rowspan="2">모바일</th>
-        <th class="tg-lboi" rowspan="2">통리</th>
-        <th class="tg-lboi" rowspan="2">가설</th>
-        <th class="tg-0pky" colspan="3">TV쿠폰(5천원권)</th>
-        <th class="tg-0pky" colspan="3">TV쿠폰(1만원권)</th>
+        <th class="tg-0pky background" rowspan="2"></th>
+        <th class="tg-lboi background" rowspan="2">인티</th>
+        <th class="tg-lboi background" rowspan="2">모바일</th>
+        <th class="tg-lboi background" rowspan="2">통리</th>
+        <th class="tg-lboi background" rowspan="2">가설</th>
+        <th class="tg-0pky background" colspan="3">TV쿠폰(5천원권)</th>
+        <th class="tg-0pky background" colspan="3">TV쿠폰(1만원권)</th>
       </tr>
       <tr>
-        <th class="tg-0pky">부여건</th>
-        <th class="tg-0pky">등록예정</th>
-        <th class="tg-0pky">등록완료</th>
-        <th class="tg-0pky">부여건</th>
-        <th class="tg-0pky">등록예정</th>
-        <th class="tg-0pky">등록완료</th>
+        <th class="tg-0pky background">부여건</th>
+        <th class="tg-0pky background">등록예정</th>
+        <th class="tg-0pky background">등록완료</th>
+        <th class="tg-0pky background">부여건</th>
+        <th class="tg-0pky background">등록예정</th>
+        <th class="tg-0pky background">등록완료</th>
       </tr></thead>
     <tbody>
       <tr>
         <td class="tg-0pky">통화품질팀</td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
+        <td class="tg-0pky it"></td>
+        <td class="tg-0pky mobile"></td>
+        <td class="tg-0pky tongri"></td>
+        <td class="tg-0pky gasul"></td>
+        <td class="tg-0pky coupon5"></td>
+        <td class="tg-0pky coupon51"></td>
+        <td class="tg-0pky coupon52"></td>
+        <td class="tg-0pky coupon1"></td>
+        <td class="tg-0pky coupon11"></td>
+        <td class="tg-0pky coupon12"></td>
       </tr>
     </tbody>
     </table>
+    <input type="text" name="" id="it" class="salesinput" placeholder="인티">
+    <input type="text" name="" id="mobile" class="salesinput" placeholder="모바일">
+    <input type="text" name="" id="tongri" class="salesinput" placeholder="통리">
+    <input type="text" name="" id="gasul" class="salesinput" placeholder="가설"><br>
+    <input type="text" name="" id="coupon5" class="salesinput" placeholder="5천부여권" value="8">
+    <input type="text" name="" id="coupon51" class="salesinput" placeholder="5천등록예정" value="0">
+    <input type="text" name="" id="coupon52" class="salesinput" placeholder="5천등록완료" value="8"><br>
+    <input type="text" name="" id="coupon1" class="salesinput" placeholder="1만부여권" value="10">
+    <input type="text" name="" id="coupon11" class="salesinput" placeholder="1만등록예정">
+    <input type="text" name="" id="coupon12" class="salesinput" placeholder="1만등록완료">
 </div>
 
 </div> <!-- 세번째 플렉스 박스 끝 -->
@@ -405,10 +417,31 @@
   }
   }) 
 
+  $('.salesinput').each(function(){
+    const placeholder = $(this).attr('placeholder');
+    $(this).attr('title',placeholder);
+  }) // title 한번에 넣기 코드
+  
+  const $salesValarr = [];
   $('#sales_total').click(function(){
     $lib.rangecopy('#sales_total');
+    $('.salesinput').each(function(){
+      const  $salesInVal = $(this).val();
+      if($salesInVal == ""){
+        $salesValarr.push('.');
+      }else{
+        $salesValarr.push($salesInVal);
+      }
+    })
+   const $salesValarrTxt = JSON.stringify($salesValarr);
+   localStorage.setItem('salesgoal',$salesValarrTxt);
   }) // 세일즈 취합창 카피코드
 
+  $('.salesinput').on('keyup',function(){
+      const inputId = $(this).attr('id');
+      const inputVal = $(this).val();
+      $(`.${inputId}`).text(inputVal);
+  })
 
 
 }) // 마지막 줄
