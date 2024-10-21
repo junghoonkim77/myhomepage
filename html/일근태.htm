@@ -12,6 +12,7 @@
   <button class="situbut">긴급연반차</button>
   <button class="situbut">긴급병가</button>
   <button class="situbut">청원</button>
+  <button class="situbut">세일즈보고</button>
   <div class="container">
   <div>
   <div style="cursor :pointer" id="copy_range">
@@ -218,6 +219,52 @@
     <label for="">10.청원종료후 양식에 맞춰 작성후 운영팀 제출<input type="checkbox" name="" id=""></label>
 </div>
 
+<div class="situation"> <!-- 처음부분-->
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+      overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-lboi{border-color:inherit;text-align:center;vertical-align:middle}
+    .tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
+    </style>
+    <table class="tg" id="sales_total"><thead>
+      <tr>
+        <th class="tg-0pky" rowspan="2"></th>
+        <th class="tg-lboi" rowspan="2">인티</th>
+        <th class="tg-lboi" rowspan="2">모바일</th>
+        <th class="tg-lboi" rowspan="2">통리</th>
+        <th class="tg-lboi" rowspan="2">가설</th>
+        <th class="tg-0pky" colspan="3">TV쿠폰(5천원권)</th>
+        <th class="tg-0pky" colspan="3">TV쿠폰(1만원권)</th>
+      </tr>
+      <tr>
+        <th class="tg-0pky">부여건</th>
+        <th class="tg-0pky">등록예정</th>
+        <th class="tg-0pky">등록완료</th>
+        <th class="tg-0pky">부여건</th>
+        <th class="tg-0pky">등록예정</th>
+        <th class="tg-0pky">등록완료</th>
+      </tr></thead>
+    <tbody>
+      <tr>
+        <td class="tg-0pky">통화품질팀</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+      </tr>
+    </tbody>
+    </table>
+</div>
+
 </div> <!-- 세번째 플렉스 박스 끝 -->
 </div>
 
@@ -357,6 +404,11 @@
     $('#compare_resul').text('열위');
   }
   }) 
+
+  $('#sales_total').click(function(){
+    $lib.rangecopy('#sales_total');
+  })
+
 }) // 마지막 줄
  
 
