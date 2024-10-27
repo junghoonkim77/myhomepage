@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>로그인</h1>
-    <form action="login_ok.php" name="login_form" method="post" autocomplete="off">
+    <form action="login_ok.php" id="login_form" name="login_form" method="post" autocomplete="off">
         <label for="">아이디</label>
         <input type="text" name="id" id="id" placeholder="아이디 입력"></br>
         <label for="">비밀번호</label>
@@ -25,12 +25,19 @@
         const pw = $('#pw');
         const btn = $('#login_btn');
         btn.on('click',(e)=>{
+            e.preventDefault();
             if(id.val()==""){
-                e.preventDefault()
-            }else{
-                e.submit();
+                alert('아이디를 입력해 주세요~!')
+                id.focus();
+                return false
             }
-            
+
+            if(pw.val()==""){
+                alert('비밀번호를 입력해 주세요~!')
+                pw.focus();
+                return false
+            }
+            $('#login_form').submit();  // form태그가 감싸고 있기 대문에 form태그를 submit해야 한다.
         })
     </script>
 </body>
