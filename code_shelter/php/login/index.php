@@ -20,6 +20,7 @@
         <input type="password" name="pw" id="pw" placeholder="비번 입력"></br>
         <button id="login_btn">확인</button>
     </form>
+    <a href="member.php">멤버 전용페이지로 이동</a>
     <script>
         const id = $('#id');
         const pw = $('#pw');
