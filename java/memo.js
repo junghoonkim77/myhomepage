@@ -30,7 +30,9 @@ $alarm_list.blur(function(){
  })
 //알람메모 저장하기 
 
-const alarm_memo ={'alarm_memo0':'.','alarm_memo1':'.','alarm_memo2':'.','alarm_memo3':'.'}
+const alarm_memo ={'alarm_memo0':'.','alarm_memo1':'.','alarm_memo2':'.','alarm_memo3':'.'
+  ,'alarm_memo4':'.','alarm_memo5':'.','alarm_memo6':'.','alarm_memo7':'.','alarm_memo8':'.'
+  ,'alarm_memo9':'.'}
 $('.alarm_memo').blur(function(){
  const alarmKey = $(this).attr('id'); 
  const alarm_memoVal = $(this).val();
@@ -49,11 +51,24 @@ const $setTime1 = $('#inputtime0');
 const $setTime2 = $('#inputtime1');
 const $setTime3 = $('#inputtime2');
 const $setTime4 = $('#inputtime3');
+const $setTime5 = $('#inputtime4');
+const $setTime6 = $('#inputtime5');
+const $setTime7 = $('#inputtime6');
+const $setTime8 = $('#inputtime7');
+const $setTime9 = $('#inputtime8');
+const $setTime10 = $('#inputtime9');
+
 
 const setTime1 = $setTime1.val();
 const setTime2 = $setTime2.val();
 const setTime3 = $setTime3.val();
 const setTime4 = $setTime4.val();
+const setTime5 = $setTime5.val();
+const setTime6 = $setTime6.val();
+const setTime7 = $setTime7.val();
+const setTime8 = $setTime8.val();
+const setTime9 = $setTime9.val();
+const setTime10 = $setTime10.val();
 
 const date = new Date();  
 const hours = date.getHours();  
@@ -63,9 +78,20 @@ const cond1 = current == setTime1;
 const cond2 = current == setTime2;
 const cond3 = current == setTime3;
 const cond4 = current == setTime4;
-const conditions = [cond1, cond2, cond3, cond4];
-const names = {0: "inputtime0", 1: "inputtime1", 2: "inputtime2", 3: "inputtime3"}
-const names1 = {0: "alarm_memo0", 1: "alarm_memo1", 2: "alarm_memo2", 3: "alarm_memo3"}
+const cond5 = current == setTime5;
+const cond6 = current == setTime6;
+const cond7 = current == setTime7;
+const cond8 = current == setTime8;
+const cond9 = current == setTime9;
+const cond10 = current == setTime10;
+const conditions = [cond1, cond2, cond3, cond4, cond5, cond6, cond7, cond8, cond9, cond10];
+const names = {0: "inputtime0", 1: "inputtime1", 2: "inputtime2", 3: "inputtime3"
+  , 4: "inputtime4", 5: "inputtime5", 6: "inputtime6", 7: "inputtime7", 8: "inputtime8"
+  , 9: "inputtime9"
+}
+const names1 = {0: "alarm_memo0", 1: "alarm_memo1", 2: "alarm_memo2", 3: "alarm_memo3"
+  , 4: "alarm_memo4", 5: "alarm_memo5", 6: "alarm_memo6", 7: "alarm_memo7", 8: "alarm_memo8"
+  , 9: "alarm_memo9" }
 // 시간이 맞으면 로컬스토리지 값과 시간 밸류를 지움 
 for (let i=0; i<conditions.length; i++){
   if(conditions[i]){
