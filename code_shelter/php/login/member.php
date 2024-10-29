@@ -8,7 +8,7 @@
 <body>
     <?php 
     session_start();
-    if(!isset($_SESSION['ss_id']) or $_SESSION['ss_id']=""){
+    if(!isset($_SESSION['ss_id']) or $_SESSION['ss_id']==""){
         echo "
         <script>
         alert('여기는 회원전용 페이지 입니다,로그인후 접속이 가능합니다.');
@@ -17,7 +17,7 @@
         ";
         exit;
     }
-
+    
     echo "<h1>".$_SESSION['ss_id']."님 멤버전용 페이지 입니다.</h1>"
     
     ?>

@@ -29,8 +29,9 @@
         ";
         exit;
     }
-
-    if($id=='guest' and $pw =='1234'){
+   $id_arr =['guest','folkball','hoon'];
+   $pw_arr =['1234','amho','2721'];
+    if(in_array($id,$id_arr) and in_array($pw,$pw_arr)){
         session_start();
         $_SESSION['ss_id'] = $id;
         

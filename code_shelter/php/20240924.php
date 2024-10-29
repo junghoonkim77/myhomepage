@@ -53,8 +53,8 @@ $arr = [
   4 => "바나나"
 ];
 
-foreach($arr AS $ar){
-  echo $ar ;
+foreach($arr as $key){
+  echo "foreach구문입니다.:". $key ;
 }
 
 
