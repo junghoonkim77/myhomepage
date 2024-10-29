@@ -35,19 +35,22 @@
         session_start();
         $_SESSION['ss_id'] = $id;
         
+       // self.location.href='member.php'; //회원전용 페이지로 이동
+       // self.location.href='index.php'; //회원전용 페이지로 이동
         echo "
         <script>
         alert('로그인에 성공했습니다.');
-        self.location.href='member.php'; //회원전용 페이지로 이동
         </script>
         ";
+        header("Location:member.php");
+        
     }else{
         echo "
         <script>
         alert('로그인에 실패했습니다. 아이디와 비번을 확인해주세요');
-        self.location.href='index.php'; //회원전용 페이지로 이동
         </script>
         ";
+        header("Location:index.php");
     }
     ?>
 </body>
