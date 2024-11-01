@@ -76,7 +76,7 @@ $(function(){
         $('div').animate({'margin':'0px','left':'0px','color':'blue','opacity':0},700,'swing',
         function(){location.reload()});
     }); 
-    });
+    }); //
     
      
    
