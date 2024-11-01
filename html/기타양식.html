@@ -23,6 +23,7 @@
      <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
      integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
      crossorigin="anonymous"></script>
+  <script src="../java/library.js"></script>
     
     </head>
 
@@ -159,8 +160,12 @@ KT 유선 인터넷 WIFI 설치 시 해당 WIFI 연결 가능한 성능좋은
 <script>
     $('pre').click(function(){
        const $preVal =  $(this).text();
-        navigator.clipboard.writeText($preVal);
-    })
+       if(navigator.clipboard){
+        $lib.clipcopy($preVal);
+      } else{
+        $lib.clipcopy2($preVal);
+      }
+    })  
 </script>
 </body>
 

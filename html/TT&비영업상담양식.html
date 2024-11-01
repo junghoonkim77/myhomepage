@@ -27,6 +27,7 @@
      <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
      integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
      crossorigin="anonymous"></script>
+ <script src="../java/library.js"></script>
     
     </head>
 
@@ -230,9 +231,12 @@ y일 경우 개통일자 :
 <script>
     $('pre').click(function(){
        const $preVal =  $(this).text();
-        console.log($preVal);
-        navigator.clipboard.writeText($preVal);
-    })
+       if(navigator.clipboard){
+        $lib.clipcopy($preVal);
+      } else{
+        $lib.clipcopy2($preVal);
+      }
+    })  
 </script>
 </body>
 
