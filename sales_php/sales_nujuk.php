@@ -122,7 +122,7 @@
     ?>
     <h3><?=$phpmon.'월 현재'?> 개통건수 : <span class="nowmonth"></span></h3>
     <div class="container">
-    <table  data-mon=<?="'".$phpmon."'"?>> 
+    <table id="TotalSucc" data-mon=<?="'".$phpmon."'"?>> 
      <thead><td>순서</td><td>고객번호</td><td>고객명</td><td>팀원명</td><td>개통일자</td><td>상품</td></thead>
      
         <?php echo $td ?>
@@ -198,6 +198,7 @@
    </select> 
    </p> 
    <div class="total2">.<span class="context2"></span></div>
+   <button id="fullCopy" style="background-color:darkkhaki; font-size:12px;">전체복사</button>
      </div>
   
      <div>
@@ -334,6 +335,10 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
       nowmon_nameArray.length = 0 ;
    
       $('.'+tname+$seltmonVAl).css('display','block');
+  })
+
+  $('#fullCopy').on('click',function(){
+    $lib.rangecopy('#TotalSucc');
   })
 
   //이건 css로 폭 유지하는 코드
