@@ -534,10 +534,6 @@ $(function(){
     window.open('http://folkball.dothome.co.kr/mypage/sales_php/sales_siljukcon.php', '_blank', 'width=1000, height=650' )
 
   }) ;
-
- 
-
-
   
 
  // 메모창 하나 없애는 코드 분리작업
@@ -584,3 +580,16 @@ $(function(){
   $(this).text('SR양식');
  }
 })
+
+$('.minimemobtn1').on('dblclick',()=>{
+  $('#minimemo').toggle();
+})
+
+$('#minimemo').on('keyup',function(){
+  var $miniVal = $(this).val();
+  localStorage.setItem('miniMemoVal',$miniVal);
+  const $localMiniVal = localStorage.getItem('miniMemoVal');
+  
+})
+const $localMiniVal = localStorage.getItem('miniMemoVal');
+$('#minimemo').val($localMiniVal);
