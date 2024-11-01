@@ -1,3 +1,15 @@
+.minimemo{z-index : 2;  background-color: beige;font-size: 9px;width :90px; 
+  font-weight: bold; 
+  position : absolute;
+  left : 300px;
+}
+
+#minimemo {
+ display : none;
+  font-size: 10px;
+}
+
+
 .task_gate {
   z-index :1 ;
  
