@@ -18,7 +18,7 @@
  <script>
     $('button').on('click',function(e){
         e.preventDefault();
-        if($('#name1')== val("") || $('#hobby')== val("") ){
+        if($('#name1').val()== ""  || $('#hobby').val() == "" ){
             alert('아이디나 비번을 입력하세요');
         } else{
             $('button').submit();
