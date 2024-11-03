@@ -23,17 +23,22 @@
     <input type="text" placeholder="경로를 넣으세요" name="" id="">
     <div class="div1"></div>
     <div class="div2"></div>
+    <div class="div3"></div>
     <script>
         $('input').on('keyup',function(){
             $val = $(this).val();
             $chval = $val.replaceAll("\\","/")
+            $gitresul =$chval.replace('C:/Bitnami/wampstack-8.1.2-0/apache2/htdocs/GitHub/','https://junghoonkim77.github.io/');
+            console.log($gitresul);
             $result = $chval.replaceAll("htdocs","localhost")
             $result1 = $result.replace('che2/','★');
             $staridx = $result1.indexOf('★')+1
             $result2 = $result1.slice($staridx);
             $result3=$result2.replace('localhost/GitHub/myhomepage','http://folkball.dothome.co.kr/mypage');
+            
             $('.div1').text($result2);
             $('.div2').text($result3);
+            $('.div3').text($gitresul);
            
         })
         $('.div1').click(function(){
@@ -41,6 +46,10 @@
         });
 
         $('.div2').click(function(){
+            $lib.clipcopy($(this).text());
+        })
+
+        $('.div3').click(function(){
             $lib.clipcopy($(this).text());
         })
     </script>
