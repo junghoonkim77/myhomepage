@@ -2,7 +2,7 @@
 include('connection.php');
 
 $TableBuild =
- "CREATE TABLE `githubTest` (
+ "CREATE TABLE `githubtest` (
     `num` INT NOT NULL AUTO_INCREMENT,
     `name1` VARCHAR(20) NOT NULL,
     `hobby` VARCHAR(30) NOT NULL,

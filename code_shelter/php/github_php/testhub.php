@@ -13,7 +13,7 @@ $sql1 ="SELECT * FROM githubtest";
 $result1 = mysqli_query($conn,$sql1);
 
 $li ='';
-while($row=mysqli_fetch_array($result1)){
+while($row =mysqli_fetch_array($result1)){
 $li=$li.'<li>'.$row['num'].'번'.'이름은 : '.$row['name1'].'취미는 :'.$row['hobby'].' 입니다.'.'</li>';
 }
 ?>

@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+    </script> 
     <title>깃허브에서 입력하기</title>
 </head>
 <body>
     <form action="http://folkball.dothome.co.kr/mypage/code_shelter/php/github_php/testhub.php" method="get">
-        <input type="text" name="name1" id="" placeholder="이름을 입력하세요" autocomplete="off">
-        <input type="text" name="hobby" id="" placeholder="성격을 입력하세요" autocomplete="off">
+        <input type="text" name="name1" id="name1" placeholder="이름을 입력하세요" autocomplete="off">
+        <input type="text" name="hobby" id="hobby" placeholder="성격을 입력하세요" autocomplete="off">
         <button>내용 전송하기</button>
     </form>
-
+ <script>
+    $('button').on('click',function(e){
+        e.preventDefault();
+        if($('#name1')== val("") || $('#hobby')== val("") ){
+            alert('아이디나 비번을 입력하세요');
+        } else{
+            $('button').submit();
+        }
+        
+    }) 
+ </script>
 </body>
 </html>
