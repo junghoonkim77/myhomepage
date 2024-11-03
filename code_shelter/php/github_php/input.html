@@ -10,7 +10,7 @@
     <title>깃허브에서 입력하기</title>
 </head>
 <body>
-    <form action="http://folkball.dothome.co.kr/mypage/code_shelter/php/github_php/testhub.php" method="get">
+    <form action="http://folkball.dothome.co.kr/mypage/code_shelter/php/github_php/testhub.php" method="get" id="form">
         <input type="text" name="name1" id="name1" placeholder="이름을 입력하세요" autocomplete="off">
         <input type="text" name="hobby" id="hobby" placeholder="성격을 입력하세요" autocomplete="off">
         <button>내용 전송하기</button>
@@ -21,7 +21,7 @@
         if($('#name1').val()== ""  || $('#hobby').val() == "" ){
             alert('아이디나 비번을 입력하세요');
         } else{
-            $('button').submit();
+            $('#form').submit();
         }
         
     }) 
