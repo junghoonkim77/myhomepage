@@ -28,7 +28,9 @@
         $('input').on('keyup',function(){
             $val = $(this).val();
             $chval = $val.replaceAll("\\","/");
-            $gitresul =$chval.replace('C:/Bitnami/wampstack-8.1.6-0/apache2/htdocs/gitHub/','https://junghoonkim77.github.io/');
+            // $gitresul =$chval.replace('/C:/Bitnami/wampstack-8.1.6-0/apache2/htdocs/gitHub/','https://junghoonkim77.github.io/');
+            $gitresul =$chval.replace(/github/i,'#');
+            console.log($gitresul);
             $result = $chval.replaceAll("htdocs","localhost")
             $result1 = $result.replace('che2/','★');
             $staridx = $result1.indexOf('★')+1
