@@ -27,18 +27,22 @@
     <script>
         $('input').on('keyup',function(){
             $val = $(this).val();
-            $chval = $val.replaceAll("\\","/")
-            $gitresul =$chval.replace('C:/Bitnami/wampstack-8.1.2-0/apache2/htdocs/GitHub/','https://junghoonkim77.github.io/');
-            
+            $chval = $val.replaceAll("\\","/");
+            // $gitresul =$chval.replace('/C:/Bitnami/wampstack-8.1.6-0/apache2/htdocs/gitHub/','https://junghoonkim77.github.io/');
+            $gitresul1 =$chval.replace(/github/i,'#');
+            $gitresul_idx = $gitresul1.indexOf('#')+1
+            $gitresul_mid = $gitresul1.slice($gitresul_idx);
+            $gitresul_fin = "https://junghoonkim77.github.io"+$gitresul_mid;
+            //깃허브 홈페이지 접속방법
             $result = $chval.replaceAll("htdocs","localhost")
             $result1 = $result.replace('che2/','★');
             $staridx = $result1.indexOf('★')+1
             $result2 = $result1.slice($staridx);
-            $result3=$result2.replace('localhost/GitHub/myhomepage','http://folkball.dothome.co.kr/mypage');
-            
+           // $result3=$result2.replace('localhost/github/myhomepage','http://folkball.dothome.co.kr/mypage');
+            $result3=$result2.replace(/localhost\/github\/myhomepage/i,'http://folkball.dothome.co.kr/mypage');
             $('.div1').text($result2);
             $('.div2').text($result3);
-            $('.div3').text($gitresul);
+            $('.div3').text($gitresul_fin);
            
         })
         $('.div1').click(function(){
