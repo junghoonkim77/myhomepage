@@ -14,7 +14,7 @@ if(strpos($ag,'Chrome')){
 ?>
 
 <script>
-    const ag = JSON.parse('<?php echo json_encode($ag); ?>')
+    const ag = JSON.parse('<?php echo json_encode($ag); ?>');
     console.log(ag);
 </script>
 <a href="<?= $_SERVER['PHP_SELF']; ?>?a=b">b 값을 가져오기 </a>
