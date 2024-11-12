@@ -12,4 +12,12 @@ if($conn ->connect_error){
 }else{
     echo "DB연결 성공";
 }
+
+$conn1 = mysqli_connect($servername,$username,$password);
+if(!$conn1){
+    echo "db연결에 실패했습니다.";
+}else{
+    echo "db연결에 성공했습니다.";
+}
+
 ?>
