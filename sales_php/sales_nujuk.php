@@ -199,6 +199,42 @@
    </p> 
    <div class="total2">.<span class="context2"></span></div>
    <button id="fullCopy" style="background-color:darkkhaki; font-size:12px;">전체복사</button>
+   <table>
+    <thead>
+      <tr>
+      <td>1월</td>
+      <td>2월</td>
+      <td>3월</td>
+      <td>4월</td>
+      <td>5월</td>
+      <td>6월</td>
+      <td>7월</td>
+      <td>8월</td>
+      <td>9월</td>
+      <td>10월</td>
+      <td>11월</td>
+      <td>12월</td>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td id="01monDivide"></td>
+      <td id="02monDivide"></td>
+      <td id="03monDivide"></td>
+      <td id="04monDivide"></td>
+      <td id="05monDivide"></td>
+      <td id="06monDivide"></td>
+      <td id="07monDivide"></td>
+      <td id="08monDivide"></td>
+      <td id="09monDivide"></td>
+      <td id="10monDivide"></td>
+      <td id="11monDivide"></td>
+      <td id="12monDivide"></td>
+    </tr>
+  </tbody>
+  
+    
+   </table>
      </div>
   
      <div>
@@ -345,7 +381,37 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
   const $tablewidth = $('table').outerWidth(true)+20 
    $('.gridcontainer').css('left',$tablewidth+'px');
   
+   // 월별실적을 전체적으로 보여주는 코드
+   var viewMonsum = 0;
+   var $viewMonsum ={'1':'','2':'','3':'','4':'','5':'','6':'','7':'','8':'','9':'','10':'','11':'','12':''};
+   $("table tr td:nth-child(5)").each(function(a){
+    const $monthtxt1 = $(this).text().slice(5,7);
+    $(this).siblings('td:nth-child(6)').addClass($monthtxt1+'monDivide');
+     }  
+   )
  
+   for(var t=1 ; t<=12 ; t++){
+    if(t<10){
+      $('.'+'0'+t+'monDivide').each(function(){
+    viewMonsum+= $(this).text().length
+   })
+    }else{
+      $('.'+t+'monDivide').each(function(){
+    viewMonsum+= $(this).text().length
+   })
+    }
+     $viewMonsum[t]=viewMonsum; //더한 총값 ( ㅠㅠ 누더기)
+     if(t<10){
+      $('#'+'0'+t+'monDivide').text($viewMonsum[t]+'건');
+     }else{
+      $('#'+t+'monDivide').text($viewMonsum[t]+'건');
+     }
+     
+     viewMonsum = 0 ;
+     
+   }
+    
+   
 </script>
 </body>
 </html>
