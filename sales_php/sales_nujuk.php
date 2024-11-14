@@ -263,7 +263,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
  $("table tr td:nth-child(6)").each(function(){
   totalsum+=   parseInt( $(this).text().length ) ;
  });
-  $('.tsum').text(totalsum-2);
+  $('.tsum').text(totalsum-4);
 
   // 이번달 개통건수 표시창 코드 
   $("table tr td:nth-child(5)").each(function(){
