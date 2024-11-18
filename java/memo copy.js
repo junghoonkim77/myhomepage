@@ -381,6 +381,10 @@ $(function(){
               keyvalue.length = 0 ;
              })
              $textareaValue.length = 0;
+             
+             $('#memosavebut').submit();
+
+
              function savealarm(){
               $('.leftmove9').css('background-color','aqua').text('메모저장💾')
              }
