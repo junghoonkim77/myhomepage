@@ -193,8 +193,9 @@
 
      <div class="textarea_container">
      <textarea style="font-size: 11px;font-weight: bold;" class="must" id="must" title="꼭할일&더블클릭" cols="35" rows="20"></textarea>
-     <form>
-      <textarea class="delText" id="alarmText" title="비밀번호셋팅창" cols="40" rows="37" onKeyUP="javascript:cal_pre();"></textarea> 
+     
+     <form action="../mymemosave/memosave.php" method="post" name="memosavebut">
+      <textarea name="texAreamemo1" class="delText" id="alarmText" title="비밀번호셋팅창" cols="40" rows="37" onKeyUP="javascript:cal_pre();"></textarea> 
      <textarea class="delText" id="hidden1" cols="40" rows="37" onKeyUP="javascript:cal_pre();"></textarea> 
      </form>
      
