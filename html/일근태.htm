@@ -220,61 +220,21 @@
 </div>
 
 <div class="situation"> <!-- 처음부분-->
-  <style type="text/css">
-    .tg  {border-collapse:collapse;border-spacing:0;}
-    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
-      overflow:hidden;padding:10px 5px;word-break:normal;}
-    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
-      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-    .tg .tg-lboi{border-color:inherit;text-align:center;vertical-align:middle}
-    .tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
-    .background{background-color: rgb(218, 213, 213);}
-    .salesinput {width :70px;}
-    </style>
-    <table class="tg" id="sales_total"><thead>
-      <tr>
-        <th class="tg-0pky background" rowspan="2"></th>
-        <th class="tg-lboi background" rowspan="2">인티</th>
-        <th class="tg-lboi background" rowspan="2">모바일</th>
-        <th class="tg-lboi background" rowspan="2">통리</th>
-        <th class="tg-lboi background" rowspan="2">가설</th>
-        <th class="tg-0pky background" colspan="3">TV쿠폰(5천원권)</th>
-        <th class="tg-0pky background" colspan="3">TV쿠폰(1만원권)</th>
-      </tr>
-      <tr>
-        <th class="tg-0pky background">부여건</th>
-        <th class="tg-0pky background">등록예정</th>
-        <th class="tg-0pky background">등록완료</th>
-        <th class="tg-0pky background">부여건</th>
-        <th class="tg-0pky background">등록예정</th>
-        <th class="tg-0pky background">등록완료</th>
-      </tr></thead>
-    <tbody>
-      <tr>
-        <td class="tg-0pky">통화품질팀</td>
-        <td class="tg-0pky it"></td>
-        <td class="tg-0pky mobile"></td>
-        <td class="tg-0pky tongri"></td>
-        <td class="tg-0pky gasul"></td>
-        <td class="tg-0pky coupon5"></td>
-        <td class="tg-0pky coupon51"></td>
-        <td class="tg-0pky coupon52"></td>
-        <td class="tg-0pky coupon1"></td>
-        <td class="tg-0pky coupon11"></td>
-        <td class="tg-0pky coupon12"></td>
-      </tr>
-    </tbody>
-    </table>
-    <input type="text" name="" id="it" class="salesinput" placeholder="인티">
-    <input type="text" name="" id="mobile" class="salesinput" placeholder="모바일">
-    <input type="text" name="" id="tongri" class="salesinput" placeholder="통리">
-    <input type="text" name="" id="gasul" class="salesinput" placeholder="가설"><br>
-    <input type="text" name="" id="coupon5" class="salesinput" placeholder="5천부여권" value="8">
-    <input type="text" name="" id="coupon51" class="salesinput" placeholder="5천등록예정" value="0">
-    <input type="text" name="" id="coupon52" class="salesinput" placeholder="5천등록완료" value="8"><br>
-    <input type="text" name="" id="coupon1" class="salesinput" placeholder="1만부여권" value="10">
-    <input type="text" name="" id="coupon11" class="salesinput" placeholder="1만등록예정">
-    <input type="text" name="" id="coupon12" class="salesinput" placeholder="1만등록완료">
+ 
+    
+    <input type="text" name="" id="it" class="salesinput" autocomplete="off" placeholder="인티">
+    <input type="text" name="" id="mobile" class="salesinput" autocomplete="off" placeholder="모바일">
+    <input type="text" name="" id="tongri" class="salesinput" autocomplete="off" placeholder="통리">
+    <input type="text" name="" id="gasul" class="salesinput" autocomplete="off" placeholder="가설"><br>
+    <button id="worklast">인티전대보고(퇴근)</button><br>
+
+    <input type="text" name="" id="it" class="salesinput1" autocomplete="off" placeholder="팀원명">
+    <input type="text" name="" id="mobile" class="salesinput1" autocomplete="off" placeholder="가설상품">
+    <input type="text" name="" id="tongri" class="salesinput1" autocomplete="off" placeholder="개통예정일">
+    <input type="text" name="" id="gasul" class="salesinput1" autocomplete="off" placeholder="누적건수"><br>
+    <button id="worklast1">인티전대보고(가설발생시)</button>
+   
+   
 </div>
 
 </div> <!-- 세번째 플렉스 박스 끝 -->
@@ -417,32 +377,24 @@
   }
   }) 
 
-  $('.salesinput').each(function(){
-    const placeholder = $(this).attr('placeholder');
-    $(this).attr('title',placeholder);
-  }) // title 한번에 넣기 코드
   
-  const $salesValarr = [];
-  $('#sales_total').click(function(){
-    $lib.rangecopy('#sales_total');
-    $('.salesinput').each(function(){
-      const  $salesInVal = $(this).val();
-      if($salesInVal == ""){
-        $salesValarr.push('.');
-      }else{
-        $salesValarr.push($salesInVal);
-      }
-    })
-   const $salesValarrTxt = JSON.stringify($salesValarr);
-   localStorage.setItem('salesgoal',$salesValarrTxt);
-  }) // 세일즈 취합창 카피코드
-
-  $('.salesinput').on('keyup',function(){
-      const inputId = $(this).attr('id');
-      const inputVal = $(this).val();
-      $(`.${inputId}`).text(inputVal);
-  })
-
+  
+$('#worklast').on('click',function(){
+  const $sal = $('.salesinput')
+  const $salesinput =[
+`통화품질팀 인티:${$sal.eq(0).val()} / 모판 :${$sal.eq(1).val()}/ 통리 :${$sal.eq(2).val()} /가설 :${$sal.eq(3).val()}
+`  ]
+  navigator.clipboard.writeText($salesinput);
+})
+ 
+$('#worklast1').on('click',function(){
+  const $sal1 = $('.salesinput1')
+  const $salesinput1 =[
+`[IT가설] 통화품질팀 ${$sal1.eq(0).val()} / ${$sal1.eq(1).val()}/ ${$sal1.eq(2).val()} (누적${$sal1.eq(3).val()})
+` ]
+  navigator.clipboard.writeText($salesinput1);
+})
+ 
 
 }) // 마지막 줄
  
