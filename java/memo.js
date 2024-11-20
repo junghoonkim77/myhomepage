@@ -155,14 +155,19 @@ window.onload = function () {
    const valOfDIV = document.querySelector("#btn1");
    valOfDIV.addEventListener("click", function () {
        const copyElement = document.querySelector('.h1-clock');
-       copy(copyElement.innerHTML)
+       if(navigator.clipboard){
+        $lib.clipcopy(copyElement.innerHTML);
+      } else{
+        $lib.clipcopy2(copyElement.innerHTML);
+      }
+       
    })
 }
 
-  function copy (value) {
+ /* function copy (value) {
    navigator.clipboard.writeText(value);
   }
-
+ */
 //글자수 카운트 함수 
 
 
@@ -234,9 +239,6 @@ let SRarray =
 "충북 voc" : 'UCC0021',
 "대전충남 VOC" : 'UCK0042',
 "제주센터 고만코드" : 'UCI0030',
-"KTIS군포고만" : 'UC10134',
-"KTIS삼송고만" : 'UCS0029',
-"KTIS광화문(강원도)" : 'UCF0021',
 }
 
 
@@ -384,6 +386,10 @@ $(function(){
               keyvalue.length = 0 ;
              })
              $textareaValue.length = 0;
+             
+             $('#memosavebut').submit();
+
+
              function savealarm(){
               $('.leftmove9').css('background-color','aqua').text('메모저장💾')
              }
