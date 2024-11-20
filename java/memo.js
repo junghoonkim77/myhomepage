@@ -164,9 +164,17 @@ window.onload = function () {
    })
 }
 
-  function copy (value) {
+/*  function copy (value) {
    navigator.clipboard.writeText(value);
-  }
+  }  */
+
+   function copy (value) {
+    if(navigator.clipboard){
+      $lib.clipcopy(value);
+    } else{
+      $lib.clipcopy2(value);
+    }
+   }
  
 //글자수 카운트 함수 
 

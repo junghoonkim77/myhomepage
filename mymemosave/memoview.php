@@ -14,12 +14,11 @@ while($row=mysqli_fetch_array($result)){
 $memo_delnum = $_GET['delmemo']??"";
 echo $memo_delnum;
 
-/*
-if(isset($memo_delnum)){
+if(!empty($memo_delnum)){
     $sqlDEL = "DELETE FROM mymemosave WHERE id = $memo_delnum"; 
     mysqli_query($conn,$sqlDEL);
-    echo $user_delnum.'번이 삭제됐습니다.' ;
-}  */
+    echo $memo_delnum.'번이 삭제됐습니다.' ;
+}  
 ?>
 
 <!DOCTYPE html>
@@ -28,8 +27,18 @@ if(isset($memo_delnum)){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-
+     ul >* {
+        font-size : 10px;
+     }
+     ul li {
+        white-space: pre-wrap;
+     }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+    <script src="../java/library.js"></script>
     <title>서버메모저장</title>
 </head>
 <body>
@@ -37,5 +46,6 @@ if(isset($memo_delnum)){
     <ul>
         <?php echo $li; ?>
     </ul>
+
 </body>
 </html>

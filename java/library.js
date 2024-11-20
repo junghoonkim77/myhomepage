@@ -5,7 +5,7 @@ var $lib ={
     "randomNum":function(min,max){ 
         return Math.floor(Math.random() * (max-min+1)) + min;
     },
-    //클립보드 문자 카피
+    //클립보드 문자 카피  if(navigator.clipboard) 조건문을 사용하면 좋다.
     "clipcopy":function(content){
         navigator.clipboard.writeText(content);
     },
