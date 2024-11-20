@@ -164,10 +164,10 @@ window.onload = function () {
    })
 }
 
- /* function copy (value) {
+  function copy (value) {
    navigator.clipboard.writeText(value);
   }
- */
+ 
 //글자수 카운트 함수 
 
 
