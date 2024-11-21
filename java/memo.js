@@ -631,3 +631,8 @@ $('#minimemo').on('keyup',function(){
 })
 const $localMiniVal = localStorage.getItem('miniMemoVal');
 $('#minimemo').val($localMiniVal);
+
+//서버에 저장한 메모내용 여는 코드
+$('#memoview').on('click',function(){
+  window.open('../mymemosave/memoview.php', '_blank', 'width=1100, height=900' ) ; return false;
+})

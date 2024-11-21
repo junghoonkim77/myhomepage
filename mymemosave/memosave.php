@@ -12,11 +12,16 @@ $result = mysqli_query($conn,$sqlmemo);
 if($result){
     echo "
     <script>
-    self.location.href = '../html/mymemo copy.html'
+    self.location.href = '../html/mymemo.php'
     </script>
     ";
 }else{
-    echo "테이블 입력에 실패했습니다.";
+    echo "
+    <script>
+    alert('테이블 입력실패');
+    </script>
+    
+    ";
 }
 
 ?>

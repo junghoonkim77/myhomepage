@@ -28,7 +28,7 @@
  
  <button title="모두지우기" class="del drag">모두지우기</button>
 
- <h5 class="drag">메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
+ <h5 style="cursor:pointer" id="memoview" class="drag">메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
 
  <div class="buttonpack">
 
@@ -257,7 +257,7 @@
       }
       
   </script>
-  <script src="../java/memo copy.js"></script>
+  <script src="../java/memo.js"></script>
   <script src="../java/library.js"></script>
   <script src="../java/voc_bank.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

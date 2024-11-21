@@ -32,6 +32,11 @@ if(!empty($memo_delnum)){
      }
      ul li {
         white-space: pre-wrap;
+        cursor : pointer;
+     }
+
+     ul li:hover {
+        background-color: yellowgreen;
      }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
@@ -46,6 +51,15 @@ if(!empty($memo_delnum)){
     <ul>
         <?php echo $li; ?>
     </ul>
-
+<script>
+    $('ul li').on('click',function(){
+      const $thislicon =  $(this).text();
+        if(navigator.clipboard){
+        $lib.clipcopy($thislicon);
+      } else{
+        $lib.clipcopy2($thislicon);
+      }
+    })
+</script>
 </body>
 </html>
