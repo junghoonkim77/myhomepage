@@ -45,7 +45,7 @@ var htmlvoc_arr = {
 "localstrageout.html":"localstrageout.html",
 "SR다이어트휴근용.html":"SR다이어트휴근용.html",
 "휴근교육자료.html":"휴근교육자료.html",
-"mymemo copy.html":"mymemo copy.html"                
+"http://folkball.dothome.co.kr/mypage/html/mymemo.html":"http://folkball.dothome.co.kr/mypage/html/mymemo.html"                
 }
 function vocbank(htmlvoc_name,size){
         window.open(htmlvoc_arr[htmlvoc_name], '_blank', `width=${size}, height=900` ) ; 

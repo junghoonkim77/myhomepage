@@ -118,7 +118,11 @@ for (let i=0; i<conditions.length; i++){
 
 
 $('.xbutton').click(function(){
-  $lib.clipcopy($('.alarmpop pre').text()); 
+  if(navigator.clipboard){
+    $lib.clipcopy($('.alarmpop pre').text());
+  } else{
+    $lib.clipcopy2($('.alarmpop pre').text());
+  }
   $('.alarmpop').removeClass('alrmblink');
   $('body').css('background-color','white');
   
@@ -345,8 +349,11 @@ $(function(){
 
        $compass.click(function(){
         var attrcode = $(this).attr('data-code');
-        console.log(attrcode);
-        navigator.clipboard.writeText(attrcode);
+        if(navigator.clipboard){
+          $lib.clipcopy(attrcode);
+        }else{
+          $lib.clipcopy2(attrcode);
+        }        
        });
 
        
@@ -356,8 +363,12 @@ $(function(){
         var $thiskey = $(this).attr('data-code');
         var valName = valuearr[0];
         var $dbval = localStorage.getItem($thiskey);
-        navigator.clipboard.writeText($dbval);
-
+        if(navigator.clipboard){
+          $lib.clipcopy($dbval);
+        }else{
+          $lib.clipcopy2($dbval);
+        }   
+        
        })
 
       // 메모저장용 코드
