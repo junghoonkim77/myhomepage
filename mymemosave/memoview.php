@@ -6,8 +6,8 @@ $sql = "SELECT * FROM mymemosave";
 $result = mysqli_query($conn,$sql);
 $li ='';
 while($row=mysqli_fetch_array($result)){
-    $li=$li.'<li>'.$row['id'].'번 :'.$row['memocon']."<a href=./memoview.php?delmemo="
-    .$row['id'].">".$row['id']."번 메모삭제</a>".'</li>';
+    $li=$li."<a href=./memoview.php?delmemo="
+    .$row['id'].">"."삭제</a>".$row['id'].'번 :'.'<li>'.$row['memocon'].'</li>';
 };
 
 
