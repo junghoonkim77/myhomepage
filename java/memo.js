@@ -490,7 +490,6 @@ $(function(){
  var $dailywork =`<ol>
  <li>메신저로그</li>
  <li>일정체크</li>
- <li>신입_일반스킬넣기</li>
  <li>tv전원on</li>
  <li>상담일지체크</li>
  <li>회의상담일정배포</li>
@@ -516,7 +515,6 @@ $(function(){
  <li>에어컨 끄기</li>
  <li>복사기 끄기</li>
  <li>키보드,마우스끄기</li>
- <li>신입_통품스킬넣기</li>
 </ol>`
 
 
