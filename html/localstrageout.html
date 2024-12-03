@@ -46,7 +46,7 @@
     </table>
   </div>
  </div>
-  
+ <script src="../java/library.js"></script>
  <script>
     jQuery(function(){
         class LocalObj {
@@ -129,8 +129,13 @@
          var $content = $('.contents');
          $content.click(function(){
          var $thisconTent = $(this).text()
-         navigator.clipboard.writeText($thisconTent);
-         })
+         if(navigator.clipboard){
+            $lib.clipcopy($thisconTent)
+         }else{
+            $lib.clipcopy2($thisconTent);
+         }
+         }) ;
+
 
          for ( emptyKey in localStorage){
             if(localStorage.getItem(emptyKey)==""){
