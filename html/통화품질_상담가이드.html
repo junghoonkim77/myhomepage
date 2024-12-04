@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/holidayWork.css">
+    <script src="../java/library.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.js" 
     integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
@@ -13,12 +15,28 @@
     <title>통화품질 상담_ Guide</title>
 </head>
 <body>
-    <h3>[통화품질 상담Guide] _1번부터 순서대로 탐색 (입력 OR 체크)</h3>
-    <h3>하단에 "클릭후 코스 붙여넣기 클릭시 내용 자동조합&복사</h3>
-    <div>
+  <div class="h4pack">
+    <h4>[통품 휴근상담Guide] _1번부터 순서대로 (입력 OR 체크)</h4><br>
+    <h4>하단에 "클릭후 코스 붙여넣기 클릭->자동조합&복사 </h4><br>
+    <h4>장소상관여부 :특정장소(TT발행 or 발행전 협의) 체크시 TT작성창 보임<span class="ttalarm">TT접수진행▼</span></h4>
+     <button id="calltransTip">통품 호전환 TIP~!(제작중)</button>
+    
+
+  </div>
+    
+    <div id="buttonpack">
         <button class="trasswitch">데이터VOC</button>
         <button class="trasswitch">음성통화VOC</button>
         <button class="trasswitch1">메시지VOC</button>
+        <button class="address_daum">주소검색(팝업)</button>
+        <button class="trasswitch2">TT발행방법</button>
+        <button class="education">📋휴근교육자료</button>
+        <button class="techsr" >신호점검요청</button>
+        <button class="techsr" >중계기설치요청</button>
+        <button class="techsr">중계기점검요청</button>
+        <button class="techsr">중계기철거요청</button>
+        <button class="techsr">LTE_EGG_TT접수</button>
+        <div class="copyalarm">SR양식복사 완료</div>
     </div>
 
 
@@ -50,26 +68,27 @@
       
         <p>5.발생시기 :
         <label><input  value=" 모름" data-flex="발생시기" type="radio" name="when" >잘 모르겠음</label>
-        <label><input  value="예전부터 간헐적" data-flex="발생시기" type="radio" name="when" >예전부터 간헐적</label>
+        <label><input  value="예전부터 간헐적" data-flex="발생시기" type="radio" name="when" >예전부터 종종</label>
         <label><input  value="현재도 증상발생 중" data-flex="발생시기" type="radio" name="when" >갑자기 발생후 현재까지 진행중~!</label>
        
        </p>
         
       
         <p class="vocplace">6.장소상관여부 :
-        <label><input value="speplace" data-flex="장소상관여부" type="radio" name="place" ><span style="color:red; font-weight:bold ;">특정장소(체크시TT양식팝업)</span></label>
-       <label><input value="지역무관하며 간헐적" data-flex="장소상관여부" type="radio" name="place" >지역무관 간헐적</label>
+        <label><input value="speplace" data-flex="장소상관여부" type="radio" name="place" ><span style="color:red; font-weight:bold ;">특정장소(TT발행or발행전협의)TT작성창으로 변경됨</span></label><br>
+       &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+       <label><input value="지역무관하며 간헐적" data-flex="장소상관여부" type="radio" name="place" >지역무관&간헐적</label>
        <label><input value="장소이동해도 동일" data-flex="장소상관여부"type="radio" name="place" >장소이동해도 동일</label>
-       <label><input value="장소이동 못함 or 모름" data-flex="장소상관여부" type="radio" name="place" >장소이동 못함 or 모름</label>
+       <label><input value="장소이동 못함 or 모름" data-flex="장소상관여부" type="radio" name="place" >장소상관여부 모르겠음</label>
        
        </p> <br>
         
         
         
-        <p>7.주변KT 상관여부 :
+        <p class="around">7.주변KT 상관여부 :
           <label><input value="-" data-flex="주변KT 상관여부" type="radio" name="around" ><b style="color :blue">탐색패스</b></label>
           <label><input value="정상" data-flex="주변KT 상관여부" type="radio" name="around" >정상</label>
-       <label><input value="증상 동일" data-flex="주변KT 상관여부" type="radio" name="around" >증상동일</label>
+       <label><input  value="증상동일주장" data-flex="주변KT 상관여부" type="radio" name="around" ><span style="color:red; font-weight:bold ;">증상동일주장(기술담당자 협의)</span></label>
        <label><input value="확인어려움" data-flex="주변KT 상관여부" type="radio" name="around" >비교불가</label>
        
        </p> 
@@ -89,24 +108,24 @@
        </p>  
       
       
-      <p >#추가탐색 :
-          <ul>
-          <li>정확한 상담을 위해 WIFI는 꺼주셨는지 확인 부탁드리겠습니다.</li>
-          <li>특정 앱이나 사이트 상관없이 모두 이용이 안되는 상황이 맞습니까?</li>
-          
-            <ul>단말기 설정 <b><span style="color : green">(안드로이드)</span> </b>
-              <li>모바일 데이터 설정</li>
-              <li>데이터 사용량 제한설정</li>
-            </ul> <br>
+       <p >#추가탐색 :
+        <ul>
+        <li>정확한 상담을 위해 WIFI는 꺼주셨는지 확인 부탁드리겠습니다.</li>
+        <li>특정 앱이나 사이트 상관없이 모두 이용이 안되는 상황이 맞습니까?</li>
         
-            <ul>단말기 설정 <b><span style="color : black">(IOS)</span> </b>
-              <li>아이폰 셀룰러 설정</li>
-              <li>프로파일 및 VPN활성화 여부</li>
-            </ul> 
-          
-        </ul>
-      </p>
+          <ul>단말기 설정 <b><span style="color : green">(안드로이드)</span> </b>
+            <li>모바일 데이터 설정</li>
+            <li>데이터 사용량 제한설정</li>
+          </ul> <br>
       
+          <ul>단말기 설정 <b><span style="color : black">(IOS)</span> </b>
+            <li>아이폰 셀룰러 설정</li>
+            <li>프로파일 및 VPN활성화 여부</li>
+          </ul> 
+        
+      </ul>
+    </p>
+
     </div>
 
     <div class="tranformer">
@@ -125,7 +144,7 @@
        </p>  
       
       
-      <p >#추가탐색 :
+       <p >#추가탐색 :
         <ul>
           <li>지역무관 간헐적인(음끊김,묵음 증상등은) 네트워크 설정 초기화등 진행후 테스트 가급적 금지</li>
           
@@ -147,7 +166,7 @@
 
            
        
-      <textarea cols='40' rows='5'placeholder="전원리셋 및 기타 추가사항 입력"></textarea>
+      <textarea cols='40' rows='5' placeholder="전원리셋 및 기타 추가사항 입력"></textarea>
       <button class="imsitest">클릭후 KOS에 바로 복붙</button>
       <button class="imsitest1">입력내용 초기화</button>
       
@@ -156,9 +175,25 @@
     <div class="maincore">
       <iframe src = "통화품질_상담가이드메시지.html" ></iframe>
     </div>   
-       
+    
+    <div class="maincore">
+      <iframe  src = "TT발행.html" ></iframe>
+    </div> 
+
+    <div class="maincore">
+      <iframe  src = "호전환TIP.html" ></iframe>
+    </div> 
+
+    <div class="srnote">
+    <div class="close_tt" >창닫기✖</div>
+     <textarea class="srnote_text" placeholder="우측 상단 반짝이는 TT SR양식 5개중 클릭시 내용이 자동으로 들어옴" rows="28.5" cols="84"></textarea>
+     <button class="srnote_text_button">작성내용복사</button>
+    
+    </div>
+    
         <script src="../java/cunsuleguide.js"></script>
         <script src="../java/voc_bank.js">  </script>
+        
        
 </body>
 </html>
