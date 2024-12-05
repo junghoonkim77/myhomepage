@@ -151,7 +151,22 @@ jQuery(function(){
       }
     })  //특정지역 클릭시 sr양식창 팝업 끝
 
- 
+    var $around = $('.around label input');
+   
+    $around.change(function(){
+      console.log($(this).val());
+      if($(this).val()=='증상동일주장'){
+       $('.techsr').addClass('blink');
+       $('.ttalarm').css('visibility','visible');
+       $('.srnote').css('visibility','visible');
+           
+      }else{
+        $('#buttonpack button').removeClass('blink');
+        $('.ttalarm').css('visibility','hidden');
+        $('.srnote').css('visibility','hidden');
+      }
+    })  // 이건 증상동일주장 클릭시 sr양식창 팝업코드
+
     // 교육자료 창 팝업
     $('.education').click(function(){
       vocbank('휴근교육자료.html','1200');  return false;
