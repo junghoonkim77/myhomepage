@@ -29,7 +29,7 @@
  <button title="모두지우기" class="del drag">모두지우기</button>
 
  <h5 style="cursor:pointer" id="memoview" class="drag">메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
-
+ <input id="masking" style="background-color: beige; cursor:pointer" title="개인알림용 번호처리"  type="text" autocomplete="off" placeholder="-없이 입력 -> CTRL+V">
  <div class="buttonpack">
 
    <input class="leftmove5" type="button" value="그룹📧"
