@@ -642,6 +642,7 @@ $('#masking').on('keyup',function(){
   var $maskingtextval2 = $maskingtextval.slice(3,7);
   var $maskingtextval3 = $maskingtextval.slice(7,11);
   $textComplete = $maskingtextval1+'*'+$maskingtextval2+'*'+$maskingtextval3;
+  console.log($textComplete)
    if(navigator.clipboard){
    $lib.clipcopy($textComplete);
   }else{
