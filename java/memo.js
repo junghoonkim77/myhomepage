@@ -636,7 +636,7 @@ $('#memoview').on('click',function(){
 })
 
 //개인알림용 번호 마스킹 코드
-$('#masking').on('keyup',function(){
+/*$('#masking').on('keyup',function(){
   var $maskingtextval = $(this).val();
   var $maskingtextval1 = $maskingtextval.slice(0,3);
   var $maskingtextval2 = $maskingtextval.slice(3,7);
@@ -649,4 +649,19 @@ $('#masking').on('keyup',function(){
     $lib.clipcopy2($textComplete);
   }
 
-})
+}) */
+  $('#masking').on('blur',function(){
+    var $maskingtextval = $(this).val();
+    var $maskingtextval1 = $maskingtextval.slice(0,3);
+    var $maskingtextval2 = $maskingtextval.slice(3,7);
+    var $maskingtextval3 = $maskingtextval.slice(7,11);
+    $textComplete = $maskingtextval1+'*'+$maskingtextval2+'*'+$maskingtextval3;
+    console.log($textComplete)
+     if(navigator.clipboard){
+     $lib.clipcopy($textComplete);
+    }else{
+      $lib.clipcopy2($textComplete);
+    }
+  
+  })
+
