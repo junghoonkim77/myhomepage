@@ -174,6 +174,11 @@ function line_dp2(num) {
                  $('#code1 ul li').click(function(){
                  var codevalue = $(this).index();
                  console.log(codevalue);
+                 if(navigator.clipboard){
+                  $lib.clipcopy(codelist[codevalue]);
+                 }else{
+                  $lib.clipcopy2(codelist[codevalue]);
+                 }
                  navigator.clipboard.writeText(codelist[codevalue]);
                 })
                
