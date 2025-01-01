@@ -28,7 +28,7 @@
  
  <button title="모두지우기" class="del drag">모두지우기</button>
 
- <h5 style="cursor:pointer" id="memoview" class="drag">메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
+ <h5 style="cursor:pointer" id="memoview" class="drag">메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> <span style="font-size : 7px;" id="memosuccess"></span> </h5>
  <input id="masking" style="background-color: beige; cursor:pointer" title="개인알림용 번호처리"  type="text" autocomplete="off" placeholder="-없이 입력 -> CTRL+V">
  <div class="buttonpack">
 
@@ -198,7 +198,7 @@
 </div>   
 
      <div class="textarea_container">
-      <form action="../mymemosave/memosave.php" method="post" id="memosavebut" name="memosavebut">
+      <form  id="memosavebut" name="memosavebut">
      <textarea style="font-size: 11px;font-weight: bold;" class="must" id="must" title="꼭할일&더블클릭" cols="35" rows="20"></textarea>
       
       <textarea name="texAreamemo1" class="delText" id="alarmText" title="비밀번호셋팅창" cols="40" rows="37" onKeyUP="javascript:cal_pre();"></textarea> 

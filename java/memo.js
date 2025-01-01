@@ -410,14 +410,29 @@ $(function(){
              })
              $textareaValue.length = 0;
              
-             $('#memosavebut').submit();
+             //$('#memosavebut').submit();
+
+             const formdata = $ ('#memosavebut').serialize();
+             $.ajax({
+              url : '../mymemosave/memosave.php',
+              type : 'post',
+              data : formdata,
+              success : function(response){
+                console.log("서버응답",response);
+                $('#memosuccess').text('⭕');
+              },
+              error : function(xhr,status,error){
+                console.log("서버응답",error);
+                $('#memosuccess').text('❌');
+              }
+             })
 
 
              function savealarm(){
               $('.leftmove9').css('background-color','aqua').text('메모저장💾')
              }
              setTimeout(savealarm,2000);           
-             })
+             }) // 메모저장용 코드 마지막
 
 
 
@@ -635,21 +650,7 @@ $('#memoview').on('click',function(){
   window.open('../mymemosave/memoview.php', '_blank', 'width=1100, height=900' ) ; return false;
 })
 
-//개인알림용 번호 마스킹 코드
-/*$('#masking').on('keyup',function(){
-  var $maskingtextval = $(this).val();
-  var $maskingtextval1 = $maskingtextval.slice(0,3);
-  var $maskingtextval2 = $maskingtextval.slice(3,7);
-  var $maskingtextval3 = $maskingtextval.slice(7,11);
-  $textComplete = $maskingtextval1+'*'+$maskingtextval2+'*'+$maskingtextval3;
-  console.log($textComplete)
-   if(navigator.clipboard){
-   $lib.clipcopy($textComplete);
-  }else{
-    $lib.clipcopy2($textComplete);
-  }
 
-}) */
   $('#masking').on('blur',function(){
     var $maskingtextval = $(this).val();
     var $maskingtextval1 = $maskingtextval.slice(0,3);
