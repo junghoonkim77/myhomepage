@@ -172,6 +172,9 @@
    
  </table>
  </div>
+ <script src="../java/library.js">  </script>
+ <script src="../java/voc_bank.js">  </script>
+  
 <script>
   jQuery(function(){
     $('.table').eq(0).show()
@@ -180,8 +183,12 @@
       var thisbutt = $(this).index();
       var thisval = $(this).val();
     $('.table').eq(thisbutt).show().siblings('.table').hide();
-    navigator.clipboard.writeText(thisval);  
+    if(navigator.clipboard){
+      $lib.clipcopy(thisval);
+    }else{
+      $lib.clipcopy2(thisval);}
     });
+   
     
     $('#smscopy').click(function(e){
       e.preventDefault();
