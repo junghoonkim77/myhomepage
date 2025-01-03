@@ -193,7 +193,10 @@
     $('#smscopy').click(function(e){
       e.preventDefault();
       var smsval = $('#smsvalue').text();
-      navigator.clipboard.writeText(smsval);
+      if(navigator.clipboard){
+      $lib.clipcopy(smsval);
+      }else{
+      $lib.clipcopy2(smsval);}
     })
   })
 </script>

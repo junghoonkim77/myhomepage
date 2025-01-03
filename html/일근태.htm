@@ -258,7 +258,10 @@
     $('.daily2').text(dateString2);    
     let TodayText = $('#daily').text()
     $('.MorningCheck').click(function(){
-      navigator.clipboard.writeText(TodayText);
+      if(navigator.clipboard){
+        $lib.clipcopy(TodayText);
+      }else
+        $lib.clipcopy2(TodayText);
     });
 
   //여기서부터 일보 복사 시작  
