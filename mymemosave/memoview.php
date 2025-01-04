@@ -62,9 +62,9 @@ if(!empty($memo_delnum)){
     <title>서버메모저장</title>
 </head>
 <body>
-    <div class="memoViewBody">
+    <div >
     <button>메모 최하단 이동</button>    
-    <ul>
+    <ul class="memoViewBody">
         <?php 
         foreach ($li as $li_item) {
             echo'<a href=./memoview.php?delmemo='.$li_item->order.'>'.
@@ -84,10 +84,9 @@ if(!empty($memo_delnum)){
       }
     })
     $('button').on('click',function(){
-        const $memoViewBody = $('.memoViewBody');
-        const offsetTop = $memoViewBody.offset().top; // 요소의 절대 위치
-    console.log(offsetTop);
-    $('html, body').stop().animate({scrollTop: offsetTop}, 500); // 부드러운 스크롤
+        const $memoViewBody = $('.memoViewBody').height();
+        console.log($memoViewBody);
+        $('html,body').animate({ scrollTop: $memoViewBody+'px' }, "slow");
     })
     
     
