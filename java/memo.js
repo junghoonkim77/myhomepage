@@ -302,13 +302,12 @@ $(function(){
     console.log(hasclass);
     var completeTxt =`${$srvalue}/사번${valN}/${Telnum}`
     if(hasclass){
-      navigator.clipboard.writeText(completeTxt);
-      console.log(completeTxt)
-    }else if(hasclass1){
-      navigator.clipboard.writeText(completeTxt+'/탭안내꼭!');
+      $lib.clipcopy2(completeTxt);
+      }else if(hasclass1){
+      $lib.clipcopy2(completeTxt+'/탭안내꼭!');
     }
     else{
-      navigator.clipboard.writeText($srvalue);
+      $lib.clipcopy2($srvalue);
     }
 
     $('.phoneNumber').val("");
@@ -506,7 +505,6 @@ $(function(){
  <li>메신저로그</li>
  <li>일정체크</li>
  <li>tv전원on</li>
- <li>상담일지체크</li>
  <li>회의상담일정배포</li>
  <li>wfms체크</li>
  <li>스마일체크</li>
