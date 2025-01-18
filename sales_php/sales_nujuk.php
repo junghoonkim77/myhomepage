@@ -104,7 +104,7 @@
     mysqli_query($conn, $sql);
       }
 
-    $sql1 = "SELECT * FROM sales_success";
+    $sql1 = "SELECT * FROM sales_success ORDER BY order_add ASC";
     $result = mysqli_query($conn,$sql1);
    
     $td='';
