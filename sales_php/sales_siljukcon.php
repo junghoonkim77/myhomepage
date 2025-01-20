@@ -150,7 +150,8 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
         '<td>'.'<form action='.'sales_siljukcon.php'." ".'method='.'post'.'>'.
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['ordernum'].''.'>'.'</form>'.
         '</td>'.'<td>'.'<a class="success" href="'.'sales_nujuk.php?cusnum='.$row['inum'].'&'.'cusname='.$row['cusname']
-        .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'"'.'>'.'예정'.'</a>';
+        .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'"'.'>'.'예정'.'</a>'.'</td>'
+        .'<td class="dailyexcel" style="cursor:pointer;">'.'copy'.'</td>'.'</tr>';
      }
      echo $td;
      
@@ -158,7 +159,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
     ?> 
        </tbody>
         </table>
-     <?php   echo '<h3>'.'잔여가설건수 : '.$row_count.' 건'.'</h3>'; ?>
+     <?php   echo '<h3 id="excelinsert">'.'잔여가설건수 : '.$row_count.' 건'.'</h3>'; ?>
      <a class="addlink" href="sales_Gate.html"><button>입력창 이동</button></a>
      <a class="addlink" href="sales_nujuk.php"><button>세일즈 누적실적 현황</button></a>
         <?php 
@@ -176,8 +177,8 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
   
     </div>
    
-    <div id="notepad">
-       <ol> 
+    
+       
     <?php 
     $txtmemo = $_POST['texmemo'] ?? '';
     $deltex = $_GET['deltex'] ?? '';
@@ -208,8 +209,11 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
                   ;
            };    
         ?>
-       
-        </ol>
+    <div id="notepad">
+       <!--  <button id="excelinsert">복사</button>   -->
+        <table id="dailyRepot" style="border:none;">
+    
+        </table>
     </div>
     <div class="texframe">
     <pre>
@@ -228,15 +232,45 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
     
     <script>
                         
-          // 휴대폰 번호 복사하기
-        $('td').click(function(){
+          // 휴대폰 번호 복사하기 =>잠깐 임시로 주석처리 했음
+         $('td').click(function(){
           var $tdtext = $(this).text();
           if(navigator.clipboard){
             $lib.clipcopy($tdtext);
           } else{
             $lib.clipcopy2($tdtext);
           }
-        })  
+        }) 
+
+         // 엑셀파일에 붙여 넣을 내용 append하기
+
+          $('.dailyexcel').on('click',function(){
+           const excel = $(this).siblings("td:nth-child(4)").text();
+           const excel1 = $(this).siblings("td:nth-child(2)").text();
+           const excel2 = $(this).siblings("td:nth-child(3)").text();
+           const excel3 = $(this).siblings("td:nth-child(6)").text();
+           const excel4 = $(this).siblings("td:nth-child(5)").text();
+            console.log(excel);
+            console.log(excel1);console.log(excel2);
+           $('#dailyRepot').append("<tr><td style='border:none;'>"+excel+"</td>"
+            +"<td style='border:none;'>"+excel1+"</td>"
+            +"<td style='border:none;'>"+excel2+"</td>"
+            +"<td style='border:none;'>"+""+"</td>"
+            +"<td style='border:none;'>"+excel3+"</td>"
+            +"<td style='border:none;'>"+excel4+"</td></tr>"
+        );
+           })
+            
+
+        // 엑셀파일에 붙여넣을 영역 카피하고 내용 비우기
+
+        $('#excelinsert').on('click',function(){
+            $lib.rangecopy('#dailyRepot');
+            $('#dailyRepot').empty();
+            
+        })
+        
+        
 
           // 삭제방지 코드
           $(".delsubmit").click(function(e){
