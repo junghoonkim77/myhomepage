@@ -211,8 +211,8 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
         ?>
     <div id="notepad">
        <!--  <button id="excelinsert">복사</button>   -->
-        <table id="dailyRepot" style="border:none;">
-    
+        <table id="dailyRepot" style="border:none; font-family:Malgun Gothic; font-size:10x; text-align:center;">
+        
         </table>
     </div>
     <div class="texframe">
