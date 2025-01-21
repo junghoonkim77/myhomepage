@@ -235,7 +235,6 @@
     <input type="text" name=""  class="salesinput1" autocomplete="off" placeholder="가설상품">
     <input type="text" name=""  class="salesinput1" autocomplete="off" placeholder="개통예정일">
     <input type="text" name=""  class="salesinput1" autocomplete="off" placeholder="누적건수">
-    <input type="text" name=""  class="salesinput1" autocomplete="off" placeholder="고객ID">
     <input type="text" name=""  class="salesinput1" autocomplete="off" placeholder="인터넷접속번호">
     <input type="text" name=""  class="salesinput1" autocomplete="off" placeholder="연락처_번호"><br>
     <button id="worklast1">인티전대보고(가설발생시)</button>
@@ -435,7 +434,7 @@ if(navigator.clipboard){
 $('#worklast2').on('click',function(){
   const $sal2 = $('.salesinput1')
   const $salesinput2 =[
-`연락처: ${$sal2.eq(6).val()} ( ${$sal2.eq(5).val()} )` ]
+`연락처: ${$sal2.eq(5).val()} ( ${$sal2.eq(4).val()} )` ]
 if(navigator.clipboard){
         $lib.clipcopy($salesinput2);
       }else{
