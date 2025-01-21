@@ -239,7 +239,8 @@
     <input type="text" name=""  class="salesinput1" autocomplete="off" placeholder="인터넷접속번호">
     <input type="text" name=""  class="salesinput1" autocomplete="off" placeholder="연락처_번호"><br>
     <button id="worklast1">인티전대보고(가설발생시)</button>
-    <button id="worklast2">세일즈관리창 입력용</button>
+    <button id="worklast2">세일즈누적PHP용</button>
+    <button id="worklast3">내용 지우기</button>
     
    
    
@@ -440,9 +441,11 @@ if(navigator.clipboard){
       }else{
         $lib.clipcopy2($salesinput2);
       }
-
 })
 
+$('#worklast3').on('click',function(){
+  $('.salesinput').val('');
+  $('.salesinput1').val('');})
 
 }) // 마지막 줄
  
