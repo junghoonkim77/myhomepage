@@ -73,7 +73,8 @@ let team =
         })
         $tdarray.length =0;
         var $copyval = document.querySelector('#copy_val').innerText;
-        $lib.clipcopy($copyval);
+        $lib.testcopy($copyval);
+        
         $('#copy_val > *').remove();
         $('td').css('background-color','transparent')
       })

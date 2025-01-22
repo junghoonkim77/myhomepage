@@ -18,6 +18,17 @@ var $lib ={
             document.body.removeChild($textbox);
     }
     ,
+    "testcopy":function(content){
+        if(navigator.clipboard){
+            navigator.clipboard.writeText(content);
+    }else{
+        var $textbox = document.createElement('textarea');
+        $textbox.value = content;
+        document.body.appendChild($textbox);
+        $textbox.select();
+        document.execCommand('copy');
+        document.body.removeChild($textbox);
+    } },
     //다음주소검색 꼭 추가해야됨 
     //  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     "daumpost":function() {
