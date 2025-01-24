@@ -18,7 +18,7 @@ var $lib ={
             document.body.removeChild($textbox);
     }
     ,
-    "testcopy":function(content){
+    "copyall":function(content){
         if(navigator.clipboard){
             navigator.clipboard.writeText(content);
     }else{
