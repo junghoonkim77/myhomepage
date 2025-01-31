@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/htmlvoc.css">
+<title> 문서보안_해제요청 </title>
+</head>
+<body>
+<pre>
+
+[공유] 파일 보안 해제 방법 공유
+
+파일 암호화되어 보안해제가 필요할 경우 KT로 요청 시 보안 해제가 가능합니다.
+정식 방법을 공유하오니 아래 내용 참고 바랍니다.
+ㅇ암호화 해제 방법
+
+- 사이트 : https://drm.kt.com/WebRoot/drm/KTEPassLogin_New.aspx 
+<a href="https://drm.kt.com/WebRoot/drm/KTEPassLogin_New.aspx">사이트</a>
+
+- ID/PW : 코스 사번 / IDMS 비밀번호
+
+- 방법 : 로그인 후 > 인증번호 확인 > 오른쪽 상단 초록색 문서암호화해제신청 클릭 > 
+신청제목/신청사유 작성 후 신청파일 업로드 > 결제요청 
+
+- 주의사항 : 기존에 무분별하게 사용하지 않도록 당부 요청이 있었습니다. 
+필요한 파일만 요청해주시기 바랍니다.
+
+</pre>
+
+
+
+</body>
+</html>

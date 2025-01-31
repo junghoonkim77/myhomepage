@@ -125,7 +125,7 @@ iframe{
       var url = "../통품voc은행/"
       var knowledge =[
         new Knowledge(`${url}`+"평생번호050.html","평생번호050",`${url}`+"마이케이티_위젯_자동_로그아웃_증상.html",
-        "마이케이티 위젯 자동 로그아웃",`${url}`+"문서보안_해제요청.html","문서보안 해제요청"),
+        "마이케이티 위젯 자동 로그아웃",`${url}`+"문서보안_해제요청.php","문서보안 해제요청"),
 
         new Knowledge(`${url}`+"유심이동시_인증_절차.html","유심이동시_인증_절차",`${url}`+"wfms_설치_경로.html",
         "wfms_설치_경로",`${url}`+"마이케이티_조회_회선_번호_변경하기,_동일명의,_2회선_이상일_경우.html","마이케이티 조회회선 변경(2회선이상)"),
@@ -429,7 +429,7 @@ iframe{
       }
      
       var $atotal = $('.order');
-     console.log($atotal);
+     
          $atotal.each(function($idx){
             $(this).text(`${$idx}.`);
          })
