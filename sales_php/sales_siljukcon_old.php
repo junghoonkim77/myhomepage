@@ -129,7 +129,14 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
     $prodname = $_POST['prodname'] ?? '';
     $spememo = $_POST['spememo'] ?? ''; 
 
-       
+    // html 태그 변수에 담기
+    $tdo ="<td>";
+    $tde ="</td>";
+    $tro ="<tr>";
+    $tre ="</tr>";
+
+    
+
     if (!empty($inum) && !empty($cusname) && !empty($comdate) && !empty($hopedate) &&
     !empty($teamname) && !empty($prodname) && !empty($spememo)) {
 
@@ -144,13 +151,13 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
       $row_count = mysqli_num_rows($result);
       $td = '';
       while($row = mysqli_fetch_array($result)){ 
-        $td = $td."<tr><td>".$row['ordernum'].'</td>'.'<td>'.$row['inum'].'</td>'.
+        $td = $td.$tro.$tdo.$row['ordernum'].$tde.$tdo.$row['inum'].$tde.
         '<td>'.$row['cusname'].'</td>'.'<td>'.$row['comdate'].'</td>'.'<td>'.$row['hopedate'].'</td>'.
         '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>'.
         '<td>'.'<form action='.'sales_siljukcon.php'." ".'method='.'post'.'>'.
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['ordernum'].''.'>'.'</form>'.
-        '</td>'.'<td>'.'<a class="success" href="'.'sales_nujuk.php?cusnum='.$row['inum'].'&'.'cusname='.$row['cusname']
-        .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'"'.'>'.'예정'.'</a>';
+        '</td>'.'<td>'.'<a class="success" href='.'sales_nujuk.php?cusnum='.$row['inum'].'&'.'cusname='.$row['cusname']
+        .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'>'.'예정'.'</a>';
      }
      echo $td;
      
