@@ -15,7 +15,7 @@
             display:grid;
             height : 100%;
             width : 100%;
-            grid-template-columns: 700px 2fr  ;
+            grid-template-columns: 1fr 2fr  ;
             grid-template-rows: 65px auto ;
             grid-template-areas: 
              'a a'
@@ -36,9 +36,8 @@
      }    
      nav{
         grid-area :nav;
-        display :grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto;
+        display :flex;
+        flex-wrap: wrap;
         font-size : 11px;
         }
 
@@ -47,6 +46,7 @@
       margin :0px;
       padding : 0px;
       background-color : white;
+      flex-grow: 1;
     }
 
     nav div pre{
@@ -68,6 +68,7 @@
         font-size : 12px;
         border : 2px solid gray;
         margin : 0px;
+        flex-grow: 1;
      }
      main pre:hover {
         background-color: aqua;
@@ -156,6 +157,8 @@
 
 </pre>
 </div>
+
+
 
 </nav>
 
