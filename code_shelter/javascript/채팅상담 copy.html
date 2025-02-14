@@ -197,6 +197,8 @@
                  console.log($content[key]);
                  $('.'+key).text($content[key]);
                }
+               var $main = $('main pre'); 
+               $main.draggable();
             }else{ $('.'+$val).remove();}
             })
             
@@ -219,9 +221,7 @@
            $( "nav" ).sortable();
            $( "nav" ).disableSelection();
 
-            var $main = $('main pre'); 
-             console.log($main);
-             $main.draggable();
+            
              
              //$main.draggable();
          
