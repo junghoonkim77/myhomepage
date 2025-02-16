@@ -65,13 +65,14 @@
     } 
      main pre{
         display :inline-block;
-        font-size : 12px;
+        font-size : 10px;
         border : 2px solid gray;
         margin : 0px;
        /* flex-grow: 1; */
      }
      main pre:hover {
         background-color: aqua;
+        font-size : 12px;
      }   
      
     </style>
@@ -91,8 +92,10 @@
           <header>
             <div class="head">
              <button class="button1"><a href="#">전체선택해제</a></button><br>
+             <button class="navHide">메뉴 ↓ 숨기기</button>
             <input id="consulName" type="text" placeholder="사용전 본인 이름입력 필수">
-            <button class="namePut">업무 시작전 반드시 이름 입력후 클릭</button>
+            <button class="namePut">업무 시작전 1회 본인 성명 입력후 클릭</button>
+            
             </div>        
          </header>
          
@@ -131,6 +134,7 @@
 <label><input value="중계기이설" type="checkbox" >기술TT(중계기 이설요청)</label>
 <label><input value="중계기철거" type="checkbox" >기술TT(중계기 철거요청)</label>
 <label><input value="TT완료멘트" type="checkbox" >TT완료후 마무리 멘트(TT문자는 별도발송)</label>
+<label><input value="TT완료멘트" type="checkbox" >TT완료후 마무리 멘트(TT문자는 별도발송)</label>
 </pre>
 </div>
 
@@ -164,17 +168,11 @@
 
 
 <main>
-<!--<pre class="첫인사" ></pre>
-<pre class="대기첫인사" ></pre>
-<pre class="첫인사니즈파악" ></pre>
-<pre class="끝인사" ></pre>
-<pre class="양해끝인사" ></pre>
-<pre class="불편양해" ></pre> -->
-
 
 </main>
           
     </div>
+    <script src="../../java/library.js"></script>
     <script>
         jQuery(function(){
          const $chatname = localStorage.getItem('chatName');
@@ -190,7 +188,8 @@ const $content ={
 `반갑습니다. KT 통화품질 채팅 상담사 ${$chatname} 입니다. 무엇을 도와드릴까요?`,
          
 "끝인사":
-`다음에 또 궁금한 점이 있으실 때 언제든 연락주시면 최선을 다해 도움 드리겠습니다.상담사 ${$chatname} 입니다.`,
+`다음에 또 궁금한 점이 있으실 때 언제든 연락주시면 
+최선을 다해 도움 드리겠습니다.상담사 ${$chatname} 입니다.`,
          
 "양해끝인사":
 `이용에 불편을 드려 죄송합니다. ${$chatname} 입니다.`,
@@ -205,7 +204,8 @@ const $content ={
 `언제부터 말씀하신 증상이 발생되고 있습니까?`,
 
 "지역상관":
-`말씀하신 증상은 특정장소(EX.자택 혹은 사무실 등)에서만 혹은 지역과 상관없이 장소이동하셔도 발생되는 상황인지 알수 있을까요?`,
+`말씀하신 증상은 특정장소(EX.자택 혹은 사무실 등)에서만 혹은 지역과 
+상관없이 장소이동하셔도 발생되는 상황인지 알수 있을까요?`,
 
 "신호점검요청":
 `
@@ -311,7 +311,9 @@ y일 경우 개통일자 :
 `고객님의 소중한 정보 확인해 주셔서 감사합니다.`,
 
 "TT완료멘트":
-`접수 후 담당부서에서 순차적으로 전화 또는 문자로 연락드릴 예정이며, 필요 시 담당자가 현장 방문하여 테스트 진행 후 적절한 조치를 취해 드리도록 하겠습니다.`,
+`접수 후 담당부서에서 순차적으로 전화 또는 문자로 연락드릴 예정이며, 
+필요 시 담당자가 현장 방문하여 테스트 진행 후 적절한 조치를 취해 
+드리도록 하겠습니다.`,
 
 "인증불가":
 `안타깝게도 채팅 상담은 KT ID 로그인/PASS 인증 후 상담이 가능합니다.
@@ -353,7 +355,7 @@ kt 고객센터로 연락주시면 빠른 상담도와드리겠습니다.
             
             $('html').on("click","main pre",(function(){
                var pretext = $(this).text();
-               navigator.clipboard.writeText(pretext);
+               $lib.copyall(pretext);
             }));
 
 
@@ -370,9 +372,7 @@ kt 고객센터로 연락주시면 빠른 상담도와드리겠습니다.
             
            $( "nav" ).sortable();
            $( "nav" ).disableSelection();
-
-            
-             
+           
              //$main.draggable();
          
          $('.namePut').on('click',function(){
@@ -380,6 +380,14 @@ kt 고객센터로 연락주시면 빠른 상담도와드리겠습니다.
           location.reload();
          })     
          
+         $('.navHide').click(function(){
+            $(this).toggleClass('navview');
+            if($(this).hasClass('navview')){
+               $('.container').css('grid-template-columns','0.1fr 2fr')
+            }else{
+               $('.container').css('grid-template-columns','0.7fr 2fr')
+            };
+         })
                    
             
             
