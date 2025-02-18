@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT 실적</title>
+    <style>
+        body {
+            background-color: #fbc02d;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 900px;
+            height: auto;
+            background-color: #ffcc33;
+            border: 5px solid #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+        .title {
+            font-size: 50px;
+            font-weight: bold;
+            color: red;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .table-container {
+            background-color: #fff3e0;
+            border: 3px solid #333;
+            padding: 20px;
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: 3px solid #333;
+            padding: 30px;
+            font-size: 40px;
+        }
+        th {
+            background-color: #ffeb3b;
+        }
+        .black-text {
+            color: black;
+            font-weight: bold;
+        }
+        .red-text {
+            color: red;
+            font-weight: bold;
+        }
+        .blue-text {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            2/17(월)<br>MIT 실적
+        </div>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th></th>
+                    <th class="black-text">IT</th>
+                    <th class="black-text">M</th>
+                </tr>
+                <tr>
+                    <td class="black-text">목표</td>
+                    <td class="black-text">241</td>
+                    <td class="black-text">117</td>
+                </tr>
+                <tr>
+                    <td class="red-text">개통</td>
+                    <td class="red-text">135</td>
+                    <td class="red-text">64</td>
+                </tr>
+                <tr>
+                    <td class="blue-text">달성률</td>
+                    <td class="blue-text">56.02%</td>
+                    <td class="blue-text">54.70%</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
