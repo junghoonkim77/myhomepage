@@ -83,21 +83,35 @@
                 </tr>
                 <tr>
                     <td class="black-text">목표</td>
-                    <td class="black-text">241</td>
-                    <td class="black-text">117</td>
+                    <td id="itgoal" class="black-text"></td>
+                    <td id="mgoal" class="black-text"></td>
                 </tr>
                 <tr>
                     <td class="red-text">개통</td>
-                    <td class="red-text">135</td>
-                    <td class="red-text">64</td>
+                    <td id="itsuccess" class="red-text"></td>
+                    <td id="msuccess" class="red-text"></td>
                 </tr>
                 <tr>
                     <td class="blue-text">달성률</td>
-                    <td class="blue-text">56.02%</td>
-                    <td class="blue-text">54.70%</td>
+                    <td id="itrate" class="blue-text"></td>
+                    <td id="mrate" class="blue-text"></td>
                 </tr>
             </table>
         </div>
     </div>
+    <script>
+        var itgoal = 241;
+        var mgoal = 117;
+        var itsuccess = 135;
+        var msuccess = 64;
+        var itrate = itsuccess / itgoal * 100;
+        var mrate = msuccess / mgoal * 100;
+        document.getElementById("itgoal").innerText = itgoal;
+        document.getElementById("mgoal").innerText = mgoal;
+        document.getElementById("itsuccess").innerText = itsuccess;
+        document.getElementById("msuccess").innerText = msuccess;
+        document.getElementById("itrate").innerText = itrate.toFixed(2) + "%";
+        document.getElementById("mrate").innerText = mrate.toFixed(2) + "%";
+    </script>
 </body>
 </html>
