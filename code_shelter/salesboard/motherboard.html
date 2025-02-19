@@ -21,12 +21,12 @@
 <body>
     <iframe id="display" src="" frameborder="0"></iframe>
     <script>
-        var url = "../code_shelter/salesboard/"
+        var url = ""
         var currentpage = 0;
         var pages =[ "saboard1.html", "saboard2.html", "saboard3.html","saboard4.html","saboard5.html"]
         function changePage(){
             var display = document.getElementById("display");
-            display.setAttribute("src",url+pages[currentpage]);
+            display.setAttribute("src", pages[currentpage]);
             currentpage++;
             var nextpage = currentpage % pages.length;
             currentpage = nextpage;
