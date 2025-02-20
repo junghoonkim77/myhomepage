@@ -150,6 +150,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
       $result = mysqli_query($conn,$sql);
       $row_count = mysqli_num_rows($result);
       $td = '';
+      $test = array();
       while($row = mysqli_fetch_array($result)){ 
         $td = $td.$tro.$tdo.$row['ordernum'].$tde.$tdo.$row['inum'].$tde.
         '<td>'.$row['cusname'].'</td>'.'<td>'.$row['comdate'].'</td>'.'<td>'.$row['hopedate'].'</td>'.
@@ -158,9 +159,10 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['ordernum'].''.'>'.'</form>'.
         '</td>'.'<td>'.'<a class="success" href='.'sales_nujuk.php?cusnum='.$row['inum'].'&'.'cusname='.$row['cusname']
         .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'>'.'예정'.'</a>';
+        $test[$row['ordernum']] = $row['cusname'];
      }
      echo $td;
-     
+     print_r($test);
      
     ?> 
        </tbody>
