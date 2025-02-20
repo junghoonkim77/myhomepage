@@ -211,9 +211,11 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
            }; */
            while($row2 = mysqli_fetch_array($result2)){
             $test2 = $test2.'<li>'.$row2['memo'].'<a class="textdel" href="sales_siljukcon.php?deltex='.$row2['com_num'].'"'.'>'.'삭제'.
-            '</a>.'.'</li>'
-                  ;
+            '</a>.'.'</li>';
+            print_r($row2['memo']);
            };    
+
+           
         ?>
        
         </ol>
@@ -269,13 +271,15 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
             }
            
           });
+
+          var serverdata = JSON.parse('<?php echo json_encode($row); ?>');
+          console.log(serverdata);
        //HTTPS 환경에서 실행: navigator.clipboard.writeText()는 보안상의 이유로 HTTPS 환경에서만 동작합니다. 따라서 코드가 HTTPS로 제공되고 있는지 확인하세요.
          // 백업하기 위해 전체 내용을 복사하기 
       
 
  //제일바깥쪽
         
-      
         
        
     </script>
