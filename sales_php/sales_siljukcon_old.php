@@ -238,6 +238,9 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
  
     
     <script>
+
+        var serverdata = JSON.parse('<?php echo json_encode($test); ?>');
+        console.log(serverdata);
                         
           // 휴대폰 번호 복사하기
         $('td').click(function(){
