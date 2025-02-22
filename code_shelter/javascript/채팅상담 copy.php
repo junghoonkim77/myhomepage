@@ -1,3 +1,53 @@
+<?php 
+// 데이터베이스 정보를 배열로 설정
+$databases = [
+   'folkball.dothome.co.kr' => [
+       'user' => 'folkball',
+       'password' => 'amho73032721!',
+       'dbname' => 'folkball'
+   ],
+   'localhost' => [
+       'user' => 'root',
+       'password' => 'amho73032721',
+       'dbname' => 'abc_corp'
+   ]
+];
+
+// 서버의 도메인 이름을 가져옴
+$serverName = $_SERVER['SERVER_NAME'];
+
+// 도메인 이름에 따라 데이터베이스 선택
+if (array_key_exists($serverName, $databases)) {
+   $selectedDB = $databases[$serverName];
+} else {
+   die("서버 설정에 맞는 데이터베이스 정보가 없습니다.");
+}
+
+// 선택된 데이터베이스에 대한 연결 시도
+$conn = mysqli_connect('localhost', 
+                      $selectedDB['user'], 
+                      $selectedDB['password'], 
+                      $selectedDB['dbname']);
+
+// 연결 성공 여부 확인
+if (!$conn) {
+   die("연결 실패: " . mysqli_connect_error());
+}
+
+echo "DB_연결 성공";
+
+ $sql = "SELECT * FROM chat_table";
+ $result = $conn -> query($sql);
+ $chatdata = array();
+ if($result ->num_rows >0){
+   while($row = $result->fetch_assoc()){
+      $chatdata[$row["classname"]]=$row["classvalue"];
+   }
+ }
+ $conn -> close();
+
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -191,7 +241,8 @@
     <script>
         jQuery(function(){
          const $chatname = localStorage.getItem('chatName');
-         
+  var $testarray = JSON.parse('<?php echo json_encode($chatdata,JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);?>');
+  console.log ($testarray);     
 const $content ={
 "첫인사":         
 `반갑습니다. KT 통화품질 채팅 상담사 ${$chatname} 입니다.`,
@@ -422,7 +473,6 @@ kt 고객센터로 전화연락주시면 빠른 업무처리 도와드리겠습�
 }
 
 
-            
             var $inputTotal = $('.container label input[type=checkbox]');
             var $mainPre = $('.container main pre');
             $inputTotal.click(function(){
