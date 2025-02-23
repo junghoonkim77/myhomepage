@@ -44,7 +44,13 @@ echo "DB_연결 성공";
       $chatdata[$row["classname"]]=$row["classvalue"];
    }
  }
- $conn -> close();
+ function remove_chars ($string){
+   return preg_replace('/[\x00-\x1F\x7F]/u', '', $string);
+ }
+
+foreach ($chatdata as $key => $value) {
+    $chatdata[$key] = remove_chars($value);
+}
 
 ?>
 
@@ -242,7 +248,11 @@ echo "DB_연결 성공";
         jQuery(function(){
          const $chatname = localStorage.getItem('chatName');
   var $testarray = JSON.parse('<?php echo json_encode($chatdata,JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);?>');
+  
+
+   
   console.log ($testarray);     
+ 
 const $content ={
 "첫인사":         
 `반갑습니다. KT 통화품질 채팅 상담사 ${$chatname} 입니다.`,
