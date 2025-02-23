@@ -247,13 +247,14 @@ foreach ($chatdata as $key => $value) {
     <script>
         jQuery(function(){
          const $chatname = localStorage.getItem('chatName');
-  var $testarray = JSON.parse('<?php echo json_encode($chatdata,JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);?>');
+         const $content = JSON.parse('<?php echo json_encode($chatdata,JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);?>');
   
-
-   
-  console.log ($testarray);     
+    for ( key in $content){
+      console.log($content[key]);
+    } 
  
-const $content ={
+ 
+/*const $content ={
 "첫인사":         
 `반갑습니다. KT 통화품질 채팅 상담사 ${$chatname} 입니다.`,
          
@@ -480,7 +481,7 @@ kt 고객센터로 전화연락주시면 빠른 업무처리 도와드리겠습�
 
 
 
-}
+} */
 
 
             var $inputTotal = $('.container label input[type=checkbox]');
