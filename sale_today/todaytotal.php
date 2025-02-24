@@ -140,7 +140,7 @@
     </table>
    
   <!--<script src="../java/library.js"></script> -->  
-   <script src="https://junghoonkim77.github.io/myhomepage/java/library.js"></script>
+   <script src="../java/library.js"></script>
     <script> 
    var $outname = localStorage.getItem('SaleOpName');
    $('#select').val($outname).prop('selected',true);
