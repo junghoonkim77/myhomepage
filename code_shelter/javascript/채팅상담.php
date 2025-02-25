@@ -41,7 +41,7 @@ echo "DB_연결 성공";
  $chatdata = array();
  if($result ->num_rows >0){
    while($row = $result->fetch_assoc()){
-      $chatdata[$row["classname"]]=$row["classvalue"];
+      $chatdata[$row["classname"]]=nl2br($row["classvalue"]);
    }
  }
  function remove_chars ($string){
@@ -493,18 +493,20 @@ kt 고객센터로 전화연락주시면 빠른 업무처리 도와드리겠습�
              //  $(this).prop("checked", !$(this).prop("checked")); 
                 var propis = $(this).prop('checked');
               
-             if(propis){ $('main').append(`<pre class=${$val} ></pre>`)
+             if(propis){ $('main').append(`<pre id=${$val} ></pre>`)
              for ( key in $content){
-                 $('.'+key).text($content[key]);
+                 $('#'+key).html($content[key]);
                }
                var $main = $('main pre'); 
                $main.draggable();
-            }else{ $('.'+$val).remove();}
+            }else{ $('#'+$val).remove();}
             })
             
             $('html').on("click","main pre",(function(){
-               var pretext = $(this).text();
-               $lib.copyall(pretext);
+               var pretext = "#"+$(this).attr('id');
+               console.log(pretext);
+                $lib.rangecopy(pretext);
+               //$lib.copyall(pretext);
             }));
 
 
@@ -512,7 +514,7 @@ kt 고객센터로 전화연락주시면 빠른 업무처리 도와드리겠습�
                $inputTotal.each(function(){
                   $(this).prop('checked',false);
                   var $val = $(this).val();
-                  $('.'+$val).hide();
+                  $('#'+$val).hide();
                        
                })
             })
