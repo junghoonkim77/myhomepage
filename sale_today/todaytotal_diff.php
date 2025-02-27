@@ -58,6 +58,7 @@
     <option value="백금옥">백금옥</option>
     <option value="박주영">박주영</option>
     <option value="이윤복">이윤복</option>
+    <option value="김지훈">김지훈</option>
     
    </select>
    <div class="totalsum">
