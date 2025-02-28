@@ -413,8 +413,7 @@ iframe{
         url+"","추가전"),
 
         new Knowledge(url+"","추가전",
-        url+"","추가전",
-        url+"","추가전"),
+        ),
 
 
 
