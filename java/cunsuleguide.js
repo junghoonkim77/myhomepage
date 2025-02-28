@@ -196,7 +196,7 @@ jQuery(function(){
     })
 
     $('.srnote_text_button').click(function(){
-      $lib.clipcopy($('.srnote_text').val());
+      $lib.copyall($('.srnote_text').val());
     })
 }) //최종 블럭끝
 
