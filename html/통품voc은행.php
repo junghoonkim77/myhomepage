@@ -5,7 +5,7 @@
         <style>
 
 
-          
+ /*         
 div.minimalistBlack {
   border: 3px solid #000000;
   width: 30%;
@@ -42,7 +42,7 @@ div.minimalistBlack {
 .minimalistBlack .tableFootStyle {
   font-size: 11px;
 }
-/* DivTable.com */
+
 .divTable{ display: table; }
 .divTableRow { display: table-row; }
 .divTableHeading { display: table-header-group;}
@@ -50,8 +50,21 @@ div.minimalistBlack {
 .divTableHeading { display: table-header-group;}
 .divTableFoot { display: table-footer-group;}
 .divTableBody { display: table-row-group;}
+*/
+.divhead{
+ display:inline-block;
+ border: 1px solid gray;
+}
+.divTableBody{
+  display :grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  font-size: 12px;
+}
 
-
+.divTableBody>div{ 
+  border :1px solid gray;
+}
  a {
   text-decoration: none;
  }
@@ -65,7 +78,7 @@ button{
   
 .container{
   display : grid;
-  grid-template-columns: 300px 600px;
+  grid-template-columns: 1fr 3fr;
   grid-template-rows: auto;
  
 }
@@ -86,20 +99,24 @@ iframe{
   <h4>통품voc은행</h4> 
      <div class="container">
        <div class="basicframe">
-        <div class="divTable minimalistBlack">
-          <div class="divTableHeading">
-            <div class="divTableRow">
-            <div class="divTableHead">통품voc은행</div>
-            <div class="divTableHead"><span>현 등록건수:</span>
+        <div class="divhead">
+          <div >
+            <div >
+            <div>통품voc은행</div>
+            <div><span>현 등록건수:</span>
             <span id="count"></span></div>
-            <div class="divTableHead">
+            <div>
               <button class="button1">최하단이동⏬</button></div>
            </div>
           </div>
-          <div class="divTableBody">
-          </div>
-         <button class="button2">최상위이동⏫</button></div>
+         
         </div>
+        
+      <div class="divTableBody">
+        
+      </div>
+        
+      </div>
         
         <div class="basicframe1" >
           <iframe  src = "" name="frame" style="border:none"></iframe>
@@ -112,7 +129,7 @@ iframe{
   <script>
          
      jQuery(function(){
-      class Knowledge {
+     /* class Knowledge {
         constructor(box1,box1_1,box2,box2_2,box3,box3_3){
           this.box1=box1;
           this.box1_1=box1_1;
@@ -121,38 +138,35 @@ iframe{
           this.box3=box3;
           this.box3_3=box3_3;
         }
-      }
+      } */
+
+          class Knowledge {
+            constructor(box1,box1_1){
+              this.box1=box1;
+              this.box1_1=box1_1;
+           }
+          }
       var url = "../통품voc은행/"
       var knowledge =[
-        new Knowledge(`${url}`+"평생번호050.html","평생번호050",`${url}`+"마이케이티_위젯_자동_로그아웃_증상.html",
-        "마이케이티 위젯 자동 로그아웃",`${url}`+"문서보안_해제요청.php","문서보안 해제요청"),
+        new Knowledge(`${url}`+"평생번호050.html","평생번호050"),
 
-        new Knowledge(`${url}`+"유심이동시_인증_절차.html","유심이동시_인증_절차",`${url}`+"wfms_설치_경로.html",
-        "wfms_설치_경로",`${url}`+"마이케이티_조회_회선_번호_변경하기,_동일명의,_2회선_이상일_경우.html","마이케이티 조회회선 변경(2회선이상)"),
+        new Knowledge(`${url}`+"유심이동시_인증_절차.html","유심이동시_인증_절차"),
 
-        new Knowledge(`${url}`+"스마트_팜_연락처.html","스마트_팜_연락처",`${url}`+"ITSM_접수결과_확인방법_(타인_접수건).html",
-        "ITSM 타인접수건 확인방법",`${url}`+"구글_결제_ID_확인방법.html","구글_결제_ID_확인방법"),
+        new Knowledge(`${url}`+"스마트_팜_연락처.html","스마트_팜_연락처"),
 
-        new Knowledge(`${url}`+"넷윈도_권한_신청_방법.html","넷윈도_권한_신청_방법",`${url}`+"모바일_팩스_과금_(팩스앱).html",
-        "모바일_팩스_과금_(팩스앱)",`${url}`+"프렌드_메일_ktfriend_메일.html","프렌드_메일_ktfriend_메일"),
+        new Knowledge(`${url}`+"넷윈도_권한_신청_방법.html","넷윈도_권한_신청_방법"),
 
-        new Knowledge(`${url}`+"언론사_인입,_기자_ 방송_등.html","언론사 인입, 기자  방송",`${url}`+"트러블_맵_활용방법.html",
-        "트러블_맵_활용방법",`${url}`+"안심바로 등록_서식지_오매칭.html","안심바로 등록_서식지_오매칭"),
+        new Knowledge(`${url}`+"언론사_인입,_기자_ 방송_등.html","언론사 인입, 기자  방송"),
 
-        new Knowledge(`${url}`+"M-sens_잠금해제.html","M-sens_잠금해제",`${url}`+"지역화폐_문의시.html","지역화폐 문의시",
-        `${url}`+"D 14_이내_일반기변_시_AS기변_불가.html","D 14 이내 일반기변 시 AS기변"),
+        new Knowledge(`${url}`+"M-sens_잠금해제.html","M-sens_잠금해제"),
 
-        new Knowledge(`${url}`+"외국인_상담_전화번호.html","외국인_상담_전화번호",`${url}`+"kt.com_마이_케이티_앱_메뉴_구성_확인방법.html",
-        "kt.com 마이 케이티 앱 메뉴구성",`${url}`+"VOLTE_only단말_번호_변경_재처리_불가_케이스.html","volte only단말 번호변경 재처리 불가 케이스"),
+        new Knowledge(`${url}`+"외국인_상담_전화번호.html","외국인_상담_전화번호"),
 
-        new Knowledge(`${url}`+"OMD단말_삭제_및_등록방법.html","OMD단말_삭제_및_등록방법",`${url}`+"무선환경지표_용어_설명.html",
-        "무선환경지표_용어_설명",`${url}`+"핸즈프리.html","핸즈프리 핸즈프리"),
+        new Knowledge(`${url}`+"OMD단말_삭제_및_등록방법.html","OMD단말_삭제_및_등록방법"),
 
-        new Knowledge(`${url}`+"kos_보안테스트_정답.html","kos_보안테스트_정답",`${url}`+"렌탈_심_렌탈,_임대폰_렌탈_voc_인입시.html",
-        "렌탈 심,렌탈 임대폰 voc인입시",`${url}`+"비즈센터_호전환대상.html","비즈센터 호전환대상"),
+        new Knowledge(`${url}`+"kos_보안테스트_정답.html","kos_보안테스트_정답"),
 
-        new Knowledge(`${url}`+"선제적_케어_SR.html","선제적_케어_SR",`${url}`+"WING전산신청.html","WING전산신청",
-        `${url}`+"해외_불법사이트_차단_확인주소.html","해외_불법사이트_차단_확인주소"),
+        new Knowledge(`${url}`+"선제적_케어_SR.html","선제적_케어_SR"),
 
         new Knowledge(`${url}`+"PTA _단어의_유례.html","PTA _단어의_유례",`${url}`+"고객센터ARS(call_avo)_VOC_고객센터_연결시_단말오류_백화현상.html",
         "고객센터ARS 단말오류",`${url}`+"CAPRI_(_카프리_)_현행화_요청_ITSM접수방법.html","CAPRI 요청"),
@@ -167,7 +181,7 @@ iframe{
         `${url}`+"안심박스_이용불가_및회원탈퇴_불가.html","안심박스_이용불가_및회원탈퇴_불가",
         `${url}`+"투폰서비스_(업데이트후_오류)_22년_3월_3일_공지_강제_활성화.html","투폰서비스 (업데이트후오류) 3월(공지이상)"),
 
-        new Knowledge(`${url}`+"데이터를_가져오는데_실패하였습니다_팝업_VOC_대응_가이드.html","데이터를_가져오는데_실패했습니다 팝업",
+        /*new Knowledge(`${url}`+"데이터를_가져오는데_실패하였습니다_팝업_VOC_대응_가이드.html","데이터를_가져오는데_실패했습니다 팝업",
         `${url}`+"5G_데이터_쉐어링_변경후_정지_및_이용불가_VOC.html","5G_쉐어링_변경후_정지_및_이용불가",`${url}`+"안심박스_설치된_자녀_단말기_원스토어_설치_불가.html","안심박스 자녀 단말 원스토어 설치불가"),
 
         new Knowledge(`${url}`+"안심박스_권한_4가지_설정방법,_가족_추가하기,_페어링.html","안심박스 권한4가지,가족추가하기 페어링",
@@ -413,7 +427,7 @@ iframe{
         url+"","추가전"),
 
         new Knowledge(url+"","추가전",
-        ),
+        ), */
 
 
 
@@ -421,14 +435,10 @@ iframe{
   
       
       for (var i=0; i<knowledge.length ; i++) {
-        $('.divTableBody').append(`<div class="divTableRow">
-            <div class="divTableCell"><a href="${knowledge[i].box1}" target="frame">
+        $('.divTableBody').append(`<div>
+            <div><a href="${knowledge[i].box1}" target="frame">
               <span class="order"></span>${knowledge[i].box1_1}</a></div>
-            <div class="divTableCell"><a href="${knowledge[i].box2}"target="frame">
-                <span class="order"></span>${knowledge[i].box2_2}</a></div>
-            <div class="divTableCell"><a href="${knowledge[i].box3}"target="frame">
-                <span class="order"></span>${knowledge[i].box3_3}</a></div>
-           </div>`)
+           `)
       }
      
       var $atotal = $('.order');
