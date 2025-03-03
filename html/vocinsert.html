@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+    </script> 
+    <title>통품voc추가</title>
+</head>
+<body>
+    <form id="insert" action="vocinsert.php" method="get">
+     <input type="text" class="urlval" name="urladd" id="" placeholder="url입력 예시 XXX.html">
+     <input type="text"  name="titlename" id="" placeholder="voc은행에 들어갈 이름">
+     <input id="ins" type="submit" value="추가하기">
+    </form>
+
+    <form id="delete" action="vocdel.php" method="get">
+        <input type="text" name="delete" placeholder="지울데이터베이스 번호 입력">
+        <input type="submit" value="삭제하기">
+    </form>
+  <script>
+   
+  </script>
+</body>
+</html>
