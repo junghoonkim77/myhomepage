@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+    </script> 
+    <style>
+        body {
+            height : 100vh;
+        }
+        
+        .container {
+            position :relative;
+            background-size : cover;
+            background-position: center;
+            height : 100vh; 
+        }
+        .container div{
+            text-align: center;
+            color : white;
+            font-size : 20px;
+            position : absolute;
+            bottom : 0px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+      <div >
+        <button>테스트</button>
+      </div>
+    </div>
+    <script>
+        const picarray =['N서울타워.jpg','경북궁.jpg','광희문.jpg','남대문시장.jpg','남산골한옥마을.jpg'
+        ,'남산공원.jpg','덕수궁돌담.jpg','명동거리.jpg','서울광장.jpg','숭례문.jpg','인왕산.jpg','청계천.jpg',
+        '서울역.jpg','퍼시픽타워.png'];
+        
+        var url = "../../imgfolder/ceo방문/";
+        $('.container').css('background-image','url('+url+picarray[0]+')');
+        $('button').text(picarray[0]);
+        
+        var idx = 0;
+        
+        $('button').click(function(){
+         idx++
+         if( idx < picarray.length){
+            $('.container').css('background-image','url('+url+picarray[idx]+')');
+            $('button').text(picarray[idx]);
+         } else{
+            idx =0 ;
+            $('.container').css('background-image','url('+url+picarray[idx]+')')
+            $('button').text(picarray[0]);
+         }
+         
+
+        })
+    </script>
+</body>
+</html>
