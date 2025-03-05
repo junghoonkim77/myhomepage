@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: url('../../imgfolder/아침/231112-1.jpg') no-repeat center center fixed;
+            background: url('../../imgfolder/ceo2/기술단체.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -38,13 +38,41 @@
         h3 {
             font-size: 3em;
         }
+        select {
+            opacity: 0.3;
+        }
     </style>
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <h1>CS유일 수도권 통화품질팀~!</h1>
-        <h3>문제해결부터 Sales까지 우리팀 최고</h3>
+        <h1>테스트 테스트 통화품질팀~!</h1>
+        <h3>이런식으로 해보는건 어떨까요?</h3>
     </div>
+    <select id="teamname">
+        <option  value="" >팀명▼</option>
+        <option  value="team1">무선1팀</option>
+        <option  value="team2">무선2팀</option>
+        <option  value="team3">무선3팀</option>
+        <option  value="team4">무선4팀</option>
+        <option  value="team5">무선5팀</option>
+        <option  value="tong">통품</option>
+     </select>
+     <script>
+        $('#teamperson').change(function(){
+            var selected = $(this).val();
+            if(selected == 'meid'){
+                alert('본인ID(kos id)를 입력해주세요');
+            } else if(selected == 'kos'){
+                alert('KOS비번을 입력해주세요');
+            } else if(selected == 'atas'){
+                alert('ATAS비번을 입력해주세요');
+            } else if(selected == 'idms'){
+                alert('IDMS비번(넷윈..등)을 입력해주세요');
+            } else if(selected == 'wfms'){
+                alert('WFMS비번을 입력해주세요');
+            }
+        });
+     </script>
 </body>
 </html>
