@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +8,6 @@
     </script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
     </script> 
-    <!-- 구글 웹폰트 추가 -->
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-    
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -24,16 +20,28 @@
             height: 100vh;
             margin: 0;
         }
+       /* .welcome {
+            background: url('../../imgfolder/ceo방문/환영합니다.jpg') no-repeat center center;
+            background-size: contain;
+            height: 50vh; 
+        }  */
         .container {
-            background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
-            border: 2px solid #ff6f61;
+            background-color: rgb(255, 255, 255); /* semi-transparent black background */
+            border: 2px solid #ddb8b5;
             border-radius: 15px;
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+            width: 80%;
+         }
+
+         .welcome img {
+            width: 65%; 
+            height: auto;  
+            max-height:60vh;
+        } 
         h1, h3 {
-            color: white;
+            
             margin: 0;
             padding: 0;
         }
@@ -42,20 +50,27 @@
             font-family: 'Nanum Pen Script', cursive; /* 예쁜 글씨체 적용 */
         }
         h3 {
-            font-size: 4em;
+            font-size: 3em;
         }
         select {
             opacity: 0.3;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+    <h1><span style="color:#4285F4">사장님</span>
+        <span style="color:#EA4335">의</span>
+        <span style="color:#Fbbc05">방문을</span> </h1>
     <div class="container">
-        <h1>사장님의 방문을</h1>
-        <h1>환영합니다~! ^^</h1>
+         <div class="welcome">
+            <img src="../../imgfolder/ceo방문/환영합니다2.jpg" alt="" srcset="">
+         </div>
+       <!-- <h3>환영합니다</h3>  --> 
     </div>
-    <select id="teamname">
+    
+   <!--  <select id="teamname">
         <option value="">팀명▼</option>
         <option value="team1">무선1팀</option>
         <option value="team2">무선2팀</option>
@@ -64,6 +79,7 @@
         <option value="team5">무선5팀</option>
         <option value="tong">통품</option>
     </select>
+    -->
     <script>
         class Ceo {
             constructor(_teamname, _h1con, _h3con, _imgurl) {
@@ -75,11 +91,11 @@
         }
         const $Ceo = [
             new Ceo('team1', '무선1팀~!', '애국가시작', '../../imgfolder/ceo2/흥인지문.jpg'),
-            // new Ceo('team2', '무선2팀~!', '동해물과', '../../imgfolder/ceo2/광화문.jpg'),
-            // new Ceo('team3', '무선3팀~!', '박두산이', '../../imgfolder/ceo2/청계천.jpg'),
-            // new Ceo('team4', '무선4팀~!', '마르고 ', '../../imgfolder/ceo2/청와대.jpg'),
-            // new Ceo('team5', '무선5팀~!', '닳도록', '../../imgfolder/ceo2/광화문.jpg')
-        ];
+            //  new Ceo('team2','무선2팀~!','동해물과','../../imgfolder/ceo2/광화문.jpg'),
+            //  new Ceo('team3','무선3팀~!','박두산이','../../imgfolder/ceo2/청계천.jpg'),
+            //  new Ceo('team4','무선4팀~!','마르고 ','../../imgfolder/ceo2/청와대.jpg'),
+            //  new Ceo('team5','무선5팀~!','닳도록','../../imgfolder/ceo2/광화문.jpg')
+        ]
         $('#teamname').change(function () {
             var selected = $(this).val();
             $Ceo.forEach(function (item) {
@@ -88,7 +104,7 @@
                     $('.container h3').text(item.h3con);
                     $('body').css('background-image', 'url(' + item.imgurl + ')');
                 }
-            });
+            })
         });
     </script>
 </body>
