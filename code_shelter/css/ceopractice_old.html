@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+    </script> 
+    <style>
+        body {
+            height : 100vh;
+        }
+        
+        .container {
+            position :relative;
+            background-size : cover;
+            background-position: center;
+            height : 100vh; 
+        }
+        .container div{
+            text-align: center;
+            color : white;
+            font-size : 20px;
+            position : absolute;
+            bottom : 0px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+      <div >
+        <button>테스트</button>
+      </div>
+    </div>
+    <script>
+        const picarray =["경복궁.jpg","경복궁2.jpg","광화문.jpg","국회의사당.jpg","국회의사당2.jpg","남대문.jpg","남산타워.jpg","북촌마을.jpg",
+"이순신.jpg","청계천.jpg","청와대.jpg","흥인지문.jpg","흥인지문2.jpg","퍼시픽타워.png"];
+        
+        var url = "../../imgfolder/ceo방문/";
+        $('.container').css('background-image','url('+url+picarray[0]+')');
+        $('button').text(picarray[0]);
+        
+        var idx = 0;
+        
+        $('button').click(function(){
+         idx++
+         if( idx < picarray.length){
+            $('.container').css('background-image','url('+url+picarray[idx]+')');
+            $('button').text(picarray[idx]);
+         } else{
+            idx =0 ;
+            $('.container').css('background-image','url('+url+picarray[idx]+')')
+            $('button').text(picarray[0]);
+         }
+         
+
+        })
+    </script>
+</body>
+</html>

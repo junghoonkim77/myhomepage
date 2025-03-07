@@ -8,55 +8,85 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
     </script> 
     <style>
-        body {
-            height : 100vh;
-        }
-        
-        .container {
-            position :relative;
-            background-size : cover;
-            background-position: center;
-            height : 100vh; 
-        }
-        .container div{
-            text-align: center;
-            color : white;
-            font-size : 20px;
-            position : absolute;
-            bottom : 0px;
-        }
+       body {
+           
+           background-color: black;
+           text-align : center;
+       }
+       
+        img{
+          /* left : 11.5%; */
+           display :inline-block;
+           /*position : absolute;*/
+           margin : auto;
+           height : 100vh;
+           
+         /* transform: rotate(30deg); */
+       }
+
+       select {
+        opacity: 0.3;
+        position : absolute;
+        bottom:0px;
+       }
     </style>
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-      <div >
-        <button>테스트</button>
-      </div>
-    </div>
+    <img  src="../../imgfolder/ceo방문/최강서울환영.png" >
+    <select id="teamname">
+        <option  value="" >팀명▼</option>
+        <option  value="t1">무선1팀</option>
+        <option  value="t2">무선2팀</option>
+        <option  value="t3">무선3팀</option>
+        <option  value="t4">무선4팀</option>
+        <option  value="t5">무선5팀</option>
+        <option  value="tong">통품</option>
+        <option  value="y1">유선1팀</option>
+        <option  value="y2">유선2팀</option>
+        <option  value="mc">mcrm</option>
+        <option  value="on">온세팀</option>
+        <option  value="voc">고만팀</option>
+        <option  value="hqa">조상미강사</option>       
+        <option  value="c1">cs1센터장</option>
+        <option  value="c2">cs2센터장</option>
+        <option  value="w1">5G보다빠른</option>
+        <option  value="w2">ceo오셨다</option>
+        <option  value="w3">ceo덕분에</option>
+        <option  value="w4">ceo마음속</option>
+        <option  value="w5">ceo오셨다2</option>
+        <option  value="w6">vip모드</option>
+        <option  value="w7">vip모드2</option>
+        <option  value="w8">방문환영</option>
+        <option  value="w9">방문환영2</option>
+        <option  value="w10">서울센터주파수</option>
+        <option  value="w11">웰컴방문</option>
+        <option  value="w12">최강서울</option>
+        <option  value="w13">최강서울2</option>
+        <option  value="w14">최고의리더</option>
+     </select>
+    
     <script>
-        const picarray =["경복궁.jpg","경복궁2.jpg","광화문.jpg","국회의사당.jpg","국회의사당2.jpg","남대문.jpg","남산타워.jpg","북촌마을.jpg",
-"이순신.jpg","청계천.jpg","청와대.jpg","흥인지문.jpg","흥인지문2.jpg","퍼시픽타워.png"];
         
         var url = "../../imgfolder/ceo방문/";
-        $('.container').css('background-image','url('+url+picarray[0]+')');
-        $('button').text(picarray[0]);
+        var fn = {"t1":"무선1전영선.png","t2":"무선2박세민.png","t3":"무선3윤미연.png",
+"t4":"무선4도창수.png","t5":"무선5최세희.png","tong":"통품김정훈.png",
+"y1":"유선1조세근.png","y2":"유선2이연실.png","mc":"mcrm박윤선.png",
+"on":"박나희팀장님.png","c1":"백강희센터장님.png","c2":"최영은센터장님.png",
+"voc":"고만김동현.png","hqa":"조상미강사님.png","w1":"5G보다빨.png",
+"w2":"CEO님오셨다환영.png","w3":"ceo덕분에.png","w4":"ceo마음속.png",
+"w5":"ceo오셨다.png","w6":"vip모드on.png","w7":"vip모드온.png",
+"w8":"방문환영.png","w9":"방문환영인사.png","w10":"서울센터주파수.png",
+"w11":"웰컴방문.png","w12":"최강서울환영.png","w13":"최강서울환영1.png",
+"w14":"최고의리더.png"}      //  $('img').attr('src',url+picarray[0]);
         
-        var idx = 0;
+        $('#teamname').change(function(){
+            var selected = $(this).val();
+            $('img').attr('src',url+fn[selected]);
+        });
         
-        $('button').click(function(){
-         idx++
-         if( idx < picarray.length){
-            $('.container').css('background-image','url('+url+picarray[idx]+')');
-            $('button').text(picarray[idx]);
-         } else{
-            idx =0 ;
-            $('.container').css('background-image','url('+url+picarray[idx]+')')
-            $('button').text(picarray[0]);
-         }
-         
-
-        })
+        
+        
     </script>
 </body>
 </html>
