@@ -5,15 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-       table {
-        border : 1px solid gray;
-        border-collapse : collapse;
-        font-size : 12px;
-     }
-    
-     td {
-        border : 1px solid gray;
-     }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border : 1px solid gray;
+            
+        }
     </style>
     
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
@@ -24,7 +22,6 @@
     <title>365일용 양식</title>
 </head>
 <body>
-    <a href="../../sales_php/세일즈실적관리.php">실적창 이동</a>
     <div>
         <select>
             <option value="01">1월</option>
@@ -43,10 +40,28 @@
     </div>
     <div>
      <table>
-        <thead class="thead"><td>순서</td><td>날짜</td><td>연차</td><td>연차</td><td>연차</td></thead>
+       <!--  <thead class="thead"><td>순서</td><td>날짜</td><td>연차</td><td>연차</td><td>연차</td></thead>
         <tbody>
 
-        </tbody>
+        </tbody>-->
+        <?php 
+        echo "<tbody>";
+
+        for ($i = 1; $i <= 366; $i++) {
+            $date = new DateTime("2024-01-01");
+            $date->modify("+".($i - 1)." days");
+        
+            $mon = $date->format("n"); // 1~12 (월)
+            $day = $date->format("j"); // 1~31 (일)
+        
+            $class = ($mon < 10) ? "0$mon tr" : "$mon tr";
+            $month_display = ($mon < 10) ? "0$mon" : $mon;
+        
+            echo "<tr class='$class'><td>{$month_display}월/{$day}일</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>";
+        }
+        
+        echo "</tbody>";
+        ?>
 
      </table>
     </div>
@@ -58,7 +73,8 @@
         //var $date = date.setDate(1)
        //  console.log(date.getFullYear());
        //  console.log(date.getDate())
-       
+       /* var $today = new Date();
+        var mo = $today.getMonth()+1;
        
 
         for ( var i =1 ; i<=366 ; i++){
@@ -72,19 +88,9 @@
              }  
          } // 테이블 생성 코드 
            
-          
-           var date1 = new Date();
-            if ((date1.getMonth()+1).toString().length<2 ){
-               var mon1 = "0"+(date1.getMonth()+1).toString();
-            } else {
-               var mon1 =  date1.getMonth()+1;
-            }
-            
+            */
 
-            $('select').val(mon1.toString()).prop('selected',true);
 
-            $('.tr').not('.'+mon1.toString()).hide();
-            
            $('select').change(function(){
             $thisval = $(this).val();
             $('.tr').not('.'+$thisval).hide()
