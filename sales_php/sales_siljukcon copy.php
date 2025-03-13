@@ -129,14 +129,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
     $prodname = $_POST['prodname'] ?? '';
     $spememo = $_POST['spememo'] ?? ''; 
 
-    // html 태그 변수에 담기
-    $tdo ="<td>";
-    $tde ="</td>";
-    $tro ="<tr>";
-    $tre ="</tr>";
-
-    
-
+       
     if (!empty($inum) && !empty($cusname) && !empty($comdate) && !empty($hopedate) &&
     !empty($teamname) && !empty($prodname) && !empty($spememo)) {
 
@@ -150,24 +143,23 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
       $result = mysqli_query($conn,$sql);
       $row_count = mysqli_num_rows($result);
       $td = '';
-      $test = array();
       while($row = mysqli_fetch_array($result)){ 
-        $td = $td.$tro.$tdo.$row['ordernum'].$tde.$tdo.$row['inum'].$tde.
+        $td = $td."<tr><td>".$row['ordernum'].'</td>'.'<td>'.$row['inum'].'</td>'.
         '<td>'.$row['cusname'].'</td>'.'<td>'.$row['comdate'].'</td>'.'<td>'.$row['hopedate'].'</td>'.
         '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>'.
         '<td>'.'<form action='.'sales_siljukcon.php'." ".'method='.'post'.'>'.
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['ordernum'].''.'>'.'</form>'.
-        '</td>'.'<td>'.'<a class="success" href='.'sales_nujuk.php?cusnum='.$row['inum'].'&'.'cusname='.$row['cusname']
-        .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'>'.'예정'.'</a>';
-        $test[$row['ordernum']] = $row['cusname'];
+        '</td>'.'<td>'.'<a class="success" href="'.'sales_nujuk.php?cusnum='.$row['inum'].'&'.'cusname='.$row['cusname']
+        .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'"'.'>'.'예정'.'</a>'.'</td>'
+        .'<td class="dailyexcel" style="cursor:pointer;">'.'copy'.'</td>'.'</tr>';
      }
      echo $td;
-     print_r($test);
+     
      
     ?> 
        </tbody>
         </table>
-     <?php   echo '<h3>'.'잔여가설건수 : '.$row_count.' 건'.'</h3>'; ?>
+     <?php   echo '<h3 id="excelinsert">'.'잔여가설건수 : '.$row_count.' 건'.'</h3>'; ?>
      <a class="addlink" href="sales_Gate.html"><button>입력창 이동</button></a>
      <a class="addlink" href="sales_nujuk.php"><button>세일즈 누적실적 현황</button></a>
         <?php 
@@ -185,8 +177,8 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
   
     </div>
    
-    <div id="notepad">
-       <ol> 
+    
+       
     <?php 
     $txtmemo = $_POST['texmemo'] ?? '';
     $deltex = $_GET['deltex'] ?? '';
@@ -213,14 +205,15 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
            }; */
            while($row2 = mysqli_fetch_array($result2)){
             $test2 = $test2.'<li>'.$row2['memo'].'<a class="textdel" href="sales_siljukcon.php?deltex='.$row2['com_num'].'"'.'>'.'삭제'.
-            '</a>.'.'</li>';
-            print_r($row2['memo']);
+            '</a>.'.'</li>'
+                  ;
            };    
-
-           
         ?>
-       
-        </ol>
+    <div id="notepad">
+       <!--  <button id="excelinsert">복사</button>   -->
+        <table id="dailyRepot" style="border:none; font-family:Malgun Gothic; font-size:10x; text-align:center;">
+        
+        </table>
     </div>
     <div class="texframe">
     <pre>
@@ -238,19 +231,46 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
  
     
     <script>
-
-        var serverdata = JSON.parse('<?php echo json_encode($test); ?>');
-        console.log(serverdata['58']);
                         
-          // 휴대폰 번호 복사하기
-        $('td').click(function(){
+          // 휴대폰 번호 복사하기 =>잠깐 임시로 주석처리 했음
+         $('td').click(function(){
           var $tdtext = $(this).text();
           if(navigator.clipboard){
             $lib.clipcopy($tdtext);
           } else{
             $lib.clipcopy2($tdtext);
           }
-        })  
+        }) 
+
+         // 엑셀파일에 붙여 넣을 내용 append하기
+
+          $('.dailyexcel').on('click',function(){
+           const excel = $(this).siblings("td:nth-child(4)").text();
+           const excel1 = $(this).siblings("td:nth-child(2)").text();
+           const excel2 = $(this).siblings("td:nth-child(3)").text();
+           const excel3 = $(this).siblings("td:nth-child(6)").text();
+           const excel4 = $(this).siblings("td:nth-child(5)").text();
+            console.log(excel);
+            console.log(excel1);console.log(excel2);
+           $('#dailyRepot').append("<tr><td style='border:none;'>"+excel+"</td>"
+            +"<td style='border:none;'>"+excel1+"</td>"
+            +"<td style='border:none;'>"+excel2+"</td>"
+            +"<td style='border:none;'>"+""+"</td>"
+            +"<td style='border:none;'>"+excel3+"</td>"
+            +"<td style='border:none;'>"+excel4+"</td></tr>"
+        );
+           })
+            
+
+        // 엑셀파일에 붙여넣을 영역 카피하고 내용 비우기
+
+        $('#excelinsert').on('click',function(){
+            $lib.rangecopy('#dailyRepot');
+            $('#dailyRepot').empty();
+            
+        })
+        
+        
 
           // 삭제방지 코드
           $(".delsubmit").click(function(e){
@@ -276,15 +296,13 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
             }
            
           });
-
-          var serverdata = JSON.parse('<?php echo json_encode($row); ?>');
-          console.log(serverdata);
        //HTTPS 환경에서 실행: navigator.clipboard.writeText()는 보안상의 이유로 HTTPS 환경에서만 동작합니다. 따라서 코드가 HTTPS로 제공되고 있는지 확인하세요.
          // 백업하기 위해 전체 내용을 복사하기 
       
 
  //제일바깥쪽
         
+      
         
        
     </script>
