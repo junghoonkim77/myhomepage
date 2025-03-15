@@ -7,7 +7,9 @@ $sql = "CREATE TABLE c2sales_end
 it_tend VARCHAR(10),
 m_end VARCHAR(10),
 tri_end VARCHAR(10),
-success_end VARCHAR(10)
+success_end VARCHAR(10),
+todaytime VARCHAR(30)
+
 )";
 
 $result =  mysqli_query($conn,$sql);

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous"></script> 
+
+
+    <style>
+
+        table {
+
+            border : 1px solid gray;
+
+            border-collapse: collapse;
+
+        }
+
+        td {
+
+            border : 1px solid black;
+
+        }
+
+        thead {
+            background-color: rgb(207, 203, 203);
+        }
+
+    </style>
+
+    <title>일실적</title>
+
+</head>
+
+<body>
+
+    <table id=tablecopy>
+
+        <thead><td></td><td>인티</td><td>모바일</td><td>통리</td><td>가설</td></thead>
+
+        <tbody>
+
+            <tr><td class="team1">무선1</td><td class="it"></td><td class="mobile"></td><td class="trigger"></td><td class="succeed"></td></tr>
+            
+
+            <tr><td class="team1">무선2</td><td class="it"></td><td class="mobile"></td><td class="trigger"></td><td class="succeed"></td></tr>
+
+            <tr><td class="team1">무선3</td><td class="it"></td><td class="mobile"></td><td class="trigger"></td><td class="succeed"></td></tr>
+
+            <tr><td class="team1">무선4</td><td class="it"></td><td class="mobile"></td><td class="trigger"></td><td class="succeed"></td></tr>
+
+            <tr><td class="team1">무선5</td><td class="it"></td><td class="mobile"></td><td class="trigger"></td><td class="succeed"></td></tr>
+
+        </tbody>
+
+        <tfoot>
+
+            <td>합계</td>
+
+            <td id="total_it"></td>
+
+            <td id="total_m"></td>
+
+            <td id="total_tri"></td>
+
+            <td id="total_suc"></td>
+
+        </tfoot>
+
+
+    </table>
+
+    <form id="endinsert.php" action="endinsert.php" method="post">
+             <fieldset>
+                <select name="teamname" id="select">
+                    <option value="">본인팀선택 必</option>
+                    <option value="무1">무선1팀(전영선)</option>
+                    <option value="무2">무선2팀(박세민)</option>
+                    <option value="무3">무선3팀(윤미연)</option>
+                    <option value="무4">무선4팀(도창수)</option>
+                    <option value="무5">무선5팀(최세희)</option>
+                   
+                  </select> <br>
+                  <label for="itnet">인티:</label>  
+                  <input id="itnet" class="inputnum" placeholder="인티" type="number" max =20 min=0 value=0 name="it">
+                  <label for="mobile">모바일:</label>  
+                  <input id="mobile" class="inputnum" placeholder="모바일" type="number" max =20 min=0 value=0 name="moblie">
+                  <label for="trigger">통리:</label>  
+                  <input id="trigger" class="inputnum"  placeholder="통리" type="number" max =20 min=0 value=0 name="trigger">
+                  <label for="success">가설:</label>  
+                  <input id="success" class="inputnum"  placeholder="가설성공" type="number" max =20 min=0 value=0 name="success">
+                <button class="button1" >실적전송</button> 
+             </fieldset> 
+              
+           </form>    
+
+    <script>
+
+        $('.button1').click(function(e){
+          if($('#select').val() !== ""){
+            $('#endinsert.php').submit();
+          }else{
+            alert('팀명을 선택하세요~!')
+            e.preventDefault();
+          }
+        })
+
+    </script>
+
+</body>
+
+</html>
