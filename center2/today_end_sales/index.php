@@ -77,7 +77,7 @@ $tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], 
         }
     </style>
 
-    <title>일실적</title>
+    <title>CS2센터 Sales일실적</title>
 
 </head>
 
