@@ -23,6 +23,19 @@ $mu5 = [$teamData['무5'][0]['인티'], $teamData['무5'][0]['모바일'], $team
 $tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], $teamData['통품'][0]['통리'], $teamData['통품'][0]['가설'],$teamData['통품'][0]['시간']];
 
 
+$weekday = date('l'); // full 요일 (예: Monday)
+
+// 한글 요일로 변환
+$days = [
+    "Monday" => "월",
+    "Tuesday" => "화",
+    "Wednesday" => "수",
+    "Thursday" => "목",
+    "Friday" => "금",
+    "Saturday" => "토",
+    "Sunday" => "일"
+];
+
 ?>
 
 <!DOCTYPE html>
@@ -66,6 +79,9 @@ $tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], 
             background-color: rgb(207, 203, 203);
         }
 
+        .team1 {
+            background-color: rgb(207, 203, 203);
+        }
         .tabcopy {
             background-color: powderblue;
             cursor: pointer;
@@ -85,7 +101,7 @@ $tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], 
     <div class="container">
     <div id="tablecopy">
    <table >
-    <h3><?php echo date("Y").'-'.date("m").'-'.date("d"); ?></h3>
+    <h4><?php echo date("m").'/'.date("d").'('.$days[$weekday].') MIT 판매기회발굴 실적'; ?></h4>
         <thead><td></td><td>인티</td><td>모바일</td><td>통리</td><td>가설</td></thead>
 
         <tbody>
