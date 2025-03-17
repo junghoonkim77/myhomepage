@@ -166,12 +166,12 @@ $days = [
     
     <div id="timebox">
     <button class="tabcopy">표복사</button>
-    <p>무선1팀 입력시간:<span><?php echo $mu1[4] ?></span></p>
-    <p>무선2팀 입력시간:<span><?php echo $mu2[4] ?></span></p>
-    <p>무선3팀 입력시간:<span><?php echo $mu3[4] ?></span></p>
-    <p>무선4팀 입력시간:<span><?php echo $mu4[4] ?></span></p>
-    <p>무선5팀 입력시간:<span><?php echo $mu5[4] ?></span></p>
-    <p>통화품질팀 입력시간:<span><?php echo $tong[4] ?></span></p>
+    <p class="teamcom" >무선1팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu1[4] ?></span></p>
+    <p class="teamcom">무선2팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu2[4] ?></span></p>
+    <p class="teamcom" >무선3팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu3[4] ?></span></p>
+    <p class="teamcom">무선4팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu4[4] ?></span></p>
+    <p class="teamcom">무선5팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu5[4] ?></span></p>
+    <p class="teamcom">통화품질팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $tong[4] ?></span></p>
 
     </div>
     
@@ -202,7 +202,7 @@ $days = [
                   <input id="trigger" class="inputnum"  placeholder="통리" type="number" autocomplete="off" max =200 min=0 value=0 name="trigger">
                   <label for="success">가설:</label>  
                   <input id="success" class="inputnum"  placeholder="가설성공" type="number" autocomplete="off" max =200 min=0 value=0 name="success">
-                  <input id="nowtime" type="hidden" value=<?php echo date('d일H:i:s');?> name="nowtime">
+                  <input id="nowtime" type="hidden" value=<?php echo date('d일H:i:s').$days[$weekday];?> name="nowtime">
                   
                 <button class="button1" >실적전송</button> 
              </fieldset> 
@@ -210,6 +210,7 @@ $days = [
            </form>    
 
     <script>
+               
         function sum($class){
          var sumend = [];
          $('.'+$class).each(function(idx,ele){
@@ -229,9 +230,6 @@ $days = [
         })
         
         
-            
-
-
         $('.button1').click(function(e){
           if($('#select').val() !== ""){
             $('#endinsert.php').submit();
@@ -240,6 +238,19 @@ $days = [
             e.preventDefault();
           }
         })
+
+         $('.colordiv').each(function(idx,ele){
+              var eleval = ele.textContent ;
+              var eleval_leng = eleval.length;
+              var lastkey =  eleval.slice(eleval_leng-1,eleval_leng);
+              var this_data = $(this).attr('data-col');
+             
+              if(lastkey == this_data){
+               $(this).css('background-color','aqua');
+             }
+            
+         })
+        
 
     </script>
 
