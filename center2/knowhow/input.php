@@ -17,6 +17,9 @@
     textarea {
         margin-top: 20px;
     }
+    #question{
+        width : 50em;
+    }
 </style>
 
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
@@ -36,25 +39,53 @@
 
       <label for="inputdate">날짜입력</label>
 
-      <input  id="inputdate" type="date" name="inputdate">
+      <input class="valcheck" id="inputdate" autocomplete="off" type="date" name="inputdate">
 
       <label for="question">질문</label>
 
-      <input id="question" type="text" name="question">
+      <input class="valcheck" id="question" autocomplete="off" type="text" name="question">
 
-      <label for="answer">답변</label>
+      <label  for="answer">답변</label>
 
-      <textarea id="answer" cols="60" rows="20" name="answer"></textarea>
+      <textarea class="valcheck" id="answer" autocomplete="off" cols="60" rows="20" name="answer"></textarea>
 
       <label for="tip">Tip~!</label>
 
-      <textarea id="tip" cols="60" rows="20" name="tip"></textarea>
+      <textarea class="valcheck" id="tip" autocomplete="off" cols="60" rows="20" name="tip"></textarea>
 
-      <button type="submit">지식추가</button>
+      <button id="pass" type="submit">지식추가</button>
 
        </fieldset>
      
     </form>
+    <form action="delete.php" method="get">
+        <input autocomplete="off" type="number" name="delnum" id="">
+        <button type="submit">삭제</button>
+
+    <script> 
+        $('#pass').click(function(){
+            var inputdate = $('#inputdate').val();
+            var question = $('#question').val();
+            var answer = $('#answer').val();
+            var tip = $('#tip').val();
+            if(inputdate == ''){
+                alert('날짜를 입력해주세요');
+                return false;
+            }
+            if(question == ''){
+                alert('질문을 입력해주세요');
+                return false;
+            }
+            if(answer == ''){
+                alert('답변을 입력해주세요');
+                return false;
+            }
+            if(tip == ''){
+                alert('Tip을 입력해주세요');
+                return false;
+            }
+        });
+    </script>
 
 </body>
 

@@ -11,7 +11,7 @@ while($row = mysqli_fetch_array($result)){
     "</td><td class=\"ques\">질문</td><td class=\"ques\" colspan=\"2\">".nl2br($row['question']).
     "</td></tr><tr><td class='ans' rowspan=\"2\">답변"."</td>
      <td class='check'>✔</td><td class='answer'>".nl2br($row['answer'])."</td></tr>
-    <tr><td><img src=\"../../IMGfolder/cs2센터/tip.jpg\" style=\"width:2em;\" ></td>
+    <tr><td><img src=\"../../imgfolder/cs2센터/tip.jpg\" style=\"width:2em;\" ></td>
     <td class='tip'>".nl2br($row['tip'])."</tr>";
 }
 
@@ -160,7 +160,11 @@ while($row = mysqli_fetch_array($result)){
 
       <script>
 
-        
+        $('.daytitle').click(function(){
+
+            location.href = 'input.php';
+
+        });
 
       </script>
 

@@ -29,6 +29,7 @@ if ($stmt) {
     // 실행
     if (mysqli_stmt_execute($stmt)) {
         echo "데이터가 성공적으로 삽입되었습니다!";
+        echo "<a href='index.php'>따릉이 창 돌아가기</a>";
     } else {
         echo "오류: " . mysqli_error($conn);
     }
