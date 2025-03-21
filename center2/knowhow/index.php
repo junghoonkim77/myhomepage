@@ -123,33 +123,7 @@ while($row = mysqli_fetch_array($result)){
 
       <tbody>
 
-       <!-- <tr>  반복문 시작
-
-          <td rowspan="3">날짜입력칸</td>
-
-          <td>질문</td>
-
-          <td colspan="2">뭐뭐는 뭐에요?</td>
-
-        </tr>
-
-        <tr>
-
-          <td rowspan="2">답변</td>
-
-          <td>✔</td>
-
-          <td>뭐뭐는 뭐뭔 가능</td>
-
-        </tr>
-
-        <tr>
-
-          <td><img src="../../IMGfolder/cs2센터/tip.jpg" style="width:2em;" ></td>
-
-          <td>상담지식 질문번호</td>
-
-        </tr> 반복문 끝 -->
+      
 
        <?php echo $addtable; ?>
         

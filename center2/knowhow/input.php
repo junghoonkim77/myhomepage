@@ -58,9 +58,14 @@
        </fieldset>
      
     </form>
-    <form action="delete.php" method="get">
-        <input autocomplete="off" type="number" name="delnum" id="">
-        <button type="submit">삭제</button>
+    <form action="delete.php" id="delform" method="get">
+        <input placeholder="삭제할 번호 입력 혹은 선택" autocomplete="off" type="number" name="delnum" id="">
+        <button id="delcon" type="submit">삭제</button>
+    </form>
+    <form action="edit.php" method="get">
+        <input placeholder="수정할 번호 입력 혹은 선택" autocomplete="off" type="number" name="editnum" id="">
+        <button type="submit">수정</button>
+    </form>
 
     <script> 
         $('#pass').click(function(){
@@ -85,6 +90,16 @@
                 return false;
             }
         });
+
+        $('#delcon').click(function(e){
+            e.preventDefault();
+          var realdel =  confirm('정말 삭제하시겠습니까?');
+            if(realdel == true){
+                $('#delform').submit();
+        }else{
+            alert('삭제를 취소하셨습니다.');
+        }
+    });
     </script>
 
 </body>
