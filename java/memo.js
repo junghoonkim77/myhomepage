@@ -139,7 +139,7 @@ const minutes = time.getMinutes();
 const seconds = time.getSeconds();
 //clock.innerHTML = hour +":" + minutes + ":"+seconds;
 //clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`;
-clock.innerHTML = $year+'-'+$month+'-'+$day+'-'+`${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}`;
+clock.innerHTML = '('+$year+'/'+$month+'/'+$day+')  '+`${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}`;
 }
 
 
