@@ -131,12 +131,15 @@ $('.xbutton').click(function(){
 
 function getTime(){
 const time = new Date();
+const $month = time.getMonth()+1;
+const $year  = time.getFullYear();
+const $day = time.getDate();
 const hour = time.getHours();
 const minutes = time.getMinutes();
 const seconds = time.getSeconds();
 //clock.innerHTML = hour +":" + minutes + ":"+seconds;
 //clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`;
-clock.innerHTML = `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}`;
+clock.innerHTML = $year+'-'+$month+'-'+$day+'-'+`${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}`;
 }
 
 
