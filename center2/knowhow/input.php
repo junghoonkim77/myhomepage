@@ -32,7 +32,7 @@
 </head>
 
 <body>
-
+   <a href="index.php">메인으로</a>
     <form action="insert.php" method="post">
 
         <fieldset>
