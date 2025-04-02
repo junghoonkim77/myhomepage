@@ -129,7 +129,7 @@ foreach ($chatdata as $key => $value) {
      }
      main pre:hover {
         background-color: aqua;
-        font-size : 12px;
+        
      }   
      
     </style>
@@ -249,7 +249,7 @@ foreach ($chatdata as $key => $value) {
         jQuery(function(){
          const $chatname = localStorage.getItem('chatName');
          const $content = JSON.parse('<?php echo json_encode($chatdata,JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);?>');
-  
+         console.log($content);
     for ( key in $content){
       $content[key] = $content[key].replace("${$chatname}",$chatname);
     } 
