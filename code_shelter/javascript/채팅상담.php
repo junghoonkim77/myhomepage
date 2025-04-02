@@ -249,7 +249,7 @@ foreach ($chatdata as $key => $value) {
         jQuery(function(){
          const $chatname = localStorage.getItem('chatName');
          const $content = JSON.parse('<?php echo json_encode($chatdata,JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);?>');
-         console.log($content);
+         
     for ( key in $content){
       $content[key] = $content[key].replace("${$chatname}",$chatname);
     } 
@@ -260,10 +260,12 @@ foreach ($chatdata as $key => $value) {
             $inputTotal.click(function(){
                 var $index = $(this).index('.container label input');
                 var $val = $(this).val();
+                var $thistext = $(this).parent().text();
+                console.log($thistext);
              //  $(this).prop("checked", !$(this).prop("checked")); 
                 var propis = $(this).prop('checked');
               
-             if(propis){ $('main').append(`<pre id=${$val} ></pre>`)
+             if(propis){ $('main').append(`<pre title='${$thistext}' id=${$val} ></pre>`)
              for ( key in $content){
                  $('#'+key).html($content[key]);
                }
