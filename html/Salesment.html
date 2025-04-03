@@ -52,6 +52,13 @@
             display : none;
             
         }
+
+        .banronrule iframe {
+            height : 100vh;
+            width : 100vw;
+            display : none;
+            
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.1.js" 
     integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
@@ -65,7 +72,7 @@
   <label><input value="intt" type="radio" name="check" >인터넷+TV</label> 
   <label><input  value="tv" type="radio" name="check" >TV(복수포함)</label>  
   <label><input value="banron" type="radio" name="check" >반론극복</label>
-  
+  <label><input value="banron1" type="radio" name="check" >반론극복_표</label>
   <label><input value="transfer" type="radio" name="check" ><b>※유선상품이전※</b></label>
   <label><input value="newitm" type="radio" name="check" ><mark>ITM동시M트리거</mark></label>
  
@@ -87,6 +94,10 @@
 
 <div class="onse">
     <iframe src="sales_onse.html"></iframe>
+</div>
+
+<div class="banronrule">
+    <iframe src="banronrule.html"></iframe>
 </div>
 
 <script src="../java/salesment.js"></script>
