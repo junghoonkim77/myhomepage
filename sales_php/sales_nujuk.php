@@ -128,18 +128,10 @@
         <?php echo $td ?>
      
     </table>
-    <?php 
-     $delkey = $_POST['delkey']??'';
-
-     if(!empty($delkey)){
-         $sqlDEL = "DELETE FROM sales_success WHERE order_add = $delkey"; 
-         mysqli_query($conn,$sqlDEL);
-         echo  $delkey.'번이 삭제됐습니다.' ;}
-     
-    ?>
+ 
     <div class="gridcontainer">
    <div class="delinput">
-    <form action="" method="post">
+    <form action="sales_nujukdel.php" method="post">
     <input type="text" name="delkey" placeholder="지울데이터 베이스 번호입력">
     <input type="submit" value="click">
    </form>
