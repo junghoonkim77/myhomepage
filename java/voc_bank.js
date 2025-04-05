@@ -83,8 +83,8 @@ function line_dp2(num) {
  }
       
  
- function cancelpphone(){
-        document.querySelector("#inputdate").addEventListener("click", () => {
+ 
+        document.querySelector("#inputdate").addEventListener("click",function cancelpphone(){
         var inputyear = Number(document.querySelector("#inputyear").value);
         var inputmonth = Number(document.querySelector("#inputmonth").value);
         var inputday = Number(document.querySelector("#inputday").value);
@@ -95,7 +95,7 @@ function line_dp2(num) {
         let date= new Date(inputyear,inputmonth - 1,inputday);
         date.setDate(date.getDate() + dday1);
        
-        var cancel_txt="까지 해지가능(※휴일여부 필히 확인)";
+        var cancel_txt="까지 해지가능(토,일은 계산된 날짜 ※단 추가 휴일은 필수 확인 )";
         var cancel_txt1="까지 처리불가(※휴일여부 필히 확인)";
         var cancel_txt2="익일부터처리(변경)가능(※휴일여부 필히 확인)";
        
@@ -106,11 +106,31 @@ function line_dp2(num) {
 
           switch(dday) {
              case "opencancel" :
-         date.setDate(date.getDate() + 14);
+              
+           const $plusdate = new Date(date.getFullYear(),date.getMonth(),date.getDate()+14);
+           const $week = $plusdate.getDay();
+           
+           
+           if($week == 6){
+            date.setDate(date.getDate() + 16);
          var cancel_result1=
          date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + cancel_txt;
          document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result1; 
          break;
+           }else if($week == 0){
+            date.setDate(date.getDate() + 15);
+         var cancel_result1=
+         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + cancel_txt;
+         document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result1; 
+         break;
+           }else{
+            date.setDate(date.getDate() + 14);
+         var cancel_result1=
+         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + cancel_txt;
+         document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result1; 
+         break;
+           }
+         
              case "change_phonech" :
         date.setDate(date.getDate() + 28);
         var cancel_result1=
@@ -130,8 +150,8 @@ function line_dp2(num) {
         document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result1;
             break;
         }
-        })};
-        cancelpphone();
+        });
+        
 
         function erase_1(){
          var input_eraser1 = document.getElementsByClassName('del_day1');
