@@ -88,17 +88,18 @@ function line_dp2(num) {
         var inputyear = Number(document.querySelector("#inputyear").value);
         var inputmonth = Number(document.querySelector("#inputmonth").value);
         var inputday = Number(document.querySelector("#inputday").value);
-        let date= new Date(inputyear,inputmonth,inputday);
+        
         var dday = document.querySelector("#dday").value;
         var dday1 =Number(document.querySelector("#dday1").value)
-        date.setMonth(date.getMonth() - 1)
+        
+        let date= new Date(inputyear,inputmonth - 1,inputday);
         date.setDate(date.getDate() + dday1);
        
         var cancel_txt="까지 해지가능(※휴일여부 필히 확인)";
         var cancel_txt1="까지 처리불가(※휴일여부 필히 확인)";
         var cancel_txt2="익일부터처리(변경)가능(※휴일여부 필히 확인)";
        
-        date.setDate(date.getDate());
+        
         var cancel_result2=
         date.getFullYear() + "년 " + (date.getMonth()+1) + "월 " + date.getDate() + "일 " +cancel_txt2;
         document.getElementsByClassName('canseldate')[0].innerHTML=cancel_result2;
