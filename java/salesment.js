@@ -1,4 +1,4 @@
-jQuery(function(){
+$(function(){
       
   class Salesment {
    constructor(classname,title,salecon){
