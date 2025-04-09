@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         
         <link href="../css/tabcontent.css" rel="stylesheet" type="text/css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
-        integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
-        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+        </script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+        </script> 
         <script src="../java/tabcontent.js" type="text/javascript"></script>
         <script src="../java/library.js"></script>
         <script>
@@ -16,7 +16,7 @@
             } );
             </script>
         <style>
-            #tabs-3 table{
+            #tabs-4 table{
                 display : none;
             }
             table{ border:1px solid gray}
@@ -34,8 +34,8 @@
     <ul class="tabs" data-persist="true">
         <li><a href="#tabs-1"> HLR /교환실 /통품업무연락처      </a></li>
         <li><a href="#tabs-2"> Feature Code/넷윈도 필드명      </a></li>
-        <li><a href="#tabs-3"> 팀원 정보    </a></li>
-        <li><a href="#tabs-4"> 시설사 연락처    </a></li>
+        <li><a href="#tabs-3"> USIM이동성코드 </a></li>
+        <li><a href="#tabs-4"> 팀원 정보     </a></li>
         
     </ul>
     <div style ="height:100%" class="tabcontents">
@@ -48,9 +48,11 @@
         <iframe  frameboder="none" src = "../html/featurecode.html" >   </iframe> 
      
     </div>
-              
+    <div id="tabs-3">
+        <iframe  frameboder="none" src = "../html/usimcode.html" >   </iframe> 
+       </div>       
        
-        <div id="tabs-3" >
+        <div id="tabs-4" >
             <input id="password" type="text" placeholder="정보열람시 비번을 입력해주세요">
             <table style="border:1px;">
                 <thead id="tr" >
@@ -61,9 +63,7 @@
                 </thead>
             </table>         
         </div>
-       <div id="tabs-4">
-        <iframe  frameboder="none" src = "../html/시설사연락처.html" >   </iframe> 
-       </div> 
+       
        <div id ="copy_val">
         
        </div>

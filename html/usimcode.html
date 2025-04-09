@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USIM 이동성 실패코드드</title>
+</head>
+<body>
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:11px;
+          overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:11px;
+          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+        tr:hover{
+          background-color: aquamarine;
+        }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+        </script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+        </script> 
+        <h5>usim 이동성 실패코드</h5>
+        <table class="tg">
+        <thead><tr><th class="tg-0pky">코드</th><th class="tg-0pky">이동성 실패사유</th></tr></thead>
+        <tbody></tbody>
+        </table>
+        <script>
+          class  Usim {
+            constructor(_code,_failreason){
+                this.code = _code;
+                this.failreason = _failreason;
+                   }
+               }
+              const $usimcode =[
+              new Usim("	0	","	정상 	"),
+              new Usim("	1	","	FAIL(원인을 알수 없는 실패, EIR재시도함)	"),
+              new Usim("	2	","	Parameter Value Error(EIR재시도 않음)	"),
+              new Usim("	3	","	Parameter Not Exist(EIR재시도 않음)	"),
+              new Usim("	4	","	DB Error(KOS 처리시 Error, EIR재시도함)	"),
+              new Usim("	5	","	인증DB Error(EIR재시도함)	"),
+              new Usim("	10	","	가입자 사용중인단말기로 기변요청	"),
+              new Usim("	11	","	실패_별정사업자내에서만 이동가능	"),
+              new Usim("	12	","	실패_I-PLUG 동종간에만 이동가능	"),
+              new Usim("	13	","	실패_이동성 제한 단말기(개통Lock 단말기)	"),
+              new Usim("	14	","	실패_이동성 제한 단말기(중고폰락 단말기)	"),
+              new Usim("	15	","	실패_모젠단말기 동종간에만 이동가	"),
+              new Usim("	16	","	실패_16	"),
+              new Usim("	17	","	실패_이동성 제한 USIM(기지국 감시용 등)	"),
+              new Usim("	18	","	동일사업업자내이동가능(타사업자와는불가)	"),
+              new Usim("	19	","	실패_일시정지 상태인 단말기	"),
+              new Usim("	20	","	RU상태인 공단말기로 기기변경 성공	"),
+              new Usim("	21	","	실패_이동성 제한 단말기(위성 DMB)	"),
+              new Usim("	23	","	실패_이동제한 단말(사용이력 없는 신폰)	"),
+              new Usim("	24	","	실패_이동성 제한 단말기(타 USIM 제한)	"),
+              new Usim("	26	","	실패_이동성 제한 USIM(위성 DMB)	"),
+              new Usim("	27	","	실패_이동성 제한 USIM(위성 DMB)	"),
+              new Usim("	28	","	실패_Wibro DBDM 동종간에만 이동가능	"),
+              new Usim("	30	","	가입자 사용중인단말기로 기변요청(RU상태)	"),
+              new Usim("	31	","	사용중 단말기 해지 처리중 에러 발생	"),
+              new Usim("	32	","	실패_이동성 제한 USIM(프리존가입계약)	"),
+              new Usim("	33	","	실패_이동성 제한 단말기(프리존가입계약)	"),
+              new Usim("	34	","	실패_이동성 제한 USIM (안심이요금제사용중)	"),
+              new Usim("	35	","	실패_이동성 제한 단말기(안심이요금제사용중)	"),
+              new Usim("	36	","	실패_이동제한 단말(단말기보험 가입 폰)	"),
+              new Usim("	37	","	실패_이동성 제한 단말기(제한기간 이내)	"),
+              new Usim("	38	","	실패_이동제한 단말(해지제한기간 이내)	"),
+              new Usim("	39	","	실패_KT-KTF 사업자간 이동성 불가	"),
+              new Usim("	40	","	실패_UTAS 처리시 Time-Out 재시도 예정	"),
+              new Usim("	42	","	실패_이동성 제한 단말기(3G 렌탈폰)	"),
+              new Usim("	44	","	실패_별정(현대) 일반기변외 기변불가	"),
+              new Usim("	46	","	실패_이동제한 단말(분실 체납 단말기)	"),
+              new Usim("	47	","	실패_SKT 모델코드 없음(수동신청 시 응답코드)	"),
+              new Usim("	48	","	실패_SKT 모델명 없음	"),
+              new Usim("	49	","	실패_SKT 모델 일련번호 없음	"),
+              new Usim("	50	","	실패_SKT IMEI 없음	"),
+              new Usim("	51	","	실패_SKT IMEI 체크 오류	"),
+              new Usim("	52	","	실패_SKT IMEI 중복 오류	"),
+              new Usim("	53	","	실패_SKT 비대상 단말 용도(자동신청 시 응답코드)	"),
+              new Usim("	54	","	실패_SKT 분실 단말기	"),
+              new Usim("	55	","	실패_이동성 제한 USIM(AS 대여폰 사용중)	"),
+              new Usim("	56	","	실패_SKT 개통이력 없음	"),
+              new Usim("	57	","	실패_SKT 8년 07월 이전단말	"),
+              new Usim("	58	","	실패_SKT 임대기기	"),
+              new Usim("	59	","	실패_SKT 기타-미등록 IMEI 용	"),
+              new Usim("	60	","	실패_신폰 개통/기변후 14일이내 불가	"),
+              new Usim("	61	","	실패_개통/기변후 14일이내인 단말기(신폰)	"),
+              new Usim("	62	","	실패_이동성제한 USIM(감시용번호)	"),
+              new Usim("	63	","	실패_이동성제한 단말기(감시용번호사용중)	"),
+              new Usim("	64	","	실패_이동성제한 USIM(재판매임대계약)	"),
+              new Usim("	65	","	실패_이동성제한 단말기(재판매임대 사용중)	"),
+              new Usim("	66	","	실패_이동성제한 단말기(TEST_LOCK-폐기)	"),
+              new Usim("	67	","	실패_이동성제한 단말기(TEST_LOCK)	"),
+              new Usim("	68	","	실패_타사 단말기 기기변경 불가	"),
+              new Usim("	70	","	실패_이동성 제한 단말기(공중용)	"),
+              new Usim("	71	","	실패_이동성 제한 USIM(임직원용 I-PAD사용중)	"),
+              new Usim("	72	","	실패_이동성 제안 단말기(임직원용 I-PAD사용중)	"),
+              new Usim("	74	","	실패_이동제한USIM(땡큐/CRG/방문폰임대중)	"),
+              new Usim("	75	","	DBDM 단말기에 SBSM용 USIM 장착 불가	"),
+              new Usim("	76	","	실패_이동성제한 단말기(신형해피폰임대중)	"),
+              new Usim("	77	","	실패_CEIR 블랙 체크 응답	"),
+              new Usim("	78	","	실패_이동성 제한 단말기(CEIR 블랙 단말기)	"),
+              new Usim("	81	","	실패_이동성제한 단말기(고장 접수 단말기)	"),
+              new Usim("	82	","	실패_이동성 제한 단말기(AS 로너폰)	"),
+              new Usim("	83	","	실패_이동성 제한 단말기(땡큐폰)	"),
+              new Usim("	84	","	실패_미등록된 단말기	"),
+              new Usim("	85	","	실패_이동성 제한 단말기	"),
+              new Usim("	86	","	실패_SKT 타사 USIM이동 1차 단말 정보통보(->UTAS)	"),
+              new Usim("	87	","	실패_교환반품괸 사용이력 없는 신폰	"),
+              new Usim("	88	","	실패_이동제한 단말(굿타임방문서비스폰)	"),
+              new Usim("	89	","	실패_미등록된 가입자	"),
+              new Usim("	90	","	실패_미등록된 단말지(Physical Device)	"),
+              new Usim("	91	","	실패_이동제한 단말(해지제한기간 이내)	"),
+              new Usim("	94	","	실패_자동기변을 위한 단말정보 세팅에러	"),
+              new Usim("	95	","	cvCommit 처리중 에러 발생	"),
+              new Usim("	96	","	기변 처리중 에러 발생	"),
+              new Usim("	97	","	상품관련 처리중 에러 발생	"),
+              new Usim("	98	","	정지상태 기변 불가	"),
+              new Usim("	99	","	기타에러 	"),
+              new Usim("	A1	","	USIM이동성 Input Parameter Value Error	"),
+              new Usim("	A2	","	USIM이동성 내역 데이터 없음	"),
+              new Usim("	A3	","	USIM이동성 또는 재처리 대상 아님	"),
+              new Usim("	A4	","	USIM이동성 내역테이블 변경중 에러 발생	"),
+              new Usim("	A5	","	종료된 보증보험 회선 정리 중 에러 발생	"),
+              new Usim("	A6	","	USIM이동성 재처리대상 체크중 에러발생	"),
+              new Usim("	A7	","	USIM이동성결과 SMS 발송중 에러발생	"),
+              new Usim("	A8	","	cvSvSoc(상품변경) 처리중 에러 발생	"),
+              new Usim("	AA	","	동일단말기 미처리로 재처리대상:기변없음	"),
+              new Usim("	AB	","	실패_이동성 제한 USIM (LTE펨토셀요금제사용중)	"),
+              new Usim("	AC	","	실패_이동성 제한 USIM (M2M 요금제 사용 중)	"),
+              new Usim("	AD	","	실패_이동성 제한(일반요금제+패드)	"),
+              new Usim("	AE	","	실패_이동성 제한(데이타요금제+일반폰)	"),
+              new Usim("	AF	","	실패_이동성 제한 USIM(KT파워텔 M2M요금제사용중)	"),
+              new Usim("	AG	","	실패_이동성 제한단말기(기변전 T-BOX 단말기)	"),
+              new Usim("	AH	","	실패_이동성 제한단말기(기변후 T-BOX 단말기)	"),
+              new Usim("	AI	","	실패_이동성 제한 USIM(요금할인 가입중)	"),
+              new Usim("	AJ	","	실패_이동성 제한 단말기(기변전 요금할인 지급 이력 단말)	"),
+              new Usim("	AK	","	실패_이동성 제한 단말기(기변전 WEARABLE 동종간에만 이동 가능)	"),
+              new Usim("	AL	","	실패_이동성 제한 단말기(기변후 WEARABLE 동종간에만 이동 가능)	"),
+              new Usim("	AM	","	실패_이동성 제한 단말기(기변후 요금할인 지급 이력 단말)	"),
+              new Usim("	AN	","	실패_이동성 제한 단말기(WIBRO LTE DBDM 단말기)	"),
+              new Usim("	AO	","	실패_이동성 제한 요금제+단말기(KT파워텔 특정단말,특정요금제 USIM이동성 불가)	"),
+              new Usim("	AP	","	실패_이동성 제한 단말기(배송용 개통된 단말기로 USIM 이동불가)	"),
+              new Usim("	AQ	","	실패_이동성 제한 단말기(전용회선[VPN] 대상 단말)	"),
+              new Usim("	AR	","	실패_이동성 제한 단말기(안심케어 올레똑똑 단말)	"),
+              new Usim("	AS	","	실패_이동성 제한 USIM(스마트액션 요금제 사용 중)	"),
+              new Usim("	AT	","	실패_이동성 제한 USIM(IoT150 요금제 사용중)	"),
+              new Usim("	AU	","	실패_이동성 제한 단말기(미니게이트용 단말만 이동 가능)	"),
+              new Usim("	AV	","	실패_이동성 제한 USIM(미니게이트 요금제 사용 중인 USIM만 이동 가능)	"),
+              new Usim("	AW	","	실패_이동성 제한 단말기(헬스케어-스마트용 단말로만 이동 가능)	"),
+              new Usim("	AX	","	실패_이동성 제한 USIM(헬스케어-스마트 요금제 사용 중인 USIM만 이동 가능)	"),
+              new Usim("	AY	","	실패_이동성 제한 단말기(LTE EGG 단말기)	"),
+              new Usim("	AZ	","	실패_이동성 제한 단말기(핀플레이 요금제 사용 중)	"),
+              new Usim("	B1	","	실패_이동성 제한 단말기(V-OTS요금제 사용)	"),
+              new Usim("	BA	","	실패_이동성 제한 단말기(Y키즈LTE요금제 사용중 LTE미지원단말기로 이동제한)	"),
+              new Usim("	BB	","	실패_이동성 제한 단말기(기변전 스마트기기 동종간에만 이동 가능)	"),
+              new Usim("	BC	","	실패_이동성 제한 단말기(기변후 스마트기기 동종간에만 이동 가능)	"),
+              new Usim("	BD	","	실패_이동성 제한 요금제+단말기(핀플레이 후불3종 특정단말, 특정요금제 USIM이동성 불가)	"),
+              new Usim("	BE	","	실패_이동성 제한 단말기(이전 단말 LTE-M 유형의 단말기이므로 이동성 불가)	"),
+              new Usim("	BF	","	실패_이동성 제한 단말기(이후 단말 LTE-M 유형의 단말기이므로 이동성 불가)	"),
+              new Usim("	BG	","	실패_이동성 제한 단말기(기변후 앤텔레콤 단말 유형 패드만 USIM이동 가능)	"),
+              new Usim("	BH	","	실패_이동성 제한 단말기(기변후 순 biz data 일반01 or 스마트폰02 단말기는 USIM 이동성 불가)	"),
+              new Usim("	BI	","	실패_이동성 제한 USIM(P-LTE 표준요금제 사용중)	"),
+              new Usim("	BJ	","	실패_이동성 제한 단말기(이동성 허용 MVNO 요금제 가능 단말기로만 이동 가능)	"),
+              new Usim("	BK	","	실패_이동성 제한 요금제(데이터ON프리미엄-데이터쉐어링)	"),
+              new Usim("	BL	","	실패_이동성 제한 USIM(미니게이트 M2M 요금제 데이터200MB 사용중)	"),
+              new Usim("	BM	","	실패_이동성 제한 USIM(OTC 요금제 사용중인 경우만 폰,패드간 이동만 가능)	"),
+              new Usim("	BN	","	실패_이동성 제한 단말기(핀플레이 키즈안심)	"),
+              new Usim("	BO	","	실패_이동성 허용 MVNO 요금제 단말 제약(스마트기기)	"),
+              new Usim("	BP	","	실패_이동성 허용 MVNO 요금제 단말 제약(PAD)	"),
+              new Usim("	BQ	","	실패_이동성 허용 MVNO 요금제 단말 제약(OMD)	"),
+              new Usim("	BR	","	실패_이동성 허용 MVNO 요금제 단말 제약(EGG)	"),
+              new Usim("	BS	","	실패_이동성 허용 MVNO 요금제 단말 제약(특정단말기)	"),
+              new Usim("	BT	","	실패_이동성 제한 단말기(5G MHS 요금제)	"),
+              new Usim("	BV	","	실패_이동성 제한 단말기(3G USIM은 5G 단말로 이동 불가)	"),
+              new Usim("	BW	","	실패_이동성 제한 단말기(5G USIM은 3G 단말로 이동 불가)	"),
+              new Usim("	BX	","	실패_이동성 제한 단말기(특정단말기로만 이동가능)	"),
+              new Usim("	BY	","	실패_이동성 제한 단말기(협동로봇 전용 요금제 사용 고객)	"),
+              new Usim("	BZ	","	실패_이동성 제한 단말기(M 모바일 요금제 사용중 LTE 미지원 시 이동성 불가)	"),
+              new Usim("	CA	","	실패-이동성 제한 단말기(시연용 5G 요금제 유심이동성 불가)	"),
+              new Usim("	CB	","	실패-이동성 제한 요금제(신규 데이터쉐어링 요금제 사용중)	"),
+              new Usim("	CC	","	실패-이동성 제한 단말(5G 스마트디바이스 요금제 비허용 단말)	"),
+              new Usim("	CD	","	실패-이동성 제한 단말기(폐기상태단말기)	"),
+              new Usim("	CE	","	실패-이동성 제한 단말기(출시일 이전의 자급제 단말)	"),
+              new Usim("	CH	","	실패-이동성 제한 단말기(요금제 허용 단말 스펙 및 스펙 외 허용 단말이 아니면 불가)	"),
+              new Usim("	CI	","	실패-이동성 제한 단말기(요금제 불허용 단말 그룹 불가)	"),
+              new Usim("	CJ	","	실패-이동성 제한 단말기(요금제 허용 단말 스팩 내 그룹단말이 아니면 불가)	"),
+              new Usim("	CK	","	실패-이동성 제한 단말기(5G EGG 단말기)	"),
+              new Usim("	CL	","	실패_이동성 제한 USIM (제한 IMSI)	"),
+              new Usim("	CM	","	실패_이동성 제한 (미등록단말 등록 불가 시간)	"),
+              new Usim("	CN	","	실패_이동성 제한 단말기(로밍회선 내 등록 된 단말기로만 가능)	"),
+              new Usim("	CO	","	실패-최초 이동성기변으로 인한 1회 reject처리 오류	"),
+              new Usim("	CP	","	실패-이동성 제한 USIM(유심이동차단서비스 사용중)	"),
+              new Usim("	CQ	","	실패_이동성 제한 단말기(통신범죄 및 불법스팸사용 단말)	"),
+              new Usim("	CS	","	실패-이동성 제한 단말기(특정요금제 이동성 허용 불가 단말 제약)	"),
+              new Usim("	CT	","	실패_이동성 제한 단말기(커넥티드카 단말기로만 이동 가능)	"),
+              new Usim("	CU	","	실패-이동성 제한(특정 부가서비스 이동성 허용 불가 단말 제약)	"),
+              new Usim("	E1	","	실패_이동성 제한 IMEI( 특정 IMEI 이동 제한 )	"),
+              new Usim("	MP  ","	실패-MVNO의 유심단독상태 실패	"),
+               ];
+          
+        $usimcode.forEach(function(val,idx){
+          $('tbody').append(`<tr><td class="tg-0lax">${val.code}</td><td class="tg-0lax">${val.failreason}</td></tr>`)
+        })
+
+        </script>
+</body>
+</html>
