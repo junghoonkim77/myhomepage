@@ -64,13 +64,18 @@
             display : none;
             
         }
+        .salespass{
+            width : 4rem;
+            display : none;
+        }
     </style>
     <title>서울중앙_CS2센터업무</title>
 </head>
 <body>
     <header><h3>서울중앙_CS2센터</h3></header>
     <aside>
-      <!-- <button data-menu="today_end_sales/">Sales_일실적 마감</button>  -->  
+        <button class="salesend" data-menu="today_end_sales/">Sales_일마감(클릭후 비번입력)</button>
+        <input class="salespass" type="text" placeholder="실적비번">
         <button data-menu="../html/통화품질_휴근업무.html">휴근_업무</button>
         <button data-menu="knowhow/">업무지식(따릉이)</button>
     </aside>
@@ -81,9 +86,26 @@
    <script>
      $('button').on('click',function(){
       const $url =  $(this).attr('data-menu');
-      $('main iframe').attr('src',$url);
-      $('main iframe').css('display','block');
+      if(!$(this).hasClass('salesend')){
+        $('main iframe').attr('src',$url);
+        $('main iframe').css('display','block');
+        $('.salespass').css('display','none');
+        $('.salespass').val('');
+      }else{
+        $('.salespass').css('display','block');
+        $('.salespass').on('keyup',function(){
+          const $passval =  $(this).val();
+          if($passval == "016114"){
+            $('main iframe').attr('src',$url);
+            $('main iframe').css('display','block');
+          }
+        }) 
+
+      }
+      
      })
+
+     
    </script>
 </body>
 </html>
