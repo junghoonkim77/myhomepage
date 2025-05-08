@@ -4,14 +4,14 @@ echo "<br>";
 echo "저장중입니다.";
 
 $teamname = $_POST['teamname'] ?? '';
-$it = $_POST['it'] ?? ''; // 기본값 설정
-$mobile = $_POST['mobile'] ?? '';
-$trigger = $_POST['trigger'] ?? '';
-$success = $_POST['success'] ?? '';
-$nowtime = $_POST['nowtime'] ??'';
+$simplevoc = $_POST['simplevoc'] ?? ''; // 기본값 설정
+$badvoc = $_POST['badvoc'] ?? '';
+$badofbad = $_POST['badofbad'] ?? '';
+$vocmemo = $_POST['vocmemo'] ?? '';
 
-$sql = "UPDATE c2sales_end
-SET it_tend = '$it', m_end = '$mobile', tri_end = '$trigger',success_end ='$success' , todaytime = '$nowtime'
+
+$sql = "UPDATE cs2collect
+SET simplevoc = '$simplevoc', badvoc = '$badvoc', badofbad = '$badofbad',vocmemo ='$vocmemo' , todaytime = '$nowtime'
 WHERE TeamName = '$teamname'" ;
 
 $result = mysqli_query($conn,$sql);
