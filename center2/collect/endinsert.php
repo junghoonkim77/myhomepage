@@ -8,6 +8,7 @@ $simplevoc = $_POST['simplevoc'] ?? ''; // 기본값 설정
 $badvoc = $_POST['badvoc'] ?? '';
 $badofbad = $_POST['badofbad'] ?? '';
 $vocmemo = $_POST['vocmemo'] ?? '';
+$nowtime = $_POST['nowtime'] ??'';
 
 
 $sql = "UPDATE cs2collect

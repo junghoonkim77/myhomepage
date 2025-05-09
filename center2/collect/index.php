@@ -7,20 +7,20 @@ $teamData = [];
 
 foreach ($teams as $team) {
     $teamData[$team] = [];
-    $sql = "SELECT it_tend , m_end , tri_end , success_end , todaytime FROM c2sales_end WHERE teamname = '$team'";
+    $sql = "SELECT simplevoc , badvoc , badofbad , vocmemo , todaytime FROM cs2collect WHERE teamname = '$team'";
     $re = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($re)) {
-        $teamData[$team][] = ['인티' => $row['it_tend'], '모바일' => $row['m_end'], '통리' => $row['tri_end'], '가설' => $row['success_end'] ,'시간' => $row['todaytime']];
+        $teamData[$team][] = ['단순' => $row['simplevoc'], '불만' => $row['badvoc'], '고만이관' => $row['badofbad'], '문의불만' => $row['vocmemo'], '시간' => $row['todaytime']];
     }
 }
 
 
-$mu1 = [$teamData['무1'][0]['인티'], $teamData['무1'][0]['모바일'], $teamData['무1'][0]['통리'], $teamData['무1'][0]['가설'],$teamData['무1'][0]['시간']];
-$mu2 = [$teamData['무2'][0]['인티'], $teamData['무2'][0]['모바일'], $teamData['무2'][0]['통리'], $teamData['무2'][0]['가설'],$teamData['무2'][0]['시간']];
-$mu3 = [$teamData['무3'][0]['인티'], $teamData['무3'][0]['모바일'], $teamData['무3'][0]['통리'], $teamData['무3'][0]['가설'],$teamData['무3'][0]['시간']];
-$mu4 = [$teamData['무4'][0]['인티'], $teamData['무4'][0]['모바일'], $teamData['무4'][0]['통리'], $teamData['무4'][0]['가설'],$teamData['무4'][0]['시간']];
-$mu5 = [$teamData['무5'][0]['인티'], $teamData['무5'][0]['모바일'], $teamData['무5'][0]['통리'], $teamData['무5'][0]['가설'],$teamData['무5'][0]['시간']];
-$tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], $teamData['통품'][0]['통리'], $teamData['통품'][0]['가설'],$teamData['통품'][0]['시간']];
+$mu1 = [$teamData['무1'][0]['단순'], $teamData['무1'][0]['불만'], $teamData['무1'][0]['고만이관'], $teamData['무1'][0]['문의불만'],$teamData['무1'][0]['시간']];
+$mu2 = [$teamData['무2'][0]['단순'], $teamData['무2'][0]['불만'], $teamData['무2'][0]['고만이관'], $teamData['무2'][0]['문의불만'],$teamData['무2'][0]['시간']];
+$mu3 = [$teamData['무3'][0]['단순'], $teamData['무3'][0]['불만'], $teamData['무3'][0]['고만이관'], $teamData['무3'][0]['문의불만'],$teamData['무3'][0]['시간']];
+$mu4 = [$teamData['무4'][0]['단순'], $teamData['무4'][0]['불만'], $teamData['무4'][0]['고만이관'], $teamData['무4'][0]['문의불만'],$teamData['무4'][0]['시간']];
+$mu5 = [$teamData['무5'][0]['단순'], $teamData['무5'][0]['불만'], $teamData['무5'][0]['고만이관'], $teamData['무5'][0]['문의불만'],$teamData['무5'][0]['시간']];
+$tong = [$teamData['통품'][0]['단순'], $teamData['통품'][0]['불만'], $teamData['통품'][0]['고만이관'], $teamData['통품'][0]['문의불만'],$teamData['통품'][0]['시간']];
 
 
 $weekday = date('l'); // full 요일 (예: Monday)
@@ -36,6 +36,11 @@ $days = [
     "Sunday" => "일"
 ];
 
+$simplesum = $mu1[0] + $mu2[0]+ $mu3[0]+ $mu4[0]+ $mu5[0] + $tong[0];
+$badsum = $mu1[1] + $mu2[1]+ $mu3[1]+ $mu4[1]+ $mu5[1] + $tong[1];
+$badofbad = $mu1[2] + $mu2[2]+ $mu3[2]+ $mu4[2]+ $mu5[2] + $tong[2];
+$vocmemo = [$mu1[3] , $mu2[3] , $mu3[3] , $mu4[3] , $mu5[3] , $tong[3]];
+
 ?>
 
 <!DOCTYPE html>
@@ -49,10 +54,11 @@ $days = [
 
     <style>
 
-        .container {
-            display :flex;
-            flex-direction: row;
+       .container {
             
+            display: flex;
+            
+            flex-direction: row
         }
 
         table {
@@ -60,6 +66,7 @@ $days = [
             border : 1px solid gray;
             border-collapse: collapse;
             text-align: center;
+            
              
         }
 
@@ -89,7 +96,8 @@ $days = [
 
         #timebox{
             padding-left: 20px;
-            
+            white-space: pre-wrap;
+            font-size: 13px;
         }
     </style>
 
@@ -101,82 +109,79 @@ $days = [
     <div class="container">
     <div id="tablecopy">
    <table >
-    <h4><?php echo date("m").'/'.date("d").'('.$days[$weekday].') MIT 판매기회발굴 실적'; ?></h4>
-        <thead><td></td><td>인티</td><td>모바일</td><td>통리</td><td>가설</td></thead>
+    <h4><?php echo date("m").'/'.date("d").'('.$days[$weekday].') CS2센터 WFMS 취합 사이트'; ?></h4>
+        <thead><td></td><td>단순</td><td>불만</td><td>고만이관</td><td>문의내용</td><td>업로드시간</td></thead>
 
         <tbody>
 
-            <tr><td class="team1">무선1</td>
+            <td class="team1">무선1</td>
             <td class="it"><?php echo $mu1[0] ?></td>
             <td class="mobile"><?php echo $mu1[1] ?></td>
             <td class="trigger"><?php echo $mu1[2] ?></td>
-            <td class="succeed"><?php echo $mu1[3] ?></td></tr>
+            <td class="succeed"><?php echo $mu1[3] ?></td>
+            <td class="succeed"><?php echo $mu1[4] ?></td></tr>
             
 
-            <tr><td class="team1">무선2</td>
+            <td class="team1">무선2</td>
             <td class="it"><?php echo $mu2[0] ?></td>
             <td class="mobile"><?php echo $mu2[1] ?></td>
             <td class="trigger"><?php echo $mu2[2] ?></td>
-            <td class="succeed"><?php echo $mu2[3] ?></td></tr>
+            <td class="succeed"><?php echo $mu2[3] ?></td>
+            <td class="succeed"><?php echo $mu2[4] ?></td></tr>
 
-            <tr><td class="team1">무선3</td>
+            <td class="team1">무선3</td>
             <td class="it"><?php echo $mu3[0] ?></td>
             <td class="mobile"><?php echo $mu3[1] ?></td>
             <td class="trigger"><?php echo $mu3[2] ?></td>
-            <td class="succeed"><?php echo $mu3[3] ?></td></tr>
+            <td class="succeed"><?php echo $mu3[3] ?></td>
+            <td class="succeed"><?php echo $mu3[4] ?></td></tr>
 
-            <tr><td class="team1">무선4</td>
+            <td class="team1">무선4</td>
             <td class="it"><?php echo $mu4[0] ?></td>
             <td class="mobile"><?php echo $mu4[1] ?></td>
             <td class="trigger"><?php echo $mu4[2] ?></td>
-            <td class="succeed"><?php echo $mu4[3] ?></td></tr>
+            <td class="succeed"><?php echo $mu4[3] ?></td>
+            <td class="succeed"><?php echo $mu4[4] ?></td></tr>
 
-            <tr><td class="team1">무선5</td>
+            <td class="team1">무선5</td>
             <td class="it"><?php echo $mu5[0] ?></td>
             <td class="mobile"><?php echo $mu5[1] ?></td>
             <td class="trigger"><?php echo $mu5[2] ?></td>
-            <td class="succeed"><?php echo $mu5[3] ?></td></tr>
+            <td class="succeed"><?php echo $mu5[3] ?></td>
+            <td class="succeed"><?php echo $mu5[4] ?></td></tr>
             
-            <tr><td class="team1">통화품질</td>
+            <td class="team1">통화품질</td>
             <td class="it"><?php echo $tong[0] ?></td>
             <td class="mobile"><?php echo $tong[1] ?></td>
             <td class="trigger"><?php echo $tong[2] ?></td>
-            <td class="succeed"><?php echo $tong[3] ?></td></tr>
+            <td class="succeed"><?php echo $tong[3] ?></td>
+            <td class="succeed"><?php echo $tong[4] ?></td></tr>
 
         </tbody>
-
-        <tfoot>
-
-            <td>합계</td>
-
-            <td id="it_t"></td>
-
-            <td id="mobile_t"></td>
-
-            <td id="trigger_t"></td>
-
-            <td id="succeed_t"></td>
-
-        </tfoot>
-
-
+   
     </table>
     
    </div>
     
     <div id="timebox">
-    <button class="tabcopy">표복사</button>
-    <p class="teamcom" >무선1팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu1[4] ?></span></p>
-    <p class="teamcom">무선2팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu2[4] ?></span></p>
-    <p class="teamcom" >무선3팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu3[4] ?></span></p>
-    <p class="teamcom">무선4팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu4[4] ?></span></p>
-    <p class="teamcom">무선5팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu5[4] ?></span></p>
-    <p class="teamcom">통화품질팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $tong[4] ?></span></p>
+<h4>[서울]SKT유심정보 유출관련 문의현황 (ver.16:30)</h4>
+ㅇ단순 :<?php echo $simplesum ?> 건
+ㅇ불만 :<?php echo $badsum ?> 건 (中, 고만이관 <?php echo $badofbad ?> 건)
+ㅇ고객문의 /불만 내용
+<?php foreach ($vocmemo as $key => $value) {
+    if ($value == '') {
+        continue;
+    } else
+    echo "-".$value."\n";
+} ?>
 
+
+     
     </div>
-    
+ </div>    
     <a href="../index.html">CS2센터 메인페이지 이동</a>
-</div>
+    <button class="tabcopy">wfms제출본 복사</button>
+
    
     
     
@@ -195,39 +200,27 @@ $days = [
                     <option value="통품">통화품질팀(김정훈)</option>
                    
                   </select> <br>
-                  <label for="itnet">인티:</label>  
-                  <input id="itnet" class="inputnum" placeholder="인티" type="number" autocomplete="off" max =200 min=0 value=0 name="it">
-                  <label for="mobile">모바일:</label>  
-                  <input id="mobile" class="inputnum" placeholder="모바일" type="number" autocomplete="off" max =200 min=0 value=0 name="mobile">
-                  <label for="trigger">통리:</label>  
-                  <input id="trigger" class="inputnum"  placeholder="통리" type="number" autocomplete="off" max =200 min=0 value=0 name="trigger">
-                  <label for="success">가설:</label>  
-                  <input id="success" class="inputnum"  placeholder="가설성공" type="number" autocomplete="off" max =200 min=0 value=0 name="success">
+                  <label for="itnet">단순:</label>  
+                  <input id="itnet" class="inputnum" placeholder="단순문의" type="number" autocomplete="off" max =200 min=0 value=0 name="simplevoc">
+                  <label for="mobile">불만:</label>  
+                  <input id="mobile" class="inputnum" placeholder="불만문의" type="number" autocomplete="off" max =200 min=0 value=0 name="badvoc">
+                  <label for="trigger">고만이관:</label>  
+                  <input id="trigger" class="inputnum"  placeholder="고만이관" type="number" autocomplete="off" max =200 min=0 value=0 name="badofbad">
+                  <label for="success">고객문의:</label>  
+                  <input id="success" class="inputnum"  placeholder="'-' 없이 고객문의/불만 입력 / 없으면 패스" type="text" autocomplete="off"  name="vocmemo">
                   <input id="nowtime" type="hidden" value=<?php echo date('d일H:i:s').$days[$weekday];?> name="nowtime">
                   
-                <button class="button1" >실적전송</button> 
+                <button class="button1" >WFMS 취합건 전송</button> 
              </fieldset> 
               
            </form>    
 
     <script>
                
-        function sum($class){
-         var sumend = [];
-         $('.'+$class).each(function(idx,ele){
-          var $thisnum =  Number(ele.textContent );  
-           sumend.push($thisnum); 
-        });
-        var sumresul = sumend.reduce((acc,curval)=>{
-            return  acc+curval ;
-           },0)
-         $('#'+$class+'_t').text(sumresul);     
-        } //sum사용자 정의 함수 마지막 죽
-
-        sum('it');  sum('mobile');   sum('trigger');   sum('succeed');
+           
 
         $('.tabcopy').click(function(){
-            $lib.rangecopy('#tablecopy');
+            $lib.rangecopy('#timebox');
         })
         
         
@@ -240,17 +233,7 @@ $days = [
           }
         })
 
-         $('.colordiv').each(function(idx,ele){
-              var eleval = ele.textContent ;
-              var eleval_leng = eleval.length;
-              var lastkey =  eleval.slice(eleval_leng-1,eleval_leng);
-              var this_data = $(this).attr('data-col');
-             
-              if(lastkey == this_data){
-               $(this).css('background-color','aqua');
-             }
-            
-         })
+         
         
 
     </script>
