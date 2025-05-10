@@ -58,7 +58,7 @@ $vocmemo = [$mu1[3] , $mu2[3] , $mu3[3] , $mu4[3] , $mu5[3] , $tong[3]];
             
             display: flex;
             
-            flex-direction: row
+            flex-direction: row;
         }
 
         table {
@@ -99,9 +99,16 @@ $vocmemo = [$mu1[3] , $mu2[3] , $mu3[3] , $mu4[3] , $mu5[3] , $tong[3]];
             white-space: pre-wrap;
             font-size: 13px;
         }
+        #middlemenu{
+            position : relative;
+            
+        }
+        #coltitle{
+            width : 22rem;
+        }
     </style>
 
-    <title>CS2센터 Sales일실적</title>
+    <title>CS2센터 WFMS취합</title>
 
 </head>
 
@@ -178,9 +185,13 @@ $vocmemo = [$mu1[3] , $mu2[3] , $mu3[3] , $mu4[3] , $mu5[3] , $tong[3]];
 
      
     </div>
- </div>    
-    <a href="../index.html">CS2센터 메인페이지 이동</a>
-    <button class="tabcopy">wfms제출본 복사</button>
+ </div>   
+
+  <div id="middlemenu">
+  <a href="../index.html">CS2센터 메인페이지 이동</a>
+  <button class="tabcopy">wfms제출본 복사</button>
+  </div> 
+    
 
    
     
@@ -213,7 +224,12 @@ $vocmemo = [$mu1[3] , $mu2[3] , $mu3[3] , $mu4[3] , $mu5[3] , $tong[3]];
                 <button class="button1" >WFMS 취합건 전송</button> 
              </fieldset> 
               
-           </form>    
+           </form>
+    <form class="coltitle" action="endinsert.php" method="post">
+     <label for="coltitle">취합 제목</label>
+     <input id="coltitle" type="text" autocomplete="off" name="coltitle">
+     <button>최종취합자만 변경시 입력후 클릭</button>
+    </form>
 
     <script>
                
@@ -234,7 +250,7 @@ $vocmemo = [$mu1[3] , $mu2[3] , $mu3[3] , $mu4[3] , $mu5[3] , $tong[3]];
         })
 
          
-        
+        $('#middlemenu').css('left',$('table').outerWidth(true)) ;
 
     </script>
 

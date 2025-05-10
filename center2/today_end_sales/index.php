@@ -91,6 +91,10 @@ $days = [
             padding-left: 20px;
             
         }
+        #middlemenu{
+            position : relative;
+            
+        }
     </style>
 
     <title>CS2센터 Sales일실적</title>
@@ -175,9 +179,9 @@ $days = [
 
     </div>
     
-    <a href="../index.html">CS2센터 메인페이지 이동</a>
+    
 </div>
-   
+<div id="middlemenu"><a href="../index.html">CS2센터 메인페이지 이동</a></div>
     
     
   
@@ -252,7 +256,7 @@ $days = [
             
          })
         
-
+      $('#middlemenu').css('left',$('table').outerWidth(true)) ;
     </script>
 
 </body>
