@@ -14,6 +14,13 @@ foreach ($teams as $team) {
     }
 }
 
+// 1행짜리 타이틀용 테이블
+$sql1 ="SELECT * FROM cs2collect_title WHERE num = 1";
+$re1 = mysqli_query($conn, $sql1);
+while ($row1 = mysqli_fetch_array($re1)){
+    $nowtltle = $row1['coltitle'];
+}
+//1행짜리 타이틀용 테이블 불러오기 끝
 
 $mu1 = [$teamData['무1'][0]['단순'], $teamData['무1'][0]['불만'], $teamData['무1'][0]['고만이관'], $teamData['무1'][0]['문의불만'],$teamData['무1'][0]['시간']];
 $mu2 = [$teamData['무2'][0]['단순'], $teamData['무2'][0]['불만'], $teamData['무2'][0]['고만이관'], $teamData['무2'][0]['문의불만'],$teamData['무2'][0]['시간']];
@@ -171,7 +178,7 @@ $vocmemo = [$mu1[3] , $mu2[3] , $mu3[3] , $mu4[3] , $mu5[3] , $tong[3]];
    </div>
     
     <div id="timebox">
-<h4>[서울]SKT유심정보 유출관련 문의현황 (ver.16:30)</h4>
+<h4><?php echo $nowtltle  ?></h4>
 ㅇ단순 :<?php echo $simplesum ?> 건
 ㅇ불만 :<?php echo $badsum ?> 건 (中, 고만이관 <?php echo $badofbad ?> 건)
 ㅇ고객문의 /불만 내용
@@ -225,9 +232,9 @@ $vocmemo = [$mu1[3] , $mu2[3] , $mu3[3] , $mu4[3] , $mu5[3] , $tong[3]];
              </fieldset> 
               
            </form>
-    <form class="coltitle" action="endinsert.php" method="post">
+    <form class="coltitle" action="endinsert1.php" method="post">
      <label for="coltitle">취합 제목</label>
-     <input id="coltitle" type="text" autocomplete="off" name="coltitle">
+     <input id="coltitle" type="text" autocomplete="off" name="coltitle" value="<?php echo $nowtltle  ?>">
      <button>최종취합자만 변경시 입력후 클릭</button>
     </form>
 

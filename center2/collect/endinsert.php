@@ -17,6 +17,7 @@ WHERE TeamName = '$teamname'" ;
 
 $result = mysqli_query($conn,$sql);
 
+
 if($result === false){
     echo '저장하지 못했습니다.';
     error_log(mysqli_error($conn)); // 에러 로그 기록
