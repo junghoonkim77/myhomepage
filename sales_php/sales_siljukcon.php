@@ -246,11 +246,13 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
          // 엑셀파일에 붙여 넣을 내용 append하기
 
           $('.dailyexcel').on('click',function(){
-           const excel = $(this).siblings("td:nth-child(4)").text();
+           const excel = $(this).siblings("td:nth-child(4)").text();//가설일자
            const excel1 = $(this).siblings("td:nth-child(2)").text();
            const excel2 = $(this).siblings("td:nth-child(3)").text().replace(/.$/,'*');
-           const excel3 = $(this).siblings("td:nth-child(6)").text();
-           const excel4 = $(this).siblings("td:nth-child(5)").text();
+           const excel3 = $(this).siblings("td:nth-child(6)").text(); //컨설 이름
+           const excel5 = $(this).siblings("td:nth-child(7)").text();//상품명
+           const excel4 = ['탭','탭탭'].includes(excel5) ? "미정" :$(this).siblings("td:nth-child(5)").text(); //설치예정일자
+           
             console.log(excel);
             console.log(excel1);console.log(excel2);
            $('#dailyRepot').append("<tr><td style='border:none;'>"+excel+"</td>"
