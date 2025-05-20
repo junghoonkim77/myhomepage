@@ -16,6 +16,7 @@
     while( $row = mysqli_fetch_array($result)){
         $comdate = $row['hopedate'];
         $prodname = $row['prodname'];
+        $spememo = $row['spememo'];
     };
 
      ?>
@@ -24,6 +25,7 @@
      <form action="edit_update.php" method="get">
      <input type="date" name="comdate" value="<?=$comdate ?>" id="">
      <input type="text" name="prodname" value="<?=$prodname ?>" id="">
+     <input type="text" name="spememo" value="<?=$spememo  ?>" id="">
      <input type="hidden" name="ordernum" value="<?=$editnum ?>">
      <input type="submit" value="수정">
 </form>

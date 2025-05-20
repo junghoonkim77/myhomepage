@@ -3,8 +3,8 @@
 $order = $_GET['ordernum'];
 $comdate = $_GET['comdate'];
 $prodname = $_GET['prodname'];
-
-$sql ="UPDATE  sales_board SET hopedate = '$comdate' ,prodname ='$prodname' WHERE ordernum ='$order'";
+$spememo  = $_GET['spememo'];
+$sql ="UPDATE  sales_board SET hopedate = '$comdate' ,prodname ='$prodname',spememo='$spememo' WHERE ordernum ='$order'";
 // 데이터 베이스에 값을 넣는 코드
 // 값이 잘 들어갔는지 조회를 해야 된다 
 $result = mysqli_query($conn,$sql); 
