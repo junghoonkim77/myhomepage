@@ -113,12 +113,14 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
                 <td>번호</td>
                 <td>고객명</td>
                 <td>가설일자</td>
-                <td>설치예정일자</td>
+                <td style="background-color:aqua; font-weight:bold" 
+                class="comview">설치예정(클릭정렬)</td>
                 <td>컨설명</td>
                 <td>상품명</td>
                 <td>고객특이사항_메모</td>
                 <td>삭제</td>
                 <td>성공</td>
+                
                 
             </thead>
             <tbody id="sales_data">
@@ -178,12 +180,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
      ?>
         
     </div>
-     <div class="comdate">
-        <h5 class="comview">설치일자별 정렬(클릭)</h5>
-         <ul>
-
-         </ul>
-     </div>
+    
   
     </div>
    
@@ -309,7 +306,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
            
           });
        
-      class Daysort{
+    /*  class Daysort{
         constructor(_cusid,_cusname,_comday,_proname,_cunsulname){
             this.cusid = _cusid;
             this.cusname = _cusname;
@@ -345,7 +342,28 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
       })
         
      }
-    )
+    ) */
+
+    const $listsortArr =[];
+
+    $('.comview').on('click',function(){
+      
+        $('.listsort').each(function(idx,ele){
+        $listsortArr.push($(ele));
+     
+     })
+       $listsortArr.sort((a,b) =>new Date(a.children('td:nth-child(5)').text().trim())
+        - new Date(b.children('td:nth-child(5)').text().trim()));
+       
+       $listsortArr.forEach(function(val,idx){
+        $('#sales_data').append(val);
+       })
+
+    })
+    
+     
+
+     
       
        
     </script>
