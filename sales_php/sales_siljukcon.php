@@ -96,7 +96,7 @@
     <header>
     <?php 
 include('phpgate.php');
-echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</h2>';
+echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.'</h2>';
 ?>
  <label for="edit" >체크금지</label>
  <input type="checkbox"  id="edit">
@@ -167,7 +167,8 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
         </table>
      <?php   echo '<h3 id="excelinsert">'.'잔여가설건수 : '.$row_count.' 건'.'</h3>'; ?>
      <a class="addlink" href="sales_Gate.html"><button>입력창 이동</button></a>
-     <a class="addlink" href="sales_nujuk.php"><button>세일즈 누적실적 현황</button></a>
+     <a class="addlink" href="sales_nujuk.php"><button>IT_누적실적 현황</button></a>
+     <a class="addlink" href="../salesM/"><button>M_누적실적 현황</button></a>
      <a class="addlink"  href="http://folkball.dothome.co.kr/?page_id=275&vid=17"><button>장기지연&취소건</button></a>
         <?php 
      $user_delnum =$_POST['delkey'] ?? ''; 
