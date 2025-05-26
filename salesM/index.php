@@ -67,6 +67,9 @@
     
    }
    
+   tr:hover{
+    background-color : skyblue;
+   }
 </style>
 
 
@@ -83,7 +86,7 @@ $result = mysqli_query($conn,$sql);
 $td ="";
 while($row=mysqli_fetch_array($result)){
  $td=$td."<tr>
-           <td>".$row['num']."</td><td>".
+           <td class=\"comadd\" data-num=".$row['num'].">".$row['num']."[번]개통일추가</td><td>".
            $row['cunsulname']."</td><td>".
            $row['salesIn']."</td><td>".
            $row['cusname']."</td><td class=\"finish\">".
@@ -208,7 +211,7 @@ const $seperClass = "m"+$nowYear+$nowMonText;
 
 
 $('.finish').each(function(idx,ele){
-   var tdtext = $(this).text();
+   var tdtext = $(this).text().trim();
    var tdtextYear = 'm'+tdtext.slice(0,4)+tdtext.slice(5,7);
    console.log(tdtextYear);
    if(tdtext == "" || $seperClass !== tdtextYear ){
@@ -240,7 +243,11 @@ $('#addbutton').click(function(e){
     }
   )
 
-
+ $('.comadd').click(function(){
+   const $date_num = $(this).attr('data-num');
+   $('#addnumber').val($date_num);
+   $('#salescomp').focus().css({'background-color':'powderblue'});
+ })
     
 </script>
 
