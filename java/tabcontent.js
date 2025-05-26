@@ -47,7 +47,7 @@ let team =
      //배열에 클릭할때 마다 td안에 텍스트 값을 넣기 
      $('td').on({
       click : function(){
-      var $td= $(this).text();
+      var $td= $(this).text().trim();
       if($tdarray.includes($td)==false){
         $tdarray.push($td);
       $(this).css('background-color','yellow');

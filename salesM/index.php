@@ -199,7 +199,7 @@ while($row=mysqli_fetch_array($result)){
   </form> 
 
  </div>
-
+<script src="../java/library.js"></script>
 <script> 
 
 // 날짜가 있으면 클래스 추가, 없으면 기본적으로 설정한 클래스만
@@ -249,6 +249,9 @@ $('#addbutton').click(function(e){
    $('#salescomp').focus().css({'background-color':'powderblue'});
  })
     
+ $('td').on('click',function(){
+   $lib.copyall($(this).text().trim());
+ })   
 </script>
 
 
