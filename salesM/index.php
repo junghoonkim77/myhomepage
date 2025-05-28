@@ -79,6 +79,7 @@
 
 <body>
     <a href="../sales_php/sales_siljukcon.php">IT 실적창 이동</a> 
+    <button id="allshow">이전실적 전체 확인</button>
 <?php include('phpgate.php');
 
 $sql = "SELECT * FROM Msales_data";
@@ -214,12 +215,17 @@ $('.finish').each(function(idx,ele){
    var tdtext = $(this).text().trim();
    var tdtextYear = 'm'+tdtext.slice(0,4)+tdtext.slice(5,7);
    console.log(tdtextYear);
-   if(tdtext == "" || $seperClass !== tdtextYear ){
-    return true;
-   }else{
+   if(tdtext == ""){
+    $(this).addClass('yet')
+    }else if(tdtext !== "" && tdtextYear !== $seperClass){
+       $(this).addClass('hidden');
+    }else{
     $(this).addClass($seperClass);
    }
   })
+
+  $('.hidden').parent().css('display','none');
+  console.log($('.'+$seperClass));
 
 //  nowresul
 const $goalNum =Number($('#goal').text()) ;
@@ -252,6 +258,11 @@ $('#addbutton').click(function(e){
  $('td').on('click',function(){
    $lib.copyall($(this).text().trim());
  })   
+
+ $('#allshow').click(function(){
+   $('.hidden').parent().css('display','table-row');
+   
+ })
 </script>
 
 
