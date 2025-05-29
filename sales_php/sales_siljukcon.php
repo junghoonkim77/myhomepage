@@ -231,8 +231,8 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.
     
     <div class="edit">
     <form action="editsales.php" method="post">
-    <input type="number"  name="editsales" placeholder="수정할 번호 선택">
-    <input type="submit" value="수정창 이동">
+    <input type="number" id="editsales" name="editsales" placeholder="수정할 번호 선택">
+    <input type="submit" id="editsubmit" value="수정창 이동">
         </form>     
         </div>
    
@@ -362,8 +362,13 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.
 
     })
     
-     
+     $('.listsort').children('td:nth-child(1)').click(function(){
+       const edittext = $(this).text();
+       $('#editsales').val(edittext);
+       $('#editsubmit').focus();
 
+     }
+     )
      
       
        
