@@ -68,6 +68,15 @@
         textarea {
           font-size :11px;
         } 
+
+        #불만세부, #불만세부2, #불만세부3 {
+        white-space: pre-wrap;   /* 공백과 명시적 줄바꿈은 유지하면서, 자동 줄바꿈을 허용합니다. */
+        word-break: break-word;  /* 단어가 너무 길 경우 단어 중간에서 줄바꿈을 허용합니다. */
+                                 /* 필요에 따라 'break-all'을 사용할 수도 있습니다. */
+        display: block;          /* pre 요소가 블록처럼 동작하도록 보장합니다. */
+        max-width: 100%;         /* 부모 td의 너비를 초과하지 않도록 합니다. */
+    }
+
         </style>
 
         
