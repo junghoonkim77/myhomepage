@@ -69,7 +69,7 @@ let team =
     //#tabs-3
       $("body").mouseleave(function(){
         $tdarray.forEach((val)=>{
-          $('#copy_val').append(`<span>${val}&nbsp</span>`)
+          $('#copy_val').append(`<td>${val}</td>`)
         })
         $tdarray.length =0;
         var $copyval = document.querySelector('#copy_val').innerText;
