@@ -1,0 +1,19 @@
+<pre>
+    <h5>데이터 베이스에서 값을 가져오기기</h5>
+$sql = "SELECT * FROM chat_table";
+ $result = $conn -> query($sql);
+ $chatdata = array();
+ if($result ->num_rows >0){
+   while($row = $result->fetch_assoc()){
+      $chatdata[$row["classname"]]=$row["classvalue"];
+   }
+ }  
+
+
+ <h5>값을 입력하는 코드 INSERT </h5>
+ $sql1 = "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
+            VALUES ('$inum', '$cusname', '$comdate', '$hopedate', '$teamname', '$prodname', '$spememo')";
+            mysqli_query($conn, $sql1);
+    
+
+</pre>

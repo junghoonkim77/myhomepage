@@ -141,15 +141,16 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
 
     $sql1 = "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
             VALUES ('$inum', '$cusname', '$comdate', '$hopedate', '$teamname', '$prodname', '$spememo')";
-            mysqli_query($conn, $sql1);
+            $conn -> query($sql1);
     } 
 
 
    $sql = "SELECT * FROM sales_board";
-      $result = mysqli_query($conn,$sql);
+      $result = $conn -> query($sql);
       $row_count = mysqli_num_rows($result);
       $td = '';
-      while($row = mysqli_fetch_array($result)){ 
+      if( $result -> num_rows > 0){
+        while($row = $result -> fetch_assoc()){ 
         $td = $td."<tr class=listsort ><td>".$row['ordernum'].'</td>'.'<td>'.$row['inum'].'</td>'.
         '<td>'.$row['cusname'].'</td>'.'<td>'.$row['comdate'].'</td>'.'<td>'.$row['hopedate'].'</td>'.
         '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>'.
@@ -159,6 +160,8 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
         .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'"'.'>'.'예정'.'</a>'.'</td>'
         .'<td class="dailyexcel" style="cursor:pointer;">'.'copy'.'</td>'.'</tr>';
      }
+      }
+      
      echo $td;
      
      
@@ -361,7 +364,11 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
 
     })
     
-     
+    const phptest = JSON.parse('<?php echo json_encode($result)?>');
+    
+     for(key in phptest){
+        console.log(key);
+     }
 
      
       

@@ -53,7 +53,7 @@ $arr = [
   4 => "바나나"
 ];
 
-foreach($arr as $key){
+foreach($arr as $key ){
   echo "foreach구문입니다.:". $key ;
 }
 
@@ -69,6 +69,20 @@ echo '<br> 배열의 길이는'. count($arr1).' 입니다.';
 echo '<br> 배열안에 첫번째 요소의 길이는'. count($arr1['hoon']).' 입니다.';
 var_dump( $arr1[$arr1_first]) ;
 echo $arr1[$arr1_first]['fullname'];
+
+
+$person = [
+    "이름" => "홍길동",
+    "나이" => 25,
+    "직업" => "개발자"
+];
+
+foreach ($person as $key => $value) {
+    echo  $key.":".$value."<br>";
+    echo "$key: $value<br>";
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
