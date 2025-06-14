@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
   <style>
     body, html {
       margin: 0;
@@ -12,31 +16,68 @@
 
     body {
       background-image: url('../../../imgfolder/birthday/기준이생일25.jpg');
-      background-size: cover;       /* 화면에 꽉 차게 */
-      background-position: center;  /* 중앙 정렬 */
+      background-size: contain;       /* 화면에 꽉 차게 */
+      background-position: left;  /* 중앙 정렬 */
       background-repeat: no-repeat;
       font-family: sans-serif;
       display: flex;
-      justify-content: center;
+      justify-content: bottom;
       align-items: center;
-      text-align: center;
+      text-align: left;
     }
 
     .text-box {
-      color: white;
+      color: whitesmoke;
       background-color: rgba(0, 0, 0, 0.3); /* 반투명 배경 */
       padding: 1em;
       border-radius: 10px;
       white-space: pre-wrap;
+      display : none;
+    }
+
+    button{
+      align-self :flex-start;
+      
+      
     }
   </style>
   <title>2025년 기준생일</title>
 </head>
 <body>
   <div class="text-box">
-    동해물과 백두산이 동해물과 백두산이<br>
-    동해물과 백두산이 동해물과 백두산이<br>
-    동해물과 백두산이 동해물과 백두산이
+사랑하고 또 사랑하는 나의 아들 기준아. 
+
+볼탱탱이 귀염둥 우리 기준이가 벌써 19살 고3이 됐구나. 
+
+항상 의젓하고 끈기있게 바르고 성실한 우리 기준이
+
+그저 아빠의 아들로 태어나 준 것만으로도 항상  
+
+감사 또 감사 할 뿐이다. 
+(하지만 엄마와 기은이 생각은 다르것 같아.......돼지 쭌~! 
+ㅋㅋㅋㅋㅋㅋㅋ)
+
+매일 매일이 고되고 시간이 갈수록 불안하고 초조할수 있겠지만 
+
+하루하루에만 최선을 다하고 포기 하지 않는다면 큰 행운이 우리
+
+기준이를 힘껏 도울거라 믿어 의심치 않는다.
+
+늘 감사하고 고맙다 기준아
+
+항상  건강이 최선이란걸 절대 잊지 말고 힘들땐 아빠를 생각해 
+(ㅋㅋㅋㅋㅋㅋㅋ)
+
+사랑하는 기준이 생일 다시한번 축하한다. 
+
+ 2025년 6월 15일 오전 08:03 컴퓨터 방에서 ^^
+
   </div>
+  <button>편지 읽기</button>
+  <script>
+    $('button').click(function(){
+      $('.text-box').toggle(2000);
+    })
+  </script>
 </body>
 </html>
