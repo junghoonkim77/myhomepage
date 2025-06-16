@@ -303,7 +303,8 @@ $(function(){
     var Telnum = $('.phoneNumber').val();
     console.log($srvalue);
     console.log(hasclass);
-    var completeTxt =`${$srvalue}/사번${valN}/${Telnum}`
+   // var completeTxt =`${$srvalue}/사번${valN}/${Telnum}`
+    var completeTxt =`${$srvalue}/${Telnum}`
     if(hasclass){
       $lib.clipcopy2(completeTxt);
       }else if(hasclass1){

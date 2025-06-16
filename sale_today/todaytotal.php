@@ -88,6 +88,7 @@
     <option value="박주영">박주영</option>
     <option value="이윤복">이윤복</option>
     <option value="김지훈">김지훈</option>
+    <option value="이진우">이진우</option>
     
    </select>
    <div class="totalsum">
@@ -258,7 +259,7 @@
 
      }else{
       $('.double').removeClass('blink').text('');
-     } ㄴ
+     } 
       
 </script>
 </body>
