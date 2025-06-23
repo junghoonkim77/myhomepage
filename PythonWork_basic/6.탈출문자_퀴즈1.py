@@ -30,3 +30,10 @@ rule2 = rule1[0:dotidx]
 rule3 = rule2[0:3]
 length = len(rule2)
 print("생성된 비밀번호 : {0}".format(rule3+str(length)+"!"))
+
+def test(para):
+    print(para)
+    
+
+test('김정훈병신')
+    

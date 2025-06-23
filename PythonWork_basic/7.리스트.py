@@ -24,5 +24,12 @@ print(num_list)
 
 print([subway[0]])
 
+city =['안양시','수원시','충주시','안성시','의정부시']
+city.sort()
+
+def roof():
+     for place in city :
+        print('내가 가봤던 도시는 ' + place + ' 입니다.')
 
 
+##roof()
