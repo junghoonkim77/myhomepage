@@ -1,7 +1,9 @@
 #from random import *
 #import random as ra
-from random import randint
+from random import randint as rand
+
 #print (ra.random())
+
 
 # print(random()) # 0.0~1.0미만의 임의의 값생성
 # print(random() * 10) 
@@ -12,5 +14,5 @@ from random import randint
 # print(randrange(1,46)) # range는 1부터 46미만의 값을 생성
 # print(randint(1,45)) # randint는 45이하의 값을 생성
 
-studyday = randint(4,28)
+studyday = rand(4,28)
 print('오프라인 스터디 모임 날짜는 매월 {0} 일로 선정되었습니다.'.format(studyday))
