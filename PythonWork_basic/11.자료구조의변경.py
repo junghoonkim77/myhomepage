@@ -19,9 +19,9 @@ from random import * #random을 import해오고
 #lst =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 lst = range(1,11)
 lst = list(lst) #->이런식으로 list로 변환하면 된다 배운거 잖아? 
-print(lst)
+print('리스트로 변환한 내용: '+str(lst))
 shuffle(lst)
-Shuff =(sample(lst,4))  #sample함수는 리스트중 하나를 샘플로 뽑는 함수 개간단 
+Shuff =(sample(lst,5))  #sample함수는 리스트중 하나를 샘플로 뽑는 함수 개간단 
 print(Shuff)
 
 # print('--당첨자 발표-- \n 치킨 당첨차 :'+str(Shuff[0])+'\n'
