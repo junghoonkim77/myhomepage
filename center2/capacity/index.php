@@ -24,7 +24,7 @@
     
     #choice form{display:inline-block;}
     #choice {
-        text-align: center;
+        text-align: right;
         
     }
 </style>
