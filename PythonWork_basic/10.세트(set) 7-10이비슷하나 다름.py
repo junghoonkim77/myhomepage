@@ -5,10 +5,11 @@ print(my_set) #중복해 입력한 3이라는 중복값은 출력되지 않음
 
 java = {'유재석','김태호','양세형'}
 python =set(['유재석','박명수']) # 이거는 중괄호로 묶어서 표현하는 방식외에 새로운 방식임
+intersection = java.intersection(python) #교집합을 뽑아 내는 방법
 print (java , python)
 print (java & python) # 자바와 파이썬이라는 각자의 셋트에서 교집합을 뽑아 내는 방법임
 print(java.intersection(python)) #교집합을 뽑아 내는 방법 / 위아래가 같은 내용
-
+print('교집합 : '+str(intersection)) #교집합을 뽑아낸 결과를 출력함
 
 #합집합( 자바도 할수 있꼬 파이선도 할수 있는 개발자)
 print(java | python) 
