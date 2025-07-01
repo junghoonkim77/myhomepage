@@ -25,23 +25,27 @@
     <div class="div2"></div>
     <div class="div3"></div>
     <div class="div4"></div>
+    <div class="div5"></div>
     <script>
         $('input').on('keyup',function(){
             $val = $(this).val();
             $chval = $val.replaceAll("\\","/")
             $gitresul =$chval.replace('C:/Bitnami/wampstack-8.1.2-0/apache2/htdocs/GitHub/','https://junghoonkim77.github.io/');
-            $newgitresul = $chval.replaceAll("C:/xampp/htdocs/",'https://junghoonkim77.github.io/');
+            $newgitresul = $chval.replaceAll("C:/xampp/htdocs/myhomepage/",'https://junghoonkim77.github.io/');
             $result = $chval.replaceAll("htdocs","localhost")
             $result1 = $result.replace('che2/','★');
-            $result1_new ="";
+            $result1_new =$result.replace('htdocs/myhomepage/','$')
             $staridx = $result1.indexOf('★')+1
+            $staridx_new = $result1_new.indexOf('$')+1
             $result2 = $result1.slice($staridx);
+            $result2_new = $result1_new.slice($staridx_new);
             $result3=$result2.replace('localhost/GitHub/myhomepage','http://folkball.dothome.co.kr/mypage');
             
             $('.div1').text($result2);
             $('.div2').text($result3);
             $('.div3').text($gitresul);
             $('.div4').text($newgitresul);
+            $('.div5').text($result2_new);
            
         })
         $('.div1').click(function(){
