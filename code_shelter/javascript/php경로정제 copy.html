@@ -32,7 +32,8 @@
             $chval = $val.replaceAll("\\","/")
             $gitresul =$chval.replace('C:/Bitnami/wampstack-8.1.2-0/apache2/htdocs/GitHub/','https://junghoonkim77.github.io/');
             $newgitresul = $chval.replaceAll("C:/xampp/htdocs/myhomepage/",'https://junghoonkim77.github.io/');
-            $result = $chval.replaceAll("htdocs","localhost")
+            $result = $chval.replaceAll("htdocs","localhost") //여기까진 문제 없어 보임
+            
             $result1 = $result.replace('che2/','★');
             $result1_new =$result.replace('htdocs/myhomepage/','$')
             $staridx = $result1.indexOf('★')+1
