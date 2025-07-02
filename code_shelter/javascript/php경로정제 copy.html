@@ -29,24 +29,27 @@
     <script>
         $('input').on('keyup',function(){
             $val = $(this).val();
-            $chval = $val.replaceAll("\\","/")
-            $gitresul =$chval.replace('C:/Bitnami/wampstack-8.1.2-0/apache2/htdocs/GitHub/','https://junghoonkim77.github.io/');
-            $newgitresul = $chval.replaceAll("C:/xampp/htdocs/myhomepage/",'https://junghoonkim77.github.io/');
-            $result = $chval.replaceAll("htdocs","localhost") //여기까진 문제 없어 보임
-            
+            $chval = $val.replaceAll("\\","/");
+            // $gitresul =$chval.replace('/C:/Bitnami/wampstack-8.1.6-0/apache2/htdocs/gitHub/','https://junghoonkim77.github.io/');
+            $gitresul1 =$chval.replace(/github/i,'#'); //대소문자 구분없이 github를 #로 변경
+            $gitresul1_new =$chval.replace(/C:\\xampp\\htdocs\\myhomepage/i, '&')
+            $gitresul_idx = $gitresul1.indexOf('#')+1
+            $gitresul_mid = $gitresul1.slice($gitresul_idx);// #이후의 문자열을 가져옴
+            console.log($gitresul_mid);
+            $gitresul_fin = "https://junghoonkim77.github.io"+$gitresul_mid;
+            //깃허브 홈페이지 접속방법
+            $result = $chval.replaceAll("htdocs","localhost")
             $result1 = $result.replace('che2/','★');
-            $result1_new =$result.replace('htdocs/myhomepage/','$')
+            $result1_new = $result.replace('C:/xampp/','$');
             $staridx = $result1.indexOf('★')+1
             $staridx_new = $result1_new.indexOf('$')+1
+            console.log($staridx_new);
             $result2 = $result1.slice($staridx);
-            $result2_new = $result1_new.slice($staridx_new);
-            $result3=$result2.replace('localhost/GitHub/myhomepage','http://folkball.dothome.co.kr/mypage');
-            
+           // $result3=$result2.replace('localhost/github/myhomepage','http://folkball.dothome.co.kr/mypage');
+            $result3=$result2.replace(/localhost\/github\/myhomepage/i,'http://folkball.dothome.co.kr/mypage');
             $('.div1').text($result2);
             $('.div2').text($result3);
-            $('.div3').text($gitresul);
-            $('.div4').text($newgitresul);
-            $('.div5').text($result2_new);
+            $('.div3').text($gitresul_fin);
            
         })
         $('.div1').click(function(){
