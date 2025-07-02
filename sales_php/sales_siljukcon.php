@@ -241,7 +241,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.
     <script>
                         
           // 휴대폰 번호 복사하기 =>잠깐 임시로 주석처리 했음
-         $('td').click(function(){
+         $('td').dblclick(function(){
           var $tdtext = $(this).text();
           if(navigator.clipboard){
             $lib.clipcopy($tdtext);
