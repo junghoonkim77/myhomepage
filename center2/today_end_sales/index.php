@@ -108,6 +108,8 @@ $days = [
             
         }
         #boanBox{
+            display : flex;
+            flex-direction: column;
             margin-left : 3rem;
             margin-top : 0.8rem;
         }
@@ -127,6 +129,9 @@ $days = [
         }
         #boanh3{
             margin-bottom : 0.5rem;
+        }
+        .boancom{
+            display : none;
         }
     </style>
 
@@ -215,12 +220,12 @@ $days = [
     
     <div id="boanBox">
         <h3 id="boanh3">CS2센터 일일보안점검 결과</h3>
-        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam1"><?php echo "[점검]"."</br>".$boteam1[1]." 무선일반1팀 점검결과 보고"."</br>".$boteam1[0] ?></div>
-        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam2"><?php echo "[점검]"."</br>".$boteam2[1]." 무선일반2팀 점검결과 보고"."</br>".$boteam2[0] ?></div>
-        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam3"><?php echo "[점검]"."</br>".$boteam3[1]." 무선일반3팀 점검결과 보고"."</br>".$boteam3[0] ?></div>
-        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam4"><?php echo "[점검]"."</br>".$boteam4[1]." 무선일반4팀 점검결과 보고"."</br>".$boteam4[0] ?></div>
-        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam5"><?php echo "[점검]"."</br>".$boteam5[1]." 무선일반5팀 점검결과 보고"."</br>".$boteam5[0] ?></div>
-        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam6"><?php echo "[점검]"."</br>".$botong[1]." 통화품질팀 점검결과 보고"."</br>".$botong[0] ?></div>
+        <div  class="chgcolor" id="bteam1"><?php echo "[점검]"."<span class=\"boancom\">".$boteam1[1]."</span>"."</br>".$boteam1[1]." 무선일반1팀 점검결과 보고"."</br>".$boteam1[0] ?></div>
+        <div  class="chgcolor" id="bteam2"><?php echo "[점검]"."<span class=\"boancom\">".$boteam2[1]."</span>"."</br>".$boteam2[1]." 무선일반2팀 점검결과 보고"."</br>".$boteam2[0] ?></div>
+        <div  class="chgcolor" id="bteam3"><?php echo "[점검]"."<span class=\"boancom\">".$boteam3[1]."</span>"."</br>".$boteam3[1]." 무선일반3팀 점검결과 보고"."</br>".$boteam3[0] ?></div>
+        <div  class="chgcolor" id="bteam4"><?php echo "[점검]"."<span class=\"boancom\">".$boteam4[1]."</span>"."</br>".$boteam4[1]." 무선일반4팀 점검결과 보고"."</br>".$boteam4[0] ?></div>
+        <div  class="chgcolor" id="bteam5"><?php echo "[점검]"."<span class=\"boancom\">".$boteam5[1]."</span>"."</br>".$boteam5[1]." 무선일반5팀 점검결과 보고"."</br>".$boteam5[0] ?></div>
+        <div  class="chgcolor" id="bteam6"><?php echo "[점검]"."<span class=\"boancom\">".$botong[1]."</span>"."</br>".$botong[1]." 통화품질팀 점검결과 보고"."</br>".$botong[0] ?></div>
         
     </div>
 </div>
@@ -327,11 +332,12 @@ $days = [
          })
            
            const jaweekday = <?php echo json_encode($days[$weekday]); ?>;
-           
-            $('.chgcolor').each(function(idx,ele){
-                const excute = $(this).attr('data').toString().slice(-2,-1);
+              console.log(jaweekday);
+            $('.boancom').each(function(idx,ele){
+                const excute = $(this).text().slice(-2,-1);
+                console.log(excute);
                 if(excute == jaweekday){
-                    $(this).css('background-color','aqua');
+                    $(this).parent().css('background-color','aqua');
             }});
 
     </script>
