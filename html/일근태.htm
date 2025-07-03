@@ -145,6 +145,7 @@
   <input style="display: block"type="text" value="" placeholder="결근CT" data-input="kyulC"  />
   <button  class="MorningCheck">출결복사▼</button><button class="Addcon">공가,연차추가</button><br>
   <button class="conSave">내용저장</button> <button class="conOutput">전일내용입력</button>
+  <button class="boan">18시보안</button>
   <a style="opacity : 0 ; cursor: pointer;" href="http://folkball.dothome.co.kr/mypage/html/mymemo.php" 
    onclick="vocbank('http\://folkball.dothome.co.kr/mypage/html/mymemo.php','350');  
    return false;">---</a>
@@ -256,6 +257,8 @@
     let today= new Date();
     let month = ('0' + (today.getMonth() + 1)).slice(-2);
     let day =  ('0' + today.getDate()).slice(-2);
+    let $week =[ '일', '월', '화', '수', '목', '금', '토'];
+    let week = $week[today.getDay()]; 
     let dateString = month  + '/' + day;
     let dateString2 = `${month}월 ${day}일`
     $('.today').text(dateString); 
@@ -269,7 +272,15 @@
       }
         
     });
-
+  //보안점검 양식 복사코드
+    $('.boan').click(function(){
+      const $boanresult =`
+[점검]
+${month}/${day} (${week})18시 통화품질팀 점검결과보고
+이상 무 / 검출내용(파일명)0건 + 조치결과
+`
+$lib.copyall($boanresult);
+    })
   //여기서부터 일보 복사 시작  
    $('.ilbocopy').click(function(){
     var rep = $('.rep')
