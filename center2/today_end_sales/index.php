@@ -4,7 +4,7 @@ include ('phpgate.php');
 
 $teams = ['무1', '무2', '무3', '무4', '무5', '통품'];
 $teamData = [];
-
+$teamboan = [];
 foreach ($teams as $team) {
     $teamData[$team] = [];
     $sql = "SELECT it_tend , m_end , tri_end , success_end , todaytime FROM c2sales_end WHERE teamname = '$team'";
@@ -14,6 +14,15 @@ foreach ($teams as $team) {
     }
 }
 
+foreach($teams as $team){
+    $sqlboan = "SELECT * FROM dailyboan WHERE teamname = '$team'";
+    $reboan = mysqli_query($conn, $sqlboan);
+    while ($rowboan = mysqli_fetch_array($reboan)) {
+        $teamboan[$team][] = ['보안점검' => $rowboan['boanresult'], '시간' => $rowboan['inputday']];
+    }
+
+}
+
 
 $mu1 = [$teamData['무1'][0]['인티'], $teamData['무1'][0]['모바일'], $teamData['무1'][0]['통리'], $teamData['무1'][0]['가설'],$teamData['무1'][0]['시간']];
 $mu2 = [$teamData['무2'][0]['인티'], $teamData['무2'][0]['모바일'], $teamData['무2'][0]['통리'], $teamData['무2'][0]['가설'],$teamData['무2'][0]['시간']];
@@ -21,6 +30,13 @@ $mu3 = [$teamData['무3'][0]['인티'], $teamData['무3'][0]['모바일'], $team
 $mu4 = [$teamData['무4'][0]['인티'], $teamData['무4'][0]['모바일'], $teamData['무4'][0]['통리'], $teamData['무4'][0]['가설'],$teamData['무4'][0]['시간']];
 $mu5 = [$teamData['무5'][0]['인티'], $teamData['무5'][0]['모바일'], $teamData['무5'][0]['통리'], $teamData['무5'][0]['가설'],$teamData['무5'][0]['시간']];
 $tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], $teamData['통품'][0]['통리'], $teamData['통품'][0]['가설'],$teamData['통품'][0]['시간']];
+
+$boteam1 =[$teamboan['무1'][0]['보안점검'], $teamboan['무1'][0]['시간']];
+$boteam2 =[$teamboan['무2'][0]['보안점검'], $teamboan['무2'][0]['시간']];
+$boteam3 =[$teamboan['무3'][0]['보안점검'], $teamboan['무3'][0]['시간']];
+$boteam4 =[$teamboan['무4'][0]['보안점검'], $teamboan['무4'][0]['시간']];
+$boteam5 =[$teamboan['무5'][0]['보안점검'], $teamboan['무5'][0]['시간']];
+$botong =[$teamboan['통품'][0]['보안점검'], $teamboan['통품'][0]['시간']];
 
 
 $weekday = date('l'); // full 요일 (예: Monday)
@@ -93,16 +109,24 @@ $days = [
         }
         #boanBox{
             margin-left : 3rem;
-            margin-top : 1rem;
+            margin-top : 0.8rem;
         }
         #boanBox div{
-            height : 3rem;
+            height : 3.7rem;
             border : 1px solid black;
-            font-size : 11px;
+            font-size : 0.8rem;
+            width : 15rem
             
         }
         #boancheck{
-            width : 35rem;
+            width : 25rem;
+        }
+        
+        form{
+            display : inline-block;
+        }
+        #boanh3{
+            margin-bottom : 0.5rem;
         }
     </style>
 
@@ -179,6 +203,7 @@ $days = [
     
     <div id="timebox">
     <button class="tabcopy">표복사</button>
+    <h5>Sales 입력시간</h5>
     <p class="teamcom" >무선1팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu1[4] ?></span></p>
     <p class="teamcom">무선2팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu2[4] ?></span></p>
     <p class="teamcom" >무선3팀 입력시간:<span class="colordiv" data-col=<?php echo $days[$weekday]; ?>><?php echo $mu3[4] ?></span></p>
@@ -189,21 +214,18 @@ $days = [
     </div>
     
     <div id="boanBox">
-        <h3>CS2센터 일일보안점검 결과</h3>
-        <div id="bteam1">1</div>
-        <div id="bteam2">2</div>
-        <div id="bteam3">3</div>
-        <div id="bteam4">4</div>
-        <div id="bteam5">5</div>
-        <div id="bteam6">통품</div>
+        <h3 id="boanh3">CS2센터 일일보안점검 결과</h3>
+        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam1"><?php echo "[점검]"."</br>".$boteam1[1]." 무선일반1팀 점검결과 보고"."</br>".$boteam1[0] ?></div>
+        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam2"><?php echo "[점검]"."</br>".$boteam2[1]." 무선일반2팀 점검결과 보고"."</br>".$boteam2[0] ?></div>
+        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam3"><?php echo "[점검]"."</br>".$boteam3[1]." 무선일반3팀 점검결과 보고"."</br>".$boteam3[0] ?></div>
+        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam4"><?php echo "[점검]"."</br>".$boteam4[1]." 무선일반4팀 점검결과 보고"."</br>".$boteam4[0] ?></div>
+        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam5"><?php echo "[점검]"."</br>".$boteam5[1]." 무선일반5팀 점검결과 보고"."</br>".$boteam5[0] ?></div>
+        <div data=<?php echo $boteam1[1] ?> class="chgcolor" id="bteam6"><?php echo "[점검]"."</br>".$botong[1]." 통화품질팀 점검결과 보고"."</br>".$botong[0] ?></div>
         
     </div>
 </div>
    
-    
-    
-  
-    
+       
 
     <form id="endinsert.php" action="endinsert.php" method="post">
              <fieldset>
@@ -303,7 +325,14 @@ $days = [
              }
             
          })
-        
+           
+           const jaweekday = <?php echo json_encode($days[$weekday]); ?>;
+           
+            $('.chgcolor').each(function(idx,ele){
+                const excute = $(this).attr('data').toString().slice(-2,-1);
+                if(excute == jaweekday){
+                    $(this).css('background-color','aqua');
+            }});
 
     </script>
 
