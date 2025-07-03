@@ -91,9 +91,18 @@ $days = [
             padding-left: 20px;
             
         }
-        #middlemenu{
-            position : relative;
+        #boanBox{
+            margin-left : 3rem;
+            margin-top : 1rem;
+        }
+        #boanBox div{
+            height : 3rem;
+            border : 1px solid black;
+            font-size : 11px;
             
+        }
+        #boancheck{
+            width : 35rem;
         }
     </style>
 
@@ -179,9 +188,18 @@ $days = [
 
     </div>
     
-    
+    <div id="boanBox">
+        <h3>CS2센터 일일보안점검 결과</h3>
+        <div id="bteam1">1</div>
+        <div id="bteam2">2</div>
+        <div id="bteam3">3</div>
+        <div id="bteam4">4</div>
+        <div id="bteam5">5</div>
+        <div id="bteam6">통품</div>
+        
+    </div>
 </div>
-<div id="middlemenu"><a href="../index.html">CS2센터 메인페이지 이동</a></div>
+   
     
     
   
@@ -213,6 +231,27 @@ $days = [
              </fieldset> 
               
            </form>    
+    <form id="boaninsert" action="boaninsert.php" method="post">
+             <fieldset>
+                <select name="teamname1" id="select1">
+                    <option value="">본인팀선택 必</option>
+                    <option value="무1">무선1팀(전영선)</option>
+                    <option value="무2">무선2팀(박세민)</option>
+                    <option value="무3">무선3팀(윤미연)</option>
+                    <option value="무4">무선4팀(도창수)</option>
+                    <option value="무5">무선5팀(최세희)</option>
+                    <option value="통품">통화품질팀(김정훈)</option>
+                   
+                  </select> <br>
+                  <label for="boancheck">보안점검결과 :</label>  
+                  <input id="boancheck" class="boancheck" placeholder="이상 무 / 검출내용(파일명) 0건 조치결과" type="text" autocomplete="off" name="boancheck">
+                  
+                  <input id="nowtime1" type="hidden" value=<?php echo date('m월/d일').'('.$days[$weekday].')'.' 18시';?> name="nowtime1">
+                  
+                <button class="button2" >보안점검 결과 전송</button> 
+             </fieldset> 
+              
+           </form>  
 
     <script>
                
@@ -244,6 +283,15 @@ $days = [
           }
         })
 
+         $('.button2').click(function(e){
+          if($('#select1').val() !== ""){
+            $('#boaninsert.php').submit();
+          }else{
+            alert('팀명을 선택하세요~!')
+            e.preventDefault();
+          }
+        })
+
          $('.colordiv').each(function(idx,ele){
               var eleval = ele.textContent ;
               var eleval_leng = eleval.length;
@@ -256,7 +304,7 @@ $days = [
             
          })
         
-      $('#middlemenu').css('left',$('table').outerWidth(true)) ;
+
     </script>
 
 </body>
