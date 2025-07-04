@@ -20,30 +20,27 @@
     <title>php경로조작</title>
 </head>
 <body>
-    <input type="text" placeholder="경로를 넣으세요" name="" id="">
+    <input type="text" placeholder="경로를 넣으세요" name="" id="firstinput">
     <div class="div1"></div>
     <div class="div2"></div>
     <div class="div3"></div>
+    <input type="text" placeholder="레노버노트북 경로" name="" id="secondinput">
     <div class="div4"></div>
     <div class="div5"></div>
+    <div class="div6"></div>
     <script>
-        $('input').on('keyup',function(){
+        $('#firstinput').on('keyup',function(){
             $val = $(this).val();
             $chval = $val.replaceAll("\\","/");
             // $gitresul =$chval.replace('/C:/Bitnami/wampstack-8.1.6-0/apache2/htdocs/gitHub/','https://junghoonkim77.github.io/');
-            $gitresul1 =$chval.replace(/github/i,'#'); //대소문자 구분없이 github를 #로 변경
-            $gitresul1_new =$chval.replace(/C:\\xampp\\htdocs\\myhomepage/i, '&')
+            $gitresul1 =$chval.replace(/github/i,'#');
             $gitresul_idx = $gitresul1.indexOf('#')+1
-            $gitresul_mid = $gitresul1.slice($gitresul_idx);// #이후의 문자열을 가져옴
-            console.log($gitresul_mid);
+            $gitresul_mid = $gitresul1.slice($gitresul_idx);
             $gitresul_fin = "https://junghoonkim77.github.io"+$gitresul_mid;
             //깃허브 홈페이지 접속방법
             $result = $chval.replaceAll("htdocs","localhost")
             $result1 = $result.replace('che2/','★');
-            $result1_new = $result.replace('C:/xampp/','$');
             $staridx = $result1.indexOf('★')+1
-            $staridx_new = $result1_new.indexOf('$')+1
-            console.log($staridx_new);
             $result2 = $result1.slice($staridx);
            // $result3=$result2.replace('localhost/github/myhomepage','http://folkball.dothome.co.kr/mypage');
             $result3=$result2.replace(/localhost\/github\/myhomepage/i,'http://folkball.dothome.co.kr/mypage');
@@ -52,6 +49,28 @@
             $('.div3').text($gitresul_fin);
            
         })
+
+        $('#secondinput').on('keyup',function(){
+            $val = $(this).val();
+            $chval = $val.replaceAll("\\","/");
+            // $gitresul =$chval.replace('/C:/Bitnami/wampstack-8.1.6-0/apache2/htdocs/gitHub/','https://junghoonkim77.github.io/');
+            $gitresul1 =$chval.replace("htdocs/","#");
+            $gitresul_idx = $gitresul1.indexOf('#')+1
+            $gitresul_mid = $gitresul1.slice($gitresul_idx);
+            $gitresul_fin = "https://junghoonkim77.github.io/"+$gitresul_mid;
+            //깃허브 홈페이지 접속방법
+            $result = $chval.replaceAll("htdocs","localhost")
+            $result1 = $result.replace('localhost/','★');
+            $staridx = $result1.indexOf('★')+1
+            $result2 = $result1.slice($staridx);
+           // $result3=$result2.replace('localhost/github/myhomepage','http://folkball.dothome.co.kr/mypage');
+            $result3=$result2.replace(/localhost\/github\/myhomepage/i,'http://folkball.dothome.co.kr/mypage');
+            $('.div4').text($result2);
+            $('.div5').text($result3);
+            $('.div6').text($gitresul_fin);
+           
+        })
+
         $('.div1').click(function(){
             $lib.clipcopy($(this).text());
         });

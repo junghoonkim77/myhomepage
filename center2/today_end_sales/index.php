@@ -117,7 +117,7 @@ $days = [
             height : 3.7rem;
             border : 1px solid black;
             font-size : 0.8rem;
-            width : 15rem
+            width : 30rem;
             
         }
         #boancheck{
