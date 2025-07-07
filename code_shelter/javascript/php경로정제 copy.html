@@ -62,7 +62,9 @@
             $result = $chval.replaceAll("htdocs","localhost")
             $result1 = $result.replace('localhost/','★');
             $staridx = $result1.indexOf('★')+1
-            $result2 = $result1.slice($staridx);
+            $result2 ="localhost/"+ $result1.slice($staridx);
+            console.log($result2);
+            
            // $result3=$result2.replace('localhost/github/myhomepage','http://folkball.dothome.co.kr/mypage');
             $result3=$result2.replace(/localhost\/github\/myhomepage/i,'http://folkball.dothome.co.kr/mypage');
             $('.div4').text($result2);
