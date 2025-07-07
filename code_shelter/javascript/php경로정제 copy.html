@@ -21,13 +21,13 @@
 </head>
 <body>
     <input type="text" placeholder="경로를 넣으세요" name="" id="firstinput">
-    <div class="div1"></div>
-    <div class="div2"></div>
-    <div class="div3"></div>
+    <div class="div1 clicked"></div>
+    <div class="div2 clicked"></div>
+    <div class="div3 clicked"></div>
     <input type="text" placeholder="레노버노트북 경로" name="" id="secondinput">
-    <div class="div4"></div>
-    <div class="div5"></div>
-    <div class="div6"></div>
+    <div class="div4 clicked"></div>
+    <div class="div5 clicked"></div>
+    <div class="div6 clicked"></div>
     <script>
         $('#firstinput').on('keyup',function(){
             $val = $(this).val();
@@ -57,23 +57,30 @@
             $gitresul1 =$chval.replace("htdocs/myhomepage","#");
             $gitresul_idx = $gitresul1.indexOf('#')+1
             $gitresul_mid = $gitresul1.slice($gitresul_idx);
-            $gitresul_fin = "https://junghoonkim77.github.io/"+$gitresul_mid;
+            $gitresul_fin = "https://junghoonkim77.github.io"+$gitresul_mid;
             //깃허브 홈페이지 접속방법
             $result = $chval.replaceAll("htdocs","localhost")
             $result1 = $result.replace('localhost/','★');
             $staridx = $result1.indexOf('★')+1
             $result2 ="localhost/"+ $result1.slice($staridx);
+            $result3 ='http://folkball.dothome.co.kr/mypage/'+$result1.slice($staridx);
+            $result4 = $result3.replace("myhomepage/myhomepage/","");
             console.log($result2);
             
            // $result3=$result2.replace('localhost/github/myhomepage','http://folkball.dothome.co.kr/mypage');
-            $result3=$result2.replace(/localhost\/github\/myhomepage/i,'http://folkball.dothome.co.kr/mypage');
+            $result3=$result2.replace('localhost/','http://folkball.dothome.co.kr/mypage');
             $('.div4').text($result2);
-            $('.div5').text($result3);
+            $('.div5').text($result4);
             $('.div6').text($gitresul_fin);
            
         })
 
-        $('.div1').click(function(){
+
+        $('.clicked').click(function(){
+            $lib.clipcopy($(this).text());
+        })
+
+       /* $('.div1').click(function(){
             $lib.clipcopy($(this).text());
         });
 
@@ -83,7 +90,7 @@
 
         $('.div3').click(function(){
             $lib.clipcopy($(this).text());
-        })
+        }) */
     </script>
 </body>
 </html>
