@@ -50,3 +50,5 @@ form_text = tk.Text(right_frame, height=10, width=50)
 form_text.pack()
 
 root.mainloop()
+
+print("프로그램이 종료되었습니다.")
