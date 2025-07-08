@@ -8,6 +8,7 @@ it_tend VARCHAR(10),
 m_end VARCHAR(10),
 tri_end VARCHAR(10),
 success_end VARCHAR(10),
+success_end1 VARCHAR(10),
 todaytime VARCHAR(30)
 
 )";

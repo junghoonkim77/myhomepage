@@ -7,10 +7,10 @@ $teamData = [];
 $teamboan = [];
 foreach ($teams as $team) {
     $teamData[$team] = [];
-    $sql = "SELECT it_tend , m_end , tri_end , success_end , success_end1, todaytime FROM c2sales_end WHERE teamname = '$team'";
+    $sql = "SELECT it_tend , m_end , tri_end , success_end , success_end2, todaytime FROM c2sales_end WHERE teamname = '$team'";
     $re = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($re)) {
-        $teamData[$team][] = ['인티' => $row['it_tend'], '모바일' => $row['m_end'], '통리' => $row['tri_end'], '가설' => $row['success_end'] ,'가설2' => $row['success_end1'],'시간' => $row['todaytime']];
+        $teamData[$team][] = ['인티' => $row['it_tend'], '모바일' => $row['m_end'], '통리' => $row['tri_end'], '가설' => $row['success_end'] ,'가설2' => $row['success_end2'],'시간' => $row['todaytime']];
     }
 }
 
@@ -24,12 +24,12 @@ foreach($teams as $team){
 }
 
 
-$mu1 = [$teamData['무1'][0]['인티'], $teamData['무1'][0]['모바일'], $teamData['무1'][0]['통리'], $teamData['무1'][0]['가설'],$teamData['무1'][0]['가설2'],$teamData['무1'][0]['시간']];
-$mu2 = [$teamData['무2'][0]['인티'], $teamData['무2'][0]['모바일'], $teamData['무2'][0]['통리'], $teamData['무2'][0]['가설'],$teamData['무2'][0]['가설2'],$teamData['무2'][0]['시간']];
-$mu3 = [$teamData['무3'][0]['인티'], $teamData['무3'][0]['모바일'], $teamData['무3'][0]['통리'], $teamData['무3'][0]['가설'],$teamData['무3'][0]['가설2'],$teamData['무3'][0]['시간']];
-$mu4 = [$teamData['무4'][0]['인티'], $teamData['무4'][0]['모바일'], $teamData['무4'][0]['통리'], $teamData['무4'][0]['가설'],$teamData['무4'][0]['가설2'],$teamData['무4'][0]['시간']];
-$mu5 = [$teamData['무5'][0]['인티'], $teamData['무5'][0]['모바일'], $teamData['무5'][0]['통리'], $teamData['무5'][0]['가설'],$teamData['무5'][0]['가설2'],$teamData['무5'][0]['시간']];
-$tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], $teamData['통품'][0]['통리'], $teamData['통품'][0]['가설'],$teamData['통품'][0]['가설2'],$teamData['통품'][0]['시간']];
+$mu1 = [$teamData['무1'][0]['인티'], $teamData['무1'][0]['모바일'], $teamData['무1'][0]['통리'], $teamData['무1'][0]['가설'],$teamData['무1'][0]['가설'],$teamData['무1'][0]['시간']];
+$mu2 = [$teamData['무2'][0]['인티'], $teamData['무2'][0]['모바일'], $teamData['무2'][0]['통리'], $teamData['무2'][0]['가설'],$teamData['무2'][0]['가설'],$teamData['무2'][0]['시간']];
+$mu3 = [$teamData['무3'][0]['인티'], $teamData['무3'][0]['모바일'], $teamData['무3'][0]['통리'], $teamData['무3'][0]['가설'],$teamData['무3'][0]['가설'],$teamData['무3'][0]['시간']];
+$mu4 = [$teamData['무4'][0]['인티'], $teamData['무4'][0]['모바일'], $teamData['무4'][0]['통리'], $teamData['무4'][0]['가설'],$teamData['무4'][0]['가설'],$teamData['무4'][0]['시간']];
+$mu5 = [$teamData['무5'][0]['인티'], $teamData['무5'][0]['모바일'], $teamData['무5'][0]['통리'], $teamData['무5'][0]['가설'],$teamData['무5'][0]['가설'],$teamData['무5'][0]['시간']];
+$tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], $teamData['통품'][0]['통리'], $teamData['통품'][0]['가설'],$teamData['통품'][0]['가설'],$teamData['통품'][0]['시간']];
 
 $boteam1 =[$teamboan['무1'][0]['보안점검'], $teamboan['무1'][0]['시간']];
 $boteam2 =[$teamboan['무2'][0]['보안점검'], $teamboan['무2'][0]['시간']];
@@ -144,7 +144,7 @@ $days = [
     <div id="tablecopy">
    <table >
     <h4><?php echo date("m").'/'.date("d").'('.$days[$weekday].') MIT 판매기회발굴 실적'; ?></h4>
-        <thead><td></td><td>인티</td><td>모바일</td><td>통리</td><td>IT 가설</td><td>M 유치</td></thead>
+        <thead><td></td><td>인티</td><td>모바일</td><td>통리</td><td>IT 가설</td><td>M 가설</td></thead>
 
         <tbody>
 
@@ -260,19 +260,14 @@ $days = [
                   </select> <br>
                   <label for="itnet">인티:</label>  
                   <input id="itnet" class="inputnum" placeholder="인티" type="number" autocomplete="off" max =200 min=0 value=0 name="it">
-                  
                   <label for="mobile">모바일:</label>  
                   <input id="mobile" class="inputnum" placeholder="모바일" type="number" autocomplete="off" max =200 min=0 value=0 name="mobile">
-                  
                   <label for="trigger">통리:</label>  
                   <input id="trigger" class="inputnum"  placeholder="통리" type="number" autocomplete="off" max =200 min=0 value=0 name="trigger">
-                  
                   <label for="success">IT 가설:</label>  
                   <input id="success" class="inputnum"  placeholder="IT가설성공" type="number" autocomplete="off" max =200 min=0 value=0 name="success">
-                   
-                  <label for="success1">M 유치:</label>  
+                   <label for="success1">M 유치:</label>  
                   <input id="success1" class="inputnum"  placeholder="M유치성공" type="number" autocomplete="off" max =200 min=0 value=0 name="success1">
-                  
                   <input id="nowtime" type="hidden" value=<?php echo date('d일H:i:s').$days[$weekday];?> name="nowtime">
                   
                 <button class="button1" >실적전송</button> 
