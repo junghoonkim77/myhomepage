@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+    <title>마눌이 시연용   </title>
+</head>
+<body>
+    <div></div>
+    <button id="btn">클릭</button>
+    <script src="../../java/library.js"></script>
+   <script>
+    $('button').click(function() {
+      const num =  $lib.randomNum(1, 100);
+        $('div').append(num);
+    });
+   </script>
+</body>
+</html>
