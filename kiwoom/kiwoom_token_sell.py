@@ -29,7 +29,7 @@ def fn_kt10001(token, data, cont_yn='N', next_key=''):
 # 실행 구간
 if __name__ == '__main__':
 	# 1. 토큰 설정
-	MY_ACCESS_TOKEN = 'yJip6GBnnChYW3KRbHjIhZ9zceVirVE268jrcBJqWGGeRGHTP3jBkclbdwomfkPQB7oSHjbfvuq_PrchJIxrCQ' # 접근토큰
+	MY_ACCESS_TOKEN = 'H4Sjqu-LFb-WcSvbGGOnB9_Ok3Ee6OcwU_mmNeTStnqpJi6LARQ3boNfP6x_fbgjJzwKLo52Kgqtl5x-5aUqzw' # 접근토큰
 
 	# 2. 요청 데이터
 	params = {

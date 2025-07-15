@@ -27,8 +27,8 @@ if __name__ == '__main__':
 	# 1. 요청 데이터
 	params = {
 		'grant_type': 'client_credentials',  # grant_type
-		'appkey': 'xqi74bOq8_o9-VgQbjzI8_kRarSPwo49yZv18YGpZ2U',  # 앱키
-		'secretkey': 'hsUiW67uDaEFO53jsjSgWu3mWQRTo-rgnlmN44jktvY',  # 시크릿키
+		'appkey': 'z8m4Wh9TgxP1b6TzE7v9CowT5KIpLw6AFQ_UwtTkcNc',  # 앱키
+		'secretkey': 'ChC675I9XXpRYroHxk53r0czJRsjWj27rRSicwwC8Kk',  # 시크릿키
 	}
 
 	# 2. API 실행
