@@ -96,7 +96,7 @@
     <header>
     <?php 
 include('phpgate.php');
-echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</h2>';
+echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.'</h2>';
 ?>
  <label for="edit" >체크금지</label>
  <input type="checkbox"  id="edit">
@@ -114,7 +114,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
                 <td>고객명</td>
                 <td>가설일자</td>
                 <td style="background-color:aqua; font-weight:bold" 
-                class="comview">설치예정(클릭정렬)</td>
+                class="comview">설치예정일자<br>(클릭시 정렬)</td>
                 <td>컨설명</td>
                 <td>상품명</td>
                 <td>고객특이사항_메모</td>
@@ -141,16 +141,15 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
 
     $sql1 = "INSERT INTO sales_board (inum, cusname, comdate, hopedate, teamname, prodname, spememo) 
             VALUES ('$inum', '$cusname', '$comdate', '$hopedate', '$teamname', '$prodname', '$spememo')";
-            $conn -> query($sql1);
+            mysqli_query($conn, $sql1);
     } 
 
 
    $sql = "SELECT * FROM sales_board";
-      $result = $conn -> query($sql);
+      $result = mysqli_query($conn,$sql);
       $row_count = mysqli_num_rows($result);
       $td = '';
-      if( $result -> num_rows > 0){
-        while($row = $result -> fetch_assoc()){ 
+      while($row = mysqli_fetch_array($result)){ 
         $td = $td."<tr class=listsort ><td>".$row['ordernum'].'</td>'.'<td>'.$row['inum'].'</td>'.
         '<td>'.$row['cusname'].'</td>'.'<td>'.$row['comdate'].'</td>'.'<td>'.$row['hopedate'].'</td>'.
         '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>'.
@@ -160,8 +159,6 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
         .'&'.'teamname='.$row['teamname'].'&'.'hopedate='.$row['hopedate'].'&'.'prodname='.$row['prodname'].'"'.'>'.'예정'.'</a>'.'</td>'
         .'<td class="dailyexcel" style="cursor:pointer;">'.'copy'.'</td>'.'</tr>';
      }
-      }
-      
      echo $td;
      
      
@@ -170,7 +167,8 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
         </table>
      <?php   echo '<h3 id="excelinsert">'.'잔여가설건수 : '.$row_count.' 건'.'</h3>'; ?>
      <a class="addlink" href="sales_Gate.html"><button>입력창 이동</button></a>
-     <a class="addlink" href="sales_nujuk.php"><button>세일즈 누적실적 현황</button></a>
+     <a class="addlink" href="sales_nujuk.php"><button>IT_누적실적 현황</button></a>
+     <a class="addlink" href="../salesM/"><button>M_누적실적 현황</button></a>
      <a class="addlink"  href="http://folkball.dothome.co.kr/?page_id=275&vid=17"><button>장기지연&취소건</button></a>
         <?php 
      $user_delnum =$_POST['delkey'] ?? ''; 
@@ -233,8 +231,8 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
     
     <div class="edit">
     <form action="editsales.php" method="post">
-    <input type="number"  name="editsales" placeholder="수정할 번호 선택">
-    <input type="submit" value="수정창 이동">
+    <input type="number" id="editsales" name="editsales" placeholder="수정할 번호 선택">
+    <input type="submit" id="editsubmit" value="수정창 이동">
         </form>     
         </div>
    
@@ -243,7 +241,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
     <script>
                         
           // 휴대폰 번호 복사하기 =>잠깐 임시로 주석처리 했음
-         $('td').click(function(){
+         $('td').dblclick(function(){
           var $tdtext = $(this).text();
           if(navigator.clipboard){
             $lib.clipcopy($tdtext);
@@ -364,12 +362,13 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 세일즈현황'.'</
 
     })
     
-    const phptest = JSON.parse('<?php echo json_encode($result)?>');
-    
-     for(key in phptest){
-        console.log(key);
-     }
+     $('.listsort').children('td:nth-child(1)').click(function(){
+       const edittext = $(this).text();
+       $('#editsales').val(edittext);
+       $('#editsubmit').focus();
 
+     }
+     )
      
       
        

@@ -151,7 +151,7 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.
       $td = '';
       while($row = mysqli_fetch_array($result)){ 
         $td = $td."<tr class=listsort ><td>".$row['ordernum'].'</td>'.'<td>'.$row['inum'].'</td>'.
-        '<td>'.$row['cusname'].'</td>'.'<td>'.$row['comdate'].'</td>'.'<td>'.$row['hopedate'].'</td>'.
+        '<td>'.$row['cusname'].'</td>'.'<td>'.$row['comdate'].'</td>'.'<td class="hopedaycheck">'.$row['hopedate'].'</td>'.
         '<td>'.$row['teamname'].'</td>'.'<td>'.$row['prodname'].'</td>'.'<td>'.$row['spememo'].'</td>'.
         '<td>'.'<form action='.'sales_siljukcon.php'." ".'method='.'post'.'>'.
         '<input class="delsubmit" type=submit'." ".'name='.'delkey'." ".'value='.$row['ordernum'].''.'>'.'</form>'.
@@ -362,14 +362,34 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.
 
     })
     
+    // 첫번째 칸 클릭시 수정할 내용 하단 에디터 화면으로 자동 포커싱 하기
      $('.listsort').children('td:nth-child(1)').click(function(){
        const edittext = $(this).text();
        $('#editsales').val(edittext);
        $('#editsubmit').focus();
-
      }
      )
+
+    // 당일을 지난 개통일자는 색상이 변경되게 
      
+     
+      $('.hopedaycheck').each(function(idx,elem){
+        const standardyear = new Date().getFullYear();
+        const standardmon = new Date().getMonth();
+        const standardday = new Date().getDate();
+        const Today = new Date(standardyear,standardmon,standardday);
+        const checkdate = new Date($(this).text());
+        const Tabname = $(this).siblings("td:nth-child(7)").text().trim();
+         if(Today > checkdate && Tabname !== "탭" && Tabname !== "탭탭" ){
+            $(this).siblings().css('background-color','#f9cb9c');
+            $(this).css('background-color','#f9cb9c');
+         }
+        
+      })
+            
+          // {
+         //   $(this).css('background-color','#f4cccc')
+         // 
       
        
     </script>
