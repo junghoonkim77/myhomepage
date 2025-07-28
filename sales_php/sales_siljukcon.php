@@ -378,12 +378,19 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.
         const standardmon = (new Date().getMonth() + 1).toString().padStart(2, '0');
         const standardday = new Date().getDate();
         const Today = `${standardyear}-${standardmon}-${standardday}`;
+        const $Today = new Date(Today);
+        const $checkdate = new Date($(this).text().trim());
         const checkdate = $(this).text().trim();
         const Tabname = $(this).siblings("td:nth-child(7)").text().trim();
-         if(Today == checkdate && Tabname !== "탭" && Tabname !== "탭탭" ){
+         if(Today == checkdate ){
             $(this).siblings().css('background-color','#a4f99cff');
             $(this).css('background-color','#a4f99cff');
          }   
+     
+          if($Today > $checkdate && !['탭','탭탭'].includes(Tabname)){
+            $(this).siblings().css('background-color','#a9d5efff');
+            $(this).css('background-color','#a9d5efff');
+          }
         
         
       })
