@@ -375,15 +375,16 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.
      
       $('.hopedaycheck').each(function(idx,elem){
         const standardyear = new Date().getFullYear();
-        const standardmon = new Date().getMonth();
+        const standardmon = (new Date().getMonth() + 1).toString().padStart(2, '0');
         const standardday = new Date().getDate();
-        const Today = new Date(standardyear,standardmon,standardday);
-        const checkdate = new Date($(this).text());
+        const Today = `${standardyear}-${standardmon}-${standardday}`;
+        const checkdate = $(this).text().trim();
         const Tabname = $(this).siblings("td:nth-child(7)").text().trim();
-         if(Today > checkdate && Tabname !== "탭" && Tabname !== "탭탭" ){
-            $(this).siblings().css('background-color','#f9cb9c');
-            $(this).css('background-color','#f9cb9c');
-         }
+         if(Today == checkdate && Tabname !== "탭" && Tabname !== "탭탭" ){
+            $(this).siblings().css('background-color','#a4f99cff');
+            $(this).css('background-color','#a4f99cff');
+         }   
+        
         
       })
             
