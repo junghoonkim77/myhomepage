@@ -376,12 +376,15 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.
       $('.hopedaycheck').each(function(idx,elem){
         const standardyear = new Date().getFullYear();
         const standardmon = (new Date().getMonth() + 1).toString().padStart(2, '0');
-        const standardday = new Date().getDate();
+        const standardday = (new Date().getDate()).toString().padStart(2, '0');
         const Today = `${standardyear}-${standardmon}-${standardday}`;
         const $Today = new Date(Today);
         const $checkdate = new Date($(this).text().trim());
         const checkdate = $(this).text().trim();
         const Tabname = $(this).siblings("td:nth-child(7)").text().trim();
+        console.log('이게 스텐다드데이: '+standardday);
+        console.log('이게 체크데이트 : '+checkdate);
+        console.log('이게 투데이 : '+Today);
          if(Today == checkdate ){
             $(this).siblings().css('background-color','#a4f99cff');
             $(this).css('background-color','#a4f99cff');
