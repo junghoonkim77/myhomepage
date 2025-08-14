@@ -124,7 +124,10 @@ $('.xbutton').click(function(){
     $lib.clipcopy2($('.alarmpop pre').text());
   }
   $('.alarmpop').removeClass('alrmblink');
-  $('body').css('background-color','white');
+  $('body').css('background-color','transparent');
+  $('#newTimer').val('');
+  $('.alarmpop span').remove();
+
   
 })
 
@@ -669,4 +672,22 @@ $('#memoview').on('click',function(){
     }
   
   })
+
+  //---------------------------------타이머 설정
+
+  $('#newTimer').on('blur',function(){
+    if($(this).val() !== '' ){
+      var timerNumval = Number($(this).val())*60000;
+       setTimeout(timerStart,timerNumval);
+    }
+  })
+
+  function timerStart(){
+    var timerNumtext = $('#newTimer').val()+' 분 지남'
+     $('body').css('background-color','#6464CD');
+    $('.alarmpop').addClass('alrmblink');
+    $('.alarmpop span').remove();
+    $('.alarmpop').append(`<span>${timerNumtext}</span>`);
+
+  }
 
