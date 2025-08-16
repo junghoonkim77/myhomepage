@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="alarmpop">
-            <button title="클릭하면 복사와 창닫기 동시수행"class="xbutton">✖</button>
+            <button title="클릭하면 복사와 창닫기 동시수행" class="xbutton">✖</button>
         </div>
         <button class="butttonshow">버튼보이기</button>
         <select class="drag" name="person" id="teamperson">
@@ -24,7 +24,7 @@
          </select>
          <div title="모두지우기" class="del drag" style="cursor:pointer;">모두지우기</div>
          <div title="버튼감춤" class="buthidden drag" style="cursor:pointer;">버튼감춤</div>
-         <h5 class="drag">현재 시간 ☞<strong class = "h1-clock" ></strong> </h5>
+         <h5 class="drag">메모장_현재 시간은 ☞<strong class = "h1-clock" ></strong> </h5>
          <input id="masking" style="background-color: beige; cursor:pointer" title="개인알림용 번호처리"  type="text" autocomplete="off" placeholder="-없이 입력 -> CTRL+V">       
          <div class="buttonpack">
        
@@ -140,6 +140,30 @@
                </div> 
         </div>
         </div>
+           <select  style="width:40px;" id="newTimer">
+            <option value="">⏲️선택</option> 
+            <option value="1">1분</option>
+            <option value="2">2분</option>
+            <option value="3">3분</option>
+            <option value="4">4분</option>
+            <option value="5">5분</option>
+            <option value="6">6분</option>
+            <option value="7">7분</option>
+            <option value="8">8분</option>
+            <option value="9">9분</option>
+            <option value="10">10분</option>
+            <option value="15">15분</option>
+            <option value="20">20분</option>
+            <option value="25">25분</option>
+            <option value="30">30분</option>
+            <option value="35">35분</option>
+            <option value="40">40분</option>
+            <option value="60">60분</option>
+           </select>
+      <!-- <input title="분단위 숫자만 입력" style="width:45px;" id="newTimer" type="time" placeholder="⏲️분"> -->  
+
+
+
         <input  id="musthidden" style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
         <input id="dailysaver" style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
         <div class="task_gate drag">
@@ -151,7 +175,7 @@
       <input data-code="UCK0033"class="common"type="button" value="대전통품[UCK0033]" ><br> 
       <input data-code="UCL0053"class="common"type="button" value="대구통품[UCL0053]" ><br>
       <input data-code="KRater OP" class="common"type="button" value="KRater OP"> <br> 
-      <input data-code="ktcs1234%%" class="common" type="button" value="넷윈도등비번(공통)"><br>  
+      <input data-code="ktcs1234##" class="common" type="button" value="넷윈도등비번(공통)"><br>  
       <input data-code="meid" class="special" type="button" value="본인ID(kosid)" ><br>  
       <input data-code="kos" class="special" type="button" value="KOS비번"><br>
       <input data-code="atas" class="special" type="button" value="ATAS비번"><br> 

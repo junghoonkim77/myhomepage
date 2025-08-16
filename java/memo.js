@@ -127,6 +127,9 @@ $('.xbutton').click(function(){
   $('body').css('background-color','transparent');
   $('#newTimer').val('');
   $('.alarmpop span').remove();
+  $('#newTimer').css('background-color','transparent');
+  localStorage.removeItem('timerNumval');
+  clearTimeout(timerStart);
 
   
 })
@@ -677,8 +680,15 @@ $('#memoview').on('click',function(){
 
   $('#newTimer').on('blur',function(){
     if($(this).val() !== '' ){
-      var timerNumval = Number($(this).val())*60000;
+      localStorage.setItem('timerNumval',$(this).val())
+      const $timerNumval = localStorage.getItem('timerNumval');
+      var timerNumval = Number($timerNumval)*60000;
        setTimeout(timerStart,timerNumval);
+       $('#newTimer').css('background-color','orange');
+    }else{
+      localStorage.removeItem('timerNumval');
+      $('#newTimer').css('background-color','transparent');
+      clearTimeout(timerStart);
     }
   })
 

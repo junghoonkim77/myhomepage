@@ -177,20 +177,34 @@
                 <input type="text" class="alarm_memo" id="alarm_memo8" placeholder="9.알람메모">
                 <input type="text" class="alarm_memo" id="alarm_memo9" placeholder="10.알람메모">
        </div> 
-     <!--  <div>
-        <button class="alarmX">X</button>
-        <button class="alarmX">X</button>
-        <button class="alarmX">X</button>
-        <button class="alarmX">X</button>
-       </div> --> 
-        
-      
+           
     </div>
   </div>
-   
+     <select  style="width:40px;" id="newTimer">
+            <option value="">⏲️선택</option> 
+            <option value="1">1분</option>
+            <option value="2">2분</option>
+            <option value="3">3분</option>
+            <option value="4">4분</option>
+            <option value="5">5분</option>
+            <option value="6">6분</option>
+            <option value="7">7분</option>
+            <option value="8">8분</option>
+            <option value="9">9분</option>
+            <option value="10">10분</option>
+            <option value="15">15분</option>
+            <option value="20">20분</option>
+            <option value="25">25분</option>
+            <option value="30">30분</option>
+            <option value="35">35분</option>
+            <option value="40">40분</option>
+            <option value="60">60분</option>
+           </select>
+
+
    <input id="musthidden" style=width:50px type='text' name='size' value='' readonly placeholder="1.2000">
    <input id="dailysaver" style=width:50px type='text' name='size1' value='' readonly placeholder="2.2000">
-   <button class="salescount1">가설목록</button>
+   <button class="salescount1">가설</button>
 
      <div class="dropdown leftmove8 drag" >
        <span class="dropbtn1">일과</span>
