@@ -129,7 +129,7 @@ $('.xbutton').click(function(){
   $('.alarmpop span').remove();
   $('#newTimer').css('background-color','transparent');
   localStorage.removeItem('timerNumval');
-  clearTimeout(timerStart);
+  clearTimeout(timerid);
 
   
 })
@@ -678,17 +678,17 @@ $('#memoview').on('click',function(){
 
   //---------------------------------타이머 설정
 
-  $('#newTimer').on('blur',function(){
+  $('#newTimer').on('change',function(){
     if($(this).val() !== '' ){
       localStorage.setItem('timerNumval',$(this).val())
       const $timerNumval = localStorage.getItem('timerNumval');
       var timerNumval = Number($timerNumval)*60000;
-       setTimeout(timerStart,timerNumval);
+      timerid =  setTimeout(timerStart,timerNumval);
        $('#newTimer').css('background-color','orange');
     }else{
       localStorage.removeItem('timerNumval');
       $('#newTimer').css('background-color','transparent');
-      clearTimeout(timerStart);
+      clearTimeout(timerid);
     }
   })
 
