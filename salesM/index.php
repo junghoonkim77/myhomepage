@@ -102,7 +102,7 @@ while($row=mysqli_fetch_array($result)){
    <h3 id="headname"><?php echo '서울중앙 통화품질팀 M세일즈 '.date('n').'월 현황' ?></h3>
    &nbsp;&nbsp;&nbsp;&nbsp;
    <span style="font-weight:bold">[이달 목표]:</span>
-   <span style="font-weight:bold" id="goal">10</span><span>건</span>
+   <span style="font-weight:bold" id="goal">11</span><span>건</span>
    <span style="font-weight:bold"><?php echo "[".date('n')."월 귀속실적]" ?></span>
    &nbsp;
    <span style="font-weight:bold" id="nowresul" ></span><span>건</span>
