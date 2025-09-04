@@ -8,7 +8,7 @@ $addtable="";
 while($row = mysqli_fetch_array($result)){
   
 $addtable .= "<tr class=".$row['casessort'].">
-    <td style='background-color : #d9d9d9;'>"."<span id='rowid'>"."[".$row['id']."</span>"."] ".$row['cases']."</td>
+    <td style='background-color : #d9d9d9;'>"."<span id='rowid'>"."[".$row['id']."</span>"."] ".nl2br($row['cases'])."</td>
     <td>".nl2br($row['content'])."</td>
 </tr>";
     
@@ -35,7 +35,7 @@ $addtable .= "<tr class=".$row['casessort'].">
         <style>
           
             table{ border:1px solid gray}
-            th{ border:1px solid gray ; background-color:lightgray}
+            th{ border:1px solid gray ; background-color:blue; color:white; font-weight:normal}
             td{ border:1px solid gray ; cursor:pointer}
             .cusments,.banron,.tip{display:none};
             .firsttd{background-color: gray;}
@@ -43,7 +43,7 @@ $addtable .= "<tr class=".$row['casessort'].">
         </style>
     </head>
 <body>
-<h5><a href="guideAdd.php">추가</a></h5>
+<h5 style="opacity:0;"><a href="guideAdd.php">추가</a></h5>
 <div id="tabs" >
     <ul class="tabs" data-persist="true">
         <li data-class="vocments"><a href="#tabs-1">문의별 멘트 </a></li>

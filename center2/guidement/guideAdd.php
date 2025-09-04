@@ -25,12 +25,28 @@
         <p>내용 : <textarea name="content" rows="10" cols="100"></textarea></p>
         <p><input id="addbutton" type="submit" value="추가" /></p>
     </form>
+
+    <form id="delete" action="delete.php" method="post">
+        <p>삭제 : <input autocomplete="off" type="number" name="delnum" placeholder="삭제번호 입력" /> 
+        <input type="submit" value="삭제" /></p>
+    </form>
+
+     <a href="index.php">멘트 가이드 이동</a><br>
     <script>
          $('#addbutton').click(function(e){
           if($('#casessort').val() !== ""){
             $('#guideAddok').submit();
           }else{
             alert('추가 원하는 메뉴를 선택하세요~!')
+            e.preventDefault();
+          }
+        })
+
+        $('#delete').submit(function(e){
+          if($('input[name="delnum"]').val() !== ""){
+            return true;
+          }else{
+            alert('삭제할 번호를 입력하세요~!')
             e.preventDefault();
           }
         })
