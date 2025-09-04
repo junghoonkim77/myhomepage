@@ -21,8 +21,8 @@
             <option value="tip">TIP(단선방지,호전환 메모활용)</option>
         </select>
         </p>
-        <p>사례 : <input type="text" name="cases" /></p>
-        <p>내용 : <textarea name="content" rows="10" cols="50"></textarea></p>
+        <p>사례 : <textarea name="cases" rows="2" cols="20"></textarea></p>
+        <p>내용 : <textarea name="content" rows="10" cols="100"></textarea></p>
         <p><input id="addbutton" type="submit" value="추가" /></p>
     </form>
     <script>
