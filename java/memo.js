@@ -127,7 +127,11 @@ $('.xbutton').click(function(){
   $('body').css('background-color','transparent');
   $('#newTimer').val('');
   $('.alarmpop span').remove();
-  $('#newTimer').css('background-color','transparent');
+  $('#newTimer').css({
+    'background-color':'transparent',
+    "transition" : `transform 1000ms ease`,
+    'transform' :'rotate(0deg)'  
+  });
   localStorage.removeItem('timerNumval');
   clearTimeout(timerid);
 
@@ -677,17 +681,27 @@ $('#memoview').on('click',function(){
   })
 
   //---------------------------------타이머 설정
+let timerid ;
 
   $('#newTimer').on('change',function(){
+    clearTimeout(timerid);
     if($(this).val() !== '' ){
       localStorage.setItem('timerNumval',$(this).val())
       const $timerNumval = localStorage.getItem('timerNumval');
       var timerNumval = Number($timerNumval)*60000;
       timerid =  setTimeout(timerStart,timerNumval);
-       $('#newTimer').css('background-color','orange');
+       $(this).css('background-color','orange');
+       $(this).css({
+        "transition" : `transform ${timerNumval}ms ease`, 
+        "transform" : "rotate(360deg)",
+        })
     }else{
       localStorage.removeItem('timerNumval');
-      $('#newTimer').css('background-color','transparent');
+      $('#newTimer').css({
+        'background-color':'transparent',
+        "transition" : `transform 1000ms ease`,
+        "transform" : "rotate(0deg)"   
+      });
       clearTimeout(timerid);
     }
   })
