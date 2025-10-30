@@ -21,7 +21,7 @@
     <div style="margin: 2px 2px;">[<span class="today">11/23</span>통화품질1팀 일일출근현황]</div>
     <div id="note">
       <div style="color :red">■체온 이상자 :<span class="temp">없음</span></div>
-      <div >■sldm정상 확인자 : <span class="note">8명</span></div>
+      <div >■sldm정상 확인자 : <span class="note" id="teamsum"></span></div>
       <div id="append" style="color :forestgreen">■연차:<span class="yeoncha">없음</span></div>
       <div class="hidden" style="color :forestgreen">■<span class="yeonchachoo"></span></div>
       <div >■소프트폰재택 :<span class="note">없음</span></div>
@@ -61,7 +61,7 @@
       <td class="tg-op75"></td>
       <td class="tg-op75"></td>
       <td class="tg-op75">CT</td>
-      <td class="tg-05qa">7</td>
+      <td class="tg-05qa" id="cunsulsum"></td>
     </tr>
     <tr>
       <td class="tg-7zv5">미출근</td>
@@ -284,6 +284,9 @@
       }
         
     });
+   // 팀원변동시 수정
+    $('#teamsum').text('9명'); //탐정포함 인원
+    $('#cunsulsum').text('8'); //상담사 인원
   //보안점검 양식 복사코드
     $('.boan').click(function(){
       const $boanresult =`
