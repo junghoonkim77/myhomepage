@@ -89,6 +89,8 @@
     <option value="이윤복">이윤복</option>
     <option value="김지훈">김지훈</option>
     <option value="이진우">이진우</option>
+    <option value="임규석">임규석</option>
+    <option value="최아람">최아람</option>
     
    </select>
    <div class="totalsum">
