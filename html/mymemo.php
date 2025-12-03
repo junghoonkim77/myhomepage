@@ -140,7 +140,9 @@
          onclick="copy(SRarray[this.value])">
          <input class="srform" type="button" value="KTIS삼송고만" 
          onclick="copy(SRarray[this.value])">
-         <input class="srform" type="button" value="KTIS광화문(강원도)" 
+         <input class="srform" type="button" value="KTIS광화문" 
+         onclick="copy(SRarray[this.value])">
+         <input class="srform" type="button" value="KTIS원주(강원도)" 
          onclick="copy(SRarray[this.value])">
          
        </div>
