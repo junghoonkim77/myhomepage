@@ -70,7 +70,7 @@
                 <input title="수축기혈압" placeholder="수축기혈압" type="number" name="hipressure">
                 <input title="이완기혈압" placeholder="이완기혈압" type="number" name="lowpressure">
                 <input title="메모" placeholder="메모" type="text" name="memo">
-                <input class="button1" type="submit" value="혈압기록">
+                <input class="button1" type="submit" value="저장">
             </form>    
         </div>
     </div>
