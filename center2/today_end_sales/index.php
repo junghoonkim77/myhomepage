@@ -87,7 +87,7 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
         fieldset { border: none; padding: 0; margin: 0; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
         
         select, input[type="number"], input[type="text"] { padding: 5px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.8rem; }
-        input[type="number"] { width: 35px; } /* 숫자 입력창 더 축소 */
+        input[type="number"] { width: 55px; } /* 숫자 입력창 더 축소 */
         label { font-size: 0.75rem; font-weight: 600; color: #64748b; margin-left: 2px; }
 
         .button1, .button2 { 
