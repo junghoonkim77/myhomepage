@@ -219,9 +219,12 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
         })
         
         const jaweekday = <?php echo json_encode($days[$weekday]); ?>;
+        
         $('.boancom').each(function(idx,ele){
-            const excute = $(this).text().slice(-2,-1);
-            if(excute == jaweekday){ $(this).parent().css('background-color','#f0fdf4').css('border-color','#bbf7d0'); }
+            const excute1 = $(this).text().match(/\((.*?)\)/);
+            const excute = excute1 ? excute1[1] : '';
+            console.log(excute);
+            if(excute == jaweekday){ $(this).parent().css('background-color','#d8e438').css('border-color','#bbf7d0'); }
         });
     </script>
 </body>
