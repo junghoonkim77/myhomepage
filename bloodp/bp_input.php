@@ -59,7 +59,7 @@
             font-size: 16px;
         }
     </style>
-    <title>★통품팀 Sales실적관리창★</title>
+    <title>★혈압기록★</title>
 </head>
 <body>
     <h2>혈압입력창</h2>
