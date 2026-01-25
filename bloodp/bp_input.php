@@ -66,7 +66,7 @@
     <div class="container">
         <div class="control">
             <form action="bp_insert.php" method="post">
-                <input id="nowtime" type="hidden" value="<?php echo date('d일H:i:s');?>" name="nowtime">
+                <input id="nowtime" type="hidden" value="<?php echo date('y년 d일H:i:s');?>" name="nowtime">
                 <input title="수축기혈압" placeholder="수축기혈압" type="number" name="hipressure">
                 <input title="이완기혈압" placeholder="이완기혈압" type="number" name="lowpressure">
                 <input title="메모" placeholder="메모" type="text" name="memo">
