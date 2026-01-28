@@ -177,6 +177,14 @@ echo '<h5>'.'('.date("Y/m/d").')'."   ".'혈압기록'.'</h5>';
                 Lowpressure += lowpressure;
               });
               $('.lowtext').text(Math.round(Lowpressure / $('.lowpressure').length));
+     //---------------------------------------------혈압평균 구하고 셀에 넣(는 코드
+     
+    // $('.container').height()  ;
+
+    $('header').on('click', function(){
+     const containerHeight = $('.container').height();
+     $('html').animate({ scrollTop: containerHeight }, 400);
+    });
     </script>
 </body>
 </html>
