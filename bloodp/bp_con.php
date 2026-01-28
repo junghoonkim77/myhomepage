@@ -132,8 +132,8 @@ echo '<h5>'.'('.date("Y/m/d").')'."   ".'혈압기록'.'</h5>';
             <thead class="thead">
                 <td>입력순서</td>
                 <td>측정일시</td>
-                <td>수축기</td>
-                <td>이완기</td>
+                <td>수축기 평균: <span class="hightext"></span></td>
+                <td>이완기 평균: <span class="lowtext"></span></td>
                 <td>메모</td>
                 
                 
@@ -147,7 +147,7 @@ echo '<h5>'.'('.date("Y/m/d").')'."   ".'혈압기록'.'</h5>';
       $td = '';
       while($row = mysqli_fetch_array($result)){ 
         $td = $td."<tr class=listsort ><td>".$row['num'].'</td>'.'<td>'.$row['todaycheck'].'</td>'.
-        '<td>'.$row['hipressure'].'</td>'.'<td>'.$row['lowpressure'].'</td>'.'<td>'.$row['memo'].'</td>'
+        '<td class="hipressure">'.$row['hipressure'].'</td>'.'<td class="lowpressure">'.$row['lowpressure'].'</td>'.'<td>'.$row['memo'].'</td>'
         .'</tr>';
      }
      echo $td;
@@ -163,15 +163,20 @@ echo '<h5>'.'('.date("Y/m/d").')'."   ".'혈압기록'.'</h5>';
    </div>
    
     
-       
-    
-   
- 
-    
     <script>
-                        
-    
-       
+        var Hipressure = 0;
+        var Lowpressure = 0;
+           $('.hipressure').each(function(){
+          const hipressure = Number($(this).text());
+            Hipressure += hipressure;
+            } );            
+              $('.hightext').text(Math.round(Hipressure / $('.hipressure').length));
+         
+              $('.lowpressure').each(function(){
+                const lowpressure = Number($(this).text());
+                Lowpressure += lowpressure;
+              });
+              $('.lowtext').text(Math.round(Lowpressure / $('.lowpressure').length));
     </script>
 </body>
 </html>
