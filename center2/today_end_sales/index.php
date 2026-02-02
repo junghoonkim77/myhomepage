@@ -10,10 +10,10 @@ $teamData = [];
 $teamboan = [];
 foreach ($teams as $team) {
     $teamData[$team] = [];
-    $sql = "SELECT it_tend , m_end , tri_end , success_end , success_end1, todaytime FROM c2sales_end WHERE teamname = '$team'";
+    $sql = "SELECT it_tend , m_end , tri_end , success_end , successnew , success_end1, todaytime FROM c2sales_end WHERE teamname = '$team'";
     $re = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($re)) {
-        $teamData[$team][] = ['인티' => $row['it_tend'], '모바일' => $row['m_end'], '통리' => $row['tri_end'], '가설' => $row['success_end'] ,'가설2' => $row['success_end1'],'시간' => $row['todaytime']];
+        $teamData[$team][] = ['인티' => $row['it_tend'], '모바일' => $row['m_end'], '통리' => $row['tri_end'], '가설' => $row['success_end'] , '가설문' => $row['successnew'],'가설2' => $row['success_end1'],'시간' => $row['todaytime']];
     }
 }
 
@@ -25,12 +25,12 @@ foreach($teams as $team){
     }
 }
 
-$mu1 = [$teamData['무1'][0]['인티'], $teamData['무1'][0]['모바일'], $teamData['무1'][0]['통리'], $teamData['무1'][0]['가설'],$teamData['무1'][0]['가설2'],$teamData['무1'][0]['시간']];
-$mu2 = [$teamData['무2'][0]['인티'], $teamData['무2'][0]['모바일'], $teamData['무2'][0]['통리'], $teamData['무2'][0]['가설'],$teamData['무2'][0]['가설2'],$teamData['무2'][0]['시간']];
-$mu3 = [$teamData['무3'][0]['인티'], $teamData['무3'][0]['모바일'], $teamData['무3'][0]['통리'], $teamData['무3'][0]['가설'],$teamData['무3'][0]['가설2'],$teamData['무3'][0]['시간']];
-$mu4 = [$teamData['무4'][0]['인티'], $teamData['무4'][0]['모바일'], $teamData['무4'][0]['통리'], $teamData['무4'][0]['가설'],$teamData['무4'][0]['가설2'],$teamData['무4'][0]['시간']];
-$mu5 = [$teamData['무5'][0]['인티'], $teamData['무5'][0]['모바일'], $teamData['무5'][0]['통리'], $teamData['무5'][0]['가설'],$teamData['무5'][0]['가설2'],$teamData['무5'][0]['시간']];
-$tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], $teamData['통품'][0]['통리'], $teamData['통품'][0]['가설'],$teamData['통품'][0]['가설2'],$teamData['통품'][0]['시간']];
+$mu1 = [$teamData['무1'][0]['인티'], $teamData['무1'][0]['모바일'], $teamData['무1'][0]['통리'], $teamData['무1'][0]['가설'],$teamData['무1'][0]['가설문'],$teamData['무1'][0]['가설2'],$teamData['무1'][0]['시간']];
+$mu2 = [$teamData['무2'][0]['인티'], $teamData['무2'][0]['모바일'], $teamData['무2'][0]['통리'], $teamData['무2'][0]['가설'],$teamData['무2'][0]['가설문'],$teamData['무2'][0]['가설2'],$teamData['무2'][0]['시간']];
+$mu3 = [$teamData['무3'][0]['인티'], $teamData['무3'][0]['모바일'], $teamData['무3'][0]['통리'], $teamData['무3'][0]['가설'],$teamData['무3'][0]['가설문'],$teamData['무3'][0]['가설2'],$teamData['무3'][0]['시간']];
+$mu4 = [$teamData['무4'][0]['인티'], $teamData['무4'][0]['모바일'], $teamData['무4'][0]['통리'], $teamData['무4'][0]['가설'],$teamData['무4'][0]['가설문'],$teamData['무4'][0]['가설2'],$teamData['무4'][0]['시간']];
+$mu5 = [$teamData['무5'][0]['인티'], $teamData['무5'][0]['모바일'], $teamData['무5'][0]['통리'], $teamData['무5'][0]['가설'],$teamData['무5'][0]['가설문'],$teamData['무5'][0]['가설2'],$teamData['무5'][0]['시간']];
+$tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], $teamData['통품'][0]['통리'], $teamData['통품'][0]['가설'],$teamData['통품'][0]['가설문'],$teamData['통품'][0]['가설2'],$teamData['통품'][0]['시간']];
 
 $boteam1 =[$teamboan['무1'][0]['보안점검'], $teamboan['무1'][0]['시간']];
 $boteam2 =[$teamboan['무2'][0]['보안점검'], $teamboan['무2'][0]['시간']];
@@ -80,14 +80,14 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
 
         /* 하단 입력창: 절대 줄바꿈 금지 */
         .input-section { 
-            display: flex; flex-direction: row; gap: 10px; background: #fff; padding: 10px; 
+            display: flex; flex-direction: row; gap: 8px; background: #fff; padding: 10px; 
             border-radius: 10px; border: 1px solid #e2e8f0; align-items: center; overflow-x: auto; 
         }
         form { margin: 0; padding: 0; flex-shrink: 0; }
         fieldset { border: none; padding: 0; margin: 0; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
         
         select, input[type="number"], input[type="text"] { padding: 5px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.8rem; }
-        input[type="number"] { width: 55px; } /* 숫자 입력창 더 축소 */
+        input[type="number"] { width: 48px; text-align: center; } /* 숫자 입력창 더 축소 */
         label { font-size: 0.75rem; font-weight: 600; color: #64748b; margin-left: 2px; }
 
         .button1, .button2 { 
@@ -108,18 +108,18 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
                 <h4><?php echo date("m/d").'('.$days[$weekday].') 실적'; ?></h4>
                 <table>
                     <thead>
-                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>통리</td><td>가설</td><td>M유치</td></tr>
+                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>통리</td><td>가설(권)</td><td>가설(문)</td><td>M유치</td></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="trigger"><?php echo $mu1[2] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeed1"><?php echo $mu1[4] ?></td></tr>
-                        <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="trigger"><?php echo $mu2[2] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeed1"><?php echo $mu2[4] ?></td></tr>
-                        <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="trigger"><?php echo $mu3[2] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeed1"><?php echo $mu3[4] ?></td></tr>
-                        <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="trigger"><?php echo $mu4[2] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeed1"><?php echo $mu4[4] ?></td></tr>
-                        <tr><td class="team1">무선5</td><td class="it"><?php echo $mu5[0] ?></td><td class="mobile"><?php echo $mu5[1] ?></td><td class="trigger"><?php echo $mu5[2] ?></td><td class="succeed"><?php echo $mu5[3] ?></td><td class="succeed1"><?php echo $mu5[4] ?></td></tr>
-                        <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="trigger"><?php echo $tong[2] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeed1"><?php echo $tong[4] ?></td></tr>
+                        <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="trigger"><?php echo $mu1[2] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeednew"><?php echo $mu1[4] ?></td><td class="succeed1"><?php echo $mu1[5] ?></td></tr>
+                        <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="trigger"><?php echo $mu2[2] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeednew"><?php echo $mu2[4] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td></tr>
+                        <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="trigger"><?php echo $mu3[2] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeednew"><?php echo $mu3[4] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td></tr>
+                        <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="trigger"><?php echo $mu4[2] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeednew"><?php echo $mu4[4] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td></tr>
+                        <tr><td class="team1">무선5</td><td class="it"><?php echo $mu5[0] ?></td><td class="mobile"><?php echo $mu5[1] ?></td><td class="trigger"><?php echo $mu5[2] ?></td><td class="succeed"><?php echo $mu5[3] ?></td><td class="succeednew"><?php echo $mu5[4] ?></td><td class="succeed1"><?php echo $mu5[5] ?></td></tr>
+                        <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="trigger"><?php echo $tong[2] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeednew"><?php echo $tong[4] ?></td><td class="succeed1"><?php echo $tong[5] ?></td></tr>
                     </tbody>
                     <tfoot>
-                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="trigger_t"></td><td id="succeed_t"></td><td id="succeed1_t"></td></tr>
+                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="trigger_t"></td><td id="succeed_t"></td><td id="succeednew_t"></td><td id="succeed1_t"></td></tr>
                     </tfoot>
                 </table>
             </div>
@@ -127,12 +127,12 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
             <div id="timebox">
                 <button class="tabcopy">표 복사</button>
                 <h5>입력시간</h5>
-                <p class="teamcom">무1: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu1[5] ?></span></p>
-                <p class="teamcom">무2: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu2[5] ?></span></p>
-                <p class="teamcom">무3: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu3[5] ?></span></p>
-                <p class="teamcom">무4: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu4[5] ?></span></p>
-                <p class="teamcom">무5: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu5[5] ?></span></p>
-                <p class="teamcom">통품: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $tong[5] ?></span></p>
+                <p class="teamcom">무1: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu1[6] ?></span></p>
+                <p class="teamcom">무2: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu2[6] ?></span></p>
+                <p class="teamcom">무3: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu3[6] ?></span></p>
+                <p class="teamcom">무4: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu4[6] ?></span></p>
+                <p class="teamcom">무5: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu5[6] ?></span></p>
+                <p class="teamcom">통품: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $tong[6] ?></span></p>
             </div>
             
             <div id="boanBox">
@@ -149,7 +149,7 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
         <div class="input-section">
             <form id="endinsert.php" action="endinsert.php" method="post">
                 <fieldset>
-                    <select name="teamname" id="select" style="width:100px;">
+                    <select name="teamname" id="select" style="width:70px;">
                         <option value="">팀 선택</option>
                         <option value="무1">무선1팀</option>
                         <option value="무2">무선2팀</option>
@@ -161,7 +161,8 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
                     <label>인티</label> <input id="itnet" class="inputnum" type="number" value=0 name="it">
                     <label>모바일</label> <input id="mobile" class="inputnum" type="number" value=0 name="mobile">
                     <label>통리</label> <input id="trigger" class="inputnum" type="number" value=0 name="trigger">
-                    <label>가설</label> <input id="success" class="inputnum" type="number" value=0 name="success">
+                    <label>가설(권)</label> <input id="success" class="inputnum" type="number" value=0 name="success">
+                    <label>가설(문)</label> <input id="successnew" class="inputnum" type="number" value=0 name="successnew">
                     <label>M유치</label> <input id="success1" class="inputnum" type="number" value=0 name="success1">
                     <input id="nowtime" type="hidden" value="<?php echo date('d일H:i:s').$days[$weekday];?>" name="nowtime">
                     <button class="button1">실적전송</button> 
@@ -172,7 +173,7 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
 
             <form id="boaninsert" action="boaninsert.php" method="post">
                 <fieldset>
-                    <select name="teamname1" id="select1" style="width:100px;">
+                    <select name="teamname1" id="select1" style="width:80px;">
                         <option value="">팀 선택</option>
                         <option value="무1">무선1팀</option>
                         <option value="무2">무선2팀</option>
@@ -199,7 +200,7 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
             var sumresul = sumend.reduce((acc,curval)=>{ return acc+curval; },0)
             $('#'+$class+'_t').text(sumresul);     
         }
-        sum('it'); sum('mobile'); sum('trigger'); sum('succeed'); sum('succeed1');
+        sum('it'); sum('mobile'); sum('trigger'); sum('succeed');sum('succeednew'); sum('succeed1');
 
         $('.tabcopy').click(function(){ $lib.rangecopy('#tablecopy'); })
         $('.button1').click(function(e){
