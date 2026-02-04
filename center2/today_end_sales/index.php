@@ -41,6 +41,9 @@ $botong =[$teamboan['통품'][0]['보안점검'], $teamboan['통품'][0]['시간
 
 $weekday = date('l'); 
 $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday" => "목", "Friday" => "금", "Saturday" => "토", "Sunday" => "일"];
+
+$sql1 = "SELECT id, teamname, regiday, noticon FROM cs2noti ORDER BY id DESC";
+$result1 = mysqli_query($conn, $sql1);
 ?>
 
 <!DOCTYPE html>
@@ -168,6 +171,12 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
             color: #94a3b8;
             font-size: 0.7rem;
         }
+
+        .notice-container { width: 90%; margin: 20px auto; font-family: sans-serif; }
+        .notice-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; background: #f9f9f9; }
+        .notice-header { border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; color: #555; font-size: 0.9em; }
+        .team-badge { background: #007bff; color: #fff; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
+        .notice-body { white-space: pre-wrap; word-break: break-all; line-height: 1.6; font-size: 0.8rem; } /* 줄바꿈 유지 및 긴 단어 끊기 */
     </style>
 
     <title>CS2센터 Sales일실적</title>
@@ -265,11 +274,11 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
     <div class="sub-wrapper">
         <div class="noticeinput">
             <h4>공지사항 입력</h4>
-            <form action="noticeinsert.php" method="post">
+            <form id="noticeinsert" action="noticeinsert.php" method="post">
                 <fieldset>
-                    <select name="noticeteam" style="width:100%;">
-                        <option value="전체">cs2센터</option>
-                        <option value="centerjang">톰크루즈=센터장님(김정훈작성)</option>
+                    <select id="noticeteam" name="noticeteam" style="width:100%;">
+                        <option value="">선택</option>
+                        <option value="센터장님">센터장님</option>
                         <option value="무1">무선1팀</option>
                         <option value="무2">무선2팀</option>
                         <option value="무3">무선3팀</option>
@@ -278,22 +287,47 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
                         <option value="통품">통화품질팀</option>
                     </select>
                     <textarea name="noticecontent" placeholder="공지 내용을 입력하세요..."></textarea>
-                    <button type="submit" class="button1" style="width:100%;">공지전송</button>
+                    <input id="regtime" type="hidden" value="<?php echo date('d일H:i:s');?>" name="regtime">
+                    <button type="submit" class="button3" style="width:100%;">공지전송</button>
                 </fieldset>
+            </form>
+            <form id="noticedel" action="noticedel.php" method="post" style="margin-top:10px;">
+                <input type="number" id="noticenum" value="" placeholder="삭제ID입력" name="id"  style="width:100px;">
+                <button type="submit" class="button4" style="width:100%;">공지삭제</button>
             </form>
         </div>
 
         <div class="noticeview">
             <h4>실시간 공지현황</h4>
-           
-                <p style="font-size:0.8rem; color:#94a3b8; text-align:center; margin-top:20px;">등록된 공지가 없습니다.</p>
-           
-                
-                <div class="notice-item">
-                    <span class="notice-tag"></span>
-                    <span class="notice-date"></span>
-                    <div style="margin-top:5px; line-height:1.4;"></div>
+           <?php
+    if (mysqli_num_rows($result1) > 0) {
+        // 2. 데이터를 한 줄씩 반복해서 출력
+        while($row1 = mysqli_fetch_assoc($result1)) {
+            // 보안을 위한 특수문자 변환 (XSS 방지)
+            $team = htmlspecialchars($row1['teamname']);
+            $date = htmlspecialchars($row1['regiday']);
+            // nl2br은 줄바꿈 문자를 <br> 태그로 바꿔줍니다.
+            $content = nl2br(htmlspecialchars($row1['noticon']));
+            $id = $row1['id'];
+            ?>
+            
+            <div class="notice-card">
+                <div class="notice-header">
+                    <span><span class="team-badge"><?php echo $team; ?><?php echo " ID:".$id; ?></span></span>
+                    <span>등록일: <?php echo $date; ?></span>
                 </div>
+                <div class="notice-body"><?php echo $content; ?></div>
+            </div>
+
+            <?php
+        }
+    } else {
+        echo "<p>등록된 공지사항이 없습니다.</p>";
+    }
+    
+    // 연결 종료
+    mysqli_close($conn);
+    ?>
            
         </div>
     </div>
@@ -318,6 +352,11 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
         })
         $('.button2').click(function(e){
             if($('#select1').val() !== ""){ $('#boaninsert.php').submit(); }
+            else { alert('팀 선택 필수!'); e.preventDefault(); }
+        })
+
+        $('.button3').click(function(e){
+            if($('#noticeteam').val() !== ""){ $('#noticeinsert').submit(); }
             else { alert('팀 선택 필수!'); e.preventDefault(); }
         })
 
