@@ -106,7 +106,7 @@ $result1 = mysqli_query($conn, $sql1);
             display: flex; 
             flex-direction: row; 
             gap: 8px; 
-            max-width: 1300px; 
+            max-width: 2500px; 
             margin: 8px auto 0; /* 위쪽 여백 부여 */
         }
 
@@ -124,7 +124,7 @@ $result1 = mysqli_query($conn, $sql1);
             padding: 10px; 
             border-radius: 10px; 
             border: 1px solid #e2e8f0; 
-            max-height: 200px; /* 높이 제한 및 스크롤 */
+            max-height: 700px; /* 높이 제한 및 스크롤 */
             overflow-y: auto;
         }
 
@@ -176,7 +176,7 @@ $result1 = mysqli_query($conn, $sql1);
         .notice-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; background: #f9f9f9; }
         .notice-header { border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; color: #555; font-size: 0.9em; }
         .team-badge { background: #007bff; color: #fff; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
-        .notice-body { white-space: pre-wrap; word-break: break-all; line-height: 1.6; font-size: 0.8rem; } /* 줄바꿈 유지 및 긴 단어 끊기 */
+        .notice-body { white-space: pre-wrap; word-break: break-all; line-height: 0.8; font-size: 0.8rem; } /* 줄바꿈 유지 및 긴 단어 끊기 */
     </style>
 
     <title>CS2센터 Sales일실적</title>
