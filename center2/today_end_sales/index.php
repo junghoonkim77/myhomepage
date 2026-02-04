@@ -176,7 +176,7 @@ $result1 = mysqli_query($conn, $sql1);
         .notice-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; background: #f9f9f9; }
         .notice-header { border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; color: #555; font-size: 0.9em; }
         .team-badge { background: #007bff; color: #fff; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
-        .notice-body { white-space: pre-wrap; word-break: break-all; line-height: 0.8; font-size: 0.8rem; } /* 줄바꿈 유지 및 긴 단어 끊기 */
+        .notice-body { white-space: pre-wrap; word-break: break-all; line-height: 0.8; font-size: 0.7rem; } /* 줄바꿈 유지 및 긴 단어 끊기 */
     </style>
 
     <title>CS2센터 Sales일실적</title>
@@ -287,7 +287,7 @@ $result1 = mysqli_query($conn, $sql1);
                         <option value="통품">통화품질팀</option>
                     </select>
                     <textarea name="noticecontent" placeholder="공지 내용을 입력하세요..."></textarea>
-                    <input id="regtime" type="hidden" value="<?php echo date('d일H:i:s');?>" name="regtime">
+                    <input id="regtime" type="hidden" value="<?php echo date('m월 d일H:i:s');?>" name="regtime">
                     <button type="submit" class="button3" style="width:100%;">공지전송</button>
                 </fieldset>
             </form>
