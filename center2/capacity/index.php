@@ -36,7 +36,7 @@
                 <td class="tg-0lax" colspan="9"></td>
                 <td class="tg-0lax">
                     <select id="teamName">
-                        
+                        <option value=''>팀 선택</option>
                     </select>
                 </td>
                 <td class="tg-0lax">
