@@ -77,7 +77,7 @@
           <td class="tg-0lax"></td>
         </tr></thead></table>
     <script>
-        const teamName ={무1:'무선1팀',무2:'무선2팀',무3:'무선3팀',무4:'무선4팀',무5:'무선5팀',통품:'통화품질'};
+        const teamName ={무1:'무선1팀',무2:'무선2팀',무3:'무선3팀',무4:'무선4팀',무5:'무선5팀'};
 
         for ( key in teamName){
             $('#teamName').append(`<option value="${key}">${teamName[key]}</option>`)
