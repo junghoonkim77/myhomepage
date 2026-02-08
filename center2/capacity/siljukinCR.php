@@ -2,7 +2,7 @@
 include('phpgate.php');
 
 $sql = "CREATE TABLE team_performance (
-    `order` INT AUTO_INCREMENT PRIMARY KEY COMMENT '자동 증가 순번',
+    `inputorder` INT AUTO_INCREMENT PRIMARY KEY COMMENT '자동 증가 순번',
     `inputday` DATE NOT NULL COMMENT '입력 날짜',
     `cunsulname` VARCHAR(100) NOT NULL COMMENT '팀원명',
     `nowteam` VARCHAR(100) NOT NULL COMMENT '팀명',

@@ -71,6 +71,12 @@
      이름: <input type="text" name="pname" id="name"><br>
      <button type="submit">컨설턴트 추가</button>
   </form>
+
+  <form action="siljukdel.php" method="post">
+    <input type="number" name="delkey" placeholder="삭제할 번호 입력">
+    <button type="submit">실적 삭제</button>
+  </form>
+
     <script>
          $('#teamName').change(function(){
         let team = $(this).val();

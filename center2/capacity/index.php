@@ -140,7 +140,7 @@ if ($search_team && $search_name) {
                     <td class="section-mob"><?php echo $data['mtrysuccess']; ?></td>
                     <td class="section-mob"><?php echo $data['mtrygood']; ?></td>
                     
-                    <td class="analysis-text"><?php echo nl2br(htmlspecialchars($data['analysys'])); ?></td>
+                    <td class="analysis-text"><?php echo nl2br(htmlspecialchars($data['analysys'])); echo "[" . $data['inputorder'] . "]"; ?></td>
                 </tr>
                 <?php endforeach; ?>
             <?php else: ?>
