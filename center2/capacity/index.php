@@ -1,3 +1,34 @@
+<?php
+include('phpgate.php');;
+
+$search_team = isset($_POST['search_team']) ? mysqli_real_escape_string($conn, $_POST['search_team']) : '';
+$search_name = isset($_POST['search_name']) ? mysqli_real_escape_string($conn, $_POST['search_name']) : '';
+$search_month = isset($_POST['search_month']) ? mysqli_real_escape_string($conn, $_POST['search_month']) : '';
+// 2. SQL 쿼리 작성 (검색 조건이 있을 때만 조회)
+$rows = [];
+// 2. 검색 로직 (팀명과 이름이 입력된 경우에만 실행)
+if ($search_team && $search_name) {
+    
+    // 기본 쿼리
+    $sql = "SELECT * FROM team_performance 
+            WHERE nowteam = '$search_team' 
+            AND cunsulname = '$search_name'";
+
+    // '월'이 선택되었다면 쿼리에 추가 (inputday에서 월만 추출해서 비교)
+    if ($search_month != "") {
+        $sql .= " AND MONTH(inputday) = '$search_month'";
+    }
+
+    $sql .= " ORDER BY inputday DESC"; // 최신순 정렬
+    
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -30,21 +61,33 @@
     <h3>일별 효율 관리부</h3>
   
     <table class="tg"><thead>
-        <form id="cunsulchoice" method="post" action="siljukIn.php">
+        <form id="cunsulchoice" method="post" action="index.php">
             <tr>
                 <td class="tg-potj" rowspan="3">구분</td>
-                <td class="tg-0lax" colspan="9"></td>
+                <td class="tg-0lax" colspan="9">
+                    <a href="inputgate.php">실적입력창 이동</a>
+                </td>
                 <td class="tg-0lax">
-                    <select id="teamName">
+                    <select id="teamName" name="search_team">
                         <option value=''>팀 선택</option>
                     </select>
                 </td>
                 <td class="tg-0lax">
-                    <select id="consultantName" name="consultantName">
+                    <select id="consultantName" name="search_name">
                         <option value=''>컨설턴트 선택</option>
                     </select>
                 </td>
-                <td class="tg-0lax"></td>
+                <td class="tg-0lax">
+                    <select name="search_month">
+            <option value="">전체 월</option>
+            <?php
+            for ($m = 1; $m <= 12; $m++) {
+                $selected = ($search_month == $m) ? 'selected' : '';
+                echo "<option value='$m' $selected>{$m}월</option>";
+            }
+            ?>
+        </select>
+                </td>
                 <td class="tg-0lax"><input type="submit" value="확인"></td>
               </tr>
         </form>
@@ -75,7 +118,41 @@
           <td class="tg-0lax">이관건</td>
           <td class="tg-0lax">가설</td>
           <td class="tg-0lax"></td>
-        </tr></thead></table>
+        </tr></thead>
+    
+    <tbody>
+            <?php if (count($rows) > 0): ?>
+                <?php foreach ($rows as $data): ?>
+                <tr>
+                    <td><?php echo $data['inputday']; ?></td>
+                    <td><?php echo number_format($data['cpd']); ?></td>
+                    <td><?php echo $data['att']; ?></td>
+                    <td><?php echo $data['acw']; ?></td>
+                    <td><?php echo $data['calltime']; ?></td>
+                    
+                    <td class="section-int"><?php echo $data['trycount']; ?></td>
+                    <td class="section-int"><strong><?php echo $data['tryrate']; ?>%</strong></td>
+                    <td class="section-int"><?php echo $data['trysuccess']; ?></td>
+                    <td class="section-int"><?php echo $data['trygood']; ?></td>
+                    
+                    <td class="section-mob"><?php echo $data['mtrycount']; ?></td>
+                    <td class="section-mob"><strong><?php echo $data['mtryrate']; ?>%</strong></td>
+                    <td class="section-mob"><?php echo $data['mtrysuccess']; ?></td>
+                    <td class="section-mob"><?php echo $data['mtrygood']; ?></td>
+                    
+                    <td class="analysis-text"><?php echo nl2br(htmlspecialchars($data['analysys'])); ?></td>
+                </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="14">조회된 데이터가 없습니다.</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+       
+    </table>
+
+    
     <script>
         const teamName ={무1:'무선1팀',무2:'무선2팀',무3:'무선3팀',무4:'무선4팀',무5:'무선5팀'};
 

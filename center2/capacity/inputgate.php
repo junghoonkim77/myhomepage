@@ -12,28 +12,53 @@
     <title>실적입력창</title>
 </head>
 <body>
-<form action="Teaminput.php" method="post">
-   
-    <select name="teamname" id="teamName">
-        <option value="무1">무선1</option>
-        <option value="무2">무선2</option>
-        <option value="무3">무선3</option>
-        <option value="무4">무선4</option>
-        <option value="무5">무선5</option>
-   
-    </select>
 
-    <select name="pname" id="consultantName">
+<h2>개인 실적 입력</h2> <a href="index.php">일별 효율 관리부 이동</a>
+    <form action="siljukinsert.php" method="POST">
+        <fieldset>
+            <legend>기본 정보</legend>
+            날짜: <input type="date" name="inputday" required><br>
+            <select name="nowteam" id="teamName">
+                <option value="무1">무선1</option>
+                <option value="무2">무선2</option>
+                <option value="무3">무선3</option>
+                <option value="무4">무선4</option>
+                <option value="무5">무선5</option>
+          </select>
+
+    <select name="cunsulname" id="consultantName">
         <option value=''>컨설턴트 선택</option>
     </select>
+        </fieldset>
+        
+        <fieldset>
+            <legend>콜 실적</legend>
+            콜 건수: <input type="number" name="cpd" value="0"><br>
+            ATT: <input type="text" name="att" placeholder="00:00:00"><br>
+            ACW: <input type="text" name="acw" placeholder="00:00:00"><br>
+            총 통화시간: <input type="text" name="calltime" placeholder="00:00:00">
+        </fieldset>
 
-    
-     <button type="submit">팀별 실적입력</button>
-  </form>
-  <br><br>   
+        <fieldset>
+            <legend>인터넷/모바일 실적</legend>
+            인터넷 시도: <input type="number" name="trycount" value="0"> 
+            성공: <input type="number" name="trysuccess" value="0"> 
+            가설: <input type="number" name="trygood" value="0"><br>
+            모바일 시도: <input type="number" name="mtrycount" value="0"> 
+            성공: <input type="number" name="mtrysuccess" value="0"> 
+            가설: <input type="number" name="mtrygood" value="0">
+        </fieldset>
+
+        <p>자가 분석:<br>
+        <textarea name="analysys" rows="5" cols="50"></textarea></p>
+        
+        <button type="submit">실적 저장하기</button>
+    </form>
+
+<br><br>   
 
 
-
+// 컨설턴트 추가 폼
 <form action="Nameinput.php" method="post">
    
     <select name="teamname" id="teamname_add">

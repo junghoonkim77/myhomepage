@@ -11,7 +11,7 @@ $stmt->bind_param("ss", $pname, $teamname);
 if ($stmt->execute()) {
     echo "새로운 레코드가 성공적으로 추가되었습니다!";
     echo "<script>
-    location.href ='index.php'
+    location.href ='inputgate.php'
      </script>";
 } else {
     echo "에러: " . $stmt->error;
