@@ -83,6 +83,8 @@ if ($search_team && $search_name) {
     <form id="cunsulchoice" method="post" action="index.php" class="search-bar">
         <div>
             <a href="inputgate.php" class="nav-link">실적입력창 이동</a>
+            <span id="selectedteamname" style="margin-left: 40px; font-weight: bold;"></span>
+            <span id="selectedcunsulname" style="margin-left: 20px; font-weight: bold;"></span>
         </div>
         <div style="display: flex; gap: 8px;">
             <select id="teamName" name="search_team">
@@ -100,7 +102,7 @@ if ($search_team && $search_name) {
                 }
                 ?>
             </select>
-            <input type="submit" value="조회하기">
+            <input id="searchbutton" type="submit" value="조회하기">
         </div>
     </form>
 
@@ -193,6 +195,22 @@ if ($search_team && $search_name) {
             $(this).addClass('is-red-day');
         }
     });
+    // 로컬 스토리지 활용 선택값 유지
+    const storedTeam = localStorage.getItem('selectedTeam');
+    const storedName = localStorage.getItem('selectedName');
+    
+    $('#selectedteamname').text(storedTeam ? `팀: ${storedTeam}` : '');
+     $('#selectedcunsulname').text(storedName ? `컨설턴트: ${storedName}` : '');
+     localStorage.removeItem('selectedTeam');
+     localStorage.removeItem('selectedName');
+
+     $('#searchbutton').click(function(){
+        
+            const team = $('#teamName').val();
+            const name = $('#consultantName').val();
+            localStorage.setItem('selectedTeam', team);
+            localStorage.setItem('selectedName', name);
+         });
 </script>
 
 </body>
