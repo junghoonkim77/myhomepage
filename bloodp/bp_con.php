@@ -126,8 +126,8 @@ echo '<h5>'.'('.date("Y/m/d").')'."   ".'혈압기록'.'</h5>';
 
 
     <div class="container">
-  
-    <div class="view">
+    <button>복사</button>
+    <div id="view" class="view">
         <table>
             <thead class="thead">
                 <td>입력순서</td>
@@ -162,7 +162,7 @@ echo '<h5>'.'('.date("Y/m/d").')'."   ".'혈압기록'.'</h5>';
     
    </div>
    
-    
+    <script src="../java/library.js"></script>
     <script>
         var Hipressure = 0;
         var Lowpressure = 0;
@@ -184,6 +184,10 @@ echo '<h5>'.'('.date("Y/m/d").')'."   ".'혈압기록'.'</h5>';
     $('header').on('click', function(){
      const containerHeight = $('.container').height();
      $('html').animate({ scrollTop: containerHeight }, 400);
+    });
+
+    $('button').on('click', function(){
+     $lib.rangecopy('#view');
     });
     </script>
 </body>
