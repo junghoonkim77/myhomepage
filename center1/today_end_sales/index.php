@@ -5,44 +5,38 @@ ini_set('display_errors', 1);
 include ('phpgate.php');
 
 // ... (기본 PHP 로직 유지) ...
-$teams = ['무1', '무2', '무3', '무4', '무5', '통품'];
+$teams = ['유1', '유2'];
 $teamData = [];
 $teamboan = [];
 foreach ($teams as $team) {
     $teamData[$team] = [];
-    $sql = "SELECT it_tend , m_end , tri_end , success_end , successnew , success_end1, todaytime FROM c2sales_end WHERE teamname = '$team'";
+    $sql = "SELECT it_tend , m_end , success_end , successnew , success_end1, todaytime FROM c1sales_end WHERE teamname = '$team'";
     $re = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($re)) {
-        $teamData[$team][] = ['인티' => $row['it_tend'], '모바일' => $row['m_end'], '통리' => $row['tri_end'], '가설' => $row['success_end'] , '가설문' => $row['successnew'],'가설2' => $row['success_end1'],'시간' => $row['todaytime']];
+        $teamData[$team][] = ['인티' => $row['it_tend'], '모바일' => $row['m_end'],'가설' => $row['success_end'] , '가설문' => $row['successnew'],'가설2' => $row['success_end1'],'시간' => $row['todaytime']];
     }
 }
 
 foreach($teams as $team){
-    $sqlboan = "SELECT * FROM dailyboan WHERE teamname = '$team'";
+    $sqlboan = "SELECT * FROM dailyboan2 WHERE teamname = '$team'";
     $reboan = mysqli_query($conn, $sqlboan);
     while ($rowboan = mysqli_fetch_array($reboan)) {
         $teamboan[$team][] = ['보안점검' => $rowboan['boanresult'], '시간' => $rowboan['inputday']];
     }
 }
 
-$mu1 = [$teamData['무1'][0]['인티'], $teamData['무1'][0]['모바일'], $teamData['무1'][0]['통리'], $teamData['무1'][0]['가설'],$teamData['무1'][0]['가설문'],$teamData['무1'][0]['가설2'],$teamData['무1'][0]['시간']];
-$mu2 = [$teamData['무2'][0]['인티'], $teamData['무2'][0]['모바일'], $teamData['무2'][0]['통리'], $teamData['무2'][0]['가설'],$teamData['무2'][0]['가설문'],$teamData['무2'][0]['가설2'],$teamData['무2'][0]['시간']];
-$mu3 = [$teamData['무3'][0]['인티'], $teamData['무3'][0]['모바일'], $teamData['무3'][0]['통리'], $teamData['무3'][0]['가설'],$teamData['무3'][0]['가설문'],$teamData['무3'][0]['가설2'],$teamData['무3'][0]['시간']];
-$mu4 = [$teamData['무4'][0]['인티'], $teamData['무4'][0]['모바일'], $teamData['무4'][0]['통리'], $teamData['무4'][0]['가설'],$teamData['무4'][0]['가설문'],$teamData['무4'][0]['가설2'],$teamData['무4'][0]['시간']];
-$mu5 = [$teamData['무5'][0]['인티'], $teamData['무5'][0]['모바일'], $teamData['무5'][0]['통리'], $teamData['무5'][0]['가설'],$teamData['무5'][0]['가설문'],$teamData['무5'][0]['가설2'],$teamData['무5'][0]['시간']];
-$tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], $teamData['통품'][0]['통리'], $teamData['통품'][0]['가설'],$teamData['통품'][0]['가설문'],$teamData['통품'][0]['가설2'],$teamData['통품'][0]['시간']];
+$mu1 = [$teamData['유1'][0]['인티'], $teamData['유1'][0]['모바일'], $teamData['유1'][0]['가설'],$teamData['유1'][0]['가설문'],$teamData['유1'][0]['가설2'],$teamData['유1'][0]['시간']];
+$mu2 = [$teamData['유2'][0]['인티'], $teamData['유2'][0]['모바일'], $teamData['유2'][0]['가설'],$teamData['유2'][0]['가설문'],$teamData['유2'][0]['가설2'],$teamData['유2'][0]['시간']];
 
-$boteam1 =[$teamboan['무1'][0]['보안점검'], $teamboan['무1'][0]['시간']];
-$boteam2 =[$teamboan['무2'][0]['보안점검'], $teamboan['무2'][0]['시간']];
-$boteam3 =[$teamboan['무3'][0]['보안점검'], $teamboan['무3'][0]['시간']];
-$boteam4 =[$teamboan['무4'][0]['보안점검'], $teamboan['무4'][0]['시간']];
-$boteam5 =[$teamboan['무5'][0]['보안점검'], $teamboan['무5'][0]['시간']];
-$botong =[$teamboan['통품'][0]['보안점검'], $teamboan['통품'][0]['시간']];
+
+$boteam1 =[$teamboan['유1'][0]['보안점검'], $teamboan['유1'][0]['시간']];
+$boteam2 =[$teamboan['유2'][0]['보안점검'], $teamboan['유2'][0]['시간']];
+
 
 $weekday = date('l'); 
 $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday" => "목", "Friday" => "금", "Saturday" => "토", "Sunday" => "일"];
 
-$sql1 = "SELECT id, teamname, regiday, noticon FROM cs2noti ORDER BY id DESC";
+$sql1 = "SELECT id, teamname, regiday, noticon FROM cs1noti ORDER BY id DESC";
 $result1 = mysqli_query($conn, $sql1);
 ?>
 
@@ -179,7 +173,7 @@ $result1 = mysqli_query($conn, $sql1);
         .notice-body { white-space: pre-wrap; word-break: break-all; line-height: 0.8; font-size: 0.7rem; } /* 줄바꿈 유지 및 긴 단어 끊기 */
     </style>
 
-    <title>CS2센터 Sales일실적</title>
+    <title>CS1센터 Sales일실적</title>
 </head>
 
 <body>
@@ -189,19 +183,16 @@ $result1 = mysqli_query($conn, $sql1);
                 <h4><?php echo date("m/d").'('.$days[$weekday].') 실적'; ?></h4>
                 <table>
                     <thead>
-                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>통리</td><td>가설(권)</td><td>가설(문)</td><td>M유치</td><td>M유치부족</td></tr>
+                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>가설(권)</td><td>가설(문)</td><td>M유치</td></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="trigger"><?php echo $mu1[2] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeednew"><?php echo $mu1[4] ?></td><td class="succeed1"><?php echo $mu1[5] ?></td><td class="succeed1"><?php echo $mu1[5]-4 ?></td></tr>
-                        <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="trigger"><?php echo $mu2[2] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeednew"><?php echo $mu2[4] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td></tr>
-                        <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="trigger"><?php echo $mu3[2] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeednew"><?php echo $mu3[4] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td></tr>
-                        <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="trigger"><?php echo $mu4[2] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeednew"><?php echo $mu4[4] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td></tr>
-                        <tr><td class="team1">무선5</td><td class="it"><?php echo $mu5[0] ?></td><td class="mobile"><?php echo $mu5[1] ?></td><td class="trigger"><?php echo $mu5[2] ?></td><td class="succeed"><?php echo $mu5[3] ?></td><td class="succeednew"><?php echo $mu5[4] ?></td><td class="succeed1"><?php echo $mu5[5] ?></td><td class="succeed1"><?php echo $mu5[5] ?></td></tr>
-                        <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="trigger"><?php echo $tong[2] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeednew"><?php echo $tong[4] ?></td><td class="succeed1"><?php echo $tong[5] ?></td><td class="succeed1"><?php echo $tong[5] ?></td></tr>
+                        <tr><td class="team1">유선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="succeed"><?php echo $mu1[2] ?></td><td class="succeednew"><?php echo $mu1[3] ?></td><td class="succeed1"><?php echo $mu1[4] ?></td></tr>
+                        <tr><td class="team1">유선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[2] ?></td><td class="succeednew"><?php echo $mu2[3] ?></td><td class="succeed1"><?php echo $mu2[4] ?></td></tr>
+                        
                         
                     </tbody>
                     <tfoot>
-                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="trigger_t"></td><td id="succeed_t"></td><td id="succeednew_t"></td><td id="succeed1_t"></td></tr>
+                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="succeed_t"></td><td id="succeednew_t"></td><td id="succeed1_t"></td></tr>
                     </tfoot>
                 </table>
             </div>
@@ -209,22 +200,16 @@ $result1 = mysqli_query($conn, $sql1);
             <div id="timebox">
                 <button class="tabcopy">표 복사</button>
                 <h5>입력시간</h5>
-                <p class="teamcom">무1: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu1[6] ?></span></p>
-                <p class="teamcom">무2: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu2[6] ?></span></p>
-                <p class="teamcom">무3: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu3[6] ?></span></p>
-                <p class="teamcom">무4: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu4[6] ?></span></p>
-                <p class="teamcom">무5: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu5[6] ?></span></p>
-                <p class="teamcom">통품: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $tong[6] ?></span></p>
+                <p class="teamcom">유1: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu1[5] ?></span></p>
+                <p class="teamcom">유2: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu2[5] ?></span></p>
+                
             </div>
             
             <div id="boanBox">
                 <h3>보안점검 결과</h3>
-                <div class="chgcolor" id="bteam1"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam1[1]."</span> ".$boteam1[1]." 무1 ".$boteam1[0] ?></div>
-                <div class="chgcolor" id="bteam2"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam2[1]."</span> ".$boteam2[1]." 무2 ".$boteam2[0] ?></div>
-                <div class="chgcolor" id="bteam3"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam3[1]."</span> ".$boteam3[1]." 무3 ".$boteam3[0] ?></div>
-                <div class="chgcolor" id="bteam4"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam4[1]."</span> ".$boteam4[1]." 무4 ".$boteam4[0] ?></div>
-                <div class="chgcolor" id="bteam5"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam5[1]."</span> ".$boteam5[1]." 무5 ".$boteam5[0] ?></div>
-                <div class="chgcolor" id="bteam6"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$botong[1]."</span> ".$botong[1]." 통품 ".$botong[0] ?></div>
+                <div class="chgcolor" id="bteam1"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam1[1]."</span> ".$boteam1[1]." 유1 ".$boteam1[0] ?></div>
+                <div class="chgcolor" id="bteam2"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam2[1]."</span> ".$boteam2[1]." 유2 ".$boteam2[0] ?></div>
+                
             </div>
         </div>
 
@@ -233,16 +218,11 @@ $result1 = mysqli_query($conn, $sql1);
                 <fieldset>
                     <select name="teamname" id="select" style="width:70px;">
                         <option value="">팀 선택</option>
-                        <option value="무1">무선1팀</option>
-                        <option value="무2">무선2팀</option>
-                        <option value="무3">무선3팀</option>
-                        <option value="무4">무선4팀</option>
-                        <option value="무5">무선5팀</option>
-                        <option value="통품">통화품질팀</option>
+                        <option value="유1">유선1팀</option>
+                        <option value="유2">유선2팀</option>
                     </select>
                     <label>인티</label> <input id="itnet" class="inputnum" type="number" value=0 name="it">
                     <label>모바일</label> <input id="mobile" class="inputnum" type="number" value=0 name="mobile">
-                    <label>통리</label> <input id="trigger" class="inputnum" type="number" value=0 name="trigger">
                     <label>가설(권)</label> <input id="success" class="inputnum" type="number" value=0 name="success">
                     <label>가설(문)</label> <input id="successnew" class="inputnum" type="number" value=0 name="successnew">
                     <label>M유치</label> <input id="success1" class="inputnum" type="number" value=0 name="success1">
@@ -257,13 +237,9 @@ $result1 = mysqli_query($conn, $sql1);
                 <fieldset>
                     <select name="teamname1" id="select1" style="width:80px;">
                         <option value="">팀 선택</option>
-                        <option value="무1">무선1팀</option>
-                        <option value="무2">무선2팀</option>
-                        <option value="무3">무선3팀</option>
-                        <option value="무4">무선4팀</option>
-                        <option value="무5">무선5팀</option>
-                        <option value="통품">통화품질팀</option>
-                    </select>
+                        <option value="무1">유선1팀</option>
+                        <option value="무2">유선2팀</option>
+                   </select>
                     <input id="boancheck" class="boancheck" placeholder="이상 무" type="text" name="boancheck" style="width:140px;">
                     <input id="nowtime1" type="hidden" value="<?php echo date('m월/d일').'('.$days[$weekday].')'.' 18시';?>" name="nowtime1">
                     <button class="button2">보안전송</button> 
@@ -280,12 +256,8 @@ $result1 = mysqli_query($conn, $sql1);
                     <select id="noticeteam" name="noticeteam" style="width:100%;">
                         <option value="">선택</option>
                         <option value="센터장님">센터장님</option>
-                        <option value="무1">무선1팀</option>
-                        <option value="무2">무선2팀</option>
-                        <option value="무3">무선3팀</option>
-                        <option value="무4">무선4팀</option>
-                        <option value="무5">무선5팀</option>
-                        <option value="통품">통화품질팀</option>
+                        <option value="무1">유선1팀</option>
+                        <option value="무2">유선2팀</option>
                     </select>
                     <textarea name="noticecontent" placeholder="공지 내용을 입력하세요..."></textarea>
                     <input id="regtime" type="hidden" value="<?php echo date('m월 d일H:i:s');?>" name="regtime">
@@ -344,7 +316,7 @@ $result1 = mysqli_query($conn, $sql1);
             var sumresul = sumend.reduce((acc,curval)=>{ return acc+curval; },0)
             $('#'+$class+'_t').text(sumresul);     
         }
-        sum('it'); sum('mobile'); sum('trigger'); sum('succeed');sum('succeednew'); sum('succeed1');
+        sum('it'); sum('mobile');  sum('succeed');sum('succeednew'); sum('succeed1');
 
         $('.tabcopy').click(function(){ $lib.rangecopy('#tablecopy'); })
         $('.button1').click(function(e){

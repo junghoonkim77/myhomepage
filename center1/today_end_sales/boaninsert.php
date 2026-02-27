@@ -7,7 +7,7 @@ $teamname = $_POST['teamname1'] ?? '';
 $boanresult = $_POST['boancheck'] ?? ''; // 기본값 설정
 $inputday = $_POST['nowtime1'] ?? '';
 
-$sql = "UPDATE dailyboan
+$sql = "UPDATE dailyboan2
 SET teamname = '$teamname', boanresult = '$boanresult', inputday = '$inputday'
 WHERE TeamName = '$teamname'" ;
 
