@@ -237,8 +237,8 @@ $result1 = mysqli_query($conn, $sql1);
                 <fieldset>
                     <select name="teamname1" id="select1" style="width:80px;">
                         <option value="">팀 선택</option>
-                        <option value="무1">유선1팀</option>
-                        <option value="무2">유선2팀</option>
+                        <option value="유1">유선1팀</option>
+                        <option value="유2">유선2팀</option>
                    </select>
                     <input id="boancheck" class="boancheck" placeholder="이상 무" type="text" name="boancheck" style="width:140px;">
                     <input id="nowtime1" type="hidden" value="<?php echo date('m월/d일').'('.$days[$weekday].')'.' 18시';?>" name="nowtime1">
@@ -256,8 +256,8 @@ $result1 = mysqli_query($conn, $sql1);
                     <select id="noticeteam" name="noticeteam" style="width:100%;">
                         <option value="">선택</option>
                         <option value="센터장님">센터장님</option>
-                        <option value="무1">유선1팀</option>
-                        <option value="무2">유선2팀</option>
+                        <option value="유1">유선1팀</option>
+                        <option value="유2">유선2팀</option>
                     </select>
                     <textarea name="noticecontent" placeholder="공지 내용을 입력하세요..."></textarea>
                     <input id="regtime" type="hidden" value="<?php echo date('m월 d일H:i:s');?>" name="regtime">

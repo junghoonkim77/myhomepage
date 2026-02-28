@@ -15,7 +15,7 @@ try {
 
     // 3. mysqli용 Prepared Statement 작성
     // $pdo->prepare 대신 $conn->prepare를 사용합니다.
-    $stmt = $conn->prepare("INSERT INTO cs2noti (teamname, regiday, noticon) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO cs1noti (teamname, regiday, noticon) VALUES (?, ?, ?)");
     
     if ($stmt === false) {
         throw new Exception($conn->error);
