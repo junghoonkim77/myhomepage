@@ -190,7 +190,7 @@ $result1 = mysqli_query($conn, $sql1);
                 <h4><?php echo date("m/d").'('.$days[$weekday].') 실적'; ?></h4>
                 <table>
                     <thead>
-                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>통리</td><td>가설(권)</td><td>가설(문)</td><td>M유치</td><td>M유치부족</td></tr>
+                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>통리</td><td>가설(권)</td><td>가설(문)</td><td>M유치</br>(목표):<?php echo $mobilegoal.'건' ?></td><td>M유치부족</td></tr>
                     </thead>
                     <tbody>
                         <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="trigger"><?php echo $mu1[2] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeednew"><?php echo $mu1[4] ?></td><td class="succeed1"><?php echo $mu1[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu1[5] ?></td></tr>
