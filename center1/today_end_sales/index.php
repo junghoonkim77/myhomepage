@@ -177,7 +177,8 @@ $result1 = mysqli_query($conn, $sql1);
 </head>
 
 <body>
-    <div class="main-wrapp"er>
+    <div class="main-wrapp">
+        <h3 style="padding-left: 30rem;">서울중앙 CS1센터 일 실적 및 보안 점검 창</h3>
         <div class="display-section">
             <div id="tablecopy">
                 <h4><?php echo date("m/d").'('.$days[$weekday].') 실적'; ?></h4>
