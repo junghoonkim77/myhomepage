@@ -185,7 +185,7 @@ $result1 = mysqli_query($conn, $sql1);
 
 <body>
     <div class="main-wrapp">
-        <h3 style="padding-left: 30rem;">서울중앙 CS2센터 일 실적 및 보안 점검 창</h3>
+        <h3 style="padding-left: 30rem;">서울중앙 CS2센터 일 실적 및 보안 점검 창</h3><a href="../../center1/today_end_sales/index.php" style="position:absolute; right:20px; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">1센터 실적창 이동</a>
         <div class="display-section">
             <div id="tablecopy">
                 <h4><?php echo date("m/d").'('.$days[$weekday].') 실적'; ?></h4>
