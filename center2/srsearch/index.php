@@ -31,7 +31,7 @@ $result = $conn->query($sql);
 </head>
 <body>
 
-    <h2>VOC 정밀 검색 서비스</h2>
+    <h2>sr 검색 서비스</h2>
 
     <div class="search-box">
         <select id="searchColumn">
