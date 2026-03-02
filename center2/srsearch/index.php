@@ -49,7 +49,7 @@ $result = $conn->query($sql);
         <thead>
             <tr>
                 <th>순번</th><th>엑셀번호</th><th>구분</th><th>1차</th><th>2차</th><th>3차</th><th>4차</th>
-                <th class="col-long">의미</th><th class="col-long">공통</th><th class="col-long">유선</th><th class="col-long">무선</th>
+                <th class="col-long">정의</th><th class="col-long">공통</th><th class="col-long">유선</th><th class="col-long">무선</th>
             </tr>
         </thead>
         <tbody id="vocBody">
