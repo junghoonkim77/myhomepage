@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VOC 입력</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.4;margin:24px;max-width:900px}
+    h1{font-size:20px;margin:0 0 16px}
+    form{display:grid;gap:14px}
+    .grid{display:grid;grid-template-columns:160px 1fr;gap:10px;align-items:start}
+    label{font-weight:600}
+    input[type="text"], input[type="number"], textarea{
+      width:100%; padding:10px 12px; border:1px solid #cfcfcf; border-radius:8px; font-size:14px;
+      box-sizing:border-box;
+    }
+    textarea{min-height:110px; resize:vertical; font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+    .help{color:#666; font-size:12px; margin-top:6px}
+    .actions{display:flex; gap:10px; align-items:center}
+    button{padding:10px 14px; border:0; border-radius:10px; background:#111; color:#fff; font-size:14px; cursor:pointer}
+    button.secondary{background:#444}
+    .note{background:#f6f6f6;border:1px solid #e5e5e5;border-radius:10px;padding:12px;font-size:13px;color:#333}
+  </style>
+</head>
+<body>
+  <h1>VOC 입력 폼</h1>
+
+  <div class="note">
+    <div>• 이 폼은 <b>insert.php</b>로 전송됩니다.</div>
+    <div>• TEXT 컬럼(con_meaning, common, wire, wireless)은 textarea로 입력합니다.</div>
+    <div>• 특수문자/따옴표/줄바꿈 등은 Prepared Statement로 안전하게 저장됩니다.</div>
+  </div>
+
+  <form method="post" action="insert.php" accept-charset="UTF-8">
+    <div class="grid">
+      <label for="vocno">vocno (숫자)</label>
+      <div>
+        <input type="number" name="vocno" id="vocno" inputmode="numeric" />
+        <div class="help">비우면 NULL로 저장됩니다.</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <label for="vocseper">vocseper</label>
+      <input type="text" name="vocseper" placeholder="문의,불만" id="vocseper" maxlength="255" />
+    </div>
+
+    <div class="grid">
+      <label for="voc1cha">voc1cha</label>
+      <input type="text" name="voc1cha" placeholder="업무협조,이용,품질 등" id="voc1cha" maxlength="255" />
+    </div>
+
+    <div class="grid">
+      <label for="voc2cha">voc2cha</label>
+      <input type="text" name="voc2cha" placeholder="음성통화서비스,영상통화서비스,데이터서비스 등" id="voc2cha" maxlength="255" />
+    </div>
+
+    <div class="grid">
+      <label for="voc3cha">voc3cha</label>
+      <input type="text" name="voc3cha" placeholder="고객원인,재전화 등" id="voc3cha" maxlength="255" />
+    </div>
+
+    <div class="grid">
+      <label for="voc4cha">voc4cha</label>
+      <input type="text" name="voc4cha" placeholder="시스템1~4 ,단말기1~2등 " id="voc4cha" maxlength="255" />
+    </div>
+
+    <div class="grid">
+      <label for="con_meaning">con_meaning (TEXT)</label>
+      <textarea name="con_meaning" placeholder="사례집 입력 외엔 입력할일 거의 없음" id="con_meaning"></textarea>
+    </div>
+
+    <div class="grid">
+      <label for="common">common (TEXT)</label>
+      <textarea name="common"  placeholder="사례집 입력 외엔 입력할일 거의 없음" id="common"></textarea>
+    </div>
+
+    <div class="grid">
+      <label for="wire">wire (TEXT)</label>
+      <textarea name="wire" placeholder="유선이라 건너 뛰면 됨" id="wire"></textarea>
+    </div>
+
+    <div class="grid">
+      <label for="wireless">wireless (TEXT)</label>
+      <textarea name="wireless" placeholder="무선입력 내용" id="wireless"></textarea>
+    </div>
+
+    <div class="actions">
+      <button type="submit">저장</button>
+      <button type="reset" class="secondary">초기화</button>
+    </div>
+  </form>
+</body>
+</html>

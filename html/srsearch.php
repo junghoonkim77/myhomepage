@@ -27,6 +27,7 @@ $result = $conn->query($sql);
         .col-long { white-space: pre-wrap; word-break: break-all; width: 15%; }
         #vocBody { display: none; } /* 처음엔 숨김 */
         .highlight { background-color: yellow; font-weight: bold; }
+        tr:hover { background-color: #f1f1f1; }
     </style>
 </head>
 <body>
