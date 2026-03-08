@@ -1,4 +1,23 @@
+<?php 
+session_start();
+if(!isset($_SESSION['id'])){
+    echo "<script>alert('로그인 후 이용가능합니다.'); location.href='../html/login.html';</script>";
+    exit();
+}
+?>
+<!DOCTYPE html5>
+<html>
+    <head>
+     <meta charset="utf-8">
+        <link rel="stylesheet"  href="../css/buttontest1.css">
+        <link rel="stylesheet" href="../css/gate.css">
 
+     <script src="https://code.jquery.com/jquery-3.6.1.js" 
+     integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>  
+     <title>통품홈</title>
+      </head>
+    <body>
     <div class="container">
         <header>
             <a href="https://junghoonkim77.github.io/myhomepage/html/gate.html">서울중앙통품_홈피</a>
@@ -135,9 +154,8 @@
             </footer>
         
     </div>
+    <script src="../java/library.js">  </script>
+    <script src="../java/voc_bank.js">  </script>
   
-   
-    
-  
-    
-
+    </body>
+</html>
