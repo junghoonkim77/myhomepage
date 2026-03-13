@@ -121,7 +121,9 @@ $result1 = mysqli_query($conn, $sql1);
 
 <body>
     <div class="main-header">
-        <h2>서울중앙 CS1센터 일 실적 및 보안 점검 창</h2>  <a href="../../center2/today_end_sales/index.php" style="position:absolute; right:20px; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">2센터 실적창 이동</a>
+        <h2>서울중앙 CS1센터 일 실적 및 보안 점검 창</h2>
+        <a href="../../center2/today_end_sales/index.php" style="position:absolute; right:14rem; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">2센터 실적창 이동</a>  
+        <a href="../../center2/monthSales/index.php" style="position:absolute; right:20px; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">1,2센터 누적개통 실적창 이동</a>
     </div>
 
     <div class="main-wrapper">

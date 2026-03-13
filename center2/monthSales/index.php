@@ -8,7 +8,6 @@ include ('phpgate.php');
 
 $teams = ['무1', '무2', '무3', '무4', '무5', '통품','유1','유2'];
 $teamData = [];
-$teamboan = [];
 foreach ($teams as $team) {
     $teamData[$team] = [];
     $sql = "SELECT m_goal , m_success , it_goal , it_success , todaytime FROM c2sales_month WHERE teamname = '$team'";
@@ -36,34 +35,25 @@ $wire2 = [$teamData['유2'][0]['모목'], $teamData['유2'][0]['모개'], $teamD
 $weekday = date('l'); 
 $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday" => "목", "Friday" => "금", "Saturday" => "토", "Sunday" => "일"];
 
-// 근무일 계산 코드
-$year = date('Y');         // 올해 (2026)
-$month = date('m');        // 이번 달 (03)
-$today = date('Y-m-d');    // 오늘 날짜
+$year = date('Y');
+$month = date('m');
+$today = date('Y-m-d');
 $my_holidays = ['2026-03-02'];
-$last_day = date('t', mktime(0, 0, 0, $month, 1, $year)); // 이번 달의 마지막 날짜
-$total_working_days = 0; // 이번 달 전체 근무일
-$remaining_days = 0;     // 남은 근무일
+$last_day = date('t', mktime(0, 0, 0, $month, 1, $year));
+$total_working_days = 0;
+$remaining_days = 0;
 
 for ($day = 1; $day <= $last_day; $day++) {
-    // 날짜를 '2026-03-01' 형식으로 만듭니다.
     $date_string = date('Y-m-d', mktime(0, 0, 0, $month, $day, $year));
-    $day_of_week = date('N', strtotime($date_string)); // 요일 (1:월 ~ 7:일)
+    $day_of_week = date('N', strtotime($date_string));
 
-    // 주말(토:6, 일:7)이 아니고, 내가 지정한 휴무일 배열에 없는 경우에만 '근무일'
     if ($day_of_week < 6 && !in_array($date_string, $my_holidays)) {
-        
-        $total_working_days++; // 이번 달 총 근무일수 증가
-
-        // 그 근무일이 오늘보다 미래이거나 오늘인 경우 '남은 근무일'로 카운트
+        $total_working_days++;
         if ($date_string >= $today) {
             $remaining_days++;
         }
     }
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -72,322 +62,258 @@ for ($day = 1; $day <= $last_day; $day++) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
-</script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
-</script> 
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> 
+    <title>CS1/2센터 누적실적</title>
+    <style type="text/css">
+        body { font-family: 'Malgun Gothic', sans-serif; background-color: #f8f9fa; color: #333; margin: 0; padding: 20px; }
+        .headbox { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; text-align: center; }
+        .headbox h3 { margin: 0 0 10px 0; color: #222; }
+        #goal { font-weight: bold; font-size: 1.1rem; }
+        .totalworkingday { color: #007bff; }
+        .remainworkingday { color: #dc3545; }
 
-    <title>cs2센터 누적실적</title>
+        .container { display: flex; flex-direction: row; gap: 30px; justify-content: center; align-items: flex-start; }
+        .cs2centerdash, .cs1centerdash { flex: 1; min-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        
+        h4 { border-left: 5px solid #333; padding-left: 10px; margin-bottom: 15px; }
+
+        /* 테이블 스타일 */
+        .tg { border-collapse: collapse; width: 100%; margin-bottom: 25px; table-layout: fixed; }
+        .tg td, .tg th { border: 1px solid #ddd; padding: 10px 5px; text-align: center; font-size: 13px; }
+        .tg .tg-46o7 { background-color: #333; color: #fff; font-weight: bold; }
+        .tg .tg-ikxu { background-color: #444; color: #fff; }
+        .tg tr:nth-child(even) { background-color: #fefefe; }
+
+        /* 입력 폼 스타일 */
+        form { margin-top: 20px; }
+        fieldset { border: 1px solid #eee; border-radius: 6px; padding: 15px; margin-bottom: 15px; background: #fafafa; }
+        legend { font-weight: bold; padding: 0 10px; color: #555; font-size: 0.95rem; }
+        
+        .form-row { display: flex; align-items: center; margin-bottom: 10px; }
+        .form-row label { width: 120px; font-size: 13px; font-weight: bold; }
+        .form-row select, .form-row input { flex: 1; padding: 6px; border: 1px solid #ccc; border-radius: 4px; }
+        
+        button { width: 100%; padding: 10px; background: #333; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; font-weight: bold; }
+        button:hover { background: #555; }
+
+        /* 계(Total) 행 강조 */
+        .total-row { background-color: #eee !important; font-weight: bold; }
+    </style>
 </head>
 <body>
-    <style type="text/css">
-        .tg  {border-collapse:collapse;border-spacing:0;}
-        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-          overflow:hidden;padding:10px 5px;word-break:normal;}
-        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-        .tg .tg-9wq8{border-color:inherit;text-align:center;vertical-align:middle}
-        .tg .tg-46o7{background-color:#000000;border-color:inherit;color:#ffffff;text-align:center;vertical-align:middle}
-        .tg .tg-ikxu{background-color:#000000;color:#ffffff;text-align:center;vertical-align:middle}
-        .tg .tg-nrix{text-align:center;vertical-align:middle}
-        
-        .container {display : flex; flex-direction: row; justify-content: center; margin-top: 2rem; }
-        
-        .cs2centerdash { margin-right : 4rem;  }
 
-         h3{ text-align: center; }
+<div class="headbox">
+    <h3>CS1,2센터 <span id="nowmonth"><?php echo (int)$month; ?></span>월 누적 실적 현황</h3>
+    <div id="goal">
+        <span data-totalwork="<?php echo $total_working_days; ?>" class="totalworkingday"><?php echo (int)$month."월 총 영업일: ".$total_working_days; ?>일</span>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <span data-remainwork="<?php echo $remaining_days; ?>" class="remainworkingday"><?php echo "잔여 영업일: ".$remaining_days; ?>일</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <span class="today"><?php echo "Today: ".date('Y-m-d'); ?></span>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a href="../today_end_sales/index.php" style="color:#007bff; text-decoration:none;">일일 실적마감창 이동</a>
+    </div>
+</div>
 
-         #goal { text-align: center;}
-        </style>
-      <div class="headbox">
-        <h3>CS1,2센터 <span id="nowmonth">3</span>월 누적 실적창</h3>
-        
-        <div id="goal">
-          <span data-totalwork="<?php echo $total_working_days; ?>" class="totalworkingday"><?php echo $month."월 총 영업일:".$total_working_days; ?></span> &nbsp;&nbsp;&nbsp;&nbsp;
-          <span data-remainwork="<?php echo $remaining_days; ?>" class="remainworkingday"><?php echo "잔여 영업일:".$remaining_days; ?></span>
-        </div>
-      
-      </div>
-      <div class="container">
-        <div class="cs2centerdash"> <!-- cs2센터 대쉬박스 시작-->
-          <h4>CS2센터 누적 실적</h4>
-          <table class="tg"><thead>
-            <tr>
-              <th class="tg-46o7" rowspan="2">팀<br></th>
-              <th class="tg-46o7" colspan="4">M가입기회발굴</th>
-              <th class="tg-46o7" colspan="4">IT가입기회발굴<br></th>
-              <th class="tg-46o7">-<br></th>
-            </tr>
-            <tr>
-              <th class="tg-46o7">목표</th>
-              <th class="tg-46o7">개통</th>
-              <th class="tg-46o7">진도율</th>
-              <th class="tg-46o7">달성율</th>
-              <th class="tg-46o7">목표</th>
-              <th class="tg-ikxu">개통</th>
-              <th class="tg-ikxu">진도율</th>
-              <th class="tg-46o7">달성율</th>
-              <th class="tg-46o7">입력일시</th>
-            </tr></thead>
-          <tbody>
-            <tr>
-              <td class="tg-9wq8">무선일반1팀</td>
-              <td class="tg-9wq8 mtarget"><?php echo $mu1[0]; ?></td>
-              <td class="tg-9wq8 msuccess"><?php echo $mu1[1]; ?></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8 ITtarget"><?php echo $mu1[2]; ?></td>
-              <td class="tg-nrix ITsuccess"><?php echo $mu1[3]; ?></td>
-              <td class="tg-nrix"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"><?php echo $mu1[4]; ?></td>
-            </tr>
-            <tr>
-              <td class="tg-9wq8">무선일반2팀</td>
-              <td class="tg-9wq8 mtarget"><?php echo $mu2[0]; ?></td>
-              <td class="tg-9wq8 msuccess"><?php echo $mu2[1]; ?></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8 ITtarget"><?php echo $mu2[2]; ?></td>
-              <td class="tg-nrix ITsuccess"><?php echo $mu2[3]; ?></td>
-              <td class="tg-nrix"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"><?php echo $mu2[4]; ?></td>
-            </tr>
-            <tr>
-              <td class="tg-9wq8">무선일반3팀</td>
-              <td class="tg-9wq8 mtarget"><?php echo $mu3[0]; ?></td>
-              <td class="tg-9wq8 msuccess"><?php echo $mu3[1]; ?></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8 ITtarget"><?php echo $mu3[2]; ?></td>
-              <td class="tg-nrix ITsuccess"><?php echo $mu3[3]; ?></td>
-              <td class="tg-nrix"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"><?php echo $mu3[4]; ?></td>
-            </tr>
-            <tr>
-              <td class="tg-9wq8">무선일반4팀</td>
-              <td class="tg-9wq8 mtarget"><?php echo $mu4[0]; ?></td>
-              <td class="tg-9wq8 msuccess"><?php echo $mu4[1]; ?></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8 ITtarget"><?php echo $mu4[2]; ?></td>
-              <td class="tg-nrix ITsuccess"><?php echo $mu4[3]; ?></td>
-              <td class="tg-nrix"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"><?php echo $mu4[4]; ?></td>
-            </tr>
-            <tr>
-              <td class="tg-9wq8">무선일반5팀</td>
-              <td class="tg-9wq8 mtarget"><?php echo $mu5[0]; ?></td>
-              <td class="tg-9wq8 msuccess"><?php echo $mu5[1]; ?></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8 ITtarget"><?php echo $mu5[2]; ?></td>
-              <td class="tg-nrix ITsuccess"><?php echo $mu5[3]; ?></td>
-              <td class="tg-nrix"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"><?php echo $mu5[4]; ?></td>
-            </tr>
-            <tr>
-              <td class="tg-9wq8">통화품질팀</td>
-              <td class="tg-9wq8 mtarget"><?php echo $tong[0]; ?></td>
-              <td class="tg-9wq8 msuccess"><?php echo $tong[1]; ?></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8 ITtarget"><?php echo $tong[2]; ?></td>
-              <td class="tg-nrix ITsuccess"><?php echo $tong[3]; ?></td>
-              <td class="tg-nrix"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"><?php echo $tong[4]; ?></td>
-            </tr>
-            <tr>
-              <td class="tg-9wq8">계</td>
-              <td class="tg-9wq8 mtargetTotal"></td>
-              <td class="tg-9wq8 msuccessTotal"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8 comRate"></td>
-              <td class="tg-9wq8 ITtargetTotal"></td>
-              <td class="tg-nrix ITsuccessTotal"></td>
-              <td class="tg-nrix"></td>
-              <td class="tg-9wq8 itcomRate"></td>
-              <td class="tg-9wq8">-</td>
-            </tr>
-          </tbody>
-      </table>
-     <form action="successInsert.php" method="post" id="successInsert">
-      <fieldset>
-      <legend>무선팀 개통실적 입력메뉴 </legend>
-      <p>
-       
-          <label for="mteamname">팀명 선택</label>
-          <select name="teamname" id="mteamname">
-            <option value="">팀선택</option>
-            <option value="무1">무선1</option>
-            <option value="무2">무선2</option>
-            <option value="무3">무선3</option>
-            <option value="무4">무선4</option>
-            <option value="무5">무선5</option>
-            <option value="통품">통품</option>
-          </select>
-        </p>
-        <p>
-            <label for="">M개통 누적실적</label>
-            <input type="number" id = "Mgoal" name="Msuccess" >
-        </p>
-        <p>
-          <label for="">IT개통 누적실적</label>
-          <input type="number" id = "ITgoal" name="ITsuccess" >
-        </p>
-          <input type="hidden" name="nowtime" value="<?php echo date('d일H:i:s').$days[$weekday]; ?>">
-         <button>개통실적 제출</button>
-        
-    </fieldset> 
-    </form>
-    
-    <form action="goalinsert.php" method="post" name="">
-    <fieldset>
-      <legend>무선팀 목표 입력메뉴</legend>
-     
-    <p>
-      
-        <label for="teamname">팀명 선택</label>
-        <select name="teamname" id="m1teamname">
-          <option value="">팀선택</option>
-          <option value="무1">무선1</option>
-          <option value="무2">무선2</option>
-          <option value="무3">무선3</option>
-          <option value="무4">무선4</option>
-          <option value="무5">무선5</option>
-          <option value="통품">통품</option>
-        </select>
-      </p>
-      <p>
-          <label for="Mtarget">M개통목표</label>
-          <input type="number" id = "Mtarget" name="Mtarget" >
-      </p>
-      <p>
-        <label for="ITtarget">IT개통목표</label>
-        <input type="number" id = "ITtarget" name="ITtarget" >
-    </p>
-       <button>개통목표 제출</button>
-     
-    </fieldset> 
-     </form>
-  </div> <!-- cs2센터 대쉬박스 끝-->
-        <div class="cs1centerdash"> <!-- cs2센터 대쉬박스 시작-->
-          <h4>CS1센터 누적 실적</h4>
-          <table class="tg"><thead>
-            <tr>
-              <th class="tg-46o7" rowspan="2">팀<br></th>
-              <th class="tg-46o7" colspan="4">M가입기회발굴</th>
-              <th class="tg-46o7" colspan="4">IT가입기회발굴<br></th>
-              <th class="tg-46o7">-<br></th>
-            </tr>
-            <tr>
-              <th class="tg-46o7">목표</th>
-              <th class="tg-46o7">개통</th>
-              <th class="tg-46o7">진도율</th>
-              <th class="tg-46o7">달성율</th>
-              <th class="tg-46o7">목표</th>
-              <th class="tg-ikxu">개통</th>
-              <th class="tg-ikxu">진도율</th>
-              <th class="tg-46o7">달성율</th>
-              <th class="tg-46o7">입력일시</th>
-            </tr></thead>
-          <tbody>
-            <tr>
-              <td class="tg-9wq8">유선1팀</td>
-              <td class="tg-9wq8 Wmtarget"><?php echo $wire1[0]; ?></td>
-              <td class="tg-9wq8 Wmsuccess"><?php echo $wire1[1]; ?></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8 WITtarget"><?php echo $wire1[2]; ?></td>
-              <td class="tg-nrix WITsuccess"><?php echo $wire1[3]; ?></td>
-              <td class="tg-nrix WITprogress"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"><?php echo $wire1[4]; ?></td>
-            </tr>
-            <tr>
-              <td class="tg-9wq8">유선2팀</td>
-              <td class="tg-9wq8 Wmtarget"><?php echo $wire2[0]; ?></td>
-              <td class="tg-9wq8 Wmsuccess"><?php echo $wire2[1]; ?></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8 WITtarget"><?php echo $wire2[2]; ?></td>
-              <td class="tg-nrix WITsuccess"><?php echo $wire2[3]; ?></td>
-              <td class="tg-nrix"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8"><?php echo $wire2[4]; ?></td>
-            </tr>
-            <tr>
-              <td class="tg-9wq8">계</td>
-              <td class="tg-9wq8 WmtargetTotal"></td>
-              <td class="tg-9wq8 WmsuccessTotal"></td>
-              <td class="tg-9wq8"></td>
-              <td class="tg-9wq8 wcomrate"></td>
-              <td class="tg-9wq8 WITtargetTotal"></td>
-              <td class="tg-nrix WITsuccessTotal"></td>
-              <td class="tg-nrix"></td>
-              <td class="tg-9wq8 witcomrate"></td>
-              <td class="tg-9wq8">-</td>
-            </tr>
-          </tbody>
+<div class="container">
+    <div class="cs2centerdash">
+        <h4>CS2센터(무선) 누적 실적</h4>
+        <table class="tg">
+            <thead>
+                <tr>
+                    <th class="tg-46o7" rowspan="2" style="width:15%">팀</th>
+                    <th class="tg-46o7" colspan="4">M가입기회발굴</th>
+                    <th class="tg-46o7" colspan="4">IT가입기회발굴</th>
+                    <th class="tg-46o7" style="width:15%">입력일시</th>
+                </tr>
+                <tr>
+                    <th class="tg-46o7">목표</th>
+                    <th class="tg-46o7">개통</th>
+                    <th class="tg-46o7">진도</th>
+                    <th class="tg-46o7">달성</th>
+                    <th class="tg-46o7">목표</th>
+                    <th class="tg-ikxu">개통</th>
+                    <th class="tg-ikxu">진도</th>
+                    <th class="tg-46o7">달성</th>
+                    <th class="tg-46o7">-</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                $mu_teams = [['무선1팀', $mu1], ['무선2팀', $mu2], ['무선3팀', $mu3], ['무선4팀', $mu4], ['무선5팀', $mu5], ['통화품질팀', $tong]];
+                foreach($mu_teams as $t): ?>
+                <tr>
+                    <td><?php echo $t[0]; ?></td>
+                    <td class="mtarget"><?php echo $t[1][0]; ?></td>
+                    <td class="msuccess"><?php echo $t[1][1]; ?></td>
+                    <td></td><td></td>
+                    <td class="ITtarget"><?php echo $t[1][2]; ?></td>
+                    <td class="ITsuccess"><?php echo $t[1][3]; ?></td>
+                    <td></td><td></td>
+                    <td style="font-size:11px"><?php echo $t[1][4]; ?></td>
+                </tr>
+                <?php endforeach; ?>
+                <tr class="total-row">
+                    <td>계</td>
+                    <td class="mtargetTotal"></td><td class="msuccessTotal"></td><td></td><td class="comRate"></td>
+                    <td class="ITtargetTotal"></td><td class="ITsuccessTotal"></td><td></td><td class="itcomRate"></td>
+                    <td>-</td>
+                </tr>
+            </tbody>
         </table>
-      <form action="successInsert.php" method="post">
-      <fieldset>
-        <legend>유선팀 개통실적 입력메뉴</legend>
-     
-       
-          <label for="wteamname">팀명 선택</label>
-          <select name="teamname" id="wteamname">
-            <option value="">팀선택</option>
-            <option value="유1">유선1</option>
-            <option value="유2">유선2</option>
-         </select>
-        </p>
-        <p>
-            <label for="wMgoal">M개통 누적실적</label>
-            <input type="number" id = "wMgoal" name="Msuccess" >
-        </p>
-        <p>
-          <label for="">IT개통 누적실적</label>
-          <input type="number" id = "wITgoal" name="ITsuccess" >
-      </p>
-      <input type="hidden" name="nowtime" value="<?php echo date('d일H:i:s').$days[$weekday]; ?>">
-         <button>개통실적 제출</button>
-        
-    </fieldset>
-    </form>
-    
-    <form action="goalinsert.php" method="post">    
-    <fieldset>
-      <legend>유선팀 목표 입력메뉴</legend>
-      <p>
-         <label for="w1teamname">팀명 선택</label>
-          <select name="teamname" id="w1teamname">
-            <option value="">팀선택</option>
-            <option value="유1">유선1</option>
-            <option value="유2">유선2</option>
-          </select>
-        </p>
-        <p>
-            <label for="wMtarget">M개통목표</label>
-            <input type="number" id = "wMtarget" name="Mtarget" >
-        </p>
-        <p>
-          <label for="wITtarget">IT개통목표</label>
-          <input type="number" id = "wITtarget" name="ITtarget" >
-      </p>
-         <button>개통목표 제출</button>
-        </fieldset>  
-    </form>
-        </div>
-    
-       
-      </div>
+
+        <form action="successInsert.php" method="post">
+            <fieldset>
+                <legend>무선팀 실적 입력</legend>
+                <div class="form-row">
+                    <label>팀명 선택</label>
+                    <select name="teamname" required>
+                        <option value="">팀선택</option>
+                        <option value="무1">무선1</option><option value="무2">무선2</option>
+                        <option value="무3">무선3</option><option value="무4">무선4</option>
+                        <option value="무5">무선5</option><option value="통품">통품</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>M개통 누적</label>
+                    <input type="number" name="Msuccess">
+                </div>
+                <div class="form-row">
+                    <label>IT개통 누적</label>
+                    <input type="number" name="ITsuccess">
+                </div>
+                <input type="hidden" name="nowtime" value="<?php echo date('d일H:i:s').$days[$weekday]; ?>">
+                <button type="submit">실적 제출</button>
+            </fieldset>
+        </form>
+
+        <form action="goalinsert.php" method="post">
+            <fieldset>
+                <legend>무선팀 목표 설정</legend>
+                <div class="form-row">
+                    <label>팀명 선택</label>
+                    <select name="teamname" required>
+                        <option value="">팀선택</option>
+                        <option value="무1">무선1</option><option value="무2">무선2</option>
+                        <option value="무3">무선3</option><option value="무4">무선4</option>
+                        <option value="무5">무선5</option><option value="통품">통품</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>M개통 목표</label>
+                    <input type="number" name="Mtarget">
+                </div>
+                <div class="form-row">
+                    <label>IT개통 목표</label>
+                    <input type="number" name="ITtarget">
+                </div>
+                <button type="submit">목표 제출</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="cs1centerdash">
+        <h4>CS1센터(유선) 누적 실적</h4>
+        <table class="tg">
+            <thead>
+                <tr>
+                    <th class="tg-46o7" rowspan="2" style="width:15%">팀</th>
+                    <th class="tg-46o7" colspan="4">M가입기회발굴</th>
+                    <th class="tg-46o7" colspan="4">IT가입기회발굴</th>
+                    <th class="tg-46o7" style="width:15%">입력일시</th>
+                </tr>
+                <tr>
+                    <th class="tg-46o7">목표</th>
+                    <th class="tg-46o7">개통</th>
+                    <th class="tg-46o7">진도</th>
+                    <th class="tg-46o7">달성</th>
+                    <th class="tg-46o7">목표</th>
+                    <th class="tg-ikxu">개통</th>
+                    <th class="tg-ikxu">진도</th>
+                    <th class="tg-46o7">달성</th>
+                    <th class="tg-46o7">-</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>유선1팀</td>
+                    <td class="Wmtarget"><?php echo $wire1[0]; ?></td>
+                    <td class="Wmsuccess"><?php echo $wire1[1]; ?></td>
+                    <td></td><td></td>
+                    <td class="WITtarget"><?php echo $wire1[2]; ?></td>
+                    <td class="WITsuccess"><?php echo $wire1[3]; ?></td>
+                    <td></td><td></td>
+                    <td style="font-size:11px"><?php echo $wire1[4]; ?></td>
+                </tr>
+                <tr>
+                    <td>유선2팀</td>
+                    <td class="Wmtarget"><?php echo $wire2[0]; ?></td>
+                    <td class="Wmsuccess"><?php echo $wire2[1]; ?></td>
+                    <td></td><td></td>
+                    <td class="WITtarget"><?php echo $wire2[2]; ?></td>
+                    <td class="WITsuccess"><?php echo $wire2[3]; ?></td>
+                    <td></td><td></td>
+                    <td style="font-size:11px"><?php echo $wire2[4]; ?></td>
+                </tr>
+                <tr class="total-row">
+                    <td>계</td>
+                    <td class="WmtargetTotal"></td><td class="WmsuccessTotal"></td><td></td><td class="wcomrate"></td>
+                    <td class="WITtargetTotal"></td><td class="WITsuccessTotal"></td><td></td><td class="witcomrate"></td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form action="successInsert.php" method="post">
+            <fieldset>
+                <legend>유선팀 실적 입력</legend>
+                <div class="form-row">
+                    <label>팀명 선택</label>
+                    <select name="teamname" required>
+                        <option value="">팀선택</option>
+                        <option value="유1">유선1</option>
+                        <option value="유2">유선2</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>M개통 누적</label>
+                    <input type="number" name="Msuccess">
+                </div>
+                <div class="form-row">
+                    <label>IT개통 누적</label>
+                    <input type="number" name="ITsuccess">
+                </div>
+                <input type="hidden" name="nowtime" value="<?php echo date('d일H:i:s').$days[$weekday]; ?>">
+                <button type="submit">실적 제출</button>
+            </fieldset>
+        </form>
+
+        <form action="goalinsert.php" method="post">
+            <fieldset>
+                <legend>유선팀 목표 설정</legend>
+                <div class="form-row">
+                    <label>팀명 선택</label>
+                    <select name="teamname" required>
+                        <option value="">팀선택</option>
+                        <option value="유1">유선1</option>
+                        <option value="유2">유선2</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>M개통 목표</label>
+                    <input type="number" name="Mtarget">
+                </div>
+                <div class="form-row">
+                    <label>IT개통 목표</label>
+                    <input type="number" name="ITtarget">
+                </div>
+                <button type="submit">목표 제출</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
     <script>
         $('tr >.mtarget').each(function() {
             var mtarget = parseInt($(this).text());
