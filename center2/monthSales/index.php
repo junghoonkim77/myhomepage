@@ -63,7 +63,8 @@ for ($day = 1; $day <= $last_day; $day++) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> 
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="../../java/library.js"></script>
     <title>CS1/2센터 누적실적</title>
     <style type="text/css">
         body { font-family: 'Malgun Gothic', sans-serif; background-color: #f8f9fa; color: #333; margin: 0; padding: 20px; }
@@ -116,8 +117,8 @@ for ($day = 1; $day <= $last_day; $day++) {
 
 <div class="container">
     <div class="cs2centerdash">
-        <h4>CS2센터(무선) 누적 실적</h4>
-        <table class="tg">
+        <h4>CS2센터(무선) 누적 실적</h4> <button id="c2tablecopy" style="margin-bottom:10px; background:#007bff;">표 복사 ->클릭후 엑셀에 붙여넣기</button>
+        <table class="tg" id="cs2table">
             <thead>
                 <tr>
                     <th class="tg-46o7" rowspan="2" style="width:15%">팀</th>
@@ -212,8 +213,8 @@ for ($day = 1; $day <= $last_day; $day++) {
     </div>
 
     <div class="cs1centerdash">
-        <h4>CS1센터(유선) 누적 실적</h4>
-        <table class="tg">
+        <h4>CS1센터(유선) 누적 실적</h4><button id="c1tablecopy" style="margin-bottom:10px; background:#007bff;">표 복사 ->클릭후 엑셀에 붙여넣기</button>
+        <table class="tg" id="cs1table">
             <thead>
                 <tr>
                     <th class="tg-46o7" rowspan="2" style="width:15%">팀</th>
@@ -636,6 +637,13 @@ $('tr > .WITsuccessTotal').each(function() {
 
     mprogress.text(progressrate.toFixed(2) + '%');
 });
+   //$lib.rangecopy('.tg');
+   $('#c2tablecopy').click(function() {
+    $lib.rangecopy('#cs2table');})
+  
+    $('#c1tablecopy').click(function() {
+    $lib.rangecopy('#cs1table');})
+
     </script>
 </body>
 </html>
