@@ -150,7 +150,7 @@ for ($day = 1; $day <= $last_day; $day++) {
                     <td class="ITtarget"><?php echo $t[1][2]; ?></td>
                     <td class="ITsuccess"><?php echo $t[1][3]; ?></td>
                     <td></td><td></td>
-                    <td style="font-size:11px"><?php echo $t[1][4]; ?></td>
+                    <td class="colorchange" data-color="<?php echo $days[$weekday]; ?>" style="font-size:11px"><?php echo $t[1][4]; ?></td>
                 </tr>
                 <?php endforeach; ?>
                 <tr class="total-row">
@@ -243,7 +243,7 @@ for ($day = 1; $day <= $last_day; $day++) {
                     <td class="WITtarget"><?php echo $wire1[2]; ?></td>
                     <td class="WITsuccess"><?php echo $wire1[3]; ?></td>
                     <td></td><td></td>
-                    <td style="font-size:11px"><?php echo $wire1[4]; ?></td>
+                    <td class="colorchange" data-color="<?php echo $days[$weekday]; ?>" style="font-size:11px"><?php echo $wire1[4]; ?></td>
                 </tr>
                 <tr>
                     <td>유선2팀</td>
@@ -253,7 +253,7 @@ for ($day = 1; $day <= $last_day; $day++) {
                     <td class="WITtarget"><?php echo $wire2[2]; ?></td>
                     <td class="WITsuccess"><?php echo $wire2[3]; ?></td>
                     <td></td><td></td>
-                    <td style="font-size:11px"><?php echo $wire2[4]; ?></td>
+                    <td class="colorchange" data-color="<?php echo $days[$weekday]; ?>" style="font-size:11px"><?php echo $wire2[4]; ?></td>
                 </tr>
                 <tr class="total-row">
                     <td>계</td>
@@ -497,7 +497,10 @@ for ($day = 1; $day <= $last_day; $day++) {
     const remainworkingday = Number($('.remainworkingday').attr('data-remainwork')); 
     const elapsedworkingday = totalworkingday - remainworkingday; // 경과 영업일
 
-    $('tr > .msuccess').each(function() {
+   
+// 진도율 함수 실험
+   function progressrate(element){
+     element.each(function() {
     var mtarget = parseInt($(this).prev().text()) || 0; // 목표값 (NaN 방지)
     var msuccess = parseInt($(this).text()) || 0;     // 실적값 (NaN 방지)
     var mprogress = $(this).next();
@@ -513,61 +516,12 @@ for ($day = 1; $day <= $last_day; $day++) {
 
     mprogress.text(progressrate.toFixed(2) + '%');
 });
-     
-  // 무선 IT진도율 계산
- $('tr > .ITsuccess').each(function() {
-    var mtarget = parseInt($(this).prev().text()) || 0; // 목표값 (NaN 방지)
-    var msuccess = parseInt($(this).text()) || 0;     // 실적값 (NaN 방지)
-    var mprogress = $(this).next();
+   }
 
-    // 1. 현재 시점까지 달성했어야 하는 목표 기대치 계산
-    var expectedTarget = (mtarget / totalworkingday) * elapsedworkingday;
-
-    // 2. 진도율 계산 (0으로 나누기 방지 처리)
-    var progressrate = 0;
-    if (expectedTarget > 0) {
-        progressrate = (msuccess / expectedTarget) * 100;
-    }
-
-    mprogress.text(progressrate.toFixed(2) + '%');
-});
-
- //유선 M진도율 계산
- $('tr > .Wmsuccess').each(function() {
-    var mtarget = parseInt($(this).prev().text()) || 0; // 목표값 (NaN 방지)
-    var msuccess = parseInt($(this).text()) || 0;     // 실적값 (NaN 방지)
-    var mprogress = $(this).next();
-
-    // 1. 현재 시점까지 달성했어야 하는 목표 기대치 계산
-    var expectedTarget = (mtarget / totalworkingday) * elapsedworkingday;
-
-    // 2. 진도율 계산 (0으로 나누기 방지 처리)
-    var progressrate = 0;
-    if (expectedTarget > 0) {
-        progressrate = (msuccess / expectedTarget) * 100;
-    }
-
-    mprogress.text(progressrate.toFixed(2) + '%');
-});
-
-    // 유선 IT진도율 계산
-$('tr > .WITsuccess').each(function() {
-    var mtarget = parseInt($(this).prev().text()) || 0; // 목표값 (NaN 방지)
-    var msuccess = parseInt($(this).text()) || 0;     // 실적값 (NaN 방지)
-    var mprogress = $(this).next();
-
-    // 1. 현재 시점까지 달성했어야 하는 목표 기대치 계산
-    var expectedTarget = (mtarget / totalworkingday) * elapsedworkingday;
-
-    // 2. 진도율 계산 (0으로 나누기 방지 처리)
-    var progressrate = 0;
-    if (expectedTarget > 0) {
-        progressrate = (msuccess / expectedTarget) * 100;
-    }
-
-    mprogress.text(progressrate.toFixed(2) + '%');
-});
-
+   progressrate($('tr > .msuccess')); // 무선 M진도율 계산 함수 호출
+   progressrate($('tr > .Wmsuccess')); // 유선 M진도율 계산 함수 호출
+   progressrate($('tr > .ITsuccess')); // 무선 IT진도율 계산 함수 호출
+   progressrate($('tr > .WITsuccess')); // 유선 IT진도율
  // 페이지 로드 시 진도율 계산 함수 호출
 
  $('tr > .ITsuccessTotal').each(function() {
@@ -643,6 +597,13 @@ $('tr > .WITsuccessTotal').each(function() {
   
     $('#c1tablecopy').click(function() {
     $lib.rangecopy('#cs1table');})
+
+    $('.colorchange').each(function(idx,ele){
+            var eleval = ele.textContent;
+            var lastkey = eleval.slice(-1);
+            var this_data = $(this).attr('data-color');
+            if(lastkey == this_data){ $(this).css('background-color','#2563eb').css('color','white'); }
+        }) // 달성율에 따른 색상 변경
 
     </script>
 </body>
