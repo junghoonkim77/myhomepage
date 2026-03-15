@@ -478,7 +478,7 @@ for ($day = 1; $day <= $last_day; $day++) {
                 totalMtarget += parseInt($(this).text());
             });
 
-            $('.ITsuccess').each(function() {
+            $('.WITsuccess').each(function() {
                 totalMsuccess += parseInt($(this).text());
             });
 
