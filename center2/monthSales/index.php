@@ -201,11 +201,11 @@ for ($day = 1; $day <= $last_day; $day++) {
                 </div>
                 <div class="form-row">
                     <label>M개통 목표</label>
-                    <input type="number" name="Mtarget">
+                    <input placeholder="M개통 목표 확정시 OR 월중 목표 변경시에만 입력" type="number" name="Mtarget">
                 </div>
                 <div class="form-row">
                     <label>IT개통 목표</label>
-                    <input type="number" name="ITtarget">
+                    <input placeholder="IT개통 목표 확정시 OR 월중 목표 변경시에만 입력" type="number" name="ITtarget">
                 </div>
                 <button type="submit">목표 제출</button>
             </fieldset>
@@ -301,11 +301,11 @@ for ($day = 1; $day <= $last_day; $day++) {
                 </div>
                 <div class="form-row">
                     <label>M개통 목표</label>
-                    <input type="number" name="Mtarget">
+                    <input placeholder="M개통 목표 확정시 OR 월중 목표 변경시에만 입력" type="number" name="Mtarget">
                 </div>
                 <div class="form-row">
                     <label>IT개통 목표</label>
-                    <input type="number" name="ITtarget">
+                    <input placeholder="IT개통 목표 확정시 OR 월중 목표 변경시에만 입력" type="number" name="ITtarget">
                 </div>
                 <button type="submit">목표 제출</button>
             </fieldset>
