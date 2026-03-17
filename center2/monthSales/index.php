@@ -224,7 +224,7 @@ for ($day = 1; $day <= $last_day; $day++) {
                 </tr>
                 <tr>
                     <th class="tg-46o7">목표</th>
-                    <th class="tg-46o7">개통</th>
+                    <th class="tg-46o7">이관</th>
                     <th class="tg-46o7">진도</th>
                     <th class="tg-46o7">달성</th>
                     <th class="tg-46o7">목표</th>
