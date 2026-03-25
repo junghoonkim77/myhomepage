@@ -82,7 +82,8 @@ for ($day = 1; $day <= $last_day; $day++) {
     <div id="goal">
         <span data-totalwork="<?php echo $total_working_days; ?>" class="totalworkingday"><?php echo (int)$month."월 총 영업일: ".$total_working_days; ?>일</span> &nbsp;|&nbsp;
         <span data-remainwork="<?php echo $remaining_days; ?>" class="remainworkingday"><?php echo "잔여 영업일: ".$remaining_days; ?>일</span> &nbsp;|&nbsp;
-        <span class="today"><?php echo "Today: ".date('Y-m-d'); ?></span> 
+        <span class="today"><?php echo "Today: ".date('Y-m-d'); ?></span>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a href="../today_end_sales/index.php" style="color:#007bff; text-decoration:none;">일일 실적마감창 이동</a> 
     </div>
 </div>
 
