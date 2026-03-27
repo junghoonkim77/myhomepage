@@ -26,7 +26,7 @@ $result = $conn->query($sql);
         
         .col-long { white-space: pre-wrap; word-break: break-all; width: 15%; }
         #vocBody { display: none; } /* 처음엔 숨김 */
-        .highlight { background-color: yellow; font-weight: bold; }
+        .highlight { background-color: yellow; font-weight: bold; color: black; } /* 하이라이트 스타일 */
         tr:hover { background-color: #f1f1f1; }
     </style>
 </head>
@@ -85,36 +85,57 @@ $result = $conn->query($sql);
 
             if (value === "") {
                 $tbody.hide();
+                // 검색어 삭제 시 하이라이트 제거
+                $("#vocBody td").each(function() {
+                    $(this).html($(this).text());
+                });
                 return;
             }
 
             $tbody.show();
 
-            // 검색어를 공백 기준으로 나눔 (예: "중계기 관련" -> ["중계기", "관련"])
             var keywords = value.split(/\s+/);
 
             $("#vocBody tr").each(function() {
                 var $row = $(this);
-                var textToSearch = "";
-
-                // 특정 컬럼만 검색할지 전체 검색할지 결정
-                if (searchCol === "all") {
-                    textToSearch = $row.text().toLowerCase();
-                } else {
-                    // 선택된 인덱스의 td 텍스트만 가져옴
-                    textToSearch = $row.find('td').eq(searchCol).text().toLowerCase();
-                }
-
-                // 모든 키워드가 포함되어 있는지 확인 (AND 조건)
-                var isMatch = keywords.every(function(kw) {
-                    return textToSearch.indexOf(kw) > -1;
+                var isMatch = true;
+                
+                // 1. 행 전체 텍스트로 매칭 여부 먼저 확인 (AND 조건)
+                var rowText = $row.text().toLowerCase();
+                isMatch = keywords.every(function(kw) {
+                    if (searchCol === "all") {
+                        return rowText.indexOf(kw) > -1;
+                    } else {
+                        return $row.find('td').eq(searchCol).text().toLowerCase().indexOf(kw) > -1;
+                    }
                 });
 
                 $row.toggle(isMatch);
+
+                // 2. 매칭된 경우 하이라이트 처리
+                if (isMatch) {
+                    $row.find('td').each(function(idx) {
+                        var $td = $(this);
+                        var originalText = $td.text();
+                        
+                        // 하이라이트를 적용할 대상인지 확인 (전체검색이거나 선택된 컬럼인 경우)
+                        if (searchCol === "all" || idx == searchCol) {
+                            var highlightedText = originalText;
+                            keywords.forEach(function(kw) {
+                                if (kw === "") return;
+                                // 대소문자 구분 없이 바꾸기 위해 정규표현식 사용
+                                var regex = new RegExp("(" + kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ")", "gi");
+                                highlightedText = highlightedText.replace(regex, '<span class="highlight">$1</span>');
+                            });
+                            $td.html(highlightedText);
+                        } else {
+                            $td.html(originalText); // 선택되지 않은 컬럼은 하이라이트 제거
+                        }
+                    });
+                }
             });
         });
 
-        // 컬럼 선택이 바뀌면 검색 다시 실행
         $('#searchColumn').on('change', function() {
             $('#vocSearch').trigger('keyup');
         });
