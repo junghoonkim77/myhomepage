@@ -108,9 +108,9 @@ for ($day = 1; $day <= $last_day; $day++) {
             </thead>
             <tbody>
                 <?php 
-                $mu_teams = [['무선1팀', $mu1], ['무선2팀', $mu2], ['무선3팀', $mu3], ['무선4팀', $mu4], ['무선5팀', $mu5], ['통화품질팀', $tong]]; 
+                $mu_teams = [['무선1팀', $mu1,'무1'], ['무선2팀', $mu2,'무2'], ['무선3팀', $mu3,'무3'], ['무선4팀', $mu4,'무4'], ['무선5팀', $mu5,'무5'], ['통화품질팀', $tong,'통품']]; 
                 foreach($mu_teams as $t): ?>
-                <tr>
+                <tr <?php echo "id='".$t[2]."'"; ?>>
                     <td><?php echo $t[0]; ?></td>
                     <td class="mtarget"><?php echo $t[1]['모목']; ?></td>
                     <td class="msuccess"><?php echo $t[1]['모개']; ?></td>
@@ -137,15 +137,15 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <legend>무선팀 실적 입력</legend>
                 <div class="form-row">
                     <label>팀명 선택</label>
-                    <select name="teamname" required>
+                    <select name="teamname" id="muTeamSelect" required>
                         <option value="">팀 선택</option>
                         <option value="무1">무선1</option><option value="무2">무선2</option><option value="무3">무선3</option>
                         <option value="무4">무선4</option><option value="무5">무선5</option><option value="통품">통품</option>
                     </select>
                 </div>
-                <div class="form-row"><label>M개통 누적</label><input type="number" name="Msuccess"></div>
-                <div class="form-row"><label>IT문의 누적</label><input type="number" name="ITsuccess"></div>
-                <div class="form-row"><label>IT권유 누적</label><input type="number" name="newITsuccess"></div>
+                <div class="form-row"><label>M개통 누적</label><input type="number" id="Msuccess" name="Msuccess"></div>
+                <div class="form-row"><label>IT문의 누적</label><input type="number" id="ITsuccess" name="ITsuccess"></div>
+                <div class="form-row"><label>IT권유 누적</label><input type="number" id="newITsuccess" name="newITsuccess"></div>
                 <input type="hidden" name="nowtime" value="<?php echo date('d일H:i:s').$days[$weekday]; ?>">
                 <button type="submit">실적 제출</button>
             </fieldset>
@@ -188,9 +188,9 @@ for ($day = 1; $day <= $last_day; $day++) {
             </thead>
             <tbody>
                 <?php 
-                $wire_teams = [['유선1팀', $wire1], ['유선2팀', $wire2]];
+                $wire_teams = [['유선1팀', $wire1,'유1'], ['유선2팀', $wire2,'유2']];
                 foreach($wire_teams as $t): ?>
-                <tr>
+                <tr <?php echo "id='".$t[2]."'"; ?>>
                     <td><?php echo $t[0]; ?></td>
                     <td class="wmtarget"><?php echo $t[1]['모목']; ?></td>
                     <td class="wmsuccess"><?php echo $t[1]['모개']; ?></td>
@@ -217,14 +217,14 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <legend>유선팀 실적 입력</legend>
                 <div class="form-row">
                     <label>팀명 선택</label>
-                    <select name="teamname" required>
+                    <select name="teamname" id="wireTeamSelect" required>
                         <option value="">팀 선택</option>
                         <option value="유1">유선1</option><option value="유2">유선2</option>
                     </select>
                 </div>
-                <div class="form-row"><label>M이관 누적</label><input type="number" name="Msuccess"></div>
-                <div class="form-row"><label>IT문의 누적</label><input type="number" name="ITsuccess"></div>
-                <div class="form-row"><label>IT권유 누적</label><input type="number" name="newITsuccess"></div>
+                <div class="form-row"><label>M이관 누적</label><input type="number" id="WMsuccess" name="Msuccess"></div>
+                <div class="form-row"><label>IT문의 누적</label><input type="number" id="WITsuccess" name="ITsuccess"></div>
+                <div class="form-row"><label>IT권유 누적</label><input type="number" id="WnewITsuccess" name="newITsuccess"></div>
                 <input type="hidden" name="nowtime" value="<?php echo date('d일H:i:s').$days[$weekday]; ?>">
                 <button type="submit">실적 제출</button>
             </fieldset>
@@ -235,7 +235,7 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <legend>유선팀 목표 설정</legend>
                 <div class="form-row">
                     <label>팀명 선택</label>
-                    <select name="teamname" required>
+                    <select name="teamname"  required>
                         <option value="">팀 선택</option>
                         <option value="유1">유선1</option><option value="유2">유선2</option>
                     </select>
@@ -320,6 +320,31 @@ $(document).ready(function() {
     $('.colorchange').each(function() {
         if($(this).text().slice(-1) == $(this).attr('data-color')) {
             $(this).css({'background-color':'#2563eb', 'color':'white'});
+        }
+    });
+
+    // 목표 입력 폼에서 팀 선택 시 해당 팀의 기존 목표값을 불러와서 입력란에 자동으로 채워주는 기능
+    $('#muTeamSelect').change(function() {
+        let selectedTeam = $(this).val();
+        if(selectedTeam) {
+            let targetRow = $(`#${selectedTeam}`);
+            $('#Msuccess').val(targetRow.find('.msuccess').text());
+            $('#ITsuccess').val(targetRow.find('.itsuccess-q').text());
+            $('#newITsuccess').val(targetRow.find('.itsuccess-s').text());
+        } else {
+            $('#Msuccess, #ITsuccess, #newITsuccess').val('');
+        }
+    });
+
+    $('#wireTeamSelect').change(function() {
+        let selectedTeam = $(this).val();
+        if(selectedTeam) {
+            let targetRow = $(`#${selectedTeam}`);
+            $('#WMsuccess').val(targetRow.find('.wmsuccess').text());
+            $('#WITsuccess').val(targetRow.find('.witsuccess-q').text());
+            $('#WnewITsuccess').val(targetRow.find('.witsuccess-s').text());
+        } else {
+            $('#WMsuccess, #WITsuccess, #WnewITsuccess').val('');
         }
     });
 });
