@@ -35,7 +35,8 @@ $wire1 = $teamData['유1'][0]; $wire2 = $teamData['유2'][0];
 $weekday = date('l'); 
 $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday" => "목", "Friday" => "금", "Saturday" => "토", "Sunday" => "일"]; 
 $year = date('Y'); $month = date('m'); $today = date('Y-m-d'); 
-$my_holidays = ['2026-03-02']; 
+$my_holidays = ['2026-03-02','2026-04-23','2026-05-05','2026-05-25','2026-06-03','2026-08-17','2026-09-24','2026-09-25',
+'2026-10-05','2026-10-09','2026-12-25']; 
 $last_day = date('t', mktime(0, 0, 0, $month, 1, $year)); 
 $total_working_days = 0; $remaining_days = 0;
 
