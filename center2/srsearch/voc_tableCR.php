@@ -2,8 +2,7 @@
 include ('phpgate.php');
 
 $sql = "CREATE TABLE IF NOT EXISTS voc_table (
-    sroder INT AUTO_INCREMENT PRIMARY KEY,    -- 자동 증가 고유 번호
-    vocno INT NULL,
+    vocno VARCHAR(255) NULL, 
     vocseper VARCHAR(255) NULL,                            -- 기존 엑셀 순서 (숫자)
     voc1cha VARCHAR(255) NULL,               -- 짧은 텍스트 1
     voc2cha VARCHAR(255) NULL,               -- 짧은 텍스트 2

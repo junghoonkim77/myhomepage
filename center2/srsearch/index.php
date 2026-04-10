@@ -1,6 +1,6 @@
 <?php
 include ('phpgate.php');
-$sql = "SELECT * FROM voc_table ORDER BY sroder ASC";
+$sql = "SELECT * FROM voc_table ";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -58,7 +58,6 @@ $result = $conn->query($sql);
             if ($result && $result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>".$row["sroder"]."</td>";
                     echo "<td>".($row["vocno"] ?? '-')."</td>";
                     echo "<td>".htmlspecialchars($row["vocseper"] ?? '')."</td>";
                     echo "<td>".htmlspecialchars($row["voc1cha"] ?? '')."</td>";
