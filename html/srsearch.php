@@ -59,6 +59,7 @@ $result = $conn->query($sql);
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>".($row["vocno"] ?? '-')."</td>";
+                    echo "<td>".($row["vocno"] ?? '-')."</td>";
                     echo "<td>".htmlspecialchars($row["vocseper"] ?? '')."</td>";
                     echo "<td>".htmlspecialchars($row["voc1cha"] ?? '')."</td>";
                     echo "<td>".htmlspecialchars($row["voc2cha"] ?? '')."</td>";
