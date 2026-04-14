@@ -2,56 +2,50 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include ('phpgate.php');
+include ('phpgate.php'); 
 
-// ... (기본 PHP 로직 유지) ...
-
-$teams = ['무1', '무2', '무3', '무4', '무5', '통품','유1','유2'];
+$teams = ['무1', '무2', '무3', '무4', '무5', '통품','유1','유2']; 
 $teamData = [];
 foreach ($teams as $team) {
     $teamData[$team] = [];
-    $sql = "SELECT m_goal , m_success , it_goal , it_success , todaytime FROM c2sales_month WHERE teamname = '$team'";
-    $re = mysqli_query($conn, $sql);
+    // 컬럼명 절대 고정: it_success(문의), newit_itsuccess(권유)
+    $sql = "SELECT m_goal , m_success , it_goal , it_success, newit_itsuccess , todaytime FROM c2sales_month WHERE teamname = '$team'"; 
+    $re = mysqli_query($conn, $sql); 
     if (!$re) {
-        die("쿼리 실행 에러: " . mysqli_error($conn) . " (에러 난 SQL: $sql)");
+        die("쿼리 실행 에러: " . mysqli_error($conn) . " (에러 난 SQL: $sql)"); 
     }
 
-    while ($row = mysqli_fetch_array($re)) {
-        $teamData[$team][] = ['모목' => $row['m_goal'], '모개' => $row['m_success'], '인티목' => $row['it_goal'], '인티개' => $row['it_success'] , '시간' => $row['todaytime']];
+    while ($row = mysqli_fetch_array($re)) { 
+        $teamData[$team][] = [
+            '모목' => $row['m_goal'], 
+            '모개' => $row['m_success'], 
+            '인티목' => $row['it_goal'], 
+            '인티문의' => $row['it_success'], 
+            '인티권유' => $row['newit_itsuccess'], 
+            '시간' => $row['todaytime']
+        ]; 
     }
 }
 
-
-$mu1 = [$teamData['무1'][0]['모목'], $teamData['무1'][0]['모개'], $teamData['무1'][0]['인티목'], $teamData['무1'][0]['인티개'],$teamData['무1'][0]['시간']];
-$mu2 = [$teamData['무2'][0]['모목'], $teamData['무2'][0]['모개'], $teamData['무2'][0]['인티목'], $teamData['무2'][0]['인티개'],$teamData['무2'][0]['시간']];
-$mu3 = [$teamData['무3'][0]['모목'], $teamData['무3'][0]['모개'], $teamData['무3'][0]['인티목'], $teamData['무3'][0]['인티개'],$teamData['무3'][0]['시간']];
-$mu4 = [$teamData['무4'][0]['모목'], $teamData['무4'][0]['모개'], $teamData['무4'][0]['인티목'], $teamData['무4'][0]['인티개'],$teamData['무4'][0]['시간']];
-$mu5 = [$teamData['무5'][0]['모목'], $teamData['무5'][0]['모개'], $teamData['무5'][0]['인티목'], $teamData['무5'][0]['인티개'],$teamData['무5'][0]['시간']];
-$tong = [$teamData['통품'][0]['모목'], $teamData['통품'][0]['모개'], $teamData['통품'][0]['인티목'], $teamData['통품'][0]['인티개'],$teamData['통품'][0]['시간']];
-$wire1 = [$teamData['유1'][0]['모목'], $teamData['유1'][0]['모개'], $teamData['유1'][0]['인티목'], $teamData['유1'][0]['인티개'],$teamData['유1'][0]['시간']];
-$wire2 = [$teamData['유2'][0]['모목'], $teamData['유2'][0]['모개'], $teamData['유2'][0]['인티목'], $teamData['유2'][0]['인티개'],$teamData['유2'][0]['시간']];
-
+// 각 팀별 데이터 변수 할당
+$mu1 = $teamData['무1'][0]; $mu2 = $teamData['무2'][0]; $mu3 = $teamData['무3'][0]; 
+$mu4 = $teamData['무4'][0]; $mu5 = $teamData['무5'][0]; $tong = $teamData['통품'][0]; 
+$wire1 = $teamData['유1'][0]; $wire2 = $teamData['유2'][0]; 
 
 $weekday = date('l'); 
-$days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday" => "목", "Friday" => "금", "Saturday" => "토", "Sunday" => "일"];
+$days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday" => "목", "Friday" => "금", "Saturday" => "토", "Sunday" => "일"]; 
+$year = date('Y'); $month = date('m'); $today = date('Y-m-d'); 
+$my_holidays = ['2026-03-02','2026-05-05','2026-05-01','2026-05-25','2026-06-03','2026-08-17','2026-09-24','2026-09-25',
+'2026-10-05','2026-10-09','2026-12-25']; 
+$last_day = date('t', mktime(0, 0, 0, $month, 1, $year)); 
+$total_working_days = 0; $remaining_days = 0;
 
-$year = date('Y');
-$month = date('m');
-$today = date('Y-m-d');
-$my_holidays = ['2026-03-02'];
-$last_day = date('t', mktime(0, 0, 0, $month, 1, $year));
-$total_working_days = 0;
-$remaining_days = 0;
-
-for ($day = 1; $day <= $last_day; $day++) {
+for ($day = 1; $day <= $last_day; $day++) { 
     $date_string = date('Y-m-d', mktime(0, 0, 0, $month, $day, $year));
-    $day_of_week = date('N', strtotime($date_string));
-
-    if ($day_of_week < 6 && !in_array($date_string, $my_holidays)) {
-        $total_working_days++;
-        if ($date_string >= $today) {
-            $remaining_days++;
-        }
+    $day_of_week = date('N', strtotime($date_string)); 
+    if ($day_of_week < 6 && !in_array($date_string, $my_holidays)) { 
+        $total_working_days++; 
+        if ($date_string >= $today) { $remaining_days++; } 
     }
 }
 ?>
@@ -60,103 +54,79 @@ for ($day = 1; $day <= $last_day; $day++) {
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script src="../../java/library.js"></script>
     <title>CS1/2센터 누적실적</title>
     <style type="text/css">
-        body { font-family: 'Malgun Gothic', sans-serif; background-color: #f8f9fa; color: #333; margin: 0; padding: 20px; }
-        .headbox { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; text-align: center; }
-        .headbox h3 { margin: 0 0 10px 0; color: #222; }
-        #goal { font-weight: bold; font-size: 1.1rem; }
-        .totalworkingday { color: #007bff; }
-        .remainworkingday { color: #dc3545; }
-
-        .container { display: flex; flex-direction: row; gap: 30px; justify-content: center; align-items: flex-start; }
-        .cs2centerdash, .cs1centerdash { flex: 1; min-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        
-        h4 { border-left: 5px solid #333; padding-left: 10px; margin-bottom: 15px; }
-
-        /* 테이블 스타일 */
-        .tg { border-collapse: collapse; width: 100%; margin-bottom: 25px; table-layout: fixed; }
-        .tg td, .tg th { border: 1px solid #ddd; padding: 10px 5px; text-align: center; font-size: 13px; }
-        .tg .tg-46o7 { background-color: #333; color: #fff; font-weight: bold; }
-        .tg .tg-ikxu { background-color: #444; color: #fff; }
-        .tg tr:nth-child(even) { background-color: #fefefe; }
-
-        /* 입력 폼 스타일 */
-        form { margin-top: 20px; }
-        fieldset { border: 1px solid #eee; border-radius: 6px; padding: 15px; margin-bottom: 15px; background: #fafafa; }
-        legend { font-weight: bold; padding: 0 10px; color: #555; font-size: 0.95rem; }
-        
-        .form-row { display: flex; align-items: center; margin-bottom: 10px; }
-        .form-row label { width: 120px; font-size: 13px; font-weight: bold; }
-        .form-row select, .form-row input { flex: 1; padding: 6px; border: 1px solid #ccc; border-radius: 4px; }
-        
-        button { width: 100%; padding: 10px; background: #333; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; font-weight: bold; }
-        button:hover { background: #555; }
-
-        /* 계(Total) 행 강조 */
-        .total-row { background-color: #eee !important; font-weight: bold; }
+        body { font-family: 'Malgun Gothic', sans-serif; background-color: #f8f9fa; color: #333; margin: 0; padding: 20px; } 
+        .headbox { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; text-align: center; } 
+        #goal { font-weight: bold; font-size: 1.1rem; } 
+        .totalworkingday { color: #007bff; } .remainworkingday { color: #dc3545; } 
+        .container { display: flex; flex-direction: row; gap: 30px; justify-content: center; align-items: flex-start; } 
+        .cs2centerdash, .cs1centerdash { flex: 1; min-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); } 
+        h4 { border-left: 5px solid #333; padding-left: 10px; margin-bottom: 15px; } 
+        .tg { border-collapse: collapse; width: 100%; margin-bottom: 25px; table-layout: fixed; } 
+        .tg td, .tg th { border: 1px solid #ddd; padding: 10px 5px; text-align: center; font-size: 12px; } 
+        .tg .tg-46o7 { background-color: #333; color: #fff; font-weight: bold; } 
+        fieldset { border: 1px solid #eee; border-radius: 6px; padding: 15px; margin-bottom: 15px; background: #fafafa; } 
+        .form-row { display: flex; align-items: center; margin-bottom: 10px; } 
+        .form-row label { width: 110px; font-size: 12px; font-weight: bold; } 
+        .form-row input, .form-row select { flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 4px; } 
+        button { width: 100%; padding: 10px; background: #333; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; } 
+        .total-row { background-color: #eee !important; font-weight: bold; } 
     </style>
 </head>
 <body>
 
 <div class="headbox">
-    <h3>CS1,2센터 <span id="nowmonth"><?php echo (int)$month; ?></span>월 누적 실적 현황</h3>
+    <h3>CS1,2센터 <span><?php echo (int)$month; ?></span>월 누적 실적 현황</h3> 
     <div id="goal">
-        <span data-totalwork="<?php echo $total_working_days; ?>" class="totalworkingday"><?php echo (int)$month."월 총 영업일: ".$total_working_days; ?>일</span>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <span data-remainwork="<?php echo $remaining_days; ?>" class="remainworkingday"><?php echo "잔여 영업일: ".$remaining_days; ?>일</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <span data-totalwork="<?php echo $total_working_days; ?>" class="totalworkingday"><?php echo (int)$month."월 총 영업일: ".$total_working_days; ?>일</span> &nbsp;|&nbsp;
+        <span data-remainwork="<?php echo $remaining_days; ?>" class="remainworkingday"><?php echo "잔여 영업일: ".$remaining_days; ?>일</span> &nbsp;|&nbsp;
         <span class="today"><?php echo "Today: ".date('Y-m-d'); ?></span>
-        &nbsp;&nbsp;|&nbsp;&nbsp;<a href="../today_end_sales/index.php" style="color:#007bff; text-decoration:none;">일일 실적마감창 이동</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a href="../today_end_sales/index.php" style="color:#007bff; text-decoration:none;">일일 실적마감창 이동</a> 
     </div>
 </div>
 
 <div class="container">
     <div class="cs2centerdash">
-        <h4>CS2센터(무선) 누적 실적</h4> <button id="c2tablecopy" style="margin-bottom:10px; background:#007bff;">표 복사 ->클릭후 엑셀에 붙여넣기</button>
+        <h4>CS2센터(무선) 누적 실적</h4>
+        <button id="c2tablecopy" style="margin-bottom:10px; background:#007bff;">표 복사</button>
         <table class="tg" id="cs2table">
             <thead>
                 <tr>
-                    <th class="tg-46o7" rowspan="2" style="width:15%">팀</th>
+                    <th class="tg-46o7" rowspan="2" style="width:12%">팀</th>
                     <th class="tg-46o7" colspan="4">M가입기회발굴</th>
-                    <th class="tg-46o7" colspan="4">IT가입기회발굴</th>
-                    <th class="tg-46o7" style="width:15%">입력일시</th>
+                    <th class="tg-46o7" colspan="6">IT가입기회발굴</th> 
+                    <th class="tg-46o7" style="width:12%">입력일시</th>
                 </tr>
                 <tr>
-                    <th class="tg-46o7">목표</th>
-                    <th class="tg-46o7">개통</th>
-                    <th class="tg-46o7">진도</th>
-                    <th class="tg-46o7">달성</th>
-                    <th class="tg-46o7">목표</th>
-                    <th class="tg-ikxu">개통</th>
-                    <th class="tg-ikxu">진도</th>
-                    <th class="tg-46o7">달성</th>
+                    <th class="tg-46o7">목표</th><th class="tg-46o7">개통</th><th class="tg-46o7">진도</th><th class="tg-46o7">달성</th>
+                    <th class="tg-46o7">목표</th><th class="tg-46o7">문의</th><th class="tg-46o7">권유</th><th class="tg-46o7">합계</th><th class="tg-46o7">진도</th><th class="tg-46o7">달성</th>
                     <th class="tg-46o7">-</th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
-                $mu_teams = [['무선1팀', $mu1], ['무선2팀', $mu2], ['무선3팀', $mu3], ['무선4팀', $mu4], ['무선5팀', $mu5], ['통화품질팀', $tong]];
+                $mu_teams = [['무선1팀', $mu1,'무1'], ['무선2팀', $mu2,'무2'], ['무선3팀', $mu3,'무3'], ['무선4팀', $mu4,'무4'], ['무선5팀', $mu5,'무5'], ['통화품질팀', $tong,'통품']]; 
                 foreach($mu_teams as $t): ?>
-                <tr>
+                <tr <?php echo "id='".$t[2]."'"; ?>>
                     <td><?php echo $t[0]; ?></td>
-                    <td class="mtarget"><?php echo $t[1][0]; ?></td>
-                    <td class="msuccess"><?php echo $t[1][1]; ?></td>
-                    <td></td><td></td>
-                    <td class="ITtarget"><?php echo $t[1][2]; ?></td>
-                    <td class="ITsuccess"><?php echo $t[1][3]; ?></td>
-                    <td></td><td></td>
-                    <td class="colorchange" data-color="<?php echo $days[$weekday]; ?>" style="font-size:11px"><?php echo $t[1][4]; ?></td>
+                    <td class="mtarget"><?php echo $t[1]['모목']; ?></td>
+                    <td class="msuccess"><?php echo $t[1]['모개']; ?></td>
+                    <td class="mprogress"></td><td class="machieve"></td>
+                    <td class="ittarget"><?php echo $t[1]['인티목']; ?></td>
+                    <td class="itsuccess-q"><?php echo $t[1]['인티문의']; ?></td>
+                    <td class="itsuccess-s"><?php echo $t[1]['인티권유']; ?></td>
+                    <td class="itsuccess-total"></td> 
+                    <td class="itprogress"></td><td class="itachieve"></td>
+                    <td class="colorchange" data-color="<?php echo $days[$weekday]; ?>" style="font-size:11px"><?php echo $t[1]['시간']; ?></td>
                 </tr>
                 <?php endforeach; ?>
                 <tr class="total-row">
                     <td>계</td>
-                    <td class="mtargetTotal"></td><td class="msuccessTotal"></td><td></td><td class="comRate"></td>
-                    <td class="ITtargetTotal"></td><td class="ITsuccessTotal"></td><td></td><td class="itcomRate"></td>
+                    <td class="mtargetTotal"></td><td class="msuccessTotal"></td><td class="mprogressTotal"></td><td class="machieveTotal"></td>
+                    <td class="ittargetTotal"></td><td class="itqTotal"></td><td class="itsTotal"></td><td class="ittotalTotal"></td><td class="itprogressTotal"></td><td class="itachieveTotal"></td>
                     <td>-</td>
                 </tr>
             </tbody>
@@ -167,21 +137,15 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <legend>무선팀 실적 입력</legend>
                 <div class="form-row">
                     <label>팀명 선택</label>
-                    <select name="teamname" required>
-                        <option value="">팀선택</option>
-                        <option value="무1">무선1</option><option value="무2">무선2</option>
-                        <option value="무3">무선3</option><option value="무4">무선4</option>
-                        <option value="무5">무선5</option><option value="통품">통품</option>
+                    <select name="teamname" id="muTeamSelect" required>
+                        <option value="">팀 선택</option>
+                        <option value="무1">무선1</option><option value="무2">무선2</option><option value="무3">무선3</option>
+                        <option value="무4">무선4</option><option value="무5">무선5</option><option value="통품">통품</option>
                     </select>
                 </div>
-                <div class="form-row">
-                    <label>M개통 누적</label>
-                    <input type="number" name="Msuccess">
-                </div>
-                <div class="form-row">
-                    <label>IT개통 누적</label>
-                    <input type="number" name="ITsuccess">
-                </div>
+                <div class="form-row"><label>M개통 누적</label><input type="number" id="Msuccess" name="Msuccess"></div>
+                <div class="form-row"><label>IT문의 누적</label><input type="number" id="ITsuccess" name="ITsuccess"></div>
+                <div class="form-row"><label>IT권유 누적</label><input type="number" id="newITsuccess" name="newITsuccess"></div>
                 <input type="hidden" name="nowtime" value="<?php echo date('d일H:i:s').$days[$weekday]; ?>">
                 <button type="submit">실적 제출</button>
             </fieldset>
@@ -193,72 +157,56 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <div class="form-row">
                     <label>팀명 선택</label>
                     <select name="teamname" required>
-                        <option value="">팀선택</option>
-                        <option value="무1">무선1</option><option value="무2">무선2</option>
-                        <option value="무3">무선3</option><option value="무4">무선4</option>
-                        <option value="무5">무선5</option><option value="통품">통품</option>
+                        <option value="">팀 선택</option>
+                        <option value="무1">무선1</option><option value="무2">무선2</option><option value="무3">무선3</option>
+                        <option value="무4">무선4</option><option value="무5">무선5</option><option value="통품">통품</option>
                     </select>
                 </div>
-                <div class="form-row">
-                    <label>M개통 목표</label>
-                    <input placeholder="M개통 목표 확정시 OR 월중 목표 변경시에만 입력" type="number" name="Mtarget">
-                </div>
-                <div class="form-row">
-                    <label>IT개통 목표</label>
-                    <input placeholder="IT개통 목표 확정시 OR 월중 목표 변경시에만 입력" type="number" name="ITtarget">
-                </div>
-                <button type="submit">목표 제출</button>
+                <div class="form-row"><label>M목표</label><input type="number" name="Mtarget"></div>
+                <div class="form-row"><label>IT목표</label><input type="number" name="ITtarget"></div>
+                <button type="submit" style="background:#555;">목표 제출</button>
             </fieldset>
         </form>
     </div>
 
     <div class="cs1centerdash">
-        <h4>CS1센터(유선) 누적 실적</h4><button id="c1tablecopy" style="margin-bottom:10px; background:#007bff;">표 복사 ->클릭후 엑셀에 붙여넣기</button>
+        <h4>CS1센터(유선) 누적 실적</h4>
+        <button id="c1tablecopy" style="margin-bottom:10px; background:#007bff;">표 복사</button>
         <table class="tg" id="cs1table">
             <thead>
                 <tr>
-                    <th class="tg-46o7" rowspan="2" style="width:15%">팀</th>
+                    <th class="tg-46o7" rowspan="2" style="width:12%">팀</th>
                     <th class="tg-46o7" colspan="4">M가입기회발굴</th>
-                    <th class="tg-46o7" colspan="4">IT가입기회발굴</th>
-                    <th class="tg-46o7" style="width:15%">입력일시</th>
+                    <th class="tg-46o7" colspan="6">IT가입기회발굴</th>
+                    <th class="tg-46o7" style="width:12%">입력일시</th>
                 </tr>
                 <tr>
-                    <th class="tg-46o7">목표</th>
-                    <th class="tg-46o7">이관</th>
-                    <th class="tg-46o7">진도</th>
-                    <th class="tg-46o7">달성</th>
-                    <th class="tg-46o7">목표</th>
-                    <th class="tg-ikxu">개통</th>
-                    <th class="tg-ikxu">진도</th>
-                    <th class="tg-46o7">달성</th>
+                    <th class="tg-46o7">목표</th><th class="tg-46o7">개통</th><th class="tg-46o7">진도</th><th class="tg-46o7">달성</th>
+                    <th class="tg-46o7">목표</th><th class="tg-46o7">문의</th><th class="tg-46o7">권유</th><th class="tg-46o7">합계</th><th class="tg-46o7">진도</th><th class="tg-46o7">달성</th>
                     <th class="tg-46o7">-</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>유선1팀</td>
-                    <td class="Wmtarget"><?php echo $wire1[0]; ?></td>
-                    <td class="Wmsuccess"><?php echo $wire1[1]; ?></td>
-                    <td></td><td></td>
-                    <td class="WITtarget"><?php echo $wire1[2]; ?></td>
-                    <td class="WITsuccess"><?php echo $wire1[3]; ?></td>
-                    <td></td><td></td>
-                    <td class="colorchange" data-color="<?php echo $days[$weekday]; ?>" style="font-size:11px"><?php echo $wire1[4]; ?></td>
+                <?php 
+                $wire_teams = [['유선1팀', $wire1,'유1'], ['유선2팀', $wire2,'유2']];
+                foreach($wire_teams as $t): ?>
+                <tr <?php echo "id='".$t[2]."'"; ?>>
+                    <td><?php echo $t[0]; ?></td>
+                    <td class="wmtarget"><?php echo $t[1]['모목']; ?></td>
+                    <td class="wmsuccess"><?php echo $t[1]['모개']; ?></td>
+                    <td class="wmprogress"></td><td class="wmachieve"></td>
+                    <td class="wittarget"><?php echo $t[1]['인티목']; ?></td>
+                    <td class="witsuccess-q"><?php echo $t[1]['인티문의']; ?></td>
+                    <td class="witsuccess-s"><?php echo $t[1]['인티권유']; ?></td>
+                    <td class="witsuccess-total"></td>
+                    <td class="witprogress"></td><td class="witachieve"></td>
+                    <td class="colorchange" data-color="<?php echo $days[$weekday]; ?>" style="font-size:11px"><?php echo $t[1]['시간']; ?></td>
                 </tr>
-                <tr>
-                    <td>유선2팀</td>
-                    <td class="Wmtarget"><?php echo $wire2[0]; ?></td>
-                    <td class="Wmsuccess"><?php echo $wire2[1]; ?></td>
-                    <td></td><td></td>
-                    <td class="WITtarget"><?php echo $wire2[2]; ?></td>
-                    <td class="WITsuccess"><?php echo $wire2[3]; ?></td>
-                    <td></td><td></td>
-                    <td class="colorchange" data-color="<?php echo $days[$weekday]; ?>" style="font-size:11px"><?php echo $wire2[4]; ?></td>
-                </tr>
+                <?php endforeach; ?>
                 <tr class="total-row">
                     <td>계</td>
-                    <td class="WmtargetTotal"></td><td class="WmsuccessTotal"></td><td></td><td class="wcomrate"></td>
-                    <td class="WITtargetTotal"></td><td class="WITsuccessTotal"></td><td></td><td class="witcomrate"></td>
+                    <td class="wmtargetTotal"></td><td class="wmsuccessTotal"></td><td class="wmprogressTotal"></td><td class="wmachieveTotal"></td>
+                    <td class="wittargetTotal"></td><td class="witqTotal"></td><td class="witsTotal"></td><td class="wittotalTotal"></td><td class="witprogressTotal"></td><td class="witachieveTotal"></td>
                     <td>-</td>
                 </tr>
             </tbody>
@@ -269,20 +217,14 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <legend>유선팀 실적 입력</legend>
                 <div class="form-row">
                     <label>팀명 선택</label>
-                    <select name="teamname" required>
-                        <option value="">팀선택</option>
-                        <option value="유1">유선1</option>
-                        <option value="유2">유선2</option>
+                    <select name="teamname" id="wireTeamSelect" required>
+                        <option value="">팀 선택</option>
+                        <option value="유1">유선1</option><option value="유2">유선2</option>
                     </select>
                 </div>
-                <div class="form-row">
-                    <label>M개통 누적</label>
-                    <input type="number" name="Msuccess">
-                </div>
-                <div class="form-row">
-                    <label>IT개통 누적</label>
-                    <input type="number" name="ITsuccess">
-                </div>
+                <div class="form-row"><label>M이관 누적</label><input type="number" id="WMsuccess" name="Msuccess"></div>
+                <div class="form-row"><label>IT문의 누적</label><input type="number" id="WITsuccess" name="ITsuccess"></div>
+                <div class="form-row"><label>IT권유 누적</label><input type="number" id="WnewITsuccess" name="newITsuccess"></div>
                 <input type="hidden" name="nowtime" value="<?php echo date('d일H:i:s').$days[$weekday]; ?>">
                 <button type="submit">실적 제출</button>
             </fieldset>
@@ -293,318 +235,119 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <legend>유선팀 목표 설정</legend>
                 <div class="form-row">
                     <label>팀명 선택</label>
-                    <select name="teamname" required>
-                        <option value="">팀선택</option>
-                        <option value="유1">유선1</option>
-                        <option value="유2">유선2</option>
+                    <select name="teamname"  required>
+                        <option value="">팀 선택</option>
+                        <option value="유1">유선1</option><option value="유2">유선2</option>
                     </select>
                 </div>
-                <div class="form-row">
-                    <label>M개통 목표</label>
-                    <input placeholder="M개통 목표 확정시 OR 월중 목표 변경시에만 입력" type="number" name="Mtarget">
-                </div>
-                <div class="form-row">
-                    <label>IT개통 목표</label>
-                    <input placeholder="IT개통 목표 확정시 OR 월중 목표 변경시에만 입력" type="number" name="ITtarget">
-                </div>
-                <button type="submit">목표 제출</button>
+                <div class="form-row"><label>M목표</label><input type="number" name="Mtarget"></div>
+                <div class="form-row"><label>IT목표</label><input type="number" name="ITtarget"></div>
+                <button type="submit" style="background:#555;">목표 제출</button>
             </fieldset>
         </form>
     </div>
 </div>
 
-</body>
-</html>
-    <script>
-        $('tr >.mtarget').each(function() {
-            var mtarget = parseInt($(this).text());
-            var msuccess = parseInt($(this).next().text());
-            var mprogress = $(this).next().next();
-            var machievement = mprogress.next();
+<script>
+$(document).ready(function() {
+    const totalwork = Number($('.totalworkingday').attr('data-totalwork'));
+    const remainwork = Number($('.remainworkingday').attr('data-remainwork'));
+    const elapsed = totalwork - remainwork;
+
+    function updateTable(tableId, isWire) {
+        let prefix = isWire ? 'w' : '';
+        let sums = { mTar:0, mSuc:0, itTar:0, itQ:0, itS:0, itTot:0 };
+
+        $(`#${tableId} tbody tr:not(.total-row)`).each(function() {
+            const row = $(this);
             
-            if (mtarget > 0) {
-                var progressPercent = (msuccess / mtarget) * 100;
-                machievement.text(progressPercent.toFixed(2) + '%');
-                
-            } else {
-                machievement.text('0%');
-                
-            }
-        }); // M달성율 계산
+            // 1. M 가입기회발굴 계산
+            let mTar = parseInt(row.find(`.${prefix}mtarget`).text()) || 0;
+            let mSuc = parseInt(row.find(`.${prefix}msuccess`).text()) || 0;
+            sums.mTar += mTar; sums.mSuc += mSuc;
 
-        $('tr > .ITtarget').each(function() {
-            var ittarget = parseInt($(this).text());
-            var itsuccess = parseInt($(this).next().text());
-            var itprogress = $(this).next().next();
-            var itachievement = itprogress.next();
+            if(mTar > 0) {
+                row.find(`.${prefix}machieve`).text(((mSuc/mTar)*100).toFixed(2) + '%');
+                let exp = (mTar / totalwork) * elapsed;
+                row.find(`.${prefix}mprogress`).text(exp > 0 ? ((mSuc/exp)*100).toFixed(2) + '%' : '0%');
+            }
+
+            // 2. IT 가입기회발굴 계산 (문의 + 권유 합산)
+            let itTar = parseInt(row.find(`.${prefix}ittarget`).text()) || 0;
+            let itQ = parseInt(row.find(`.${prefix}itsuccess-q`).text()) || 0;
+            let itS = parseInt(row.find(`.${prefix}itsuccess-s`).text()) || 0;
+            let itTot = itQ + itS;
             
-            if (ittarget > 0) {
-                var progressPercent = (itsuccess / ittarget) * 100;
-                itachievement.text(progressPercent.toFixed(2) + '%');
-                
-            } else {
-                itachievement.text('0%');
-                
+            row.find(`.${prefix}itsuccess-total`).text(itTot); // 합계 칸에 입력
+            sums.itTar += itTar; sums.itQ += itQ; sums.itS += itS; sums.itTot += itTot;
+
+            if(itTar > 0) {
+                row.find(`.${prefix}itachieve`).text(((itTot/itTar)*100).toFixed(2) + '%');
+                let itExp = (itTar / totalwork) * elapsed;
+                row.find(`.${prefix}itprogress`).text(itExp > 0 ? ((itTot/itExp)*100).toFixed(2) + '%' : '0%');
             }
-        }); // IT달성율 계산
+        });
 
-        $('tr > .wmtarget').each(function() {
-            var wmtarget = parseInt($(this).text());
-            var wmsuccess = parseInt($(this).next().text());
-            var wmprogress = $(this).next().next();
-            var wmachievement = wmprogress.next();
-            
-            if (wmtarget > 0) {
-                var progressPercent = (wmsuccess / wmtarget) * 100;
-                wmachievement.text(progressPercent.toFixed(2) + '%');
-                
-            } else {
-                wmachievement.text('0%');
-                
-            }
-        }); // 유선 M달성율 계산
+        // 3. 합계 행(Footer) 계산 결과 반영
+        $(`.${prefix}mtargetTotal`).text(sums.mTar);
+        $(`.${prefix}msuccessTotal`).text(sums.mSuc);
+        if(sums.mTar > 0) {
+            $(`.${prefix}machieveTotal`).text(((sums.mSuc/sums.mTar)*100).toFixed(2) + '%');
+            let mExpTotal = (sums.mTar / totalwork) * elapsed;
+            $(`.${prefix}mprogressTotal`).text(((sums.mSuc/mExpTotal)*100).toFixed(2) + '%');
+        }
 
-        $('tr > .WITtarget').each(function() {
-            var wittarget = parseInt($(this).text());
-            var witsuccess = parseInt($(this).next().text());
-            var witprogress = $(this).next().next();
-            var witachievement = witprogress.next();
-            
-            if (wittarget > 0) {
-                var progressPercent = (witsuccess / wittarget) * 100;
-                witachievement.text(progressPercent.toFixed(2) + '%');
-                
-            } else {
-                witachievement.text('0%');
-                
-            }
-        }); // 유선 IT달성율 계산
-
-         $('.mtarget').each(function() {
-            var totalMtarget = 0;
-            var totalMsuccess = 0;
-
-            $('.mtarget').each(function() {
-                totalMtarget += parseInt($(this).text());
-            });
-
-            $('.msuccess').each(function() {
-                totalMsuccess += parseInt($(this).text());
-            });
-
-            $('.mtargetTotal').text(totalMtarget);
-            $('.msuccessTotal').text(totalMsuccess);
-
-            if (totalMtarget > 0) {
-                var totalProgressPercent = (totalMsuccess / totalMtarget) * 100;
-                $('.machievementTotal').text(totalProgressPercent.toFixed(2) + '%');
-            } else {
-                $('.machievementTotal').text('0%');
-            }})
-
-            $('.comRate').each(function() {
-                var totalMtarget = parseInt($('.mtargetTotal').text());
-                var totalMsuccess = parseInt($('.msuccessTotal').text());
-
-                if (totalMtarget > 0) {
-                    var totalProgressPercent = (totalMsuccess / totalMtarget) * 100;
-                    $('.comRate').text(totalProgressPercent.toFixed(2) + '%');
-                } else {
-                    $('.comRate').text('0%');
-                }
-            }); // M달성율 계산
-
-            $('.Wmtarget').each(function() {
-            var totalMtarget = 0;
-            var totalMsuccess = 0;
-
-            $('.Wmtarget').each(function() {
-                totalMtarget += parseInt($(this).text());
-            });
-
-            $('.Wmsuccess').each(function() {
-                totalMsuccess += parseInt($(this).text());
-            });
-
-            $('.WmtargetTotal').text(totalMtarget);
-            $('.WmsuccessTotal').text(totalMsuccess);
-
-            if (totalMtarget > 0) {
-                var totalProgressPercent = (totalMsuccess / totalMtarget) * 100;
-                $('.WmachievementTotal').text(totalProgressPercent.toFixed(2) + '%');
-            } else {
-                $('.WmachievementTotal').text('0%');
-            }})
-
-            $('.wcomrate').each(function() {
-                var totalMtarget = parseInt($('.WmtargetTotal').text());
-                var totalMsuccess = parseInt($('.WmsuccessTotal').text());
-
-                if (totalMtarget > 0) {
-                    var totalProgressPercent = (totalMsuccess / totalMtarget) * 100;
-                    $('.wcomrate').text(totalProgressPercent.toFixed(2) + '%');
-                } else {
-                    $('.wcomrate').text('0%');
-                }
-            }); // 유선 M달성율 계산
-
-            $('.mtarget').each(function() {
-            var totalMtarget = 0;
-            var totalMsuccess = 0;
-
-            $('.ITtarget').each(function() {
-                totalMtarget += parseInt($(this).text());
-            });
-
-            $('.ITsuccess').each(function() {
-                totalMsuccess += parseInt($(this).text());
-            });
-
-            $('.ITtargetTotal').text(totalMtarget);
-            $('.ITsuccessTotal').text(totalMsuccess);
-
-            if (totalMtarget > 0) {
-                var totalProgressPercent = (totalMsuccess / totalMtarget) * 100;
-                $('.itcomRate').text(totalProgressPercent.toFixed(2) + '%');
-            } else {
-                $('.itcomRate').text('0%');
-            }})
-
-            $('.WITtarget').each(function() {
-            var totalMtarget = 0;
-            var totalMsuccess = 0;
-
-            $('.WITtarget').each(function() {
-                totalMtarget += parseInt($(this).text());
-            });
-
-            $('.WITsuccess').each(function() {
-                totalMsuccess += parseInt($(this).text());
-            });
-
-            $('.WITtargetTotal').text(totalMtarget);
-            $('.WITsuccessTotal').text(totalMsuccess);
-
-            if (totalMtarget > 0) {
-                var totalProgressPercent = (totalMsuccess / totalMtarget) * 100;
-                $('.witcomrate').text(totalProgressPercent.toFixed(2) + '%');
-            } else {
-                $('.witcomrate').text('0%');
-            }})
-
-     // 무선 M진도율 계산
-       const totalworkingday = Number($('.totalworkingday').attr('data-totalwork')); 
-    const remainworkingday = Number($('.remainworkingday').attr('data-remainwork')); 
-    const elapsedworkingday = totalworkingday - remainworkingday; // 경과 영업일
-
-   
-// 진도율 함수 실험
-   function progressrate(element){
-     element.each(function() {
-    var mtarget = parseInt($(this).prev().text()) || 0; // 목표값 (NaN 방지)
-    var msuccess = parseInt($(this).text()) || 0;     // 실적값 (NaN 방지)
-    var mprogress = $(this).next();
-
-    // 1. 현재 시점까지 달성했어야 하는 목표 기대치 계산
-    var expectedTarget = (mtarget / totalworkingday) * elapsedworkingday;
-
-    // 2. 진도율 계산 (0으로 나누기 방지 처리)
-    var progressrate = 0;
-    if (expectedTarget > 0) {
-        progressrate = (msuccess / expectedTarget) * 100;
+        $(`.${prefix}ittargetTotal`).text(sums.itTar);
+        $(`.${prefix}itqTotal`).text(sums.itQ);
+        $(`.${prefix}itsTotal`).text(sums.itS);
+        $(`.${prefix}ittotalTotal`).text(sums.itTot);
+        if(sums.itTar > 0) {
+            $(`.${prefix}itachieveTotal`).text(((sums.itTot/sums.itTar)*100).toFixed(2) + '%');
+            let itExpTotal = (sums.itTar / totalwork) * elapsed;
+            $(`.${prefix}itprogressTotal`).text(((sums.itTot/itExpTotal)*100).toFixed(2) + '%');
+        }
     }
 
-    mprogress.text(progressrate.toFixed(2) + '%');
+    // 초기 실행
+    updateTable('cs2table', false); // 무선
+    updateTable('cs1table', true);  // 유선
+
+    // 표 복사 기능 연동
+    $('#c2tablecopy').click(function() { $lib.rangecopy('#cs2table'); });
+    $('#c1tablecopy').click(function() { $lib.rangecopy('#cs1table'); });
+
+    // 당일 입력 강조 (시간 표시의 마지막 글자가 요일과 같으면 배경색 변경)
+    $('.colorchange').each(function() {
+        if($(this).text().slice(-1) == $(this).attr('data-color')) {
+            $(this).css({'background-color':'#2563eb', 'color':'white'});
+        }
+    });
+
+    // 목표 입력 폼에서 팀 선택 시 해당 팀의 기존 목표값을 불러와서 입력란에 자동으로 채워주는 기능
+    $('#muTeamSelect').change(function() {
+        let selectedTeam = $(this).val();
+        if(selectedTeam) {
+            let targetRow = $(`#${selectedTeam}`);
+            $('#Msuccess').val(targetRow.find('.msuccess').text());
+            $('#ITsuccess').val(targetRow.find('.itsuccess-q').text());
+            $('#newITsuccess').val(targetRow.find('.itsuccess-s').text());
+        } else {
+            $('#Msuccess, #ITsuccess, #newITsuccess').val('');
+        }
+    });
+
+    $('#wireTeamSelect').change(function() {
+        let selectedTeam = $(this).val();
+        if(selectedTeam) {
+            let targetRow = $(`#${selectedTeam}`);
+            $('#WMsuccess').val(targetRow.find('.wmsuccess').text());
+            $('#WITsuccess').val(targetRow.find('.witsuccess-q').text());
+            $('#WnewITsuccess').val(targetRow.find('.witsuccess-s').text());
+        } else {
+            $('#WMsuccess, #WITsuccess, #WnewITsuccess').val('');
+        }
+    });
 });
-   }
-
-   progressrate($('tr > .msuccess')); // 무선 M진도율 계산 함수 호출
-   progressrate($('tr > .Wmsuccess')); // 유선 M진도율 계산 함수 호출
-   progressrate($('tr > .ITsuccess')); // 무선 IT진도율 계산 함수 호출
-   progressrate($('tr > .WITsuccess')); // 유선 IT진도율
- // 페이지 로드 시 진도율 계산 함수 호출
-
- $('tr > .ITsuccessTotal').each(function() {
-    var mtarget = parseInt($(this).prev().text()) || 0; // 목표값 (NaN 방지)
-    var msuccess = parseInt($(this).text()) || 0;     // 실적값 (NaN 방지)
-    var mprogress = $(this).next();
-
-    // 1. 현재 시점까지 달성했어야 하는 목표 기대치 계산
-    var expectedTarget = (mtarget / totalworkingday) * elapsedworkingday;
-
-    // 2. 진도율 계산 (0으로 나누기 방지 처리)
-    var progressrate = 0;
-    if (expectedTarget > 0) {
-        progressrate = (msuccess / expectedTarget) * 100;
-    }
-
-    mprogress.text(progressrate.toFixed(2) + '%');
-});
-
-$('tr > .msuccessTotal').each(function() {
-    var mtarget = parseInt($(this).prev().text()) || 0; // 목표값 (NaN 방지)
-    var msuccess = parseInt($(this).text()) || 0;     // 실적값 (NaN 방지)
-    var mprogress = $(this).next();
-
-    // 1. 현재 시점까지 달성했어야 하는 목표 기대치 계산
-    var expectedTarget = (mtarget / totalworkingday) * elapsedworkingday;
-
-    // 2. 진도율 계산 (0으로 나누기 방지 처리)
-    var progressrate = 0;
-    if (expectedTarget > 0) {
-        progressrate = (msuccess / expectedTarget) * 100;
-    }
-
-    mprogress.text(progressrate.toFixed(2) + '%');
-});
-
-$('tr > .WmsuccessTotal').each(function() {
-    var mtarget = parseInt($(this).prev().text()) || 0; // 목표값 (NaN 방지)
-    var msuccess = parseInt($(this).text()) || 0;     // 실적값 (NaN 방지)
-    var mprogress = $(this).next();
-
-    // 1. 현재 시점까지 달성했어야 하는 목표 기대치 계산
-    var expectedTarget = (mtarget / totalworkingday) * elapsedworkingday;
-
-    // 2. 진도율 계산 (0으로 나누기 방지 처리)
-    var progressrate = 0;
-    if (expectedTarget > 0) {
-        progressrate = (msuccess / expectedTarget) * 100;
-    }
-
-    mprogress.text(progressrate.toFixed(2) + '%');
-});
-
-$('tr > .WITsuccessTotal').each(function() {
-    var mtarget = parseInt($(this).prev().text()) || 0; // 목표값 (NaN 방지)
-    var msuccess = parseInt($(this).text()) || 0;     // 실적값 (NaN 방지)
-    var mprogress = $(this).next();
-
-    // 1. 현재 시점까지 달성했어야 하는 목표 기대치 계산
-    var expectedTarget = (mtarget / totalworkingday) * elapsedworkingday;
-
-    // 2. 진도율 계산 (0으로 나누기 방지 처리)
-    var progressrate = 0;
-    if (expectedTarget > 0) {
-        progressrate = (msuccess / expectedTarget) * 100;
-    }
-
-    mprogress.text(progressrate.toFixed(2) + '%');
-});
-   //$lib.rangecopy('.tg');
-   $('#c2tablecopy').click(function() {
-    $lib.rangecopy('#cs2table');})
-  
-    $('#c1tablecopy').click(function() {
-    $lib.rangecopy('#cs1table');})
-
-    $('.colorchange').each(function(idx,ele){
-            var eleval = ele.textContent;
-            var lastkey = eleval.slice(-1);
-            var this_data = $(this).attr('data-color');
-            if(lastkey == this_data){ $(this).css('background-color','#2563eb').css('color','white'); }
-        }) // 달성율에 따른 색상 변경
-
-    </script>
+</script>
 </body>
 </html>

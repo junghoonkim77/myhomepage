@@ -6,6 +6,7 @@ echo "저장중입니다.";
 $teamname = $_POST['teamname'] ?? '';
 $Msuccess = $_POST['Msuccess'] ?? '';
 $ITsuccess = $_POST['ITsuccess'] ?? '';
+$newITsuccess = $_POST['newITsuccess'] ?? '';
 $nowtime = $_POST['nowtime'] ?? '';
 
 // 업데이트할 항목들을 담을 배열 생성
@@ -21,7 +22,12 @@ if ($ITsuccess !== '') {
     $updates[] = "it_success = '$ITsuccess'";
 }
 
-// 3. 입력 시간: 항상 업데이트 (또는 이것도 조건부로 가능)
+// 3. 새로운 IT 실적: 값이 비어있지 않을 때만 업데이트 항목에 추가
+if ($newITsuccess !== '') {
+    $updates[] = "newit_itsuccess = '$newITsuccess'";
+}
+
+// 4. 입력 시간: 값이 비어있지 않을 때만 업데이트 항목에 추가
 if ($nowtime !== '') {
     $updates[] = "todaytime = '$nowtime'";
 }

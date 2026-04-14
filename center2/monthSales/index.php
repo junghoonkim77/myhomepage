@@ -252,8 +252,14 @@ for ($day = 1; $day <= $last_day; $day++) {
 $(document).ready(function() {
     const totalwork = Number($('.totalworkingday').attr('data-totalwork'));
     const remainwork = Number($('.remainworkingday').attr('data-remainwork'));
-    const elapsed = totalwork - remainwork;
+    // 수정: 오늘을 포함하기 위해 +1을 하거나, 
+    // 오늘이 지난 시점의 데이터를 보려면 전체에서 남은 날을 뺀 값에 현재 진행분을 고려해야 합니다.
+    let elapsed = totalwork - remainwork + 1; 
 
+    // 단, 영업일이 아닌 날(주말/공휴일)에 접속했을 때 elapsed가 totalwork를 초과하지 않도록 방어 코드 추가
+    if (elapsed > totalwork) elapsed = totalwork;
+    if (elapsed < 1) elapsed = 1; // 0으로 나누기 방지
+    
     function updateTable(tableId, isWire) {
         let prefix = isWire ? 'w' : '';
         let sums = { mTar:0, mSuc:0, itTar:0, itQ:0, itS:0, itTot:0 };
