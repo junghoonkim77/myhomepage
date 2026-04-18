@@ -222,7 +222,7 @@ $result1 = mysqli_query($conn, $sql1);
             </div>
             
             <div id="boanBox">
-                <h3>보안점검 결과</h3>
+                <h3 id="bulkBoan">보안점검 결과</h3>
                 <div class="chgcolor" id="bteam1"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam1[1]."</span> ".$boteam1[1]." 무1 ".$boteam1[0] ?></div>
                 <div class="chgcolor" id="bteam2"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam2[1]."</span> ".$boteam2[1]." 무2 ".$boteam2[0] ?></div>
                 <div class="chgcolor" id="bteam3"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam3[1]."</span> ".$boteam3[1]." 무3 ".$boteam3[0] ?></div>
@@ -395,6 +395,15 @@ $result1 = mysqli_query($conn, $sql1);
         } else{
            $('#msucceed_t').append('<span>😒</span>');
         }
+
+       // 보안점검 일괄 등록 버튼 클릭 이벤트
+        $('#bulkBoan').click(function() {
+        if(confirm("모든 팀의 보안 점검 결과를 '이상 무'로 일괄 등록하시겠습니까?")) {
+            // 별도의 처리 페이지로 이동하거나 AJAX를 사용할 수 있습니다.
+            // 여기서는 요청하신 로직에 맞춰 폼 전송 방식과 유사하게 처리 페이지로 보냅니다.
+            location.href = 'boanall.php';
+        }
+    });
     </script>
 </body>
 </html>
