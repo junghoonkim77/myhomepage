@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+
+    <title>클래스 빼기 연습</title>
+</head>
+<body>
+    <div class="test">1</div>
+    <div class="test">3</div>
+    <div class="test">7</div>
+    <div class="test">10</div>
+    <div class="test">16</div>
+    <div class="test">22</div>
+    <div class="test">30</div>
+    <div class="test">38</div>
+    <div class="test">47</div>
+    <div class="test">58</div>
+ <script>
+   var classArray =[0];
+   $('.test').each(function(idx,el){
+    var classnumber = Number($(this).text());
+    classArray.push(classnumber);
+   })
+
+    classArray.forEach(function(val,idx){
+        var laternumber = classArray[idx+1];
+        if(laternumber == undefined){
+            return;
+        }else{
+            var minusresult = laternumber - val;
+           console.log(minusresult);
+        }
+        
+    })
+
+ </script>
+</body>
+</html>
