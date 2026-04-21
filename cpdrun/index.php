@@ -42,6 +42,8 @@
 
             <input type="hidden" value ="" id="nowtime" name="nowtime">
 
+            <input type="hidden" value ="" id="classtime" name="classtime">
+
             <button id="submitbut">실적제출</button>
 
             </form>
@@ -60,18 +62,19 @@
      const dayyear = today.getFullYear();
      const daymonth = today.getMonth()+1; 
      const daytoday = String(today.getDate()).padStart(2, '0');
-     const classday = String(`date-${dayyear}-${daymonth}-${daytoday}`);
+     const classday = String(`${dayyear}-${daymonth}-${daytoday}`);
      const daynow = today.toLocaleTimeString();
 
      const inputttime = `${classday}:${daynow}`
 
      $('#nowtime').val(inputttime);
+     $('#classtime').val(classday);
 
         }
 
      
 
-      setInterval(timefresh,10000);
+      setInterval(timefresh,5000);
 
          
 

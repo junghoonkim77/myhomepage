@@ -7,7 +7,8 @@ $sql = "CREATE TABLE IF NOT EXISTS performance_records (
     nowCpdcount INT NOT NULL,                   -- 현시간 누적
     nowSalestry INT NOT NULL,                   -- 세일즈 시도건수
     nowSalesSuccess INT NOT NULL,               -- 세일즈 이관성공
-    nowtime VARCHAR(50) NOT NULL                -- 마지막 컬럼은 쉼표 없음
+    nowtime VARCHAR(50) NOT NULL,               -- 마지막 컬럼은 쉼표 없음
+    classtime VARCHAR(50) NOT NULL              -- 클래스 시간
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"; // 닫는 괄호 ')' 필수
 
 $result = mysqli_query($conn, $sql);

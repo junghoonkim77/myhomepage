@@ -11,6 +11,10 @@ $result = mysqli_query($conn, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script>
     <title>시간당 실적</title>
     <style>
         table { width: 100%; border-collapse: collapse; }
@@ -36,7 +40,7 @@ $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_assoc($result)) {
                     ?>
-                    <tr>
+                    <tr class="record-row" <?php echo 'data-classtime="' . $row['classtime'] . '"'; ?>>
                         <td class="cell-time"><?php echo htmlspecialchars($row['nowtime']); ?></td>
                         <td class="cell-cpd"><?php echo $row['nowCpdcount']; ?></td>
                         <td class="cell-hourly">-</td> <td class="cell-try"><?php echo $row['nowSalestry']; ?></td>
@@ -53,6 +57,45 @@ $result = mysqli_query($conn, $sql);
 
     <br>
     <a href="index.php">입력 페이지로 이동</a>
+    <script>
+      var classArray =[0];
+      var cpdArray = [];
+   $('.cell-cpd').each(function(idx,el){
+    var classnumber = Number($(this).text());
+    classArray.push(classnumber);
+   })
+
+    classArray.forEach(function(val,idx){
+        var laternumber = classArray[idx+1];
+        if(laternumber == undefined){
+            return;
+        }else{
+            var minusresult = laternumber - val;
+           cpdArray.push(minusresult);
+        }
+        
+    })
+
+    $('.cell-hourly').each(function(idx,el){
+        $(this).text(cpdArray[idx]);
+    })
+
+    $('.record-row').each(function(idx,el){
+        var classtime = $(this).data('classtime');
+        var now = new Date();
+        var $nowday = String(now.getDate()).padStart(2, '0');
+        var $nowmonth = String(now.getMonth()+1);
+        var $nowyear = now.getFullYear();
+        var nowday = `${$nowyear}-${$nowmonth}-${$nowday}`;
+        console.log(classtime);
+        console.log(nowday);
+        if(classtime == nowday){
+            $(this).css('background-color','red');
+        }
+       
+    })
+
+    </script>
 </body>
 </html>
 

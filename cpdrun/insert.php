@@ -5,9 +5,10 @@ $now = $_POST['nowCpdcount'];
 $try = $_POST['nowSalestry'];
 $success = $_POST['nowSalesSuccess'];
 $time = $_POST['nowtime'];
+$classtime = $_POST['classtime'];
 
-$sql = "INSERT INTO performance_records (nowCpdcount, nowSalestry, nowSalesSuccess, nowtime) 
-        VALUES ('$now', '$try', '$success', '$time')";
+$sql = "INSERT INTO performance_records (nowCpdcount, nowSalestry, nowSalesSuccess, nowtime, classtime) 
+        VALUES ('$now', '$try', '$success', '$time', '$classtime')";
 
 if (mysqli_query($conn, $sql)) {
     echo "성공적으로 저장되었습니다.";
