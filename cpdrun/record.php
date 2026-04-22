@@ -42,7 +42,8 @@ $result = mysqli_query($conn, $sql);
                     ?>
                     <tr class="record-row" <?php echo 'data-classtime="' . $row['classtime'] . '"'; ?>>
                         <td class="cell-time"><?php echo htmlspecialchars($row['nowtime']); ?></td>
-                        <td class="cell-cpd"><?php echo $row['nowCpdcount']; ?></td>
+                        <td class="cell-cpd d<?php echo $row['classtime']; ?>">
+                             <?php echo $row['nowCpdcount']; ?></td>
                         <td class="cell-hourly">-</td> <td class="cell-try"><?php echo $row['nowSalestry']; ?></td>
                         <td class="cell-success"><?php echo $row['nowSalesSuccess']; ?></td>
                     </tr>
@@ -58,6 +59,11 @@ $result = mysqli_query($conn, $sql);
     <br>
     <a href="index.php">입력 페이지로 이동</a>
     <script>
+        var now = new Date();
+        var $nowday = String(now.getDate()).padStart(2, '0');
+        var $nowmonth = String(now.getMonth()+1);
+        var $nowyear = now.getFullYear();
+        var nowday = `${$nowyear}-${$nowmonth}-${$nowday}`;
       var classArray =[0];
       var cpdArray = [];
    $('.cell-cpd').each(function(idx,el){
@@ -82,14 +88,7 @@ $result = mysqli_query($conn, $sql);
 
     $('.record-row').each(function(idx,el){
         var classtime = $(this).data('classtime');
-        var now = new Date();
-        var $nowday = String(now.getDate()).padStart(2, '0');
-        var $nowmonth = String(now.getMonth()+1);
-        var $nowyear = now.getFullYear();
-        var nowday = `${$nowyear}-${$nowmonth}-${$nowday}`;
-        console.log(classtime);
-        console.log(nowday);
-        if(classtime == nowday){
+         if(classtime == nowday){
             $(this).css('background-color','red');
         }
        
