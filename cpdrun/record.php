@@ -83,6 +83,7 @@ $result = mysqli_query($conn, $sql);
     })
 
     console.log(classArray);
+    console.log(cpdArray);
 
     $('.cell-hourly').each(function(idx,el){
         $(this).text(cpdArray[idx]);
