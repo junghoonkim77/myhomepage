@@ -66,7 +66,7 @@ $result = mysqli_query($conn, $sql);
         var nowday = `${$nowyear}-${$nowmonth}-${$nowday}`;
       var classArray =[0];
       var cpdArray = [];
-   $('.cell-cpd').each(function(idx,el){
+   $(`.cell-cpd.d${nowday}`).each(function(idx,el){
     var classnumber = Number($(this).text());
     classArray.push(classnumber);
    })
@@ -81,6 +81,8 @@ $result = mysqli_query($conn, $sql);
         }
         
     })
+
+    console.log(classArray);
 
     $('.cell-hourly').each(function(idx,el){
         $(this).text(cpdArray[idx]);
