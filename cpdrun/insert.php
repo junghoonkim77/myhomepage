@@ -12,9 +12,9 @@ $sql = "INSERT INTO performance_records (nowCpdcount, nowSalestry, nowSalesSucce
 
 if (mysqli_query($conn, $sql)) {
     echo "성공적으로 저장되었습니다.";
+    echo "<script>location.href='record.php';</script>"; // 입력 후 기록 페이지로 이동
 } else {
     echo "에러: " . mysqli_error($conn);
 }
-
-echo "<a href='index.php'>돌아가기</a>";
+    
 ?>

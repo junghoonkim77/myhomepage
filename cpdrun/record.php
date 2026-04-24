@@ -11,15 +11,75 @@ $result = mysqli_query($conn, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
-</script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
-</script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" crossorigin="anonymous"></script>
     <title>시간당 실적</title>
     <style>
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #444; padding: 8px; text-align: center; }
-        th { background-color: #eee; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f9f9f9, #e6eef5);
+            margin: 0;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        thead {
+            background: #4a90e2;
+            color: #fff;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            font-size: 0.95em;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f7f9fc;
+        }
+
+        tbody tr:hover {
+            background: #eaf3ff;
+            transition: background 0.3s;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: #4a90e2;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        a:hover {
+            background: #357ab8;
+            transform: translateY(-2px);
+        }
+
+        .record-row {display:none;}
     </style>
 </head>
 <body>
@@ -44,7 +104,8 @@ $result = mysqli_query($conn, $sql);
                         <td class="cell-time"><?php echo htmlspecialchars($row['nowtime']); ?></td>
                         <td class="cell-cpd d<?php echo $row['classtime']; ?>">
                              <?php echo $row['nowCpdcount']; ?></td>
-                        <td class="cell-hourly">-</td> <td class="cell-try"><?php echo $row['nowSalestry']; ?></td>
+                        <td class="cell-hourly d<?php echo $row['classtime']; ?>">-</td>
+                        <td class="cell-try"><?php echo $row['nowSalestry']; ?></td>
                         <td class="cell-success"><?php echo $row['nowSalesSuccess']; ?></td>
                     </tr>
                     <?php
@@ -57,46 +118,48 @@ $result = mysqli_query($conn, $sql);
     </table>
 
     <br>
-    <a href="index.php">입력 페이지로 이동</a>
+    <div style="text-align:center;">
+        <a href="index.php">입력 페이지로 이동</a>
+    </div>
+
     <script>
         var now = new Date();
         var $nowday = String(now.getDate()).padStart(2, '0');
         var $nowmonth = String(now.getMonth()+1);
         var $nowyear = now.getFullYear();
         var nowday = `${$nowyear}-${$nowmonth}-${$nowday}`;
-      var classArray =[0];
-      var cpdArray = [];
-   $(`.cell-cpd.d${nowday}`).each(function(idx,el){
-    var classnumber = Number($(this).text());
-    classArray.push(classnumber);
-   })
+        var classnowday = `.d${nowday}`;
+        console.log(classnowday);
+        var classArray =[0];
+        var cpdArray = [];
+        $(`.cell-cpd.d${nowday}`).each(function(idx,el){
+            var classnumber = Number($(this).text());
+            classArray.push(classnumber);
+        })
 
-    classArray.forEach(function(val,idx){
-        var laternumber = classArray[idx+1];
-        if(laternumber == undefined){
-            return;
-        }else{
-            var minusresult = laternumber - val;
-           cpdArray.push(minusresult);
-        }
-        
-    })
+        classArray.forEach(function(val,idx){
+            var laternumber = classArray[idx+1];
+            if(laternumber == undefined){
+                return;
+            }else{
+                var minusresult = laternumber - val;
+                cpdArray.push(minusresult);
+            }
+        })
 
-    console.log(classArray);
-    console.log(cpdArray);
+        console.log(classArray);
+        console.log(cpdArray);
 
-    $('.cell-hourly').each(function(idx,el){
-        $(this).text(cpdArray[idx]);
-    })
+        $(`.cell-hourly${classnowday}`).each(function(idx,el){
+            $(this).text(cpdArray[idx]);
+        })
 
-    $('.record-row').each(function(idx,el){
-        var classtime = $(this).data('classtime');
-         if(classtime == nowday){
-            $(this).css('background-color','red');
-        }
-       
-    })
-
+        $('.record-row').each(function(idx,el){
+            var classtime = $(this).data('classtime');
+            if(classtime == nowday){
+                $(this).show();
+            }
+        })
     </script>
 </body>
 </html>
