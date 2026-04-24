@@ -89,7 +89,7 @@ $result = mysqli_query($conn, $sql);
             <tr>
                 <th>입력시간</th>
                 <th>누적 CPD</th>
-                <th>시간당 CPD (계산전)</th>
+                <th>시간당 CPD</th>
                 <th>세일즈 시도건수</th>
                 <th>세일즈 성공건수</th>
             </tr>
