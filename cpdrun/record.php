@@ -80,10 +80,31 @@ $result = mysqli_query($conn, $sql);
         }
 
         .record-row {display:none;}
+        .record-row.alldisplay {display:table-row;}
+        #show-all {
+            display: block;
+            margin: 0 auto 20px auto;
+            padding: 10px 20px;
+            background: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        #auto_scroll {
+            display: block;
+            position: relative;
+            left: 90%;
+           
+        }
     </style>
+     
 </head>
 <body>
-    <h2>시간별 실적 목록</h2>
+    <h2>시간별 실적 목록</h2><button id="show-all">총 누적기록 열람</button>
+    <button id="auto_scroll">최하단 이동</button>
     <table>
         <thead>
             <tr>
@@ -160,6 +181,23 @@ $result = mysqli_query($conn, $sql);
                 $(this).show();
             }
         })
+
+        $('#show-all').click(function(){
+            $('.record-row').toggleClass('alldisplay');
+        })
+
+        $('header').on('click', function(){
+     const containerHeight = $('.container').height();
+     $('html').animate({ scrollTop: containerHeight }, 400);
+    });
+      
+    // 최하단 이동 버튼 클릭 시 가장 마지막 행으로 스크롤
+        $('#auto_scroll').click(function(){
+            const tableheight = $('table').height();
+            console.log(tableheight);
+           $('html body').animate({ scrollTop: tableheight }, 400);
+        });
+    
     </script>
 </body>
 </html>
