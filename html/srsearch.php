@@ -1,5 +1,6 @@
 <?php
 include ('phpgate.php');
+/** @var mysqli $conn */
 $sql = "SELECT * FROM voc_table ";
 $result = $conn->query($sql);
 ?>
