@@ -8,7 +8,12 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+          initialView: 'dayGridMonth',
+           googleCalendarApiKey: 'AIzaSyAU5OA1086aP0CBH5O2v_4vZb9adB0dBRs',
+            events: {
+              googleCalendarId: '89631a38db79bc38c59ae2cf19389b9f6cecb5d996911a8e46d8f12d78fd1236@group.calendar.google.com',
+              className: 'gcal-event' // an option!
+  }
         });
         calendar.render();
       });
