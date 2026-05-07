@@ -150,6 +150,7 @@
             
             <label>소속 팀</label>
             <select name="nowteam" id="teamName">
+                <option value="">소속 팀 선택</option>
                 <option value="무1">무선1</option>
                 <option value="무2">무선2</option>
                 <option value="무3">무선3</option>
