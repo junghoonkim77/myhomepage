@@ -109,7 +109,7 @@ $result1 = mysqli_query($conn, $sql1);
         .notice-card { background: white; border: 1px solid #e2e8f0; padding: 15px; margin-bottom: 12px; border-radius: 10px; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
         .notice-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px dashed #e2e8f0; font-size: 0.8rem; }
         .team-badge { background: #eff6ff; color: #2563eb; padding: 4px 10px; border-radius: 20px; font-weight: 700; border: 1px solid #dbeafe; }
-        .notice-body { font-size: 0.9rem; line-height: 1.5; color: #334155; white-space: pre-wrap; }
+        .notice-body { font-size: 0.7rem; line-height: 0.8; color: #334155; white-space: pre-wrap; }
         
         textarea { width: 100%; height: 120px; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; box-sizing: border-box; font-family: inherit; resize: none; margin-bottom: 10px; }
         
