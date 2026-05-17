@@ -120,14 +120,31 @@ if ($total_rows > 0) {
                 $('html, body').stop().animate({ scrollTop: '0px' }, 400);
             });  
 
-            // 3. 실시간 검색 기능 구현
+            // 3. 실시간 다중 키워드 검색 기능 구현 (AND 검색)
             $('#searchInput').on('keyup', function() {
-                var value = $(this).val().toLowerCase();
+                // 입력값의 앞뒤 공백을 제거하고 소문자로 변환
+                var value = $(this).val().toLowerCase().trim();
+                
+                // 입력값이 빈 자백일 때는 모든 항목을 보여줌
+                if (value === "") {
+                    $(".divTableBody > div").show();
+                    return;
+                }
+                
+                // 공백(하나 이상)을 기준으로 단어를 쪼개어 배열로 만듦
+                var keywords = value.split(/\s+/);
                 
                 // divTableBody 직계 자식인 div들을 대상으로 필터링
-                $(".divTableBody > div").filter(function() {
-                    // 글자 매칭 여부에 따라 토글(show/hide) 처리
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                $(".divTableBody > div").each(function() {
+                    var text = $(this).text().toLowerCase();
+                    
+                    // 작성한 모든 키워드가 text에 포함되어 있는지 확인 (AND 조건)
+                    var isMatch = keywords.every(function(keyword) {
+                        return text.indexOf(keyword) > -1;
+                    });
+                    
+                    // 조건 충족 여부에 따라 보이기/숨기기 처리
+                    $(this).toggle(isMatch);
                 });
             });
         });
