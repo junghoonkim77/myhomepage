@@ -98,8 +98,6 @@
 include('phpgate.php');
 echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.'</h2>';
 ?>
- <label for="edit" >체크금지</label>
- <input type="checkbox"  id="edit">
     </header>
 
 
@@ -284,24 +282,30 @@ echo '<h2>'.'('.date("Y/m/d").')'."   ".'서울중앙통품 IT 세일즈현황'.
 
           // 삭제방지 코드
           $(".delsubmit").click(function(e){
-           const $editcheck = $('#edit').prop('checked');
-            if(!$editcheck){
+          // const $editcheck = $('#edit').prop('checked');
+             var delpass = "6279";
+             var userinput = prompt("삭제하시려면 비밀번호를 입력해주세요.");
+              if(userinput !== delpass){
                 e.preventDefault();
             }
            
           });
          // 기타 메모 삭제방지 코드
           $(".textdel").click(function(e){
-           const $editcheck = $('#edit').prop('checked');
-            if(!$editcheck){
+           // const $editcheck = $('#edit').prop('checked');
+           var textdellpass = "6279";
+           var userinput = prompt("삭제하시려면 비밀번호를 입력해주세요.");
+             if(userinput !== textdellpass){
                 e.preventDefault();
             }
-           
+
           });
         
           $(".success").click(function(e){
-           const $editcheck = $('#edit').prop('checked');
-            if(!$editcheck){
+          // const $editcheck = $('#edit').prop('checked');
+                var succeedpass = "6279";
+                var userinput = prompt("개통완료 추가시 비번입력~!");
+            if(userinput !== succeedpass){
                 e.preventDefault();
             }
            
