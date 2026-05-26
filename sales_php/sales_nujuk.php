@@ -281,6 +281,14 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
     });
     $('.nowmonthadd').text(totalquesum); // 이번달 개통건수 옆에 표시될 내용
 
+  $("table tr td:nth-child(5)").each(function(){
+   var $monthtxt1 =  $(this).text().slice(5,7) ;  //.slice(4);  `${hours < 10 ? `0${hours}` : hours}
+   var $cusque = $(this).siblings("td:nth-child(3)").text().match(/문의/) ? "문의" : ""; ;
+       if($cusque === "문의") {
+        $(this).siblings("td:nth-child(6)").addClass(`${$monthtxt1}ques`);
+       }
+    });
+    
 
  const $teamname =[];   
  $('.teamname').change(function(){
