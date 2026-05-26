@@ -89,7 +89,7 @@
     echo '<h5>'.'('.date("Y/m/d").')'."   ".'서울중앙통품세일즈&nbsp&nbsp&nbsp&nbsp총누적:&nbsp'.
     '<span class="'.'tsum">'.'</span>'.'<span>건</span>'.'</h5>';
     echo '<a href="sales_siljukcon.php">세일즈 가설관리창</a>&nbsp&nbsp&nbsp&nbsp&nbsp';
-    echo '<a href="../sale_today/">당일시도입력창</a>';
+    echo '<a href="../sale_today/">당일시도입력창</a></br></br>';
     
     
     $cusnum = $_GET['cusnum'] ??'';
@@ -120,7 +120,7 @@
     
     $phpmon = date("m");
     ?>
-    <h3><?=$phpmon.'월 현재'?> 개통건수 : <span class="nowmonth"></span></h3>
+    <span><?=$phpmon.'월 현재'?> 개통건수 :</span><span class="nowmonth"></span>(문의개통_<span class="nowmonthadd"></span>)
     <div class="container">
     <table id="TotalSucc" data-mon=<?="'".$phpmon."'"?>> 
      <thead><td>순서</td><td>고객번호</td><td>고객명</td><td>팀원명</td><td>개통일자</td><td>상품</td></thead>
@@ -254,7 +254,7 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
 //$nummonth1 = parseInt($month);// 누적건수 표시를 위한 숫자 변환
  var totalsum = 0;
  var totalsum1 = 0;
-
+ var totalquesum = 0;
  // 누적 실적표시창 코드
  $("table tr td:nth-child(6)").each(function(){
   totalsum+=   parseInt( $(this).text().length ) ;
@@ -271,6 +271,15 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
     });
     $('.nowmonth').text(totalsum1); // 이번달 개통건수 옆에 표시될 내용
 
+  //이번달 문의개통 실적 
+  $("table tr td:nth-child(5)").each(function(){
+   var $monthtxt1 =  $(this).text().slice(5,7) ;  //.slice(4);  `${hours < 10 ? `0${hours}` : hours}
+   var $cusque = $(this).siblings("td:nth-child(3)").text().match(/문의/) ? "문의" : ""; ;
+       if($monthtxt1 === $tablemonth && $cusque === "문의") {
+        totalquesum +=  parseInt($(this).siblings("td:nth-child(6)").text().length);
+       }
+    });
+    $('.nowmonthadd').text(totalquesum); // 이번달 개통건수 옆에 표시될 내용
 
 
  const $teamname =[];   
