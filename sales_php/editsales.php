@@ -14,6 +14,7 @@
      // 만약 위에서 *표로 다 갖고 오는게 아니라면 name이나 number 같이 지정한 값만 가져올수 있다.
      $result = mysqli_query($conn,$sql);
     while( $row = mysqli_fetch_array($result)){
+        $cusname = $row['cusname'];
         $comdate = $row['hopedate'];
         $prodname = $row['prodname'];
         $spememo = $row['spememo'];
@@ -23,6 +24,7 @@
      
      
      <form action="edit_update.php" method="get">
+     <input type="text" name="cusname" value="<?=$cusname ?? '' ?>" id="">
      <input type="date" name="comdate" value="<?=$comdate ?>" id="">
      <input type="text" name="prodname" value="<?=$prodname ?>" id="">
      <input type="text" name="spememo" value="<?=$spememo  ?>" id="">

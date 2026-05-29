@@ -198,6 +198,7 @@
    <table>
     <thead>
       <tr>
+      <td>구분</td>
       <td>1월</td>
       <td>2월</td>
       <td>3월</td>
@@ -214,6 +215,7 @@
   </thead>
   <tbody>
   <tr>
+      <td>총개통건</td>
       <td id="01monDivide"></td>
       <td id="02monDivide"></td>
       <td id="03monDivide"></td>
@@ -227,6 +229,21 @@
       <td id="11monDivide"></td>
       <td id="12monDivide"></td>
     </tr>
+  <tr>
+      <td>문의개통</td>
+      <td id="01ques"></td>
+      <td id="02ques"></td>
+      <td id="03ques"></td>
+      <td id="04ques"></td>
+      <td id="05ques"></td>
+      <td id="06ques"></td>
+      <td id="07ques"></td>
+      <td id="08ques"></td>
+      <td id="09ques"></td>
+      <td id="10ques"></td>
+      <td id="11ques"></td>
+      <td id="12ques"></td>
+    </tr>  
   </tbody>
   
     
@@ -424,6 +441,24 @@ var $tablemonth = $('table').attr('data-mon'); // 날짜를 php에서 구해옴
      
    }
     
+   var quesum = 0 ;
+   for(var q=1 ; q<=12 ; q++){
+    if(q<10){
+      $('.'+'0'+q+'ques').each(function(){
+    quesum+= $(this).text().length
+    $('#'+'0'+q+'ques').text(quesum+'건');
+   })
+    }else{
+      $('.'+q+'ques').each(function(){
+    quesum+= $(this).text().length
+      $('#'+q+'ques').text(quesum+'건');
+   })
+    }
+     
+     
+     quesum = 0 ;
+     
+   } 
    
 </script>
 </body>
