@@ -84,8 +84,8 @@
               <input title="설치예정일" placeholder="설치예정일" type="date" id="hopedate" name="hopedate">
               <input title="상품종류" placeholder="상품종류"type="text" name="prodname">
               <input title="고객특이사항" placeholder="고객특이사항"type="text" name="spememo">
-              <input  class="button1" type="submit" value="가설 고객추가">
-           </form>    
+              <input  class="button1" type="submit" value="가설 고객DB추가">
+            </form>    
            </div>
            
            <div>
@@ -103,14 +103,11 @@
     <script>
         jQuery(function(){
       
-
-          // 휴대폰 번호 복사하기
-         $('.phoneNumber').click(function(){
-          var $phonenum = $(this).text();
-            $lib.clipcopy($phonenum);
-             })
-
-        $('#notepad textarea').on('input',function(){
+            
+       
+       
+       
+            $('#notepad textarea').on('input',function(){
             var $notepadTextval = $('textarea').val();
             localStorage.setItem('$notepadval',$notepadTextval);
             
