@@ -69,7 +69,17 @@
                 <input id="nowtime" type="hidden" value="<?php echo date('y년 n월 d일H:i:s');?>" name="nowtime">
                 <input title="수축기혈압" placeholder="수축기혈압" type="number" name="hipressure">
                 <input title="이완기혈압" placeholder="이완기혈압" type="number" name="lowpressure">
-                <input title="메모" placeholder="메모" type="text" name="memo">
+              <!--  <input title="메모" placeholder="메모" type="text" name="memo"> -->
+                <select name="memo" title="메모">
+                    <option value="">메모 선택</option>
+                    <option value="전날술집">전날술집</option>
+                    <option value="전날술X집">전날술X집</option>
+                    <option value="전날술사무실">전날술사무실</option>
+                    <option value="전날술X사무실">전날술X사무실</option>
+                    <option value="술안먹2일">술안먹2일</option>
+                    <option value="술안먹3일">술안먹3일</option>
+                    <option value="술안먹3일이상">술안먹3일이상</option>
+                </select>
                 <input class="button1" type="submit" value="저장">
             </form>    
         </div>

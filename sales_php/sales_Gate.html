@@ -87,7 +87,9 @@
               <input  class="button1" type="submit" value="가설 고객DB추가">
             </form>    
            </div>
-           
+           <!-- 전대창 입력영역-->
+          
+
            <div>
               <form action="sales_siljukcon.php" method="post">
                   <textarea class="texmemo" cols="60" rows="17" id="texmemo" name="texmemo"></textarea>
@@ -102,19 +104,14 @@
    
     <script>
         jQuery(function(){
-      
-            
-       
-       
-       
+             
             $('#notepad textarea').on('input',function(){
             var $notepadTextval = $('textarea').val();
             localStorage.setItem('$notepadval',$notepadTextval);
-            
             console.log ( $notepadTextval_val )
          })
         
-
+         
 }) //제일 바깥쪽 
         
       
