@@ -193,19 +193,18 @@ $result1 = mysqli_query($conn, $sql1);
                 <h4><?php echo date("m/d").'('.$days[$weekday].') 실적'; ?></h4>
                 <table>
                     <thead>
-                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>통리</td><td>가설(권)</td><td>가설(문)</td><td>M유치</br>(목표):<?php echo $mobilegoal.'건' ?></td><td>M유치부족</td></tr>
+                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>가설</td><td>M유치</br>(목표):<?php echo $mobilegoal.'건' ?></td><td>M유치부족</td></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="trigger"><?php echo $mu1[2] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeednew"><?php echo $mu1[4] ?></td><td class="succeed1"><?php echo $mu1[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu1[5] ?></td></tr>
-                        <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="trigger"><?php echo $mu2[2] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeednew"><?php echo $mu2[4] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu2[5] ?></td></tr>
-                        <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="trigger"><?php echo $mu3[2] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeednew"><?php echo $mu3[4] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu3[5] ?></td></tr>
-                        <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="trigger"><?php echo $mu4[2] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeednew"><?php echo $mu4[4] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu4[5] ?></td></tr>
-                        <tr><td class="team1">무선5</td><td class="it"><?php echo $mu5[0] ?></td><td class="mobile"><?php echo $mu5[1] ?></td><td class="trigger"><?php echo $mu5[2] ?></td><td class="succeed"><?php echo $mu5[3] ?></td><td class="succeednew"><?php echo $mu5[4] ?></td><td class="succeed1"><?php echo $mu5[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu5[5] ?></td></tr>
-                        <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="trigger"><?php echo $tong[2] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeednew"><?php echo $tong[4] ?></td><td class="succeed1"><?php echo $tong[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$tong[5] ?></td></tr>
-                        
+                        <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeed1"><?php echo $mu1[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu1[5] ?></td></tr>
+                        <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu2[5] ?></td></tr>
+                        <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu3[5] ?></td></tr>
+                        <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu4[5] ?></td></tr>
+                        <tr><td class="team1">무선5</td><td class="it"><?php echo $mu5[0] ?></td><td class="mobile"><?php echo $mu5[1] ?></td><td class="succeed"><?php echo $mu5[3] ?></td><td class="succeed1"><?php echo $mu5[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu5[5] ?></td></tr>
+                        <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeed1"><?php echo $tong[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$tong[5] ?></td></tr>
                     </tbody>
                     <tfoot>
-                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="trigger_t"></td><td id="succeed_t"></td><td id="succeednew_t"></td><td id="succeed1_t"></td><td id="msucceed_t"></td></tr>
+                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="succeed_t"></td><td id="succeed1_t"></td><td id="msucceed_t"></td></tr>
                     </tfoot>
                 </table>
             </div>
@@ -246,9 +245,9 @@ $result1 = mysqli_query($conn, $sql1);
                     </select>
                     <label>인티</label> <input id="itnet" class="inputnum" type="number" value=0 name="it">
                     <label>모바일</label> <input id="mobile" class="inputnum" type="number" value=0 name="mobile">
-                    <label>통리</label> <input id="trigger" class="inputnum" type="number" value=0 name="trigger">
-                    <label>가설(권)</label> <input id="success" class="inputnum" type="number" value=0 name="success">
-                    <label>가설(문)</label> <input id="successnew" class="inputnum" type="number" value=0 name="successnew">
+                  <!--  <label>통리</label> <input id="trigger" class="inputnum" type="number" value=0 name="trigger"> 통리도 제외 -->
+                    <label>가설</label> <input id="success" class="inputnum" type="number" value=0 name="success">
+                   <!-- <label>가설(문)</label> <input id="successnew" class="inputnum" type="number" value=0 name="successnew"> 문의는 더이상 실적 아님 --> 
                     <label>M유치</label> <input id="success1" class="inputnum" type="number" value=0 name="success1">
                     <input id="nowtime" type="hidden" value="<?php echo date('d일H:i:s').$days[$weekday];?>" name="nowtime">
                     <button class="button1">실적전송</button> 

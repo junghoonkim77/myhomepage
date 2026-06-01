@@ -1,3 +1,5 @@
+//cs2센터 일실적 마감창
+
 <?php 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -5,6 +7,7 @@ ini_set('display_errors', 1);
 include ('phpgate.php');
 
 // ... (기본 PHP 로직 유지) ...
+$mobilegoal = 4;
 $teams = ['무1', '무2', '무3', '무4', '무5', '통품'];
 $teamData = [];
 $teamboan = [];
@@ -183,24 +186,28 @@ $result1 = mysqli_query($conn, $sql1);
 </head>
 
 <body>
-    <div class="main-wrapp"er>
+    <div class="main-wrapp">
+        <h3 style="padding-left: 30rem;">서울중앙 CS2센터 일 실적 및 보안 점검 창</h3>
+        <a href="../monthSales/index.php" style="position:absolute; right:20px; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">1,2센터 누적개통 실적창 이동</a>
+        <a href="../../center1/today_end_sales/index.php" style="position:absolute; right:14rem; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">1센터 실적창 이동</a>
         <div class="display-section">
             <div id="tablecopy">
                 <h4><?php echo date("m/d").'('.$days[$weekday].') 실적'; ?></h4>
                 <table>
                     <thead>
-                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>통리</td><td>가설(권)</td><td>가설(문)</td><td>M유치</td></tr>
+                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>통리</td><td>가설(권)</td><td>가설(문)</td><td>M유치</br>(목표):<?php echo $mobilegoal.'건' ?></td><td>M유치부족</td></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="trigger"><?php echo $mu1[2] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeednew"><?php echo $mu1[4] ?></td><td class="succeed1"><?php echo $mu1[5] ?></td></tr>
-                        <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="trigger"><?php echo $mu2[2] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeednew"><?php echo $mu2[4] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td></tr>
-                        <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="trigger"><?php echo $mu3[2] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeednew"><?php echo $mu3[4] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td></tr>
-                        <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="trigger"><?php echo $mu4[2] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeednew"><?php echo $mu4[4] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td></tr>
-                        <tr><td class="team1">무선5</td><td class="it"><?php echo $mu5[0] ?></td><td class="mobile"><?php echo $mu5[1] ?></td><td class="trigger"><?php echo $mu5[2] ?></td><td class="succeed"><?php echo $mu5[3] ?></td><td class="succeednew"><?php echo $mu5[4] ?></td><td class="succeed1"><?php echo $mu5[5] ?></td></tr>
-                        <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="trigger"><?php echo $tong[2] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeednew"><?php echo $tong[4] ?></td><td class="succeed1"><?php echo $tong[5] ?></td></tr>
+                        <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="trigger"><?php echo $mu1[2] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeednew"><?php echo $mu1[4] ?></td><td class="succeed1"><?php echo $mu1[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu1[5] ?></td></tr>
+                        <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="trigger"><?php echo $mu2[2] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeednew"><?php echo $mu2[4] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu2[5] ?></td></tr>
+                        <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="trigger"><?php echo $mu3[2] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeednew"><?php echo $mu3[4] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu3[5] ?></td></tr>
+                        <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="trigger"><?php echo $mu4[2] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeednew"><?php echo $mu4[4] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu4[5] ?></td></tr>
+                        <tr><td class="team1">무선5</td><td class="it"><?php echo $mu5[0] ?></td><td class="mobile"><?php echo $mu5[1] ?></td><td class="trigger"><?php echo $mu5[2] ?></td><td class="succeed"><?php echo $mu5[3] ?></td><td class="succeednew"><?php echo $mu5[4] ?></td><td class="succeed1"><?php echo $mu5[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu5[5] ?></td></tr>
+                        <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="trigger"><?php echo $tong[2] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeednew"><?php echo $tong[4] ?></td><td class="succeed1"><?php echo $tong[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$tong[5] ?></td></tr>
+                        
                     </tbody>
                     <tfoot>
-                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="trigger_t"></td><td id="succeed_t"></td><td id="succeednew_t"></td><td id="succeed1_t"></td></tr>
+                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="trigger_t"></td><td id="succeed_t"></td><td id="succeednew_t"></td><td id="succeed1_t"></td><td id="msucceed_t"></td></tr>
                     </tfoot>
                 </table>
             </div>
@@ -217,7 +224,7 @@ $result1 = mysqli_query($conn, $sql1);
             </div>
             
             <div id="boanBox">
-                <h3>보안점검 결과</h3>
+                <h3 id="bulkBoan">보안점검 결과</h3>
                 <div class="chgcolor" id="bteam1"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam1[1]."</span> ".$boteam1[1]." 무1 ".$boteam1[0] ?></div>
                 <div class="chgcolor" id="bteam2"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam2[1]."</span> ".$boteam2[1]." 무2 ".$boteam2[0] ?></div>
                 <div class="chgcolor" id="bteam3"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam3[1]."</span> ".$boteam3[1]." 무3 ".$boteam3[0] ?></div>
@@ -334,7 +341,8 @@ $result1 = mysqli_query($conn, $sql1);
 
 
     <script>
-        function sum($class){
+
+            function sum($class){
             var sumend = [];
             $('.'+$class).each(function(idx,ele){
                 var $thisnum = Number(ele.textContent);  
@@ -343,7 +351,7 @@ $result1 = mysqli_query($conn, $sql1);
             var sumresul = sumend.reduce((acc,curval)=>{ return acc+curval; },0)
             $('#'+$class+'_t').text(sumresul);     
         }
-        sum('it'); sum('mobile'); sum('trigger'); sum('succeed');sum('succeednew'); sum('succeed1');
+        sum('it'); sum('mobile'); sum('trigger'); sum('succeed');sum('succeednew'); sum('succeed1');sum('msucceed');
 
         $('.tabcopy').click(function(){ $lib.rangecopy('#tablecopy'); })
         $('.button1').click(function(e){
@@ -375,6 +383,29 @@ $result1 = mysqli_query($conn, $sql1);
             console.log(excute);
             if(excute == jaweekday){ $(this).parent().css('background-color','#d8e438').css('border-color','#bbf7d0'); }
         });
+
+        $('.msucceed').each(function(idx,ele){
+            const msucceednum = Number($(this).text());
+            if(msucceednum > 0){
+                $(this).css({'color':'red','font-weight':'bold'});
+            }else{
+                 $(this).append('<span>👍</span>');
+            }
+        });
+        if( Number( $('#msucceed_t').text()  ) < 0 ){
+            $('#msucceed_t').append('<span>😊</span>');
+        } else{
+           $('#msucceed_t').append('<span>😒</span>');
+        }
+
+       // 보안점검 일괄 등록 버튼 클릭 이벤트
+        $('#bulkBoan').click(function() {
+        if(confirm("모든 팀의 보안 점검 결과를 '이상 무'로 일괄 등록하시겠습니까?")) {
+            // 별도의 처리 페이지로 이동하거나 AJAX를 사용할 수 있습니다.
+            // 여기서는 요청하신 로직에 맞춰 폼 전송 방식과 유사하게 처리 페이지로 보냅니다.
+            location.href = 'boanall.php';
+        }
+    });
     </script>
 </body>
 </html>

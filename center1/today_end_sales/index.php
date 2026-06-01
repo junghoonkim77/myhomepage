@@ -132,14 +132,14 @@ $result1 = mysqli_query($conn, $sql1);
                 <h4>📊 <?php echo date("m/d").'('.$days[$weekday].')'; ?> 팀별 실적 현황</h4>
                 <table>
                     <thead>
-                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>가설(권)</td><td>가설(문)</td><td>M유치</td></tr>
+                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>가설</td><td>M유치</td></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="team1">유선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="succeed"><?php echo $mu1[2] ?></td><td class="succeednew"><?php echo $mu1[3] ?></td><td class="succeed1"><?php echo $mu1[4] ?></td></tr>
-                        <tr><td class="team1">유선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[2] ?></td><td class="succeednew"><?php echo $mu2[3] ?></td><td class="succeed1"><?php echo $mu2[4] ?></td></tr>
+                        <tr><td class="team1">유선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="succeed"><?php echo $mu1[2] ?></td><td class="succeed1"><?php echo $mu1[4] ?></td></tr>
+                        <tr><td class="team1">유선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[2] ?></td><td class="succeed1"><?php echo $mu2[4] ?></td></tr>
                     </tbody>
                     <tfoot>
-                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="succeed_t"></td><td id="succeednew_t"></td><td id="succeed1_t"></td></tr>
+                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="succeed_t"></td><td id="succeed1_t"></td></tr>
                     </tfoot>
                 </table>
             </div>
@@ -168,8 +168,8 @@ $result1 = mysqli_query($conn, $sql1);
                     </select>
                     <label>인티</label> <input id="itnet" type="number" value=0 name="it">
                     <label>모바일</label> <input id="mobile" type="number" value=0 name="mobile">
-                    <label>가설(권)</label> <input id="success" type="number" value=0 name="success">
-                    <label>가설(문)</label> <input id="successnew" type="number" value=0 name="successnew">
+                    <label>가설</label> <input id="success" type="number" value=0 name="success">
+                   <!-- <label>가설(문)</label> <input id="successnew" type="number" value=0 name="successnew"> 문의는 더이상 실적 아님 --> 
                     <label>M유치</label> <input id="success1" type="number" value=0 name="success1">
                     <input id="nowtime" type="hidden" value="<?php echo date('d일H:i:s').$days[$weekday];?>" name="nowtime">
                     <button class="button1">📈 실적전송</button> 
