@@ -1,107 +1,72 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="ko">
 <head>
-
     <meta charset="UTF-8">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style> 
-    #inputdate,#question{
-        display :block
-    }
-    textarea {
-        margin-top: 20px;
-    }
-    #question{
-        width : 50em;
-    }
-</style>
-
-<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
-</script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
-</script> 
-
-    <title>따릉이입력</title>
-
+    <title>지식 관리 시스템</title>
+    <style>
+        :root { --primary-color: #4a90e2; --bg-color: #f4f7f6; }
+        body { font-family: 'Pretendard', sans-serif; background-color: var(--bg-color); padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 15px; font-weight: bold; color: #555; }
+        input, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        
+        button { width: 100%; padding: 12px; margin-top: 20px; background-color: var(--primary-color); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; transition: background 0.3s; }
+        button:hover { background-color: #357abd; }
+        
+        .action-forms { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
+        .action-forms input { width: 100%; }
+        .btn-sub { background-color: #666; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
-
 <body>
-   <a href="index.php">메인으로</a>
+
+<div class="container">
+    <a href="index.php">← 메인으로 돌아가기</a>
+    <h2>지식 데이터 추가</h2>
+    
     <form action="insert.php" method="post">
+        <label for="inputdate">날짜</label>
+        <input id="inputdate" type="date" name="inputdate">
 
-        <fieldset>
+        <label for="question">질문</label>
+        <input id="question" type="text" name="question" placeholder="질문을 입력하세요">
 
-      <label for="inputdate">날짜입력</label>
+        <label for="answer">답변</label>
+        <textarea id="answer" name="answer" rows="8" placeholder="답변 내용을 작성하세요"></textarea>
 
-      <input class="valcheck" id="inputdate" autocomplete="off" type="date" name="inputdate">
+        <label for="tip">Tip</label>
+        <textarea id="tip" name="tip" rows="4" placeholder="참고할 팁을 작성하세요"></textarea>
 
-      <label for="question">질문</label>
-
-      <input class="valcheck" id="question" autocomplete="off" type="text" name="question">
-
-      <label  for="answer">답변</label>
-
-      <textarea class="valcheck" id="answer" autocomplete="off" cols="60" rows="20" name="answer"></textarea>
-
-      <label for="tip">Tip~!</label>
-
-      <textarea class="valcheck" id="tip" autocomplete="off" cols="60" rows="20" name="tip"></textarea>
-
-      <button id="pass" type="submit">지식추가</button>
-
-       </fieldset>
-     
-    </form>
-    <form action="delete.php" id="delform" method="get">
-        <input placeholder="삭제할 번호 입력 혹은 선택" autocomplete="off" type="number" name="delnum" id="">
-        <button id="delcon" type="submit">삭제</button>
-    </form>
-    <form action="edit.php" method="get">
-        <input placeholder="수정할 번호 입력 혹은 선택" autocomplete="off" type="number" name="editnum" id="">
-        <button type="submit">수정</button>
+        <button id="pass" type="submit">지식 추가하기</button>
     </form>
 
-    <script> 
-        $('#pass').click(function(){
-            var inputdate = $('#inputdate').val();
-            var question = $('#question').val();
-            var answer = $('#answer').val();
-            var tip = $('#tip').val();
-            if(inputdate == ''){
-                alert('날짜를 입력해주세요');
-                return false;
-            }
-            if(question == ''){
-                alert('질문을 입력해주세요');
-                return false;
-            }
-            if(answer == ''){
-                alert('답변을 입력해주세요');
-                return false;
-            }
-            if(tip == ''){
-                alert('Tip을 입력해주세요');
-                return false;
-            }
-        });
+    <div class="action-forms">
+        <form action="delete.php" id="delform" method="get">
+            <input type="number" name="delnum" placeholder="번호 삭제">
+            <button class="btn-sub" id="delcon" type="submit">삭제</button>
+        </form>
+        <form action="edit.php" method="get">
+            <input type="number" name="editnum" placeholder="번호 수정">
+            <button class="btn-sub" type="submit">수정</button>
+        </form>
+    </div>
+</div>
 
-        $('#delcon').click(function(e){
-            e.preventDefault();
-          var realdel =  confirm('정말 삭제하시겠습니까?');
-            if(realdel == true){
-                $('#delform').submit();
-        }else{
-            alert('삭제를 취소하셨습니다.');
+<script>
+    $('#pass').click(function(){
+        if($('#inputdate').val() == '' || $('#question').val() == '' || $('#answer').val() == '' || $('#tip').val() == ''){
+            alert('모든 항목을 입력해주세요.');
+            return false;
         }
     });
-    </script>
 
+    $('#delcon').click(function(e){
+        if(!confirm('정말 삭제하시겠습니까?')) e.preventDefault();
+    });
+</script>
 </body>
-
 </html>

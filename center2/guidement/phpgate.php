@@ -35,4 +35,6 @@ if (!$conn) {
 }
 
 echo "<script>console.log('연결 성공');</script>";
+
+mysqli_set_charset($conn, "utf8");
 ?>

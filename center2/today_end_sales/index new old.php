@@ -69,7 +69,6 @@ $result1 = mysqli_query($conn, $sql1);
         #tablecopy { flex: 0 0 420px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
         #timebox { flex: 0 0 140px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
         #boanBox { flex: 1; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
-        #cs2toolbox { flex: 0 0 250px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
 
         /* 테이블 콤팩트화 */
         table { border-collapse: collapse; width: 100%; font-size: 0.8rem; }
@@ -229,13 +228,6 @@ $result1 = mysqli_query($conn, $sql1);
                 <div class="chgcolor" id="bteam4"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam4[1]."</span> ".$boteam4[1]." 무4 ".$boteam4[0] ?></div>
                 <div class="chgcolor" id="bteam5"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam5[1]."</span> ".$boteam5[1]." 무5 ".$boteam5[0] ?></div>
                 <div class="chgcolor" id="bteam6"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$botong[1]."</span> ".$botong[1]." 통품 ".$botong[0] ?></div>
-            </div>
-
-            <div id="cs2toolbox">
-                <h3>cs2센터업무활용</h3>
-                <a href="../capacity/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-bottom:5px;">CS2센터 효율관리부</a>
-                <a href="../knowhow/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS2센터 업무지식(따릉이)</a>
-                <a href="../guidement/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">Sales멘트 모음</a>
             </div>
         </div>
 
