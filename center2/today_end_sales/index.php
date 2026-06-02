@@ -69,7 +69,7 @@ $result1 = mysqli_query($conn, $sql1);
         #tablecopy { flex: 0 0 420px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
         #timebox { flex: 0 0 140px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
         #boanBox { flex: 1; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
-        #cs2toolbox { flex: 0 0 250px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
+        #cs2toolbox { flex: 0 0 350px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
 
         /* 테이블 콤팩트화 */
         table { border-collapse: collapse; width: 100%; font-size: 0.8rem; }
