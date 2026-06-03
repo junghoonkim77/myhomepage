@@ -236,6 +236,9 @@ $result1 = mysqli_query($conn, $sql1);
                 <a href="../capacity/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-bottom:5px;">CS2센터 효율관리부</a>
                 <a href="../knowhow/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS2센터 업무지식(따릉이)</a>
                 <a href="../guidement/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">Sales멘트 모음</a>
+                <a href="../srsearch/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">SR사례집 검색</a>
+                <a href="../../html/통품voc은행.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">통화품질VOC은행</a>
+                <a href="../../html/통화품질_휴근업무.html" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">통화품질 휴근상담</a>
             </div>
         </div>
 
