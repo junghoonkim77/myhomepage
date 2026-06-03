@@ -221,6 +221,17 @@ $result1 = mysqli_query($conn, $sql1);
                 <p class="teamcom">통품: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $tong[6] ?></span></p>
             </div>
             
+            <div id="cs2toolbox">
+                <h3>CS2 센터 업무 활용 (클릭 시 해당 사이트로 이동)</h3>
+                <a href="../capacity/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-bottom:5px;">CS2센터 효율관리부</a>
+                <a href="../knowhow/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS2센터 업무지식(따릉이)</a>
+                <a href="../guidement/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">Sales멘트 모음</a>
+                <a href="../srsearch/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">SR사례집 검색</a>
+                <a href="../../html/통품voc은행.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">통화품질VOC은행</a>
+                <a href="../../html/통화품질_휴근업무.html" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">통화품질 휴근상담</a>
+            </div>
+            
+            
             <div id="boanBox">
                 <h3 id="bulkBoan">보안점검 결과</h3>
                 <div class="chgcolor" id="bteam1"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam1[1]."</span> ".$boteam1[1]." 무1 ".$boteam1[0] ?></div>
@@ -231,15 +242,7 @@ $result1 = mysqli_query($conn, $sql1);
                 <div class="chgcolor" id="bteam6"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$botong[1]."</span> ".$botong[1]." 통품 ".$botong[0] ?></div>
             </div>
 
-            <div id="cs2toolbox">
-                <h3>cs2센터업무활용</h3>
-                <a href="../capacity/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-bottom:5px;">CS2센터 효율관리부</a>
-                <a href="../knowhow/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS2센터 업무지식(따릉이)</a>
-                <a href="../guidement/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">Sales멘트 모음</a>
-                <a href="../srsearch/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">SR사례집 검색</a>
-                <a href="../../html/통품voc은행.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">통화품질VOC은행</a>
-                <a href="../../html/통화품질_휴근업무.html" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">통화품질 휴근상담</a>
-            </div>
+            
         </div>
 
         <div class="input-section">
