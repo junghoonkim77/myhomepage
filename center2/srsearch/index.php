@@ -32,7 +32,7 @@ $result = $conn->query($sql);
 </head>
 <body>
 
-    <h2>sr 검색 서비스</h2>
+    <h2>sr 검색 서비스 <span id="nowversion" style="color: blue;"></span></h2>
 
     <div class="search-box">
         <select id="searchColumn">
@@ -139,6 +139,9 @@ $result = $conn->query($sql);
         $('#searchColumn').on('change', function() {
             $('#vocSearch').trigger('keyup');
         });
+        // 버전 정보 표시
+        const nowversion = "사례집_ver.27";
+        $('#nowversion').text(nowversion);
     });
     </script>
 
