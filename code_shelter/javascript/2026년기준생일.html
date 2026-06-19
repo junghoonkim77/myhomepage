@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기준 생축~!</title>
+  <style>
+    /* 배경 및 기본 레이아웃 */
+    body {
+      background: linear-gradient(135deg, #f7f5f0 0%, #eae5d9 100%); 
+      margin: 0;
+      padding: 20px;
+      font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 배경에 떠다니는 은은한 파티클 효과 */
+    .bg-decor {
+    position: absolute;
+    width: 100vw; /* 이미지가 잘 보이도록 크기를 조금 키웠습니다 */
+    height: 100vh;
+    background-image: url('../../imgfolder/birthday/yomyom.png');
+    background-size: contain; /* 이미지가 요소 안에 다 들어오도록 */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    animation: floatAround 8s infinite ease-in-out;
+    pointer-events: none;
+    z-index: -1; /* 텍스트 뒤로 가게 설정 */
+    opacity: 0.5; /* 은은하게 보이도록 투명도 조절 */
+  }
+    .bg-decor:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+    .bg-decor:nth-child(2) { top: 70%; left: 80%; width: 15px; height: 15px; animation-delay: 2s; }
+    .bg-decor:nth-child(3) { top: 40%; left: 85%; animation-delay: 4s; }
+
+    /* 편지지 스타일 및 등장 애니메이션 */
+    .letter-container {
+     /*  background-color: #ffffff; */
+      width: 100%;
+      max-width: 400px;
+      padding: 35px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e8e4da;
+      
+      white-space: pre-wrap;
+      word-break: break-word;
+      
+      font-size: 16px;
+      line-height: 1.9;
+      color: #333333;
+
+      /* 아래에서 위로 스르륵 올라오는 애니메이션 */
+      animation: slideUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      opacity: 0.5;
+    }
+
+    /* 문단별로 부드럽게 나타나는 효과 */
+    .paragraph {
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+    /* 각 문단마다 시간차를 두고 등장 */
+    .p1 { animation-delay: 0.5s; }
+    .p2 { animation-delay: 1.5s; }
+    .p3 { animation-delay: 2.5s; }
+    .p4 { animation-delay: 3.5s; }
+    .p5 { animation-delay: 4.5s; }
+    .p6 { animation-delay: 5.5s; }
+
+    /* 감성적인 포인트를 위한 강조 스타일 + 두근거림 효과 */
+    .highlight {
+      color: #d96a6a;
+      font-weight: bold;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    /* 애니메이션 정의들 */
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); color: #e65c5c; }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes floatAround {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-20px) translateX(10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-decor"></div>
+  <div class="bg-decor"></div>
+  <div class="bg-decor"></div>
+
+  <div class="letter-container">
+    <div class="paragraph p1">사랑하는 아들 기준, 20번째 생일을 진심으로 축하한데이~ ㅎㅎㅎㅎㅎㅎㅎ</div>
+    
+    <div class="paragraph p2">또 한 번의 도전을 위해 매일 아침 졸린 눈 비벼가며 열심히 하루하루 매진하는 아들에게 아빠가 딱히 뭔가 도움을 줄 수 있는 게 없어 항상 안타까울 뿐이데이.</div>
+    
+    <div class="paragraph p3">아빠는 엄마랑 요새 자주 하는 말이 정말 하루가 너무 짧고, 한 달이 너무 짧고, 1년이 너무 짧다는 말을 자주 반복하곤 해.
+정말 인생은 길지 않고 눈 깜짝할 사이에 시간은 강물처럼 흘러간다는 사실을 너무 늦게서야 <span class="highlight">깨달은</span> 느낌이야 ㅋㅋㅋㅋㅋㅋㅋ</div>
+    
+    <div class="paragraph p4">우리 기준이는 그래도 하루하루 헛되이 시간을 보내지 않고 열심히 잘 살아가고 있으니 아빠는 그저 대견할 뿐이란다.</div>
+    
+    <div class="paragraph p5">가장 중요한 건 첫째도 건강, 둘째도 건강이데이!
+아빠는 기준이가 살면서 그저 행복하고 불필요한 고민 없는 산뜻한 하루하루가 이어지길 바랄 뿐이다. ㅎㅎㅎㅎㅎㅎㅎ</div>
+    
+    <div class="paragraph p6">항상 <span class="highlight">사랑하고</span> 응원한데이.
+아빠의 아들로 태어나줘서 고맙다.
+
+2026년 6월 19일, 사무실에서 아뽕이가 ㅋㅋㅋㅋㅋㅋㅋ</div>
+  </div>
+
+</body>
+</html>
