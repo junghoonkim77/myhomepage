@@ -140,7 +140,7 @@ $result = $conn->query($sql);
             $('#vocSearch').trigger('keyup');
         });
         // 버전 정보 표시
-        const nowversion = "사례집_ver.28";
+        const nowversion = "사례집_ver.30";
         $('#nowversion').text(nowversion);
     });
     </script>
