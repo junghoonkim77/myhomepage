@@ -8,6 +8,23 @@
 </script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
 </script> 
+<style>
+   table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+   
+   tr {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+
+    td {
+        padding: 5px;
+        border: 1px solid #ccc;
+        
+     }
+</style>
 
     <title>password wallet</title>
 </head>
@@ -25,9 +42,9 @@
 
             passwords.forEach(entry => {
                 const entryDiv = $('<table></table>').addClass('password-entry');
-                entryDiv.append(`<tr><td>Site:</td><td>${entry.site}</td></tr>`);
-                entryDiv.append(`<tr><td>Username:</td><td>${entry.username}</td></tr>`);
-                entryDiv.append(`<tr><td>Password:</td><td>${entry.password}</td></tr>`);
+                entryDiv.
+                append(`<tr><td>${entry.site}</td><td>ID:${entry.username}</td><td>비번:${entry.password}</td></tr>`);
+                
                 $('body').append(entryDiv);
             });
         });
