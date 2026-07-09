@@ -249,13 +249,29 @@ for ($day = 1; $day <= $last_day; $day++) {
 $(document).ready(function() {
     const totalwork = Number($('.totalworkingday').attr('data-totalwork'));
     const remainwork = Number($('.remainworkingday').attr('data-remainwork'));
-    // 수정: 오늘을 포함하기 위해 +1을 하거나, 
-    // 오늘이 지난 시점의 데이터를 보려면 전체에서 남은 날을 뺀 값에 현재 진행분을 고려해야 합니다.
-    let elapsed = totalwork - remainwork + 1; 
+    // 1. 어제까지 완전히 지나간 영업일수 계산 (remainwork에 오늘이 포함되어 있으므로)
+    let pastDays = totalwork - remainwork;
+    if (pastDays < 0) pastDays = 0;
+
+    // 2. 오늘 하루의 업무 진행률 계산 (09:00 ~ 18:00 기준)
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    let todayProgress = 0;
+
+    if (hours >= 18) {
+        todayProgress = 1; // 오후 6시 이후는 오늘 하루 목표 100% 반영
+    } else if (hours >= 9) {
+        // 09시 ~ 18시 사이는 분 단위로 쪼개서 소수점(0.0 ~ 0.99)으로 반영 (9시간 = 540분)
+        todayProgress = ((hours - 9) * 60 + minutes) / 540;
+    }
+
+    // 3. 최종 경과일 = 과거 영업일수 + 오늘의 실시간 진행률
+    let elapsed = pastDays + todayProgress;
 
     // 단, 영업일이 아닌 날(주말/공휴일)에 접속했을 때 elapsed가 totalwork를 초과하지 않도록 방어 코드 추가
     if (elapsed > totalwork) elapsed = totalwork;
-    if (elapsed < 1) elapsed = 1; // 0으로 나누기 방지
+   if (elapsed <= 0.01) elapsed = 0.01; // 0으로 나누기 방지 (아주 작은 값 부여)
     
     function updateTable(tableId, isWire) {
         let prefix = isWire ? 'w' : '';

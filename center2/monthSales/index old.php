@@ -97,12 +97,12 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <tr>
                     <th class="tg-46o7" rowspan="2" style="width:12%">팀</th>
                     <th class="tg-46o7" colspan="4">M가입기회발굴</th>
-                    <th class="tg-46o7" colspan="6">IT가입기회발굴</th> 
+                    <th class="tg-46o7" colspan="4">IT가입기회발굴</th> 
                     <th class="tg-46o7" style="width:12%">입력일시</th>
                 </tr>
                 <tr>
                     <th class="tg-46o7">목표</th><th class="tg-46o7">개통</th><th class="tg-46o7">진도</th><th class="tg-46o7">달성</th>
-                    <th class="tg-46o7">목표</th><th class="tg-46o7">문의</th><th class="tg-46o7">권유</th><th class="tg-46o7">합계</th><th class="tg-46o7">진도</th><th class="tg-46o7">달성</th>
+                    <th class="tg-46o7">목표</th><th class="tg-46o7">개통</th><th class="tg-46o7">진도</th><th class="tg-46o7">달성</th>
                     <th class="tg-46o7">-</th>
                 </tr>
             </thead>
@@ -116,9 +116,8 @@ for ($day = 1; $day <= $last_day; $day++) {
                     <td class="msuccess"><?php echo $t[1]['모개']; ?></td>
                     <td class="mprogress"></td><td class="machieve"></td>
                     <td class="ittarget"><?php echo $t[1]['인티목']; ?></td>
-                    <td class="itsuccess-q"><?php echo $t[1]['인티문의']; ?></td>
                     <td class="itsuccess-s"><?php echo $t[1]['인티권유']; ?></td>
-                    <td class="itsuccess-total"></td> 
+                  <!--  <td class="itsuccess-total"></td> --> 
                     <td class="itprogress"></td><td class="itachieve"></td>
                     <td class="colorchange" data-color="<?php echo $days[$weekday]; ?>" style="font-size:11px"><?php echo $t[1]['시간']; ?></td>
                 </tr>
@@ -126,7 +125,7 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <tr class="total-row">
                     <td>계</td>
                     <td class="mtargetTotal"></td><td class="msuccessTotal"></td><td class="mprogressTotal"></td><td class="machieveTotal"></td>
-                    <td class="ittargetTotal"></td><td class="itqTotal"></td><td class="itsTotal"></td><td class="ittotalTotal"></td><td class="itprogressTotal"></td><td class="itachieveTotal"></td>
+                    <td class="ittargetTotal"></td><td class="itsTotal"></td><td class="itprogressTotal"></td><td class="itachieveTotal"></td>
                     <td>-</td>
                 </tr>
             </tbody>
@@ -144,8 +143,8 @@ for ($day = 1; $day <= $last_day; $day++) {
                     </select>
                 </div>
                 <div class="form-row"><label>M개통 누적</label><input type="number" id="Msuccess" name="Msuccess"></div>
-                <div class="form-row"><label>IT문의 누적</label><input type="number" id="ITsuccess" name="ITsuccess"></div>
-                <div class="form-row"><label>IT권유 누적</label><input type="number" id="newITsuccess" name="newITsuccess"></div>
+               <!-- <div class="form-row"><label>IT문의 누적</label><input type="number" id="ITsuccess" name="ITsuccess"></div> -->
+                <div class="form-row"><label>IT개통 누적</label><input type="number" id="newITsuccess" name="newITsuccess"></div>
                 <input type="hidden" name="nowtime" value="<?php echo date('d일H:i:s').$days[$weekday]; ?>">
                 <button type="submit">실적 제출</button>
             </fieldset>
@@ -177,12 +176,12 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <tr>
                     <th class="tg-46o7" rowspan="2" style="width:12%">팀</th>
                     <th class="tg-46o7" colspan="4">M가입기회발굴</th>
-                    <th class="tg-46o7" colspan="6">IT가입기회발굴</th>
+                    <th class="tg-46o7" colspan="4">IT가입기회발굴</th>
                     <th class="tg-46o7" style="width:12%">입력일시</th>
                 </tr>
                 <tr>
                     <th class="tg-46o7">목표</th><th class="tg-46o7">개통</th><th class="tg-46o7">진도</th><th class="tg-46o7">달성</th>
-                    <th class="tg-46o7">목표</th><th class="tg-46o7">문의</th><th class="tg-46o7">권유</th><th class="tg-46o7">합계</th><th class="tg-46o7">진도</th><th class="tg-46o7">달성</th>
+                    <th class="tg-46o7">목표</th><th class="tg-46o7">개통</th><th class="tg-46o7">진도</th><th class="tg-46o7">달성</th>
                     <th class="tg-46o7">-</th>
                 </tr>
             </thead>
@@ -196,9 +195,8 @@ for ($day = 1; $day <= $last_day; $day++) {
                     <td class="wmsuccess"><?php echo $t[1]['모개']; ?></td>
                     <td class="wmprogress"></td><td class="wmachieve"></td>
                     <td class="wittarget"><?php echo $t[1]['인티목']; ?></td>
-                    <td class="witsuccess-q"><?php echo $t[1]['인티문의']; ?></td>
                     <td class="witsuccess-s"><?php echo $t[1]['인티권유']; ?></td>
-                    <td class="witsuccess-total"></td>
+                   <!-- <td class="witsuccess-total"></td> -->
                     <td class="witprogress"></td><td class="witachieve"></td>
                     <td class="colorchange" data-color="<?php echo $days[$weekday]; ?>" style="font-size:11px"><?php echo $t[1]['시간']; ?></td>
                 </tr>
@@ -206,7 +204,7 @@ for ($day = 1; $day <= $last_day; $day++) {
                 <tr class="total-row">
                     <td>계</td>
                     <td class="wmtargetTotal"></td><td class="wmsuccessTotal"></td><td class="wmprogressTotal"></td><td class="wmachieveTotal"></td>
-                    <td class="wittargetTotal"></td><td class="witqTotal"></td><td class="witsTotal"></td><td class="wittotalTotal"></td><td class="witprogressTotal"></td><td class="witachieveTotal"></td>
+                    <td class="wittargetTotal"></td></td><td class="witsTotal"></td><td class="witprogressTotal"></td><td class="witachieveTotal"></td>
                     <td>-</td>
                 </tr>
             </tbody>
@@ -222,9 +220,8 @@ for ($day = 1; $day <= $last_day; $day++) {
                         <option value="유1">유선1</option><option value="유2">유선2</option>
                     </select>
                 </div>
-                <div class="form-row"><label>M이관 누적</label><input type="number" id="WMsuccess" name="Msuccess"></div>
-                <div class="form-row"><label>IT문의 누적</label><input type="number" id="WITsuccess" name="ITsuccess"></div>
-                <div class="form-row"><label>IT권유 누적</label><input type="number" id="WnewITsuccess" name="newITsuccess"></div>
+                <div class="form-row"><label>M개통 누적</label><input type="number" id="WMsuccess" name="Msuccess"></div>
+                <div class="form-row"><label>IT개통 누적</label><input type="number" id="WnewITsuccess" name="newITsuccess"></div>
                 <input type="hidden" name="nowtime" value="<?php echo date('d일H:i:s').$days[$weekday]; ?>">
                 <button type="submit">실적 제출</button>
             </fieldset>
@@ -262,7 +259,7 @@ $(document).ready(function() {
     
     function updateTable(tableId, isWire) {
         let prefix = isWire ? 'w' : '';
-        let sums = { mTar:0, mSuc:0, itTar:0, itQ:0, itS:0, itTot:0 };
+        let sums = { mTar:0, mSuc:0, itTar:0, itS:0, itTot:0 };
 
         $(`#${tableId} tbody tr:not(.total-row)`).each(function() {
             const row = $(this);
@@ -280,12 +277,12 @@ $(document).ready(function() {
 
             // 2. IT 가입기회발굴 계산 (문의 + 권유 합산)
             let itTar = parseInt(row.find(`.${prefix}ittarget`).text()) || 0;
-            let itQ = parseInt(row.find(`.${prefix}itsuccess-q`).text()) || 0;
+           // let itQ = parseInt(row.find(`.${prefix}itsuccess-q`).text()) || 0;
             let itS = parseInt(row.find(`.${prefix}itsuccess-s`).text()) || 0;
-            let itTot = itQ + itS;
+            let itTot = itS;
             
             row.find(`.${prefix}itsuccess-total`).text(itTot); // 합계 칸에 입력
-            sums.itTar += itTar; sums.itQ += itQ; sums.itS += itS; sums.itTot += itTot;
+            sums.itTar += itTar; sums.itS += itS; sums.itTot += itTot;
 
             if(itTar > 0) {
                 row.find(`.${prefix}itachieve`).text(((itTot/itTar)*100).toFixed(2) + '%');
@@ -304,7 +301,6 @@ $(document).ready(function() {
         }
 
         $(`.${prefix}ittargetTotal`).text(sums.itTar);
-        $(`.${prefix}itqTotal`).text(sums.itQ);
         $(`.${prefix}itsTotal`).text(sums.itS);
         $(`.${prefix}ittotalTotal`).text(sums.itTot);
         if(sums.itTar > 0) {
@@ -335,10 +331,9 @@ $(document).ready(function() {
         if(selectedTeam) {
             let targetRow = $(`#${selectedTeam}`);
             $('#Msuccess').val(targetRow.find('.msuccess').text());
-            $('#ITsuccess').val(targetRow.find('.itsuccess-q').text());
             $('#newITsuccess').val(targetRow.find('.itsuccess-s').text());
         } else {
-            $('#Msuccess, #ITsuccess, #newITsuccess').val('');
+            $('#Msuccess,#newITsuccess').val('');
         }
     });
 
@@ -347,10 +342,9 @@ $(document).ready(function() {
         if(selectedTeam) {
             let targetRow = $(`#${selectedTeam}`);
             $('#WMsuccess').val(targetRow.find('.wmsuccess').text());
-            $('#WITsuccess').val(targetRow.find('.witsuccess-q').text());
             $('#WnewITsuccess').val(targetRow.find('.witsuccess-s').text());
         } else {
-            $('#WMsuccess, #WITsuccess, #WnewITsuccess').val('');
+            $('#WMsuccess, #WnewITsuccess').val('');
         }
     });
 });
