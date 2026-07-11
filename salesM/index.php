@@ -168,10 +168,11 @@ while($row=mysqli_fetch_array($result)){
     <option value="최민지">최민지</option>
     <option value="백금옥">백금옥</option>
     <option value="이윤복">이윤복</option>
-    <option value="김지훈">김지훈</option>
     <option value="이진우">이진우</option>
     <option value="임규석">임규석</option>
     <option value="최아람">최아람</option>
+    <option value="임한규">임한규</option>
+    <option value="진미란">진미란</option>
    </select><br>
 
    <label for="salesIn">접수성공일자</label> 
