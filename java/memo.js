@@ -526,7 +526,6 @@ $(function(){
  <li>일출결UP</li>
  <li>일보작성</li>
  <li>전일세일즈제출</li>
- <li>면담일지작성</li>
  <li>보안점검</li>
  <li>---오후---</li>
  <li>일보UP</li>

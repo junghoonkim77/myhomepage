@@ -19,7 +19,7 @@
    <option  value="meid">본인ID(kos id)</option>
    <option  value="kos">KOS비번</option>
    <option  value="atas">ATAS비번</option>
-   <option  value="idms">IDMS비번(넷윈..등)</option>
+   <option  value="idms">IM메신저비번</option>
    <option  value="wfms">wfms비번</option>
  </select>
  <button title="전산명선택->비번메모장입력->비번변경클릭 끝" 
@@ -63,7 +63,7 @@
 
    <input data-code="atas" class="special" type="button" value="ATAS비번"> <br>
 
-   <input data-code="idms" class="special" type="button" value="IDMS비번(넷윈도..등)"><br>
+   <input data-code="idms" class="special" type="button" value="IM메신저비번"><br>
 
    <input data-code="wfms" class="special" type="button" value="WFMS비번">  <br>
 
