@@ -33,7 +33,7 @@
  <span id="memoview">M</span>
  <div class="buttonpack">
 
-   <input class="leftmove5" type="button" value="그룹📧"
+   <input class="leftmove5" type="button" value="그룹웨어📧"
 
        onclick="window.open('https://gw.ktcs.co.kr/logon.aspx', '_blank', 'width=1100, height=900' ) ; return false;">
 
