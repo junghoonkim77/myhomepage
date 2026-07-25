@@ -76,8 +76,10 @@
                     <option value="전날술X집">전날술X집</option>
                     <option value="전날술사무실">전날술사무실</option>
                     <option value="전날술X사무실">전날술X사무실</option>
-                    <option value="술안먹2일">술안먹2일</option>
-                    <option value="술안먹3일">술안먹3일</option>
+                    <option value="술안먹2일집">술안먹2일집</option>
+                    <option value="술안먹2일사무실">술안먹2일사무실</option>
+                    <option value="술안먹3일집">술안먹3일집</option>
+                    <option value="술안먹3일사무실">술안먹3일사무실</option>
                     <option value="술안먹3일이상">술안먹3일이상</option>
                 </select>
                 <input class="button1" type="submit" value="저장">
