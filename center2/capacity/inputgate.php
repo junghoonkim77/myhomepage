@@ -155,7 +155,6 @@
                 <option value="무2">무선2</option>
                 <option value="무3">무선3</option>
                 <option value="무4">무선4</option>
-                <option value="무5">무선5</option>
             </select>
 
             <label>컨설턴트명</label>
@@ -205,7 +204,7 @@
                 <option value="무2">무선2</option>
                 <option value="무3">무선3</option>
                 <option value="무4">무선4</option>
-                <option value="무5">무선5</option>
+                
             </select>
             <input type="text" name="pname" id="name" placeholder="이름 입력">
             <button type="submit" class="add-btn">추가</button>

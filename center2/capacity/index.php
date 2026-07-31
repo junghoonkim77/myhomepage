@@ -168,7 +168,7 @@ if ($search_team && $search_name) {
 
 <script>
     // 기존 기능 로직 유지
-    const teamName = {무1:'무선1팀', 무2:'무선2팀', 무3:'무선3팀', 무4:'무선4팀', 무5:'무선5팀'};
+    const teamName = {무1:'무선1팀', 무2:'무선2팀', 무3:'무선3팀', 무4:'무선4팀'};
 
     for (let key in teamName){
         $('#teamName').append(`<option value="${key}">${teamName[key]}</option>`)

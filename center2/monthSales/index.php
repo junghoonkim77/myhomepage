@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 
 include ('phpgate.php'); 
 
-$teams = ['무1', '무2', '무3', '무4', '무5', '통품','유1','유2']; 
+$teams = ['무1', '무2', '무3', '무4', '통품','유1','유2']; 
 $teamData = [];
 foreach ($teams as $team) {
     $teamData[$team] = [];
@@ -29,7 +29,7 @@ foreach ($teams as $team) {
 
 // 각 팀별 데이터 변수 할당
 $mu1 = $teamData['무1'][0]; $mu2 = $teamData['무2'][0]; $mu3 = $teamData['무3'][0]; 
-$mu4 = $teamData['무4'][0]; $mu5 = $teamData['무5'][0]; $tong = $teamData['통품'][0]; 
+$mu4 = $teamData['무4'][0];  $tong = $teamData['통품'][0]; 
 $wire1 = $teamData['유1'][0]; $wire2 = $teamData['유2'][0]; 
 
 $weekday = date('l'); 
@@ -79,7 +79,7 @@ for ($day = 1; $day <= $last_day; $day++) {
 <body>
 
 <div class="headbox">
-    <h3>CS1,2센터 <span><?php echo (int)$month; ?></span>월 누적 실적 현황</h3> 
+    <h3>CS센터(유,무선) <span><?php echo (int)$month; ?></span>월 누적 실적 현황</h3> 
     <div id="goal">
         <span data-totalwork="<?php echo $total_working_days; ?>" class="totalworkingday"><?php echo (int)$month."월 총 영업일: ".$total_working_days; ?>일</span> &nbsp;|&nbsp;
         <span data-remainwork="<?php echo $remaining_days; ?>" class="remainworkingday"><?php echo "잔여 영업일: ".$remaining_days; ?>일</span> &nbsp;|&nbsp;
@@ -90,7 +90,7 @@ for ($day = 1; $day <= $last_day; $day++) {
 
 <div class="container">
     <div class="cs2centerdash">
-        <h4>CS2센터(무선) 누적 실적</h4>
+        <h4>CS센터(무선) 누적 실적</h4>
         <button id="c2tablecopy" style="margin-bottom:10px; background:#007bff;">표 복사</button>
         <table class="tg" id="cs2table">
             <thead>
@@ -108,7 +108,7 @@ for ($day = 1; $day <= $last_day; $day++) {
             </thead>
             <tbody>
                 <?php 
-                $mu_teams = [['무선1팀', $mu1,'무1'], ['무선2팀', $mu2,'무2'], ['무선3팀', $mu3,'무3'], ['무선4팀', $mu4,'무4'], ['무선5팀', $mu5,'무5'], ['통화품질팀', $tong,'통품']]; 
+                $mu_teams = [['무선1팀', $mu1,'무1'], ['무선2팀', $mu2,'무2'], ['무선3팀', $mu3,'무3'], ['무선4팀', $mu4,'무4'], ['통화품질팀', $tong,'통품']]; 
                 foreach($mu_teams as $t): ?>
                 <tr <?php echo "id='".$t[2]."'"; ?>>
                     <td><?php echo $t[0]; ?></td>
@@ -139,7 +139,7 @@ for ($day = 1; $day <= $last_day; $day++) {
                     <select name="teamname" id="muTeamSelect" required>
                         <option value="">팀 선택</option>
                         <option value="무1">무선1</option><option value="무2">무선2</option><option value="무3">무선3</option>
-                        <option value="무4">무선4</option><option value="무5">무선5</option><option value="통품">통품</option>
+                        <option value="무4">무선4</option><option value="통품">통품</option>
                     </select>
                 </div>
                 <div class="form-row"><label>M개통 누적</label><input type="number" id="Msuccess" name="Msuccess"></div>
@@ -158,7 +158,7 @@ for ($day = 1; $day <= $last_day; $day++) {
                     <select name="teamname" required>
                         <option value="">팀 선택</option>
                         <option value="무1">무선1</option><option value="무2">무선2</option><option value="무3">무선3</option>
-                        <option value="무4">무선4</option><option value="무5">무선5</option><option value="통품">통품</option>
+                        <option value="무4">무선4</option><option value="통품">통품</option>
                     </select>
                 </div>
                 <div class="form-row"><label>M목표</label><input type="number" name="Mtarget"></div>
@@ -169,7 +169,7 @@ for ($day = 1; $day <= $last_day; $day++) {
     </div>
 
     <div class="cs1centerdash">
-        <h4>CS1센터(유선) 누적 실적</h4>
+        <h4>CS센터(유선) 누적 실적</h4>
         <button id="c1tablecopy" style="margin-bottom:10px; background:#007bff;">표 복사</button>
         <table class="tg" id="cs1table">
             <thead>
