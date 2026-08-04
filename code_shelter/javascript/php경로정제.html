@@ -43,7 +43,7 @@
             $staridx = $result1.indexOf('★')+1
             $result2 = $result1.slice($staridx);
            // $result3=$result2.replace('localhost/github/myhomepage','http://folkball.dothome.co.kr/mypage');
-            $result3=$result2.replace(/localhost\/github\/myhomepage/i,'http://folkball.dothome.co.kr/mypage');
+            $result3=$result2.replace(/localhost\/github\/myhomepage/i,'http://folkball.dothome.co.kr/mypagere');
             $('.div1').text($result2);
             $('.div2').text($result3);
             $('.div3').text($gitresul_fin);
@@ -63,12 +63,12 @@
             $result1 = $result.replace('localhost/','★');
             $staridx = $result1.indexOf('★')+1
             $result2 ="localhost/"+ $result1.slice($staridx);
-            $result3 ='http://folkball.dothome.co.kr/mypage/'+$result1.slice($staridx);
+            $result3 ='http://folkball.dothome.co.kr/mypagere/'+$result1.slice($staridx);
             $result4 = $result3.replace("myhomepage/","");
             console.log($result2);
             
            // $result3=$result2.replace('localhost/github/myhomepage','http://folkball.dothome.co.kr/mypage');
-            $result3=$result2.replace('localhost/','http://folkball.dothome.co.kr/mypage');
+            $result3=$result2.replace('localhost/','http://folkball.dothome.co.kr/mypagere');
             $('.div4').text($result2);
             $('.div5').text($result4);
             $('.div6').text($gitresul_fin);
