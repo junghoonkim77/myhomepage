@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 
 include ('phpgate.php'); 
 
-$teams = ['무1', '무2', '무3', '무4', '무5', '통품','유1','유2']; 
+$teams = ['무1', '무2', '무3', '무4', '통품','유1','유2']; 
 $teamData = [];
 foreach ($teams as $team) {
     $teamData[$team] = [];

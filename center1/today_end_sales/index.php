@@ -51,69 +51,74 @@ $result1 = mysqli_query($conn, $sql1);
 
     <style>
         /* 기본 레이아웃 최적화 */
-        body { font-family: 'Pretendard', -apple-system, sans-serif; background-color: #f1f5f9; margin: 0; padding: 15px; color: #334155; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Pretendard', -apple-system, sans-serif; background-color: #f1f5f9; margin: 0; padding: 10px; color: #334155; }
         
-        /* 제목 영역 - 중앙 정렬 및 여백 최적화 */
-        .main-header { text-align: center; margin-bottom: 20px; }
-        .main-header h2 { margin: 0; color: #0f172a; font-size: 1.5rem; letter-spacing: -0.05rem; }
-
-        /* 전체 컨테이너 가로폭 확장 */
-        .main-wrapper { max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
-
-        /* 상단 섹션: 실적표 | 시간 | 보안점검 (3분할 가로형) */
-        .display-section { display: flex; gap: 15px; width: 100%; }
+        /* 제목 영역 - 중앙 정렬 및 여백 최적화 (모바일/PC 반응형) */
+        .main-header { display: flex; flex-direction: column; gap: 10px; text-align: center; margin-bottom: 15px; }
+        .main-header h2 { margin: 0; color: #0f172a; font-size: 1.2rem; letter-spacing: -0.05rem; word-break: keep-all; line-height: 1.4; }
         
-        .card { background: #fff; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
-        
-        #tablecopy { flex: 2; } /* 실적표를 가장 크게 */
-        #timebox { flex: 0.5; min-width: 150px; }
-        #boanBox { flex: 1.5; }
+        .header-links { display: flex; flex-direction: column; gap: 6px; }
+        .header-links a { background: #2563eb; color: white; padding: 10px; border-radius: 8px; font-size: 0.9rem; text-decoration: none; font-weight: bold; }
 
+        /* 전체 컨테이너 */
+        .main-wrapper { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+
+        /* 상단 섹션: 실적표 | 시간 (모바일에서 세로로 떨어지도록 수정) */
+        .display-section { display: flex; flex-direction: column; gap: 15px; width: 100%; }
+        
+        .card { background: #fff; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); width: 100%; }
+        
         h4 { margin: 0 0 12px 0; font-size: 1rem; color: #1e293b; display: flex; align-items: center; gap: 8px; }
 
-        /* 테이블 디자인 고도화 */
-        table { border-collapse: collapse; width: 100%; font-size: 0.85rem; border-radius: 8px; overflow: hidden; }
-        thead td { background-color: #1e293b; color: #f8fafc; padding: 10px; font-weight: 600; }
+        /* 테이블 디자인 고도화 및 모바일 가로 스크롤 허용 */
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
+        table { border-collapse: collapse; width: 100%; font-size: 0.85rem; min-width: 400px; }
+        thead td { background-color: #1e293b; color: #f8fafc; padding: 10px; font-weight: 600; white-space: nowrap; }
         td { border-bottom: 1px solid #f1f5f9; padding: 10px 5px; text-align: center; }
-        .team1 { background-color: #f8fafc; font-weight: bold; color: #475569; }
+        .team1 { background-color: #f8fafc; font-weight: bold; color: #475569; white-space: nowrap; }
         tfoot td { background-color: #f8fafc; font-weight: 800; color: #2563eb; border-top: 2px solid #e2e8f0; }
 
-        /* 버튼 및 입력 요소 커스텀 */
-        .tabcopy { background-color: #3b82f6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; width: 100%; margin-bottom: 15px; font-weight: 600; }
+        /* 버튼 및 텍스트 커스텀 */
+        .tabcopy { background-color: #3b82f6; color: white; border: none; padding: 10px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; transition: 0.2s; width: 100%; margin-bottom: 15px; font-weight: bold; }
         .tabcopy:hover { background-color: #2563eb; }
 
-        .teamcom { font-size: 0.85rem; padding: 8px; border-radius: 6px; background: #f8fafc; margin: 5px 0; border: 1px solid #f1f5f9; }
+        .teamcom { font-size: 0.85rem; padding: 8px; border-radius: 6px; background: #f8fafc; margin: 5px 0; border: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;}
         .colordiv { padding: 2px 6px; border-radius: 4px; font-weight: bold; }
 
-        .chgcolor { padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 8px; font-size: 0.85rem; background: #fff; transition: 0.3s; }
-
-        /* 하단 입력바: 화면 하단에 고정하거나 넓게 배치 */
+        /* 하단 입력바: 모바일 화면에 맞춰 줄바꿈(wrap)되도록 유연하게 배치 */
         .input-section { 
-            display: flex; flex-wrap: wrap; gap: 15px; background: #1e293b; padding: 15px; 
-            border-radius: 12px; color: white; align-items: center; justify-content: center;
+            display: flex; flex-direction: column; gap: 15px; background: #1e293b; padding: 15px; 
+            border-radius: 12px; color: white; width: 100%;
         }
-        fieldset { border: none; padding: 0; margin: 0; display: flex; align-items: center; gap: 10px; }
-        label { font-size: 0.75rem; font-weight: 500; color: #94a3b8; }
+        form { width: 100%; }
+        fieldset { border: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
         
-        select, input { padding: 8px; border: 1px solid #334155; border-radius: 6px; background: #f8fafc; font-size: 0.85rem; outline: none; }
-        input[type="number"] { width: 55px; }
-        .button1, .button2, .button3, .button4 { padding: 8px 16px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; }
-        .button1 { background: #10b981; color: white; } /* 초록 */
-        .button2 { background: #6366f1; color: white; } /* 보라 */
+        .input-group { display: flex; align-items: center; gap: 6px; flex: 1 1 calc(50% - 10px); min-width: 100px; }
+        .input-group label { font-size: 0.75rem; font-weight: 500; color: #94a3b8; white-space: nowrap; }
+        
+        select, input { padding: 10px; border: 1px solid #334155; border-radius: 6px; background: #f8fafc; font-size: 0.85rem; outline: none; }
+        select { flex: 1 1 100%; min-width: 150px; }
+        input[type="number"] { flex: 1; width: auto; min-width: 0; text-align: center; }
+        
+        .button1 { flex: 1 1 100%; padding: 12px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer; background: #10b981; color: white; margin-top: 5px; font-size: 1rem; transition: 0.2s; }
+        .divider { display: none; } /* 모바일에서는 구분선 숨김 */
 
-        /* 공지사항 하단 영역 가로 배치 */
-        .sub-wrapper { display: flex; gap: 15px; width: 100%; min-height: 400px; }
-        .noticeinput { flex: 1; display: flex; flex-direction: column; }
-        .noticeview { flex: 3; max-height: 600px; overflow-y: auto; }
-
-        .notice-card { background: white; border: 1px solid #e2e8f0; padding: 15px; margin-bottom: 12px; border-radius: 10px; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .notice-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px dashed #e2e8f0; font-size: 0.8rem; }
-        .team-badge { background: #eff6ff; color: #2563eb; padding: 4px 10px; border-radius: 20px; font-weight: 700; border: 1px solid #dbeafe; }
-        .notice-body { font-size: 0.7rem; line-height: 0.8; color: #334155; white-space: pre-wrap; }
-        
-        textarea { width: 100%; height: 120px; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; box-sizing: border-box; font-family: inherit; resize: none; margin-bottom: 10px; }
-        
         .boancom { display: none; }
+
+        /* 데스크톱(PC) 모드 적용 */
+        @media (min-width: 768px) {
+            .main-header { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; padding: 0 10px; }
+            .header-links { flex-direction: row; }
+            .display-section { flex-direction: row; align-items: flex-start; }
+            #tablecopy { flex: 2; } 
+            #timebox { flex: 0.5; min-width: 200px; }
+            
+            fieldset { flex-wrap: nowrap; }
+            select { flex: 0 0 auto; min-width: 100px; }
+            .button1 { flex: 0 0 auto; margin-top: 0; }
+            .divider { display: block; border-left: 1px solid #475569; height: 30px; margin: 0 10px; }
+        }
     </style>
 
     <title>CS1센터 Sales일실적</title>
@@ -122,26 +127,30 @@ $result1 = mysqli_query($conn, $sql1);
 <body>
     <div class="main-header">
         <h2>서울중앙 CS센터(유선) 일 실적 및 보안 점검 창</h2>
-        <a href="../../center2/today_end_sales/index.php" style="position:absolute; right:14rem; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS(무선)실적 이동</a>  
-        <a href="../../center2/monthSales/index.php" style="position:absolute; right:20px; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS(유,무선) 누적개통 실적 이동</a>
+        <div class="header-links">
+            <a href="../../center2/today_end_sales/index.php">CS(무선)일 실적 이동</a>  
+            <a href="../../center2/monthSales/index.php">CS(유,무선) 누적개통 실적 이동</a>
+        </div>
     </div>
 
     <div class="main-wrapper">
         <div class="display-section">
             <div id="tablecopy" class="card">
                 <h4>📊 <?php echo date("m/d").'('.$days[$weekday].')'; ?> 팀별 실적 현황</h4>
-                <table>
-                    <thead>
-                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>IT가설</td><td>M유치</td></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="team1">유선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="succeed"><?php echo $mu1[2] ?></td><td class="succeed1"><?php echo $mu1[4] ?></td></tr>
-                        <tr><td class="team1">유선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[2] ?></td><td class="succeed1"><?php echo $mu2[4] ?></td></tr>
-                    </tbody>
-                    <tfoot>
-                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="succeed_t"></td><td id="succeed1_t"></td></tr>
-                    </tfoot>
-                </table>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr><td>구분</td><td>인티</td><td>모바일</td><td>IT가설</td><td>M유치</td></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="team1">유선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="succeed"><?php echo $mu1[2] ?></td><td class="succeed1"><?php echo $mu1[4] ?></td></tr>
+                            <tr><td class="team1">유선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[2] ?></td><td class="succeed1"><?php echo $mu2[4] ?></td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="succeed_t"></td><td id="succeed1_t"></td></tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
             
             <div id="timebox" class="card">
@@ -149,12 +158,6 @@ $result1 = mysqli_query($conn, $sql1);
                 <h4>🕒 입력시간</h4>
                 <p class="teamcom">유1: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu1[5] ?></span></p>
                 <p class="teamcom">유2: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu2[5] ?></span></p>
-            </div>
-            
-            <div id="boanBox" class="card">
-                <h4>🛡️ 보안점검 결과</h4>
-                <div class="chgcolor" id="bteam1"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam1[1]."</span> ".$boteam1[1]." 유1 ".$boteam1[0] ?></div>
-                <div class="chgcolor" id="bteam2"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam2[1]."</span> ".$boteam2[1]." 유2 ".$boteam2[0] ?></div>
             </div>
         </div>
 
@@ -166,82 +169,25 @@ $result1 = mysqli_query($conn, $sql1);
                         <option value="유1">유선1팀</option>
                         <option value="유2">유선2팀</option>
                     </select>
-                    <label>인티</label> <input id="itnet" type="number" value=0 name="it">
-                    <label>모바일</label> <input id="mobile" type="number" value=0 name="mobile">
-                    <label>가설</label> <input id="success" type="number" value=0 name="success">
-                   <!-- <label>가설(문)</label> <input id="successnew" type="number" value=0 name="successnew"> 문의는 더이상 실적 아님 --> 
-                    <label>M유치</label> <input id="success1" type="number" value=0 name="success1">
+                    
+                    <div class="input-group">
+                        <label>인티</label> <input id="itnet" type="number" value=0 name="it">
+                    </div>
+                    <div class="input-group">
+                        <label>모바일</label> <input id="mobile" type="number" value=0 name="mobile">
+                    </div>
+                    <div class="input-group">
+                        <label>가설</label> <input id="success" type="number" value=0 name="success">
+                    </div>
+                    <div class="input-group">
+                        <label>M유치</label> <input id="success1" type="number" value=0 name="success1">
+                    </div>
+                    
                     <input id="nowtime" type="hidden" value="<?php echo date('d일H:i:s').$days[$weekday];?>" name="nowtime">
                     <button class="button1">📈 실적전송</button> 
                 </fieldset> 
             </form>
-
-            <div style="border-left: 1px solid #475569; height: 30px;"></div>
-
-            <form id="boaninsert" action="boaninsert.php" method="post">
-                <fieldset>
-                    <select name="teamname1" id="select1">
-                        <option value="">팀 선택</option>
-                        <option value="유1">유선1팀</option>
-                        <option value="유2">유선2팀</option>
-                   </select>
-                    <input id="boancheck" placeholder="이상 무 (보안점검 내용)" type="text" name="boancheck" style="width:180px;">
-                    <input id="nowtime1" type="hidden" value="<?php echo date('m월/d일').'('.$days[$weekday].')'.' 18시';?>" name="nowtime1">
-                    <button class="button2">🛡️ 보안전송</button> 
-                </fieldset> 
-            </form>
-        </div>
-
-        <div class="sub-wrapper">
-            <div class="noticeinput card">
-                <h4>📝 공지사항 입력</h4>
-                <form id="noticeinsert" action="noticeinsert.php" method="post">
-                    <select id="noticeteam" name="noticeteam" style="width:100%; margin-bottom:10px;">
-                        <option value="">대상 선택</option>
-                        <option value="센터장님">센터장님</option>
-                        <option value="유1">유선1팀</option>
-                        <option value="유2">유선2팀</option>
-                    </select>
-                    <textarea name="noticecontent" placeholder="공지할 내용을 입력하세요..."></textarea>
-                    <input id="regtime" type="hidden" value="<?php echo date('m월 d일H:i:s');?>" name="regtime">
-                    <button type="submit" class="button1 button3" style="width:100%; background:#2563eb;">공지 발송</button>
-                </form>
-                
-                <hr style="width:100%; margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-                
-                <form id="noticedel" action="noticedel.php" method="post">
-                    <div style="display:flex; gap:5px;">
-                        <input type="number" id="noticenum" placeholder="삭제 ID" name="id" style="flex:1;">
-                        <button type="submit" class="button4" style="background:#ef4444; color:white;">삭제</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="noticeview card">
-                <h4>📢 실시간 공지 현황</h4>
-                <?php
-                if (mysqli_num_rows($result1) > 0) {
-                    while($row1 = mysqli_fetch_assoc($result1)) {
-                        $team = htmlspecialchars($row1['teamname']);
-                        $date = htmlspecialchars($row1['regiday']);
-                        $content = nl2br(htmlspecialchars($row1['noticon']));
-                        $id = $row1['id'];
-                        ?>
-                        <div class="notice-card">
-                            <div class="notice-header">
-                                <span><span class="team-badge"><?php echo $team; ?></span> <small style="color:#94a3b8; margin-left:5px;">ID: <?php echo $id; ?></small></span>
-                                <span style="color:#94a3b8;"><?php echo $date; ?></span>
-                            </div>
-                            <div class="notice-body"><?php echo $content; ?></div>
-                        </div>
-                        <?php
-                    }
-                } else {
-                    echo "<p style='text-align:center; padding:50px; color:#94a3b8;'>등록된 공지사항이 없습니다.</p>";
-                }
-                mysqli_close($conn);
-                ?>
-            </div>
+            <div class="divider"></div>
         </div>
     </div>
 

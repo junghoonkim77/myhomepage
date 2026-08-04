@@ -426,20 +426,7 @@ $(function(){
              
              //$('#memosavebut').submit();
 
-             const formdata = $ ('#memosavebut').serialize();
-             $.ajax({
-              url : '../mymemosave/memosave.php',
-              type : 'post',
-              data : formdata,
-              success : function(response){
-                console.log("서버응답",response);
-                $('#memosuccess').text('⭕');
-              },
-              error : function(xhr,status,error){
-                console.log("서버응답",error);
-                $('#memosuccess').text('❌');
-              }
-             })
+           
 
 
              function savealarm(){

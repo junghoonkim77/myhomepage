@@ -55,156 +55,130 @@ $result1 = mysqli_query($conn, $sql1);
     <script src="../../java/library.js"></script> 
 
     <style>
+        * { box-sizing: border-box; } /* 모바일 레이아웃 안정을 위한 설정 */
         body { font-family: 'Pretendard', sans-serif; background-color: #f4f7fa; margin: 0; padding: 10px; }
-        h3, h4, h5 { margin: 0 0 8px 0; color: #1e293b; font-size: 0.9rem; }
+        h3, h4, h5 { margin: 0 0 8px 0; color: #1e293b; font-size: 1rem; }
 
-        .main-wrapper { display: flex; flex-direction: column; gap: 8px; max-width: 1300px; margin: 0 auto; }
+        .main-wrapper { display: flex; flex-direction: column; gap: 12px; max-width: 1300px; margin: 0 auto; }
 
-        /* 표시 영역 레이아웃 */
-        .display-section { display: flex; flex-direction: row; gap: 8px; align-items: stretch; }
+        /* 상단 헤더 및 링크 버튼 모바일 대응 */
+        .header-area { display: flex; flex-direction: column; gap: 10px; margin-bottom: 5px; }
+        .header-area h3 { text-align: center; font-size: 1.1rem; word-break: keep-all; line-height: 1.4; }
+        .header-links { display: flex; flex-direction: column; gap: 6px; }
+        .header-links a { background: #2563eb; color: white; padding: 10px; border-radius: 8px; font-size: 0.9rem; text-decoration: none; text-align: center; font-weight: bold; }
 
-        /* 섹션별 너비 조정 (더욱 축소) */
-        #tablecopy { flex: 0 0 420px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
-        #timebox { flex: 0 0 140px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
-        #boanBox { flex: 1; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
-        #cs2toolbox { flex: 0 0 350px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
+        /* 표시 영역 레이아웃 (모바일에서는 세로, PC에서는 가로) */
+        .display-section { display: flex; flex-direction: column; gap: 12px; }
 
-        /* 테이블 콤팩트화 */
-        table { border-collapse: collapse; width: 100%; font-size: 0.8rem; }
-        thead td { background-color: #1e293b; color: white; padding: 5px; text-align: center; }
-        td { border-bottom: 1px solid #e2e8f0; padding: 5px 2px; text-align: center; }
-        .team1 { background-color: #f8fafc; font-weight: bold; text-align: left; padding-left: 5px; width: 60px; }
-        tfoot td { background-color: #f1f5f9; font-weight: 800; color: #2563eb; }
+        #tablecopy, #timebox, #cs2toolbox { background: #fff; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; width: 100%; }
+
+        /* 테이블 콤팩트화 및 모바일 가로 스크롤 적용 */
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 6px; }
+        table { border-collapse: collapse; width: 100%; font-size: 0.85rem; min-width: 450px; } /* 최소 너비를 주어 텍스트 뭉개짐 방지 */
+        thead td { background-color: #1e293b; color: white; padding: 8px 5px; text-align: center; white-space: nowrap; }
+        td { border-bottom: 1px solid #e2e8f0; padding: 8px 3px; text-align: center; }
+        .team1 { background-color: #f8fafc; font-weight: bold; text-align: center; white-space: nowrap; }
+        tfoot td { background-color: #f1f5f9; font-weight: 800; color: #2563eb; padding: 8px 3px; }
 
         /* 입력 시간/보안결과 텍스트 축소 */
-        .tabcopy { background-color: #2563eb; color: white; border: none; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; margin-bottom: 8px; }
-        .teamcom { font-size: 0.75rem; margin: 3px 0; padding-bottom: 2px; border-bottom: 1px dashed #e2e8f0; white-space: nowrap; }
-        #boanBox div { padding: 4px 8px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 4px; font-size: 0.75rem; line-height: 1.2; }
-
-        /* 하단 입력창: 절대 줄바꿈 금지 */
-        .input-section { 
-            display: flex; flex-direction: row; gap: 8px; background: #fff; padding: 10px; 
-            border-radius: 10px; border: 1px solid #e2e8f0; align-items: center; overflow-x: auto; 
-        }
-        form { margin: 0; padding: 0; flex-shrink: 0; }
-        fieldset { border: none; padding: 0; margin: 0; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+        .tabcopy { background-color: #2563eb; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; margin-bottom: 10px; width: 100%; font-weight: bold; }
+        .teamcom { font-size: 0.85rem; margin: 6px 0; padding-bottom: 6px; border-bottom: 1px dashed #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
+        .teamcom span { padding: 2px 6px; border-radius: 4px; }
         
-        select, input[type="number"], input[type="text"] { padding: 5px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.8rem; }
-        input[type="number"] { width: 48px; text-align: center; } /* 숫자 입력창 더 축소 */
-        label { font-size: 0.75rem; font-weight: 600; color: #64748b; margin-left: 2px; }
+        #boanBox div { padding: 6px 10px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 6px; font-size: 0.8rem; line-height: 1.3; }
+
+        /* 하단 입력창 모바일 최적화 */
+        .input-section { 
+            background: #fff; padding: 15px; 
+            border-radius: 10px; border: 1px solid #e2e8f0; 
+        }
+        form { margin: 0; padding: 0; width: 100%; }
+        fieldset { border: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+        
+        select, input[type="number"], input[type="text"] { padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.9rem; }
+        input[type="number"] { width: 60px; text-align: center; flex: 1; min-width: 50px; }
+        select { flex: 1; min-width: 100px; }
+        
+        .input-group { display: flex; align-items: center; gap: 4px; flex: 1 1 calc(33% - 8px); min-width: 80px; }
+        .input-group label { font-size: 0.8rem; font-weight: 600; color: #64748b; white-space: nowrap; }
 
         .button1, .button2 { 
-            background-color: #0f172a; color: white; border: none; padding: 5px 10px; 
-            border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.8rem; flex-shrink: 0;
+            background-color: #0f172a; color: white; border: none; padding: 12px; 
+            border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem; width: 100%; margin-top: 10px;
         }
 
         .boancom { display: none; }
 
+        /* 공지사항 레이아웃 모바일 최적화 */
+        .sub-wrapper { display: flex; flex-direction: column; gap: 12px; margin: 12px auto 0; width: 100%; }
+        .noticeinput, .noticeview { background: #fff; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; width: 100%; }
+        .noticeview { max-height: 500px; overflow-y: auto; }
 
-        /* [추가] sub-wrapper 레이아웃 및 공지사항 스타일 */
-        .sub-wrapper { 
-            display: flex; 
-            flex-direction: row; 
-            gap: 8px; 
-            max-width: 2500px; 
-            margin: 8px auto 0; /* 위쪽 여백 부여 */
-        }
+        .noticeinput fieldset { display: flex; flex-direction: column; gap: 8px; align-items: stretch; }
+        .noticeinput textarea { width: 100%; height: 80px; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.9rem; resize: none; }
 
-        .noticeinput { 
-            flex: 1; 
-            background: #fff; 
-            padding: 10px; 
-            border-radius: 10px; 
-            border: 1px solid #e2e8f0; 
-        }
-
-        .noticeview { 
-            flex: 3; 
-            background: #fff; 
-            padding: 10px; 
-            border-radius: 10px; 
-            border: 1px solid #e2e8f0; 
-            max-height: 700px; /* 높이 제한 및 스크롤 */
-            overflow-y: auto;
-        }
-
-        .noticeinput fieldset {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            align-items: stretch;
-            white-space: normal;
-        }
-
-        .noticeinput textarea {
-            width: 100%;
-            height: 80px;
-            padding: 8px;
-            border: 1px solid #cbd5e1;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            resize: none;
-            box-sizing: border-box;
-        }
-
-        .notice-item {
-            padding: 8px;
-            border-bottom: 1px solid #f1f5f9;
-            font-size: 0.8rem;
-        }
-
+        .notice-item { padding: 10px 0; border-bottom: 1px solid #f1f5f9; font-size: 0.85rem; }
         .notice-item:last-child { border-bottom: none; }
+        .notice-tag { background: #e2e8f0; color: #475569; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; margin-right: 5px; }
+        .notice-date { float: right; color: #94a3b8; font-size: 0.75rem; margin-top: 3px; }
 
-        .notice-tag {
-            display: inline-block;
-            background: #e2e8f0;
-            color: #475569;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.7rem;
-            margin-right: 5px;
+        .notice-container { width: 100%; margin: 10px auto; }
+        .notice-card { border: 1px solid #e2e8f0; padding: 12px; margin-bottom: 10px; border-radius: 8px; background: #f8fafc; }
+        .notice-header { border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; color: #475569; font-size: 0.85rem; }
+        .team-badge { background: #2563eb; color: #fff; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; }
+        .notice-body { white-space: pre-wrap; word-break: break-all; line-height: 1.4; font-size: 0.85rem; color: #1e293b; }
+
+        /* 데스크톱(PC) 화면용 미디어 쿼리 (화면이 넓을 때 원래 의도한 가로 배치 유지) */
+        @media (min-width: 768px) {
+            .header-area { flex-direction: row; justify-content: space-between; align-items: center; }
+            .header-area h3 { text-align: left; }
+            .header-links { flex-direction: row; }
+            .display-section { flex-direction: row; align-items: stretch; }
+            #tablecopy { flex: 0 0 500px; }
+            #timebox { flex: 0 0 160px; }
+            #cs2toolbox { flex: 1; }
+            .input-section fieldset { flex-wrap: nowrap; }
+            .button1 { width: auto; margin-top: 0; }
+            .sub-wrapper { flex-direction: row; }
+            .noticeinput { flex: 1; }
+            .noticeview { flex: 3; max-height: 700px; }
         }
-
-        .notice-date {
-            float: right;
-            color: #94a3b8;
-            font-size: 0.7rem;
-        }
-
-        .notice-container { width: 90%; margin: 20px auto; font-family: sans-serif; }
-        .notice-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; background: #f9f9f9; }
-        .notice-header { border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; color: #555; font-size: 0.9em; }
-        .team-badge { background: #007bff; color: #fff; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
-        .notice-body { white-space: pre-wrap; word-break: break-all; line-height: 0.8; font-size: 0.7rem; } /* 줄바꿈 유지 및 긴 단어 끊기 */
     </style>
 
     <title>CS2센터 Sales일실적</title>
 </head>
 
 <body>
-    <div class="main-wrapp">
-        <h3 style="padding-left: 30rem;">서울중앙 CS센터(무선) 일 실적 및 보안 점검 창</h3>
-        <a href="../monthSales/index.php" style="position:absolute; right:20px; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS센터 누적개통 실적창 이동</a>
-        <a href="../../center1/today_end_sales/index.php" style="position:absolute; right:14rem; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS센터(유선) 실적창 이동</a>
+    <div class="main-wrapper">
+        
+        <div class="header-area">
+            <h3>서울중앙 CS센터(무선) 일 실적 및 보안 점검 창</h3>
+            <div class="header-links">
+                <a href="../monthSales/index.php">CS센터 누적개통 실적창 이동</a>
+                <a href="../../center1/today_end_sales/index.php">CS센터(유선)일 실적창 이동</a>
+            </div>
+        </div>
+
         <div class="display-section">
             <div id="tablecopy">
                 <h4><?php echo date("m/d").'('.$days[$weekday].') 실적'; ?></h4>
-                <table>
-                    <thead>
-                        <tr><td>구분</td><td>인티</td><td>모바일</td><td>IT가설</td><td>M유치</br>(목표):<?php echo $mobilegoal.'건' ?></td><td>M유치부족</td></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeed1"><?php echo $mu1[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu1[5] ?></td></tr>
-                        <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu2[5] ?></td></tr>
-                        <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu3[5] ?></td></tr>
-                        <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu4[5] ?></td></tr>
-                        <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeed1"><?php echo $tong[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$tong[5] ?></td></tr>
-                    </tbody>
-                    <tfoot>
-                        <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="succeed_t"></td><td id="succeed1_t"></td><td id="msucceed_t"></td></tr>
-                    </tfoot>
-                </table>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr><td>구분</td><td>인티</td><td>모바일</td><td>IT가설</td><td>M유치<br>(목표):<?php echo $mobilegoal.'건' ?></td><td>M유치부족</td></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeed1"><?php echo $mu1[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu1[5] ?></td></tr>
+                            <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu2[5] ?></td></tr>
+                            <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu3[5] ?></td></tr>
+                            <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu4[5] ?></td></tr>
+                            <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeed1"><?php echo $tong[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$tong[5] ?></td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="succeed_t"></td><td id="succeed1_t"></td><td id="msucceed_t"></td></tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
             
             <div id="timebox">
@@ -216,34 +190,12 @@ $result1 = mysqli_query($conn, $sql1);
                 <p class="teamcom">무4: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu4[6] ?></span></p>
                 <p class="teamcom">통품: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $tong[6] ?></span></p>
             </div>
-            
-            <div id="cs2toolbox">
-                <h3>CS센터(무선) 업무 활용 (클릭 시 해당 사이트로 이동)</h3>
-                <a href="../capacity/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-bottom:5px;">CS센터_무선 효율관리부(바로가기)</a>
-                <a href="../knowhow/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS센터_무선 업무지식_따릉이(바로가기)</a>
-                <a href="../guidement/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">Sales멘트 모음(바로가기)</a>
-                <a href="../srsearch/index.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">SR사례집 검색(바로가기)</a>
-                <a href="../../html/통품voc은행.php" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">통화품질VOC은행(바로가기)</a>
-                <a href="../../html/통화품질_휴근업무.html" style="display:block; background:#38761d; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem; margin-top:5px;">통화품질 휴근상담(바로가기)</a>
-            </div>
-            
-            
-            <div id="boanBox">
-                <h3 id="bulkBoan">보안점검 결과</h3>
-                <div class="chgcolor" id="bteam1"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam1[1]."</span> ".$boteam1[1]." 무1 ".$boteam1[0] ?></div>
-                <div class="chgcolor" id="bteam2"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam2[1]."</span> ".$boteam2[1]." 무2 ".$boteam2[0] ?></div>
-                <div class="chgcolor" id="bteam3"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam3[1]."</span> ".$boteam3[1]." 무3 ".$boteam3[0] ?></div>
-                <div class="chgcolor" id="bteam4"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam4[1]."</span> ".$boteam4[1]." 무4 ".$boteam4[0] ?></div>
-                <div class="chgcolor" id="bteam6"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$botong[1]."</span> ".$botong[1]." 통품 ".$botong[0] ?></div>
-            </div>
-
-            
         </div>
 
         <div class="input-section">
             <form id="endinsert.php" action="endinsert.php" method="post">
                 <fieldset>
-                    <select name="teamname" id="select" style="width:70px;">
+                    <select name="teamname" id="select">
                         <option value="">팀 선택</option>
                         <option value="무1">무선1팀</option>
                         <option value="무2">무선2팀</option>
@@ -251,101 +203,30 @@ $result1 = mysqli_query($conn, $sql1);
                         <option value="무4">무선4팀</option>
                         <option value="통품">통화품질팀</option>
                     </select>
-                    <label>인티</label> <input id="itnet" class="inputnum" type="number" value=0 name="it">
-                    <label>모바일</label> <input id="mobile" class="inputnum" type="number" value=0 name="mobile">
-                  <!--  <label>통리</label> <input id="trigger" class="inputnum" type="number" value=0 name="trigger"> 통리도 제외 -->
-                    <label>가설</label> <input id="success" class="inputnum" type="number" value=0 name="success">
-                   <!-- <label>가설(문)</label> <input id="successnew" class="inputnum" type="number" value=0 name="successnew"> 문의는 더이상 실적 아님 --> 
-                    <label>M유치</label> <input id="success1" class="inputnum" type="number" value=0 name="success1">
+                    
+                    <div class="input-group">
+                        <label>인티</label> <input id="itnet" class="inputnum" type="number" value=0 name="it">
+                    </div>
+                    <div class="input-group">
+                        <label>모바일</label> <input id="mobile" class="inputnum" type="number" value=0 name="mobile">
+                    </div>
+                    <div class="input-group">
+                        <label>가설</label> <input id="success" class="inputnum" type="number" value=0 name="success">
+                    </div>
+                    <div class="input-group">
+                        <label>M유치</label> <input id="success1" class="inputnum" type="number" value=0 name="success1">
+                    </div>
+                    
                     <input id="nowtime" type="hidden" value="<?php echo date('d일H:i:s').$days[$weekday];?>" name="nowtime">
                     <button class="button1">실적전송</button> 
                 </fieldset> 
             </form>
-
-            <div style="border-left: 1px solid #e2e8f0; height: 30px; margin: 0 5px;"></div>
-
-            <form id="boaninsert" action="boaninsert.php" method="post">
-                <fieldset>
-                    <select name="teamname1" id="select1" style="width:80px;">
-                        <option value="">팀 선택</option>
-                        <option value="무1">무선1팀</option>
-                        <option value="무2">무선2팀</option>
-                        <option value="무3">무선3팀</option>
-                        <option value="무4">무선4팀</option>
-                        <option value="통품">통화품질팀</option>
-                    </select>
-                    <input id="boancheck" class="boancheck" placeholder="이상 무" type="text" name="boancheck" style="width:140px;">
-                    <input id="nowtime1" type="hidden" value="<?php echo date('m월/d일').'('.$days[$weekday].')'.' 18시';?>" name="nowtime1">
-                    <button class="button2">보안전송</button> 
-                </fieldset> 
-            </form>
         </div>
+
     </div>
-
-    <div class="sub-wrapper">
-        <div class="noticeinput">
-            <h4>공지사항 입력</h4>
-            <form id="noticeinsert" action="noticeinsert.php" method="post">
-                <fieldset>
-                    <select id="noticeteam" name="noticeteam" style="width:100%;">
-                        <option value="">선택</option>
-                        <option value="센터장님">센터장님</option>
-                        <option value="무1">무선1팀</option>
-                        <option value="무2">무선2팀</option>
-                        <option value="무3">무선3팀</option>
-                        <option value="무4">무선4팀</option>
-                        <option value="통품">통화품질팀</option>
-                    </select>
-                    <textarea name="noticecontent" placeholder="공지 내용을 입력하세요..."></textarea>
-                    <input id="regtime" type="hidden" value="<?php echo date('m월 d일H:i:s');?>" name="regtime">
-                    <button type="submit" class="button3" style="width:100%;">공지전송</button>
-                </fieldset>
-            </form>
-            <form id="noticedel" action="noticedel.php" method="post" style="margin-top:10px;">
-                <input type="number" id="noticenum" value="" placeholder="삭제ID입력" name="id"  style="width:100px;">
-                <button type="submit" class="button4" style="width:100%;">공지삭제</button>
-            </form>
-        </div>
-
-        <div class="noticeview">
-            <h4>실시간 공지현황</h4>
-           <?php
-    if (mysqli_num_rows($result1) > 0) {
-        // 2. 데이터를 한 줄씩 반복해서 출력
-        while($row1 = mysqli_fetch_assoc($result1)) {
-            // 보안을 위한 특수문자 변환 (XSS 방지)
-            $team = htmlspecialchars($row1['teamname']);
-            $date = htmlspecialchars($row1['regiday']);
-            // nl2br은 줄바꿈 문자를 <br> 태그로 바꿔줍니다.
-            $content = nl2br(htmlspecialchars($row1['noticon']));
-            $id = $row1['id'];
-            ?>
-            
-            <div class="notice-card">
-                <div class="notice-header">
-                    <span><span class="team-badge"><?php echo $team; ?><?php echo " ID:".$id; ?></span></span>
-                    <span>등록일: <?php echo $date; ?></span>
-                </div>
-                <div class="notice-body"><?php echo $content; ?></div>
-            </div>
-
-            <?php
-        }
-    } else {
-        echo "<p>등록된 공지사항이 없습니다.</p>";
-    }
-    
-    // 연결 종료
-    mysqli_close($conn);
-    ?>
-           
-        </div>
-    </div>
-
 
     <script>
-
-            function sum($class){
+        function sum($class){
             var sumend = [];
             $('.'+$class).each(function(idx,ele){
                 var $thisnum = Number(ele.textContent);  

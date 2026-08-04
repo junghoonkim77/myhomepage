@@ -6,7 +6,7 @@ include ('phpgate.php');
 
 // ... (기본 PHP 로직 유지) ...
 $mobilegoal = 4;
-$teams = ['무1', '무2', '무3', '무4', '무5', '통품'];
+$teams = ['무1', '무2', '무3', '무4', '통품'];
 $teamData = [];
 $teamboan = [];
 foreach ($teams as $team) {
@@ -30,14 +30,12 @@ $mu1 = [$teamData['무1'][0]['인티'], $teamData['무1'][0]['모바일'], $team
 $mu2 = [$teamData['무2'][0]['인티'], $teamData['무2'][0]['모바일'], $teamData['무2'][0]['통리'], $teamData['무2'][0]['가설'],$teamData['무2'][0]['가설문'],$teamData['무2'][0]['가설2'],$teamData['무2'][0]['시간']];
 $mu3 = [$teamData['무3'][0]['인티'], $teamData['무3'][0]['모바일'], $teamData['무3'][0]['통리'], $teamData['무3'][0]['가설'],$teamData['무3'][0]['가설문'],$teamData['무3'][0]['가설2'],$teamData['무3'][0]['시간']];
 $mu4 = [$teamData['무4'][0]['인티'], $teamData['무4'][0]['모바일'], $teamData['무4'][0]['통리'], $teamData['무4'][0]['가설'],$teamData['무4'][0]['가설문'],$teamData['무4'][0]['가설2'],$teamData['무4'][0]['시간']];
-$mu5 = [$teamData['무5'][0]['인티'], $teamData['무5'][0]['모바일'], $teamData['무5'][0]['통리'], $teamData['무5'][0]['가설'],$teamData['무5'][0]['가설문'],$teamData['무5'][0]['가설2'],$teamData['무5'][0]['시간']];
 $tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], $teamData['통품'][0]['통리'], $teamData['통품'][0]['가설'],$teamData['통품'][0]['가설문'],$teamData['통품'][0]['가설2'],$teamData['통품'][0]['시간']];
 
 $boteam1 =[$teamboan['무1'][0]['보안점검'], $teamboan['무1'][0]['시간']];
 $boteam2 =[$teamboan['무2'][0]['보안점검'], $teamboan['무2'][0]['시간']];
 $boteam3 =[$teamboan['무3'][0]['보안점검'], $teamboan['무3'][0]['시간']];
 $boteam4 =[$teamboan['무4'][0]['보안점검'], $teamboan['무4'][0]['시간']];
-$boteam5 =[$teamboan['무5'][0]['보안점검'], $teamboan['무5'][0]['시간']];
 $botong =[$teamboan['통품'][0]['보안점검'], $teamboan['통품'][0]['시간']];
 
 $weekday = date('l'); 
@@ -69,6 +67,7 @@ $result1 = mysqli_query($conn, $sql1);
         #tablecopy { flex: 0 0 420px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
         #timebox { flex: 0 0 140px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
         #boanBox { flex: 1; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
+        #cs2toolbox { flex: 0 0 350px; background: #fff; padding: 10px; border-radius: 10px; border: 1px solid #e2e8f0; }
 
         /* 테이블 콤팩트화 */
         table { border-collapse: collapse; width: 100%; font-size: 0.8rem; }
@@ -185,9 +184,9 @@ $result1 = mysqli_query($conn, $sql1);
 
 <body>
     <div class="main-wrapp">
-        <h3 style="padding-left: 30rem;">서울중앙 CS2센터 일 실적 및 보안 점검 창</h3>
-        <a href="../monthSales/index.php" style="position:absolute; right:20px; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">1,2센터 누적개통 실적창 이동</a>
-        <a href="../../center1/today_end_sales/index.php" style="position:absolute; right:14rem; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">1센터 실적창 이동</a>
+        <h3 style="padding-left: 30rem;">서울중앙 CS센터(무선) 일 실적 및 보안 점검 창</h3>
+        <a href="../monthSales/index.php" style="position:absolute; right:20px; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS센터 누적개통 실적창 이동</a>
+        <a href="../../center1/today_end_sales/index.php" style="position:absolute; right:14rem; top:20px; background:#2563eb; color:white; padding:6px 12px; border-radius:6px; font-size:0.8rem;">CS센터(유선) 실적창 이동</a>
         <div class="display-section">
             <div id="tablecopy">
                 <h4><?php echo date("m/d").'('.$days[$weekday].') 실적'; ?></h4>
@@ -200,7 +199,6 @@ $result1 = mysqli_query($conn, $sql1);
                         <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu2[5] ?></td></tr>
                         <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu3[5] ?></td></tr>
                         <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu4[5] ?></td></tr>
-                        <tr><td class="team1">무선5</td><td class="it"><?php echo $mu5[0] ?></td><td class="mobile"><?php echo $mu5[1] ?></td><td class="succeed"><?php echo $mu5[3] ?></td><td class="succeed1"><?php echo $mu5[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu5[5] ?></td></tr>
                         <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeed1"><?php echo $tong[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$tong[5] ?></td></tr>
                     </tbody>
                     <tfoot>
@@ -216,19 +214,20 @@ $result1 = mysqli_query($conn, $sql1);
                 <p class="teamcom">무2: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu2[6] ?></span></p>
                 <p class="teamcom">무3: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu3[6] ?></span></p>
                 <p class="teamcom">무4: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu4[6] ?></span></p>
-                <p class="teamcom">무5: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu5[6] ?></span></p>
                 <p class="teamcom">통품: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $tong[6] ?></span></p>
             </div>
             
+                      
             <div id="boanBox">
                 <h3 id="bulkBoan">보안점검 결과</h3>
                 <div class="chgcolor" id="bteam1"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam1[1]."</span> ".$boteam1[1]." 무1 ".$boteam1[0] ?></div>
                 <div class="chgcolor" id="bteam2"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam2[1]."</span> ".$boteam2[1]." 무2 ".$boteam2[0] ?></div>
                 <div class="chgcolor" id="bteam3"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam3[1]."</span> ".$boteam3[1]." 무3 ".$boteam3[0] ?></div>
                 <div class="chgcolor" id="bteam4"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam4[1]."</span> ".$boteam4[1]." 무4 ".$boteam4[0] ?></div>
-                <div class="chgcolor" id="bteam5"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$boteam5[1]."</span> ".$boteam5[1]." 무5 ".$boteam5[0] ?></div>
                 <div class="chgcolor" id="bteam6"><?php echo "<strong>[점검]</strong><span class=\"boancom\">".$botong[1]."</span> ".$botong[1]." 통품 ".$botong[0] ?></div>
             </div>
+
+            
         </div>
 
         <div class="input-section">
@@ -240,7 +239,6 @@ $result1 = mysqli_query($conn, $sql1);
                         <option value="무2">무선2팀</option>
                         <option value="무3">무선3팀</option>
                         <option value="무4">무선4팀</option>
-                        <option value="무5">무선5팀</option>
                         <option value="통품">통화품질팀</option>
                     </select>
                     <label>인티</label> <input id="itnet" class="inputnum" type="number" value=0 name="it">
@@ -264,7 +262,6 @@ $result1 = mysqli_query($conn, $sql1);
                         <option value="무2">무선2팀</option>
                         <option value="무3">무선3팀</option>
                         <option value="무4">무선4팀</option>
-                        <option value="무5">무선5팀</option>
                         <option value="통품">통화품질팀</option>
                     </select>
                     <input id="boancheck" class="boancheck" placeholder="이상 무" type="text" name="boancheck" style="width:140px;">
@@ -287,7 +284,6 @@ $result1 = mysqli_query($conn, $sql1);
                         <option value="무2">무선2팀</option>
                         <option value="무3">무선3팀</option>
                         <option value="무4">무선4팀</option>
-                        <option value="무5">무선5팀</option>
                         <option value="통품">통화품질팀</option>
                     </select>
                     <textarea name="noticecontent" placeholder="공지 내용을 입력하세요..."></textarea>
@@ -331,7 +327,7 @@ $result1 = mysqli_query($conn, $sql1);
     
     // 연결 종료
     mysqli_close($conn);
-    ?>
+    ?> 
            
         </div>
     </div>
