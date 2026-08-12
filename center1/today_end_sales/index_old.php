@@ -4,33 +4,40 @@ ini_set('display_errors', 1);
 
 include ('phpgate.php');
 
-// 기본 목표치 설정
-$mobilegoal = 4;
-// 무5 팀 제거
-$teams = ['무1', '무2', '무3', '무4', '통품'];
+// ... (기본 PHP 로직 유지) ...
+$teams = ['유1', '유2'];
 $teamData = [];
-
-// 보안 및 공지사항 관련 SQL 및 데이터 추출 로직 제거됨
+$teamboan = [];
 foreach ($teams as $team) {
     $teamData[$team] = [];
-    $sql = "SELECT it_tend , m_end , tri_end , success_end , successnew , success_end1, todaytime FROM c2sales_end WHERE teamname = '$team'";
+    $sql = "SELECT it_tend , m_end , success_end , successnew , success_end1, todaytime FROM c1sales_end WHERE teamname = '$team'";
     $re = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($re)) {
-        $teamData[$team][] = ['인티' => $row['it_tend'], '모바일' => $row['m_end'], '통리' => $row['tri_end'], '가설' => $row['success_end'] , '가설문' => $row['successnew'],'가설2' => $row['success_end1'],'시간' => $row['todaytime']];
+        $teamData[$team][] = ['인티' => $row['it_tend'], '모바일' => $row['m_end'],'가설' => $row['success_end'] , '가설문' => $row['successnew'],'가설2' => $row['success_end1'],'시간' => $row['todaytime']];
     }
 }
 
-// 인덱스 유지(0:인티, 1:모바일, 2:통리(사용X), 3:가설, 4:가설문, 5:M유치, 6:시간)
-$mu1 = [$teamData['무1'][0]['인티'], $teamData['무1'][0]['모바일'], $teamData['무1'][0]['통리'], $teamData['무1'][0]['가설'],$teamData['무1'][0]['가설문'],$teamData['무1'][0]['가설2'],$teamData['무1'][0]['시간']];
-$mu2 = [$teamData['무2'][0]['인티'], $teamData['무2'][0]['모바일'], $teamData['무2'][0]['통리'], $teamData['무2'][0]['가설'],$teamData['무2'][0]['가설문'],$teamData['무2'][0]['가설2'],$teamData['무2'][0]['시간']];
-$mu3 = [$teamData['무3'][0]['인티'], $teamData['무3'][0]['모바일'], $teamData['무3'][0]['통리'], $teamData['무3'][0]['가설'],$teamData['무3'][0]['가설문'],$teamData['무3'][0]['가설2'],$teamData['무3'][0]['시간']];
-$mu4 = [$teamData['무4'][0]['인티'], $teamData['무4'][0]['모바일'], $teamData['무4'][0]['통리'], $teamData['무4'][0]['가설'],$teamData['무4'][0]['가설문'],$teamData['무4'][0]['가설2'],$teamData['무4'][0]['시간']];
-// $mu5 삭제 완료
-$tong = [$teamData['통품'][0]['인티'], $teamData['통품'][0]['모바일'], $teamData['통품'][0]['통리'], $teamData['통품'][0]['가설'],$teamData['통품'][0]['가설문'],$teamData['통품'][0]['가설2'],$teamData['통품'][0]['시간']];
+foreach($teams as $team){
+    $sqlboan = "SELECT * FROM dailyboan2 WHERE teamname = '$team'";
+    $reboan = mysqli_query($conn, $sqlboan);
+    while ($rowboan = mysqli_fetch_array($reboan)) {
+        $teamboan[$team][] = ['보안점검' => $rowboan['boanresult'], '시간' => $rowboan['inputday']];
+    }
+}
+
+$mu1 = [$teamData['유1'][0]['인티'], $teamData['유1'][0]['모바일'], $teamData['유1'][0]['가설'],$teamData['유1'][0]['가설문'],$teamData['유1'][0]['가설2'],$teamData['유1'][0]['시간']];
+$mu2 = [$teamData['유2'][0]['인티'], $teamData['유2'][0]['모바일'], $teamData['유2'][0]['가설'],$teamData['유2'][0]['가설문'],$teamData['유2'][0]['가설2'],$teamData['유2'][0]['시간']];
+
+
+$boteam1 =[$teamboan['유1'][0]['보안점검'], $teamboan['유1'][0]['시간']];
+$boteam2 =[$teamboan['유2'][0]['보안점검'], $teamboan['유2'][0]['시간']];
+
 
 $weekday = date('l'); 
 $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday" => "목", "Friday" => "금", "Saturday" => "토", "Sunday" => "일"];
 
+$sql1 = "SELECT id, teamname, regiday, noticon FROM cs1noti ORDER BY id DESC";
+$result1 = mysqli_query($conn, $sql1);
 ?>
 
 <!DOCTYPE html>
@@ -66,8 +73,8 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
 
         /* 테이블 디자인 고도화 및 모바일 가로 스크롤 허용 */
         .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
-        table { border-collapse: collapse; width: 100%; font-size: 0.85rem; min-width: 500px; }
-        thead td { background-color: #1e293b; color: #f8fafc; padding: 10px; font-weight: 600; white-space: nowrap; text-align: center; }
+        table { border-collapse: collapse; width: 100%; font-size: 0.85rem; min-width: 450px; /* 열 추가로 최소너비 살짝 증가 */ }
+        thead td { background-color: #1e293b; color: #f8fafc; padding: 10px; font-weight: 600; white-space: nowrap; }
         td { border-bottom: 1px solid #f1f5f9; padding: 10px 5px; text-align: center; }
         .team1 { background-color: #f8fafc; font-weight: bold; color: #475569; white-space: nowrap; }
         tfoot td { background-color: #f8fafc; font-weight: 800; color: #2563eb; border-top: 2px solid #e2e8f0; }
@@ -87,7 +94,7 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
         form { width: 100%; }
         fieldset { border: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
         
-        .input-group { display: flex; align-items: center; gap: 6px; flex: 1 1 calc(50% - 10px); min-width: 100px; }
+        .input-group { display: flex; align-items: center; gap: 6px; flex: 1 1 calc(33% - 10px); min-width: 100px; }
         .input-group label { font-size: 0.75rem; font-weight: 500; color: #94a3b8; white-space: nowrap; }
         
         select, input { padding: 10px; border: 1px solid #334155; border-radius: 6px; background: #f8fafc; font-size: 0.85rem; outline: none; }
@@ -96,6 +103,8 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
         
         .button1 { flex: 1 1 100%; padding: 12px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer; background: #10b981; color: white; margin-top: 5px; font-size: 1rem; transition: 0.2s; }
         .divider { display: none; } /* 모바일에서는 구분선 숨김 */
+
+        .boancom { display: none; }
 
         /* 데스크톱(PC) 모드 적용 */
         @media (min-width: 768px) {
@@ -112,15 +121,15 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
         }
     </style>
 
-    <title>CS센터 Sales일실적</title>
+    <title>CS1센터 Sales일실적</title>
 </head>
 
 <body>
     <div class="main-header">
-        <h2>서울중앙 CS2센터 일 실적 현황</h2>
+        <h2>서울중앙 CS센터(유선) 일 실적 및 보안 점검 창</h2>
         <div class="header-links">
-            <a href="../monthSales/index_old.php">CS센터 누적개통 실적창 이동</a>  
-            <a href="../../center1/today_end_sales/index_old.php">CS센터(유선) 실적창 이동</a>
+            <a href="../../center2/today_end_sales/index_old.php">CS(무선)일 실적 이동</a>  
+            <a href="../../center2/monthSales/index_old.php">CS(유,무선) 누적개통 실적 이동</a>
         </div>
     </div>
 
@@ -131,19 +140,14 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
                 <div class="table-responsive">
                     <table>
                         <thead>
-                            <!-- 통리 제거, 가설(문) 추가 완료 -->
-                            <tr><td>구분</td><td>인티</td><td>모바일</td><td>가설(권)</td><td>가설(문)</td><td>M유치<br>(목표:<?php echo $mobilegoal.'건' ?>)</td><td>M유치부족</td></tr>
+                            <tr><td>구분</td><td>인티</td><td>모바일</td><td>IT가설</td><td>IT문의가설</td><td>M유치</td></tr>
                         </thead>
                         <tbody>
-                            <!-- 무선5팀 항목 제거 완료 -->
-                            <tr><td class="team1">무선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="succeed"><?php echo $mu1[3] ?></td><td class="succeednew"><?php echo $mu1[4] ?></td><td class="succeed1"><?php echo $mu1[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu1[5] ?></td></tr>
-                            <tr><td class="team1">무선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[3] ?></td><td class="succeednew"><?php echo $mu2[4] ?></td><td class="succeed1"><?php echo $mu2[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu2[5] ?></td></tr>
-                            <tr><td class="team1">무선3</td><td class="it"><?php echo $mu3[0] ?></td><td class="mobile"><?php echo $mu3[1] ?></td><td class="succeed"><?php echo $mu3[3] ?></td><td class="succeednew"><?php echo $mu3[4] ?></td><td class="succeed1"><?php echo $mu3[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu3[5] ?></td></tr>
-                            <tr><td class="team1">무선4</td><td class="it"><?php echo $mu4[0] ?></td><td class="mobile"><?php echo $mu4[1] ?></td><td class="succeed"><?php echo $mu4[3] ?></td><td class="succeednew"><?php echo $mu4[4] ?></td><td class="succeed1"><?php echo $mu4[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$mu4[5] ?></td></tr>
-                            <tr><td class="team1">통품</td><td class="it"><?php echo $tong[0] ?></td><td class="mobile"><?php echo $tong[1] ?></td><td class="succeed"><?php echo $tong[3] ?></td><td class="succeednew"><?php echo $tong[4] ?></td><td class="succeed1"><?php echo $tong[5] ?></td><td class="msucceed"><?php echo $mobilegoal-$tong[5] ?></td></tr>
+                            <tr><td class="team1">유선1</td><td class="it"><?php echo $mu1[0] ?></td><td class="mobile"><?php echo $mu1[1] ?></td><td class="succeed"><?php echo $mu1[2] ?></td><td class="succeednew"><?php echo $mu1[3] ?></td><td class="succeed1"><?php echo $mu1[4] ?></td></tr>
+                            <tr><td class="team1">유선2</td><td class="it"><?php echo $mu2[0] ?></td><td class="mobile"><?php echo $mu2[1] ?></td><td class="succeed"><?php echo $mu2[2] ?></td><td class="succeednew"><?php echo $mu2[3] ?></td><td class="succeed1"><?php echo $mu2[4] ?></td></tr>
                         </tbody>
                         <tfoot>
-                            <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="succeed_t"></td><td id="succeednew_t"></td><td id="succeed1_t"></td><td id="msucceed_t"></td></tr>
+                            <tr><td>합계</td><td id="it_t"></td><td id="mobile_t"></td><td id="succeed_t"></td><td id="succeednew_t"></td><td id="succeed1_t"></td></tr>
                         </tfoot>
                     </table>
                 </div>
@@ -152,12 +156,8 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
             <div id="timebox" class="card">
                 <button class="tabcopy">📋 실적표 복사</button>
                 <h4>🕒 입력시간</h4>
-                <!-- 무선5팀 항목 제거 완료 -->
-                <p class="teamcom">무1: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu1[6] ?></span></p>
-                <p class="teamcom">무2: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu2[6] ?></span></p>
-                <p class="teamcom">무3: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu3[6] ?></span></p>
-                <p class="teamcom">무4: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu4[6] ?></span></p>
-                <p class="teamcom">통품: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $tong[6] ?></span></p>
+                <p class="teamcom">유1: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu1[5] ?></span></p>
+                <p class="teamcom">유2: <span class="colordiv" data-col="<?php echo $days[$weekday]; ?>"><?php echo $mu2[5] ?></span></p>
             </div>
         </div>
 
@@ -166,15 +166,10 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
                 <fieldset>
                     <select name="teamname" id="select">
                         <option value="">팀 선택</option>
-                        <option value="무1">무선1팀</option>
-                        <option value="무2">무선2팀</option>
-                        <option value="무3">무선3팀</option>
-                        <option value="무4">무선4팀</option>
-                        <!-- 무선5팀 항목 제거 완료 -->
-                        <option value="통품">통화품질팀</option>
+                        <option value="유1">유선1팀</option>
+                        <option value="유2">유선2팀</option>
                     </select>
                     
-                    <!-- 통리 입력칸 제거, 가설(문) 포함 유지 -->
                     <div class="input-group">
                         <label>인티</label> <input id="itnet" type="number" value=0 name="it">
                     </div>
@@ -182,10 +177,11 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
                         <label>모바일</label> <input id="mobile" type="number" value=0 name="mobile">
                     </div>
                     <div class="input-group">
-                        <label>가설(권)</label> <input id="success" type="number" value=0 name="success">
+                        <label>가설</label> <input id="success" type="number" value=0 name="success">
                     </div>
+                    <!-- IT문의가설 항목 추가 -->
                     <div class="input-group">
-                        <label>가설(문)</label> <input id="successnew" type="number" value=0 name="successnew">
+                        <label>IT문의가설</label> <input id="successnew" type="number" value=0 name="successnew">
                     </div>
                     <div class="input-group">
                         <label>M유치</label> <input id="success1" type="number" value=0 name="success1">
@@ -200,7 +196,7 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
     </div>
 
     <script>
-        // 통리를 제외한 항목들 합계 계산 처리
+        // 기존 스크립트 기능 그대로 유지 (succeednew 클래스를 찾아 자동 합산)
         function sum($class){
             var sumend = [];
             $('.'+$class).each(function(idx,ele){
@@ -210,36 +206,35 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
             var sumresul = sumend.reduce((acc,curval)=>{ return acc+curval; },0)
             $('#'+$class+'_t').text(sumresul);     
         }
-        sum('it'); sum('mobile'); sum('succeed'); sum('succeednew'); sum('succeed1'); sum('msucceed');
+        // succeednew 항목 합산이 정상 반영되도록 기존 함수 호출 유지
+        sum('it'); sum('mobile'); sum('succeed'); sum('succeednew'); sum('succeed1');
 
-        // M유치 부족 이모지 스크립트 기능 유지
-        $('.msucceed').each(function(idx,ele){
-            const msucceednum = Number($(this).text());
-            if(msucceednum > 0){
-                $(this).css({'color':'red','font-weight':'bold'});
-            }else{
-                 $(this).append('<span>👍</span>');
-            }
-        });
-        if( Number( $('#msucceed_t').text()  ) < 0 ){
-            $('#msucceed_t').append('<span>😊</span>');
-        } else{
-           $('#msucceed_t').append('<span>😒</span>');
-        }
-
-        // 복사 및 전송 스크립트 최적화
         $('.tabcopy').click(function(){ $lib.rangecopy('#tablecopy'); })
         $('.button1').click(function(e){
             if($('#select').val() !== ""){ $('#endinsert.php').submit(); }
             else { alert('팀 선택 필수!'); e.preventDefault(); }
         })
+        $('.button2').click(function(e){
+            if($('#select1').val() !== ""){ $('#boaninsert.php').submit(); }
+            else { alert('팀 선택 필수!'); e.preventDefault(); }
+        })
+        $('.button3').click(function(e){
+            if($('#noticeteam').val() !== ""){ $('#noticeinsert').submit(); }
+            else { alert('팀 선택 필수!'); e.preventDefault(); }
+        })
 
-        // 입력시간 요일 배경색 처리 로직
         $('.colordiv').each(function(idx,ele){
             var eleval = ele.textContent;
             var lastkey = eleval.slice(-1);
             var this_data = $(this).attr('data-col');
             if(lastkey == this_data){ $(this).css('background-color','#2563eb').css('color','white'); }
+        })
+        
+        const jaweekday = <?php echo json_encode($days[$weekday]); ?>;
+        $('.boancom').each(function(idx,ele){
+            const excute1 = $(this).text().match(/\((.*?)\)/);
+            const excute = excute1 ? excute1[1] : '';
+            if(excute == jaweekday){ $(this).parent().css('background-color','#fef9c3').css('border-color','#facc15'); }
         });
     </script>
 </body>

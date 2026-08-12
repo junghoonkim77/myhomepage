@@ -24,7 +24,7 @@ if($result === false){
    }else{
     echo "
    <script>
-     location.href ='index.php';
+     location.href ='index_old.php';
    </script>
    ";
    }
