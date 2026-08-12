@@ -117,7 +117,7 @@ $days = ["Monday" => "월", "Tuesday" => "화", "Wednesday" => "수", "Thursday"
 
 <body>
     <div class="main-header">
-        <h2>서울중앙 CS2센터 일 실적 현황</h2>
+        <h2>서울CS센터(무선) 일 실적 현황</h2>
         <div class="header-links">
             <a href="../monthSales/index_old.php">CS센터 누적개통 실적창 이동</a>  
             <a href="../../center1/today_end_sales/index_old.php">CS센터(유선) 실적창 이동</a>
