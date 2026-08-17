@@ -17,7 +17,7 @@ mysqli_stmt_bind_param($stmt, "s", $textCon);
 if(mysqli_stmt_execute($stmt)){
     echo "
     <script>
-    self.location.href = '../html/mymemo.php'
+    self.location.href = '../mymemosave/index.php';
     </script>
     ";
 }else{
