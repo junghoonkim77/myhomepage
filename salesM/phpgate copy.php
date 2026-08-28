@@ -34,5 +34,7 @@ if (!$conn) {
     die("연결 실패: " . mysqli_connect_error());
 }
 
-echo "연결 성공";
+echo "<script>
+console.log('연결성공')
+</script>";
 ?>
