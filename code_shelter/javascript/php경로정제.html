@@ -15,7 +15,7 @@
         color: #333;
     }
     .div7 {
-        color: #0056b3; /* Cafe24 링크는 눈에 띄게 파란색으로 표시 */
+        color: #0056b3; 
         font-weight: bold;
     }
     hr {
@@ -30,7 +30,6 @@
     <title>php경로조작 (Cafe24 추가)</title>
 </head>
 <body>
-    <!-- 기존 첫 번째 입력 -->
     <input type="text" placeholder="경로를 넣으세요" name="" id="firstinput">
     <div class="div1 clicked"></div>
     <div class="div2 clicked"></div>
@@ -38,7 +37,6 @@
     
     <hr>
 
-    <!-- 기존 두 번째 입력 (레노버) -->
     <input type="text" placeholder="레노버노트북 경로" name="" id="secondinput">
     <div class="div4 clicked"></div>
     <div class="div5 clicked"></div>
@@ -46,12 +44,11 @@
 
     <hr>
 
-    <!-- 신규 세 번째 입력 (Cafe24) -->
     <input type="text" placeholder="Cafe24 프로젝트 경로" name="" id="thirdinput">
     <div class="div7 clicked"></div>
 
     <script>
-        // 1. 기존 로직 (데스크탑)
+        // 1. 첫번째 로직
         $('#firstinput').on('keyup',function(){
             $val = $(this).val();
             $chval = $val.replaceAll("\\","/");
@@ -71,7 +68,7 @@
             $('.div3').text($gitresul_fin);
         });
 
-        // 2. 기존 로직 (레노버 노트북)
+        // 2. 레노버 노트북 로직
         $('#secondinput').on('keyup',function(){
             $val = $(this).val();
             $chval = $val.replaceAll("\\","/");
@@ -93,38 +90,35 @@
             $('.div6').text($gitresul_fin);
         });
 
-        // 3. 신규 로직 (Cafe24 전용)
+        // 3. Cafe24 전용 로직 (수정됨)
         $('#thirdinput').on('keyup',function(){
             let $val = $(this).val();
             let $chval = $val.replaceAll("\\","/");
             
-            // ▼ 중요: VS Code에서 작업하시는 최상위 폴더명을 입력하세요.
-            // 예시: C:/workspace/cafe24_site/hosting_index.html 이라면 'cafe24_site/' 로 지정
             let $baseFolder = "htdocs/"; 
             let $finalUrl = "";
 
             if ($chval.includes($baseFolder)) {
-                // 기준 폴더 이후의 상세 경로를 잘라냅니다.
                 let $idx = $chval.indexOf($baseFolder) + $baseFolder.length;
                 let $mid = $chval.slice($idx);
                 $finalUrl = "https://folkball.mycafe24.com/" + $mid;
             } else {
-                // 만약 위에서 지정한 폴더가 경로에 없을 경우, 맨 뒤의 '파일명'만 가져와서 기본 주소에 붙입니다.
                 let $lastIdx = $chval.lastIndexOf("/") + 1;
                 let $fileName = $chval.slice($lastIdx);
                 $finalUrl = "https://folkball.mycafe24.com/" + $fileName;
             }
 
+            // ★ 추가된 부분: URL에 'myhomepage/'가 포함되어 있다면 빈 문자열("")로 교체하여 삭제합니다.
+            $finalUrl = $finalUrl.replace("myhomepage/", "");
+
             $('.div7').text($finalUrl);
         });
 
-        // 클릭 시 클립보드 복사 (공통)
+        // 클릭 시 복사
         $('.clicked').click(function(){
-            // 기존에 연결해두신 라이브러리 함수 활용
             if(typeof $lib !== 'undefined' && $lib.clipcopy) {
                 $lib.clipcopy($(this).text());
             } else {
-                // 라이브러리가 로드되지 않았을 때를 대비한 백업 복사 로직 (선택사항)
                 navigator.clipboard.writeText($(this).text()).then(function() {
                     console.log("복사 완료!");
                 });
