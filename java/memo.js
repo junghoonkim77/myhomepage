@@ -580,7 +580,7 @@ $(function(){
   }) ;
 
   $('.salescount1').click(function(){
-    window.open('http://folkball.dothome.co.kr/mypagere/sales_php/sales_siljukcon.php', '_blank', 'width=1000, height=650' )
+    window.open('https://folkball.mycafe24.com/sales_php/sales_siljukcon.php', '_blank', 'width=1000, height=650' )
 
   }) ;
   
