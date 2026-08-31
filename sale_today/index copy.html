@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
+    crossorigin="anonymous"></script>
+  <script src="../java/library.js"></script>
+
+    <style>
+        
+      
+       .inputnum {
+        display : inline-block;
+        width : 45px;
+       }
+        
+      
+       #select {
+        margin-bottom: 20px;
+        background-color: yellow;
+        height : 25px;
+       }
+
+       #select1 {
+        margin-bottom: 20px;
+        background-color: yellow;
+        height : 25px;
+       }
+        
+       #sr {
+        display : inline-block;
+        width : 220px;
+       }
+
+       input {
+        height : 30px;
+       }
+       #todayinsert{
+        margin-bottom: 80px;;
+       }
+
+       #tip{
+        background-color: aqua;
+       }
+
+       #sales_home {
+        background-color: orange;
+       }
+    </style>
+    
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
+</script> 
+
+    <title>★매일 세일즈 취합★</title>
+</head>
+<body>
+    
+  
+    <h2>세일즈 시도 입력창</h2>
+            
+            <form id="todayinsert" action="todayinsert.php" method="post">
+             <fieldset>
+                <select name="teamname" id="select">
+                    <option value="">본인명 선택 必</option>
+                    <option value="이한기">이한기</option>
+                    <option value="박정범">박정범</option>
+                    <option value="최민지">최민지</option>
+                    <option value="백금옥">백금옥</option>
+                    <option value="이윤복">이윤복</option>
+                    <option value="이진우">이진우</option>
+                    <option value="임규석">임규석</option>
+                    <option value="최아람">최아람</option>
+                    <option value="임한규">임한규</option>
+                    <option value="진미란">진미란</option>
+                    
+                  </select> <br>
+                  <label for="internet">인터넷:</label>  
+                  <input id="internet" class="inputnum" placeholder="인터넷" type="number" max =1 min=0 value=0 name="internet">
+                  <label for="tv">TV:</label>  
+                  <input id="tv" class="inputnum"  placeholder="티비" type="number" max =1 min=0 value=0 name="tv">
+                  <label for="mobile">모바일:</label>  
+                  <input id="mobile" class="inputnum"  placeholder="모바일" type="number" max =1 min=0 value=0 name="mobile">
+                  <label for="success">권유성공:</label>  
+                  <input id="success" class="inputnum"  placeholder="권유성공" type="number" max =1 min=0 value=0 name="success">
+                  <label for="sr">sr번호:</label>  
+                  <input id="sr"  placeholder="sr번호" type="text" name="sr">
+                  <button class="button1" >추가버튼 클릭</button> 
+             </fieldset> 
+              
+           </form>    
+        
+           <h2>차별화 입력창</h2>
+            
+           <form id="todayinsertDiff" action="todayinsert_diff.php" method="post">
+            <fieldset>
+               <select name="teamname" id="select1">
+                   <option value="">본인명 선택 必</option>
+                   <option value="이한기">이한기</option>
+                   <option value="박정범">박정범</option>
+                   <option value="최민지">최민지</option>
+                   <option value="백금옥">백금옥</option>
+                   <option value="이윤복">이윤복</option>
+                   <option value="이진우">이진우</option>
+                   <option value="임규석">임규석</option>
+                   <option value="최아람">최아람</option>
+                   <option value="임한규">임한규</option>
+                   <option value="진미란">진미란</option>
+                 </select> <br>
+                 <label for="diffsr">차별화 SR</label>  
+                 <input id="diffsr"  placeholder="차별화SR번호" type="text" name="diffsr">
+                 <label for="srhead">말머리</label>  
+                 <input id="srhead"  placeholder="말머리" type="text" value="감성" name="srhead">
+                 
+                 <button class="button2" >추가버튼 클릭</button> 
+            </fieldset> 
+             
+          </form>   
+     
+          <button><a href="todaytotal.php">오늘 세일즈 목록창 이동</a></button>
+     <button><a href="../sales_php/sales_nujuk.php"><span class="nowmonth"></span>월 세일즈 현황창 이동</a></button>
+     <button><a href="todaytotal_diff.php">당일 차별화 취합목록</a></button>
+     <button id="sales_home"><a href="https://junghoonkim77.github.io/myhomepage/html/Sales.html">통품홈피 세일즈탭 이동</a></button>
+     
+  
+          
+    
+    <script>
+        var $salesname = localStorage.getItem('SaleIpName');
+        $('#select').val($salesname).prop('selected',true);
+        $('#select1').val($salesname).prop('selected',true);
+
+        $('.button1').click(function(e){
+          if($('#select').val() !== ""){
+            $('#todayinsert').submit();
+          }else{
+            alert('이름을 선택하세요~!')
+            e.preventDefault();
+          }
+        })
+
+        $('.button2').click(function(e){
+          if($('#select1').val() !== ""){
+            $('#todayinsertDiff').submit();
+          }else{
+            alert('이름을 선택하세요~!')
+            e.preventDefault();
+          }
+        })
+               
+        var $mon = new Date().getMonth()+1
+        $('.nowmonth').text($mon);
+
+        // 이름 선택하면 계속 머물러 있게 하기 
+
+        $('#select').change(function(){
+          var $thisval = $(this).val();
+          localStorage.setItem('SaleIpName',$thisval);
+        })
+
+        
+       
+       
+    </script>
+</body>
+</html>

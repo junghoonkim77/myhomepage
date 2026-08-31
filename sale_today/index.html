@@ -3,72 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.4.js" 
-    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" 
-    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" 
-    crossorigin="anonymous"></script>
-  <script src="../java/library.js"></script>
+    <!-- 모바일 뷰포트 속성 제거 (PC 전용) -->
+    <title>★ 매일 세일즈 취합 ★</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
     <style>
+        /* PC 환경에 맞춘 기본 리셋 */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            background-color: #eef2f5;
+            color: #333;
+            /* 화면 전체 높이를 사용하고 스크롤을 방지 */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; 
+        }
+
+        /* 3단 대시보드 컨테이너 */
+        .dashboard {
+            display: flex;
+            gap: 20px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* 각 영역(카드) 설정 */
+        .card {
+            width: 320px; /* 각 단의 가로 길이를 고정하여 늘어나지 않게 함 */
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #cbd5e1;
+            text-align: center;
+        }
+
+        /* 입력 폼 공통 설정 */
+        .form-group { margin-bottom: 15px; }
+        label { font-weight: bold; font-size: 0.85rem; color: #475569; display: block; margin-bottom: 4px; }
         
-      
-       .inputnum {
-        display : inline-block;
-        width : 45px;
-       }
+        select, input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        select:focus, input:focus { border-color: #3498db; }
+
+        /* 세일즈 숫자 입력칸 2x2 그리드 배열 (세로 공간 절약) */
+        .num-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 15px;
+            margin-bottom: 15px;
+        }
+
+        .name-select {
+            background-color: #fffbdd;
+            font-weight: bold;
+        }
+
+        /* 버튼 스타일 */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .btn-submit { background-color: #3b82f6; color: white; }
+        .btn-submit:hover { background-color: #2563eb; }
         
-      
-       #select {
-        margin-bottom: 20px;
-        background-color: yellow;
-        height : 25px;
-       }
+        .btn-submit-diff { background-color: #10b981; color: white; }
+        .btn-submit-diff:hover { background-color: #059669; }
 
-       #select1 {
-        margin-bottom: 20px;
-        background-color: yellow;
-        height : 25px;
-       }
-        
-       #sr {
-        display : inline-block;
-        width : 220px;
-       }
+        /* 네비게이션 버튼 묶음 */
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .btn-nav { background-color: #e2e8f0; color: #1e293b; transition: 0.2s; }
+        .btn-nav:hover { background-color: #cbd5e1; }
+        .btn-home { background-color: #f59e0b; color: white; margin-top: 10px; }
+        .btn-home:hover { background-color: #d97706; }
 
-       input {
-        height : 30px;
-       }
-       #todayinsert{
-        margin-bottom: 80px;;
-       }
-
-       #tip{
-        background-color: aqua;
-       }
-
-       #sales_home {
-        background-color: orange;
-       }
     </style>
-    
-<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
-</script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous">
-</script> 
-
-    <title>★매일 세일즈 취합★</title>
 </head>
 <body>
+
+<div class="dashboard">
     
-  
-    <h2>세일즈 시도 입력창</h2>
-            
-            <form id="todayinsert" action="todayinsert.php" method="post">
-             <fieldset>
-                <select name="teamname" id="select">
-                    <option value="">본인명 선택 必</option>
+    <!-- 1. 세일즈 시도 입력창 (왼쪽) -->
+    <div class="card">
+        <h2>📊 세일즈 시도 입력</h2>
+        <form id="todayinsert" action="todayinsert.php" method="post">
+            <div class="form-group">
+                <select name="teamname" class="name-select">
+                    <option value="">본인명 선택 (필수)</option>
                     <option value="이한기">이한기</option>
                     <option value="박정범">박정범</option>
                     <option value="최민지">최민지</option>
@@ -79,94 +133,114 @@
                     <option value="최아람">최아람</option>
                     <option value="임한규">임한규</option>
                     <option value="진미란">진미란</option>
-                    
-                  </select> <br>
-                  <label for="internet">인터넷:</label>  
-                  <input id="internet" class="inputnum" placeholder="인터넷" type="number" max =1 min=0 value=0 name="internet">
-                  <label for="tv">TV:</label>  
-                  <input id="tv" class="inputnum"  placeholder="티비" type="number" max =1 min=0 value=0 name="tv">
-                  <label for="mobile">모바일:</label>  
-                  <input id="mobile" class="inputnum"  placeholder="모바일" type="number" max =1 min=0 value=0 name="mobile">
-                  <label for="success">권유성공:</label>  
-                  <input id="success" class="inputnum"  placeholder="권유성공" type="number" max =1 min=0 value=0 name="success">
-                  <label for="sr">sr번호:</label>  
-                  <input id="sr"  placeholder="sr번호" type="text" name="sr">
-                  <button class="button1" >추가버튼 클릭</button> 
-             </fieldset> 
-              
-           </form>    
-        
-           <h2>차별화 입력창</h2>
+                </select>
+            </div>
             
-           <form id="todayinsertDiff" action="todayinsert_diff.php" method="post">
-            <fieldset>
-               <select name="teamname" id="select1">
-                   <option value="">본인명 선택 必</option>
-                   <option value="이한기">이한기</option>
-                   <option value="박정범">박정범</option>
-                   <option value="최민지">최민지</option>
-                   <option value="백금옥">백금옥</option>
-                   <option value="이윤복">이윤복</option>
-                   <option value="이진우">이진우</option>
-                   <option value="임규석">임규석</option>
-                   <option value="최아람">최아람</option>
-                   <option value="임한규">임한규</option>
-                   <option value="진미란">진미란</option>
-                 </select> <br>
-                 <label for="diffsr">차별화 SR</label>  
-                 <input id="diffsr"  placeholder="차별화SR번호" type="text" name="diffsr">
-                 <label for="srhead">말머리</label>  
-                 <input id="srhead"  placeholder="말머리" type="text" value="감성" name="srhead">
-                 
-                 <button class="button2" >추가버튼 클릭</button> 
-            </fieldset> 
-             
-          </form>   
-     
-          <button><a href="todaytotal.php">오늘 세일즈 목록창 이동</a></button>
-     <button><a href="../sales_php/sales_nujuk.php"><span class="nowmonth"></span>월 세일즈 현황창 이동</a></button>
-     <button><a href="todaytotal_diff.php">당일 차별화 취합목록</a></button>
-     <button id="sales_home"><a href="https://junghoonkim77.github.io/myhomepage/html/Sales.html">통품홈피 세일즈탭 이동</a></button>
-     <button id="tip"><a href="http://folkball.dothome.co.kr/?page_id=275">Sales전용게시판(꿀팁모음)</a></button>
-  
-          
-    
-    <script>
-        var $salesname = localStorage.getItem('SaleIpName');
-        $('#select').val($salesname).prop('selected',true);
-        $('#select1').val($salesname).prop('selected',true);
+            <!-- 4개 항목을 2줄로 압축 -->
+            <div class="num-grid">
+                <div>
+                    <label for="internet">인터넷</label>  
+                    <input id="internet" type="number" max="1" min="0" value="0" name="internet">
+                </div>
+                <div>
+                    <label for="tv">TV</label>  
+                    <input id="tv" type="number" max="1" min="0" value="0" name="tv">
+                </div>
+                <div>
+                    <label for="mobile">모바일</label>  
+                    <input id="mobile" type="number" max="1" min="0" value="0" name="mobile">
+                </div>
+                <div>
+                    <label for="success">권유성공</label>  
+                    <input id="success" type="number" max="1" min="0" value="0" name="success">
+                </div>
+            </div>
 
-        $('.button1').click(function(e){
-          if($('#select').val() !== ""){
-            $('#todayinsert').submit();
-          }else{
-            alert('이름을 선택하세요~!')
-            e.preventDefault();
-          }
-        })
+            <div class="form-group">
+                <label for="sr">SR번호</label>  
+                <input id="sr" placeholder="SR번호 입력" type="text" name="sr">
+            </div>
 
-        $('.button2').click(function(e){
-          if($('#select1').val() !== ""){
-            $('#todayinsertDiff').submit();
-          }else{
-            alert('이름을 선택하세요~!')
-            e.preventDefault();
-          }
-        })
-               
-        var $mon = new Date().getMonth()+1
-        $('.nowmonth').text($mon);
+            <button type="submit" class="btn btn-submit">실적 추가하기</button> 
+        </form>    
+    </div>
 
-        // 이름 선택하면 계속 머물러 있게 하기 
+    <!-- 2. 차별화 입력창 (가운데) -->
+    <div class="card">
+        <h2>💡 차별화 입력</h2>
+        <form id="todayinsertDiff" action="todayinsert_diff.php" method="post">
+            <div class="form-group">
+                <select name="teamname" class="name-select">
+                    <option value="">본인명 선택 (필수)</option>
+                    <option value="이한기">이한기</option>
+                    <option value="박정범">박정범</option>
+                    <option value="최민지">최민지</option>
+                    <option value="백금옥">백금옥</option>
+                    <option value="이윤복">이윤복</option>
+                    <option value="이진우">이진우</option>
+                    <option value="임규석">임규석</option>
+                    <option value="최아람">최아람</option>
+                    <option value="임한규">임한규</option>
+                    <option value="진미란">진미란</option>
+                </select>
+            </div>
 
-        $('#select').change(function(){
-          var $thisval = $(this).val();
-          localStorage.setItem('SaleIpName',$thisval);
-        })
+            <div class="form-group">
+                <label for="diffsr">차별화 SR</label>  
+                <input id="diffsr" placeholder="차별화 SR번호" type="text" name="diffsr">
+            </div>
 
+            <div class="form-group">
+                <label for="srhead">말머리</label>  
+                <input id="srhead" placeholder="말머리" type="text" value="감성" name="srhead">
+            </div>
+
+            <button type="submit" class="btn btn-submit-diff" style="margin-top: 36px;">차별화 추가하기</button> 
+        </form>   
+    </div>
+
+    <!-- 3. 메뉴 링크 (오른쪽) -->
+    <div class="card">
+        <h2>🔗 이동 메뉴</h2>
+        <div class="nav-links">
+            <a href="todaytotal.php" class="btn btn-nav">📋 오늘 세일즈 목록</a>
+            <a href="../sales_php/sales_nujuk.php" class="btn btn-nav">📈 <span class="nowmonth"></span>월 세일즈 현황</a>
+            <a href="todaytotal_diff.php" class="btn btn-nav">🌟 당일 차별화 취합목록</a>
+            
+            <a href="https://junghoonkim77.github.io/myhomepage/html/Sales.html" class="btn btn-home">🏠 통품홈피 세일즈탭</a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function(){
+        // 1. 저장된 이름 불러오기
+        var savedName = localStorage.getItem('SaleIpName');
+        if(savedName) {
+            $('.name-select').val(savedName);
+        }
+
+        // 2. 이름 선택 시 양쪽 폼 모두 자동 변경 및 저장
+        $('.name-select').on('change', function(){
+            var selectedName = $(this).val();
+            $('.name-select').val(selectedName); 
+            localStorage.setItem('SaleIpName', selectedName); 
+        });
+
+        // 3. 폼 제출 시 이름 선택 여부 검사
+        $('#todayinsert, #todayinsertDiff').on('submit', function(e){
+            // 현재 제출되는 폼 안의 select 값을 확인
+            if($(this).find('.name-select').val() === "") {
+                alert('본인 이름을 먼저 선택해주세요!');
+                e.preventDefault(); 
+            }
+        });
         
-       
-       
-    </script>
+        // 4. 현재 '월' 표시
+        $('.nowmonth').text(new Date().getMonth() + 1);
+    });
+</script>
+
 </body>
 </html>
